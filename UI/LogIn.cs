@@ -10,11 +10,27 @@ using System.Windows.Forms;
 
 namespace UI
 {
+    
     public partial class LogIn : Form
     {
         public LogIn()
         {
             InitializeComponent();
+        }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
