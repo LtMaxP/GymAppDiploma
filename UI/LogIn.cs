@@ -10,27 +10,40 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    
+
     public partial class LogIn : Form
     {
+        private BLL.Login bllLog = new BLL.Login();
+
         public LogIn()
         {
             InitializeComponent();
         }
 
-        private void LogIn_Load(object sender, EventArgs e)
+        public void LogIn_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
-            
+            string usuario = textBox1.Text;
+            string pass = textBox2.Text;
+
+            Boolean consulta = bllLog.BuscarUsuario(usuario, pass);
+            if(consulta)
+            {
+                Console.WriteLine("OK");
+            }
+            else
+            {
+                Console.WriteLine("Usuario o Contraseña incorrecto");
+            }
         }
     }
 }

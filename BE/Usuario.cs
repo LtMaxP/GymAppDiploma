@@ -16,5 +16,29 @@ namespace BE
             set { user = value; }
         }
 
+        private string pass;
+
+        public string Pass
+        {
+            get { return pass; }
+            set { pass = value; }
+        }
+
+        private int idUsuario;
+
+        public int IdUsuario
+        {
+            get { return idUsuario; }
+            set { idUsuario = value; }
+        }
+
+        private string rol;
+
+        public string Rol
+        {
+            get { return rol; }
+            set { rol = value; }
+        }
+
     }
 }

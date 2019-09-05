@@ -7,25 +7,26 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    class Conexion
+    public class Conexion
     {
-        protected string cadenaConexion = "Data Source=GONZALO-PC\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True";
-        protected SqlConnection sqlConn = new SqlConnection();
-        private static Conexion instancia;
+        private string cadenaConexion = "Data Source=GONZALO-PC\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True";
+        private SqlConnection sqlConn = new SqlConnection();
+        //private static Conexion instancia;
 
-        private Conexion()
+        public Conexion()
         {
             sqlConn.ConnectionString = cadenaConexion;
+            
         }
 
-        public static Conexion getInstance()
-        {
-            if (instancia == null)
-            {
-                instancia = new Conexion();
-            }
-            return instancia;
-        }
+        //public static Conexion getInstance()
+        //{
+        //    if (instancia == null)
+        //    {
+        //        instancia = new Conexion();
+        //    }
+        //    return instancia;
+        //}
 
         public void Conectar()
         {
@@ -38,8 +39,7 @@ namespace DAL
             {
                 Console.WriteLine("Conexión Fallida");
             }
-
-
+            
         }
 
         public void Desconectar()
