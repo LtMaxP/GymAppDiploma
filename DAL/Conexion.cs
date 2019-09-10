@@ -9,16 +9,16 @@ namespace DAL
 {
     public class Conexion
     {
-        private string cadenaConexion = "Data Source=GONZALO-PC\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True";
-        private SqlConnection sqlConn = new SqlConnection();
-        //private static Conexion instancia;
+        private string cadenaConexion = "Data Source=DESKTOP-N4A8Q47\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True";
+        public SqlConnection sqlConn = new SqlConnection();
+
 
         public Conexion()
         {
             sqlConn.ConnectionString = cadenaConexion;
             
         }
-
+        
         //public static Conexion getInstance()
         //{
         //    if (instancia == null)
