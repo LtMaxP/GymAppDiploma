@@ -35,7 +35,7 @@ namespace UI
             string usuario = textBox1.Text;
             string pass = textBox2.Text;
 
-            Boolean consulta = bllLog.BuscarUsuario(usuario, pass);
+            Boolean consulta = bllLog.DetectarUsuario(usuario, pass);
             if(consulta)
             {
                 Console.WriteLine("OK");

@@ -16,5 +16,10 @@ namespace BLL
             
             return bo;
         }
+
+        public Boolean DetectarUsuario(string usuario, string pass)
+        {
+            return DALUserLogin.DetectarUsuario(usuario, pass);
+        }
     }
 }
