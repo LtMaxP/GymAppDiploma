@@ -14,6 +14,7 @@ namespace UI
     public partial class LogIn : Form
     {
         private BLL.Login bllLog = new BLL.Login();
+        private BE.Usuario user = new BE.Usuario();
 
         public LogIn()
         {
@@ -32,18 +33,28 @@ namespace UI
 
         public void button1_Click(object sender, EventArgs e)
         {
-            string usuario = textBox1.Text;
-            string pass = textBox2.Text;
 
-            Boolean consulta = bllLog.DetectarUsuario(usuario, pass);
-            if(consulta)
+            if (textBox1.Text == String.Empty || textBox2.Text == String.Empty)
             {
-                Console.WriteLine("OK");
+                MessageBox.Show("Debe ingresar un usuario o contraseña para avanzar");
+            }
+
+            //Detecta que el usuario exista
+            if (bllLog.DetectarUsuario(textBox1.Text, textBox2.Text))
+            {
+                this.Hide();
+                if (user.Rol == "Administrador")
+                {
+                    Inicio ini = new Inicio();
+                    ini.Show();
+                }
             }
             else
             {
-                Console.WriteLine("Usuario o Contraseña incorrecto");
+                MessageBox.Show("Usuario y/o Contraseña incorrectos");
             }
+
+
         }
     }
 }

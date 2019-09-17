@@ -10,9 +10,12 @@ namespace DAL
 {
     public class LoginUsuario
     {
+        private BE.Usuario userBE = new BE.Usuario();
+
         Conexion conn = new Conexion();
         public bool BuscarUsuarioBD(string user, string pass)
         {
+            
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "SELECT * FROM Usuario WHERE usuario.Usuario=@User AND Usuario.Password=@Pass";
             sqlcomm.Connection = conn.sqlConn;
@@ -42,7 +45,7 @@ namespace DAL
         public Boolean DetectarUsuario(string user, string pass)
         {
             SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = "SELECT * FROM Usuario ";
+            sqlcomm.CommandText = "SELECT * FROM Usuario";
             sqlcomm.Connection = conn.sqlConn;
 
             DataSet ds = new DataSet();
@@ -55,12 +58,15 @@ namespace DAL
             {
                 if (row["Usuario"].ToString().Equals(user) && row["Password"].ToString().Equals(pass))
                 {
+                    userBE.User = row["Usuario"].ToString();
+                    userBE.Pass = row["Password"].ToString();
+                    userBE.Rol = row["Rol"].ToString();
+                    userBE.IdUsuario = int.Parse(row["Id_Usuario"].ToString());
                     return true;
-             
                 }
             }
-                
-                return false;
+
+            return false;
         }
     }
 }

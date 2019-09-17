@@ -24,7 +24,9 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Form.ActiveForm.Close();
+            LogIn log = new LogIn();
+            log.Show();
         }
     }
 }
