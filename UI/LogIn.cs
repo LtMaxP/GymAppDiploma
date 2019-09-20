@@ -14,7 +14,7 @@ namespace UI
     public partial class LogIn : Form
     {
         private BLL.Login bllLog = new BLL.Login();
-        private BE.Usuario user = new BE.Usuario();
+        private BE.Usuario user;
 
         public LogIn()
         {
