@@ -16,7 +16,7 @@ namespace DAL
 
         public Conexion()
         {
-            sqlConn.ConnectionString = cadenaConexionPCFija;
+            sqlConn.ConnectionString = cadenaConexionNotebook;
             
         }
         
