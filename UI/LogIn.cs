@@ -14,7 +14,6 @@ namespace UI
     public partial class LogIn : Form
     {
         private BLL.Login bllLog = new BLL.Login();
-        private BE.Usuario user;
 
         public LogIn()
         {
@@ -42,12 +41,10 @@ namespace UI
             //Detecta que el usuario exista
             if (bllLog.DetectarUsuario(textBox1.Text, textBox2.Text))
             {
-                this.Hide();
-                if (user.Rol == "Administrador")
-                {
-                    Inicio ini = new Inicio();
-                    ini.Show();
-                }
+
+                Inicio ini = new Inicio();
+                ini.Show();
+
             }
             else
             {

@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace BE
 {
+    
     public class Usuario
     {
+        static void Main() { }
+
         private string user;
 
         public string User

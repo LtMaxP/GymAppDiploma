@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Seguridad
+namespace UI
 {
-    public partial class Form1 : Form
+    public partial class Clientes : Form
     {
-        public Form1()
+        public Clientes()
         {
             InitializeComponent();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

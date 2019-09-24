@@ -9,6 +9,9 @@ namespace BLL
     public class Login
     {
         DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
+        Seguridad.Encriptacion encrip = new Seguridad.Encriptacion();
+
+        static void Main() { }
 
         public Boolean BuscarUsuario(string usuario, string pass)
         {
@@ -19,7 +22,8 @@ namespace BLL
 
         public Boolean DetectarUsuario(string usuario, string pass)
         {
-            return DALUserLogin.DetectarUsuario(usuario, pass);
+            string passEncript = encrip.Encriptador(pass);
+            return DALUserLogin.DetectarUsuario(usuario, passEncript);
         }
     }
 }
