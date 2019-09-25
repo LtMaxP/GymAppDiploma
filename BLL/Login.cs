@@ -6,24 +6,49 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
+    public enum Roles
+    {
+        Administrador = 0,
+        Gerente = 1,
+        Empleado = 2,
+        Error = 404,
+    }
     public class Login
     {
-        DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
-        Seguridad.Encriptacion encrip = new Seguridad.Encriptacion();
+
+        private BE.Usuario user = BE.Usuario.Instance;
+        private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
+        private Seguridad.Encriptacion encrip = new Seguridad.Encriptacion();
 
         static void Main() { }
 
         public Boolean BuscarUsuario(string usuario, string pass)
         {
             Boolean bo = DALUserLogin.BuscarUsuarioBD(usuario, pass);
-            
+
             return bo;
         }
 
-        public Boolean DetectarUsuario(string usuario, string pass)
+        public String DetectarUsuario(string usuario, string pass)
         {
+            String retornableComoCocaCola = null;
             string passEncript = encrip.Encriptador(pass);
-            return DALUserLogin.DetectarUsuario(usuario, passEncript);
+            if (DALUserLogin.DetectarUsuario(usuario, passEncript))
+            {
+                foreach(string rolesContenidos in Enum.GetNames(typeof(Roles)))
+                {
+                    if (user.Rol == rolesContenidos)
+                    {
+                        retornableComoCocaCola = rolesContenidos;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                retornableComoCocaCola = Roles.Error.ToString();
+            }
+            return retornableComoCocaCola;
         }
     }
 }

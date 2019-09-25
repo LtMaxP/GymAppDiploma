@@ -6,10 +6,29 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    
+
     public class Usuario
     {
         static void Main() { }
+
+        #region singleton
+        private static Usuario _instance = null;
+        private Usuario()
+        { }
+
+        public static Usuario Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new Usuario();
+                }
+                return _instance;
+            }
+        }
+        #endregion
+
 
         private string user;
 

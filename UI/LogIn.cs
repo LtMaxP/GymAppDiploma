@@ -39,18 +39,17 @@ namespace UI
             }
 
             //Detecta que el usuario exista
-            if (bllLog.DetectarUsuario(textBox1.Text, textBox2.Text))
+            switch (bllLog.DetectarUsuario(textBox1.Text, textBox2.Text))
             {
-
-                Inicio ini = new Inicio();
-                ini.Show();
-
+                case "Administrador":
+                    Inicio ini = new Inicio();
+                    ini.Show();
+                    break;
+                case "404":
+                    MessageBox.Show("Usuario y/o Contraseña incorrectos");
+                    break;
             }
-            else
-            {
-                MessageBox.Show("Usuario y/o Contraseña incorrectos");
-            }
-
+            
 
         }
     }

@@ -10,7 +10,7 @@ namespace DAL
 {
     public class LoginUsuario
     {
-        private BE.Usuario userBE = new BE.Usuario();
+        private BE.Usuario userBE = BE.Usuario.Instance;
 
         Conexion conn = new Conexion();
         public bool BuscarUsuarioBD(string user, string pass)

@@ -89,6 +89,7 @@
             this.textBox2.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.textBox2.Location = new System.Drawing.Point(230, 145);
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(306, 20);
             this.textBox2.TabIndex = 5;
             // 

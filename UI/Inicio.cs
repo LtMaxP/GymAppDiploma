@@ -31,7 +31,8 @@ namespace UI
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Clientes cl = new Clientes();
+            cl.Show();
         }
     }
 }
