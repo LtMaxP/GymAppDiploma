@@ -10,7 +10,7 @@ namespace Seguridad
     public class Encriptacion
     {
         static void Main() { }
-        public string Encriptador(string txtEnciptar)
+        public static string Encriptador(string txtEnciptar)
         {
             byte[] cadenaDeBytes;
             cadenaDeBytes = new UnicodeEncoding().GetBytes(txtEnciptar);

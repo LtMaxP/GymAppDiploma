@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitacoraDAL.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DigitoVerificadorDAL.cs" />
+    <Compile Include="IdiomaDAL.cs" />
     <Compile Include="LoginUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\Settings.settings">

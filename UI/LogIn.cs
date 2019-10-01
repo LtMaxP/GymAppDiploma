@@ -14,7 +14,7 @@ namespace UI
     public partial class LogIn : Form
     {
         private BLL.Login bllLog = new BLL.Login();
-
+        private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
         public LogIn()
         {
             InitializeComponent();
@@ -44,6 +44,7 @@ namespace UI
                 case "Administrador":
                     Inicio ini = new Inicio();
                     ini.Show();
+                    bit.RegistrarMovimiento("Ingreso Administrador", "Bajo"); 
                     break;
                 case "404":
                     MessageBox.Show("Usuario y/o Contraseña incorrectos");
