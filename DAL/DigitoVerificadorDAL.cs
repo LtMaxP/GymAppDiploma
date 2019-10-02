@@ -41,6 +41,26 @@ namespace DAL
             return usuariosTotales;
         }
 
+        //public DataTable TraerDVV()
+        //{
+        //    DataSet ds = new DataSet();
+        //    DataTable bitacoraTable;
+        //    using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+        //    {
+
+        //        String query = "SELECT FechaDelMov, Movimiento, NivelDelProblema FROM Bitacora";
+        //        using (SqlCommand command = new SqlCommand(query, connection))
+        //        {
+        //            SqlDataAdapter da = new SqlDataAdapter(command);
+        //            connection.Open();
+        //            da.Fill(ds);
+        //        }
+        //    }
+
+        //    bitacoraTable = ds.Tables[0];
+        //    return bitacoraTable;
+        //}
+
         public void InsertarDVHEnUsuario(string codigoHash)
         {
 

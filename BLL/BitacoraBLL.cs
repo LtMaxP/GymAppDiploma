@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace BLL
 {
@@ -13,6 +14,11 @@ namespace BLL
         public void RegistrarMovimiento(string movimiento, string nivelDelProblema)
         {
             bitDal.RegistrarBitacora(movimiento, nivelDelProblema, DateTime.Now);
+        }
+
+        public DataTable CargarBitacora()
+        {
+            return bitDal.TraerBitacora();
         }
     }
 }

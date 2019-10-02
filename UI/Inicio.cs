@@ -24,7 +24,7 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form.ActiveForm.Close();
+            this.Close();
             LogIn log = new LogIn();
             log.Show();
         }
@@ -33,6 +33,13 @@ namespace UI
         {
             Clientes cl = new Clientes();
             cl.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            BitacoraYDV bitDV = new BitacoraYDV();
+            bitDV.Show();
         }
     }
 }

@@ -21,5 +21,12 @@ namespace UI
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Inicio ini = new Inicio();
+            ini.Show();
+        }
     }
 }

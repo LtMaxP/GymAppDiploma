@@ -32,7 +32,7 @@ namespace BLL
         public String DetectarUsuario(string usuario, string pass)
         {
             String retornableComoCocaCola = null;
-            string passEncript = encrip.Encriptador(pass);
+            string passEncript = Seguridad.Encriptacion.Encriptador(pass);
             if (DALUserLogin.DetectarUsuario(usuario, passEncript))
             {
                 foreach(string rolesContenidos in Enum.GetNames(typeof(Roles)))
@@ -46,7 +46,7 @@ namespace BLL
             }
             else
             {
-                retornableComoCocaCola = Roles.Error.ToString();
+                retornableComoCocaCola = ((int)Roles.Error).ToString(); // Roles.Error.ToString();
             }
             return retornableComoCocaCola;
         }

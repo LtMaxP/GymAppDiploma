@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,26 @@ namespace DAL
                     int result = command.ExecuteNonQuery();
                 }
             }
+        }
+
+        public DataTable TraerBitacora()
+        {
+            DataSet ds = new DataSet();
+            DataTable bitacoraTable;
+            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            {
+
+                String query = "SELECT FechaDelMov, Movimiento, NivelDelProblema FROM Bitacora";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(command);
+                    connection.Open();
+                    da.Fill(ds);
+                }
+            }
+
+            bitacoraTable = ds.Tables[0];
+            return bitacoraTable;
         }
     }
 }
