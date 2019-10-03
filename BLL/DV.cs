@@ -13,13 +13,13 @@ namespace BLL
         private DAL.DigitoVerificadorDAL dVDal = new DAL.DigitoVerificadorDAL();
         public void RecalcularDVV()
         {
-            List<BE.DVH> listaDVH = dVDal.ObtenerListaDeUsuarios();
+            List<string> listaDVH = dVDal.ObtenerListaDeDVHUsuarios();
 
             string hash = string.Empty;
 
-            foreach (BE.DVH n in listaDVH)
+            foreach (string n in listaDVH)
             {
-                hash = n.IDUser.ToString() + n.Nombre.ToString() + n.Pass.ToString();
+                hash = hash + user._DVH;
             }
 
             //hasheo
@@ -35,17 +35,24 @@ namespace BLL
             hash = user.IdUsuario.ToString() + user.User.ToString() + user.Pass.ToString();
 
             //hasheo
-            string hasheoDVV = Seguridad.Encriptacion.Encriptador(hash);
+            string hasheoDVH = Seguridad.Encriptacion.Encriptador(hash);
             //Insertar
-            dVDal.InsertarDVHEnUsuario(hasheoDVV);
+            dVDal.InsertarDVHEnUsuario(hasheoDVH);
         }
 
-        //public DataTable TraerDVV()
-        //{
-        //    DataTable dt = new DataTable();
-        //    DAL.DigitoVerificadorDAL.
+        public DataTable TraerDVV()
+        {
+            DataTable dt = new DataTable();
+            dt = dVDal.TraerDVV();
+            return dt;
+        }
 
-        //    return dt;
-        //}
+        public DataTable TraerDVH()
+        {
+            DataTable dt = new DataTable();
+            dt = dVDal.TraerDVH();
+            return dt;
+        }
+
     }
 }

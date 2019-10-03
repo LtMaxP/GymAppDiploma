@@ -62,5 +62,14 @@ namespace BE
             set { rol = value; }
         }
 
+        private string dvh;
+
+        public string _DVH
+        {
+            get { return dvh; }
+            set { dvh = value; }
+        }
+
+
     }
 }

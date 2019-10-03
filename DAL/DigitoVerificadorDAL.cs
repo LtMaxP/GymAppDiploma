@@ -14,12 +14,12 @@ namespace DAL
         protected BE.DVH dvh = new BE.DVH();
         private BE.Usuario usuarioActual = BE.Usuario.Instance;
 
-        public List<BE.DVH> ObtenerListaDeUsuarios()
+        public List<string> ObtenerListaDeDVHUsuarios()
         {
-            List<BE.DVH> usuariosTotales = new List<BE.DVH>();
+            List<string> dVHUsuariosTotales = new List<string>();
 
             SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = "SELECT * FROM Usuario";
+            sqlcomm.CommandText = "SELECT DVH FROM Usuario";
             sqlcomm.Connection = connect.sqlConn;
 
             DataSet ds = new DataSet();
@@ -30,36 +30,49 @@ namespace DAL
             connect.Desconectar();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
-
-                dvh.Nombre = row["Usuario"].ToString();
-                dvh.Pass = row["Password"].ToString();
-                dvh.IDUser = int.Parse(row["Id_Usuario"].ToString());
-
-                usuariosTotales.Add(dvh);
+                dVHUsuariosTotales.Add(row["DVH"].ToString());
             }
 
-            return usuariosTotales;
+            return dVHUsuariosTotales;
         }
 
-        //public DataTable TraerDVV()
-        //{
-        //    DataSet ds = new DataSet();
-        //    DataTable bitacoraTable;
-        //    using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
-        //    {
+        public DataTable TraerDVV()
+        {
+            DataSet ds = new DataSet();
+            DataTable dVTable;
+            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            {
+                String query = "SELECT Id_DVV, CodigoHash FROM DVV";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(command);
+                    connection.Open();
+                    da.Fill(ds);
+                }
+            }
 
-        //        String query = "SELECT FechaDelMov, Movimiento, NivelDelProblema FROM Bitacora";
-        //        using (SqlCommand command = new SqlCommand(query, connection))
-        //        {
-        //            SqlDataAdapter da = new SqlDataAdapter(command);
-        //            connection.Open();
-        //            da.Fill(ds);
-        //        }
-        //    }
+            dVTable = ds.Tables[0];
+            return dVTable;
+        }
 
-        //    bitacoraTable = ds.Tables[0];
-        //    return bitacoraTable;
-        //}
+        public DataTable TraerDVH()
+        {
+            DataSet ds = new DataSet();
+            DataTable dVTable;
+            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            {
+                String query = "SELECT Usuario, DVH FROM Usuario";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(command);
+                    connection.Open();
+                    da.Fill(ds);
+                }
+            }
+
+            dVTable = ds.Tables[0];
+            return dVTable;
+        }
 
         public void InsertarDVHEnUsuario(string codigoHash)
         {

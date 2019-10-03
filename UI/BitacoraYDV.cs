@@ -40,8 +40,18 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //DataTable tableBit = 
-            //dataGridView1.DataSource = tableBit;
+            DataTable tableDV = dv.TraerDVV();
+            dataGridView1.DataSource = tableDV;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            dv.RecalcularDVV();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dv.RecalcularDVH();
         }
     }
 }
