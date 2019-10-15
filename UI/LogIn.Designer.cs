@@ -29,54 +29,54 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelUser = new System.Windows.Forms.Label();
+            this.buttonIngresar = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
+            this.labelPass = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // labelUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(92, 104);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Usuario";
+            this.labelUser.AutoSize = true;
+            this.labelUser.Location = new System.Drawing.Point(92, 104);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(43, 13);
+            this.labelUser.TabIndex = 0;
+            this.labelUser.Text = "Usuario";
             // 
-            // button1
+            // buttonIngresar
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(309, 198);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 37);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Ingresar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonIngresar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonIngresar.Location = new System.Drawing.Point(309, 198);
+            this.buttonIngresar.Name = "buttonIngresar";
+            this.buttonIngresar.Size = new System.Drawing.Size(111, 37);
+            this.buttonIngresar.TabIndex = 1;
+            this.buttonIngresar.Text = "Ingresar";
+            this.buttonIngresar.UseVisualStyleBackColor = false;
+            this.buttonIngresar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // buttonSalir
             // 
-            this.button2.Location = new System.Drawing.Point(521, 367);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 40);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Salir";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonSalir.Location = new System.Drawing.Point(521, 367);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(84, 40);
+            this.buttonSalir.TabIndex = 2;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label2
+            // labelPass
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(92, 152);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Contraseña";
+            this.labelPass.AutoSize = true;
+            this.labelPass.Location = new System.Drawing.Point(92, 152);
+            this.labelPass.Name = "labelPass";
+            this.labelPass.Size = new System.Drawing.Size(61, 13);
+            this.labelPass.TabIndex = 3;
+            this.labelPass.Text = "Contraseña";
             // 
             // textBox1
             // 
@@ -133,10 +133,10 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPass);
+            this.Controls.Add(this.buttonSalir);
+            this.Controls.Add(this.buttonIngresar);
+            this.Controls.Add(this.labelUser);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LogIn";
@@ -149,10 +149,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelUser;
+        private System.Windows.Forms.Button buttonIngresar;
+        private System.Windows.Forms.Button buttonSalir;
+        private System.Windows.Forms.Label labelPass;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button3;

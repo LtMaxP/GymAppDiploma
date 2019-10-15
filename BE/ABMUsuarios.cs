@@ -6,30 +6,8 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-
-    public class Usuario
+    public class ABMUsuarios
     {
-        static void Main() { }
-
-        #region singleton
-        private static Usuario _instance = null;
-        private Usuario()
-        { }
-
-        public static Usuario Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new Usuario();
-                }
-                return _instance;
-            }
-        }
-        #endregion
-
-
         private string user;
 
         public string User
@@ -54,13 +32,7 @@ namespace BE
             set { idUsuario = value; }
         }
 
-        private string rol;
 
-        public string Rol
-        {
-            get { return rol; }
-            set { rol = value; }
-        }
 
         private string dvh;
 
@@ -86,6 +58,13 @@ namespace BE
             set { id_Idioma = value; }
         }
 
+        private string _rol;
+
+        public string rol
+        {
+            get { return _rol; }
+            set { _rol = value; }
+        }
 
     }
 }

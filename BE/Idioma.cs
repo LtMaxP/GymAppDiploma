@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Idioma
+    public class Idioma
     {
         private int id_idioma;
 

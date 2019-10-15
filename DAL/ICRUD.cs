@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace DAL
 {
     public interface ICRUD<T>   //generics ejemplo
     {
         void Alta(T valAlta);
         void Baja(T valBaja);
-        void Modificar();
+        void Modificar(T valBaja);
         void Leer();
     }
 }

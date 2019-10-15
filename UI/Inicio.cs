@@ -31,6 +31,7 @@ namespace UI
 
         private void button4_Click(object sender, EventArgs e)
         {
+            this.Close();
             Clientes cl = new Clientes();
             cl.Show();
         }
@@ -40,6 +41,13 @@ namespace UI
             this.Close();
             BitacoraYDV bitDV = new BitacoraYDV();
             bitDV.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            UsuariosABM uABM = new UsuariosABM();
+            uABM.Show();
         }
     }
 }

@@ -11,7 +11,6 @@ namespace DAL
     public class DigitoVerificadorDAL
     {
         private Conexion connect = new Conexion();
-        protected BE.DVH dvh = new BE.DVH();
         private BE.Usuario usuarioActual = BE.Usuario.Instance;
 
         public List<string> ObtenerListaDeDVHUsuarios()
