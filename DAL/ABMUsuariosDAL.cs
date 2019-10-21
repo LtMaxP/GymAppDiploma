@@ -164,5 +164,27 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
         }
 
+        public bool ValidarExistenciaDeUsuario(string user)
+        {
+            bool respuesta = false;
+            try
+            {
+
+                DataSet ds = new DataSet();
+                SqlCommand comm = new SqlCommand();
+                comm.Connection = conn.sqlConn;
+                comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre";
+                comm.Parameters.AddWithValue("@nombre", user);
+                SqlDataAdapter da = new SqlDataAdapter(comm);
+
+                comm.Connection.Open();
+                respuesta = bool.Parse(comm.ExecuteScalar().ToString());
+                comm.Connection.Close();
+            }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de Leer la tabla."); }
+            return respuesta;
+        }
+
+
     }
 }

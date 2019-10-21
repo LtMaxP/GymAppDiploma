@@ -54,30 +54,38 @@ namespace BLL
             objetoUsuario.idEstado = int.Parse(idEst);
         }
 
-        public DataTable BuscarUsuario(string usuario)
+        public String[] BuscarUsuario(string usuario)
         {
             ABMUsuarios buscarUser = new ABMUsuarios();
             buscarUser.User = usuario;
-            
-            DataTable usuariosTabla = cRUD.Leer(buscarUser);
-            DataTable newDT = new DataTable();
+            string[] rowFix = new string[4];
 
-            if (usuariosTabla.Rows.Count == 0)
+            DataRow usuarioRow = cRUD.Leer(buscarUser).Rows[0];
+
+            if (usuarioRow.ItemArray.Length == 0)
             {
                 System.Windows.Forms.MessageBox.Show("No se encontró el Usuario.");
             }
             else
             {
-                foreach(DataRow dr in usuariosTabla.Rows)
+                for(int i = 0; i<4; i++)
                 {
-                    Array rowFix;
-                    //rowFix.SetValue(dr.)
-                    buscar.DevolvemeElValorQueQuieroPorId(dr[2].ToString(), "idioma");
-                    buscar.DevolvemeElValorQueQuieroPorId(dr[2].ToString(), "estado");
+                    switch(i)
+                    {
+                        case 2:
+                            rowFix[i] = buscar.DevolvemeElValorQueQuieroPorId(usuarioRow.ItemArray[i].ToString(), "idioma");
+                            break;
+                        case 3:
+                            rowFix[i] = buscar.DevolvemeElValorQueQuieroPorId(usuarioRow.ItemArray[i].ToString(), "estado");
+                            break;
+                        default:
+                            rowFix[i] = usuarioRow.ItemArray[i].ToString();
+                            break;
+                    }
                 }
                 
             }
-            return usuariosTabla;
+            return rowFix;
 
 
         }
