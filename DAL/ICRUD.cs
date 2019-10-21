@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ namespace DAL
     {
         void Alta(T valAlta);
         void Baja(T valBaja);
-        void Modificar(T valBaja);
-        void Leer();
+        void Modificar(T valMod);
+        DataTable Leer(T valBuscar);
     }
 }

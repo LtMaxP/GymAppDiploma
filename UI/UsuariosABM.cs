@@ -58,5 +58,30 @@ namespace UI
                 MessageBox.Show("El usuario fue neutralizado con éxito.");
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string valorDeBusqueda = textBox2.Text;
+            DataTable dt = usuarioABM.BuscarUsuario(valorDeBusqueda);
+            foreach (DataRow dr in dt.Rows)
+            {
+                ListViewItem lvi = new ListViewItem(dr.ItemArray[0].ToString());
+                for (int i = 1; i < 4; i++)
+                {
+                     lvi.SubItems.Add(dr.ItemArray[i].ToString());
+                }
+                listView1.Items.Add(lvi);
+            }
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if(listView1.Focused)
+            {
+                MessageBox.Show(listView1.FocusedItem.ToString());
+
+            }
+        }
     }
 }

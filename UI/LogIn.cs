@@ -43,6 +43,7 @@ namespace UI
             switch (bllLog.DetectarUsuario(textBox1.Text, textBox2.Text))
             {
                 case "Administrador":
+                    this.Hide();
                     Inicio ini = new Inicio();
                     ini.Show();
                     bit.RegistrarMovimiento("Ingreso Administrador", "Bajo");

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -59,6 +60,8 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
         }
 
+
+
         public void Baja(ABMUsuarios valBaja)
         {
             try
@@ -87,8 +90,27 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
         }
 
-        public void Leer()
+
+        public DataTable Leer(ABMUsuarios valBuscar)
         {
+            DataTable dt = new DataTable();
+            try
+            {
+                
+                DataSet ds = new DataSet();
+                SqlCommand comm = new SqlCommand();
+                comm.Connection = conn.sqlConn;
+                comm.CommandText = "SELECT Id_Usuario, Usuario, Id_Idioma, Id_Estado FROM Usuario WHERE Usuario.Usuario = @nombre";
+                comm.Parameters.AddWithValue("@nombre", valBuscar.User);
+                SqlDataAdapter da = new SqlDataAdapter(comm);
+
+                comm.Connection.Open();
+                da.Fill(ds);
+                comm.Connection.Close();
+                dt = ds.Tables[0];
+            }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de Leer la tabla."); }
+            return dt;
         }
 
         public void Modificar(ABMUsuarios valModificar)
@@ -114,7 +136,7 @@ namespace DAL
                 parameter1.ParameterName = "@NombreUsuario";
                 parameter1.Value = valModificar.User;
                 parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
-                
+
                 SqlParameter parameter3 = new SqlParameter();
                 parameter3.ParameterName = "@IdIdioma";
                 parameter3.Value = valModificar.idIdioma;
@@ -141,7 +163,6 @@ namespace DAL
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
         }
-
 
     }
 }
