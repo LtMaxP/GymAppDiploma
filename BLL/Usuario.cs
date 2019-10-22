@@ -60,15 +60,15 @@ namespace BLL
             buscarUser.User = usuario;
             string[] rowFix = new string[4];
 
-            DataRow usuarioRow = cRUD.Leer(buscarUser).Rows[0];
+            DataTable dt = cRUD.Leer(buscarUser);
 
-            if (usuarioRow.ItemArray.Length == 0)
-            {
-                System.Windows.Forms.MessageBox.Show("No se encontró el Usuario.");
-            }
+            if (dt.Rows.Count == 0)
+            { System.Windows.Forms.MessageBox.Show("Usuario no encontrado"); }
             else
             {
-                for(int i = 0; i<4; i++)
+                DataRow usuarioRow = dt.Rows[0];
+
+                for (int i = 0; i<4; i++)
                 {
                     switch(i)
                     {

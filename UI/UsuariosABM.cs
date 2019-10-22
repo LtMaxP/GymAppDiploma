@@ -63,22 +63,32 @@ namespace UI
         {
             string valorDeBusqueda = textBox2.Text;
             String[] filaDeDatos = usuarioABM.BuscarUsuario(valorDeBusqueda);
-
-            ListViewItem lvi = new ListViewItem(filaDeDatos[0]);
-            for (int i = 1; i < 4; i++)
+            if (!string.IsNullOrEmpty(filaDeDatos[0]))
             {
-                lvi.SubItems.Add(filaDeDatos[i]);
+                ListViewItem lvi = new ListViewItem();
+                for (int i = 0; i < 4; i++)
+                {
+                    lvi.SubItems.Add(filaDeDatos[i]);
+                }
+                listView1.Items.Add(lvi);
             }
-            listView1.Items.Add(lvi);
-
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (listView1.Focused)
+            if (listView1.CheckedIndices.Count > 1)
             {
-                MessageBox.Show(listView1.FocusedItem.ToString());
-
+                MessageBox.Show("Seleccione 1 usuario solo a mostrar");
+            }
+            else
+            {
+                var cliente = "";
+                var lstview = listView1.SelectedItems;
+                string[] contenedor = null;
+                foreach(var a in lstview[0].SubItems)
+                {
+                    //contenedor.SetValue(a.ToString());
+                }
             }
         }
     }

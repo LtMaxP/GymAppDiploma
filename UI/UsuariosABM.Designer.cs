@@ -33,6 +33,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader0 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,10 +50,7 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader0 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderCheck = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // button1
@@ -83,7 +84,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(174, 61);
+            this.button4.Location = new System.Drawing.Point(185, 61);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(59, 20);
             this.button4.TabIndex = 3;
@@ -96,6 +97,7 @@
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.CheckBoxes = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderCheck,
             this.columnHeader0,
             this.columnHeader1,
             this.columnHeader2,
@@ -104,10 +106,30 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(12, 103);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(298, 219);
+            this.listView1.Size = new System.Drawing.Size(286, 219);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader0
+            // 
+            this.columnHeader0.Text = "ID";
+            this.columnHeader0.Width = 24;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Usuario";
+            this.columnHeader1.Width = 49;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Idioma Seleccionado";
+            this.columnHeader2.Width = 112;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Estado del Usuario";
+            this.columnHeader3.Width = 109;
             // 
             // label2
             // 
@@ -128,7 +150,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 25);
+            this.label3.Location = new System.Drawing.Point(12, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 8;
@@ -228,25 +250,10 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // columnHeader1
+            // columnHeaderCheck
             // 
-            this.columnHeader1.Text = "Usuario";
-            this.columnHeader1.Width = 49;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Idioma Seleccionado";
-            this.columnHeader2.Width = 112;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Estado del Usuario";
-            this.columnHeader3.Width = 109;
-            // 
-            // columnHeader0
-            // 
-            this.columnHeader0.Text = "ID";
-            this.columnHeader0.Width = 24;
+            this.columnHeaderCheck.Text = "";
+            this.columnHeaderCheck.Width = 20;
             // 
             // UsuariosABM
             // 
@@ -302,5 +309,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader0;
+        private System.Windows.Forms.ColumnHeader columnHeaderCheck;
     }
 }

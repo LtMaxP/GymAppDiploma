@@ -109,7 +109,9 @@ namespace DAL
                 comm.Connection.Close();
                 dt = ds.Tables[0];
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de Leer la tabla."); }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
+
+            
             return dt;
         }
 
