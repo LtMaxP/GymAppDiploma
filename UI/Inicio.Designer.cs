@@ -30,17 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.buttonClientes = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.labelAcciones = new System.Windows.Forms.Label();
-            this.labelSistema = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.accionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagosYCobrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.familiaYPatentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitacoraDVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupYRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.españolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.easterEggToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -53,109 +60,133 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // menuStrip1
             // 
-            this.button2.Location = new System.Drawing.Point(118, 191);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Empleados";
-            this.button2.UseVisualStyleBackColor = true;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.accionesToolStripMenuItem,
+            this.sistemaToolStripMenuItem,
+            this.idiomaToolStripMenuItem,
+            this.ayudaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1257, 24);
+            this.menuStrip1.TabIndex = 13;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // button3
+            // accionesToolStripMenuItem
             // 
-            this.button3.Location = new System.Drawing.Point(118, 234);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Facturas";
-            this.button3.UseVisualStyleBackColor = true;
+            this.accionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesToolStripMenuItem,
+            this.empleadosToolStripMenuItem,
+            this.facturasToolStripMenuItem,
+            this.pagosYCobrosToolStripMenuItem,
+            this.listasToolStripMenuItem});
+            this.accionesToolStripMenuItem.Name = "accionesToolStripMenuItem";
+            this.accionesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.accionesToolStripMenuItem.Text = "Acciones";
             // 
-            // buttonClientes
+            // clientesToolStripMenuItem
             // 
-            this.buttonClientes.Location = new System.Drawing.Point(118, 148);
-            this.buttonClientes.Name = "buttonClientes";
-            this.buttonClientes.Size = new System.Drawing.Size(92, 23);
-            this.buttonClientes.TabIndex = 3;
-            this.buttonClientes.Text = "Clientes";
-            this.buttonClientes.UseVisualStyleBackColor = true;
-            this.buttonClientes.Click += new System.EventHandler(this.button4_Click);
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
-            // button5
+            // empleadosToolStripMenuItem
             // 
-            this.button5.Location = new System.Drawing.Point(118, 277);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(92, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Pagos y Cobros";
-            this.button5.UseVisualStyleBackColor = true;
+            this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empleadosToolStripMenuItem.Text = "Empleados";
             // 
-            // button6
+            // facturasToolStripMenuItem
             // 
-            this.button6.Location = new System.Drawing.Point(118, 316);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(92, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Listas";
-            this.button6.UseVisualStyleBackColor = true;
+            this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.facturasToolStripMenuItem.Text = "Facturas";
             // 
-            // button8
+            // pagosYCobrosToolStripMenuItem
             // 
-            this.button8.Location = new System.Drawing.Point(565, 148);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(93, 54);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Familia y Patentes";
-            this.button8.UseVisualStyleBackColor = true;
+            this.pagosYCobrosToolStripMenuItem.Name = "pagosYCobrosToolStripMenuItem";
+            this.pagosYCobrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pagosYCobrosToolStripMenuItem.Text = "Pagos y Cobros";
             // 
-            // button9
+            // listasToolStripMenuItem
             // 
-            this.button9.Location = new System.Drawing.Point(497, 234);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(93, 54);
-            this.button9.TabIndex = 8;
-            this.button9.Text = "Bitacora / DV";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.listasToolStripMenuItem.Name = "listasToolStripMenuItem";
+            this.listasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listasToolStripMenuItem.Text = "Listas";
             // 
-            // button10
+            // sistemaToolStripMenuItem
             // 
-            this.button10.Location = new System.Drawing.Point(628, 235);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(93, 53);
-            this.button10.TabIndex = 9;
-            this.button10.Text = "Backup y Restore";
-            this.button10.UseVisualStyleBackColor = true;
+            this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aBMUsuariosToolStripMenuItem,
+            this.familiaYPatentesToolStripMenuItem,
+            this.bitacoraDVToolStripMenuItem,
+            this.backupYRestoreToolStripMenuItem});
+            this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
+            this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.sistemaToolStripMenuItem.Text = "Sistema";
             // 
-            // labelAcciones
+            // familiaYPatentesToolStripMenuItem
             // 
-            this.labelAcciones.AutoSize = true;
-            this.labelAcciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAcciones.Location = new System.Drawing.Point(126, 86);
-            this.labelAcciones.Name = "labelAcciones";
-            this.labelAcciones.Size = new System.Drawing.Size(74, 20);
-            this.labelAcciones.TabIndex = 10;
-            this.labelAcciones.Text = "Acciones";
+            this.familiaYPatentesToolStripMenuItem.Name = "familiaYPatentesToolStripMenuItem";
+            this.familiaYPatentesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.familiaYPatentesToolStripMenuItem.Text = "Familia y Patentes";
             // 
-            // labelSistema
+            // bitacoraDVToolStripMenuItem
             // 
-            this.labelSistema.AutoSize = true;
-            this.labelSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSistema.Location = new System.Drawing.Point(576, 86);
-            this.labelSistema.Name = "labelSistema";
-            this.labelSistema.Size = new System.Drawing.Size(67, 20);
-            this.labelSistema.TabIndex = 11;
-            this.labelSistema.Text = "Sistema";
+            this.bitacoraDVToolStripMenuItem.Name = "bitacoraDVToolStripMenuItem";
+            this.bitacoraDVToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bitacoraDVToolStripMenuItem.Text = "Bitacora / DV";
+            this.bitacoraDVToolStripMenuItem.Click += new System.EventHandler(this.bitacoraDVToolStripMenuItem_Click);
             // 
-            // button7
+            // backupYRestoreToolStripMenuItem
             // 
-            this.button7.Location = new System.Drawing.Point(565, 316);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 52);
-            this.button7.TabIndex = 12;
-            this.button7.Text = "ABM Usuarios";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.backupYRestoreToolStripMenuItem.Name = "backupYRestoreToolStripMenuItem";
+            this.backupYRestoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backupYRestoreToolStripMenuItem.Text = "Backup y Restore";
+            // 
+            // aBMUsuariosToolStripMenuItem
+            // 
+            this.aBMUsuariosToolStripMenuItem.Name = "aBMUsuariosToolStripMenuItem";
+            this.aBMUsuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBMUsuariosToolStripMenuItem.Text = "ABM Usuarios";
+            this.aBMUsuariosToolStripMenuItem.Click += new System.EventHandler(this.aBMUsuariosToolStripMenuItem_Click);
+            // 
+            // idiomaToolStripMenuItem
+            // 
+            this.idiomaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.españolToolStripMenuItem,
+            this.inglesToolStripMenuItem});
+            this.idiomaToolStripMenuItem.Name = "idiomaToolStripMenuItem";
+            this.idiomaToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.idiomaToolStripMenuItem.Text = "Idioma";
+            // 
+            // españolToolStripMenuItem
+            // 
+            this.españolToolStripMenuItem.Name = "españolToolStripMenuItem";
+            this.españolToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.españolToolStripMenuItem.Text = "Español";
+            // 
+            // inglesToolStripMenuItem
+            // 
+            this.inglesToolStripMenuItem.Name = "inglesToolStripMenuItem";
+            this.inglesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inglesToolStripMenuItem.Text = "Ingles";
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.easterEggToolStripMenuItem});
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // easterEggToolStripMenuItem
+            // 
+            this.easterEggToolStripMenuItem.Name = "easterEggToolStripMenuItem";
+            this.easterEggToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.easterEggToolStripMenuItem.Text = "EasterEgg";
             // 
             // Inicio
             // 
@@ -163,23 +194,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1257, 590);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.labelSistema);
-            this.Controls.Add(this.labelAcciones);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.buttonClientes);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Inicio";
             this.Text = "Inicio";
             this.Load += new System.EventHandler(this.Inicio_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,16 +213,22 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button buttonClientes;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Label labelAcciones;
-        private System.Windows.Forms.Label labelSistema;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem accionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facturasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pagosYCobrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sistemaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem familiaYPatentesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bitacoraDVToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backupYRestoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem idiomaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem españolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inglesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem easterEggToolStripMenuItem;
     }
 }

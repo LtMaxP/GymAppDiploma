@@ -13,6 +13,10 @@ namespace UI
 
     public partial class LogIn : Form
     {
+        public void Mostrar()
+        {
+            this.Show();
+        }
         private BLL.Login bllLog = new BLL.Login();
         private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
         int contador = 0;
@@ -59,8 +63,8 @@ namespace UI
                     { contador++; }
                     break;
             }
-
-
+            
         }
+
     }
 }

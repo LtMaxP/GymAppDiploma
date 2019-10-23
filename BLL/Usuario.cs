@@ -86,8 +86,19 @@ namespace BLL
                 
             }
             return rowFix;
+        }
 
+        public bool ValidarSiElUsuarioYaExiste(string usuario)
+        {
+            ABMUsuarios buscarUser = new ABMUsuarios();
+            buscarUser.User = usuario;
 
+            DataTable dt = cRUD.Leer(buscarUser);
+
+            if (dt.Rows.Count == 0)
+            { return false; }
+            else
+            { return true;  }
         }
 
     }

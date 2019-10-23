@@ -23,8 +23,6 @@ namespace UI
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-            Inicio ini = new Inicio();
-            ini.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

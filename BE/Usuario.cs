@@ -12,7 +12,7 @@ namespace BE
         static void Main() { }
 
         #region singleton
-        private static Usuario _instance = null;
+        private static Usuario _instance;
         private Usuario()
         { }
 
