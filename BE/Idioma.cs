@@ -8,27 +8,28 @@ namespace BE
 {
     public class Idioma
     {
-        private int id_idioma;
+        private string idiomaPerteneciente;
 
-        public int IdIdioma
+        public string _idiomaPerteneciente
         {
-            get { return id_idioma; }
-            set { id_idioma = value; }
+            get { return idiomaPerteneciente; }
+            set { idiomaPerteneciente = value; }
         }
+
         private string texto_label;
 
-        public string TextoLabel
+        public string _textoLabel
         {
             get { return texto_label; }
             set { texto_label = value; }
         }
 
-        private int _idLbl;
+        private string nombreEtiqueta;
 
-        public int IDlbl
+        public string _nombreEtiqueta
         {
-            get { return _idLbl; }
-            set { _idLbl = value; }
+            get { return nombreEtiqueta; }
+            set { nombreEtiqueta = value; }
         }
 
 

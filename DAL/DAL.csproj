@@ -52,6 +52,7 @@
     <Compile Include="DigitoVerificadorDAL.cs" />
     <Compile Include="BusquedaDAL.cs" />
     <Compile Include="ICRUD.cs" />
+    <Compile Include="IdiomaT.cs" />
     <Compile Include="LoginUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\Settings.settings">

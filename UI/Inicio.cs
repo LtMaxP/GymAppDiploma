@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.Observer;
 
 namespace UI
 {
-    public partial class Inicio : Form
+    public partial class Inicio : Form, BLL.Observer.IObserver
     {
         public Inicio()
         {
             InitializeComponent();
         }
-        
+
+
         //Formularios
         Clientes Fclient;
         BitacoraYDV FbitDV;
@@ -24,8 +26,11 @@ namespace UI
 
         private void Inicio_Load(object sender, EventArgs e)
         {
+            Subject.AddObserver(this);
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
 
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -43,11 +48,11 @@ namespace UI
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(Fclient == null)
+            if (Fclient == null)
             {
                 Fclient = new Clientes();
                 Fclient.MdiParent = this;
-                Fclient.FormClosed += new FormClosedEventHandler(Fclient_FormClosed); 
+                Fclient.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
                 Fclient.Show();
             }
             else
@@ -59,6 +64,7 @@ namespace UI
         private void Fclient_FormClosed(object sender, FormClosedEventArgs e)
         {
             Fclient = null;
+            Subject.RemoveObserver(this);
         }
 
         private void aBMUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,6 +85,7 @@ namespace UI
         private void FuserABM_FormClosed(object sender, FormClosedEventArgs e)
         {
             FuserABM = null;
+            Subject.RemoveObserver(this);
         }
 
         private void bitacoraDVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,6 +106,31 @@ namespace UI
         private void FbitDV_FormClosed(object sender, FormClosedEventArgs e)
         {
             FbitDV = null;
+            Subject.RemoveObserver(this);
+        }
+
+
+        private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+            LogIn logg = new LogIn();
+            logg.Mostrar();
+
+        }
+        public void Update(Idioma idioma)
+        {
+            if (idioma.IdiomaSelected == IdiomaEnum.Español)
+            {
+                SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
+                //List<BE.Idioma> listado = idioma.DamePackDeIdiomas;
+                this.Text = "Form 1 Bienvenidos";
+
+            }
+            else if (idioma.IdiomaSelected == IdiomaEnum.English)
+            {
+                SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
+                this.Text = "Form 1 Welcome";
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace BLL
             DevolverIDs(altaUser, idioma, estado);
             altaUser.User = usuario;
             altaUser.Pass = contraseña;
-
+            
             cRUD.Alta(altaUser);
         }
 

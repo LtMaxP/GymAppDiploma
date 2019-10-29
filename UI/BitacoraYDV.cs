@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.Observer;
 
 namespace UI
 {
-    public partial class BitacoraYDV : Form
+    public partial class BitacoraYDV : Form, BLL.Observer.IObserver
     {
         BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
         BLL.DV dv = new BLL.DV();
@@ -50,6 +51,17 @@ namespace UI
         private void button5_Click(object sender, EventArgs e)
         {
             dv.RecalcularDVH();
+        }
+
+        private void BitacoraYDV_Load(object sender, EventArgs e)
+        {
+            Subject.AddObserver(this);
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+        }
+
+        public void Update(Idioma idioma)
+        {
+            
         }
     }
 }

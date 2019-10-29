@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BLL.Observer
 {
-    public interface IObserver
+    public enum IdiomaEnum
     {
-        void Update(Idioma idioma);
+        Español,
+        English
     }
 }

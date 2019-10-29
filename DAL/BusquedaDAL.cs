@@ -30,6 +30,12 @@ namespace DAL
             return dato;
         }
 
+        /// <summary>
+        /// Funcion utilizable para convertir el idioma o el estado en su ID correspondiente
+        /// </summary>
+        /// <param name="texto"> Texto es el valor a buscar en table</param>
+        /// <param name="queEs"> Especifica si es para buscar -idioma- o -estado-</param>
+        /// <returns></returns>
         public string DevolvemeElIDQueQuieroPorTexto(string texto, string queEs)
         {
             string dato = string.Empty;
