@@ -16,13 +16,35 @@ namespace UI
         public Inicio()
         {
             InitializeComponent();
+
+            TraducirTodo();
         }
 
+      
+        private void Traducir(Control c)
+        {
+            //traducis c
+
+            //c.Text;
+            foreach(Control item in c.Controls)
+            {
+                Traducir(item);
+            }
+        }
+
+        private void TraducirTodo()
+        {
+            foreach (Control item in this.Controls)
+            {
+
+            }
+        }
 
         //Formularios
         Clientes Fclient;
         BitacoraYDV FbitDV;
         UsuariosABM FuserABM;
+
 
         private void Inicio_Load(object sender, EventArgs e)
         {
@@ -121,14 +143,15 @@ namespace UI
         {
             if (idioma.IdiomaSelected == IdiomaEnum.Español)
             {
-                SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
+                //SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
                 //List<BE.Idioma> listado = idioma.DamePackDeIdiomas;
                 this.Text = "Form 1 Bienvenidos";
+                var a = this.Container.Components;
 
             }
             else if (idioma.IdiomaSelected == IdiomaEnum.English)
             {
-                SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
+                //SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
                 this.Text = "Form 1 Welcome";
             }
         }
