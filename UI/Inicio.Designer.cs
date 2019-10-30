@@ -149,11 +149,13 @@
             // 
             this.españolToolStripMenuItem.Name = "españolToolStripMenuItem";
             resources.ApplyResources(this.españolToolStripMenuItem, "españolToolStripMenuItem");
+            this.españolToolStripMenuItem.Click += new System.EventHandler(this.españolToolStripMenuItem_Click);
             // 
             // inglesToolStripMenuItem
             // 
             this.inglesToolStripMenuItem.Name = "inglesToolStripMenuItem";
             resources.ApplyResources(this.inglesToolStripMenuItem, "inglesToolStripMenuItem");
+            this.inglesToolStripMenuItem.Click += new System.EventHandler(this.inglesToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -173,6 +175,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;

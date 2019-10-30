@@ -25,10 +25,10 @@ namespace UI
         {
             //traducis c
 
-            //c.Text;
-            foreach(Control item in c.Controls)
+            c.Text = "222";
+            foreach(ToolStripMenuItem item in c.Controls)
             {
-                Traducir(item);
+                Traducir(c);
             }
         }
 
@@ -36,7 +36,7 @@ namespace UI
         {
             foreach (Control item in this.Controls)
             {
-
+                Traducir(item);
             }
         }
 
@@ -49,7 +49,7 @@ namespace UI
         private void Inicio_Load(object sender, EventArgs e)
         {
             Subject.AddObserver(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            //Subject.Notify(SingletonIdioma.GetInstance().Idioma);
 
         }
 
@@ -143,7 +143,6 @@ namespace UI
         {
             if (idioma.IdiomaSelected == IdiomaEnum.Español)
             {
-                //SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
                 //List<BE.Idioma> listado = idioma.DamePackDeIdiomas;
                 this.Text = "Form 1 Bienvenidos";
                 var a = this.Container.Components;
@@ -151,9 +150,20 @@ namespace UI
             }
             else if (idioma.IdiomaSelected == IdiomaEnum.English)
             {
-                //SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
                 this.Text = "Form 1 Welcome";
             }
+        }
+
+        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+        }
+
+        private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
         }
     }
 }

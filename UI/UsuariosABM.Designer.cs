@@ -272,6 +272,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UsuariosABM";
             this.Text = "UsuariosABM";
             this.ResumeLayout(false);

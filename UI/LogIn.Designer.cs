@@ -105,6 +105,7 @@
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.buttonIngresar);
             this.Controls.Add(this.labelUser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LogIn";
