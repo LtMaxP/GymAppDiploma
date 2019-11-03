@@ -16,24 +16,26 @@ namespace UI
         public Inicio()
         {
             InitializeComponent();
-
+            pack = idiomaOb.DamePackDeIdiomas;
             TraducirTodo();
         }
 
-      
+        private List<BE.Idioma> pack;
         private void Traducir(Control c)
         {
-            //traducis c
-
-            c.Text = "222";
-            foreach(ToolStripMenuItem item in c.Controls)
+            if(!string.IsNullOrEmpty(c.Text))
             {
-                Traducir(c);
+                //traducilo
+            }
+            foreach(Control cont in c.Controls)
+            {
+                Traducir(cont);
             }
         }
 
         private void TraducirTodo()
         {
+            RecurseToolStripItems(this.menuStrip1.Items);
             foreach (Control item in this.Controls)
             {
                 Traducir(item);
@@ -44,8 +46,8 @@ namespace UI
         Clientes Fclient;
         BitacoraYDV FbitDV;
         UsuariosABM FuserABM;
-
-
+        BLL.Observer.Idioma idiomaOb = new BLL.Observer.Idioma();
+        
         private void Inicio_Load(object sender, EventArgs e)
         {
             Subject.AddObserver(this);
@@ -143,9 +145,10 @@ namespace UI
         {
             if (idioma.IdiomaSelected == IdiomaEnum.Español)
             {
-                //List<BE.Idioma> listado = idioma.DamePackDeIdiomas;
+
+
                 this.Text = "Form 1 Bienvenidos";
-                var a = this.Container.Components;
+
 
             }
             else if (idioma.IdiomaSelected == IdiomaEnum.English)
@@ -164,6 +167,25 @@ namespace UI
         {
             SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+        }
+
+        
+        private void RecurseToolStripItems(ToolStripItemCollection tsic)
+        {
+            foreach (ToolStripItem item in tsic)
+            {
+                // Aqui va la lógica que quieres implementar en cada ToolStripItem
+                if (item.Text != null)
+                {
+
+                }
+                // Aqui implementamos la recursividad donde el método se llama a sí mismo, así trabaja para cualquier cantidad de niveles de menu.
+                if (item is ToolStripMenuItem)
+                {
+                    ToolStripMenuItem item2 = (ToolStripMenuItem)item;
+                    RecurseToolStripItems(item2.DropDown.Items);
+                }
+            }
         }
     }
 }

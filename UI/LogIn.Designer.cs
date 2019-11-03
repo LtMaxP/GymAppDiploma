@@ -40,9 +40,12 @@
             // labelUser
             // 
             this.labelUser.AutoSize = true;
-            this.labelUser.Location = new System.Drawing.Point(92, 104);
+            this.labelUser.BackColor = System.Drawing.SystemColors.WindowText;
+            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.labelUser.Location = new System.Drawing.Point(92, 101);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(43, 13);
+            this.labelUser.Size = new System.Drawing.Size(71, 20);
             this.labelUser.TabIndex = 0;
             this.labelUser.Text = "Usuario";
             // 
@@ -70,9 +73,12 @@
             // labelPass
             // 
             this.labelPass.AutoSize = true;
-            this.labelPass.Location = new System.Drawing.Point(92, 152);
+            this.labelPass.BackColor = System.Drawing.SystemColors.WindowText;
+            this.labelPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.labelPass.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelPass.Location = new System.Drawing.Point(92, 145);
             this.labelPass.Name = "labelPass";
-            this.labelPass.Size = new System.Drawing.Size(61, 13);
+            this.labelPass.Size = new System.Drawing.Size(102, 20);
             this.labelPass.TabIndex = 3;
             this.labelPass.Text = "Contraseña";
             // 

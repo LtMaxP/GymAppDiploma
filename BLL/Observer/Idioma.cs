@@ -10,7 +10,7 @@ namespace BLL.Observer
     public class Idioma : BLL.Observer.Subject
     {
 
-        DAL.IdiomaT idiom = new DAL.IdiomaT();
+        private DAL.IdiomaT idiom = new DAL.IdiomaT();
 
         private IdiomaEnum _idioma;
         public IdiomaEnum IdiomaSelected
@@ -26,13 +26,13 @@ namespace BLL.Observer
             }
         }
 
-        private List<BE.Idioma> _idiomasTotales;
+        private List<BE.Idioma> _idiomasTotales = new List<BE.Idioma>();
 
         public List<BE.Idioma> DamePackDeIdiomas
         {
             get
             {
-                if(_idiomasTotales == null)
+                if(_idiomasTotales.Count == 0)
                 {
                     this.packIdioma();
                 }
@@ -42,7 +42,7 @@ namespace BLL.Observer
         }
 
 
-        private void packIdioma()
+        private BE.Idioma packIdioma()
         {
             DataTable dt = idiom.TraerListaDeIdiomas();
             BE.Idioma transitorio = new BE.Idioma();
@@ -54,7 +54,7 @@ namespace BLL.Observer
                 transitorio._nombreEtiqueta = fila[2].ToString();
                 _idiomasTotales.Add(transitorio);
             }
-
+            return transitorio;
         }
  
     }

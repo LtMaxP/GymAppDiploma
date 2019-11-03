@@ -47,36 +47,45 @@
             this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.easterEggToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verSecretoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
             resources.ApplyResources(this.button1, "button1");
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Highlight;
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.actionlbl,
             this.sistemaToolStripMenuItem,
             this.idiomaToolStripMenuItem,
             this.ayudaToolStripMenuItem});
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
             // actionlbl
             // 
+            this.actionlbl.BackColor = System.Drawing.SystemColors.Highlight;
             this.actionlbl.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientesToolStripMenuItem,
             this.empleadosToolStripMenuItem,
             this.facturasToolStripMenuItem,
             this.pagosYCobrosToolStripMenuItem,
             this.listasToolStripMenuItem});
-            this.actionlbl.Name = "actionlbl";
             resources.ApplyResources(this.actionlbl, "actionlbl");
+            this.actionlbl.Name = "actionlbl";
             this.actionlbl.Tag = "";
             // 
             // clientesToolStripMenuItem
@@ -112,8 +121,8 @@
             this.familiaYPatentesToolStripMenuItem,
             this.bitacoraDVToolStripMenuItem,
             this.backupYRestoreToolStripMenuItem});
-            this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
             resources.ApplyResources(this.sistemaToolStripMenuItem, "sistemaToolStripMenuItem");
+            this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
             // 
             // aBMUsuariosToolStripMenuItem
             // 
@@ -142,8 +151,8 @@
             this.idiomaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.españolToolStripMenuItem,
             this.inglesToolStripMenuItem});
-            this.idiomaToolStripMenuItem.Name = "idiomaToolStripMenuItem";
             resources.ApplyResources(this.idiomaToolStripMenuItem, "idiomaToolStripMenuItem");
+            this.idiomaToolStripMenuItem.Name = "idiomaToolStripMenuItem";
             // 
             // españolToolStripMenuItem
             // 
@@ -161,13 +170,20 @@
             // 
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.easterEggToolStripMenuItem});
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             resources.ApplyResources(this.ayudaToolStripMenuItem, "ayudaToolStripMenuItem");
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             // 
             // easterEggToolStripMenuItem
             // 
+            this.easterEggToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verSecretoToolStripMenuItem});
             this.easterEggToolStripMenuItem.Name = "easterEggToolStripMenuItem";
             resources.ApplyResources(this.easterEggToolStripMenuItem, "easterEggToolStripMenuItem");
+            // 
+            // verSecretoToolStripMenuItem
+            // 
+            this.verSecretoToolStripMenuItem.Name = "verSecretoToolStripMenuItem";
+            resources.ApplyResources(this.verSecretoToolStripMenuItem, "verSecretoToolStripMenuItem");
             // 
             // Inicio
             // 
@@ -209,5 +225,6 @@
         private System.Windows.Forms.ToolStripMenuItem inglesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem easterEggToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verSecretoToolStripMenuItem;
     }
 }
