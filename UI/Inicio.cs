@@ -155,15 +155,16 @@ namespace UI
         private void españolToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
             idiomaOb.CambiarIdiomaDeUsuario();
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
         }
 
         private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
             idiomaOb.CambiarIdiomaDeUsuario();
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            
         }
 
         

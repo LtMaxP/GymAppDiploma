@@ -62,7 +62,7 @@ namespace BLL.Observer
         
         public void CambiarIdiomaDeUsuario()
         {
-            if(IdiomaSelected == IdiomaEnum.Español)
+            if(SingletonIdioma.GetInstance().Idioma.IdiomaSelected == IdiomaEnum.Español)
             {
                 idiom.CambiarIdiomaDeUsuarioDAL(BE.Usuario.Instance.IdUsuario, 1);
             }

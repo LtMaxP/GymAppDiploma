@@ -43,8 +43,8 @@
             this.labelBitacoraDV = new System.Windows.Forms.ToolStripMenuItem();
             this.labelBackupRestore = new System.Windows.Forms.ToolStripMenuItem();
             this.labelIdioma = new System.Windows.Forms.ToolStripMenuItem();
-            this.españolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inglesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelEspañol = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelIngles = new System.Windows.Forms.ToolStripMenuItem();
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.easterEggToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verSecretoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -149,22 +149,22 @@
             // labelIdioma
             // 
             this.labelIdioma.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.españolToolStripMenuItem,
-            this.inglesToolStripMenuItem});
+            this.labelEspañol,
+            this.labelIngles});
             resources.ApplyResources(this.labelIdioma, "labelIdioma");
             this.labelIdioma.Name = "labelIdioma";
             // 
-            // españolToolStripMenuItem
+            // labelEspañol
             // 
-            this.españolToolStripMenuItem.Name = "españolToolStripMenuItem";
-            resources.ApplyResources(this.españolToolStripMenuItem, "españolToolStripMenuItem");
-            this.españolToolStripMenuItem.Click += new System.EventHandler(this.españolToolStripMenuItem_Click);
+            this.labelEspañol.Name = "labelEspañol";
+            resources.ApplyResources(this.labelEspañol, "labelEspañol");
+            this.labelEspañol.Click += new System.EventHandler(this.españolToolStripMenuItem_Click);
             // 
-            // inglesToolStripMenuItem
+            // labelIngles
             // 
-            this.inglesToolStripMenuItem.Name = "inglesToolStripMenuItem";
-            resources.ApplyResources(this.inglesToolStripMenuItem, "inglesToolStripMenuItem");
-            this.inglesToolStripMenuItem.Click += new System.EventHandler(this.inglesToolStripMenuItem_Click);
+            this.labelIngles.Name = "labelIngles";
+            resources.ApplyResources(this.labelIngles, "labelIngles");
+            this.labelIngles.Click += new System.EventHandler(this.inglesToolStripMenuItem_Click);
             // 
             // labelAyuda
             // 
@@ -221,8 +221,8 @@
         private System.Windows.Forms.ToolStripMenuItem labelBackupRestore;
         private System.Windows.Forms.ToolStripMenuItem labelABMUsuarios;
         private System.Windows.Forms.ToolStripMenuItem labelIdioma;
-        private System.Windows.Forms.ToolStripMenuItem españolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inglesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem labelEspañol;
+        private System.Windows.Forms.ToolStripMenuItem labelIngles;
         private System.Windows.Forms.ToolStripMenuItem labelAyuda;
         private System.Windows.Forms.ToolStripMenuItem easterEggToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verSecretoToolStripMenuItem;
