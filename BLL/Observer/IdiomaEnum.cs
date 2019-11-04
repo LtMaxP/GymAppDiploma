@@ -8,7 +8,7 @@ namespace BLL.Observer
 {
     public enum IdiomaEnum
     {
-        Español,
-        English
+        Español = 1,
+        English = 2
     }
 }

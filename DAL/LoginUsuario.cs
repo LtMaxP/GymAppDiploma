@@ -62,6 +62,9 @@ namespace DAL
                     userBE.Pass = row["Password"].ToString();
                     userBE.Rol = row["Rol"].ToString();
                     userBE.IdUsuario = int.Parse(row["Id_Usuario"].ToString());
+                    userBE.idIdioma = int.Parse(row["Id_Idioma"].ToString());
+                    userBE.idEstado = int.Parse(row["Id_Estado"].ToString());
+
                     return true;
                 }
             }

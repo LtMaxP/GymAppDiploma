@@ -25,7 +25,13 @@ namespace UI
         {
             if(!string.IsNullOrEmpty(c.Text))
             {
-                //traducilo
+                foreach(BE.Idioma us in pack)
+                {
+                    if(us._nombreEtiqueta == c.Name && us._idiomaPerteneciente == BE.Usuario.Instance.idIdioma)
+                    {
+                        c.Text = us._textoLabel;
+                    }
+                }
             }
             foreach(Control cont in c.Controls)
             {
@@ -51,7 +57,7 @@ namespace UI
         private void Inicio_Load(object sender, EventArgs e)
         {
             Subject.AddObserver(this);
-            //Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
 
         }
 
@@ -143,41 +149,38 @@ namespace UI
         }
         public void Update(Idioma idioma)
         {
-            if (idioma.IdiomaSelected == IdiomaEnum.Español)
-            {
-
-
-                this.Text = "Form 1 Bienvenidos";
-
-
-            }
-            else if (idioma.IdiomaSelected == IdiomaEnum.English)
-            {
-                this.Text = "Form 1 Welcome";
-            }
+            TraducirTodo();
         }
 
         private void españolToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            idiomaOb.CambiarIdiomaDeUsuario();
         }
 
         private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            idiomaOb.CambiarIdiomaDeUsuario();
         }
 
         
         private void RecurseToolStripItems(ToolStripItemCollection tsic)
         {
+
             foreach (ToolStripItem item in tsic)
             {
-                // Aqui va la lógica que quieres implementar en cada ToolStripItem
-                if (item.Text != null)
+                if (!string.IsNullOrEmpty(item.Name))
                 {
-
+                    foreach (BE.Idioma us in pack)
+                    {
+                        if (us._nombreEtiqueta == item.Name && us._idiomaPerteneciente == BE.Usuario.Instance.idIdioma)
+                        {
+                            item.Text = us._textoLabel;
+                        }
+                    }
                 }
                 // Aqui implementamos la recursividad donde el método se llama a sí mismo, así trabaja para cualquier cantidad de niveles de menu.
                 if (item is ToolStripMenuItem)

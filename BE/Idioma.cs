@@ -8,9 +8,9 @@ namespace BE
 {
     public class Idioma
     {
-        private string idiomaPerteneciente;
+        private int idiomaPerteneciente;
 
-        public string _idiomaPerteneciente
+        public int _idiomaPerteneciente
         {
             get { return idiomaPerteneciente; }
             set { idiomaPerteneciente = value; }

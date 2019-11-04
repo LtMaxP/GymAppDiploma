@@ -52,6 +52,7 @@
             // buttonIngresar
             // 
             this.buttonIngresar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonIngresar.Location = new System.Drawing.Point(309, 198);
             this.buttonIngresar.Name = "buttonIngresar";
             this.buttonIngresar.Size = new System.Drawing.Size(111, 37);
@@ -62,6 +63,7 @@
             // 
             // buttonSalir
             // 
+            this.buttonSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSalir.Location = new System.Drawing.Point(521, 367);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(84, 40);
@@ -115,6 +117,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LogIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.LogIn_Load);
             this.ResumeLayout(false);

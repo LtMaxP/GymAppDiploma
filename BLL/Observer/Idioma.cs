@@ -26,14 +26,15 @@ namespace BLL.Observer
             }
         }
 
-        private List<BE.Idioma> _idiomasTotales = new List<BE.Idioma>();
+        private List<BE.Idioma> _idiomasTotales;
 
         public List<BE.Idioma> DamePackDeIdiomas
         {
             get
             {
-                if(_idiomasTotales.Count == 0)
+                if(_idiomasTotales == null)
                 {
+                    _idiomasTotales = new List<BE.Idioma>();
                     this.packIdioma();
                 }
 
@@ -42,20 +43,33 @@ namespace BLL.Observer
         }
 
 
-        private BE.Idioma packIdioma()
+        private void packIdioma()
         {
             DataTable dt = idiom.TraerListaDeIdiomas();
-            BE.Idioma transitorio = new BE.Idioma();
+            
 
             foreach (DataRow fila in dt.Rows)  //manda aca de la dal
             {
-                transitorio._idiomaPerteneciente = fila[0].ToString();
+                BE.Idioma transitorio = new BE.Idioma();
+                transitorio._idiomaPerteneciente = int.Parse(fila[0].ToString());
                 transitorio._textoLabel = fila[1].ToString();
                 transitorio._nombreEtiqueta = fila[2].ToString();
+
                 _idiomasTotales.Add(transitorio);
             }
-            return transitorio;
+
         }
- 
+        
+        public void CambiarIdiomaDeUsuario()
+        {
+            if(IdiomaSelected == IdiomaEnum.Español)
+            {
+                idiom.CambiarIdiomaDeUsuarioDAL(BE.Usuario.Instance.IdUsuario, 1);
+            }
+            else
+            {
+                idiom.CambiarIdiomaDeUsuarioDAL(BE.Usuario.Instance.IdUsuario, 2);
+            }
+        }
     }
 }
