@@ -16,30 +16,41 @@ namespace UI
         public Inicio()
         {
             InitializeComponent();
-            pack = idiomaOb.DamePackDeIdiomas;
-            TraducirTodo();
+            //TraducirTodo();
         }
 
-        private List<BE.Idioma> pack;
-        private void Traducir(Control c)
+        private List<BE.Idioma> _pack;
+        private List<BE.Idioma> pack
         {
-            if(!string.IsNullOrEmpty(c.Text))
+            get
             {
-                foreach(BE.Idioma us in pack)
+                if(_pack == null)
                 {
-                    if(us._nombreEtiqueta == c.Name && us._idiomaPerteneciente == BE.Usuario.Instance.idIdioma)
+                    _pack = IdiomaBLL.Instance.DamePackDeIdiomas;
+                }
+                return _pack;
+            }
+        }
+
+        public void Traducir(Control c)
+        {
+            if (!string.IsNullOrEmpty(c.Text))
+            {
+                foreach (BE.Idioma us in pack)
+                {
+                    if (us._nombreEtiqueta == c.Name && us._idiomaPerteneciente == BE.Usuario.Instance.idIdioma)
                     {
                         c.Text = us._textoLabel;
                     }
                 }
             }
-            foreach(Control cont in c.Controls)
+            foreach (Control cont in c.Controls)
             {
                 Traducir(cont);
             }
         }
 
-        private void TraducirTodo()
+        public void TraducirTodo()
         {
             RecurseToolStripItems(this.menuStrip1.Items);
             foreach (Control item in this.Controls)
@@ -52,13 +63,11 @@ namespace UI
         Clientes Fclient;
         BitacoraYDV FbitDV;
         UsuariosABM FuserABM;
-        BLL.Observer.Idioma idiomaOb = new BLL.Observer.Idioma();
-        
+
         private void Inicio_Load(object sender, EventArgs e)
         {
             Subject.AddObserver(this);
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
-
         }
 
 
@@ -71,9 +80,9 @@ namespace UI
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Close();
-            UsuariosABM uABM = new UsuariosABM();
-            uABM.Show();
+            //this.Close();
+            //UsuariosABM uABM = new UsuariosABM();
+            //uABM.Show();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,7 +103,6 @@ namespace UI
         private void Fclient_FormClosed(object sender, FormClosedEventArgs e)
         {
             Fclient = null;
-            Subject.RemoveObserver(this);
         }
 
         private void aBMUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,7 +143,6 @@ namespace UI
         private void FbitDV_FormClosed(object sender, FormClosedEventArgs e)
         {
             FbitDV = null;
-            Subject.RemoveObserver(this);
         }
 
 
@@ -154,19 +161,19 @@ namespace UI
         private void españolToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
-            idiomaOb.CambiarIdiomaDeUsuario();
+            BLL.Observer.IdiomaBLL.Instance.CambiarIdiomaDeUsuario();
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
         }
 
         private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
-            idiomaOb.CambiarIdiomaDeUsuario();
+            BLL.Observer.IdiomaBLL.Instance.CambiarIdiomaDeUsuario();
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
-            
+
         }
 
-        
+
         private void RecurseToolStripItems(ToolStripItemCollection tsic)
         {
 

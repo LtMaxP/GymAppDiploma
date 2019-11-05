@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BitacoraBLL.cs" />
     <Compile Include="DV.cs" />
+    <Compile Include="Observer\IdiomaBLL.cs" />
     <Compile Include="Observer\Idioma.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Observer\IdiomaEnum.cs" />

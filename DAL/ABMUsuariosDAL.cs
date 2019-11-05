@@ -86,6 +86,7 @@ namespace DAL
                 comm.Connection.Open();
                 int result = comm.ExecuteNonQuery();
                 comm.Connection.Close();
+                comm.Dispose();
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
         }

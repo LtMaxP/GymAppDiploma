@@ -32,6 +32,7 @@ namespace DAL
                     SqlDataAdapter da = new SqlDataAdapter(command);
                     connection.Open();
                     da.Fill(ds);
+                    command.Dispose();
                 }
             }
 
@@ -51,6 +52,7 @@ namespace DAL
                     da.SelectCommand.ExecuteNonQuery();
 
                     BE.Usuario.Instance.idIdioma = idIdioma;
+                    command.Dispose();
                 }
             }
         }

@@ -87,7 +87,7 @@ namespace UI
             {
                 MessageBox.Show("Seleccione 1 usuario solo a mostrar");
             }
-            else
+            else if (listView1.Items.Count > 0)
             {
 
                 string user = listView1.SelectedItems[0].SubItems[1].Text;
@@ -96,6 +96,10 @@ namespace UI
                 comboBox1.SelectedItem = filaDeDatos[2];
                 comboBox2.SelectedItem = filaDeDatos[3];
 
+            }
+            else
+            {
+                MessageBox.Show("Debe buscar un usuario y seleccionarlo para Mostrar");
             }
         }
 
@@ -107,7 +111,18 @@ namespace UI
 
         public void Update(Idioma idioma)
         {
-            
+
+            //RecurseToolStripItems(this.menuStrip1.Items);
+            //foreach (Control item in this.Controls)
+            //{
+            //    Inicio ini = new Inicio();
+            //    ini.Traducir(item);
+            //}
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

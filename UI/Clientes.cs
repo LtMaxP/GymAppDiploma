@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.Observer;
 
 namespace UI
 {
-    public partial class Clientes : Form
+    public partial class Clientes : Form, BLL.Observer.IObserver
     {
         public Clientes()
         {
@@ -24,7 +25,24 @@ namespace UI
 
         private void button6_Click(object sender, EventArgs e)
         {
+            Subject.RemoveObserver(this);
             this.Close();
+        }
+
+        private void Clientes_Load(object sender, EventArgs e)
+        {
+            Subject.AddObserver(this);
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+        }
+
+        public void Update(Idioma idioma)
+        {
+            //RecurseToolStripItems(this.menuStrip1.Items);
+            //foreach (Control item in this.Controls)
+            //{
+            //    Inicio ini = new Inicio();
+            //    ini.Traducir(item);
+            //}
         }
     }
 }
