@@ -49,6 +49,7 @@
     <Compile Include="ABMUsuarios.cs" />
     <Compile Include="Bitacora.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Composite.cs" />
     <Compile Include="Idioma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />

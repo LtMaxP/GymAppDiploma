@@ -93,10 +93,10 @@ namespace DAL
         {
             using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
             {
-                String query = "INSERT INTO DVV (CodigoHash) VALUES (@hash) WHERE DVV.Id_DVV = @IdUsuario";
+                String query = "INSERT INTO DVV (CodigoHash) VALUES (@hash) WHERE DVV.Id_DVV = @IdDVVUsuarios";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@IdUsuario", "1");
+                    command.Parameters.AddWithValue("@IdDVVUsuarios", "1");
                     command.Parameters.AddWithValue("@hash", codigoHash);
                     int result = command.ExecuteNonQuery();
                 }

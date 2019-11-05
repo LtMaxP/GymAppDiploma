@@ -114,6 +114,9 @@
     <Compile Include="UsuariosABM.Designer.cs">
       <DependentUpon>UsuariosABM.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BackupRestore.resx">
+      <DependentUpon>BackupRestore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BitacoraYDV.resx">
       <DependentUpon>BitacoraYDV.cs</DependentUpon>
     </EmbeddedResource>
