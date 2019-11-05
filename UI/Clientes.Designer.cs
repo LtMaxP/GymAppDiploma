@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelBuscar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelBuscarUnUsuario = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.labelMostrar = new System.Windows.Forms.Button();
+            this.labelNombre = new System.Windows.Forms.Label();
+            this.labelApellido = new System.Windows.Forms.Label();
+            this.labelDNI = new System.Windows.Forms.Label();
+            this.labelCalle = new System.Windows.Forms.Label();
+            this.labelNumero = new System.Windows.Forms.Label();
+            this.labelSucursal = new System.Windows.Forms.Label();
+            this.labelEstado = new System.Windows.Forms.Label();
+            this.labelCodPostal = new System.Windows.Forms.Label();
+            this.labelTelefono = new System.Windows.Forms.Label();
+            this.labelFecha = new System.Windows.Forms.Label();
+            this.labelRutina = new System.Windows.Forms.Label();
+            this.labelEmpleadoACargo = new System.Windows.Forms.Label();
+            this.labelAlta = new System.Windows.Forms.Button();
+            this.labelBaja = new System.Windows.Forms.Button();
+            this.labelModificar = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -59,18 +59,20 @@
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.labelSalir = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
+            this.labelPeso = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // labelBuscar
             // 
-            this.button1.Location = new System.Drawing.Point(320, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.labelBuscar.Location = new System.Drawing.Point(320, 16);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(75, 23);
+            this.labelBuscar.TabIndex = 0;
+            this.labelBuscar.Text = "Buscar";
+            this.labelBuscar.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -79,14 +81,14 @@
             this.textBox1.Size = new System.Drawing.Size(167, 20);
             this.textBox1.TabIndex = 1;
             // 
-            // label1
+            // labelBuscarUnUsuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nombre del Cliente";
+            this.labelBuscarUnUsuario.AutoSize = true;
+            this.labelBuscarUnUsuario.Location = new System.Drawing.Point(13, 21);
+            this.labelBuscarUnUsuario.Name = "labelBuscarUnUsuario";
+            this.labelBuscarUnUsuario.Size = new System.Drawing.Size(96, 13);
+            this.labelBuscarUnUsuario.TabIndex = 2;
+            this.labelBuscarUnUsuario.Text = "Nombre del Cliente";
             // 
             // listView1
             // 
@@ -97,155 +99,155 @@
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // button2
+            // labelMostrar
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button2.Location = new System.Drawing.Point(46, 317);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Detalles";
-            this.button2.UseVisualStyleBackColor = true;
+            this.labelMostrar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.labelMostrar.Location = new System.Drawing.Point(46, 317);
+            this.labelMostrar.Name = "labelMostrar";
+            this.labelMostrar.Size = new System.Drawing.Size(75, 23);
+            this.labelMostrar.TabIndex = 4;
+            this.labelMostrar.Text = "Mostrar";
+            this.labelMostrar.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // labelNombre
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(216, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Nombre";
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Location = new System.Drawing.Point(216, 73);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(44, 13);
+            this.labelNombre.TabIndex = 5;
+            this.labelNombre.Text = "Nombre";
             // 
-            // label3
+            // labelApellido
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(217, 100);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Apellido";
+            this.labelApellido.AutoSize = true;
+            this.labelApellido.Location = new System.Drawing.Point(217, 100);
+            this.labelApellido.Name = "labelApellido";
+            this.labelApellido.Size = new System.Drawing.Size(44, 13);
+            this.labelApellido.TabIndex = 5;
+            this.labelApellido.Text = "Apellido";
             // 
-            // label4
+            // labelDNI
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(216, 129);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "DNI";
+            this.labelDNI.AutoSize = true;
+            this.labelDNI.Location = new System.Drawing.Point(216, 129);
+            this.labelDNI.Name = "labelDNI";
+            this.labelDNI.Size = new System.Drawing.Size(26, 13);
+            this.labelDNI.TabIndex = 5;
+            this.labelDNI.Text = "DNI";
             // 
-            // label5
+            // labelCalle
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(216, 158);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Calle";
+            this.labelCalle.AutoSize = true;
+            this.labelCalle.Location = new System.Drawing.Point(216, 158);
+            this.labelCalle.Name = "labelCalle";
+            this.labelCalle.Size = new System.Drawing.Size(30, 13);
+            this.labelCalle.TabIndex = 5;
+            this.labelCalle.Text = "Calle";
             // 
-            // label6
+            // labelNumero
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(216, 185);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Numero";
+            this.labelNumero.AutoSize = true;
+            this.labelNumero.Location = new System.Drawing.Point(216, 185);
+            this.labelNumero.Name = "labelNumero";
+            this.labelNumero.Size = new System.Drawing.Size(44, 13);
+            this.labelNumero.TabIndex = 5;
+            this.labelNumero.Text = "Numero";
             // 
-            // label9
+            // labelSucursal
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(502, 132);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 13);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Sucursal";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            this.labelSucursal.AutoSize = true;
+            this.labelSucursal.Location = new System.Drawing.Point(502, 132);
+            this.labelSucursal.Name = "labelSucursal";
+            this.labelSucursal.Size = new System.Drawing.Size(48, 13);
+            this.labelSucursal.TabIndex = 5;
+            this.labelSucursal.Text = "Sucursal";
+            this.labelSucursal.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label13
+            // labelEstado
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(502, 106);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 13);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "Estado";
+            this.labelEstado.AutoSize = true;
+            this.labelEstado.Location = new System.Drawing.Point(502, 106);
+            this.labelEstado.Name = "labelEstado";
+            this.labelEstado.Size = new System.Drawing.Size(40, 13);
+            this.labelEstado.TabIndex = 5;
+            this.labelEstado.Text = "Estado";
             // 
-            // label14
+            // labelCodPostal
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(216, 212);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 13);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "CodPostal";
+            this.labelCodPostal.AutoSize = true;
+            this.labelCodPostal.Location = new System.Drawing.Point(216, 212);
+            this.labelCodPostal.Name = "labelCodPostal";
+            this.labelCodPostal.Size = new System.Drawing.Size(55, 13);
+            this.labelCodPostal.TabIndex = 5;
+            this.labelCodPostal.Text = "CodPostal";
             // 
-            // label15
+            // labelTelefono
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(216, 237);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 13);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "Telefono";
-            this.label15.Click += new System.EventHandler(this.label9_Click);
+            this.labelTelefono.AutoSize = true;
+            this.labelTelefono.Location = new System.Drawing.Point(216, 237);
+            this.labelTelefono.Name = "labelTelefono";
+            this.labelTelefono.Size = new System.Drawing.Size(49, 13);
+            this.labelTelefono.TabIndex = 5;
+            this.labelTelefono.Text = "Telefono";
+            this.labelTelefono.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label16
+            // labelFecha
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(217, 263);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(108, 13);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "Fecha de Nacimiento";
-            this.label16.Click += new System.EventHandler(this.label9_Click);
+            this.labelFecha.AutoSize = true;
+            this.labelFecha.Location = new System.Drawing.Point(217, 263);
+            this.labelFecha.Name = "labelFecha";
+            this.labelFecha.Size = new System.Drawing.Size(108, 13);
+            this.labelFecha.TabIndex = 5;
+            this.labelFecha.Text = "Fecha de Nacimiento";
+            this.labelFecha.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label17
+            // labelRutina
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(503, 189);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 13);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Rutina Actual";
-            this.label17.Click += new System.EventHandler(this.label9_Click);
+            this.labelRutina.AutoSize = true;
+            this.labelRutina.Location = new System.Drawing.Point(503, 189);
+            this.labelRutina.Name = "labelRutina";
+            this.labelRutina.Size = new System.Drawing.Size(71, 13);
+            this.labelRutina.TabIndex = 5;
+            this.labelRutina.Text = "Rutina Actual";
+            this.labelRutina.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label18
+            // labelEmpleadoACargo
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(503, 158);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(93, 13);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "Empleado a cargo";
-            this.label18.Click += new System.EventHandler(this.label9_Click);
+            this.labelEmpleadoACargo.AutoSize = true;
+            this.labelEmpleadoACargo.Location = new System.Drawing.Point(503, 158);
+            this.labelEmpleadoACargo.Name = "labelEmpleadoACargo";
+            this.labelEmpleadoACargo.Size = new System.Drawing.Size(93, 13);
+            this.labelEmpleadoACargo.TabIndex = 5;
+            this.labelEmpleadoACargo.Text = "Empleado a cargo";
+            this.labelEmpleadoACargo.Click += new System.EventHandler(this.label9_Click);
             // 
-            // button3
+            // labelAlta
             // 
-            this.button3.Location = new System.Drawing.Point(577, 344);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(52, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Alta";
-            this.button3.UseVisualStyleBackColor = true;
+            this.labelAlta.Location = new System.Drawing.Point(577, 344);
+            this.labelAlta.Name = "labelAlta";
+            this.labelAlta.Size = new System.Drawing.Size(52, 23);
+            this.labelAlta.TabIndex = 6;
+            this.labelAlta.Text = "Alta";
+            this.labelAlta.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // labelBaja
             // 
-            this.button4.Location = new System.Drawing.Point(635, 344);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(52, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Baja";
-            this.button4.UseVisualStyleBackColor = true;
+            this.labelBaja.Location = new System.Drawing.Point(635, 344);
+            this.labelBaja.Name = "labelBaja";
+            this.labelBaja.Size = new System.Drawing.Size(52, 23);
+            this.labelBaja.TabIndex = 7;
+            this.labelBaja.Text = "Baja";
+            this.labelBaja.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // labelModificar
             // 
-            this.button5.Location = new System.Drawing.Point(693, 344);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(62, 23);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Modificar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.labelModificar.Location = new System.Drawing.Point(693, 344);
+            this.labelModificar.Name = "labelModificar";
+            this.labelModificar.Size = new System.Drawing.Size(59, 23);
+            this.labelModificar.TabIndex = 8;
+            this.labelModificar.Text = "Modificar";
+            this.labelModificar.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
@@ -324,15 +326,15 @@
             this.textBox18.Size = new System.Drawing.Size(106, 20);
             this.textBox18.TabIndex = 9;
             // 
-            // button6
+            // labelSalir
             // 
-            this.button6.Location = new System.Drawing.Point(670, 415);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Salir";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.labelSalir.Location = new System.Drawing.Point(670, 410);
+            this.labelSalir.Name = "labelSalir";
+            this.labelSalir.Size = new System.Drawing.Size(82, 28);
+            this.labelSalir.TabIndex = 10;
+            this.labelSalir.Text = "Salir";
+            this.labelSalir.UseVisualStyleBackColor = true;
+            this.labelSalir.Click += new System.EventHandler(this.button6_Click);
             // 
             // listView2
             // 
@@ -343,16 +345,34 @@
             this.listView2.TabIndex = 3;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
+            // labelPeso
+            // 
+            this.labelPeso.AutoSize = true;
+            this.labelPeso.Location = new System.Drawing.Point(217, 288);
+            this.labelPeso.Name = "labelPeso";
+            this.labelPeso.Size = new System.Drawing.Size(47, 13);
+            this.labelPeso.TabIndex = 5;
+            this.labelPeso.Text = "Peso Kg";
+            this.labelPeso.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(348, 285);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 9;
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.labelSalir);
             this.Controls.Add(this.textBox18);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox16);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox15);
@@ -360,27 +380,28 @@
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.labelModificar);
+            this.Controls.Add(this.labelBaja);
+            this.Controls.Add(this.labelAlta);
+            this.Controls.Add(this.labelEmpleadoACargo);
+            this.Controls.Add(this.labelRutina);
+            this.Controls.Add(this.labelPeso);
+            this.Controls.Add(this.labelFecha);
+            this.Controls.Add(this.labelTelefono);
+            this.Controls.Add(this.labelCodPostal);
+            this.Controls.Add(this.labelSucursal);
+            this.Controls.Add(this.labelEstado);
+            this.Controls.Add(this.labelNumero);
+            this.Controls.Add(this.labelCalle);
+            this.Controls.Add(this.labelDNI);
+            this.Controls.Add(this.labelApellido);
+            this.Controls.Add(this.labelNombre);
+            this.Controls.Add(this.labelMostrar);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelBuscarUnUsuario);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelBuscar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -393,26 +414,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button labelBuscar;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelBuscarUnUsuario;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button labelMostrar;
+        private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.Label labelApellido;
+        private System.Windows.Forms.Label labelDNI;
+        private System.Windows.Forms.Label labelCalle;
+        private System.Windows.Forms.Label labelNumero;
+        private System.Windows.Forms.Label labelSucursal;
+        private System.Windows.Forms.Label labelEstado;
+        private System.Windows.Forms.Label labelCodPostal;
+        private System.Windows.Forms.Label labelTelefono;
+        private System.Windows.Forms.Label labelFecha;
+        private System.Windows.Forms.Label labelRutina;
+        private System.Windows.Forms.Label labelEmpleadoACargo;
+        private System.Windows.Forms.Button labelAlta;
+        private System.Windows.Forms.Button labelBaja;
+        private System.Windows.Forms.Button labelModificar;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
@@ -424,7 +445,9 @@
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button labelSalir;
         private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.Label labelPeso;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }

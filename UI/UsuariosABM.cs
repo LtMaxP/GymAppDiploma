@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.Observer;
 
 namespace UI
 {
 
-    public partial class UsuariosABM : Form
+    public partial class UsuariosABM : Form, BLL.Observer.IObserver
     {
         BLL.Usuario usuarioABM = new BLL.Usuario();
 
@@ -22,6 +23,7 @@ namespace UI
 
         private void button5_Click(object sender, EventArgs e)
         {
+            Subject.RemoveObserver(this);
             this.Close();
         }
 
@@ -95,6 +97,17 @@ namespace UI
                 comboBox2.SelectedItem = filaDeDatos[3];
 
             }
+        }
+
+        private void UsuariosABM_Load(object sender, EventArgs e)
+        {
+            Subject.AddObserver(this);
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+        }
+
+        public void Update(Idioma idioma)
+        {
+            
         }
     }
 }

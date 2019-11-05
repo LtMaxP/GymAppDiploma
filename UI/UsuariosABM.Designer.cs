@@ -28,68 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.labelAlta = new System.Windows.Forms.Button();
+            this.labelBaja = new System.Windows.Forms.Button();
+            this.labelModificar = new System.Windows.Forms.Button();
+            this.labelBuscar = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader0 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelUser = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelBuscarUnUsuario = new System.Windows.Forms.Label();
+            this.labelUsuario2 = new System.Windows.Forms.Label();
+            this.labelPass = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelEstado = new System.Windows.Forms.Label();
+            this.labelIdioma = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
+            this.labelMostrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // labelAlta
             // 
-            this.button1.Location = new System.Drawing.Point(354, 328);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Dar de Alta";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.labelAlta.Location = new System.Drawing.Point(354, 328);
+            this.labelAlta.Name = "labelAlta";
+            this.labelAlta.Size = new System.Drawing.Size(75, 23);
+            this.labelAlta.TabIndex = 0;
+            this.labelAlta.Text = "Dar de Alta";
+            this.labelAlta.UseVisualStyleBackColor = true;
+            this.labelAlta.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // labelBaja
             // 
-            this.button2.Location = new System.Drawing.Point(454, 328);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Dar de Baja";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.labelBaja.Location = new System.Drawing.Point(454, 328);
+            this.labelBaja.Name = "labelBaja";
+            this.labelBaja.Size = new System.Drawing.Size(75, 23);
+            this.labelBaja.TabIndex = 1;
+            this.labelBaja.Text = "Dar de Baja";
+            this.labelBaja.UseVisualStyleBackColor = true;
+            this.labelBaja.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // labelModificar
             // 
-            this.button3.Location = new System.Drawing.Point(554, 328);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Modificar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.labelModificar.Location = new System.Drawing.Point(554, 328);
+            this.labelModificar.Name = "labelModificar";
+            this.labelModificar.Size = new System.Drawing.Size(75, 23);
+            this.labelModificar.TabIndex = 2;
+            this.labelModificar.Text = "Modificar";
+            this.labelModificar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // labelBuscar
             // 
-            this.button4.Location = new System.Drawing.Point(185, 61);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(59, 20);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Buscar Usuario";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.labelBuscar.Location = new System.Drawing.Point(185, 61);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(59, 20);
+            this.labelBuscar.TabIndex = 3;
+            this.labelBuscar.Text = "Buscar Usuario";
+            this.labelBuscar.UseVisualStyleBackColor = true;
+            this.labelBuscar.Click += new System.EventHandler(this.button4_Click);
             // 
             // listView1
             // 
@@ -130,14 +130,14 @@
             this.columnHeader3.Text = "Estado del Usuario";
             this.columnHeader3.Width = 109;
             // 
-            // label2
+            // labelUser
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Usuario:";
+            this.labelUser.AutoSize = true;
+            this.labelUser.Location = new System.Drawing.Point(9, 64);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(46, 13);
+            this.labelUser.TabIndex = 7;
+            this.labelUser.Text = "Usuario:";
             // 
             // textBox2
             // 
@@ -146,32 +146,32 @@
             this.textBox2.Size = new System.Drawing.Size(111, 20);
             this.textBox2.TabIndex = 5;
             // 
-            // label3
+            // labelBuscarUnUsuario
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Buscar un usuario";
+            this.labelBuscarUnUsuario.AutoSize = true;
+            this.labelBuscarUnUsuario.Location = new System.Drawing.Point(12, 23);
+            this.labelBuscarUnUsuario.Name = "labelBuscarUnUsuario";
+            this.labelBuscarUnUsuario.Size = new System.Drawing.Size(92, 13);
+            this.labelBuscarUnUsuario.TabIndex = 8;
+            this.labelBuscarUnUsuario.Text = "Buscar un usuario";
             // 
-            // label4
+            // labelUsuario2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(380, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Usuario: ";
+            this.labelUsuario2.AutoSize = true;
+            this.labelUsuario2.Location = new System.Drawing.Point(380, 124);
+            this.labelUsuario2.Name = "labelUsuario2";
+            this.labelUsuario2.Size = new System.Drawing.Size(49, 13);
+            this.labelUsuario2.TabIndex = 9;
+            this.labelUsuario2.Text = "Usuario: ";
             // 
-            // label5
+            // labelPass
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(380, 169);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Contraseña:";
+            this.labelPass.AutoSize = true;
+            this.labelPass.Location = new System.Drawing.Point(380, 169);
+            this.labelPass.Name = "labelPass";
+            this.labelPass.Size = new System.Drawing.Size(64, 13);
+            this.labelPass.TabIndex = 9;
+            this.labelPass.Text = "Contraseña:";
             // 
             // textBox3
             // 
@@ -187,23 +187,23 @@
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 10;
             // 
-            // label6
+            // labelEstado
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(380, 263);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Estado:";
+            this.labelEstado.AutoSize = true;
+            this.labelEstado.Location = new System.Drawing.Point(380, 263);
+            this.labelEstado.Name = "labelEstado";
+            this.labelEstado.Size = new System.Drawing.Size(43, 13);
+            this.labelEstado.TabIndex = 9;
+            this.labelEstado.Text = "Estado:";
             // 
-            // label7
+            // labelIdioma
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(380, 215);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Idioma:";
+            this.labelIdioma.AutoSize = true;
+            this.labelIdioma.Location = new System.Drawing.Point(380, 215);
+            this.labelIdioma.Name = "labelIdioma";
+            this.labelIdioma.Size = new System.Drawing.Size(41, 13);
+            this.labelIdioma.TabIndex = 9;
+            this.labelIdioma.Text = "Idioma:";
             // 
             // comboBox1
             // 
@@ -229,52 +229,53 @@
             this.comboBox2.Size = new System.Drawing.Size(100, 21);
             this.comboBox2.TabIndex = 11;
             // 
-            // button5
+            // buttonSalir
             // 
-            this.button5.Location = new System.Drawing.Point(566, 464);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(99, 42);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Salir";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.buttonSalir.Location = new System.Drawing.Point(566, 464);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(99, 42);
+            this.buttonSalir.TabIndex = 3;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // labelMostrar
             // 
-            this.button6.Location = new System.Drawing.Point(119, 328);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "Mostrar";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.labelMostrar.Location = new System.Drawing.Point(119, 328);
+            this.labelMostrar.Name = "labelMostrar";
+            this.labelMostrar.Size = new System.Drawing.Size(75, 23);
+            this.labelMostrar.TabIndex = 12;
+            this.labelMostrar.Text = "Mostrar";
+            this.labelMostrar.UseVisualStyleBackColor = true;
+            this.labelMostrar.Click += new System.EventHandler(this.button6_Click);
             // 
             // UsuariosABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 518);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.labelMostrar);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelIdioma);
+            this.Controls.Add(this.labelEstado);
+            this.Controls.Add(this.labelPass);
+            this.Controls.Add(this.labelUsuario2);
+            this.Controls.Add(this.labelBuscarUnUsuario);
+            this.Controls.Add(this.labelUser);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonSalir);
+            this.Controls.Add(this.labelBuscar);
+            this.Controls.Add(this.labelModificar);
+            this.Controls.Add(this.labelBaja);
+            this.Controls.Add(this.labelAlta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UsuariosABM";
             this.Text = "UsuariosABM";
+            this.Load += new System.EventHandler(this.UsuariosABM_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,24 +283,24 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button labelAlta;
+        private System.Windows.Forms.Button labelBaja;
+        private System.Windows.Forms.Button labelModificar;
+        private System.Windows.Forms.Button labelBuscar;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelBuscarUnUsuario;
+        private System.Windows.Forms.Label labelUsuario2;
+        private System.Windows.Forms.Label labelPass;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelEstado;
+        private System.Windows.Forms.Label labelIdioma;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonSalir;
+        private System.Windows.Forms.Button labelMostrar;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;

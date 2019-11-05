@@ -108,14 +108,13 @@ namespace UI
             }
             else
             {
-                Fclient.Activate();
+                FuserABM.Activate();
             }
         }
 
         private void FuserABM_FormClosed(object sender, FormClosedEventArgs e)
         {
             FuserABM = null;
-            Subject.RemoveObserver(this);
         }
 
         private void bitacoraDVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,7 +128,7 @@ namespace UI
             }
             else
             {
-                Fclient.Activate();
+                FbitDV.Activate();
             }
         }
 
