@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitacoraBLL.cs" />
-    <Compile Include="Component.cs" />
-    <Compile Include="Compuesto.cs" />
+    <Compile Include="Composite\Component.cs" />
+    <Compile Include="Composite\Composite.cs" />
+    <Compile Include="Composite\FormarArbolCompo.cs" />
     <Compile Include="DV.cs" />
+    <Compile Include="Composite\Hoja.cs" />
     <Compile Include="Observer\IdiomaBLL.cs" />
     <Compile Include="Observer\Idioma.cs" />
     <Compile Include="Login.cs" />

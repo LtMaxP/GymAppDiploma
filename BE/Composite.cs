@@ -6,24 +6,26 @@ using System.Threading.Tasks;
 
 namespace BE
 {
+
     public class Composite
     {
-        public string UsuarioCodigo { get; set; }
-        public string PermisoCodigo { get; set; }
-        public string IdComponente { get; set; }
-        public string Descripcion { get; set; }
-        public string IdComponenteHijo { get; set; }
+        public string UsuarioID { get; set; }
+        public string idComponente { get; set; }
+        public string descripcion { get; set; }
+        public string idComponentoHijo { get; set; }
+
+        public string tipo { get; set; }
 
         public Composite()
         { }
 
-        public Composite(string UsuarioCodigo, string PermisoCodigo, string IdComponente, string Descripcion, string IdComponenteHijo)
+        public Composite(string UsuarioID, string idComponente, string descripcion, string idComponentoHijo, string tipo)
         {
-            this.UsuarioCodigo = UsuarioCodigo;
-            this.PermisoCodigo = PermisoCodigo;
-            this.IdComponente = IdComponente;
-            this.Descripcion = Descripcion;
-            this.IdComponenteHijo = IdComponenteHijo;
+            this.UsuarioID = UsuarioID;
+            this.idComponente = idComponente;
+            this.descripcion = descripcion;
+            this.idComponentoHijo = idComponentoHijo;
+            this.tipo = tipo;
         }
     }
 }

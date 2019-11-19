@@ -19,6 +19,8 @@ namespace BLL
         private BE.Usuario user = BE.Usuario.Instance;
         private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
         private Seguridad.Encriptacion encrip = new Seguridad.Encriptacion();
+        private BLL.Composite.FormarArbolCompo formarArbol = new Composite.FormarArbolCompo();
+
 
         static void Main() { }
 
@@ -35,7 +37,10 @@ namespace BLL
             string passEncript = Seguridad.Encriptacion.Encriptador(pass);
             if (DALUserLogin.DetectarUsuario(usuario, passEncript))
             {
-                foreach(string rolesContenidos in Enum.GetNames(typeof(Roles)))
+                //Composite
+                var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario.ToString());
+
+                foreach (string rolesContenidos in Enum.GetNames(typeof(Roles)))
                 {
                     if (user.Rol == rolesContenidos)
                     {

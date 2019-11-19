@@ -86,6 +86,12 @@ namespace BE
             set { id_Idioma = value; }
         }
 
+        private Composite _arbol;
 
+        public Composite arbol
+        {
+            get { return _arbol; }
+            set { _arbol = value; }
+        }
     }
 }
