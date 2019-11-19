@@ -20,6 +20,7 @@ namespace BLL
         private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
         private Seguridad.Encriptacion encrip = new Seguridad.Encriptacion();
         private BLL.Composite.FormarArbolCompo formarArbol = new Composite.FormarArbolCompo();
+        private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
 
 
         static void Main() { }
@@ -31,29 +32,69 @@ namespace BLL
             return bo;
         }
 
-        public String DetectarUsuario(string usuario, string pass)
+        public Boolean DetectarUsuario(string usuario, string pass)
         {
-            String retornableComoCocaCola = null;
+            Boolean retornableComoCocaCola = false;
             string passEncript = Seguridad.Encriptacion.Encriptador(pass);
             if (DALUserLogin.DetectarUsuario(usuario, passEncript))
             {
-                //Composite
+                //Composite arbol formado
                 var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario.ToString());
+                var ax = a.List();
 
-                foreach (string rolesContenidos in Enum.GetNames(typeof(Roles)))
+
+                foreach (Composite.Composite element in a.List())
                 {
-                    if (user.Rol == rolesContenidos)
+
+                    if (element.descripcion.Equals("Restore"))
                     {
-                        retornableComoCocaCola = rolesContenidos;
+                        retornableComoCocaCola = true;
                         break;
                     }
+                    else
+                    {
+                        EncontrarRolEnArbol(element.descripcion, element);
+                    }
+
                 }
+
+
+                bit.RegistrarMovimiento("Ingreso Usuario con ID: " + BE.Usuario.Instance.IdUsuario, "Bajo");
             }
             else
             {
-                retornableComoCocaCola = ((int)Roles.Error).ToString(); // Roles.Error.ToString();
+                retornableComoCocaCola = false;
             }
+
             return retornableComoCocaCola;
         }
+
+
+        public bool EncontrarRolEnArbol(string rol, Composite.Component arbolObjeto)
+        {
+            Boolean isOk = false;
+            if (arbolObjeto.List() != null)
+            {
+                foreach (Composite.Component comp in arbolObjeto.List())
+                {
+                    if (comp.descripcion.Equals("Restore"))
+                    {
+                        isOk = true;
+                        break;
+                    }
+                    else
+                    {
+                        if(EncontrarRolEnArbol(rol, comp))
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            return isOk;
+        }
+
+
+
     }
 }

@@ -11,6 +11,7 @@ namespace BLL.Composite
 
         public string iDPatente { get; set; }
         public string descripcion { get; set; }
+        public abstract List<Component> List();
 
         public Component(string idPat, string descrip)
         {

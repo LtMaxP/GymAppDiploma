@@ -22,5 +22,10 @@ namespace BLL.Composite
         {
            
         }
+
+        public override List<Component> List()
+        {
+            return null;
+        }
     }
 }

@@ -9,7 +9,8 @@ namespace BLL.Composite
     public class FormarArbolCompo
     {
         DAL.CompositeyPermisosDAL comp = new DAL.CompositeyPermisosDAL();
-        Composite supremeComponent;
+
+
 
         public Composite FormarArbolDeUsuario(string idUsuario)
         {
@@ -31,7 +32,7 @@ namespace BLL.Composite
                 {
                     composite.Agregar(new Hoja(element.idComponente, element.descripcion));
                 }
-                
+
             }
 
             return composite;

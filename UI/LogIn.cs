@@ -42,27 +42,25 @@ namespace UI
             {
                 MessageBox.Show("Debe ingresar un usuario o contraseña para avanzar");
             }
-
+            
             //Detecta que el usuario exista
-            switch (bllLog.DetectarUsuario(textBox1.Text, textBox2.Text))
+            if(bllLog.DetectarUsuario(textBox1.Text, textBox2.Text))
             {
-                case "Administrador":
-                    this.Hide();
-                    Inicio ini = new Inicio();
-                    ini.Show();
-                    bit.RegistrarMovimiento("Ingreso Administrador", "Bajo");
-                    break;
-                case "404":
-                    MessageBox.Show("Usuario y/o Contraseña incorrectos");
-                    if (contador == 3)
-                    {
-                        bit.RegistrarMovimiento("3 Intentos de ingreso erroneos", "Medio");
-                        contador = 0;
-                    }
-                    else
-                    { contador++; }
-                    break;
+                this.Hide();
+                Inicio ini = new Inicio();
+                ini.Show();
             }
+            else
+            {
+                MessageBox.Show("Usuario y/o Contraseña incorrectos");
+                if (contador == 3)
+                {
+                    contador = 0;
+                }
+                else
+                { contador++; }
+            }
+            
             
         }
 

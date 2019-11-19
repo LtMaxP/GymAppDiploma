@@ -8,7 +8,7 @@ namespace BLL.Composite
 {
     public class Composite : Component
     {
-        private List<Component> listadoComponent;
+        private List<Component> listadoComponent = new List<Component>();
 
         public Composite(string idPat, string descrip) : base(idPat, descrip)
         {
@@ -31,7 +31,7 @@ namespace BLL.Composite
         }
 
 
-        public List<Component> List()
+        public override List<Component> List()
         {
             return listadoComponent;
         }
