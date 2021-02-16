@@ -9,7 +9,7 @@ using BE;
 
 namespace DAL
 {
-
+    //ADO.Conectado
     public class ABMUsuariosDAL : ICRUD<BE.ABMUsuarios>
     {
         DAL.Conexion conn = new DAL.Conexion();
@@ -61,7 +61,7 @@ namespace DAL
         }
 
 
-
+        //ADO.Conectado
         public void Baja(ABMUsuarios valBaja)
         {
             try
@@ -92,6 +92,7 @@ namespace DAL
         }
 
 
+        //ADO.Desconectado
         public DataTable Leer(ABMUsuarios valBuscar)
         {
             DataTable dt = new DataTable();
@@ -116,6 +117,7 @@ namespace DAL
             return dt;
         }
 
+        //ADO.Conectado
         public void Modificar(ABMUsuarios valModificar)
         {
             try
@@ -167,6 +169,7 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
         }
 
+        //ADO.Desconectado
         public bool ValidarExistenciaDeUsuario(string user)
         {
             bool respuesta = false;
