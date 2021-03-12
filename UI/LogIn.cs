@@ -55,7 +55,7 @@ namespace UI
                 MessageBox.Show("Usuario y/o Contraseña incorrectos");
                 if (contador == 3)
                 {
-                    contador = 0;
+                    contador = 0; //bloquee bloqueeeee
                 }
                 else
                 { contador++; }

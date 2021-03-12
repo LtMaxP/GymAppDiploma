@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f7c56fd8da9748bda5972b270a9c1fc9" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="GymAppModel.Usuario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.Bitacora" Width="1.5" PointX="4.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.CampoIdioma" Width="1.5" PointX="9" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.ClienteGYM" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.DVV" Width="1.5" PointX="2.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.Ejercicio" Width="1.5" PointX="9.25" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.Finanza" Width="1.5" PointX="11.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.Idioma" Width="1.5" PointX="7" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.Label_Etiqueta" Width="1.5" PointX="10.875" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.Localidad" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.Pais" Width="1.5" PointX="0.875" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.PerfilPyF" Width="1.5" PointX="0.625" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.PermisosUsuarios" Width="1.5" PointX="2.625" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.Provincia" Width="1.5" PointX="2.875" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymAppModel.Sucursal" Width="1.5" PointX="6.625" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="GymAppModel.FK_CampoIdioma_Idioma" />
+        <AssociationConnector Association="GymAppModel.FK_CampoIdioma_Label_Etiqueta" />
+        <AssociationConnector Association="GymAppModel.FK_ClienteGYM_Sucursal" />
+        <AssociationConnector Association="GymAppModel.FK_Finanza_ClienteGYM" />
+        <AssociationConnector Association="GymAppModel.FK_Usuario_Idioma" />
+        <AssociationConnector Association="GymAppModel.FK_Localidad_Sucursal" />
+        <AssociationConnector Association="GymAppModel.FK_Provincia_Localidad" />
+        <AssociationConnector Association="GymAppModel.FK_Pais_Provincia" />
+        <AssociationConnector Association="GymAppModel.PermisosUsuarios1" />
+        <AssociationConnector Association="GymAppModel.FK_CampoIdioma_Idioma" />
+        <AssociationConnector Association="GymAppModel.FK_CampoIdioma_Label_Etiqueta" />
+        <AssociationConnector Association="GymAppModel.FK_ClienteGYM_Sucursal" />
+        <AssociationConnector Association="GymAppModel.FK_Finanza_ClienteGYM" />
+        <AssociationConnector Association="GymAppModel.FK_Usuario_Idioma" />
+        <AssociationConnector Association="GymAppModel.FK_Localidad_Sucursal" />
+        <AssociationConnector Association="GymAppModel.FK_Provincia_Localidad" />
+        <AssociationConnector Association="GymAppModel.FK_Pais_Provincia" />
+        <AssociationConnector Association="GymAppModel.PermisosUsuarios1" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

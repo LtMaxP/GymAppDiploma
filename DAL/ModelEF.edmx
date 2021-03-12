@@ -1,0 +1,1116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GymAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="Id_Bitacora" />
+          </Key>
+          <Property Name="Id_Bitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaDelMov" Type="datetime" />
+          <Property Name="Movimiento" Type="varchar" MaxLength="50" />
+          <Property Name="NivelDelProblema" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CampoIdioma">
+          <Key>
+            <PropertyRef Name="Id_Idioma" />
+            <PropertyRef Name="Id_label" />
+          </Key>
+          <Property Name="Id_Idioma" Type="int" Nullable="false" />
+          <Property Name="Texto_Lbl" Type="varchar" MaxLength="50" />
+          <Property Name="Id_label" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClienteGYM">
+          <Key>
+            <PropertyRef Name="Id_Cliente" />
+          </Key>
+          <Property Name="Id_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Sucursal" Type="int" Nullable="false" />
+          <Property Name="Id_Empleado" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="PesoKg" Type="float" />
+          <Property Name="Id_Estado" Type="int" Nullable="false" />
+          <Property Name="Dni" Type="int" />
+          <Property Name="Calle" Type="varchar" MaxLength="50" />
+          <Property Name="Numero" Type="int" />
+          <Property Name="CodPostal" Type="int" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="Fecha_Nac" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ClienteRutina">
+          <Key>
+            <PropertyRef Name="Id_Cliente" />
+            <PropertyRef Name="Id_Ejercicio" />
+          </Key>
+          <Property Name="Id_Cliente" Type="int" Nullable="false" />
+          <Property Name="Id_Ejercicio" Type="int" Nullable="false" />
+          <Property Name="TiempoYDescripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.DVV' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="DVV">
+          <Key>
+            <PropertyRef Name="Id_DVV" />
+          </Key>
+          <Property Name="Id_DVV" Type="int" Nullable="false" />
+          <Property Name="CodigoHash" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ejercicio">
+          <Key>
+            <PropertyRef Name="Id_Ejercicio" />
+          </Key>
+          <Property Name="Id_Ejercicio" Type="int" Nullable="false" />
+          <Property Name="Desc_TipodeRutina" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="Id_Estado" />
+          </Key>
+          <Property Name="Id_Estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Desc_Estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Finanza">
+          <Key>
+            <PropertyRef Name="Id_Finanza" />
+          </Key>
+          <Property Name="Id_Finanza" Type="int" Nullable="false" />
+          <Property Name="UltimaFechaPagada" Type="datetime" />
+          <Property Name="Id_Cliente" Type="int" />
+          <Property Name="Id_Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Idioma">
+          <Key>
+            <PropertyRef Name="Id_Idioma" />
+          </Key>
+          <Property Name="Id_Idioma" Type="int" Nullable="false" />
+          <Property Name="Idioma" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Label_Etiqueta">
+          <Key>
+            <PropertyRef Name="Id_label" />
+          </Key>
+          <Property Name="Id_label" Type="int" Nullable="false" />
+          <Property Name="NombreEtiqueta" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Localidad">
+          <Key>
+            <PropertyRef Name="Id_Localidad" />
+          </Key>
+          <Property Name="Id_Localidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Sucursal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="Id_Pais" />
+          </Key>
+          <Property Name="Id_Pais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Provincia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PerfilPyF">
+          <Key>
+            <PropertyRef Name="Id_Perfil" />
+          </Key>
+          <Property Name="Id_Perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Tipo" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="PermisosRelacion">
+          <Key>
+            <PropertyRef Name="Id_Perfil" />
+            <PropertyRef Name="Id_Padre" />
+          </Key>
+          <Property Name="Id_Perfil" Type="int" Nullable="false" />
+          <Property Name="Id_Padre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermisosUsuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+            <PropertyRef Name="Id_Permiso" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Id_Permiso" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="Id_Provincia" />
+          </Key>
+          <Property Name="Id_Provincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Localidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="Id_Sucursal" />
+          </Key>
+          <Property Name="Id_Sucursal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DVH" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Idioma" Type="int" />
+          <Property Name="Id_Estado" Type="int" />
+          <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Perfil" Type="int" />
+        </EntityType>
+        <Association Name="FK_CampoIdioma_Idioma">
+          <End Role="Idioma" Type="Self.Idioma" Multiplicity="1" />
+          <End Role="CampoIdioma" Type="Self.CampoIdioma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idioma">
+              <PropertyRef Name="Id_Idioma" />
+            </Principal>
+            <Dependent Role="CampoIdioma">
+              <PropertyRef Name="Id_Idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CampoIdioma_Label_Etiqueta">
+          <End Role="Label_Etiqueta" Type="Self.Label_Etiqueta" Multiplicity="1" />
+          <End Role="CampoIdioma" Type="Self.CampoIdioma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Label_Etiqueta">
+              <PropertyRef Name="Id_label" />
+            </Principal>
+            <Dependent Role="CampoIdioma">
+              <PropertyRef Name="Id_label" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClienteGYM_Estado">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="ClienteGYM" Type="Self.ClienteGYM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="ClienteGYM">
+              <PropertyRef Name="Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClienteGYM_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="ClienteGYM" Type="Self.ClienteGYM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id_Sucursal" />
+            </Principal>
+            <Dependent Role="ClienteGYM">
+              <PropertyRef Name="Id_Sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClienteRutina_ClienteGYM">
+          <End Role="ClienteGYM" Type="Self.ClienteGYM" Multiplicity="1" />
+          <End Role="ClienteRutina" Type="Self.ClienteRutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClienteGYM">
+              <PropertyRef Name="Id_Cliente" />
+            </Principal>
+            <Dependent Role="ClienteRutina">
+              <PropertyRef Name="Id_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClienteRutina_Ejercicio">
+          <End Role="Ejercicio" Type="Self.Ejercicio" Multiplicity="1" />
+          <End Role="ClienteRutina" Type="Self.ClienteRutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejercicio">
+              <PropertyRef Name="Id_Ejercicio" />
+            </Principal>
+            <Dependent Role="ClienteRutina">
+              <PropertyRef Name="Id_Ejercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Finanza_ClienteGYM">
+          <End Role="ClienteGYM" Type="Self.ClienteGYM" Multiplicity="0..1" />
+          <End Role="Finanza" Type="Self.Finanza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClienteGYM">
+              <PropertyRef Name="Id_Cliente" />
+            </Principal>
+            <Dependent Role="Finanza">
+              <PropertyRef Name="Id_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Finanza_Estado">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="Finanza" Type="Self.Finanza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="Finanza">
+              <PropertyRef Name="Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Localidad_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="Localidad" Type="Self.Localidad" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id_Sucursal" />
+            </Principal>
+            <Dependent Role="Localidad">
+              <PropertyRef Name="Id_Localidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pais_Provincia">
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
+          <End Role="Pais" Type="Self.Pais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="Id_Provincia" />
+            </Principal>
+            <Dependent Role="Pais">
+              <PropertyRef Name="Id_Provincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermisosRelacion_PerfilPyF">
+          <End Role="PerfilPyF" Type="Self.PerfilPyF" Multiplicity="1" />
+          <End Role="PermisosRelacion" Type="Self.PermisosRelacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPyF">
+              <PropertyRef Name="Id_Perfil" />
+            </Principal>
+            <Dependent Role="PermisosRelacion">
+              <PropertyRef Name="Id_Perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermisosUsuarios_PerfilPyF">
+          <End Role="PerfilPyF" Type="Self.PerfilPyF" Multiplicity="1" />
+          <End Role="PermisosUsuarios" Type="Self.PermisosUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPyF">
+              <PropertyRef Name="Id_Perfil" />
+            </Principal>
+            <Dependent Role="PermisosUsuarios">
+              <PropertyRef Name="Id_Permiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermisosUsuarios_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="PermisosUsuarios" Type="Self.PermisosUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id_Usuario" />
+            </Principal>
+            <Dependent Role="PermisosUsuarios">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Provincia_Localidad">
+          <End Role="Localidad" Type="Self.Localidad" Multiplicity="1" />
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localidad">
+              <PropertyRef Name="Id_Localidad" />
+            </Principal>
+            <Dependent Role="Provincia">
+              <PropertyRef Name="Id_Localidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Estado">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Idioma">
+          <End Role="Idioma" Type="Self.Idioma" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idioma">
+              <PropertyRef Name="Id_Idioma" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Id_Idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GymAppModelStoreContainer">
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CampoIdioma" EntityType="Self.CampoIdioma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClienteGYM" EntityType="Self.ClienteGYM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClienteRutina" EntityType="Self.ClienteRutina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ejercicio" EntityType="Self.Ejercicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Finanza" EntityType="Self.Finanza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Idioma" EntityType="Self.Idioma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Label_Etiqueta" EntityType="Self.Label_Etiqueta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Localidad" EntityType="Self.Localidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerfilPyF" EntityType="Self.PerfilPyF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermisosRelacion" EntityType="Self.PermisosRelacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermisosUsuarios" EntityType="Self.PermisosUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DVV" EntityType="Self.DVV" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DVV].[Id_DVV] AS [Id_DVV], 
+    [DVV].[CodigoHash] AS [CodigoHash]
+    FROM [dbo].[DVV] AS [DVV]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CampoIdioma_Idioma" Association="Self.FK_CampoIdioma_Idioma">
+            <End Role="Idioma" EntitySet="Idioma" />
+            <End Role="CampoIdioma" EntitySet="CampoIdioma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CampoIdioma_Label_Etiqueta" Association="Self.FK_CampoIdioma_Label_Etiqueta">
+            <End Role="Label_Etiqueta" EntitySet="Label_Etiqueta" />
+            <End Role="CampoIdioma" EntitySet="CampoIdioma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClienteGYM_Estado" Association="Self.FK_ClienteGYM_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="ClienteGYM" EntitySet="ClienteGYM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClienteGYM_Sucursal" Association="Self.FK_ClienteGYM_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="ClienteGYM" EntitySet="ClienteGYM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClienteRutina_ClienteGYM" Association="Self.FK_ClienteRutina_ClienteGYM">
+            <End Role="ClienteGYM" EntitySet="ClienteGYM" />
+            <End Role="ClienteRutina" EntitySet="ClienteRutina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClienteRutina_Ejercicio" Association="Self.FK_ClienteRutina_Ejercicio">
+            <End Role="Ejercicio" EntitySet="Ejercicio" />
+            <End Role="ClienteRutina" EntitySet="ClienteRutina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Finanza_ClienteGYM" Association="Self.FK_Finanza_ClienteGYM">
+            <End Role="ClienteGYM" EntitySet="ClienteGYM" />
+            <End Role="Finanza" EntitySet="Finanza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Finanza_Estado" Association="Self.FK_Finanza_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Finanza" EntitySet="Finanza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Localidad_Sucursal" Association="Self.FK_Localidad_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Localidad" EntitySet="Localidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pais_Provincia" Association="Self.FK_Pais_Provincia">
+            <End Role="Provincia" EntitySet="Provincia" />
+            <End Role="Pais" EntitySet="Pais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermisosRelacion_PerfilPyF" Association="Self.FK_PermisosRelacion_PerfilPyF">
+            <End Role="PerfilPyF" EntitySet="PerfilPyF" />
+            <End Role="PermisosRelacion" EntitySet="PermisosRelacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermisosUsuarios_PerfilPyF" Association="Self.FK_PermisosUsuarios_PerfilPyF">
+            <End Role="PerfilPyF" EntitySet="PerfilPyF" />
+            <End Role="PermisosUsuarios" EntitySet="PermisosUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermisosUsuarios_Usuario" Association="Self.FK_PermisosUsuarios_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="PermisosUsuarios" EntitySet="PermisosUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Provincia_Localidad" Association="Self.FK_Provincia_Localidad">
+            <End Role="Localidad" EntitySet="Localidad" />
+            <End Role="Provincia" EntitySet="Provincia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Estado" Association="Self.FK_Usuario_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Idioma" Association="Self.FK_Usuario_Idioma">
+            <End Role="Idioma" EntitySet="Idioma" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GymAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="Id_Bitacora" />
+          </Key>
+          <Property Name="Id_Bitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaDelMov" Type="DateTime" Precision="3" />
+          <Property Name="Movimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NivelDelProblema" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CampoIdioma">
+          <Key>
+            <PropertyRef Name="Id_Idioma" />
+            <PropertyRef Name="Id_label" />
+          </Key>
+          <Property Name="Id_Idioma" Type="Int32" Nullable="false" />
+          <Property Name="Texto_Lbl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_label" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Idioma" Relationship="Self.FK_CampoIdioma_Idioma" FromRole="CampoIdioma" ToRole="Idioma" />
+          <NavigationProperty Name="Label_Etiqueta" Relationship="Self.FK_CampoIdioma_Label_Etiqueta" FromRole="CampoIdioma" ToRole="Label_Etiqueta" />
+        </EntityType>
+        <EntityType Name="ClienteGYM">
+          <Key>
+            <PropertyRef Name="Id_Cliente" />
+          </Key>
+          <Property Name="Id_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Sucursal" Type="Int32" Nullable="false" />
+          <Property Name="Id_Empleado" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PesoKg" Type="Double" />
+          <Property Name="Id_Estado" Type="Int32" Nullable="false" />
+          <Property Name="Dni" Type="Int32" />
+          <Property Name="Calle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="Int32" />
+          <Property Name="CodPostal" Type="Int32" />
+          <Property Name="Telefono" Type="Int32" />
+          <Property Name="Fecha_Nac" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Estado" Relationship="Self.FK_ClienteGYM_Estado" FromRole="ClienteGYM" ToRole="Estado" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK_ClienteGYM_Sucursal" FromRole="ClienteGYM" ToRole="Sucursal" />
+          <NavigationProperty Name="ClienteRutina" Relationship="Self.FK_ClienteRutina_ClienteGYM" FromRole="ClienteGYM" ToRole="ClienteRutina" />
+          <NavigationProperty Name="Finanza" Relationship="Self.FK_Finanza_ClienteGYM" FromRole="ClienteGYM" ToRole="Finanza" />
+        </EntityType>
+        <EntityType Name="ClienteRutina">
+          <Key>
+            <PropertyRef Name="Id_Cliente" />
+            <PropertyRef Name="Id_Ejercicio" />
+          </Key>
+          <Property Name="Id_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="Id_Ejercicio" Type="Int32" Nullable="false" />
+          <Property Name="TiempoYDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClienteGYM" Relationship="Self.FK_ClienteRutina_ClienteGYM" FromRole="ClienteRutina" ToRole="ClienteGYM" />
+          <NavigationProperty Name="Ejercicio" Relationship="Self.FK_ClienteRutina_Ejercicio" FromRole="ClienteRutina" ToRole="Ejercicio" />
+        </EntityType>
+        <EntityType Name="Ejercicio">
+          <Key>
+            <PropertyRef Name="Id_Ejercicio" />
+          </Key>
+          <Property Name="Id_Ejercicio" Type="Int32" Nullable="false" />
+          <Property Name="Desc_TipodeRutina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClienteRutina" Relationship="Self.FK_ClienteRutina_Ejercicio" FromRole="Ejercicio" ToRole="ClienteRutina" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="Id_Estado" />
+          </Key>
+          <Property Name="Id_Estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Desc_Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClienteGYM" Relationship="Self.FK_ClienteGYM_Estado" FromRole="Estado" ToRole="ClienteGYM" />
+          <NavigationProperty Name="Finanza" Relationship="Self.FK_Finanza_Estado" FromRole="Estado" ToRole="Finanza" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Estado" FromRole="Estado" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Finanza">
+          <Key>
+            <PropertyRef Name="Id_Finanza" />
+          </Key>
+          <Property Name="Id_Finanza" Type="Int32" Nullable="false" />
+          <Property Name="UltimaFechaPagada" Type="DateTime" Precision="3" />
+          <Property Name="Id_Cliente" Type="Int32" />
+          <Property Name="Id_Estado" Type="Int32" />
+          <NavigationProperty Name="ClienteGYM" Relationship="Self.FK_Finanza_ClienteGYM" FromRole="Finanza" ToRole="ClienteGYM" />
+          <NavigationProperty Name="Estado" Relationship="Self.FK_Finanza_Estado" FromRole="Finanza" ToRole="Estado" />
+        </EntityType>
+        <EntityType Name="Idioma">
+          <Key>
+            <PropertyRef Name="Id_Idioma" />
+          </Key>
+          <Property Name="Id_Idioma" Type="Int32" Nullable="false" />
+          <Property Name="Idioma1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CampoIdioma" Relationship="Self.FK_CampoIdioma_Idioma" FromRole="Idioma" ToRole="CampoIdioma" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Idioma" FromRole="Idioma" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Label_Etiqueta">
+          <Key>
+            <PropertyRef Name="Id_label" />
+          </Key>
+          <Property Name="Id_label" Type="Int32" Nullable="false" />
+          <Property Name="NombreEtiqueta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CampoIdioma" Relationship="Self.FK_CampoIdioma_Label_Etiqueta" FromRole="Label_Etiqueta" ToRole="CampoIdioma" />
+        </EntityType>
+        <EntityType Name="Localidad">
+          <Key>
+            <PropertyRef Name="Id_Localidad" />
+          </Key>
+          <Property Name="Id_Localidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Sucursal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK_Localidad_Sucursal" FromRole="Localidad" ToRole="Sucursal" />
+          <NavigationProperty Name="Provincia" Relationship="Self.FK_Provincia_Localidad" FromRole="Localidad" ToRole="Provincia" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="Id_Pais" />
+          </Key>
+          <Property Name="Id_Pais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Provincia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Provincia" Relationship="Self.FK_Pais_Provincia" FromRole="Pais" ToRole="Provincia" />
+        </EntityType>
+        <EntityType Name="PerfilPyF">
+          <Key>
+            <PropertyRef Name="Id_Perfil" />
+          </Key>
+          <Property Name="Id_Perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="PermisosRelacion" Relationship="Self.FK_PermisosRelacion_PerfilPyF" FromRole="PerfilPyF" ToRole="PermisosRelacion" />
+          <NavigationProperty Name="Usuario" Relationship="Self.PermisosUsuarios" FromRole="PerfilPyF" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="PermisosRelacion">
+          <Key>
+            <PropertyRef Name="Id_Perfil" />
+            <PropertyRef Name="Id_Padre" />
+          </Key>
+          <Property Name="Id_Perfil" Type="Int32" Nullable="false" />
+          <Property Name="Id_Padre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PerfilPyF" Relationship="Self.FK_PermisosRelacion_PerfilPyF" FromRole="PermisosRelacion" ToRole="PerfilPyF" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="Id_Provincia" />
+          </Key>
+          <Property Name="Id_Provincia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Localidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Localidad" Relationship="Self.FK_Provincia_Localidad" FromRole="Provincia" ToRole="Localidad" />
+          <NavigationProperty Name="Pais" Relationship="Self.FK_Pais_Provincia" FromRole="Provincia" ToRole="Pais" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="Id_Sucursal" />
+          </Key>
+          <Property Name="Id_Sucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ClienteGYM" Relationship="Self.FK_ClienteGYM_Sucursal" FromRole="Sucursal" ToRole="ClienteGYM" />
+          <NavigationProperty Name="Localidad" Relationship="Self.FK_Localidad_Sucursal" FromRole="Sucursal" ToRole="Localidad" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DVH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Idioma" Type="Int32" />
+          <Property Name="Id_Estado" Type="Int32" />
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Perfil" Type="Int32" />
+          <NavigationProperty Name="Estado" Relationship="Self.FK_Usuario_Estado" FromRole="Usuario" ToRole="Estado" />
+          <NavigationProperty Name="Idioma" Relationship="Self.FK_Usuario_Idioma" FromRole="Usuario" ToRole="Idioma" />
+          <NavigationProperty Name="PerfilPyF" Relationship="Self.PermisosUsuarios" FromRole="Usuario" ToRole="PerfilPyF" />
+        </EntityType>
+        <EntityType Name="DVV">
+          <Key>
+            <PropertyRef Name="Id_DVV" />
+          </Key>
+          <Property Name="Id_DVV" Type="Int32" Nullable="false" />
+          <Property Name="CodigoHash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_CampoIdioma_Idioma">
+          <End Role="Idioma" Type="Self.Idioma" Multiplicity="1" />
+          <End Role="CampoIdioma" Type="Self.CampoIdioma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idioma">
+              <PropertyRef Name="Id_Idioma" />
+            </Principal>
+            <Dependent Role="CampoIdioma">
+              <PropertyRef Name="Id_Idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CampoIdioma_Label_Etiqueta">
+          <End Role="Label_Etiqueta" Type="Self.Label_Etiqueta" Multiplicity="1" />
+          <End Role="CampoIdioma" Type="Self.CampoIdioma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Label_Etiqueta">
+              <PropertyRef Name="Id_label" />
+            </Principal>
+            <Dependent Role="CampoIdioma">
+              <PropertyRef Name="Id_label" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClienteGYM_Estado">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="ClienteGYM" Type="Self.ClienteGYM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="ClienteGYM">
+              <PropertyRef Name="Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClienteGYM_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="ClienteGYM" Type="Self.ClienteGYM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id_Sucursal" />
+            </Principal>
+            <Dependent Role="ClienteGYM">
+              <PropertyRef Name="Id_Sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClienteRutina_ClienteGYM">
+          <End Role="ClienteGYM" Type="Self.ClienteGYM" Multiplicity="1" />
+          <End Role="ClienteRutina" Type="Self.ClienteRutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClienteGYM">
+              <PropertyRef Name="Id_Cliente" />
+            </Principal>
+            <Dependent Role="ClienteRutina">
+              <PropertyRef Name="Id_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Finanza_ClienteGYM">
+          <End Role="ClienteGYM" Type="Self.ClienteGYM" Multiplicity="0..1" />
+          <End Role="Finanza" Type="Self.Finanza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClienteGYM">
+              <PropertyRef Name="Id_Cliente" />
+            </Principal>
+            <Dependent Role="Finanza">
+              <PropertyRef Name="Id_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClienteRutina_Ejercicio">
+          <End Role="Ejercicio" Type="Self.Ejercicio" Multiplicity="1" />
+          <End Role="ClienteRutina" Type="Self.ClienteRutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejercicio">
+              <PropertyRef Name="Id_Ejercicio" />
+            </Principal>
+            <Dependent Role="ClienteRutina">
+              <PropertyRef Name="Id_Ejercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Finanza_Estado">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="Finanza" Type="Self.Finanza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="Finanza">
+              <PropertyRef Name="Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Estado">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="Id_Estado" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Id_Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Idioma">
+          <End Role="Idioma" Type="Self.Idioma" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Idioma">
+              <PropertyRef Name="Id_Idioma" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Id_Idioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Localidad_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="Localidad" Type="Self.Localidad" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="Id_Sucursal" />
+            </Principal>
+            <Dependent Role="Localidad">
+              <PropertyRef Name="Id_Localidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Provincia_Localidad">
+          <End Role="Localidad" Type="Self.Localidad" Multiplicity="1" />
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localidad">
+              <PropertyRef Name="Id_Localidad" />
+            </Principal>
+            <Dependent Role="Provincia">
+              <PropertyRef Name="Id_Localidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pais_Provincia">
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
+          <End Role="Pais" Type="Self.Pais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="Id_Provincia" />
+            </Principal>
+            <Dependent Role="Pais">
+              <PropertyRef Name="Id_Provincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermisosRelacion_PerfilPyF">
+          <End Role="PerfilPyF" Type="Self.PerfilPyF" Multiplicity="1" />
+          <End Role="PermisosRelacion" Type="Self.PermisosRelacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPyF">
+              <PropertyRef Name="Id_Perfil" />
+            </Principal>
+            <Dependent Role="PermisosRelacion">
+              <PropertyRef Name="Id_Perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PermisosUsuarios">
+          <End Role="PerfilPyF" Type="Self.PerfilPyF" Multiplicity="*" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="GymAppEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+          <EntitySet Name="CampoIdioma" EntityType="Self.CampoIdioma" />
+          <EntitySet Name="ClienteGYM" EntityType="Self.ClienteGYM" />
+          <EntitySet Name="ClienteRutina" EntityType="Self.ClienteRutina" />
+          <EntitySet Name="Ejercicio" EntityType="Self.Ejercicio" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" />
+          <EntitySet Name="Finanza" EntityType="Self.Finanza" />
+          <EntitySet Name="Idioma" EntityType="Self.Idioma" />
+          <EntitySet Name="Label_Etiqueta" EntityType="Self.Label_Etiqueta" />
+          <EntitySet Name="Localidad" EntityType="Self.Localidad" />
+          <EntitySet Name="Pais" EntityType="Self.Pais" />
+          <EntitySet Name="PerfilPyF" EntityType="Self.PerfilPyF" />
+          <EntitySet Name="PermisosRelacion" EntityType="Self.PermisosRelacion" />
+          <EntitySet Name="Provincia" EntityType="Self.Provincia" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="DVV" EntityType="Self.DVV" />
+          <AssociationSet Name="FK_CampoIdioma_Idioma" Association="Self.FK_CampoIdioma_Idioma">
+            <End Role="Idioma" EntitySet="Idioma" />
+            <End Role="CampoIdioma" EntitySet="CampoIdioma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CampoIdioma_Label_Etiqueta" Association="Self.FK_CampoIdioma_Label_Etiqueta">
+            <End Role="Label_Etiqueta" EntitySet="Label_Etiqueta" />
+            <End Role="CampoIdioma" EntitySet="CampoIdioma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClienteGYM_Estado" Association="Self.FK_ClienteGYM_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="ClienteGYM" EntitySet="ClienteGYM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClienteGYM_Sucursal" Association="Self.FK_ClienteGYM_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="ClienteGYM" EntitySet="ClienteGYM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClienteRutina_ClienteGYM" Association="Self.FK_ClienteRutina_ClienteGYM">
+            <End Role="ClienteGYM" EntitySet="ClienteGYM" />
+            <End Role="ClienteRutina" EntitySet="ClienteRutina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Finanza_ClienteGYM" Association="Self.FK_Finanza_ClienteGYM">
+            <End Role="ClienteGYM" EntitySet="ClienteGYM" />
+            <End Role="Finanza" EntitySet="Finanza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClienteRutina_Ejercicio" Association="Self.FK_ClienteRutina_Ejercicio">
+            <End Role="Ejercicio" EntitySet="Ejercicio" />
+            <End Role="ClienteRutina" EntitySet="ClienteRutina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Finanza_Estado" Association="Self.FK_Finanza_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Finanza" EntitySet="Finanza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Estado" Association="Self.FK_Usuario_Estado">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Idioma" Association="Self.FK_Usuario_Idioma">
+            <End Role="Idioma" EntitySet="Idioma" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Localidad_Sucursal" Association="Self.FK_Localidad_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Localidad" EntitySet="Localidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Provincia_Localidad" Association="Self.FK_Provincia_Localidad">
+            <End Role="Localidad" EntitySet="Localidad" />
+            <End Role="Provincia" EntitySet="Provincia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pais_Provincia" Association="Self.FK_Pais_Provincia">
+            <End Role="Provincia" EntitySet="Provincia" />
+            <End Role="Pais" EntitySet="Pais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermisosRelacion_PerfilPyF" Association="Self.FK_PermisosRelacion_PerfilPyF">
+            <End Role="PerfilPyF" EntitySet="PerfilPyF" />
+            <End Role="PermisosRelacion" EntitySet="PermisosRelacion" />
+          </AssociationSet>
+          <AssociationSet Name="PermisosUsuarios" Association="Self.PermisosUsuarios">
+            <End Role="PerfilPyF" EntitySet="PerfilPyF" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GymAppModelStoreContainer" CdmEntityContainer="GymAppEntities">
+          <EntitySetMapping Name="Bitacora">
+            <EntityTypeMapping TypeName="GymAppModel.Bitacora">
+              <MappingFragment StoreEntitySet="Bitacora">
+                <ScalarProperty Name="Id_Bitacora" ColumnName="Id_Bitacora" />
+                <ScalarProperty Name="FechaDelMov" ColumnName="FechaDelMov" />
+                <ScalarProperty Name="Movimiento" ColumnName="Movimiento" />
+                <ScalarProperty Name="NivelDelProblema" ColumnName="NivelDelProblema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CampoIdioma">
+            <EntityTypeMapping TypeName="GymAppModel.CampoIdioma">
+              <MappingFragment StoreEntitySet="CampoIdioma">
+                <ScalarProperty Name="Id_Idioma" ColumnName="Id_Idioma" />
+                <ScalarProperty Name="Texto_Lbl" ColumnName="Texto_Lbl" />
+                <ScalarProperty Name="Id_label" ColumnName="Id_label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClienteGYM">
+            <EntityTypeMapping TypeName="GymAppModel.ClienteGYM">
+              <MappingFragment StoreEntitySet="ClienteGYM">
+                <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+                <ScalarProperty Name="Id_Sucursal" ColumnName="Id_Sucursal" />
+                <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="PesoKg" ColumnName="PesoKg" />
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+                <ScalarProperty Name="Dni" ColumnName="Dni" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="CodPostal" ColumnName="CodPostal" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Fecha_Nac" ColumnName="Fecha_Nac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClienteRutina">
+            <EntityTypeMapping TypeName="GymAppModel.ClienteRutina">
+              <MappingFragment StoreEntitySet="ClienteRutina">
+                <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+                <ScalarProperty Name="Id_Ejercicio" ColumnName="Id_Ejercicio" />
+                <ScalarProperty Name="TiempoYDescripcion" ColumnName="TiempoYDescripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ejercicio">
+            <EntityTypeMapping TypeName="GymAppModel.Ejercicio">
+              <MappingFragment StoreEntitySet="Ejercicio">
+                <ScalarProperty Name="Id_Ejercicio" ColumnName="Id_Ejercicio" />
+                <ScalarProperty Name="Desc_TipodeRutina" ColumnName="Desc_TipodeRutina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado">
+            <EntityTypeMapping TypeName="GymAppModel.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+                <ScalarProperty Name="Desc_Estado" ColumnName="Desc_Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Finanza">
+            <EntityTypeMapping TypeName="GymAppModel.Finanza">
+              <MappingFragment StoreEntitySet="Finanza">
+                <ScalarProperty Name="Id_Finanza" ColumnName="Id_Finanza" />
+                <ScalarProperty Name="UltimaFechaPagada" ColumnName="UltimaFechaPagada" />
+                <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Idioma">
+            <EntityTypeMapping TypeName="GymAppModel.Idioma">
+              <MappingFragment StoreEntitySet="Idioma">
+                <ScalarProperty Name="Id_Idioma" ColumnName="Id_Idioma" />
+                <ScalarProperty Name="Idioma1" ColumnName="Idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Label_Etiqueta">
+            <EntityTypeMapping TypeName="GymAppModel.Label_Etiqueta">
+              <MappingFragment StoreEntitySet="Label_Etiqueta">
+                <ScalarProperty Name="Id_label" ColumnName="Id_label" />
+                <ScalarProperty Name="NombreEtiqueta" ColumnName="NombreEtiqueta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Localidad">
+            <EntityTypeMapping TypeName="GymAppModel.Localidad">
+              <MappingFragment StoreEntitySet="Localidad">
+                <ScalarProperty Name="Id_Localidad" ColumnName="Id_Localidad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_Sucursal" ColumnName="Id_Sucursal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pais">
+            <EntityTypeMapping TypeName="GymAppModel.Pais">
+              <MappingFragment StoreEntitySet="Pais">
+                <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerfilPyF">
+            <EntityTypeMapping TypeName="GymAppModel.PerfilPyF">
+              <MappingFragment StoreEntitySet="PerfilPyF">
+                <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermisosRelacion">
+            <EntityTypeMapping TypeName="GymAppModel.PermisosRelacion">
+              <MappingFragment StoreEntitySet="PermisosRelacion">
+                <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+                <ScalarProperty Name="Id_Padre" ColumnName="Id_Padre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provincia">
+            <EntityTypeMapping TypeName="GymAppModel.Provincia">
+              <MappingFragment StoreEntitySet="Provincia">
+                <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_Localidad" ColumnName="Id_Localidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sucursal">
+            <EntityTypeMapping TypeName="GymAppModel.Sucursal">
+              <MappingFragment StoreEntitySet="Sucursal">
+                <ScalarProperty Name="Id_Sucursal" ColumnName="Id_Sucursal" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GymAppModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="GymAppModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="DVH" ColumnName="DVH" />
+                <ScalarProperty Name="Id_Idioma" ColumnName="Id_Idioma" />
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DVV">
+            <EntityTypeMapping TypeName="GymAppModel.DVV">
+              <MappingFragment StoreEntitySet="DVV">
+                <ScalarProperty Name="Id_DVV" ColumnName="Id_DVV" />
+                <ScalarProperty Name="CodigoHash" ColumnName="CodigoHash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PermisosUsuarios" TypeName="GymAppModel.PermisosUsuarios" StoreEntitySet="PermisosUsuarios">
+            <EndProperty Name="PerfilPyF">
+              <ScalarProperty Name="Id_Perfil" ColumnName="Id_Permiso" />
+            </EndProperty>
+            <EndProperty Name="Usuario">
+              <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

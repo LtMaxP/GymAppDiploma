@@ -63,7 +63,7 @@ namespace DAL
                 comm.Connection.Open();
                 da.Fill(ds);
                 comm.Connection.Close();
-                foreach (DataRow dr in ds.Tables[0].Rows)
+                foreach (DataRow dr in ds.Tables[0].Rows)//esto es al pedo porq te traeria 1 Row
                 {
                     if (!String.IsNullOrEmpty(dr["Id_Permiso"].ToString()))
                     {
@@ -104,7 +104,7 @@ namespace DAL
                 comm.Connection.Close();
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    if (!String.IsNullOrEmpty(dr["Id_Perfil"].ToString()))
+                    if (!String.IsNullOrEmpty(dr["Id_Perfil"].ToString()) & !idPerfil.Equals(dr["Id_Perfil"].ToString()))///////isnot the same idPerfil
                     {
                         listPermisos.Add(new BE.Composite("", dr["Id_Perfil"].ToString(), dr["Nombre"].ToString(), "hijos", dr["Tipo"].ToString()));
                     }

@@ -1,0 +1,627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GymAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.Bitacora' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="Id_Bitacora" />
+          </Key>
+          <Property Name="Id_Bitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaDelMov" Type="datetime" />
+          <Property Name="Movimiento" Type="varchar" MaxLength="50" />
+          <Property Name="NivelDelProblema" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.CampoIdioma' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="CampoIdioma">
+          <Key>
+            <PropertyRef Name="Id_Idioma" />
+          </Key>
+          <Property Name="Id_Idioma" Type="int" Nullable="false" />
+          <Property Name="Texto_Lbl" Type="varchar" MaxLength="50" />
+          <Property Name="Id_label" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.ClienteGYM' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ClienteGYM">
+          <Key>
+            <PropertyRef Name="Id_Cliente" />
+            <PropertyRef Name="Id_Sucursal" />
+            <PropertyRef Name="Id_Empleado" />
+          </Key>
+          <Property Name="Id_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Sucursal" Type="int" Nullable="false" />
+          <Property Name="Id_Empleado" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="PesoKg" Type="float" />
+          <Property Name="Id_Estado" Type="varchar" MaxLength="50" />
+          <Property Name="Dni" Type="int" />
+          <Property Name="Calle" Type="varchar" MaxLength="50" />
+          <Property Name="Numero" Type="int" />
+          <Property Name="CodPostal" Type="int" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="Fecha_Nac" Type="datetime" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'GymApp.dbo.ClienteRutina' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="ClienteRutina">
+          <Property Name="Id_Cliente" Type="int" />
+          <Property Name="Id_Ejercicio" Type="int" />
+          <Property Name="TiempoYDescripcion" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.DVV' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="DVV">
+          <Key>
+            <PropertyRef Name="Id_DVV" />
+          </Key>
+          <Property Name="Id_DVV" Type="int" Nullable="false" />
+          <Property Name="CodigoHash" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.Ejercicio' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Ejercicio">
+          <Key>
+            <PropertyRef Name="Id_Ejercicio" />
+          </Key>
+          <Property Name="Id_Ejercicio" Type="int" Nullable="false" />
+          <Property Name="Desc_TipodeRutina" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'GymApp.dbo.Estado' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Estado">
+          <Property Name="Id_Estado" Type="int" />
+          <Property Name="Desc_Estado" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.Finanza' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Finanza">
+          <Key>
+            <PropertyRef Name="Id_Finanza" />
+          </Key>
+          <Property Name="Id_Finanza" Type="int" Nullable="false" />
+          <Property Name="UltimaFechaPagada" Type="datetime" />
+          <Property Name="Id_Cliente" Type="int" />
+          <Property Name="Id_Estado" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.Idioma' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Idioma">
+          <Key>
+            <PropertyRef Name="Id_Idioma" />
+          </Key>
+          <Property Name="Id_Idioma" Type="int" Nullable="false" />
+          <Property Name="Idioma" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.Label_Etiqueta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Label_Etiqueta">
+          <Key>
+            <PropertyRef Name="Id_label" />
+          </Key>
+          <Property Name="Id_label" Type="int" Nullable="false" />
+          <Property Name="NombreEtiqueta" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.Localidad' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Localidad">
+          <Key>
+            <PropertyRef Name="Id_Localidad" />
+          </Key>
+          <Property Name="Id_Localidad" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Sucursal" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.Pais' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="Id_Pais" />
+          </Key>
+          <Property Name="Id_Pais" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Provincia" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.PerfilPyF' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="PerfilPyF">
+          <Key>
+            <PropertyRef Name="Id_Perfil" />
+          </Key>
+          <Property Name="Id_Perfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Tipo" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'GymApp.dbo.PermisosRelacion' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="PermisosRelacion">
+          <Property Name="Id_Perfil" Type="int" />
+          <Property Name="Id_Padre" Type="int" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.PermisosUsuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="PermisosUsuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+            <PropertyRef Name="Id_Permiso" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Id_Permiso" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.Provincia' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="Id_Provincia" />
+          </Key>
+          <Property Name="Id_Provincia" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Localidad" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'GymApp.dbo.Sucursal' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="Id_Sucursal" />
+          </Key>
+          <Property Name="Id_Sucursal" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DVH" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Idioma" Type="int" />
+          <Property Name="Id_Estado" Type="int" />
+          <Property Name="Id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Perfil" Type="int" />
+        </EntityType>
+        <EntityContainer Name="GymAppModelStoreContainer">
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Bitacora].[Id_Bitacora] AS [Id_Bitacora], 
+    [Bitacora].[FechaDelMov] AS [FechaDelMov], 
+    [Bitacora].[Movimiento] AS [Movimiento], 
+    [Bitacora].[NivelDelProblema] AS [NivelDelProblema]
+    FROM [dbo].[Bitacora] AS [Bitacora]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CampoIdioma" EntityType="Self.CampoIdioma" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CampoIdioma].[Id_Idioma] AS [Id_Idioma], 
+    [CampoIdioma].[Texto_Lbl] AS [Texto_Lbl], 
+    [CampoIdioma].[Id_label] AS [Id_label]
+    FROM [dbo].[CampoIdioma] AS [CampoIdioma]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ClienteGYM" EntityType="Self.ClienteGYM" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ClienteGYM].[Id_Cliente] AS [Id_Cliente], 
+    [ClienteGYM].[Id_Sucursal] AS [Id_Sucursal], 
+    [ClienteGYM].[Id_Empleado] AS [Id_Empleado], 
+    [ClienteGYM].[Nombre] AS [Nombre], 
+    [ClienteGYM].[Apellido] AS [Apellido], 
+    [ClienteGYM].[PesoKg] AS [PesoKg], 
+    [ClienteGYM].[Id_Estado] AS [Id_Estado], 
+    [ClienteGYM].[Dni] AS [Dni], 
+    [ClienteGYM].[Calle] AS [Calle], 
+    [ClienteGYM].[Numero] AS [Numero], 
+    [ClienteGYM].[CodPostal] AS [CodPostal], 
+    [ClienteGYM].[Telefono] AS [Telefono], 
+    [ClienteGYM].[Fecha_Nac] AS [Fecha_Nac]
+    FROM [dbo].[ClienteGYM] AS [ClienteGYM]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DVV" EntityType="Self.DVV" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DVV].[Id_DVV] AS [Id_DVV], 
+    [DVV].[CodigoHash] AS [CodigoHash]
+    FROM [dbo].[DVV] AS [DVV]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Ejercicio" EntityType="Self.Ejercicio" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Ejercicio].[Id_Ejercicio] AS [Id_Ejercicio], 
+    [Ejercicio].[Desc_TipodeRutina] AS [Desc_TipodeRutina]
+    FROM [dbo].[Ejercicio] AS [Ejercicio]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Finanza" EntityType="Self.Finanza" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Finanza].[Id_Finanza] AS [Id_Finanza], 
+    [Finanza].[UltimaFechaPagada] AS [UltimaFechaPagada], 
+    [Finanza].[Id_Cliente] AS [Id_Cliente], 
+    [Finanza].[Id_Estado] AS [Id_Estado]
+    FROM [dbo].[Finanza] AS [Finanza]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Idioma" EntityType="Self.Idioma" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Idioma].[Id_Idioma] AS [Id_Idioma], 
+    [Idioma].[Idioma] AS [Idioma]
+    FROM [dbo].[Idioma] AS [Idioma]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Label_Etiqueta" EntityType="Self.Label_Etiqueta" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Label_Etiqueta].[Id_label] AS [Id_label], 
+    [Label_Etiqueta].[NombreEtiqueta] AS [NombreEtiqueta]
+    FROM [dbo].[Label_Etiqueta] AS [Label_Etiqueta]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Localidad" EntityType="Self.Localidad" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Localidad].[Id_Localidad] AS [Id_Localidad], 
+    [Localidad].[Descripcion] AS [Descripcion], 
+    [Localidad].[Id_Sucursal] AS [Id_Sucursal]
+    FROM [dbo].[Localidad] AS [Localidad]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Pais" EntityType="Self.Pais" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Pais].[Id_Pais] AS [Id_Pais], 
+    [Pais].[Descripcion] AS [Descripcion], 
+    [Pais].[Id_Provincia] AS [Id_Provincia]
+    FROM [dbo].[Pais] AS [Pais]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PerfilPyF" EntityType="Self.PerfilPyF" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PerfilPyF].[Id_Perfil] AS [Id_Perfil], 
+    [PerfilPyF].[Nombre] AS [Nombre], 
+    [PerfilPyF].[Tipo] AS [Tipo]
+    FROM [dbo].[PerfilPyF] AS [PerfilPyF]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PermisosUsuarios" EntityType="Self.PermisosUsuarios" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PermisosUsuarios].[Id_Usuario] AS [Id_Usuario], 
+    [PermisosUsuarios].[Id_Permiso] AS [Id_Permiso]
+    FROM [dbo].[PermisosUsuarios] AS [PermisosUsuarios]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Provincia" EntityType="Self.Provincia" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Provincia].[Id_Provincia] AS [Id_Provincia], 
+    [Provincia].[Descripcion] AS [Descripcion], 
+    [Provincia].[Id_Localidad] AS [Id_Localidad]
+    FROM [dbo].[Provincia] AS [Provincia]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Sucursal].[Id_Sucursal] AS [Id_Sucursal], 
+    [Sucursal].[Descripcion] AS [Descripcion]
+    FROM [dbo].[Sucursal] AS [Sucursal]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GymAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DVH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Idioma" Type="Int32" />
+          <Property Name="Id_Estado" Type="Int32" />
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Perfil" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="Id_Bitacora" />
+          </Key>
+          <Property Name="Id_Bitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaDelMov" Type="DateTime" Precision="3" />
+          <Property Name="Movimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NivelDelProblema" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CampoIdioma">
+          <Key>
+            <PropertyRef Name="Id_Idioma" />
+          </Key>
+          <Property Name="Id_Idioma" Type="Int32" Nullable="false" />
+          <Property Name="Texto_Lbl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_label" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ClienteGYM">
+          <Key>
+            <PropertyRef Name="Id_Cliente" />
+            <PropertyRef Name="Id_Sucursal" />
+            <PropertyRef Name="Id_Empleado" />
+          </Key>
+          <Property Name="Id_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Sucursal" Type="Int32" Nullable="false" />
+          <Property Name="Id_Empleado" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PesoKg" Type="Double" />
+          <Property Name="Id_Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dni" Type="Int32" />
+          <Property Name="Calle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="Int32" />
+          <Property Name="CodPostal" Type="Int32" />
+          <Property Name="Telefono" Type="Int32" />
+          <Property Name="Fecha_Nac" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DVV">
+          <Key>
+            <PropertyRef Name="Id_DVV" />
+          </Key>
+          <Property Name="Id_DVV" Type="Int32" Nullable="false" />
+          <Property Name="CodigoHash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Ejercicio">
+          <Key>
+            <PropertyRef Name="Id_Ejercicio" />
+          </Key>
+          <Property Name="Id_Ejercicio" Type="Int32" Nullable="false" />
+          <Property Name="Desc_TipodeRutina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Finanza">
+          <Key>
+            <PropertyRef Name="Id_Finanza" />
+          </Key>
+          <Property Name="Id_Finanza" Type="Int32" Nullable="false" />
+          <Property Name="UltimaFechaPagada" Type="DateTime" Precision="3" />
+          <Property Name="Id_Cliente" Type="Int32" />
+          <Property Name="Id_Estado" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Idioma">
+          <Key>
+            <PropertyRef Name="Id_Idioma" />
+          </Key>
+          <Property Name="Id_Idioma" Type="Int32" Nullable="false" />
+          <Property Name="Idioma1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Label_Etiqueta">
+          <Key>
+            <PropertyRef Name="Id_label" />
+          </Key>
+          <Property Name="Id_label" Type="Int32" Nullable="false" />
+          <Property Name="NombreEtiqueta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Localidad">
+          <Key>
+            <PropertyRef Name="Id_Localidad" />
+          </Key>
+          <Property Name="Id_Localidad" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Sucursal" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="Id_Pais" />
+          </Key>
+          <Property Name="Id_Pais" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Provincia" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PerfilPyF">
+          <Key>
+            <PropertyRef Name="Id_Perfil" />
+          </Key>
+          <Property Name="Id_Perfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PermisosUsuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+            <PropertyRef Name="Id_Permiso" />
+          </Key>
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Id_Permiso" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="Id_Provincia" />
+          </Key>
+          <Property Name="Id_Provincia" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Localidad" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="Id_Sucursal" />
+          </Key>
+          <Property Name="Id_Sucursal" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="GymAppEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+          <EntitySet Name="CampoIdioma" EntityType="Self.CampoIdioma" />
+          <EntitySet Name="ClienteGYM" EntityType="Self.ClienteGYM" />
+          <EntitySet Name="DVV" EntityType="Self.DVV" />
+          <EntitySet Name="Ejercicio" EntityType="Self.Ejercicio" />
+          <EntitySet Name="Finanza" EntityType="Self.Finanza" />
+          <EntitySet Name="Idioma" EntityType="Self.Idioma" />
+          <EntitySet Name="Label_Etiqueta" EntityType="Self.Label_Etiqueta" />
+          <EntitySet Name="Localidad" EntityType="Self.Localidad" />
+          <EntitySet Name="Pais" EntityType="Self.Pais" />
+          <EntitySet Name="PerfilPyF" EntityType="Self.PerfilPyF" />
+          <EntitySet Name="PermisosUsuarios" EntityType="Self.PermisosUsuarios" />
+          <EntitySet Name="Provincia" EntityType="Self.Provincia" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GymAppModelStoreContainer" CdmEntityContainer="GymAppEntities">
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="GymAppModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="DVH" ColumnName="DVH" />
+                <ScalarProperty Name="Id_Idioma" ColumnName="Id_Idioma" />
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bitacora">
+            <EntityTypeMapping TypeName="GymAppModel.Bitacora">
+              <MappingFragment StoreEntitySet="Bitacora">
+                <ScalarProperty Name="Id_Bitacora" ColumnName="Id_Bitacora" />
+                <ScalarProperty Name="FechaDelMov" ColumnName="FechaDelMov" />
+                <ScalarProperty Name="Movimiento" ColumnName="Movimiento" />
+                <ScalarProperty Name="NivelDelProblema" ColumnName="NivelDelProblema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CampoIdioma">
+            <EntityTypeMapping TypeName="GymAppModel.CampoIdioma">
+              <MappingFragment StoreEntitySet="CampoIdioma">
+                <ScalarProperty Name="Id_Idioma" ColumnName="Id_Idioma" />
+                <ScalarProperty Name="Texto_Lbl" ColumnName="Texto_Lbl" />
+                <ScalarProperty Name="Id_label" ColumnName="Id_label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClienteGYM">
+            <EntityTypeMapping TypeName="GymAppModel.ClienteGYM">
+              <MappingFragment StoreEntitySet="ClienteGYM">
+                <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+                <ScalarProperty Name="Id_Sucursal" ColumnName="Id_Sucursal" />
+                <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="PesoKg" ColumnName="PesoKg" />
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+                <ScalarProperty Name="Dni" ColumnName="Dni" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="CodPostal" ColumnName="CodPostal" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Fecha_Nac" ColumnName="Fecha_Nac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DVV">
+            <EntityTypeMapping TypeName="GymAppModel.DVV">
+              <MappingFragment StoreEntitySet="DVV">
+                <ScalarProperty Name="Id_DVV" ColumnName="Id_DVV" />
+                <ScalarProperty Name="CodigoHash" ColumnName="CodigoHash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ejercicio">
+            <EntityTypeMapping TypeName="GymAppModel.Ejercicio">
+              <MappingFragment StoreEntitySet="Ejercicio">
+                <ScalarProperty Name="Id_Ejercicio" ColumnName="Id_Ejercicio" />
+                <ScalarProperty Name="Desc_TipodeRutina" ColumnName="Desc_TipodeRutina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Finanza">
+            <EntityTypeMapping TypeName="GymAppModel.Finanza">
+              <MappingFragment StoreEntitySet="Finanza">
+                <ScalarProperty Name="Id_Finanza" ColumnName="Id_Finanza" />
+                <ScalarProperty Name="UltimaFechaPagada" ColumnName="UltimaFechaPagada" />
+                <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+                <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Idioma">
+            <EntityTypeMapping TypeName="GymAppModel.Idioma">
+              <MappingFragment StoreEntitySet="Idioma">
+                <ScalarProperty Name="Id_Idioma" ColumnName="Id_Idioma" />
+                <ScalarProperty Name="Idioma1" ColumnName="Idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Label_Etiqueta">
+            <EntityTypeMapping TypeName="GymAppModel.Label_Etiqueta">
+              <MappingFragment StoreEntitySet="Label_Etiqueta">
+                <ScalarProperty Name="Id_label" ColumnName="Id_label" />
+                <ScalarProperty Name="NombreEtiqueta" ColumnName="NombreEtiqueta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Localidad">
+            <EntityTypeMapping TypeName="GymAppModel.Localidad">
+              <MappingFragment StoreEntitySet="Localidad">
+                <ScalarProperty Name="Id_Localidad" ColumnName="Id_Localidad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_Sucursal" ColumnName="Id_Sucursal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pais">
+            <EntityTypeMapping TypeName="GymAppModel.Pais">
+              <MappingFragment StoreEntitySet="Pais">
+                <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerfilPyF">
+            <EntityTypeMapping TypeName="GymAppModel.PerfilPyF">
+              <MappingFragment StoreEntitySet="PerfilPyF">
+                <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermisosUsuarios">
+            <EntityTypeMapping TypeName="GymAppModel.PermisosUsuarios">
+              <MappingFragment StoreEntitySet="PermisosUsuarios">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Id_Permiso" ColumnName="Id_Permiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provincia">
+            <EntityTypeMapping TypeName="GymAppModel.Provincia">
+              <MappingFragment StoreEntitySet="Provincia">
+                <ScalarProperty Name="Id_Provincia" ColumnName="Id_Provincia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Id_Localidad" ColumnName="Id_Localidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sucursal">
+            <EntityTypeMapping TypeName="GymAppModel.Sucursal">
+              <MappingFragment StoreEntitySet="Sucursal">
+                <ScalarProperty Name="Id_Sucursal" ColumnName="Id_Sucursal" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

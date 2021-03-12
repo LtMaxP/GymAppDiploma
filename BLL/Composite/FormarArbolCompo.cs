@@ -16,8 +16,6 @@ namespace BLL.Composite
         {
             List<BE.Composite> listCompo = comp.ObtenerPermisoUsuario(idUsuario);
 
-
-            Hoja hoja;
             Composite composite = new Composite("0", "Arbol");
 
             foreach (var element in listCompo)

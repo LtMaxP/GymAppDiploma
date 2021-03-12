@@ -13,6 +13,7 @@ namespace BLL
         Empleado = 2,
         Error = 404,
     }
+
     public class Login
     {
 
@@ -35,18 +36,18 @@ namespace BLL
         public Boolean DetectarUsuario(string usuario, string pass)
         {
             Boolean retornableComoCocaCola = false;
-            string passEncript = Seguridad.Encriptacion.Encriptador(pass);
-            if (DALUserLogin.DetectarUsuario(usuario, passEncript))
+            //string passEncript = Seguridad.Encriptacion.Encriptador(pass);
+            if (DALUserLogin.DetectarUsuario(usuario, pass)) //passEncript arreglalo que la cagaste
             {
                 //Composite arbol formado
                 var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario.ToString());
-                var ax = a.List();
 
 
                 foreach (Composite.Composite element in a.List())
                 {
 
-                    if (element.descripcion.Equals("Restore"))
+                    //if (element.descripcion.Equals("Restore"))// ejemplo de lo que tenes que hacer para validar QUE cosas habilitas luego
+                    if(!element.descripcion.Equals(" "))
                     {
                         retornableComoCocaCola = true;
                         break;
@@ -77,7 +78,8 @@ namespace BLL
             {
                 foreach (Composite.Component comp in arbolObjeto.List())
                 {
-                    if (comp.descripcion.Equals("Restore"))
+                    //if (comp.descripcion.Equals("Restore"))
+                    if(!comp.descripcion.Equals(" "))
                     {
                         isOk = true;
                         break;
