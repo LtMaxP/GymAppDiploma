@@ -13,6 +13,12 @@ namespace UI
 {
     public partial class Inicio : Form, BLL.Observer.IObserver
     {
+
+        //Formularios
+        Clientes Fclient;
+        BitacoraYDV FbitDV;
+        UsuariosABM FuserABM;
+
         public Inicio()
         {
             InitializeComponent();
@@ -59,10 +65,6 @@ namespace UI
             }
         }
 
-        //Formularios
-        Clientes Fclient;
-        BitacoraYDV FbitDV;
-        UsuariosABM FuserABM;
 
         private void Inicio_Load(object sender, EventArgs e)
         {
@@ -196,6 +198,11 @@ namespace UI
                     RecurseToolStripItems(item2.DropDown.Items);
                 }
             }
+        }
+
+        private void verSecretoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.form.BackgroundImage
         }
     }
 }

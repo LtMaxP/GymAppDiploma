@@ -184,6 +184,7 @@
             // 
             this.verSecretoToolStripMenuItem.Name = "verSecretoToolStripMenuItem";
             resources.ApplyResources(this.verSecretoToolStripMenuItem, "verSecretoToolStripMenuItem");
+            this.verSecretoToolStripMenuItem.Click += new System.EventHandler(this.verSecretoToolStripMenuItem_Click);
             // 
             // Inicio
             // 

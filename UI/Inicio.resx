@@ -157,31 +157,31 @@
     <value>Javanese Text, 9.75pt</value>
   </data>
   <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>170, 34</value>
   </data>
   <data name="labelClientes.Text" xml:space="preserve">
     <value>Clientes</value>
   </data>
   <data name="labelEmpleados.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>170, 34</value>
   </data>
   <data name="labelEmpleados.Text" xml:space="preserve">
     <value>Empleados</value>
   </data>
   <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>170, 34</value>
   </data>
   <data name="labelFacturas.Text" xml:space="preserve">
     <value>Facturas</value>
   </data>
   <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>170, 34</value>
   </data>
   <data name="labelPagosYCobros.Text" xml:space="preserve">
     <value>Pagos y Cobros</value>
   </data>
   <data name="labelListas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>170, 34</value>
   </data>
   <data name="labelListas.Text" xml:space="preserve">
     <value>Listas</value>
@@ -229,13 +229,13 @@
     <value>Sistema</value>
   </data>
   <data name="labelEspañol.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>131, 34</value>
   </data>
   <data name="labelEspañol.Text" xml:space="preserve">
     <value>Español</value>
   </data>
   <data name="labelIngles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>131, 34</value>
   </data>
   <data name="labelIngles.Text" xml:space="preserve">
     <value>Ingles</value>
@@ -250,7 +250,7 @@
     <value>Idioma</value>
   </data>
   <data name="verSecretoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 34</value>
+    <value>180, 34</value>
   </data>
   <data name="verSecretoToolStripMenuItem.Text" xml:space="preserve">
     <value>Ver Secreto</value>
