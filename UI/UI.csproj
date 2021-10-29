@@ -146,6 +146,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UsuariosABM.resx">
       <DependentUpon>UsuariosABM.cs</DependentUpon>
@@ -188,6 +189,11 @@
       <Project>{84200b22-0835-4b14-8aa8-07267fa732b8}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gymwallpaper.jpg" />
+    <None Include="Resources\focmili.jpg" />
+    <Content Include="SecSemiR-45\focmili.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

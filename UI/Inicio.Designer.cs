@@ -48,7 +48,11 @@
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.easterEggToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verSecretoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -169,7 +173,9 @@
             // labelAyuda
             // 
             this.labelAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.easterEggToolStripMenuItem});
+            this.easterEggToolStripMenuItem,
+            this.infoToolStripMenuItem,
+            this.contactoToolStripMenuItem});
             resources.ApplyResources(this.labelAyuda, "labelAyuda");
             this.labelAyuda.Name = "labelAyuda";
             // 
@@ -179,16 +185,37 @@
             this.verSecretoToolStripMenuItem});
             this.easterEggToolStripMenuItem.Name = "easterEggToolStripMenuItem";
             resources.ApplyResources(this.easterEggToolStripMenuItem, "easterEggToolStripMenuItem");
+            this.easterEggToolStripMenuItem.Click += new System.EventHandler(this.easterEggToolStripMenuItem_Click);
             // 
             // verSecretoToolStripMenuItem
             // 
             this.verSecretoToolStripMenuItem.Name = "verSecretoToolStripMenuItem";
             resources.ApplyResources(this.verSecretoToolStripMenuItem, "verSecretoToolStripMenuItem");
+            this.verSecretoToolStripMenuItem.Click += new System.EventHandler(this.verSecretoToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.BackgroundImage = global::UI.Properties.Resources.gymwallpaper;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            resources.ApplyResources(this.infoToolStripMenuItem, "infoToolStripMenuItem");
+            // 
+            // contactoToolStripMenuItem
+            // 
+            this.contactoToolStripMenuItem.Name = "contactoToolStripMenuItem";
+            resources.ApplyResources(this.contactoToolStripMenuItem, "contactoToolStripMenuItem");
             // 
             // Inicio
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -200,6 +227,7 @@
             this.Load += new System.EventHandler(this.Inicio_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +254,8 @@
         private System.Windows.Forms.ToolStripMenuItem labelAyuda;
         private System.Windows.Forms.ToolStripMenuItem easterEggToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verSecretoToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contactoToolStripMenuItem;
     }
 }

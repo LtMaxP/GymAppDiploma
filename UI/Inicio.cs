@@ -197,5 +197,22 @@ namespace UI
                 }
             }
         }
+
+        private void easterEggToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void verSecretoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap SecSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
+            pictureBox1.Image = SecSemi45;
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+        }
     }
 }

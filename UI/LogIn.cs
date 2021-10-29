@@ -17,6 +17,7 @@ namespace UI
         {
             this.Show();
         }
+
         private BLL.Login bllLog = new BLL.Login();
         private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
         int contador = 0;
@@ -27,8 +28,9 @@ namespace UI
 
         public void LogIn_Load(object sender, EventArgs e)
         {
-
+            
         }
+
 
         public void button2_Click(object sender, EventArgs e)
         {
