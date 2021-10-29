@@ -13,6 +13,9 @@ namespace UI
 {
     public partial class Inicio : Form, BLL.Observer.IObserver
     {
+        Bitmap secSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
+        Bitmap wallpaper = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
+        int speIma = 0;
         public Inicio()
         {
             InitializeComponent();
@@ -210,9 +213,16 @@ namespace UI
 
         private void verSecretoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Bitmap SecSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
-            pictureBox1.Image = SecSemi45;
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            if (speIma == 0)
+            {
+                this.BackgroundImage = secSemi45;
+                speIma = 1;
+            }
+            else
+            {
+                this.BackgroundImage = wallpaper;
+                speIma = 0;
+            }
         }
     }
 }
