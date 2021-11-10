@@ -66,7 +66,8 @@ namespace UI
         Clientes Fclient;
         BitacoraYDV FbitDV;
         UsuariosABM FuserABM;
-
+        Empleados Femp;
+        BackupRestore Fbackrest;
         private void Inicio_Load(object sender, EventArgs e)
         {
             Subject.AddObserver(this);
@@ -105,7 +106,7 @@ namespace UI
 
         private void Fclient_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Fclient = null;
+            ClosedForm(Fclient);
         }
 
         private void aBMUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -123,9 +124,13 @@ namespace UI
             }
         }
 
+        private void ClosedForm(Form formulario)
+        {
+            formulario = null;
+        }
         private void FuserABM_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FuserABM = null;
+            ClosedForm(FuserABM);
         }
 
         private void bitacoraDVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -145,7 +150,7 @@ namespace UI
 
         private void FbitDV_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FbitDV = null;
+            ClosedForm(FbitDV);
         }
 
 
@@ -223,6 +228,41 @@ namespace UI
                 this.BackgroundImage = wallpaper;
                 speIma = 0;
             }
+        }
+
+        private void labelEmpleados_Click(object sender, EventArgs e)
+        {
+            if (Femp == null)
+            {
+                Femp = new Empleados();
+                Femp.MdiParent = this;
+                Femp.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                Femp.Show();
+            }
+            else
+            {
+                Femp.Activate();
+            }
+        }
+
+        private void labelBackupRestore_Click(object sender, EventArgs e)
+        {
+            if (Fbackrest == null)
+            {
+                Fbackrest = new BackupRestore();
+                Fbackrest.MdiParent = this;
+                Fbackrest.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                Fbackrest.Show();
+            }
+            else
+            {
+                Fbackrest.Activate();
+            }
+        }
+
+        private void labelFacturas_Click(object sender, EventArgs e)
+        {
+            //facturas-pagoscobros-listas FALTANTE
         }
     }
 }

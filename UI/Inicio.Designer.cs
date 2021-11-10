@@ -100,11 +100,13 @@
             // 
             this.labelEmpleados.Name = "labelEmpleados";
             resources.ApplyResources(this.labelEmpleados, "labelEmpleados");
+            this.labelEmpleados.Click += new System.EventHandler(this.labelEmpleados_Click);
             // 
             // labelFacturas
             // 
             this.labelFacturas.Name = "labelFacturas";
             resources.ApplyResources(this.labelFacturas, "labelFacturas");
+            this.labelFacturas.Click += new System.EventHandler(this.labelFacturas_Click);
             // 
             // labelPagosYCobros
             // 
@@ -147,6 +149,7 @@
             // 
             this.labelBackupRestore.Name = "labelBackupRestore";
             resources.ApplyResources(this.labelBackupRestore, "labelBackupRestore");
+            this.labelBackupRestore.Click += new System.EventHandler(this.labelBackupRestore_Click);
             // 
             // labelIdioma
             // 

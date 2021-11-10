@@ -29,7 +29,6 @@ namespace BLL
         public Boolean BuscarUsuario(string usuario, string pass)
         {
             Boolean bo = DALUserLogin.BuscarUsuarioBD(usuario, pass);
-
             return bo;
         }
 

@@ -1,6 +1,7 @@
-﻿namespace UI
+﻿
+namespace UI
 {
-    partial class FamiliasYPatentes
+    partial class PagosCobros
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +34,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(707, 400);
+            this.button1.Location = new System.Drawing.Point(682, 404);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -41,15 +42,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FamiliasYPatentes
+            // PagosCobros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
-            this.Name = "FamiliasYPatentes";
-            this.Text = "FamiliasYPatentes";
-            this.Load += new System.EventHandler(this.FamiliasYPatentes_Load);
+            this.Name = "PagosCobros";
+            this.Text = "PagosCobros";
+            this.Load += new System.EventHandler(this.PagosCobros_Load);
             this.ResumeLayout(false);
 
         }

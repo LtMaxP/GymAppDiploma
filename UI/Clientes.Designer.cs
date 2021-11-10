@@ -108,6 +108,7 @@
             this.labelMostrar.TabIndex = 4;
             this.labelMostrar.Text = "Mostrar";
             this.labelMostrar.UseVisualStyleBackColor = true;
+            this.labelMostrar.Click += new System.EventHandler(this.labelMostrar_Click);
             // 
             // labelNombre
             // 
@@ -230,6 +231,7 @@
             this.labelAlta.TabIndex = 6;
             this.labelAlta.Text = "Alta";
             this.labelAlta.UseVisualStyleBackColor = true;
+            this.labelAlta.Click += new System.EventHandler(this.labelAlta_Click);
             // 
             // labelBaja
             // 

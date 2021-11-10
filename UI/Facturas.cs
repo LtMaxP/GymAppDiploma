@@ -11,29 +11,28 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class FamiliasYPatentes : Form, IObserver
+    public partial class Facturas : Form, IObserver
     {
-        public FamiliasYPatentes()
+        public Facturas()
         {
             InitializeComponent();
         }
 
-        public void Update(Idioma idioma)
-        {
-
-        }
-
-        private void FamiliasYPatentes_Load(object sender, EventArgs e)
+        private void Facturas_Load(object sender, EventArgs e)
         {
             Subject.AddObserver(this);
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             Subject.RemoveObserver(this);
             this.Close();
+        }
+
+        public void Update(Idioma idioma)
+        {
+
         }
     }
 }

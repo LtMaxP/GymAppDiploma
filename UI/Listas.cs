@@ -11,29 +11,33 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class FamiliasYPatentes : Form, IObserver
+    public partial class Listas : Form, IObserver
     {
-        public FamiliasYPatentes()
+        public Listas()
         {
             InitializeComponent();
         }
 
-        public void Update(Idioma idioma)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void FamiliasYPatentes_Load(object sender, EventArgs e)
-        {
-            Subject.AddObserver(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
-        }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
             Subject.RemoveObserver(this);
             this.Close();
+        }
+
+        private void Listas_Load(object sender, EventArgs e)
+        {
+            Subject.AddObserver(this);
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+        }
+
+        public void Update(Idioma idioma)
+        {
+
         }
     }
 }

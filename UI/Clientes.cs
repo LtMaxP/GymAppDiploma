@@ -44,5 +44,15 @@ namespace UI
             //    ini.Traducir(item);
             //}
         }
+
+        private void labelMostrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelAlta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

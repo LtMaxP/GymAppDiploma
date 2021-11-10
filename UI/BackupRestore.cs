@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Observer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class BackupRestore : Form
+    public partial class BackupRestore : Form, IObserver
     {
         public BackupRestore()
         {
@@ -41,6 +42,23 @@ namespace UI
             {
                 MessageBox.Show("Ruta incorrecta.");
             }
+        }
+
+        private void BackupRestore_Load(object sender, EventArgs e)
+        {
+            Subject.AddObserver(this);
+            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+        }
+
+        public void Update(Idioma idioma)
+        {
+
+        }
+
+        private void btnVolverBackUp_Click(object sender, EventArgs e)
+        {
+            Subject.RemoveObserver(this);
+            this.Close();
         }
     }
 }

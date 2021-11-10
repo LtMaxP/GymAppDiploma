@@ -113,6 +113,7 @@
             this.btnVolverBackUp.TabIndex = 38;
             this.btnVolverBackUp.Text = "Salir";
             this.btnVolverBackUp.UseVisualStyleBackColor = true;
+            this.btnVolverBackUp.Click += new System.EventHandler(this.btnVolverBackUp_Click);
             // 
             // btnEjecutarBackUp
             // 
@@ -169,6 +170,7 @@
             this.Controls.Add(this.lblDirectorioBackUp);
             this.Name = "BackupRestore";
             this.Text = "BackupRestore";
+            this.Load += new System.EventHandler(this.BackupRestore_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgBackup)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

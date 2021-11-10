@@ -61,6 +61,7 @@
             this.labelSalir.TabIndex = 45;
             this.labelSalir.Text = "Salir";
             this.labelSalir.UseVisualStyleBackColor = true;
+            this.labelSalir.Click += new System.EventHandler(this.labelSalir_Click);
             // 
             // textBox14
             // 
@@ -281,6 +282,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Empleados";
             this.Text = "Empleados";
+            this.Load += new System.EventHandler(this.Empleados_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
