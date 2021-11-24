@@ -175,11 +175,11 @@
             // labelMostrar
             // 
             this.labelMostrar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.labelMostrar.Location = new System.Drawing.Point(72, 333);
+            this.labelMostrar.Location = new System.Drawing.Point(61, 333);
             this.labelMostrar.Name = "labelMostrar";
-            this.labelMostrar.Size = new System.Drawing.Size(75, 23);
+            this.labelMostrar.Size = new System.Drawing.Size(106, 23);
             this.labelMostrar.TabIndex = 16;
-            this.labelMostrar.Text = "Mostrar";
+            this.labelMostrar.Text = "Mostrar datos -->";
             this.labelMostrar.UseVisualStyleBackColor = true;
             // 
             // listView2
