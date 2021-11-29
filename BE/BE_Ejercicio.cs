@@ -24,6 +24,13 @@ namespace BE
             set { _Ejercicio = value; }
         }
 
+        private string _tiempoDescripcion;
+
+        public string TiempoDescripcion
+        {
+            get { return _tiempoDescripcion; }
+            set { _tiempoDescripcion = value; }
+        }
 
     }
 }

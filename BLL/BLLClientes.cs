@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
+using DAL;
 
 namespace BLL
 {
@@ -22,12 +23,19 @@ namespace BLL
 
         public DataTable Leer(Cliente valBuscar)
         {
-            throw new NotImplementedException();
+            DataTable a = new DataTable();
+            return a;
         }
 
         public void Modificar(Cliente valMod)
         {
             throw new NotImplementedException();
+        }
+
+        public void ValidarSiClienteExiste(Cliente cli)
+        {
+
+            //DAL.DALClientes
         }
     }
 }

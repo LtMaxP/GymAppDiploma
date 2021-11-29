@@ -207,7 +207,7 @@
             // labelRutina
             // 
             this.labelRutina.AutoSize = true;
-            this.labelRutina.Location = new System.Drawing.Point(503, 189);
+            this.labelRutina.Location = new System.Drawing.Point(574, 185);
             this.labelRutina.Name = "labelRutina";
             this.labelRutina.Size = new System.Drawing.Size(71, 13);
             this.labelRutina.TabIndex = 5;
@@ -335,9 +335,9 @@
             // listRutina
             // 
             this.listRutina.HideSelection = false;
-            this.listRutina.Location = new System.Drawing.Point(646, 181);
+            this.listRutina.Location = new System.Drawing.Point(495, 212);
             this.listRutina.Name = "listRutina";
-            this.listRutina.Size = new System.Drawing.Size(106, 99);
+            this.listRutina.Size = new System.Drawing.Size(246, 73);
             this.listRutina.TabIndex = 3;
             this.listRutina.UseCompatibleStateImageBehavior = false;
             // 
