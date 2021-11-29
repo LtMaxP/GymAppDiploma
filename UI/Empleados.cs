@@ -34,5 +34,10 @@ namespace UI
             Subject.RemoveObserver(this);
             this.Close();
         }
+
+        private void labelBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

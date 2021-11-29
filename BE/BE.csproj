@@ -47,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABMUsuarios.cs" />
+    <Compile Include="BE_Ejercicio.cs" />
+    <Compile Include="BE_Empleado.cs" />
+    <Compile Include="BE_Factura.cs" />
+    <Compile Include="BE_Listas.cs" />
+    <Compile Include="BE_PagoCobro.cs" />
     <Compile Include="Bitacora.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Composite.cs" />

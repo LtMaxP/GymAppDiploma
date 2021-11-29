@@ -55,14 +55,14 @@
             this.textBox_Numero = new System.Windows.Forms.TextBox();
             this.textBox_Sucursal = new System.Windows.Forms.TextBox();
             this.textBox_Telefono = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox_CodPost = new System.Windows.Forms.TextBox();
             this.textBox_Estado = new System.Windows.Forms.TextBox();
-            this.textBox_EmpleadoCargo = new System.Windows.Forms.TextBox();
+            this.textBox_Profesor = new System.Windows.Forms.TextBox();
             this.labelSalir = new System.Windows.Forms.Button();
             this.listRutina = new System.Windows.Forms.ListView();
             this.labelPeso = new System.Windows.Forms.Label();
             this.textBox_Peso = new System.Windows.Forms.TextBox();
+            this.fechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btn_Buscar
@@ -219,9 +219,9 @@
             this.labelEmpleadoACargo.AutoSize = true;
             this.labelEmpleadoACargo.Location = new System.Drawing.Point(503, 158);
             this.labelEmpleadoACargo.Name = "labelEmpleadoACargo";
-            this.labelEmpleadoACargo.Size = new System.Drawing.Size(93, 13);
+            this.labelEmpleadoACargo.Size = new System.Drawing.Size(46, 13);
             this.labelEmpleadoACargo.TabIndex = 5;
-            this.labelEmpleadoACargo.Text = "Empleado a cargo";
+            this.labelEmpleadoACargo.Text = "Profesor";
             this.labelEmpleadoACargo.Click += new System.EventHandler(this.label9_Click);
             // 
             // btn_Alta
@@ -301,13 +301,6 @@
             this.textBox_Telefono.Size = new System.Drawing.Size(100, 20);
             this.textBox_Telefono.TabIndex = 9;
             // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(348, 260);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 20);
-            this.textBox16.TabIndex = 9;
-            // 
             // textBox_CodPost
             // 
             this.textBox_CodPost.Location = new System.Drawing.Point(348, 208);
@@ -322,12 +315,12 @@
             this.textBox_Estado.Size = new System.Drawing.Size(106, 20);
             this.textBox_Estado.TabIndex = 9;
             // 
-            // textBox_EmpleadoCargo
+            // textBox_Profesor
             // 
-            this.textBox_EmpleadoCargo.Location = new System.Drawing.Point(646, 155);
-            this.textBox_EmpleadoCargo.Name = "textBox_EmpleadoCargo";
-            this.textBox_EmpleadoCargo.Size = new System.Drawing.Size(106, 20);
-            this.textBox_EmpleadoCargo.TabIndex = 9;
+            this.textBox_Profesor.Location = new System.Drawing.Point(646, 155);
+            this.textBox_Profesor.Name = "textBox_Profesor";
+            this.textBox_Profesor.Size = new System.Drawing.Size(106, 20);
+            this.textBox_Profesor.TabIndex = 9;
             // 
             // labelSalir
             // 
@@ -365,18 +358,29 @@
             this.textBox_Peso.Size = new System.Drawing.Size(100, 20);
             this.textBox_Peso.TabIndex = 9;
             // 
+            // fechaNacimiento
+            // 
+            this.fechaNacimiento.Cursor = System.Windows.Forms.Cursors.PanSE;
+            this.fechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechaNacimiento.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.fechaNacimiento.Location = new System.Drawing.Point(348, 260);
+            this.fechaNacimiento.MinDate = new System.DateTime(1889, 1, 1, 0, 0, 0, 0);
+            this.fechaNacimiento.Name = "fechaNacimiento";
+            this.fechaNacimiento.Size = new System.Drawing.Size(100, 20);
+            this.fechaNacimiento.TabIndex = 11;
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.fechaNacimiento);
             this.Controls.Add(this.labelSalir);
-            this.Controls.Add(this.textBox_EmpleadoCargo);
+            this.Controls.Add(this.textBox_Profesor);
             this.Controls.Add(this.textBox_Estado);
             this.Controls.Add(this.textBox_Sucursal);
             this.Controls.Add(this.textBox_CodPost);
             this.Controls.Add(this.textBox_Peso);
-            this.Controls.Add(this.textBox16);
             this.Controls.Add(this.textBox_Calle);
             this.Controls.Add(this.textBox_Telefono);
             this.Controls.Add(this.textBox_Dni);
@@ -445,13 +449,13 @@
         private System.Windows.Forms.TextBox textBox_Numero;
         private System.Windows.Forms.TextBox textBox_Sucursal;
         private System.Windows.Forms.TextBox textBox_Telefono;
-        private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox_CodPost;
         private System.Windows.Forms.TextBox textBox_Estado;
-        private System.Windows.Forms.TextBox textBox_EmpleadoCargo;
+        private System.Windows.Forms.TextBox textBox_Profesor;
         private System.Windows.Forms.Button labelSalir;
         private System.Windows.Forms.ListView listRutina;
         private System.Windows.Forms.Label labelPeso;
         private System.Windows.Forms.TextBox textBox_Peso;
+        private System.Windows.Forms.DateTimePicker fechaNacimiento;
     }
 }

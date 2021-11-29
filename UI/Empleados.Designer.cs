@@ -224,6 +224,7 @@
             this.labelBuscar.TabIndex = 11;
             this.labelBuscar.Text = "Buscar";
             this.labelBuscar.UseVisualStyleBackColor = true;
+            this.labelBuscar.Click += new System.EventHandler(this.labelBuscar_Click);
             // 
             // comboBox1
             // 
@@ -235,9 +236,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(137, 369);
+            this.button1.Location = new System.Drawing.Point(235, 273);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 23);
+            this.button1.Size = new System.Drawing.Size(85, 23);
             this.button1.TabIndex = 47;
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
@@ -245,7 +246,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 353);
+            this.label1.Location = new System.Drawing.Point(189, 257);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 13);
             this.label1.TabIndex = 48;

@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL.Observer;
+using BLL;
 
 namespace UI
 {
     public partial class Clientes : Form, BLL.Observer.IObserver
     {
+        BLLClientes bllClientes;
         public Clientes()
         {
             InitializeComponent();
@@ -52,7 +54,21 @@ namespace UI
 
         private void labelAlta_Click(object sender, EventArgs e)
         {
-
+            BE.Cliente client = new BE.Cliente();
+            client._nombre = textBox_Nombre.Text;
+            client._apellido = textBox_Apellido.Text;
+            client._dni = int.Parse(textBox_Dni.Text);
+            client._calle = textBox_Calle.Text;
+            client._numero = int.Parse(textBox_Numero.Text);
+            client._codPostal = int.Parse(textBox_CodPost.Text);
+            client._telefono = int.Parse(textBox_Telefono.Text);
+            client._fechaNacimiento = fechaNacimiento.Value;
+            client._pesokg = int.Parse(textBox_Peso.Text);
+            client._idEstado = int.Parse(textBox_Estado.Text);
+            client._IDSucursal = int.Parse(textBox_Sucursal.Text);
+            client._IDEmpleado = int.Parse(textBox_Profesor.Text);
+            //client.Ejercicio = BE_ejercicio. listRutina.Text;
+            bllClientes.Alta(client);
         }
 
         private void btn_Buscar_Click(object sender, EventArgs e)

@@ -74,6 +74,11 @@
     </Compile>
     <Compile Include="CompositeyPermisosDAL.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DALClientes.cs" />
+    <Compile Include="DALEmpleado.cs" />
+    <Compile Include="DALFactura.cs" />
+    <Compile Include="DALLista.cs" />
+    <Compile Include="DALPagosCobros.cs" />
     <Compile Include="DigitoVerificadorDAL.cs" />
     <Compile Include="BusquedaDAL.cs" />
     <Compile Include="DVV.cs">

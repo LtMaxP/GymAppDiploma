@@ -50,6 +50,11 @@
   <ItemGroup>
     <Compile Include="Acciones.cs" />
     <Compile Include="BitacoraBLL.cs" />
+    <Compile Include="BLLClientes.cs" />
+    <Compile Include="BLLEmpleados.cs" />
+    <Compile Include="BLLFacturas.cs" />
+    <Compile Include="BLLListas.cs" />
+    <Compile Include="BLLPagosCobros.cs" />
     <Compile Include="Composite\Component.cs" />
     <Compile Include="Composite\Composite.cs" />
     <Compile Include="Composite\FormarArbolCompo.cs" />
