@@ -39,5 +39,10 @@ namespace UI
         {
 
         }
+
+        private void listBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -13,8 +13,8 @@ namespace UI
 {
     public partial class Inicio : Form, BLL.Observer.IObserver
     {
-        Bitmap secSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
-        Bitmap wallpaper = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
+        Bitmap secSemi45 = new Bitmap(@"C:\Users\gonza\OneDrive\Documentos\GitHub\GymAppDiploma\UI\Resources\focmili.jpg");//(@"..\UI\SecSemiR-45\focmili.jpg", true);
+        Bitmap wallpaper = new Bitmap(@"C:\Users\gonza\OneDrive\Documentos\GitHub\GymAppDiploma\UI\Resources\gymwallpaper.jpg");//(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
         int speIma = 0;
         public Inicio()
         {
@@ -22,6 +22,7 @@ namespace UI
             //TraducirTodo();
         }
 
+        #region traducir
         private List<BE.Idioma> _pack;
         private List<BE.Idioma> pack
         {
@@ -61,6 +62,31 @@ namespace UI
                 Traducir(item);
             }
         }
+
+        private void RecurseToolStripItems(ToolStripItemCollection tsic)
+        {
+
+            foreach (ToolStripItem item in tsic)
+            {
+                if (!string.IsNullOrEmpty(item.Name))
+                {
+                    foreach (BE.Idioma us in pack)
+                    {
+                        if (us._nombreEtiqueta == item.Name && us._idiomaPerteneciente == BE.Usuario.Instance.idIdioma)
+                        {
+                            item.Text = us._textoLabel;
+                        }
+                    }
+                }
+                // Aqui implementamos la recursividad donde el método se llama a sí mismo, así trabaja para cualquier cantidad de niveles de menu.
+                if (item is ToolStripMenuItem)
+                {
+                    ToolStripMenuItem item2 = (ToolStripMenuItem)item;
+                    RecurseToolStripItems(item2.DropDown.Items);
+                }
+            }
+        }
+        #endregion
 
         //Formularios
         Clientes Fclient;
@@ -106,7 +132,7 @@ namespace UI
 
         private void Fclient_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ClosedForm(Fclient);
+            Fclient = null;
         }
 
         private void aBMUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -124,13 +150,9 @@ namespace UI
             }
         }
 
-        private void ClosedForm(Form formulario)
-        {
-            formulario = null;
-        }
         private void FuserABM_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ClosedForm(FuserABM);
+            FuserABM = null;
         }
 
         private void bitacoraDVToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,7 +172,7 @@ namespace UI
 
         private void FbitDV_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ClosedForm(FbitDV);
+            FbitDV = null;
         }
 
 
@@ -182,29 +204,7 @@ namespace UI
         }
 
 
-        private void RecurseToolStripItems(ToolStripItemCollection tsic)
-        {
 
-            foreach (ToolStripItem item in tsic)
-            {
-                if (!string.IsNullOrEmpty(item.Name))
-                {
-                    foreach (BE.Idioma us in pack)
-                    {
-                        if (us._nombreEtiqueta == item.Name && us._idiomaPerteneciente == BE.Usuario.Instance.idIdioma)
-                        {
-                            item.Text = us._textoLabel;
-                        }
-                    }
-                }
-                // Aqui implementamos la recursividad donde el método se llama a sí mismo, así trabaja para cualquier cantidad de niveles de menu.
-                if (item is ToolStripMenuItem)
-                {
-                    ToolStripMenuItem item2 = (ToolStripMenuItem)item;
-                    RecurseToolStripItems(item2.DropDown.Items);
-                }
-            }
-        }
 
         private void easterEggToolStripMenuItem_Click(object sender, EventArgs e)
         {

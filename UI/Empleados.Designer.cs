@@ -48,14 +48,14 @@
             this.labelBuscarUnUsuario = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelBuscar = new System.Windows.Forms.Button();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.labelTiposDeEspecialidades = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelSalir
             // 
-            this.labelSalir.Location = new System.Drawing.Point(670, 456);
+            this.labelSalir.Location = new System.Drawing.Point(665, 369);
             this.labelSalir.Name = "labelSalir";
             this.labelSalir.Size = new System.Drawing.Size(85, 34);
             this.labelSalir.TabIndex = 45;
@@ -93,7 +93,7 @@
             // 
             // labelModificar
             // 
-            this.labelModificar.Location = new System.Drawing.Point(686, 378);
+            this.labelModificar.Location = new System.Drawing.Point(686, 294);
             this.labelModificar.Name = "labelModificar";
             this.labelModificar.Size = new System.Drawing.Size(64, 23);
             this.labelModificar.TabIndex = 32;
@@ -102,7 +102,7 @@
             // 
             // labelBaja
             // 
-            this.labelBaja.Location = new System.Drawing.Point(617, 378);
+            this.labelBaja.Location = new System.Drawing.Point(617, 294);
             this.labelBaja.Name = "labelBaja";
             this.labelBaja.Size = new System.Drawing.Size(63, 23);
             this.labelBaja.TabIndex = 31;
@@ -111,7 +111,7 @@
             // 
             // labelAlta
             // 
-            this.labelAlta.Location = new System.Drawing.Point(543, 378);
+            this.labelAlta.Location = new System.Drawing.Point(543, 294);
             this.labelAlta.Name = "labelAlta";
             this.labelAlta.Size = new System.Drawing.Size(68, 23);
             this.labelAlta.TabIndex = 30;
@@ -123,14 +123,14 @@
             this.labelEspecialidades.AutoSize = true;
             this.labelEspecialidades.Location = new System.Drawing.Point(238, 202);
             this.labelEspecialidades.Name = "labelEspecialidades";
-            this.labelEspecialidades.Size = new System.Drawing.Size(78, 13);
+            this.labelEspecialidades.Size = new System.Drawing.Size(43, 13);
             this.labelEspecialidades.TabIndex = 29;
-            this.labelEspecialidades.Text = "Especialidades";
+            this.labelEspecialidades.Text = "Trabajo";
             // 
             // labelPersonasACargo
             // 
             this.labelPersonasACargo.AutoSize = true;
-            this.labelPersonasACargo.Location = new System.Drawing.Point(533, 86);
+            this.labelPersonasACargo.Location = new System.Drawing.Point(520, 86);
             this.labelPersonasACargo.Name = "labelPersonasACargo";
             this.labelPersonasACargo.Size = new System.Drawing.Size(91, 13);
             this.labelPersonasACargo.TabIndex = 28;
@@ -175,7 +175,7 @@
             // labelMostrar
             // 
             this.labelMostrar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.labelMostrar.Location = new System.Drawing.Point(61, 333);
+            this.labelMostrar.Location = new System.Drawing.Point(56, 294);
             this.labelMostrar.Name = "labelMostrar";
             this.labelMostrar.Size = new System.Drawing.Size(106, 23);
             this.labelMostrar.TabIndex = 16;
@@ -185,9 +185,9 @@
             // listView2
             // 
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(644, 86);
+            this.listView2.Location = new System.Drawing.Point(617, 86);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(106, 231);
+            this.listView2.Size = new System.Drawing.Size(133, 184);
             this.listView2.TabIndex = 15;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
@@ -196,7 +196,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(42, 86);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(141, 231);
+            this.listView1.Size = new System.Drawing.Size(141, 184);
             this.listView1.TabIndex = 14;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -225,37 +225,39 @@
             this.labelBuscar.Text = "Buscar";
             this.labelBuscar.UseVisualStyleBackColor = true;
             // 
-            // listView3
-            // 
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(374, 202);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(121, 114);
-            this.listView3.TabIndex = 15;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            // 
-            // labelTiposDeEspecialidades
-            // 
-            this.labelTiposDeEspecialidades.AutoSize = true;
-            this.labelTiposDeEspecialidades.Location = new System.Drawing.Point(238, 325);
-            this.labelTiposDeEspecialidades.Name = "labelTiposDeEspecialidades";
-            this.labelTiposDeEspecialidades.Size = new System.Drawing.Size(122, 13);
-            this.labelTiposDeEspecialidades.TabIndex = 29;
-            this.labelTiposDeEspecialidades.Text = "Tipos de Especialidades";
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(374, 322);
+            this.comboBox1.Location = new System.Drawing.Point(374, 202);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 46;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(137, 369);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(58, 23);
+            this.button1.TabIndex = 47;
+            this.button1.Text = "Agregar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 353);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(183, 13);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Agregar cliente a cargo del empleado";
             // 
             // Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 502);
+            this.ClientSize = new System.Drawing.Size(771, 426);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.labelSalir);
             this.Controls.Add(this.textBox14);
@@ -265,7 +267,6 @@
             this.Controls.Add(this.labelModificar);
             this.Controls.Add(this.labelBaja);
             this.Controls.Add(this.labelAlta);
-            this.Controls.Add(this.labelTiposDeEspecialidades);
             this.Controls.Add(this.labelEspecialidades);
             this.Controls.Add(this.labelPersonasACargo);
             this.Controls.Add(this.labelSucursal);
@@ -273,7 +274,6 @@
             this.Controls.Add(this.labelApellido);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelMostrar);
-            this.Controls.Add(this.listView3);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.labelBuscarUnUsuario);
@@ -310,8 +310,8 @@
         private System.Windows.Forms.Label labelBuscarUnUsuario;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button labelBuscar;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.Label labelTiposDeEspecialidades;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }

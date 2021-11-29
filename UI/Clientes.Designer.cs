@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelBuscar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_Buscar = new System.Windows.Forms.Button();
+            this.textBox_Buscar = new System.Windows.Forms.TextBox();
             this.labelBuscarUnUsuario = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.labelMostrar = new System.Windows.Forms.Button();
+            this.listView = new System.Windows.Forms.ListView();
+            this.btn_Mostrar = new System.Windows.Forms.Button();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelApellido = new System.Windows.Forms.Label();
             this.labelDNI = new System.Windows.Forms.Label();
@@ -45,41 +45,42 @@
             this.labelFecha = new System.Windows.Forms.Label();
             this.labelRutina = new System.Windows.Forms.Label();
             this.labelEmpleadoACargo = new System.Windows.Forms.Label();
-            this.labelAlta = new System.Windows.Forms.Button();
-            this.labelBaja = new System.Windows.Forms.Button();
-            this.labelModificar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.btn_Alta = new System.Windows.Forms.Button();
+            this.btn_Baja = new System.Windows.Forms.Button();
+            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.textBox_Nombre = new System.Windows.Forms.TextBox();
+            this.textBox_Apellido = new System.Windows.Forms.TextBox();
+            this.textBox_Dni = new System.Windows.Forms.TextBox();
+            this.textBox_Calle = new System.Windows.Forms.TextBox();
+            this.textBox_Numero = new System.Windows.Forms.TextBox();
+            this.textBox_Sucursal = new System.Windows.Forms.TextBox();
+            this.textBox_Telefono = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox_CodPost = new System.Windows.Forms.TextBox();
+            this.textBox_Estado = new System.Windows.Forms.TextBox();
+            this.textBox_EmpleadoCargo = new System.Windows.Forms.TextBox();
             this.labelSalir = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.listRutina = new System.Windows.Forms.ListView();
             this.labelPeso = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox_Peso = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // labelBuscar
+            // btn_Buscar
             // 
-            this.labelBuscar.Location = new System.Drawing.Point(320, 16);
-            this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(75, 23);
-            this.labelBuscar.TabIndex = 0;
-            this.labelBuscar.Text = "Buscar";
-            this.labelBuscar.UseVisualStyleBackColor = true;
+            this.btn_Buscar.Location = new System.Drawing.Point(310, 16);
+            this.btn_Buscar.Name = "btn_Buscar";
+            this.btn_Buscar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Buscar.TabIndex = 0;
+            this.btn_Buscar.Text = "Buscar";
+            this.btn_Buscar.UseVisualStyleBackColor = true;
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
             // 
-            // textBox1
+            // textBox_Buscar
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox_Buscar.Location = new System.Drawing.Point(127, 18);
+            this.textBox_Buscar.Name = "textBox_Buscar";
+            this.textBox_Buscar.Size = new System.Drawing.Size(167, 20);
+            this.textBox_Buscar.TabIndex = 1;
             // 
             // labelBuscarUnUsuario
             // 
@@ -90,25 +91,25 @@
             this.labelBuscarUnUsuario.TabIndex = 2;
             this.labelBuscarUnUsuario.Text = "Nombre del Cliente";
             // 
-            // listView1
+            // listView
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(16, 70);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(141, 231);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(16, 70);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(141, 231);
+            this.listView.TabIndex = 3;
+            this.listView.UseCompatibleStateImageBehavior = false;
             // 
-            // labelMostrar
+            // btn_Mostrar
             // 
-            this.labelMostrar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.labelMostrar.Location = new System.Drawing.Point(46, 317);
-            this.labelMostrar.Name = "labelMostrar";
-            this.labelMostrar.Size = new System.Drawing.Size(75, 23);
-            this.labelMostrar.TabIndex = 4;
-            this.labelMostrar.Text = "Mostrar";
-            this.labelMostrar.UseVisualStyleBackColor = true;
-            this.labelMostrar.Click += new System.EventHandler(this.labelMostrar_Click);
+            this.btn_Mostrar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btn_Mostrar.Location = new System.Drawing.Point(46, 317);
+            this.btn_Mostrar.Name = "btn_Mostrar";
+            this.btn_Mostrar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Mostrar.TabIndex = 4;
+            this.btn_Mostrar.Text = "Mostrar";
+            this.btn_Mostrar.UseVisualStyleBackColor = true;
+            this.btn_Mostrar.Click += new System.EventHandler(this.labelMostrar_Click);
             // 
             // labelNombre
             // 
@@ -223,82 +224,82 @@
             this.labelEmpleadoACargo.Text = "Empleado a cargo";
             this.labelEmpleadoACargo.Click += new System.EventHandler(this.label9_Click);
             // 
-            // labelAlta
+            // btn_Alta
             // 
-            this.labelAlta.Location = new System.Drawing.Point(577, 344);
-            this.labelAlta.Name = "labelAlta";
-            this.labelAlta.Size = new System.Drawing.Size(52, 23);
-            this.labelAlta.TabIndex = 6;
-            this.labelAlta.Text = "Alta";
-            this.labelAlta.UseVisualStyleBackColor = true;
-            this.labelAlta.Click += new System.EventHandler(this.labelAlta_Click);
+            this.btn_Alta.Location = new System.Drawing.Point(577, 344);
+            this.btn_Alta.Name = "btn_Alta";
+            this.btn_Alta.Size = new System.Drawing.Size(52, 23);
+            this.btn_Alta.TabIndex = 6;
+            this.btn_Alta.Text = "Alta";
+            this.btn_Alta.UseVisualStyleBackColor = true;
+            this.btn_Alta.Click += new System.EventHandler(this.labelAlta_Click);
             // 
-            // labelBaja
+            // btn_Baja
             // 
-            this.labelBaja.Location = new System.Drawing.Point(635, 344);
-            this.labelBaja.Name = "labelBaja";
-            this.labelBaja.Size = new System.Drawing.Size(52, 23);
-            this.labelBaja.TabIndex = 7;
-            this.labelBaja.Text = "Baja";
-            this.labelBaja.UseVisualStyleBackColor = true;
+            this.btn_Baja.Location = new System.Drawing.Point(635, 344);
+            this.btn_Baja.Name = "btn_Baja";
+            this.btn_Baja.Size = new System.Drawing.Size(52, 23);
+            this.btn_Baja.TabIndex = 7;
+            this.btn_Baja.Text = "Baja";
+            this.btn_Baja.UseVisualStyleBackColor = true;
             // 
-            // labelModificar
+            // btn_Modificar
             // 
-            this.labelModificar.Location = new System.Drawing.Point(693, 344);
-            this.labelModificar.Name = "labelModificar";
-            this.labelModificar.Size = new System.Drawing.Size(59, 23);
-            this.labelModificar.TabIndex = 8;
-            this.labelModificar.Text = "Modificar";
-            this.labelModificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Location = new System.Drawing.Point(693, 344);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(59, 23);
+            this.btn_Modificar.TabIndex = 8;
+            this.btn_Modificar.Text = "Modificar";
+            this.btn_Modificar.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // textBox_Nombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(348, 70);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 9;
+            this.textBox_Nombre.Location = new System.Drawing.Point(348, 70);
+            this.textBox_Nombre.Name = "textBox_Nombre";
+            this.textBox_Nombre.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Nombre.TabIndex = 9;
             // 
-            // textBox3
+            // textBox_Apellido
             // 
-            this.textBox3.Location = new System.Drawing.Point(348, 97);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
+            this.textBox_Apellido.Location = new System.Drawing.Point(348, 97);
+            this.textBox_Apellido.Name = "textBox_Apellido";
+            this.textBox_Apellido.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Apellido.TabIndex = 9;
             // 
-            // textBox4
+            // textBox_Dni
             // 
-            this.textBox4.Location = new System.Drawing.Point(348, 126);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 9;
+            this.textBox_Dni.Location = new System.Drawing.Point(348, 126);
+            this.textBox_Dni.Name = "textBox_Dni";
+            this.textBox_Dni.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Dni.TabIndex = 9;
             // 
-            // textBox5
+            // textBox_Calle
             // 
-            this.textBox5.Location = new System.Drawing.Point(348, 155);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 9;
+            this.textBox_Calle.Location = new System.Drawing.Point(348, 155);
+            this.textBox_Calle.Name = "textBox_Calle";
+            this.textBox_Calle.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Calle.TabIndex = 9;
             // 
-            // textBox6
+            // textBox_Numero
             // 
-            this.textBox6.Location = new System.Drawing.Point(348, 182);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 9;
+            this.textBox_Numero.Location = new System.Drawing.Point(348, 182);
+            this.textBox_Numero.Name = "textBox_Numero";
+            this.textBox_Numero.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Numero.TabIndex = 9;
             // 
-            // textBox9
+            // textBox_Sucursal
             // 
-            this.textBox9.Location = new System.Drawing.Point(646, 129);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(106, 20);
-            this.textBox9.TabIndex = 9;
+            this.textBox_Sucursal.Location = new System.Drawing.Point(646, 129);
+            this.textBox_Sucursal.Name = "textBox_Sucursal";
+            this.textBox_Sucursal.Size = new System.Drawing.Size(106, 20);
+            this.textBox_Sucursal.TabIndex = 9;
             // 
-            // textBox15
+            // textBox_Telefono
             // 
-            this.textBox15.Location = new System.Drawing.Point(348, 234);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 20);
-            this.textBox15.TabIndex = 9;
+            this.textBox_Telefono.Location = new System.Drawing.Point(348, 234);
+            this.textBox_Telefono.Name = "textBox_Telefono";
+            this.textBox_Telefono.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Telefono.TabIndex = 9;
             // 
             // textBox16
             // 
@@ -307,26 +308,26 @@
             this.textBox16.Size = new System.Drawing.Size(100, 20);
             this.textBox16.TabIndex = 9;
             // 
-            // textBox13
+            // textBox_CodPost
             // 
-            this.textBox13.Location = new System.Drawing.Point(348, 208);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 9;
+            this.textBox_CodPost.Location = new System.Drawing.Point(348, 208);
+            this.textBox_CodPost.Name = "textBox_CodPost";
+            this.textBox_CodPost.Size = new System.Drawing.Size(100, 20);
+            this.textBox_CodPost.TabIndex = 9;
             // 
-            // textBox14
+            // textBox_Estado
             // 
-            this.textBox14.Location = new System.Drawing.Point(646, 103);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(106, 20);
-            this.textBox14.TabIndex = 9;
+            this.textBox_Estado.Location = new System.Drawing.Point(646, 103);
+            this.textBox_Estado.Name = "textBox_Estado";
+            this.textBox_Estado.Size = new System.Drawing.Size(106, 20);
+            this.textBox_Estado.TabIndex = 9;
             // 
-            // textBox18
+            // textBox_EmpleadoCargo
             // 
-            this.textBox18.Location = new System.Drawing.Point(646, 155);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(106, 20);
-            this.textBox18.TabIndex = 9;
+            this.textBox_EmpleadoCargo.Location = new System.Drawing.Point(646, 155);
+            this.textBox_EmpleadoCargo.Name = "textBox_EmpleadoCargo";
+            this.textBox_EmpleadoCargo.Size = new System.Drawing.Size(106, 20);
+            this.textBox_EmpleadoCargo.TabIndex = 9;
             // 
             // labelSalir
             // 
@@ -338,14 +339,14 @@
             this.labelSalir.UseVisualStyleBackColor = true;
             this.labelSalir.Click += new System.EventHandler(this.button6_Click);
             // 
-            // listView2
+            // listRutina
             // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(646, 181);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(106, 99);
-            this.listView2.TabIndex = 3;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listRutina.HideSelection = false;
+            this.listRutina.Location = new System.Drawing.Point(646, 181);
+            this.listRutina.Name = "listRutina";
+            this.listRutina.Size = new System.Drawing.Size(106, 99);
+            this.listRutina.TabIndex = 3;
+            this.listRutina.UseCompatibleStateImageBehavior = false;
             // 
             // labelPeso
             // 
@@ -357,12 +358,12 @@
             this.labelPeso.Text = "Peso Kg";
             this.labelPeso.Click += new System.EventHandler(this.label9_Click);
             // 
-            // textBox7
+            // textBox_Peso
             // 
-            this.textBox7.Location = new System.Drawing.Point(348, 285);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 9;
+            this.textBox_Peso.Location = new System.Drawing.Point(348, 285);
+            this.textBox_Peso.Name = "textBox_Peso";
+            this.textBox_Peso.Size = new System.Drawing.Size(100, 20);
+            this.textBox_Peso.TabIndex = 9;
             // 
             // Clientes
             // 
@@ -370,21 +371,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelSalir);
-            this.Controls.Add(this.textBox18);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox_EmpleadoCargo);
+            this.Controls.Add(this.textBox_Estado);
+            this.Controls.Add(this.textBox_Sucursal);
+            this.Controls.Add(this.textBox_CodPost);
+            this.Controls.Add(this.textBox_Peso);
             this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.labelModificar);
-            this.Controls.Add(this.labelBaja);
-            this.Controls.Add(this.labelAlta);
+            this.Controls.Add(this.textBox_Calle);
+            this.Controls.Add(this.textBox_Telefono);
+            this.Controls.Add(this.textBox_Dni);
+            this.Controls.Add(this.textBox_Numero);
+            this.Controls.Add(this.textBox_Apellido);
+            this.Controls.Add(this.textBox_Nombre);
+            this.Controls.Add(this.btn_Modificar);
+            this.Controls.Add(this.btn_Baja);
+            this.Controls.Add(this.btn_Alta);
             this.Controls.Add(this.labelEmpleadoACargo);
             this.Controls.Add(this.labelRutina);
             this.Controls.Add(this.labelPeso);
@@ -398,12 +399,12 @@
             this.Controls.Add(this.labelDNI);
             this.Controls.Add(this.labelApellido);
             this.Controls.Add(this.labelNombre);
-            this.Controls.Add(this.labelMostrar);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.btn_Mostrar);
+            this.Controls.Add(this.listRutina);
+            this.Controls.Add(this.listView);
             this.Controls.Add(this.labelBuscarUnUsuario);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.labelBuscar);
+            this.Controls.Add(this.textBox_Buscar);
+            this.Controls.Add(this.btn_Buscar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -417,11 +418,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button labelBuscar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btn_Buscar;
+        private System.Windows.Forms.TextBox textBox_Buscar;
         private System.Windows.Forms.Label labelBuscarUnUsuario;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button labelMostrar;
+        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.Button btn_Mostrar;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Label labelApellido;
         private System.Windows.Forms.Label labelDNI;
@@ -434,23 +435,23 @@
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.Label labelRutina;
         private System.Windows.Forms.Label labelEmpleadoACargo;
-        private System.Windows.Forms.Button labelAlta;
-        private System.Windows.Forms.Button labelBaja;
-        private System.Windows.Forms.Button labelModificar;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Button btn_Alta;
+        private System.Windows.Forms.Button btn_Baja;
+        private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.TextBox textBox_Nombre;
+        private System.Windows.Forms.TextBox textBox_Apellido;
+        private System.Windows.Forms.TextBox textBox_Dni;
+        private System.Windows.Forms.TextBox textBox_Calle;
+        private System.Windows.Forms.TextBox textBox_Numero;
+        private System.Windows.Forms.TextBox textBox_Sucursal;
+        private System.Windows.Forms.TextBox textBox_Telefono;
         private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox_CodPost;
+        private System.Windows.Forms.TextBox textBox_Estado;
+        private System.Windows.Forms.TextBox textBox_EmpleadoCargo;
         private System.Windows.Forms.Button labelSalir;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView listRutina;
         private System.Windows.Forms.Label labelPeso;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox_Peso;
     }
 }

@@ -39,5 +39,17 @@ namespace UI
         {
 
         }
+
+        //Aca van los datos dataGridView-
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Boolean[] checkboxs = new Boolean[] { checkBox_Clientes.Checked, checkBox_Empleados.Checked, checkBox_Pago.Checked, checkBox_Estado.Checked };
+            
+        }
     }
 }
