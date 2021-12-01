@@ -11,14 +11,14 @@ namespace BLL
 {
     public class BLLClientes : DAL.ICRUD<BE.Cliente>
     {
-        public void Alta(Cliente valAlta)
+        public bool Alta(Cliente valAlta)
         {
-            bool ok = true;
+            return true;
         }
 
-        public void Baja(Cliente valBaja)
+        public bool Baja(Cliente valBaja)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public DataTable Leer(Cliente valBuscar)
@@ -27,14 +27,15 @@ namespace BLL
             return a;
         }
 
-        public void Modificar(Cliente valMod)
+        public bool Modificar(Cliente valMod)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
-        public void ValidarSiClienteExiste(Cliente cli)
+        public bool ValidarSiExiste(Cliente cli)
         {
-
+            DAL.DALClientes.val
+            return true;
             //DAL.DALClientes
         }
     }

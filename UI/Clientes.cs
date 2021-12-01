@@ -71,21 +71,21 @@ namespace UI
             }
             else
             {
-                if (bllClientes.ValidarSiClienteExiste(client))
+                BE.Cliente client = new BE.Cliente();
+                client._nombre = textBox_Nombre.Text;
+                client._apellido = textBox_Apellido.Text;
+                client._dni = int.Parse(textBox_Dni.Text);
+                client._calle = textBox_Calle.Text;
+                client._numero = int.Parse(textBox_Numero.Text);
+                client._codPostal = int.Parse(textBox_CodPost.Text);
+                client._telefono = int.Parse(textBox_Telefono.Text);
+                client._fechaNacimiento = fechaNacimiento.Value;
+                client._pesokg = int.Parse(textBox_Peso.Text);
+                client._idEstado = int.Parse(textBox_Estado.Text);
+                client._IDSucursal = int.Parse(textBox_Sucursal.Text);
+                client._IDEmpleado = int.Parse(textBox_Profesor.Text);
+                if (bllClientes.ValidarSiExiste(client))
                 {
-                    BE.Cliente client = new BE.Cliente();
-                    client._nombre = textBox_Nombre.Text;
-                    client._apellido = textBox_Apellido.Text;
-                    client._dni = int.Parse(textBox_Dni.Text);
-                    client._calle = textBox_Calle.Text;
-                    client._numero = int.Parse(textBox_Numero.Text);
-                    client._codPostal = int.Parse(textBox_CodPost.Text);
-                    client._telefono = int.Parse(textBox_Telefono.Text);
-                    client._fechaNacimiento = fechaNacimiento.Value;
-                    client._pesokg = int.Parse(textBox_Peso.Text);
-                    client._idEstado = int.Parse(textBox_Estado.Text);
-                    client._IDSucursal = int.Parse(textBox_Sucursal.Text);
-                    client._IDEmpleado = int.Parse(textBox_Profesor.Text);
                     //client.Ejercicio = BE_ejercicio. listRutina.Text;
                     bllClientes.Alta(client);
                     MessageBox.Show("El usuario fue dado de Alta con éxito.");

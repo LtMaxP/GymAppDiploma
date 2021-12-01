@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace DAL
 {
     public class DALClientes : DAL.ICRUD<BE.Cliente>
     {
+        private Conexion connect = new Conexion();
         public void Alta(Cliente valAlta)
         {
             throw new NotImplementedException();
@@ -29,5 +31,25 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+        public bool ValidarSiExisteDAL(Cliente cli)
+        {
+            DataSet ds = new DataSet();
+            DataTable dVTable;
+            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            {
+                String query = "SELECT dni FROM Clientes WHERE dni = " + cli;
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(command);
+                    connection.Open();
+                    da.Fill(ds); //preguntar por match true or false
+                }
+            }
+
+            dVTable = ds.Tables[0];
+            return true;
+
+        }
     }
 }
+
