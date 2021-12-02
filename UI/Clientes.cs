@@ -89,11 +89,12 @@ namespace UI
                     //client.Ejercicio = BE_ejercicio. listRutina.Text;
                     if (bllClientes.Alta(client))
                     {
-                        MessageBox.Show("El usuario fue dado de Alta con éxito.");
+
+                        MessageBox.Show("El cliente fue dado de Alta con éxito.");
                     }
                     else
                     {
-                        MessageBox.Show("");
+                        MessageBox.Show("No se pudo dar de alta el cliente");
                     }
                 }
                 else
@@ -106,7 +107,6 @@ namespace UI
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
-
             string nomUser = textBox_Buscar.Text;
 
         }
