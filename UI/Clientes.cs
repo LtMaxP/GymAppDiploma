@@ -87,8 +87,14 @@ namespace UI
                 if (!bllClientes.ValidarSiExiste(client))
                 {
                     //client.Ejercicio = BE_ejercicio. listRutina.Text;
-                    bllClientes.Alta(client);
-                    MessageBox.Show("El usuario fue dado de Alta con éxito.");
+                    if (bllClientes.Alta(client))
+                    {
+                        MessageBox.Show("El usuario fue dado de Alta con éxito.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("");
+                    }
                 }
                 else
                 {

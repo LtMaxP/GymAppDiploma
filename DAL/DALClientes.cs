@@ -36,12 +36,13 @@ namespace DAL
             bool respuesta = false;
             using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
             {
-                String query = "SELECT * FROM ClienteGYM WHERE EXISTS(SELECT * FROM ClienteGYM WHERE dni = " + cli._dni + ")"; 
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
+                String query = "SELECT * FROM ClienteGYM WHERE EXISTS(SELECT * FROM ClienteGYM WHERE dni = " + cli._dni + ")";
+                SqlCommand command = new SqlCommand(query, connection);
+                
                     command.Connection.Open();
                     try{
-                        if(command.ExecuteScalar().ToString() == "1")
+                    int resquery = Convert.ToInt32(command.ExecuteScalar());
+                        if (resquery == 1)
                         {
                             respuesta = true;
                         }
@@ -49,7 +50,7 @@ namespace DAL
                     catch(Exception e)
                     { respuesta = false; }
                     command.Connection.Close();
-                }
+                
             }
             return respuesta;
 
