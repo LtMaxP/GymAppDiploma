@@ -120,6 +120,32 @@ namespace DAL
             }
             return idioma;
         }
+
+        public bool ValidarSiExisteEnDAL(string tabla, string comparacion, string datoAComparar)
+        {
+            bool respuesta = false;
+            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            {
+                String query = "SELECT * FROM " + tabla + " WHERE EXISTS(SELECT * FROM  " + tabla + " WHERE " + comparacion + " = " + datoAComparar + ")";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Connection.Open();
+                try
+                {
+                    int resquery = Convert.ToInt32(command.ExecuteScalar());
+                    if (resquery == 1)
+                    {
+                        respuesta = true;
+                    }
+                }
+                catch (Exception e)
+                { respuesta = false; }
+                command.Connection.Close();
+
+            }
+            return respuesta;
+
+        }
     }
 }
 
