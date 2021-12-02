@@ -88,7 +88,8 @@ namespace BLL
                 comm.Parameters.Add(parameter3);
                 comm.Parameters.Add(parameter4);
                 comm.Parameters.Add(parameter5);
-                comm.Parameters.Add(parameter7);
+            comm.Parameters.Add(parameter6);
+            comm.Parameters.Add(parameter7);
                 comm.Parameters.Add(parameter8);
                 comm.Parameters.Add(parameter9);
                 comm.Parameters.Add(parameter10);
