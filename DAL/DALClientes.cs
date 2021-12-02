@@ -33,21 +33,25 @@ namespace DAL
         }
         public bool ValidarSiExisteDAL(Cliente cli)
         {
-            DataSet ds = new DataSet();
-            DataTable dVTable;
+            bool respuesta = false;
             using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
             {
-                String query = "SELECT dni FROM Clientes WHERE dni = " + cli;
+                String query = "SELECT * FROM ClienteGYM WHERE EXISTS(SELECT * FROM ClienteGYM WHERE dni = " + cli._dni + ")"; 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    SqlDataAdapter da = new SqlDataAdapter(command);
-                    connection.Open();
-                    da.Fill(ds); //preguntar por match true or false
+                    command.Connection.Open();
+                    try{
+                        if(command.ExecuteScalar().ToString() == "1")
+                        {
+                            respuesta = true;
+                        }
+                    }
+                    catch(Exception e)
+                    { respuesta = false; }
+                    command.Connection.Close();
                 }
             }
-
-            dVTable = ds.Tables[0];
-            return true;
+            return respuesta;
 
         }
     }

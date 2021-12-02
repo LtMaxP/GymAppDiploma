@@ -13,8 +13,8 @@ namespace UI
 {
     public partial class Inicio : Form, BLL.Observer.IObserver
     {
-        Bitmap secSemi45 = new Bitmap(@"C:\Users\gonza\OneDrive\Documentos\GitHub\GymAppDiploma\UI\Resources\focmili.jpg");//(@"..\UI\SecSemiR-45\focmili.jpg", true);
-        Bitmap wallpaper = new Bitmap(@"C:\Users\gonza\OneDrive\Documentos\GitHub\GymAppDiploma\UI\Resources\gymwallpaper.jpg");//(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
+        Bitmap secSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
+        Bitmap wallpaper = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
         int speIma = 0;
         public Inicio()
         {

@@ -21,13 +21,10 @@ namespace DAL
             bool respuesta = false;
             try
             {
-
-                DataSet ds = new DataSet();
                 SqlCommand comm = new SqlCommand();
                 comm.Connection = conn.sqlConn;
                 comm.CommandText = "Select Id_perfil, Id_Padre FROM PermisosRelacion;";
                 comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.IdUsuario.ToString());
-                SqlDataAdapter da = new SqlDataAdapter(comm);
 
                 comm.Connection.Open();
                 respuesta = bool.Parse(comm.ExecuteScalar().ToString());

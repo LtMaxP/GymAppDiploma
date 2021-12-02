@@ -84,7 +84,7 @@ namespace UI
                 client._idEstado = int.Parse(textBox_Estado.Text);
                 client._IDSucursal = int.Parse(textBox_Sucursal.Text);
                 client._IDEmpleado = int.Parse(textBox_Profesor.Text);
-                if (bllClientes.ValidarSiExiste(client))
+                if (!bllClientes.ValidarSiExiste(client))
                 {
                     //client.Ejercicio = BE_ejercicio. listRutina.Text;
                     bllClientes.Alta(client);
@@ -100,6 +100,7 @@ namespace UI
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
+
             string nomUser = textBox_Buscar.Text;
 
         }

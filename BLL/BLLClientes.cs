@@ -9,7 +9,7 @@ using DAL;
 
 namespace BLL
 {
-    public class BLLClientes : DAL.ICRUD<BE.Cliente>
+    public class BLLClientes
     {
         public bool Alta(Cliente valAlta)
         {
@@ -34,9 +34,8 @@ namespace BLL
 
         public bool ValidarSiExiste(Cliente cli)
         {
-            DAL.DALClientes.val
-            return true;
-            //DAL.DALClientes
+            DALClientes dalCli = new DALClientes();
+            return dalCli.ValidarSiExisteDAL(cli);
         }
     }
 }
