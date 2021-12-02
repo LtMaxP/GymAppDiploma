@@ -16,8 +16,8 @@ namespace BLL
         {
             bool rpta = false;
             DAL.Conexion conn = new DAL.Conexion();
-            //try
-            //{
+            try
+            {
                 SqlCommand comm = new SqlCommand();
                 comm.Connection = conn.sqlConn;
 
@@ -88,8 +88,8 @@ namespace BLL
                 comm.Parameters.Add(parameter3);
                 comm.Parameters.Add(parameter4);
                 comm.Parameters.Add(parameter5);
-            comm.Parameters.Add(parameter6);
-            comm.Parameters.Add(parameter7);
+                comm.Parameters.Add(parameter6);
+                comm.Parameters.Add(parameter7);
                 comm.Parameters.Add(parameter8);
                 comm.Parameters.Add(parameter9);
                 comm.Parameters.Add(parameter10);
@@ -100,8 +100,8 @@ namespace BLL
                 int result = comm.ExecuteNonQuery();
                 comm.Connection.Close();
                 rpta = true;
-            //}
-            //catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
+            }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
             return rpta;
         }
 
