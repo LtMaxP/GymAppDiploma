@@ -118,19 +118,21 @@ namespace UI
                 DataTable busquedaUsuario = bllClientes.Leer(cli);
                 if (busquedaUsuario.Rows.Count > 0)
                 {
-                    ListViewItem lvi = new ListViewItem(busquedaUsuario.ToString());
-                    foreach (DataColumn dc in busquedaUsuario.Rows)
+                    foreach (DataRow dr in busquedaUsuario.Rows)
                     {
-
+                        ListViewItem lvi = new ListViewItem(dr.ToString());
+                        for (int i = 1; i < busquedaUsuario.Columns.Count; i++)
+                        {
+                            lvi.SubItems.Add(dr[i].ToString());
+                        }
                         listView.Items.Add(lvi);
-                        listView.Items.Add(dc.ToString());
                     }
-                    for (int i = 1; i < 4; i++)
-                    {
-                        //lvi.SubItems.Add(busquedaUsuario.Columns);
-                    }
-                    ;
                 }
+                else
+                {
+                    MessageBox.Show("Nada.");
+                }
+
             }
         }
 

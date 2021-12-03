@@ -25,22 +25,18 @@ namespace DAL
         public DataTable Leer(Cliente valBuscar)
         {
             DataTable dt = new DataTable();
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
-            {
-                String query = "SELECT ID, Nombre, Apellido, Dni FROM ClienteGYM WHERE Nombre = " + valBuscar._nombre + ")";
-                SqlCommand command = new SqlCommand(query, connection);
+            SqlConnection connection = new SqlConnection(connect.ConexionRuta);
+            String query = "SELECT Id_Cliente, Nombre, Apellido, Dni FROM ClienteGYM WHERE Nombre = " + "'" + valBuscar._nombre + "'";
+            SqlCommand command = new SqlCommand(query, connection);
 
-                command.Connection.Open();
-                try
-                {
-                    dt = (DataTable)command.ExecuteScalar();
-
-                }
-                catch (Exception e)
-                { }
-                command.Connection.Close();
-
-            }
+            command.Connection.Open();
+            //try
+            //{
+            dt.Load(command.ExecuteReader());
+            //}
+            //catch (Exception e)
+            //{ }
+            command.Connection.Close();
             return dt;
         }
 
@@ -55,19 +51,20 @@ namespace DAL
             {
                 String query = "SELECT * FROM ClienteGYM WHERE EXISTS(SELECT * FROM ClienteGYM WHERE dni = " + cli._dni + ")";
                 SqlCommand command = new SqlCommand(query, connection);
-                
-                    command.Connection.Open();
-                    try{
+
+                command.Connection.Open();
+                try
+                {
                     int resquery = Convert.ToInt32(command.ExecuteScalar());
-                        if (resquery == 1)
-                        {
-                            respuesta = true;
-                        }
+                    if (resquery == 1)
+                    {
+                        respuesta = true;
                     }
-                    catch(Exception e)
-                    { respuesta = false; }
-                    command.Connection.Close();
-                
+                }
+                catch (Exception e)
+                { respuesta = false; }
+                command.Connection.Close();
+
             }
             return respuesta;
 
