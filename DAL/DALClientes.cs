@@ -24,7 +24,24 @@ namespace DAL
 
         public DataTable Leer(Cliente valBuscar)
         {
-            throw new NotImplementedException();
+            DataTable dt = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            {
+                String query = "SELECT ID, Nombre, Apellido, Dni FROM ClienteGYM WHERE Nombre = " + valBuscar._nombre + ")";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Connection.Open();
+                try
+                {
+                    dt = (DataTable)command.ExecuteScalar();
+
+                }
+                catch (Exception e)
+                { }
+                command.Connection.Close();
+
+            }
+            return dt;
         }
 
         public void Modificar(Cliente valMod)

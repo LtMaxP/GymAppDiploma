@@ -63,6 +63,13 @@
             this.labelPeso = new System.Windows.Forms.Label();
             this.textBox_Peso = new System.Windows.Forms.TextBox();
             this.fechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Apellido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Dni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn_Buscar
@@ -93,17 +100,23 @@
             // 
             // listView
             // 
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.Nombre,
+            this.Apellido,
+            this.Dni});
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(16, 70);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(141, 231);
+            this.listView.Size = new System.Drawing.Size(228, 231);
             this.listView.TabIndex = 3;
             this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
             // 
             // btn_Mostrar
             // 
             this.btn_Mostrar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btn_Mostrar.Location = new System.Drawing.Point(46, 317);
+            this.btn_Mostrar.Location = new System.Drawing.Point(95, 307);
             this.btn_Mostrar.Name = "btn_Mostrar";
             this.btn_Mostrar.Size = new System.Drawing.Size(75, 23);
             this.btn_Mostrar.TabIndex = 4;
@@ -114,7 +127,7 @@
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(216, 73);
+            this.labelNombre.Location = new System.Drawing.Point(261, 77);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(44, 13);
             this.labelNombre.TabIndex = 5;
@@ -123,7 +136,7 @@
             // labelApellido
             // 
             this.labelApellido.AutoSize = true;
-            this.labelApellido.Location = new System.Drawing.Point(217, 100);
+            this.labelApellido.Location = new System.Drawing.Point(262, 104);
             this.labelApellido.Name = "labelApellido";
             this.labelApellido.Size = new System.Drawing.Size(44, 13);
             this.labelApellido.TabIndex = 5;
@@ -132,7 +145,7 @@
             // labelDNI
             // 
             this.labelDNI.AutoSize = true;
-            this.labelDNI.Location = new System.Drawing.Point(216, 129);
+            this.labelDNI.Location = new System.Drawing.Point(261, 133);
             this.labelDNI.Name = "labelDNI";
             this.labelDNI.Size = new System.Drawing.Size(26, 13);
             this.labelDNI.TabIndex = 5;
@@ -141,7 +154,7 @@
             // labelCalle
             // 
             this.labelCalle.AutoSize = true;
-            this.labelCalle.Location = new System.Drawing.Point(216, 158);
+            this.labelCalle.Location = new System.Drawing.Point(261, 162);
             this.labelCalle.Name = "labelCalle";
             this.labelCalle.Size = new System.Drawing.Size(30, 13);
             this.labelCalle.TabIndex = 5;
@@ -150,7 +163,7 @@
             // labelNumero
             // 
             this.labelNumero.AutoSize = true;
-            this.labelNumero.Location = new System.Drawing.Point(216, 185);
+            this.labelNumero.Location = new System.Drawing.Point(261, 189);
             this.labelNumero.Name = "labelNumero";
             this.labelNumero.Size = new System.Drawing.Size(44, 13);
             this.labelNumero.TabIndex = 5;
@@ -159,7 +172,7 @@
             // labelSucursal
             // 
             this.labelSucursal.AutoSize = true;
-            this.labelSucursal.Location = new System.Drawing.Point(502, 132);
+            this.labelSucursal.Location = new System.Drawing.Point(557, 162);
             this.labelSucursal.Name = "labelSucursal";
             this.labelSucursal.Size = new System.Drawing.Size(48, 13);
             this.labelSucursal.TabIndex = 5;
@@ -169,7 +182,7 @@
             // labelEstado
             // 
             this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(502, 76);
+            this.labelEstado.Location = new System.Drawing.Point(557, 76);
             this.labelEstado.Name = "labelEstado";
             this.labelEstado.Size = new System.Drawing.Size(40, 13);
             this.labelEstado.TabIndex = 5;
@@ -178,7 +191,7 @@
             // labelCodPostal
             // 
             this.labelCodPostal.AutoSize = true;
-            this.labelCodPostal.Location = new System.Drawing.Point(216, 212);
+            this.labelCodPostal.Location = new System.Drawing.Point(261, 216);
             this.labelCodPostal.Name = "labelCodPostal";
             this.labelCodPostal.Size = new System.Drawing.Size(55, 13);
             this.labelCodPostal.TabIndex = 5;
@@ -187,7 +200,7 @@
             // labelTelefono
             // 
             this.labelTelefono.AutoSize = true;
-            this.labelTelefono.Location = new System.Drawing.Point(216, 237);
+            this.labelTelefono.Location = new System.Drawing.Point(261, 241);
             this.labelTelefono.Name = "labelTelefono";
             this.labelTelefono.Size = new System.Drawing.Size(49, 13);
             this.labelTelefono.TabIndex = 5;
@@ -197,7 +210,7 @@
             // labelFecha
             // 
             this.labelFecha.AutoSize = true;
-            this.labelFecha.Location = new System.Drawing.Point(217, 263);
+            this.labelFecha.Location = new System.Drawing.Point(262, 267);
             this.labelFecha.Name = "labelFecha";
             this.labelFecha.Size = new System.Drawing.Size(108, 13);
             this.labelFecha.TabIndex = 5;
@@ -207,7 +220,7 @@
             // labelRutina
             // 
             this.labelRutina.AutoSize = true;
-            this.labelRutina.Location = new System.Drawing.Point(574, 185);
+            this.labelRutina.Location = new System.Drawing.Point(592, 212);
             this.labelRutina.Name = "labelRutina";
             this.labelRutina.Size = new System.Drawing.Size(71, 13);
             this.labelRutina.TabIndex = 5;
@@ -217,7 +230,7 @@
             // labelEmpleadoACargo
             // 
             this.labelEmpleadoACargo.AutoSize = true;
-            this.labelEmpleadoACargo.Location = new System.Drawing.Point(503, 158);
+            this.labelEmpleadoACargo.Location = new System.Drawing.Point(558, 188);
             this.labelEmpleadoACargo.Name = "labelEmpleadoACargo";
             this.labelEmpleadoACargo.Size = new System.Drawing.Size(46, 13);
             this.labelEmpleadoACargo.TabIndex = 5;
@@ -254,70 +267,71 @@
             // 
             // textBox_Nombre
             // 
-            this.textBox_Nombre.Location = new System.Drawing.Point(348, 70);
+            this.textBox_Nombre.Location = new System.Drawing.Point(393, 74);
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(100, 20);
             this.textBox_Nombre.TabIndex = 9;
+            this.textBox_Nombre.TextChanged += new System.EventHandler(this.textBox_Nombre_TextChanged);
             // 
             // textBox_Apellido
             // 
-            this.textBox_Apellido.Location = new System.Drawing.Point(348, 97);
+            this.textBox_Apellido.Location = new System.Drawing.Point(393, 101);
             this.textBox_Apellido.Name = "textBox_Apellido";
             this.textBox_Apellido.Size = new System.Drawing.Size(100, 20);
             this.textBox_Apellido.TabIndex = 9;
             // 
             // textBox_Dni
             // 
-            this.textBox_Dni.Location = new System.Drawing.Point(348, 126);
+            this.textBox_Dni.Location = new System.Drawing.Point(393, 130);
             this.textBox_Dni.Name = "textBox_Dni";
             this.textBox_Dni.Size = new System.Drawing.Size(100, 20);
             this.textBox_Dni.TabIndex = 9;
             // 
             // textBox_Calle
             // 
-            this.textBox_Calle.Location = new System.Drawing.Point(348, 155);
+            this.textBox_Calle.Location = new System.Drawing.Point(393, 159);
             this.textBox_Calle.Name = "textBox_Calle";
             this.textBox_Calle.Size = new System.Drawing.Size(100, 20);
             this.textBox_Calle.TabIndex = 9;
             // 
             // textBox_Numero
             // 
-            this.textBox_Numero.Location = new System.Drawing.Point(348, 182);
+            this.textBox_Numero.Location = new System.Drawing.Point(393, 186);
             this.textBox_Numero.Name = "textBox_Numero";
             this.textBox_Numero.Size = new System.Drawing.Size(100, 20);
             this.textBox_Numero.TabIndex = 9;
             // 
             // textBox_Sucursal
             // 
-            this.textBox_Sucursal.Location = new System.Drawing.Point(646, 129);
+            this.textBox_Sucursal.Location = new System.Drawing.Point(646, 155);
             this.textBox_Sucursal.Name = "textBox_Sucursal";
             this.textBox_Sucursal.Size = new System.Drawing.Size(106, 20);
             this.textBox_Sucursal.TabIndex = 9;
             // 
             // textBox_Telefono
             // 
-            this.textBox_Telefono.Location = new System.Drawing.Point(348, 234);
+            this.textBox_Telefono.Location = new System.Drawing.Point(393, 238);
             this.textBox_Telefono.Name = "textBox_Telefono";
             this.textBox_Telefono.Size = new System.Drawing.Size(100, 20);
             this.textBox_Telefono.TabIndex = 9;
             // 
             // textBox_CodPost
             // 
-            this.textBox_CodPost.Location = new System.Drawing.Point(348, 208);
+            this.textBox_CodPost.Location = new System.Drawing.Point(393, 212);
             this.textBox_CodPost.Name = "textBox_CodPost";
             this.textBox_CodPost.Size = new System.Drawing.Size(100, 20);
             this.textBox_CodPost.TabIndex = 9;
             // 
             // textBox_Estado
             // 
-            this.textBox_Estado.Location = new System.Drawing.Point(646, 73);
+            this.textBox_Estado.Location = new System.Drawing.Point(646, 47);
             this.textBox_Estado.Name = "textBox_Estado";
             this.textBox_Estado.Size = new System.Drawing.Size(106, 20);
             this.textBox_Estado.TabIndex = 9;
             // 
             // textBox_Profesor
             // 
-            this.textBox_Profesor.Location = new System.Drawing.Point(646, 155);
+            this.textBox_Profesor.Location = new System.Drawing.Point(646, 185);
             this.textBox_Profesor.Name = "textBox_Profesor";
             this.textBox_Profesor.Size = new System.Drawing.Size(106, 20);
             this.textBox_Profesor.TabIndex = 9;
@@ -335,7 +349,7 @@
             // listRutina
             // 
             this.listRutina.HideSelection = false;
-            this.listRutina.Location = new System.Drawing.Point(495, 212);
+            this.listRutina.Location = new System.Drawing.Point(514, 234);
             this.listRutina.Name = "listRutina";
             this.listRutina.Size = new System.Drawing.Size(246, 73);
             this.listRutina.TabIndex = 3;
@@ -344,7 +358,7 @@
             // labelPeso
             // 
             this.labelPeso.AutoSize = true;
-            this.labelPeso.Location = new System.Drawing.Point(217, 288);
+            this.labelPeso.Location = new System.Drawing.Point(262, 292);
             this.labelPeso.Name = "labelPeso";
             this.labelPeso.Size = new System.Drawing.Size(47, 13);
             this.labelPeso.TabIndex = 5;
@@ -353,7 +367,7 @@
             // 
             // textBox_Peso
             // 
-            this.textBox_Peso.Location = new System.Drawing.Point(348, 285);
+            this.textBox_Peso.Location = new System.Drawing.Point(393, 289);
             this.textBox_Peso.Name = "textBox_Peso";
             this.textBox_Peso.Size = new System.Drawing.Size(100, 20);
             this.textBox_Peso.TabIndex = 9;
@@ -363,17 +377,71 @@
             this.fechaNacimiento.Cursor = System.Windows.Forms.Cursors.PanSE;
             this.fechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fechaNacimiento.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.fechaNacimiento.Location = new System.Drawing.Point(348, 260);
+            this.fechaNacimiento.Location = new System.Drawing.Point(393, 264);
             this.fechaNacimiento.MinDate = new System.DateTime(1889, 1, 1, 0, 0, 0, 0);
             this.fechaNacimiento.Name = "fechaNacimiento";
             this.fechaNacimiento.Size = new System.Drawing.Size(100, 20);
             this.fechaNacimiento.TabIndex = 11;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Alta",
+            "Baja"});
+            this.comboBox1.Location = new System.Drawing.Point(646, 73);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(110, 21);
+            this.comboBox1.TabIndex = 12;
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 35;
+            // 
+            // Nombre
+            // 
+            this.Nombre.Text = "Nombre";
+            // 
+            // Apellido
+            // 
+            this.Apellido.Text = "Apellido";
+            this.Apellido.Width = 69;
+            // 
+            // Dni
+            // 
+            this.Dni.Text = "Dni";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Alta",
+            "Baja"});
+            this.comboBox2.Location = new System.Drawing.Point(646, 104);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(110, 21);
+            this.comboBox2.TabIndex = 12;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Alta",
+            "Baja"});
+            this.comboBox3.Location = new System.Drawing.Point(646, 129);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(110, 21);
+            this.comboBox3.TabIndex = 12;
             // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.fechaNacimiento);
             this.Controls.Add(this.labelSalir);
             this.Controls.Add(this.textBox_Profesor);
@@ -457,5 +525,12 @@
         private System.Windows.Forms.Label labelPeso;
         private System.Windows.Forms.TextBox textBox_Peso;
         private System.Windows.Forms.DateTimePicker fechaNacimiento;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.ColumnHeader Nombre;
+        private System.Windows.Forms.ColumnHeader Apellido;
+        private System.Windows.Forms.ColumnHeader Dni;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

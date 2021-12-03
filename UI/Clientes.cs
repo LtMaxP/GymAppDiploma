@@ -49,7 +49,7 @@ namespace UI
 
         private void labelMostrar_Click(object sender, EventArgs e)
         {
-            
+
             string seleccionado = listView.SelectedItems.ToString();
             if (String.IsNullOrEmpty(seleccionado))
             {
@@ -102,12 +102,40 @@ namespace UI
                     MessageBox.Show("El nombre de usuario ya existe");
                 }
             }
-            
+
         }
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
-            string nomUser = textBox_Buscar.Text;
+            if (String.IsNullOrEmpty(textBox_Buscar.Text))
+            {
+                MessageBox.Show("Debe completar todos los campos.");
+            }
+            else
+            {
+                BE.Cliente cli = new BE.Cliente();
+                cli._nombre = textBox_Buscar.Text;
+                DataTable busquedaUsuario = bllClientes.Leer(cli);
+                if (busquedaUsuario.Rows.Count > 0)
+                {
+                    ListViewItem lvi = new ListViewItem(busquedaUsuario.ToString());
+                    foreach (DataColumn dc in busquedaUsuario.Rows)
+                    {
+
+                        listView.Items.Add(lvi);
+                        listView.Items.Add(dc.ToString());
+                    }
+                    for (int i = 1; i < 4; i++)
+                    {
+                        //lvi.SubItems.Add(busquedaUsuario.Columns);
+                    }
+                    ;
+                }
+            }
+        }
+
+        private void textBox_Nombre_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

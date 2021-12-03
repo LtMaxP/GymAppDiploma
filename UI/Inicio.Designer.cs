@@ -50,6 +50,7 @@
             this.verSecretoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,7 +156,8 @@
             // 
             this.labelIdioma.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelEspañol,
-            this.labelIngles});
+            this.labelIngles,
+            this.agregarIdiomaToolStripMenuItem});
             resources.ApplyResources(this.labelIdioma, "labelIdioma");
             this.labelIdioma.Name = "labelIdioma";
             // 
@@ -204,6 +206,11 @@
             this.contactoToolStripMenuItem.Name = "contactoToolStripMenuItem";
             resources.ApplyResources(this.contactoToolStripMenuItem, "contactoToolStripMenuItem");
             // 
+            // agregarIdiomaToolStripMenuItem
+            // 
+            this.agregarIdiomaToolStripMenuItem.Name = "agregarIdiomaToolStripMenuItem";
+            resources.ApplyResources(this.agregarIdiomaToolStripMenuItem, "agregarIdiomaToolStripMenuItem");
+            // 
             // Inicio
             // 
             resources.ApplyResources(this, "$this");
@@ -248,5 +255,6 @@
         private System.Windows.Forms.ToolStripMenuItem verSecretoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contactoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarIdiomaToolStripMenuItem;
     }
 }

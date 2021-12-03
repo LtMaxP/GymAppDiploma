@@ -12,6 +12,7 @@ namespace BLL
 {
     public class BLLClientes
     {
+        DALClientes cligym = new DALClientes();
         public bool Alta(Cliente valAlta)
         {
             bool rpta = false;
@@ -113,6 +114,7 @@ namespace BLL
         public DataTable Leer(Cliente valBuscar)
         {
             DataTable a = new DataTable();
+            a = cligym.Leer(valBuscar);
             return a;
         }
 
