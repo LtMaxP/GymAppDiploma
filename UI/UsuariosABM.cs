@@ -95,7 +95,6 @@ namespace UI
                 textBox3.Text = filaDeDatos[1];
                 comboBox1.SelectedItem = filaDeDatos[2];
                 comboBox2.SelectedItem = filaDeDatos[3];
-
             }
             else
             {

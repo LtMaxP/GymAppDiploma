@@ -130,7 +130,7 @@ namespace UI
                 }
                 else
                 {
-                    MessageBox.Show("Nada.");
+                    MessageBox.Show("No se encontraron clientes con ese nombre");
                 }
 
             }
@@ -139,6 +139,28 @@ namespace UI
         private void textBox_Nombre_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        //Manera de agregar al combobox valores
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (string value in bllClientes.dameEstados())
+            {
+                comboBox_estado.Items.Add(value);
+            }
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBox_provincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (string value in bllClientes.dameProvincias())
+            {
+                comboBox_provincia.Items.Add(value);
+            }
         }
     }
 }

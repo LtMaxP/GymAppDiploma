@@ -30,12 +30,12 @@ namespace DAL
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Connection.Open();
-            //try
-            //{
-            dt.Load(command.ExecuteReader());
-            //}
-            //catch (Exception e)
-            //{ }
+            try
+            {
+                dt.Load(command.ExecuteReader());
+            }
+            catch (Exception e)
+            { }
             command.Connection.Close();
             return dt;
         }
@@ -44,6 +44,7 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
         public bool ValidarSiExisteDAL(Cliente cli)
         {
             bool respuesta = false;

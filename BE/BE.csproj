@@ -51,7 +51,10 @@
     <Compile Include="BE_Empleado.cs" />
     <Compile Include="BE_Factura.cs" />
     <Compile Include="BE_Listas.cs" />
+    <Compile Include="BE_Sucursal.cs" />
     <Compile Include="BE_PagoCobro.cs" />
+    <Compile Include="BE_Localidad.cs" />
+    <Compile Include="BE_Provincia.cs" />
     <Compile Include="Bitacora.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Composite.cs" />

@@ -83,7 +83,7 @@
             // 
             // labelBuscar
             // 
-            this.labelBuscar.Location = new System.Drawing.Point(185, 61);
+            this.labelBuscar.Location = new System.Drawing.Point(223, 61);
             this.labelBuscar.Name = "labelBuscar";
             this.labelBuscar.Size = new System.Drawing.Size(59, 20);
             this.labelBuscar.TabIndex = 3;
@@ -144,7 +144,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(57, 61);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(111, 20);
+            this.textBox2.Size = new System.Drawing.Size(137, 20);
             this.textBox2.TabIndex = 5;
             // 
             // labelBuscarUnUsuario

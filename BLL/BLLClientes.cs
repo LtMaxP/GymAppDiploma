@@ -13,6 +13,31 @@ namespace BLL
     public class BLLClientes
     {
         DALClientes cligym = new DALClientes();
+        private enum Estado
+        {
+            Alta = 1,
+            Baja = 2,
+        }
+        public string[] dameEstados()
+        {
+            String[] ret = { Estado.Alta.ToString(), Estado.Baja.ToString() };
+            return ret;
+        }
+        public string[] dameProvincias()
+        {
+            List<BE_Provincia> prov = new List<BE_Provincia>();
+            DALProvincia dalprov = new DALProvincia();
+            DataTable data = dalprov.DameProvincias();
+            foreach(var provin in data.Rows)
+            {
+                BE_Provincia aNewProv = new BE_Provincia();
+
+                prov.Add(aNewProv);
+            }
+            String[] ret = { "0", "0" };
+            return ret;
+        }
+        
         public bool Alta(Cliente valAlta)
         {
             bool rpta = false;
