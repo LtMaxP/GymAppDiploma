@@ -9,9 +9,9 @@ namespace DAL
 {
     public interface ICRUD<T>   //generics ejemplo
     {
-        void Alta(T valAlta);
-        void Baja(T valBaja);
-        void Modificar(T valMod);
+        bool Alta(T valAlta);
+        bool Baja(T valBaja);
+        bool Modificar(T valMod);
         DataTable Leer(T valBuscar);
     }
 }

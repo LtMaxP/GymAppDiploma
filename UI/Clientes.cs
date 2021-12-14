@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL.Observer;
 using BLL;
+using BE;
 
 namespace UI
 {
@@ -37,7 +38,7 @@ namespace UI
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
         }
 
-        public void Update(Idioma idioma)
+        public void Update(BLL.Observer.Idioma idioma)
         {
             //RecurseToolStripItems(this.menuStrip1.Items);
             //foreach (Control item in this.Controls)
@@ -50,7 +51,7 @@ namespace UI
         private void labelMostrar_Click(object sender, EventArgs e)
         {
 
-            string seleccionado = listView.SelectedItems.ToString();
+            string seleccionado = listView.SelectedItems[0].Text;
             if (String.IsNullOrEmpty(seleccionado))
             {
                 MessageBox.Show("Debe seleccionar un campo.");
@@ -58,8 +59,20 @@ namespace UI
             else
             {
                 BE.Cliente client = new BE.Cliente();
-                client._nombre = seleccionado;
-                bllClientes.Leer(client);
+                client._dni = int.Parse(seleccionado);
+                client = bllClientes.MostrarCliente(client);
+                textBox_Nombre.Text = client._nombre;
+                textBox_Apellido.Text = client._apellido;
+                textBox_Dni.Text = client._dni.ToString();
+                textBox_Calle.Text = client._calle.ToString();
+                textBox_Numero.Text = client._numero.ToString();
+                textBox_CodPost.Text = client._codPostal.ToString();
+                textBox_Telefono.Text = client._telefono.ToString();
+                fechaNacimiento.Value = client._fechaNacimiento;
+                textBox_Peso.Text = client._pesokg.ToString();
+                textBox_Estado.Text = client._idEstado.ToString();
+                textBox_Sucursal.Text = client._IDSucursal.ToString();
+                textBox_Profesor.Text = client._IDEmpleado.ToString(); 
             }
         }
 
@@ -115,16 +128,14 @@ namespace UI
             {
                 BE.Cliente cli = new BE.Cliente();
                 cli._nombre = textBox_Buscar.Text;
-                DataTable busquedaUsuario = bllClientes.Leer(cli);
-                if (busquedaUsuario.Rows.Count > 0)
+                List<Cliente> busquedaUsuario = bllClientes.AccionBusqueda(cli);
+                if (!busquedaUsuario.Count.Equals(0))
                 {
-                    foreach (DataRow dr in busquedaUsuario.Rows)
+                    foreach (Cliente dr in busquedaUsuario)
                     {
-                        ListViewItem lvi = new ListViewItem(dr.ToString());
-                        for (int i = 1; i < busquedaUsuario.Columns.Count; i++)
-                        {
-                            lvi.SubItems.Add(dr[i].ToString());
-                        }
+                        ListViewItem lvi = new ListViewItem(dr._dni.ToString());
+                        lvi.SubItems.Add(dr._nombre);
+                        lvi.SubItems.Add(dr._apellido);
                         listView.Items.Add(lvi);
                     }
                 }
@@ -144,23 +155,52 @@ namespace UI
         //Manera de agregar al combobox valores
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (string value in bllClientes.dameEstados())
+            if (comboBox_estado.Items.Count.Equals(0))
             {
-                comboBox_estado.Items.Add(value);
+                foreach (string value in bllClientes.dameEstados())
+                {
+                    comboBox_estado.Items.Add(value);
+                }
+            }
+        }
+
+        private void CascadeFilter(string filter)
+        {
+            switch(filter)
+            {
+                case "Provincia":
+                case "Localidad":
+                case "Sucursal":
+                    break;
+
             }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
+        }
+        
+        public void comboBox_provincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CascadeFilter("provincia");
+            if (comboBox_estado.Items.Count.Equals(0))
+            {
+                foreach (BE_Provincia value in bllClientes.dameProvincias())
+                {
+                    comboBox_provincia.Items.Add(value.Descripcion);
+                }
+            }
         }
 
-        private void comboBox_provincia_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox_sucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (string value in bllClientes.dameProvincias())
-            {
-                comboBox_provincia.Items.Add(value);
-            }
+
+        }
+
+        private void comboBox_profesor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

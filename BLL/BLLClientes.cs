@@ -23,112 +23,22 @@ namespace BLL
             String[] ret = { Estado.Alta.ToString(), Estado.Baja.ToString() };
             return ret;
         }
-        public string[] dameProvincias()
+        public List<BE_Provincia> dameProvincias()
         {
             List<BE_Provincia> prov = new List<BE_Provincia>();
             DALProvincia dalprov = new DALProvincia();
             DataTable data = dalprov.DameProvincias();
-            foreach(var provin in data.Rows)
+            foreach (var provin in data.Rows)
             {
                 BE_Provincia aNewProv = new BE_Provincia();
-
                 prov.Add(aNewProv);
             }
-            String[] ret = { "0", "0" };
-            return ret;
+            return prov;
         }
-        
+
         public bool Alta(Cliente valAlta)
         {
-            bool rpta = false;
-            DAL.Conexion conn = new DAL.Conexion();
-            try
-            {
-                SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
-
-                comm.CommandText = "INSERT INTO ClienteGYM (Nombre, Apellido, Dni, Calle, Numero, CodPostal, Telefono, Fecha_Nac, PesoKg, Id_Estado, Id_Sucursal, Id_Empleado) VALUES (@Nombre, @Apellido, @Dni, @Calle, @Numero, @CodPostal, @Telefono, @FechaNac, @Peso, @Estado, @Sucursal, @Empleado)";
-
-                SqlParameter parameter1 = new SqlParameter();
-                parameter1.ParameterName = "@Nombre";
-                parameter1.Value = valAlta._nombre;
-                parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter2 = new SqlParameter();
-                parameter2.ParameterName = "@Apellido";
-                parameter2.Value = valAlta._apellido;
-                parameter2.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter3 = new SqlParameter();
-                parameter3.ParameterName = "@Dni";
-                parameter3.Value = valAlta._dni;
-                parameter3.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter4 = new SqlParameter();
-                parameter4.ParameterName = "@Calle";
-                parameter4.Value = valAlta._calle;
-                parameter4.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter5 = new SqlParameter();
-                parameter5.ParameterName = "@Numero";
-                parameter5.Value = valAlta._numero;
-                parameter5.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter6 = new SqlParameter();
-                parameter6.ParameterName = "@CodPostal";
-                parameter6.Value = valAlta._codPostal;
-                parameter6.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter7 = new SqlParameter();
-                parameter7.ParameterName = "@Telefono";
-                parameter7.Value = valAlta._telefono;
-                parameter7.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter8 = new SqlParameter();
-                parameter8.ParameterName = "@FechaNac";
-                parameter8.Value = valAlta._fechaNacimiento;
-                parameter8.SqlDbType = System.Data.SqlDbType.DateTime;
-
-                SqlParameter parameter9 = new SqlParameter();
-                parameter9.ParameterName = "@Peso";
-                parameter9.Value = valAlta._pesokg;
-                parameter9.SqlDbType = System.Data.SqlDbType.Float;
-
-                SqlParameter parameter10 = new SqlParameter();
-                parameter10.ParameterName = "@Estado";
-                parameter10.Value = valAlta._idEstado;
-                parameter10.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter11 = new SqlParameter();
-                parameter11.ParameterName = "@Sucursal";
-                parameter11.Value = valAlta._IDSucursal;
-                parameter11.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter12 = new SqlParameter();
-                parameter12.ParameterName = "@Empleado";
-                parameter12.Value = valAlta._IDEmpleado;
-                parameter12.SqlDbType = System.Data.SqlDbType.Int;
-
-                comm.Parameters.Add(parameter1);
-                comm.Parameters.Add(parameter2);
-                comm.Parameters.Add(parameter3);
-                comm.Parameters.Add(parameter4);
-                comm.Parameters.Add(parameter5);
-                comm.Parameters.Add(parameter6);
-                comm.Parameters.Add(parameter7);
-                comm.Parameters.Add(parameter8);
-                comm.Parameters.Add(parameter9);
-                comm.Parameters.Add(parameter10);
-                comm.Parameters.Add(parameter11);
-                comm.Parameters.Add(parameter12);
-
-                comm.Connection.Open();
-                int result = comm.ExecuteNonQuery();
-                comm.Connection.Close();
-                rpta = true;
-            }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
-            return rpta;
+            return cligym.Alta(valAlta);
         }
 
         public bool Baja(Cliente valBaja)
@@ -136,11 +46,65 @@ namespace BLL
             return true;
         }
 
-        public DataTable Leer(Cliente valBuscar)
+        
+        public List<BE.Cliente> Leer(Cliente valBuscar)
         {
-            DataTable a = new DataTable();
-            a = cligym.Leer(valBuscar);
-            return a;
+            List<BE.Cliente> listadoCliente = new List<Cliente>();
+            foreach (DataRow fila in cligym.MostrarCliente(valBuscar).Rows)
+            {
+                BE.Cliente formaCliente = new BE.Cliente();
+                formaCliente._IDCliente = int.Parse(fila[0].ToString());
+                formaCliente._IDSucursal = int.Parse(fila[1].ToString());
+                formaCliente._IDEmpleado = int.Parse(fila[2].ToString());
+                formaCliente._nombre = fila[3].ToString();
+                formaCliente._apellido = fila[4].ToString();
+                formaCliente._pesokg = int.Parse(fila[5].ToString());
+                formaCliente._idEstado = int.Parse(fila[6].ToString());
+                formaCliente._dni = int.Parse(fila[7].ToString());
+                formaCliente._calle = fila[8].ToString();
+                formaCliente._numero = int.Parse(fila[9].ToString());
+                formaCliente._codPostal = int.Parse(fila[10].ToString());
+                formaCliente._telefono = int.Parse(fila[11].ToString());
+                formaCliente._fechaNacimiento = DateTime.Parse(fila[12].ToString());
+                listadoCliente.Add(formaCliente);
+            }
+            return listadoCliente;
+        }
+        //Para el Mostrar
+        public BE.Cliente MostrarCliente(Cliente valBuscar)
+        {
+            BE.Cliente formaCliente = new BE.Cliente();
+            foreach (DataRow fila in cligym.MostrarCliente(valBuscar).Rows)
+            {
+                formaCliente._IDCliente = int.Parse(fila[0].ToString());
+                formaCliente._IDSucursal = int.Parse(fila[1].ToString());
+                formaCliente._IDEmpleado = int.Parse(fila[2].ToString());
+                formaCliente._nombre = fila[3].ToString();
+                formaCliente._apellido = fila[4].ToString();
+                formaCliente._pesokg = int.Parse(fila[5].ToString());
+                formaCliente._idEstado = int.Parse(fila[6].ToString());
+                formaCliente._dni = int.Parse(fila[7].ToString());
+                formaCliente._calle = fila[8].ToString();
+                formaCliente._numero = int.Parse(fila[9].ToString());
+                formaCliente._codPostal = int.Parse(fila[10].ToString());
+                formaCliente._telefono = int.Parse(fila[11].ToString());
+                formaCliente._fechaNacimiento = DateTime.Parse(fila[12].ToString());
+            }
+            return formaCliente;
+        }
+        public List<BE.Cliente> AccionBusqueda(Cliente valBuscar)
+        {
+
+            List<BE.Cliente> listadoCliente = new List<Cliente>();
+            foreach (DataRow fila in cligym.Leer(valBuscar).Rows)
+            {
+                BE.Cliente formaCliente = new BE.Cliente();
+                formaCliente._nombre = fila[1].ToString();
+                formaCliente._apellido = fila[2].ToString();
+                formaCliente._dni = int.Parse(fila[3].ToString());
+                listadoCliente.Add(formaCliente);
+            }
+            return listadoCliente;
         }
 
         public bool Modificar(Cliente valMod)

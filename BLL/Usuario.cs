@@ -13,7 +13,7 @@ namespace BLL
         DAL.BusquedaDAL buscar = new DAL.BusquedaDAL();
         DAL.ICRUD<BE.ABMUsuarios> cRUD = new DAL.ABMUsuariosDAL();
 
-        public void AgregarUsuario(string usuario, string contraseña, string idioma, string estado)
+        public bool AgregarUsuario(string usuario, string contraseña, string idioma, string estado)
         {
             contraseña = Seguridad.Encriptacion.Encriptador(contraseña);
             ABMUsuarios altaUser = new ABMUsuarios();
@@ -21,18 +21,18 @@ namespace BLL
             altaUser.User = usuario;
             altaUser.Pass = contraseña;
             
-            cRUD.Alta(altaUser);
+            return cRUD.Alta(altaUser);
         }
 
-        public void EliminarUsuario(string usuario)
+        public bool EliminarUsuario(string usuario)
         {
             ABMUsuarios bajaUser = new ABMUsuarios();
             bajaUser.User = usuario;
 
-            cRUD.Baja(bajaUser);
+            return cRUD.Baja(bajaUser);
         }
 
-        public void ModificarUsuario(string usuario, string contraseña, string idioma, string estado)
+        public bool ModificarUsuario(string usuario, string contraseña, string idioma, string estado)
         {
             ABMUsuarios modUser = new ABMUsuarios();
             if (!string.IsNullOrEmpty(contraseña))
@@ -43,7 +43,7 @@ namespace BLL
             modUser.User = usuario;
             modUser.Pass = contraseña;
 
-            cRUD.Modificar(modUser);
+            return cRUD.Modificar(modUser);
         }
 
         public void DevolverIDs(ABMUsuarios objetoUsuario, string idioma, string estado)

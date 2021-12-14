@@ -32,6 +32,9 @@
             this.textBox_Buscar = new System.Windows.Forms.TextBox();
             this.labelBuscarUnUsuario = new System.Windows.Forms.Label();
             this.listView = new System.Windows.Forms.ListView();
+            this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Apellido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Dni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_Mostrar = new System.Windows.Forms.Button();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelApellido = new System.Windows.Forms.Label();
@@ -64,10 +67,6 @@
             this.textBox_Peso = new System.Windows.Forms.TextBox();
             this.fechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.comboBox_estado = new System.Windows.Forms.ComboBox();
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Apellido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Dni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.comboBox_provincia = new System.Windows.Forms.ComboBox();
             this.comboBox_Localidad = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -105,10 +104,9 @@
             // listView
             // 
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
+            this.Dni,
             this.Nombre,
-            this.Apellido,
-            this.Dni});
+            this.Apellido});
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(16, 70);
             this.listView.Name = "listView";
@@ -116,6 +114,20 @@
             this.listView.TabIndex = 3;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
+            // 
+            // Nombre
+            // 
+            this.Nombre.Text = "Nombre";
+            this.Nombre.Width = 81;
+            // 
+            // Apellido
+            // 
+            this.Apellido.Text = "Apellido";
+            this.Apellido.Width = 83;
+            // 
+            // Dni
+            // 
+            this.Dni.Text = "Dni";
             // 
             // btn_Mostrar
             // 
@@ -389,40 +401,17 @@
             // 
             // comboBox_estado
             // 
+            this.comboBox_estado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox_estado.FormattingEnabled = true;
-            this.comboBox_estado.Items.AddRange(new object[] {
-            "Alta",
-            "Baja"});
-            this.comboBox_estado.Location = new System.Drawing.Point(646, 45);
+            this.comboBox_estado.Location = new System.Drawing.Point(644, 42);
             this.comboBox_estado.Name = "comboBox_estado";
             this.comboBox_estado.Size = new System.Drawing.Size(110, 21);
             this.comboBox_estado.TabIndex = 12;
             this.comboBox_estado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            this.ID.Width = 35;
-            // 
-            // Nombre
-            // 
-            this.Nombre.Text = "Nombre";
-            // 
-            // Apellido
-            // 
-            this.Apellido.Text = "Apellido";
-            this.Apellido.Width = 69;
-            // 
-            // Dni
-            // 
-            this.Dni.Text = "Dni";
-            // 
             // comboBox_provincia
             // 
             this.comboBox_provincia.FormattingEnabled = true;
-            this.comboBox_provincia.Items.AddRange(new object[] {
-            "Alta",
-            "Baja"});
             this.comboBox_provincia.Location = new System.Drawing.Point(646, 72);
             this.comboBox_provincia.Name = "comboBox_provincia";
             this.comboBox_provincia.Size = new System.Drawing.Size(110, 21);
@@ -432,9 +421,6 @@
             // comboBox_Localidad
             // 
             this.comboBox_Localidad.FormattingEnabled = true;
-            this.comboBox_Localidad.Items.AddRange(new object[] {
-            "Alta",
-            "Baja"});
             this.comboBox_Localidad.Location = new System.Drawing.Point(642, 105);
             this.comboBox_Localidad.Name = "comboBox_Localidad";
             this.comboBox_Localidad.Size = new System.Drawing.Size(110, 21);
@@ -462,24 +448,20 @@
             // comboBox_sucursal
             // 
             this.comboBox_sucursal.FormattingEnabled = true;
-            this.comboBox_sucursal.Items.AddRange(new object[] {
-            "Alta",
-            "Baja"});
             this.comboBox_sucursal.Location = new System.Drawing.Point(642, 134);
             this.comboBox_sucursal.Name = "comboBox_sucursal";
             this.comboBox_sucursal.Size = new System.Drawing.Size(110, 21);
             this.comboBox_sucursal.TabIndex = 12;
+            this.comboBox_sucursal.SelectedIndexChanged += new System.EventHandler(this.comboBox_sucursal_SelectedIndexChanged);
             // 
             // comboBox_profesor
             // 
             this.comboBox_profesor.FormattingEnabled = true;
-            this.comboBox_profesor.Items.AddRange(new object[] {
-            "Alta",
-            "Baja"});
             this.comboBox_profesor.Location = new System.Drawing.Point(642, 158);
             this.comboBox_profesor.Name = "comboBox_profesor";
             this.comboBox_profesor.Size = new System.Drawing.Size(110, 21);
             this.comboBox_profesor.TabIndex = 12;
+            this.comboBox_profesor.SelectedIndexChanged += new System.EventHandler(this.comboBox_profesor_SelectedIndexChanged);
             // 
             // Clientes
             // 
@@ -577,7 +559,6 @@
         private System.Windows.Forms.TextBox textBox_Peso;
         private System.Windows.Forms.DateTimePicker fechaNacimiento;
         private System.Windows.Forms.ComboBox comboBox_estado;
-        private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader Nombre;
         private System.Windows.Forms.ColumnHeader Apellido;
         private System.Windows.Forms.ColumnHeader Dni;

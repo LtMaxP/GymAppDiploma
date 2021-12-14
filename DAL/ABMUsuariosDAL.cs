@@ -13,8 +13,9 @@ namespace DAL
     public class ABMUsuariosDAL : ICRUD<BE.ABMUsuarios>
     {
         DAL.Conexion conn = new DAL.Conexion();
-        public void Alta(ABMUsuarios valAlta)
+        public bool Alta(ABMUsuarios valAlta)
         {
+            bool ret = false;
             try
             {
                 SqlCommand comm = new SqlCommand();
@@ -56,14 +57,17 @@ namespace DAL
                 comm.Connection.Open();
                 int result = comm.ExecuteNonQuery();
                 comm.Connection.Close();
+                ret = true;
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
+            return ret;
         }
 
 
         //ADO.Conectado
-        public void Baja(ABMUsuarios valBaja)
+        public bool Baja(ABMUsuarios valBaja)
         {
+            bool ret = false;
             try
             {
                 SqlCommand comm = new SqlCommand();
@@ -87,8 +91,10 @@ namespace DAL
                 int result = comm.ExecuteNonQuery();
                 comm.Connection.Close();
                 comm.Dispose();
+                return ret;
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
+            return ret;
         }
 
 
@@ -118,8 +124,9 @@ namespace DAL
         }
 
         //ADO.Conectado
-        public void Modificar(ABMUsuarios valModificar)
+        public bool Modificar(ABMUsuarios valModificar)
         {
+            bool ret = false;
             try
             {
                 SqlCommand comm = new SqlCommand();
@@ -165,8 +172,10 @@ namespace DAL
                 comm.Connection.Open();
                 int result = comm.ExecuteNonQuery();
                 comm.Connection.Close();
+                ret = true;
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
+            return ret;
         }
 
         //ADO.Desconectado
