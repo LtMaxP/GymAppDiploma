@@ -9,8 +9,6 @@ namespace BLL.Observer
 {
     public class Idioma : BLL.Observer.Subject
     {
-        
-
         private IdiomaEnum _idioma;
         public IdiomaEnum IdiomaSelected
         {

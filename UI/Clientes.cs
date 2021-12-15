@@ -36,6 +36,8 @@ namespace UI
         {
             Subject.AddObserver(this);
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            CascadeFilter("Provincia", "1");
+            DameEstados();
         }
 
         public void Update(BLL.Observer.Idioma idioma)
@@ -72,7 +74,7 @@ namespace UI
                 textBox_Peso.Text = client._pesokg.ToString();
                 textBox_Estado.Text = client._idEstado.ToString();
                 textBox_Sucursal.Text = client._IDSucursal.ToString();
-                textBox_Profesor.Text = client._IDEmpleado.ToString(); 
+                textBox_Profesor.Text = client._IDEmpleado.ToString();
             }
         }
 
@@ -155,6 +157,10 @@ namespace UI
         //Manera de agregar al combobox valores
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+        private void DameEstados()
+        {
             if (comboBox_estado.Items.Count.Equals(0))
             {
                 foreach (string value in bllClientes.dameEstados())
@@ -164,12 +170,15 @@ namespace UI
             }
         }
 
-        private void CascadeFilter(string filter)
+        private void CascadeFilter(string filter, string value)
         {
-            switch(filter)
+            switch (filter)
             {
                 case "Provincia":
+                    PopularProvincia(value);
+                    break;
                 case "Localidad":
+
                 case "Sucursal":
                     break;
 
@@ -180,17 +189,28 @@ namespace UI
         {
 
         }
-        
+
         public void comboBox_provincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CascadeFilter("provincia");
-            if (comboBox_estado.Items.Count.Equals(0))
+            CascadeFilter("Localidad", comboBox_provincia.SelectedText);
+        }
+        private void PopularProvincia(string prov)
+        {
+            if (comboBox_provincia.Items.Count.Equals(0))
             {
                 foreach (BE_Provincia value in bllClientes.dameProvincias())
                 {
                     comboBox_provincia.Items.Add(value.Descripcion);
                 }
             }
+            else
+            {
+                foreach (BE_Localidad value in bllClientes.DameLocalidad(prov))
+                {
+                    comboBox_provincia.Items.Add(value.Descripcion);
+                }
+            }
+
         }
 
         private void comboBox_sucursal_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,6 +221,10 @@ namespace UI
         private void comboBox_profesor_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.textBox_Buscar = new System.Windows.Forms.TextBox();
             this.labelBuscarUnUsuario = new System.Windows.Forms.Label();
             this.listView = new System.Windows.Forms.ListView();
+            this.Dni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Apellido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Dni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_Mostrar = new System.Windows.Forms.Button();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelApellido = new System.Windows.Forms.Label();
@@ -67,12 +68,18 @@
             this.textBox_Peso = new System.Windows.Forms.TextBox();
             this.fechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.comboBox_estado = new System.Windows.Forms.ComboBox();
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_provincia = new System.Windows.Forms.ComboBox();
+            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_Localidad = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox_sucursal = new System.Windows.Forms.ComboBox();
             this.comboBox_profesor = new System.Windows.Forms.ComboBox();
+            this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Buscar
@@ -115,6 +122,10 @@
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
             // 
+            // Dni
+            // 
+            this.Dni.Text = "Dni";
+            // 
             // Nombre
             // 
             this.Nombre.Text = "Nombre";
@@ -124,10 +135,6 @@
             // 
             this.Apellido.Text = "Apellido";
             this.Apellido.Width = 83;
-            // 
-            // Dni
-            // 
-            this.Dni.Text = "Dni";
             // 
             // btn_Mostrar
             // 
@@ -409,6 +416,10 @@
             this.comboBox_estado.TabIndex = 12;
             this.comboBox_estado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // clientesBindingSource
+            // 
+            this.clientesBindingSource.DataSource = typeof(UI.Clientes);
+            // 
             // comboBox_provincia
             // 
             this.comboBox_provincia.FormattingEnabled = true;
@@ -417,6 +428,10 @@
             this.comboBox_provincia.Size = new System.Drawing.Size(110, 21);
             this.comboBox_provincia.TabIndex = 12;
             this.comboBox_provincia.SelectedIndexChanged += new System.EventHandler(this.comboBox_provincia_SelectedIndexChanged);
+            // 
+            // clientesBindingSource1
+            // 
+            this.clientesBindingSource1.DataSource = typeof(UI.Clientes);
             // 
             // comboBox_Localidad
             // 
@@ -462,6 +477,10 @@
             this.comboBox_profesor.Size = new System.Drawing.Size(110, 21);
             this.comboBox_profesor.TabIndex = 12;
             this.comboBox_profesor.SelectedIndexChanged += new System.EventHandler(this.comboBox_profesor_SelectedIndexChanged);
+            // 
+            // clientesBindingSource2
+            // 
+            this.clientesBindingSource2.DataSource = typeof(UI.Clientes);
             // 
             // Clientes
             // 
@@ -516,6 +535,9 @@
             this.Name = "Clientes";
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.Clientes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,5 +590,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox_sucursal;
         private System.Windows.Forms.ComboBox comboBox_profesor;
+        private System.Windows.Forms.BindingSource clientesBindingSource;
+        private System.Windows.Forms.BindingSource clientesBindingSource1;
+        private System.Windows.Forms.BindingSource clientesBindingSource2;
     }
 }

@@ -28,12 +28,29 @@ namespace BLL
             List<BE_Provincia> prov = new List<BE_Provincia>();
             DALProvincia dalprov = new DALProvincia();
             DataTable data = dalprov.DameProvincias();
-            foreach (var provin in data.Rows)
+            foreach (BE_Provincia provin in data.Rows)
             {
-                BE_Provincia aNewProv = new BE_Provincia();
-                prov.Add(aNewProv);
+                prov.Add(provin);
             }
             return prov;
+        }
+        public List<BE_Localidad> DameLocalidad(string prov)
+        {
+            List<BE_Localidad> loc = new List<BE_Localidad>();
+            DALLocalidad dalloc = new DALLocalidad();
+            int provId = DameIdProv(prov);
+            DataTable data = dalloc.DameLocalidad(provId);
+            foreach (BE_Localidad loca in data.Rows)
+            {
+                loc.Add(loca);
+            }
+            return loc;
+        }
+        public int DameIdProv(string prov)
+        {
+            DALProvincia dalprov = new DALProvincia();
+            int idprov = dalprov.DameIdProvincias(prov);
+            return idprov;
         }
 
         public bool Alta(Cliente valAlta)

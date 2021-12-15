@@ -181,6 +181,7 @@
     <EmbeddedResource Include="UsuariosABM.resx">
       <DependentUpon>UsuariosABM.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Clientes.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -10,13 +10,12 @@ namespace DAL
 {
     public class DALProvincia
     {
-        Conexion connect = new Conexion();
+        DAL.Conexion conn = new DAL.Conexion();
         public DataTable DameProvincias()
         {
             DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(connect.ConexionRuta);
-            String query = "SELECT Id_Provincia, Descripcion FROM [Provincia] ";
-            SqlCommand command = new SqlCommand(query, connection);
+            String query = "SELECT Id_Provincia, Descripcion FROM Provincia";
+            SqlCommand command = new SqlCommand(query, conn.sqlConn);
 
             command.Connection.Open();
             try
@@ -27,6 +26,23 @@ namespace DAL
             { }
             command.Connection.Close();
             return dt;
+        }
+
+        public int DameIdProvincias(string prov)
+        {
+            int idReturn = 0;
+            String query = "SELECT Id_Provincia, Descripcion FROM [Provincia] ";
+            SqlCommand command = new SqlCommand(query, conn.sqlConn);
+
+            command.Connection.Open();
+            try
+            {
+                idReturn = int.Parse(command.CommandText);
+            }
+            catch (Exception e)
+            { }
+            command.Connection.Close();
+            return idReturn;
         }
     }
 }
