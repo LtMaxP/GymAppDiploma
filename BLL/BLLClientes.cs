@@ -28,9 +28,12 @@ namespace BLL
             List<BE_Provincia> prov = new List<BE_Provincia>();
             DALProvincia dalprov = new DALProvincia();
             DataTable data = dalprov.DameProvincias();
-            foreach (BE_Provincia provin in data.Rows)
+            foreach (DataRow provin in data.Rows)
             {
-                prov.Add(provin);
+                BE_Provincia provinciaActual = new BE_Provincia();
+                provinciaActual.Id_Provincia = int.Parse(provin.ItemArray[0].ToString());
+                provinciaActual.Descripcion = provin.ItemArray[1].ToString();
+                prov.Add(provinciaActual);
             }
             return prov;
         }
