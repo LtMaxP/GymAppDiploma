@@ -28,8 +28,8 @@ namespace BE
 
         public List<BE_Sucursal> Sucursal
         {
-            get { return Sucursal; }
-            set { Sucursal = value; }
+            get { return _sucursal; }
+            set { _sucursal = value; }
         }
     }
 }

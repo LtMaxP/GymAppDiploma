@@ -18,7 +18,7 @@ namespace BE
 
         private string _descripcion;
 
-        public string Id_Descripcion
+        public string Descripcion
         {
             get { return _descripcion; }
             set { _descripcion = value; }

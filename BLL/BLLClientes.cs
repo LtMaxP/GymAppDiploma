@@ -23,7 +23,7 @@ namespace BLL
             String[] ret = { Estado.Alta.ToString(), Estado.Baja.ToString() };
             return ret;
         }
-        public List<BE_Provincia> dameProvincias()
+        public List<BE_Provincia> dameTodasProvincias()
         {
             List<BE_Provincia> prov = new List<BE_Provincia>();
             DALProvincia dalprov = new DALProvincia();
@@ -43,18 +43,50 @@ namespace BLL
             DALLocalidad dalloc = new DALLocalidad();
             int provId = DameIdProv(prov);
             DataTable data = dalloc.DameLocalidad(provId);
-            foreach (BE_Localidad loca in data.Rows)
+            foreach (DataRow locRow in data.Rows)
             {
-                loc.Add(loca);
+                BE_Localidad beLocalidad = new BE_Localidad();
+                beLocalidad.Id_Localidad = int.Parse(locRow.ItemArray[0].ToString());
+                beLocalidad.Descripcion = locRow.ItemArray[1].ToString();
+                loc.Add(beLocalidad);
             }
             return loc;
         }
+
+        public List<BE_Sucursal> DameSucursales(string localid)
+        {
+            List<BE_Sucursal> suc = new List<BE_Sucursal>();
+            DALSucursal dalsuc = new DALSucursal();
+            int locId = DameIdLoc(localid);
+            DataTable data = dalsuc.DameSucursal(locId);
+            foreach (DataRow sucRow in data.Rows)
+            {
+                BE_Sucursal beSucursal = new BE_Sucursal();
+                beSucursal.Id_Sucursal = int.Parse(sucRow.ItemArray[0].ToString());
+                beSucursal.Descripcion = sucRow.ItemArray[1].ToString();
+                suc.Add(beSucursal);
+            }
+            return suc;
+        }
+
         public int DameIdProv(string prov)
         {
             DALProvincia dalprov = new DALProvincia();
             int idprov = dalprov.DameIdProvincias(prov);
             return idprov;
         }
+        public int DameIdLoc(string Loc)
+        {
+            DALLocalidad dalloc = new DALLocalidad();
+            int idLoc = dalloc.DameIdLocalidad(Loc);
+            return idLoc;
+        }
+
+        public void llenarLocacionDefault()
+        {
+
+        }
+
 
         public bool Alta(Cliente valAlta)
         {

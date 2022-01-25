@@ -93,7 +93,7 @@ namespace DAL
                 comm.Dispose();
                 return ret;
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta el Usuario."); }
             return ret;
         }
 

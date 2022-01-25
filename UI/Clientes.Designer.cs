@@ -57,25 +57,22 @@
             this.textBox_Dni = new System.Windows.Forms.TextBox();
             this.textBox_Calle = new System.Windows.Forms.TextBox();
             this.textBox_Numero = new System.Windows.Forms.TextBox();
-            this.textBox_Sucursal = new System.Windows.Forms.TextBox();
             this.textBox_Telefono = new System.Windows.Forms.TextBox();
             this.textBox_CodPost = new System.Windows.Forms.TextBox();
-            this.textBox_Estado = new System.Windows.Forms.TextBox();
-            this.textBox_Profesor = new System.Windows.Forms.TextBox();
             this.labelSalir = new System.Windows.Forms.Button();
             this.listRutina = new System.Windows.Forms.ListView();
             this.labelPeso = new System.Windows.Forms.Label();
             this.textBox_Peso = new System.Windows.Forms.TextBox();
             this.fechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.comboBox_estado = new System.Windows.Forms.ComboBox();
-            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_provincia = new System.Windows.Forms.ComboBox();
-            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox_Localidad = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox_sucursal = new System.Windows.Forms.ComboBox();
             this.comboBox_profesor = new System.Windows.Forms.ComboBox();
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
@@ -195,7 +192,7 @@
             // labelSucursal
             // 
             this.labelSucursal.AutoSize = true;
-            this.labelSucursal.Location = new System.Drawing.Point(560, 137);
+            this.labelSucursal.Location = new System.Drawing.Point(552, 157);
             this.labelSucursal.Name = "labelSucursal";
             this.labelSucursal.Size = new System.Drawing.Size(48, 13);
             this.labelSucursal.TabIndex = 5;
@@ -205,7 +202,7 @@
             // labelEstado
             // 
             this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(558, 45);
+            this.labelEstado.Location = new System.Drawing.Point(552, 61);
             this.labelEstado.Name = "labelEstado";
             this.labelEstado.Size = new System.Drawing.Size(40, 13);
             this.labelEstado.TabIndex = 5;
@@ -253,7 +250,7 @@
             // labelEmpleadoACargo
             // 
             this.labelEmpleadoACargo.AutoSize = true;
-            this.labelEmpleadoACargo.Location = new System.Drawing.Point(558, 162);
+            this.labelEmpleadoACargo.Location = new System.Drawing.Point(552, 189);
             this.labelEmpleadoACargo.Name = "labelEmpleadoACargo";
             this.labelEmpleadoACargo.Size = new System.Drawing.Size(46, 13);
             this.labelEmpleadoACargo.TabIndex = 5;
@@ -324,13 +321,6 @@
             this.textBox_Numero.Size = new System.Drawing.Size(100, 20);
             this.textBox_Numero.TabIndex = 9;
             // 
-            // textBox_Sucursal
-            // 
-            this.textBox_Sucursal.Location = new System.Drawing.Point(693, 172);
-            this.textBox_Sucursal.Name = "textBox_Sucursal";
-            this.textBox_Sucursal.Size = new System.Drawing.Size(106, 20);
-            this.textBox_Sucursal.TabIndex = 9;
-            // 
             // textBox_Telefono
             // 
             this.textBox_Telefono.Location = new System.Drawing.Point(393, 238);
@@ -344,20 +334,6 @@
             this.textBox_CodPost.Name = "textBox_CodPost";
             this.textBox_CodPost.Size = new System.Drawing.Size(100, 20);
             this.textBox_CodPost.TabIndex = 9;
-            // 
-            // textBox_Estado
-            // 
-            this.textBox_Estado.Location = new System.Drawing.Point(650, 12);
-            this.textBox_Estado.Name = "textBox_Estado";
-            this.textBox_Estado.Size = new System.Drawing.Size(106, 20);
-            this.textBox_Estado.TabIndex = 9;
-            // 
-            // textBox_Profesor
-            // 
-            this.textBox_Profesor.Location = new System.Drawing.Point(670, 189);
-            this.textBox_Profesor.Name = "textBox_Profesor";
-            this.textBox_Profesor.Size = new System.Drawing.Size(106, 20);
-            this.textBox_Profesor.TabIndex = 9;
             // 
             // labelSalir
             // 
@@ -410,42 +386,34 @@
             // 
             this.comboBox_estado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox_estado.FormattingEnabled = true;
-            this.comboBox_estado.Location = new System.Drawing.Point(644, 42);
+            this.comboBox_estado.Location = new System.Drawing.Point(626, 58);
             this.comboBox_estado.Name = "comboBox_estado";
-            this.comboBox_estado.Size = new System.Drawing.Size(110, 21);
+            this.comboBox_estado.Size = new System.Drawing.Size(134, 21);
             this.comboBox_estado.TabIndex = 12;
             this.comboBox_estado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // clientesBindingSource
-            // 
-            this.clientesBindingSource.DataSource = typeof(UI.Clientes);
             // 
             // comboBox_provincia
             // 
             this.comboBox_provincia.FormattingEnabled = true;
-            this.comboBox_provincia.Location = new System.Drawing.Point(646, 72);
+            this.comboBox_provincia.Location = new System.Drawing.Point(626, 89);
             this.comboBox_provincia.Name = "comboBox_provincia";
-            this.comboBox_provincia.Size = new System.Drawing.Size(110, 21);
+            this.comboBox_provincia.Size = new System.Drawing.Size(134, 21);
             this.comboBox_provincia.TabIndex = 12;
             this.comboBox_provincia.SelectedIndexChanged += new System.EventHandler(this.comboBox_provincia_SelectedIndexChanged);
-            // 
-            // clientesBindingSource1
-            // 
-            this.clientesBindingSource1.DataSource = typeof(UI.Clientes);
             // 
             // comboBox_Localidad
             // 
             this.comboBox_Localidad.FormattingEnabled = true;
-            this.comboBox_Localidad.Location = new System.Drawing.Point(642, 105);
+            this.comboBox_Localidad.Location = new System.Drawing.Point(626, 125);
             this.comboBox_Localidad.Name = "comboBox_Localidad";
-            this.comboBox_Localidad.Size = new System.Drawing.Size(110, 21);
+            this.comboBox_Localidad.Size = new System.Drawing.Size(134, 21);
             this.comboBox_Localidad.TabIndex = 12;
             this.comboBox_Localidad.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(557, 77);
+            this.label1.Location = new System.Drawing.Point(552, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 5;
@@ -454,7 +422,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(555, 108);
+            this.label2.Location = new System.Drawing.Point(552, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 5;
@@ -463,20 +431,28 @@
             // comboBox_sucursal
             // 
             this.comboBox_sucursal.FormattingEnabled = true;
-            this.comboBox_sucursal.Location = new System.Drawing.Point(642, 134);
+            this.comboBox_sucursal.Location = new System.Drawing.Point(626, 154);
             this.comboBox_sucursal.Name = "comboBox_sucursal";
-            this.comboBox_sucursal.Size = new System.Drawing.Size(110, 21);
+            this.comboBox_sucursal.Size = new System.Drawing.Size(134, 21);
             this.comboBox_sucursal.TabIndex = 12;
             this.comboBox_sucursal.SelectedIndexChanged += new System.EventHandler(this.comboBox_sucursal_SelectedIndexChanged);
             // 
             // comboBox_profesor
             // 
             this.comboBox_profesor.FormattingEnabled = true;
-            this.comboBox_profesor.Location = new System.Drawing.Point(642, 158);
+            this.comboBox_profesor.Location = new System.Drawing.Point(626, 186);
             this.comboBox_profesor.Name = "comboBox_profesor";
-            this.comboBox_profesor.Size = new System.Drawing.Size(110, 21);
+            this.comboBox_profesor.Size = new System.Drawing.Size(134, 21);
             this.comboBox_profesor.TabIndex = 12;
             this.comboBox_profesor.SelectedIndexChanged += new System.EventHandler(this.comboBox_profesor_SelectedIndexChanged);
+            // 
+            // clientesBindingSource
+            // 
+            this.clientesBindingSource.DataSource = typeof(UI.Clientes);
+            // 
+            // clientesBindingSource1
+            // 
+            this.clientesBindingSource1.DataSource = typeof(UI.Clientes);
             // 
             // clientesBindingSource2
             // 
@@ -494,9 +470,6 @@
             this.Controls.Add(this.comboBox_estado);
             this.Controls.Add(this.fechaNacimiento);
             this.Controls.Add(this.labelSalir);
-            this.Controls.Add(this.textBox_Profesor);
-            this.Controls.Add(this.textBox_Estado);
-            this.Controls.Add(this.textBox_Sucursal);
             this.Controls.Add(this.textBox_CodPost);
             this.Controls.Add(this.textBox_Peso);
             this.Controls.Add(this.textBox_Calle);
@@ -570,11 +543,8 @@
         private System.Windows.Forms.TextBox textBox_Dni;
         private System.Windows.Forms.TextBox textBox_Calle;
         private System.Windows.Forms.TextBox textBox_Numero;
-        private System.Windows.Forms.TextBox textBox_Sucursal;
         private System.Windows.Forms.TextBox textBox_Telefono;
         private System.Windows.Forms.TextBox textBox_CodPost;
-        private System.Windows.Forms.TextBox textBox_Estado;
-        private System.Windows.Forms.TextBox textBox_Profesor;
         private System.Windows.Forms.Button labelSalir;
         private System.Windows.Forms.ListView listRutina;
         private System.Windows.Forms.Label labelPeso;

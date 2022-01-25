@@ -87,6 +87,7 @@
     <Compile Include="DALLocalidad.cs" />
     <Compile Include="DALPagosCobros.cs" />
     <Compile Include="DALProvincia.cs" />
+    <Compile Include="DALSucursal.cs" />
     <Compile Include="DigitoVerificadorDAL.cs" />
     <Compile Include="BusquedaDAL.cs" />
     <Compile Include="DVV.cs">

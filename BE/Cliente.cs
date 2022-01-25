@@ -128,7 +128,20 @@ namespace BE
             set { _Ejercicio = value; }
         }
 
+        private int _idProvincia;
 
+        public int IDProvincia
+        {
+            get { return _idProvincia; }
+            set { _idProvincia = value; }
+        }
 
+        private int _idLocalidad;
+
+        public int IDLocalidad
+        {
+            get { return _idLocalidad; }
+            set { _idLocalidad = value; }
+        }
     }
 }

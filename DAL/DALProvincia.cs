@@ -28,20 +28,21 @@ namespace DAL
             return dt;
         }
 
+        // ADO Desconectado
         public int DameIdProvincias(string prov)
         {
             int idReturn = 0;
-            String query = "SELECT Id_Provincia, Descripcion FROM [Provincia] ";
-            SqlCommand command = new SqlCommand(query, conn.sqlConn);
+            SqlCommand command = new SqlCommand();
 
+            command.Connection = conn.sqlConn;
+            command.CommandText = "SELECT Id_Provincia FROM [Provincia] WHERE Descripcion = @descripcion";
+            command.Parameters.AddWithValue("@descripcion", prov);
+            try { 
             command.Connection.Open();
-            try
-            {
-                idReturn = int.Parse(command.CommandText);
-            }
-            catch (Exception e)
-            { }
+            idReturn = int.Parse(command.ExecuteScalar().ToString());
             command.Connection.Close();
+            }
+            catch { }
             return idReturn;
         }
     }

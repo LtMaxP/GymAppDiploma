@@ -15,8 +15,9 @@ namespace DAL
         public DataTable DameLocalidad(int idProv)
         {
             DataTable dt = new DataTable();
-            String query = "SELECT Id_Localidad, Descripcion FROM [Localidad] WHERE Id_Provincia = " + idProv;
+            String query = "SELECT Id_Localidad, Descripcion FROM [Localidad] WHERE Id_Provincia = @id";
             SqlCommand command = new SqlCommand(query, conn.sqlConn);
+            command.Parameters.AddWithValue("@id", idProv);
 
             command.Connection.Open();
             try
@@ -27,6 +28,27 @@ namespace DAL
             { }
             command.Connection.Close();
             return dt;
+        }
+        public int DameIdLocalidad(string localidad)
+        {
+            int idReturn = 0;
+
+            DataTable dt = new DataTable();
+            String query = "SELECT Id_Localidad FROM [Localidad] WHERE Descripcion = @Localidad";
+            SqlCommand command = new SqlCommand(query, conn.sqlConn);
+            command.Parameters.AddWithValue("@Localidad", localidad);
+
+            command.Connection.Open();
+            try
+            {
+                command.Connection.Open();
+                idReturn = int.Parse(command.ExecuteScalar().ToString());
+                command.Connection.Close();
+            }
+            catch { }
+            command.Connection.Close();
+
+            return idReturn;
         }
     }
 }

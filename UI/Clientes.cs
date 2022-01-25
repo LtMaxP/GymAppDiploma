@@ -36,8 +36,30 @@ namespace UI
         {
             Subject.AddObserver(this);
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
-            CascadeFilter("Provincia", "1");
+            llenarLugaresDefault();
             DameEstados();
+        }
+
+        public void llenarLugaresDefault()
+        {
+            if (comboBox_provincia.Items.Count.Equals(0))
+            {
+                foreach (BE_Provincia value in bllClientes.dameTodasProvincias())
+                {
+                    comboBox_provincia.Items.Add(value.Descripcion);
+                }
+                comboBox_provincia.SelectedItem = comboBox_provincia.Items[0];
+                foreach (BE_Localidad value in bllClientes.DameLocalidad(comboBox_provincia.Items[0].ToString()))
+                {
+                    comboBox_Localidad.Items.Add(value.Descripcion);
+                }
+                comboBox_Localidad.SelectedItem = comboBox_Localidad.Items[0];
+                foreach (BE_Sucursal value in bllClientes.DameSucursales(comboBox_Localidad.Items[0].ToString()))
+                {
+                    comboBox_sucursal.Items.Add(value.Descripcion);
+                }
+                comboBox_sucursal.SelectedItem = comboBox_sucursal.Items[0];
+            }
         }
 
         public void Update(BLL.Observer.Idioma idioma)
@@ -72,15 +94,16 @@ namespace UI
                 textBox_Telefono.Text = client._telefono.ToString();
                 fechaNacimiento.Value = client._fechaNacimiento;
                 textBox_Peso.Text = client._pesokg.ToString();
-                textBox_Estado.Text = client._idEstado.ToString();
-                textBox_Sucursal.Text = client._IDSucursal.ToString();
-                textBox_Profesor.Text = client._IDEmpleado.ToString();
+                comboBox_estado.Text = client._idEstado.ToString();
+                comboBox_sucursal.Text = client._IDSucursal.ToString();
+
+                comboBox_profesor.Text = client._IDEmpleado.ToString();
             }
         }
 
         private void labelAlta_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox_Nombre.Text) || String.IsNullOrEmpty(textBox_Apellido.Text) || String.IsNullOrEmpty(textBox_Dni.Text) || String.IsNullOrEmpty(textBox_Calle.Text) || String.IsNullOrEmpty(textBox_Numero.Text) || String.IsNullOrEmpty(textBox_CodPost.Text) || String.IsNullOrEmpty(textBox_Telefono.Text) || String.IsNullOrEmpty(textBox_Peso.Text) || String.IsNullOrEmpty(textBox_Estado.Text) || String.IsNullOrEmpty(textBox_Sucursal.Text) || String.IsNullOrEmpty(textBox_Profesor.Text))
+            if (String.IsNullOrEmpty(textBox_Nombre.Text) || String.IsNullOrEmpty(textBox_Apellido.Text) || String.IsNullOrEmpty(textBox_Dni.Text) || String.IsNullOrEmpty(textBox_Calle.Text) || String.IsNullOrEmpty(textBox_Numero.Text) || String.IsNullOrEmpty(textBox_CodPost.Text) || String.IsNullOrEmpty(textBox_Telefono.Text) || String.IsNullOrEmpty(textBox_Peso.Text) || String.IsNullOrEmpty(comboBox_estado.Text) || String.IsNullOrEmpty(comboBox_sucursal.Text) || String.IsNullOrEmpty(comboBox_profesor.Text))
             {
                 MessageBox.Show("Debe completar todos los campos.");
             }
@@ -96,9 +119,9 @@ namespace UI
                 client._telefono = int.Parse(textBox_Telefono.Text);
                 client._fechaNacimiento = fechaNacimiento.Value;
                 client._pesokg = int.Parse(textBox_Peso.Text);
-                client._idEstado = int.Parse(textBox_Estado.Text);
-                client._IDSucursal = int.Parse(textBox_Sucursal.Text);
-                client._IDEmpleado = int.Parse(textBox_Profesor.Text);
+                client._idEstado = int.Parse(comboBox_estado.Text);
+                client._IDSucursal = int.Parse(comboBox_sucursal.Text);
+                client._IDEmpleado = int.Parse(comboBox_profesor.Text);
                 if (!bllClientes.ValidarSiExiste(client))
                 {
                     //client.Ejercicio = BE_ejercicio. listRutina.Text;
@@ -167,6 +190,7 @@ namespace UI
                 {
                     comboBox_estado.Items.Add(value);
                 }
+                comboBox_estado.SelectedItem = comboBox_estado.Items[0];
             }
         }
 
@@ -178,10 +202,28 @@ namespace UI
                     PopularProvincia(value);
                     break;
                 case "Localidad":
-
-                case "Sucursal":
+                    PopularLocalidad(value);
                     break;
+                case "Sucursal":
+                    PopularSucursal(value);
+                    break;
+            }
+        }
 
+        private void PopularLocalidad(string provincia)
+        {
+            foreach (BE_Localidad value in bllClientes.DameLocalidad(provincia))
+            {
+                comboBox_Localidad.Items.Add(value.Descripcion);
+            }
+            comboBox_Localidad.SelectedItem = comboBox_Localidad.Items[0];
+        }
+
+        private void PopularSucursal(string localidad)
+        {
+            foreach (BE_Sucursal value in bllClientes.DameSucursales(localidad))
+            {
+                comboBox_sucursal.Items.Add(value.Descripcion);
             }
         }
 
@@ -192,26 +234,31 @@ namespace UI
 
         public void comboBox_provincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CascadeFilter("Localidad", comboBox_provincia.SelectedText);
+            //CascadeFilter("Localidad", comboBox_provincia.SelectedItem.ToString());//De momento en standby por el cambio inicial activa esto cambiando
         }
         private void PopularProvincia(string prov)
         {
             if (comboBox_provincia.Items.Count.Equals(0))
             {
-                foreach (BE_Provincia value in bllClientes.dameProvincias())
+                foreach (BE_Provincia value in bllClientes.dameTodasProvincias())
                 {
                     comboBox_provincia.Items.Add(value.Descripcion);
                 }
             }
             else
             {
+                if (String.IsNullOrEmpty(prov))
+                {
+                    //prov = ;
+                }
                 foreach (BE_Localidad value in bllClientes.DameLocalidad(prov))
                 {
-                    comboBox_provincia.Items.Add(value.Descripcion);
+                    comboBox_Localidad.Items.Add(value.Descripcion);
                 }
             }
-
         }
+
+
 
         private void comboBox_sucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -225,6 +272,11 @@ namespace UI
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+        }
+
+        private void textBox_Estado_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
