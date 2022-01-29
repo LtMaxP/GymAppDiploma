@@ -82,9 +82,11 @@ namespace BLL
             return idLoc;
         }
 
-        public void llenarLocacionDefault()
+        public void llenarLocalidadProvincia(int sucursal)
         {
-
+            DALSucursal dalsucursal = new DALSucursal();
+            DataRow dr = dalsucursal.DameLocacionTotalSucursal(sucursal).Rows[0];
+            ///////////////////////////////////////////////////////
         }
 
 
