@@ -230,9 +230,15 @@ namespace UI
             comboBox_sucursal.SelectedItem = comboBox_sucursal.Items[0];
         }
 
+        //localidad
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (!String.IsNullOrEmpty(comboBox_Localidad.SelectedItem.ToString()))
+            {
+                string localidad = comboBox_Localidad.SelectedItem.ToString();
+                comboBox_sucursal.Items.Clear();
+                CascadeFilter("Sucursal", localidad);
+            }
         }
 
         public void comboBox_provincia_SelectedIndexChanged(object sender, EventArgs e)
@@ -246,8 +252,6 @@ namespace UI
                 comboBox_sucursal.Items.Clear();
                 CascadeFilter("Sucursal", localidad);
             }
-            //arreglar cuando cambias el tipo de provincia q actualice todo
-            //De momento en standby por el cambio inicial activa esto cambiando
         }
         private void PopularProvincia(string prov)
         {
