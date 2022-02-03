@@ -49,16 +49,18 @@ namespace UI
                     comboBox_provincia.Items.Add(value.Descripcion);
                 }
                 comboBox_provincia.SelectedItem = comboBox_provincia.Items[0];
-                foreach (BE_Localidad value in bllClientes.DameLocalidad(comboBox_provincia.Items[0].ToString()))
-                {
-                    comboBox_Localidad.Items.Add(value.Descripcion);
-                }
-                comboBox_Localidad.SelectedItem = comboBox_Localidad.Items[0];
-                foreach (BE_Sucursal value in bllClientes.DameSucursales(comboBox_Localidad.Items[0].ToString()))
-                {
-                    comboBox_sucursal.Items.Add(value.Descripcion);
-                }
-                comboBox_sucursal.SelectedItem = comboBox_sucursal.Items[0];
+                //string provincia = comboBox_provincia.Items[0].ToString();
+                //comboBox_Localidad.Items.Clear();
+                //foreach (BE_Localidad value in bllClientes.DameLocalidad(provincia))
+                //{
+                //    comboBox_Localidad.Items.Add(value.Descripcion);
+                //}
+                //comboBox_Localidad.SelectedItem = comboBox_Localidad.Items[0];
+                //foreach (BE_Sucursal value in bllClientes.DameSucursales(comboBox_Localidad.Items[0].ToString()))
+                //{
+                //    comboBox_sucursal.Items.Add(value.Descripcion);
+                //}
+                //comboBox_sucursal.SelectedItem = comboBox_sucursal.Items[0];
             }
         }
 
@@ -225,6 +227,7 @@ namespace UI
             {
                 comboBox_sucursal.Items.Add(value.Descripcion);
             }
+            comboBox_sucursal.SelectedItem = comboBox_sucursal.Items[0];
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -234,7 +237,17 @@ namespace UI
 
         public void comboBox_provincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //CascadeFilter("Localidad", comboBox_provincia.SelectedItem.ToString());//De momento en standby por el cambio inicial activa esto cambiando
+            if (!String.IsNullOrEmpty(comboBox_provincia.SelectedItem.ToString()))
+            {
+                string provin = comboBox_provincia.SelectedItem.ToString();
+                comboBox_Localidad.Items.Clear();
+                CascadeFilter("Localidad", provin);
+                string localidad = comboBox_Localidad.SelectedItem.ToString();
+                comboBox_sucursal.Items.Clear();
+                CascadeFilter("Sucursal", localidad);
+            }
+            //arreglar cuando cambias el tipo de provincia q actualice todo
+            //De momento en standby por el cambio inicial activa esto cambiando
         }
         private void PopularProvincia(string prov)
         {
@@ -247,10 +260,6 @@ namespace UI
             }
             else
             {
-                if (String.IsNullOrEmpty(prov))
-                {
-                    //prov = ;
-                }
                 foreach (BE_Localidad value in bllClientes.DameLocalidad(prov))
                 {
                     comboBox_Localidad.Items.Add(value.Descripcion);

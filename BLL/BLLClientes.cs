@@ -144,6 +144,8 @@ namespace BLL
                 formaCliente._telefono = int.Parse(fila[11].ToString());
                 formaCliente._fechaNacimiento = DateTime.Parse(fila[12].ToString());
             }
+            llenarLocalidadProvincia(formaCliente._IDSucursal);
+            ////////////???
             return formaCliente;
         }
         public List<BE.Cliente> AccionBusqueda(Cliente valBuscar)

@@ -15,7 +15,7 @@ namespace DAL
         public DataTable DameSucursal(int idLoc)
         {
             DataTable dt = new DataTable();
-            String query = "SELECT Id_Sucursal, Descripcion FROM [Localidad] WHERE Id_Localidad = @id";
+            String query = "SELECT Id_Sucursal, Descripcion FROM [Sucursal] WHERE Id_Localidad = @id";
             SqlCommand command = new SqlCommand(query, conn.sqlConn);
             command.Parameters.AddWithValue("@id", idLoc);
 
@@ -33,12 +33,7 @@ namespace DAL
         public DataTable DameLocacionTotalSucursal(int idSucursal)
         {
             DataTable dt = new DataTable();
-            String query = "Select s.descripcion, s.Id_Sucursal, s.Id_Localidad, l.Id_Localidad, l.Descripcion, p.Id_Provincia, p.Descripcion from sucursal as S
-inner join Localidad as L
-on L.Id_Localidad = S.Id_Localidad
-inner join Provincia as P
-on L.Id_Provincia = P.Id_Provincia
-where Id_Sucursal = 1";////////////////////////////////
+            String query = "select * from[dbo].[DameTodoSucursalaProvincia](@id)";
             SqlCommand command = new SqlCommand(query, conn.sqlConn);
             command.Parameters.AddWithValue("@id", idSucursal);
 

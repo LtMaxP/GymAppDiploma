@@ -41,7 +41,6 @@ namespace DAL
             command.Connection.Open();
             try
             {
-                command.Connection.Open();
                 idReturn = int.Parse(command.ExecuteScalar().ToString());
                 command.Connection.Close();
             }
