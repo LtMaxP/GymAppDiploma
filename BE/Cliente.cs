@@ -17,7 +17,6 @@ namespace BE
         }
 
         private int id_Sucursal;
-
         public int _IDSucursal
         {
             get { return id_Sucursal; }
@@ -25,7 +24,6 @@ namespace BE
         }
 
         private int id_Empleado;
-
         public int _IDEmpleado
         {
             get { return id_Empleado; }
@@ -33,7 +31,6 @@ namespace BE
         }
 
         private string nombre;
-
         public string _nombre
         {
             get { return nombre; }
@@ -41,7 +38,6 @@ namespace BE
         }
 
         private string apellido;
-
         public string _apellido
         {
             get { return apellido; }
@@ -49,7 +45,6 @@ namespace BE
         }
 
         private float pesokg;
-
         public float _pesokg
         {
             get { return pesokg; }
@@ -57,7 +52,6 @@ namespace BE
         }
 
         private int id_Estado;
-
         public int _idEstado
         {
             get { return id_Estado; }
@@ -65,7 +59,6 @@ namespace BE
         }
 
         private int dni;
-
         public int _dni
         {
             get { return dni; }
@@ -73,7 +66,6 @@ namespace BE
         }
 
         private string calle;
-
         public string _calle
         {
             get { return calle; }
@@ -81,7 +73,6 @@ namespace BE
         }
 
         private int numero;
-
         public int _numero
         {
             get { return numero; }
@@ -89,7 +80,6 @@ namespace BE
         }
 
         private int codPostal;
-
         public int _codPostal
         {
             get { return codPostal; }
@@ -97,7 +87,6 @@ namespace BE
         }
 
         private int telefono;
-
         public int _telefono
         {
             get { return telefono; }
@@ -105,7 +94,6 @@ namespace BE
         }
 
         private DateTime fechaNacimiento;
-
         public DateTime _fechaNacimiento
         {
             get { return fechaNacimiento; }
@@ -113,7 +101,6 @@ namespace BE
         }
 
         private List<BE_Ejercicio> _rutina; 
-
         public List<BE_Ejercicio> Rutina
         {
             get { return _rutina; }
@@ -121,7 +108,6 @@ namespace BE
         }
 
         private BE_Ejercicio _Ejercicio;
-
         public BE_Ejercicio Ejercicio
         {
             get { return _Ejercicio; }
@@ -129,7 +115,6 @@ namespace BE
         }
 
         private int _idProvincia;
-
         public int IDProvincia
         {
             get { return _idProvincia; }
@@ -137,11 +122,11 @@ namespace BE
         }
 
         private int _idLocalidad;
-
         public int IDLocalidad
         {
             get { return _idLocalidad; }
             set { _idLocalidad = value; }
         }
+            
     }
 }

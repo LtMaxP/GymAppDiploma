@@ -196,20 +196,37 @@ namespace UI
             }
         }
 
+        string nextVal;
         private void CascadeFilter(string filter, string value)
         {
+            
             switch (filter)
             {
                 case "Provincia":
                     PopularProvincia(value);
-                    break;
+                    nextVal = value;
+                    goto case "Localidad";
                 case "Localidad":
-                    PopularLocalidad(value);
-                    break;
+                    PopularLocalidad(value ?? nextVal);
+                    nextVal = value;
+                    goto case "Sucursal";
                 case "Sucursal":
                     PopularSucursal(value);
+                    nextVal = value;
+                    goto case "Profesor";
+                case "Profesor":
+                    PopularProfesor(value);
                     break;
             }
+        }
+
+        private void PopularProfesor(string sucursal)
+        {
+            ////////////foreach (BE_Profesor value in bllClientes.DameProfesores(sucursal))
+            ////////////{
+            ////////////    comboBox_profesor.Items.Add(value.Descripcion);
+            ////////////}
+            ////////////comboBox_profesor.SelectedItem = comboBox_profesor.Items[0];
         }
 
         private void PopularLocalidad(string provincia)
@@ -221,6 +238,7 @@ namespace UI
             comboBox_Localidad.SelectedItem = comboBox_Localidad.Items[0];
         }
 
+        //Sucursal
         private void PopularSucursal(string localidad)
         {
             foreach (BE_Sucursal value in bllClientes.DameSucursales(localidad))
@@ -247,10 +265,8 @@ namespace UI
             {
                 string provin = comboBox_provincia.SelectedItem.ToString();
                 comboBox_Localidad.Items.Clear();
-                CascadeFilter("Localidad", provin);
-                string localidad = comboBox_Localidad.SelectedItem.ToString();
                 comboBox_sucursal.Items.Clear();
-                CascadeFilter("Sucursal", localidad);
+                CascadeFilter("Localidad", provin);
             }
         }
         private void PopularProvincia(string prov)
@@ -275,12 +291,17 @@ namespace UI
 
         private void comboBox_sucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (!String.IsNullOrEmpty(comboBox_sucursal.SelectedItem.ToString()))
+            {
+                //string sucursal = comboBox_sucursal.SelectedItem.ToString();
+                //comboBox_sucursal.Items.Clear();
+                //CascadeFilter("Sucursal", sucursal);
+            }
         }
 
         private void comboBox_profesor_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //dar profesor usar en la bll y dal [dbo].[DameProfesoresEnSucursal] te da 3 campos ya de una <=5
         }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
