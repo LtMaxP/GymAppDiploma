@@ -16,6 +16,7 @@ namespace UI
     public partial class Clientes : Form, BLL.Observer.IObserver
     {
         BLLClientes bllClientes = new BLLClientes();
+        BLLEmpleados bllEmpleados = new BLLEmpleados();
         public Clientes()
         {
             InitializeComponent();
@@ -49,18 +50,6 @@ namespace UI
                     comboBox_provincia.Items.Add(value.Descripcion);
                 }
                 comboBox_provincia.SelectedItem = comboBox_provincia.Items[0];
-                //string provincia = comboBox_provincia.Items[0].ToString();
-                //comboBox_Localidad.Items.Clear();
-                //foreach (BE_Localidad value in bllClientes.DameLocalidad(provincia))
-                //{
-                //    comboBox_Localidad.Items.Add(value.Descripcion);
-                //}
-                //comboBox_Localidad.SelectedItem = comboBox_Localidad.Items[0];
-                //foreach (BE_Sucursal value in bllClientes.DameSucursales(comboBox_Localidad.Items[0].ToString()))
-                //{
-                //    comboBox_sucursal.Items.Add(value.Descripcion);
-                //}
-                //comboBox_sucursal.SelectedItem = comboBox_sucursal.Items[0];
             }
         }
 
@@ -211,24 +200,25 @@ namespace UI
                     nextVal = value;
                     goto case "Sucursal";
                 case "Sucursal":
-                    PopularSucursal(value);
+                    PopularSucursal(value ?? nextVal);
                     nextVal = value;
-                    goto case "Profesor";
-                case "Profesor":
-                    PopularProfesor(value);
+                    goto case "Empleado";
+                case "Empleado":
+                    PopularEmpleados(value ?? nextVal);
                     break;
             }
         }
-
-        private void PopularProfesor(string sucursal)
+        //Empleados
+        private void PopularEmpleados(string sucursal)
         {
-            ////////////foreach (BE_Profesor value in bllClientes.DameProfesores(sucursal))
-            ////////////{
-            ////////////    comboBox_profesor.Items.Add(value.Descripcion);
-            ////////////}
-            ////////////comboBox_profesor.SelectedItem = comboBox_profesor.Items[0];
+            int idSuc = bllClientes.DameIdSuc(sucursal);
+            foreach (BE_Empleado value in bllEmpleados.DameEmpleados(idSuc))
+            {
+                comboBox_profesor.Items.Add(value.Nombre + " " + value.Apellido);
+            }
+            comboBox_profesor.SelectedItem = comboBox_profesor.Items[0];
         }
-
+        //Localidad
         private void PopularLocalidad(string provincia)
         {
             foreach (BE_Localidad value in bllClientes.DameLocalidad(provincia))

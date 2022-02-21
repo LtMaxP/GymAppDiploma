@@ -79,6 +79,7 @@
       <DependentUpon>ModelEF.tt</DependentUpon>
     </Compile>
     <Compile Include="CompositeyPermisosDAL.cs" />
+    <Compile Include="Singleton.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="DALClientes.cs" />
     <Compile Include="DALEmpleado.cs" />

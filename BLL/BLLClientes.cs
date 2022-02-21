@@ -81,11 +81,19 @@ namespace BLL
             int idLoc = dalloc.DameIdLocalidad(Loc);
             return idLoc;
         }
+        public int DameIdSuc(string suc)
+        {
+            DALSucursal dalsuc = new DALSucursal();
+            int idSuc = dalsuc.DameIdSucursal(suc);
+            return idSuc;
+        }
 
-        public void llenarLocalidadProvincia(int sucursal)
+
+        public void llenarLocalidadProvincia(int idCliente)
         {
             DALSucursal dalsucursal = new DALSucursal();
-            DataRow dr = dalsucursal.DameLocacionTotalSucursal(sucursal).Rows[0];
+            DataRow dr = dalsucursal.DameLocacionTotalSucursal(idCliente).Rows[0]; //se descontinuo_?
+        
             ///////////////////////////////////////////////////////
         }
 
@@ -143,11 +151,13 @@ namespace BLL
                 formaCliente._codPostal = int.Parse(fila[10].ToString());
                 formaCliente._telefono = int.Parse(fila[11].ToString());
                 formaCliente._fechaNacimiento = DateTime.Parse(fila[12].ToString());
+                formaCliente.IDProvincia = int.Parse(fila[12].ToString());
+                formaCliente.IDLocalidad = int.Parse(fila[13].ToString());
             }
-            llenarLocalidadProvincia(formaCliente._IDSucursal);
-            ////////////???
+            
             return formaCliente;
         }
+
         public List<BE.Cliente> AccionBusqueda(Cliente valBuscar)
         {
 
