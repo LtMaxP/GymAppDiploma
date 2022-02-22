@@ -59,14 +59,14 @@ namespace DAL
             SqlDataAdapter sqlAdap = new SqlDataAdapter(query, Singleton.Instance.ConexionRuta);
             sqlAdap.SelectCommand.Parameters.AddWithValue("@Sucursal", sucursal);
             //command.Parameters.AddWithValue("@Sucursal", sucursal);
-            
-            //command.Connection.Open();
+
+            sqlAdap.SelectCommand.Connection.Open();
             try
             {
-                //idReturn = int.Parse(command.ExecuteScalar().ToString());
                 idReturn = int.Parse(sqlAdap.SelectCommand.ExecuteScalar().ToString());
             }
             catch { }
+            sqlAdap.SelectCommand.Connection.Close();
             //command.Connection.Close();
 
             return idReturn;

@@ -65,19 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABMUsuariosDAL.cs" />
-    <Compile Include="Bitacora.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
     <Compile Include="BitacoraDAL.cs" />
-    <Compile Include="CampoIdioma.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ClienteGYM.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ClienteRutina.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
     <Compile Include="CompositeyPermisosDAL.cs" />
     <Compile Include="Singleton.cs" />
     <Compile Include="Conexion.cs" />
@@ -91,75 +79,11 @@
     <Compile Include="DALSucursal.cs" />
     <Compile Include="DigitoVerificadorDAL.cs" />
     <Compile Include="BusquedaDAL.cs" />
-    <Compile Include="DVV.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Ejercicio.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Estado.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Finanza.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
     <Compile Include="ICRUD.cs" />
-    <Compile Include="Idioma.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
     <Compile Include="IdiomaT.cs" />
-    <Compile Include="Label_Etiqueta.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Localidad.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
     <Compile Include="LoginUsuario.cs" />
-    <Compile Include="ModelEF.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelEF.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelEF.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelEF.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelEF.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Pais.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PerfilPyF.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PermisosRelacion.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Provincia.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Sucursal.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Usuario.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
-    <EntityDeploy Include="ModelEF.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelEF.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="App.Config" />
-    <None Include="ModelEF.edmx.diagram">
-      <DependentUpon>ModelEF.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -186,18 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ModelEF.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelEF.edmx</DependentUpon>
-      <LastGenOutput>ModelEF.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ModelEF.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelEF.edmx</DependentUpon>
-      <LastGenOutput>ModelEF.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
