@@ -32,15 +32,6 @@ namespace DAL
             sqlConn.ConnectionString = ConexionRuta;
             
         }
-        
-        //public static Conexion getInstance()
-        //{
-        //    if (instancia == null)
-        //    {
-        //        instancia = new Conexion();
-        //    }
-        //    return instancia;
-        //}
 
         public void Conectar()
         {

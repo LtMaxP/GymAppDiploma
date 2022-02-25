@@ -51,46 +51,16 @@ namespace DAL
         public int DameIdSucursal(string sucursal)
         {
             int idReturn = 0;
-            ///////////////////////////////////////////// la q sería de id     
-
-            DataTable dt = new DataTable();
             String query = "SELECT id_Sucursal FROM Sucursal where Descripcion = @Sucursal";
-            //SqlCommand command = new SqlCommand(query, Singleton.Instance.ConexionRuta);
-            SqlDataAdapter sqlAdap = new SqlDataAdapter(query, Singleton.Instance.ConexionRuta);
-            sqlAdap.SelectCommand.Parameters.AddWithValue("@Sucursal", sucursal);
-            //command.Parameters.AddWithValue("@Sucursal", sucursal);
-
-            sqlAdap.SelectCommand.Connection.Open();
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@Sucursal", sucursal);
             try
             {
-                idReturn = int.Parse(sqlAdap.SelectCommand.ExecuteScalar().ToString());
+                idReturn = Convert.ToInt32(Singleton.Instance.ExecuteScalar(command));
             }
             catch { }
-            sqlAdap.SelectCommand.Connection.Close();
-            //command.Connection.Close();
-
             return idReturn;
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //DataTable dt = new DataTable();
-            //String query = "select * from Empleado where id_Sucursal = @id";
 
-            //SqlDataAdapter sqlAdap = new SqlDataAdapter(query, Singleton.Instance.ConexionRuta);
-            //sqlAdap.SelectCommand.Parameters.AddWithValue("@id", id_Sucursal);
-            ////SqlCommandBuilder command = new SqlCommandBuilder(sqlAdap);
-
-            //try
-            //{
-            //    sqlAdap.Fill(dt);
-            //    //dt.Load(sqlAdap.Fill());
-            //    //dt.Load(command.ExecuteReader());
-            //}
-            //catch (Exception e)
-            //{ }
-
-            //return dt;
-
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //return idReturn;
         }
     }
 }

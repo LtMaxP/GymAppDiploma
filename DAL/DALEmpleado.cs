@@ -18,7 +18,7 @@ namespace DAL
             DataTable dt = new DataTable();
             String query = "select * from Empleado where id_Sucursal = @id";
 
-            SqlDataAdapter sqlAdap = new SqlDataAdapter(query, Singleton.Instance.ConexionRuta);
+            SqlDataAdapter sqlAdap = new SqlDataAdapter(query, Singleton.Instance.sqlCon);
             sqlAdap.SelectCommand.Parameters.AddWithValue("@id", id_Sucursal);
             //SqlCommandBuilder command = new SqlCommandBuilder(sqlAdap);
 

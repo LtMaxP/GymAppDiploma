@@ -32,17 +32,16 @@ namespace DAL
         public int DameIdProvincias(string prov)
         {
             int idReturn = 0;
-            SqlCommand command = new SqlCommand();
-
-            command.Connection = conn.sqlConn;
-            command.CommandText = "SELECT Id_Provincia FROM [Provincia] WHERE Descripcion = @descripcion";
+            String query = "SELECT Id_Provincia FROM [Provincia] WHERE Descripcion = @descripcion";
+            SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@descripcion", prov);
-            try { 
-            command.Connection.Open();
-            idReturn = int.Parse(command.ExecuteScalar().ToString());
-            command.Connection.Close();
+
+            try
+            {
+                idReturn = Singleton.Instance.ExecuteScalar(command);
             }
             catch { }
+
             return idReturn;
         }
     }
