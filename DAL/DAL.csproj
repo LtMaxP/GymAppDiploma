@@ -64,24 +64,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABMUsuariosDAL.cs" />
-    <Compile Include="BitacoraDAL.cs" />
-    <Compile Include="CompositeyPermisosDAL.cs" />
+    <Compile Include="Tecnico\ABMUsuariosDAL.cs" />
+    <Compile Include="Tecnico\BitacoraDAL.cs" />
+    <Compile Include="Tecnico\CompositeyPermisosDAL.cs" />
     <Compile Include="Singleton.cs" />
-    <Compile Include="Conexion.cs" />
-    <Compile Include="DALClientes.cs" />
-    <Compile Include="DALEmpleado.cs" />
-    <Compile Include="DALFactura.cs" />
-    <Compile Include="DALLista.cs" />
-    <Compile Include="DALLocalidad.cs" />
-    <Compile Include="DALPagosCobros.cs" />
-    <Compile Include="DALProvincia.cs" />
-    <Compile Include="DALSucursal.cs" />
-    <Compile Include="DigitoVerificadorDAL.cs" />
-    <Compile Include="BusquedaDAL.cs" />
+    <Compile Include="Tecnico\Conexion.cs" />
+    <Compile Include="Negocio\DALClientes.cs" />
+    <Compile Include="Negocio\DALEmpleado.cs" />
+    <Compile Include="Negocio\DALFactura.cs" />
+    <Compile Include="Negocio\DALLista.cs" />
+    <Compile Include="Negocio\DALLocalidad.cs" />
+    <Compile Include="Negocio\DALPagosCobros.cs" />
+    <Compile Include="Negocio\DALProvincia.cs" />
+    <Compile Include="Negocio\DALSucursal.cs" />
+    <Compile Include="Tecnico\DigitoVerificadorDAL.cs" />
+    <Compile Include="Tecnico\BusquedaDAL.cs" />
     <Compile Include="ICRUD.cs" />
-    <Compile Include="IdiomaT.cs" />
-    <Compile Include="LoginUsuario.cs" />
+    <Compile Include="Tecnico\IdiomaT.cs" />
+    <Compile Include="Tecnico\LoginUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="App.Config" />
     <None Include="packages.config" />

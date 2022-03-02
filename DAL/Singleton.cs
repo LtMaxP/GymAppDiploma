@@ -17,7 +17,13 @@ namespace DAL
 
         public SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-SLGG4A0\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True");
 
-        private Singleton() { }
+        private Singleton()
+        {
+            if (sqlCon.State == ConnectionState.Open)
+            {
+                sqlCon.Close();
+            }
+        }
         private static Singleton instance = null;
         public static Singleton Instance
         {

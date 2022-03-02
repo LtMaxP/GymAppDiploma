@@ -19,7 +19,7 @@ namespace DAL
             SqlCommand command = new SqlCommand(query, Singleton.Instance.sqlCon);
             command.Parameters.AddWithValue("@id", idProv);
 
-            command.Connection.Open();
+            command.Connection.Open();  //hacer la funcion para q se conecte con singletone y cierre la conexióin antes
             try
             {
                 dt.Load(command.ExecuteReader());
