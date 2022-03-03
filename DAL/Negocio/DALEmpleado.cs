@@ -17,20 +17,10 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             String query = "select * from Empleado where id_Sucursal = @id";
+            SqlCommand command = new SqlCommand(query, Singleton.Instance.sqlCon);
+            command.Parameters.AddWithValue("@id", id_Sucursal);
 
-            SqlDataAdapter sqlAdap = new SqlDataAdapter(query, Singleton.Instance.sqlCon);
-            sqlAdap.SelectCommand.Parameters.AddWithValue("@id", id_Sucursal);
-            //SqlCommandBuilder command = new SqlCommandBuilder(sqlAdap);
-
-            try
-            {
-                sqlAdap.Fill(dt);
-                //dt.Load(sqlAdap.Fill());
-                //dt.Load(command.ExecuteReader());
-            }
-            catch (Exception e)
-            { }
-
+            dt = Singleton.Instance.ExecuteDataTable(command);
             return dt;
         }
     }

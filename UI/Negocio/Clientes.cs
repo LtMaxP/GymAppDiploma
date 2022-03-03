@@ -38,6 +38,7 @@ namespace UI
             Subject.AddObserver(this);
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
             llenarLugaresDefault();
+            //CascadeFilter("Provincia", "Buenos Aires");
             DameEstados();
         }
 
@@ -159,7 +160,6 @@ namespace UI
                 {
                     MessageBox.Show("No se encontraron clientes con ese nombre");
                 }
-
             }
         }
 
@@ -188,7 +188,7 @@ namespace UI
         string nextVal;
         private void CascadeFilter(string filter, string value)
         {
-            
+
             switch (filter)
             {
                 case "Provincia":
@@ -196,12 +196,10 @@ namespace UI
                     nextVal = value;
                     goto case "Localidad";
                 case "Localidad":
-                    PopularLocalidad(value ?? nextVal);
-                    nextVal = value;
+                    nextVal = PopularLocalidad(value ?? nextVal);
                     goto case "Sucursal";
                 case "Sucursal":
-                    PopularSucursal(value ?? nextVal);
-                    nextVal = value;
+                    nextVal = PopularSucursal(value ?? nextVal);
                     goto case "Empleado";
                 case "Empleado":
                     PopularEmpleados(value ?? nextVal);
@@ -215,27 +213,42 @@ namespace UI
             foreach (BE_Empleado value in bllEmpleados.DameEmpleados(idSuc))
             {
                 comboBox_profesor.Items.Add(value.Nombre + " " + value.Apellido);
+            }            
+            if (!String.IsNullOrEmpty(comboBox_profesor.Items[0].ToString()))
+            {
+                comboBox_profesor.SelectedItem = comboBox_profesor.Items[0];
             }
-            comboBox_profesor.SelectedItem = comboBox_profesor.Items[0];
         }
         //Localidad
-        private void PopularLocalidad(string provincia)
+        private string PopularLocalidad(string provincia)
         {
+            string val = "NaN";
             foreach (BE_Localidad value in bllClientes.DameLocalidad(provincia))
             {
                 comboBox_Localidad.Items.Add(value.Descripcion);
             }
-            comboBox_Localidad.SelectedItem = comboBox_Localidad.Items[0];
+            if (!String.IsNullOrEmpty(comboBox_Localidad.Items[0].ToString()))
+            {
+                comboBox_Localidad.SelectedItem = comboBox_Localidad.Items[0];
+                val = comboBox_Localidad.Items[0].ToString();
+            }
+            return val;
         }
 
         //Sucursal
-        private void PopularSucursal(string localidad)
+        private string PopularSucursal(string localidad)
         {
+            string val = "NaN";
             foreach (BE_Sucursal value in bllClientes.DameSucursales(localidad))
             {
                 comboBox_sucursal.Items.Add(value.Descripcion);
             }
-            comboBox_sucursal.SelectedItem = comboBox_sucursal.Items[0];
+            if (!String.IsNullOrEmpty(comboBox_sucursal.Items[0].ToString()))
+            {
+                comboBox_sucursal.SelectedItem = comboBox_sucursal.Items[0];
+                val = comboBox_sucursal.Items[0].ToString();
+            }
+            return val;
         }
 
         //localidad
@@ -283,9 +296,9 @@ namespace UI
         {
             if (!String.IsNullOrEmpty(comboBox_sucursal.SelectedItem.ToString()))
             {
-                //string sucursal = comboBox_sucursal.SelectedItem.ToString();
+                string sucursal = comboBox_sucursal.SelectedItem.ToString();
                 //comboBox_sucursal.Items.Clear();
-                //CascadeFilter("Sucursal", sucursal);
+                CascadeFilter("Empleado", sucursal);
             }
         }
 

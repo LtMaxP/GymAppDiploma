@@ -47,5 +47,22 @@ namespace DAL
             sqlCon.Open();
             return Convert.ToInt32(_paramCommand.ExecuteScalar());
         }
+
+        public DataTable ExecuteDataTable(SqlCommand _paramCommand)
+        {
+            if (sqlCon.State == ConnectionState.Open)
+            {
+                sqlCon.Close();
+            } 
+            try
+            {
+                DataTable _dt = new DataTable();
+                SqlDataAdapter _dataAdapter = new SqlDataAdapter(_paramCommand);
+                _dataAdapter.Fill(_dt);
+                return _dt;
+            }
+            catch (Exception e)
+            { throw e; }
+        }
     }
 }
