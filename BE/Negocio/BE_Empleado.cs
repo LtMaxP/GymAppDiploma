@@ -41,13 +41,13 @@ namespace BE
             set { _estado = value; }
         }
 
-        private string _sucursal;
+        //private string _sucursal;
 
-        public string Sucursal
-        {
-            get { return _sucursal; }
-            set { _sucursal = value; }
-        }
+        //public string Sucursal
+        //{
+        //    get { return _sucursal; }
+        //    set { _sucursal = value; }
+        //}
 
         private string _trabajo;
 

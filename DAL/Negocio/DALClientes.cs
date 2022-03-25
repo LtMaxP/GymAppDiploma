@@ -72,10 +72,10 @@ namespace DAL
                 parameter10.Value = valAlta._idEstado;
                 parameter10.SqlDbType = System.Data.SqlDbType.Int;
 
-                SqlParameter parameter11 = new SqlParameter();
-                parameter11.ParameterName = "@Sucursal";
-                parameter11.Value = valAlta._IDSucursal;
-                parameter11.SqlDbType = System.Data.SqlDbType.Int;
+                //SqlParameter parameter11 = new SqlParameter();
+                //parameter11.ParameterName = "@Sucursal";
+                //parameter11.Value = valAlta._IDSucursal;
+                //parameter11.SqlDbType = System.Data.SqlDbType.Int;
 
                 SqlParameter parameter12 = new SqlParameter();
                 parameter12.ParameterName = "@Empleado";
@@ -92,7 +92,7 @@ namespace DAL
                 comm.Parameters.Add(parameter8);
                 comm.Parameters.Add(parameter9);
                 comm.Parameters.Add(parameter10);
-                comm.Parameters.Add(parameter11);
+                //comm.Parameters.Add(parameter11);
                 comm.Parameters.Add(parameter12);
 
                 comm.Connection.Open();
@@ -121,7 +121,7 @@ namespace DAL
             {
                 dt.Load(command.ExecuteReader());
             }
-            catch (Exception e)
+            catch 
             { }
             command.Connection.Close();
             return dt;
@@ -149,7 +149,7 @@ namespace DAL
                         respuesta = true;
                     }
                 }
-                catch (Exception e)
+                catch
                 { respuesta = false; }
                 command.Connection.Close();
 
@@ -170,7 +170,7 @@ namespace DAL
                 {
                     dt.Load(command.ExecuteReader());
                 }
-                catch (Exception e)
+                catch 
                 { }
                 command.Connection.Close();
 

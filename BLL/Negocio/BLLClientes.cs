@@ -23,80 +23,82 @@ namespace BLL
             String[] ret = { Estado.Alta.ToString(), Estado.Baja.ToString() };
             return ret;
         }
-        public List<BE_Provincia> dameTodasProvincias()
-        {
-            List<BE_Provincia> prov = new List<BE_Provincia>();
-            DALProvincia dalprov = new DALProvincia();
-            DataTable data = dalprov.DameProvincias();
-            foreach (DataRow provin in data.Rows)
-            {
-                BE_Provincia provinciaActual = new BE_Provincia();
-                provinciaActual.Id_Provincia = int.Parse(provin.ItemArray[0].ToString());
-                provinciaActual.Descripcion = provin.ItemArray[1].ToString();
-                prov.Add(provinciaActual);
-            }
-            return prov;
-        }
-        public List<BE_Localidad> DameLocalidad(string prov)
-        {
-            List<BE_Localidad> loc = new List<BE_Localidad>();
-            DALLocalidad dalloc = new DALLocalidad();
-            int provId = DameIdProv(prov);
-            DataTable data = dalloc.DameLocalidad(provId);
-            foreach (DataRow locRow in data.Rows)
-            {
-                BE_Localidad beLocalidad = new BE_Localidad();
-                beLocalidad.Id_Localidad = int.Parse(locRow.ItemArray[0].ToString());
-                beLocalidad.Descripcion = locRow.ItemArray[1].ToString();
-                loc.Add(beLocalidad);
-            }
-            return loc;
-        }
 
-        public List<BE_Sucursal> DameSucursales(string localid)
-        {
-            List<BE_Sucursal> suc = new List<BE_Sucursal>();
-            DALSucursal dalsuc = new DALSucursal();
-            int locId = DameIdLoc(localid);
-            DataTable data = dalsuc.DameSucursal(locId);
-            foreach (DataRow sucRow in data.Rows)
-            {
-                BE_Sucursal beSucursal = new BE_Sucursal();
-                beSucursal.Id_Sucursal = int.Parse(sucRow.ItemArray[0].ToString());
-                beSucursal.Descripcion = sucRow.ItemArray[1].ToString();
-                suc.Add(beSucursal);
-            }
-            return suc;
-        }
+        #region no va
+        //public List<BE_Provincia> dameTodasProvincias()
+        //{
+        //    List<BE_Provincia> prov = new List<BE_Provincia>();
+        //    DALProvincia dalprov = new DALProvincia();
+        //    DataTable data = dalprov.DameProvincias();
+        //    foreach (DataRow provin in data.Rows)
+        //    {
+        //        BE_Provincia provinciaActual = new BE_Provincia();
+        //        provinciaActual.Id_Provincia = int.Parse(provin.ItemArray[0].ToString());
+        //        provinciaActual.Descripcion = provin.ItemArray[1].ToString();
+        //        prov.Add(provinciaActual);
+        //    }
+        //    return prov;
+        //}
+        //public List<BE_Localidad> DameLocalidad(string prov)
+        //{
+        //    List<BE_Localidad> loc = new List<BE_Localidad>();
+        //    DALLocalidad dalloc = new DALLocalidad();
+        //    int provId = DameIdProv(prov);
+        //    DataTable data = dalloc.DameLocalidad(provId);
+        //    foreach (DataRow locRow in data.Rows)
+        //    {
+        //        BE_Localidad beLocalidad = new BE_Localidad();
+        //        beLocalidad.Id_Localidad = int.Parse(locRow.ItemArray[0].ToString());
+        //        beLocalidad.Descripcion = locRow.ItemArray[1].ToString();
+        //        loc.Add(beLocalidad);
+        //    }
+        //    return loc;
+        //}
 
-        public int DameIdProv(string prov)
-        {
-            DALProvincia dalprov = new DALProvincia();
-            int idprov = dalprov.DameIdProvincias(prov);
-            return idprov;
-        }
-        public int DameIdLoc(string Loc)
-        {
-            DALLocalidad dalloc = new DALLocalidad();
-            int idLoc = dalloc.DameIdLocalidad(Loc);
-            return idLoc;
-        }
-        public int DameIdSuc(string suc)
-        {
-            DALSucursal dalsuc = new DALSucursal();
-            int idSuc = dalsuc.DameIdSucursal(suc);
-            return idSuc;
-        }
+        //public List<BE_Sucursal> DameSucursales(string localid)
+        //{
+        //    List<BE_Sucursal> suc = new List<BE_Sucursal>();
+        //    DALSucursal dalsuc = new DALSucursal();
+        //    int locId = DameIdLoc(localid);
+        //    DataTable data = dalsuc.DameSucursal(locId);
+        //    foreach (DataRow sucRow in data.Rows)
+        //    {
+        //        BE_Sucursal beSucursal = new BE_Sucursal();
+        //        beSucursal.Id_Sucursal = int.Parse(sucRow.ItemArray[0].ToString());
+        //        beSucursal.Descripcion = sucRow.ItemArray[1].ToString();
+        //        suc.Add(beSucursal);
+        //    }
+        //    return suc;
+        //}
+
+        //public int DameIdProv(string prov)
+        //{
+        //    DALProvincia dalprov = new DALProvincia();
+        //    int idprov = dalprov.DameIdProvincias(prov);
+        //    return idprov;
+        //}
+        //public int DameIdLoc(string Loc)
+        //{
+        //    DALLocalidad dalloc = new DALLocalidad();
+        //    int idLoc = dalloc.DameIdLocalidad(Loc);
+        //    return idLoc;
+        //}
+        //public int DameIdSuc(string suc)
+        //{
+        //    DALSucursal dalsuc = new DALSucursal();
+        //    int idSuc = dalsuc.DameIdSucursal(suc);
+        //    return idSuc;
+        //}
 
 
-        public void llenarLocalidadProvincia(int idCliente)
-        {
-            DALSucursal dalsucursal = new DALSucursal();
-            DataRow dr = dalsucursal.DameLocacionTotalSucursal(idCliente).Rows[0]; //se descontinuo_?
-        
-            ///////////////////////////////////////////////////////
-        }
+        //public void llenarLocalidadProvincia(int idCliente)
+        //{
+        //    DALSucursal dalsucursal = new DALSucursal();
+        //    DataRow dr = dalsucursal.DameLocacionTotalSucursal(idCliente).Rows[0]; //se descontinuo_?
 
+        //    ///////////////////////////////////////////////////////
+        //}
+        #endregion
 
         public bool Alta(Cliente valAlta)
         {
@@ -116,7 +118,6 @@ namespace BLL
             {
                 BE.Cliente formaCliente = new BE.Cliente();
                 formaCliente._IDCliente = int.Parse(fila[0].ToString());
-                formaCliente._IDSucursal = int.Parse(fila[1].ToString());
                 formaCliente._IDEmpleado = int.Parse(fila[2].ToString());
                 formaCliente._nombre = fila[3].ToString();
                 formaCliente._apellido = fila[4].ToString();
@@ -139,7 +140,7 @@ namespace BLL
             foreach (DataRow fila in cligym.MostrarCliente(valBuscar).Rows)
             {
                 formaCliente._IDCliente = int.Parse(fila[0].ToString());
-                formaCliente._IDSucursal = int.Parse(fila[1].ToString());
+                //formaCliente._IDSucursal = int.Parse(fila[1].ToString());
                 formaCliente._IDEmpleado = int.Parse(fila[2].ToString());
                 formaCliente._nombre = fila[3].ToString();
                 formaCliente._apellido = fila[4].ToString();
@@ -151,8 +152,8 @@ namespace BLL
                 formaCliente._codPostal = int.Parse(fila[10].ToString());
                 formaCliente._telefono = int.Parse(fila[11].ToString());
                 formaCliente._fechaNacimiento = DateTime.Parse(fila[12].ToString());
-                formaCliente.IDProvincia = int.Parse(fila[12].ToString());
-                formaCliente.IDLocalidad = int.Parse(fila[13].ToString());
+                //formaCliente.IDProvincia = int.Parse(fila[12].ToString());
+                //formaCliente.IDLocalidad = int.Parse(fila[13].ToString());
             }
             
             return formaCliente;

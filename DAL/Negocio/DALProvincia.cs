@@ -22,7 +22,7 @@ namespace DAL
             {
                 dt.Load(command.ExecuteReader());
             }
-            catch (Exception e)
+            catch 
             { }
             command.Connection.Close();
             return dt;

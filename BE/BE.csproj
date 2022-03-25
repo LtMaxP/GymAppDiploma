@@ -51,10 +51,7 @@
     <Compile Include="Negocio\BE_Empleado.cs" />
     <Compile Include="Negocio\BE_Factura.cs" />
     <Compile Include="Negocio\BE_Listas.cs" />
-    <Compile Include="Negocio\BE_Sucursal.cs" />
     <Compile Include="Negocio\BE_PagoCobro.cs" />
-    <Compile Include="Negocio\BE_Localidad.cs" />
-    <Compile Include="Negocio\BE_Provincia.cs" />
     <Compile Include="Tecnico\Bitacora.cs" />
     <Compile Include="Negocio\Cliente.cs" />
     <Compile Include="Tecnico\Composite.cs" />

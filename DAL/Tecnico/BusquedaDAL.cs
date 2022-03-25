@@ -138,7 +138,7 @@ namespace DAL
                         respuesta = true;
                     }
                 }
-                catch (Exception e)
+                catch 
                 { respuesta = false; }
                 command.Connection.Close();
 

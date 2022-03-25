@@ -19,7 +19,7 @@ namespace BLL
 
             foreach (string n in listaDVH)
             {
-                hash = hash + user._DVH;
+                //hash = hash + user._DVH;
             }
 
             //hasheo

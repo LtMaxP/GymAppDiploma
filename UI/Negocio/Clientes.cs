@@ -37,22 +37,21 @@ namespace UI
         {
             Subject.AddObserver(this);
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
-            llenarLugaresDefault();
-            //CascadeFilter("Provincia", "Buenos Aires");
+            //llenarLugaresDefault();
             DameEstados();
         }
 
-        public void llenarLugaresDefault()
-        {
-            if (comboBox_provincia.Items.Count.Equals(0))
-            {
-                foreach (BE_Provincia value in bllClientes.dameTodasProvincias())
-                {
-                    comboBox_provincia.Items.Add(value.Descripcion);
-                }
-                comboBox_provincia.SelectedItem = comboBox_provincia.Items[0];
-            }
-        }
+        //public void llenarLugaresDefault()
+        //{
+        //    if (comboBox_provincia.Items.Count.Equals(0))
+        //    {
+        //        foreach (BE_Provincia value in bllClientes.dameTodasProvincias())
+        //        {
+        //            comboBox_provincia.Items.Add(value.Descripcion);
+        //        }
+        //        comboBox_provincia.SelectedItem = comboBox_provincia.Items[0];
+        //    }
+        //}
 
         public void Update(BLL.Observer.Idioma idioma)
         {
@@ -87,7 +86,7 @@ namespace UI
                 fechaNacimiento.Value = client._fechaNacimiento;
                 textBox_Peso.Text = client._pesokg.ToString();
                 comboBox_estado.Text = client._idEstado.ToString();
-                comboBox_sucursal.Text = client._IDSucursal.ToString();
+                //comboBox_sucursal.Text = client._IDSucursal.ToString();
 
                 comboBox_profesor.Text = client._IDEmpleado.ToString();
             }
@@ -112,7 +111,7 @@ namespace UI
                 client._fechaNacimiento = fechaNacimiento.Value;
                 client._pesokg = int.Parse(textBox_Peso.Text);
                 client._idEstado = int.Parse(comboBox_estado.Text);
-                client._IDSucursal = int.Parse(comboBox_sucursal.Text);
+                //client._IDSucursal = int.Parse(comboBox_sucursal.Text);
                 client._IDEmpleado = int.Parse(comboBox_profesor.Text);
                 if (!bllClientes.ValidarSiExiste(client))
                 {
@@ -185,121 +184,121 @@ namespace UI
             }
         }
 
-        string nextVal;
-        private void CascadeFilter(string filter, string value)
-        {
+        //string nextVal;
+        //private void CascadeFilter(string filter, string value)
+        //{
 
-            switch (filter)
-            {
-                case "Provincia":
-                    PopularProvincia(value);
-                    nextVal = value;
-                    goto case "Localidad";
-                case "Localidad":
-                    nextVal = PopularLocalidad(value ?? nextVal);
-                    goto case "Sucursal";
-                case "Sucursal":
-                    nextVal = PopularSucursal(value ?? nextVal);
-                    goto case "Empleado";
-                case "Empleado":
-                    PopularEmpleados(value ?? nextVal);
-                    break;
-            }
-        }
-        //Empleados
-        private void PopularEmpleados(string sucursal)
-        {
-            int idSuc = bllClientes.DameIdSuc(sucursal);
-            foreach (BE_Empleado value in bllEmpleados.DameEmpleados(idSuc))
-            {
-                comboBox_profesor.Items.Add(value.Nombre + " " + value.Apellido);
-            }            
-            if (!String.IsNullOrEmpty(comboBox_profesor.Items[0].ToString()))
-            {
-                comboBox_profesor.SelectedItem = comboBox_profesor.Items[0];
-            }
-        }
-        //Localidad
-        private string PopularLocalidad(string provincia)
-        {
-            string val = "NaN";
-            foreach (BE_Localidad value in bllClientes.DameLocalidad(provincia))
-            {
-                comboBox_Localidad.Items.Add(value.Descripcion);
-            }
-            if (!String.IsNullOrEmpty(comboBox_Localidad.Items[0].ToString()))
-            {
-                comboBox_Localidad.SelectedItem = comboBox_Localidad.Items[0];
-                val = comboBox_Localidad.Items[0].ToString();
-            }
-            return val;
-        }
+        //    switch (filter)
+        //    {
+        //        case "Provincia":
+        //            PopularProvincia(value);
+        //            nextVal = value;
+        //            goto case "Localidad";
+        //        case "Localidad":
+        //            nextVal = PopularLocalidad(value ?? nextVal);
+        //            goto case "Sucursal";
+        //        case "Sucursal":
+        //            nextVal = PopularSucursal(value ?? nextVal);
+        //            goto case "Empleado";
+        //        case "Empleado":
+        //            PopularEmpleados(value ?? nextVal);
+        //            break;
+        //    }
+        //}
+        ////Empleados
+        //private void PopularEmpleados(string sucursal)
+        //{
+        //    int idSuc = bllClientes.DameIdSuc(sucursal);
+        //    foreach (BE_Empleado value in bllEmpleados.DameEmpleados(idSuc))
+        //    {
+        //        comboBox_profesor.Items.Add(value.Nombre + " " + value.Apellido);
+        //    }            
+        //    if (!String.IsNullOrEmpty(comboBox_profesor.Items[0].ToString()))
+        //    {
+        //        comboBox_profesor.SelectedItem = comboBox_profesor.Items[0];
+        //    }
+        //}
+        ////Localidad
+        //private string PopularLocalidad(string provincia)
+        //{
+        //    string val = "NaN";
+        //    foreach (BE_Localidad value in bllClientes.DameLocalidad(provincia))
+        //    {
+        //        comboBox_Localidad.Items.Add(value.Descripcion);
+        //    }
+        //    if (!String.IsNullOrEmpty(comboBox_Localidad.Items[0].ToString()))
+        //    {
+        //        comboBox_Localidad.SelectedItem = comboBox_Localidad.Items[0];
+        //        val = comboBox_Localidad.Items[0].ToString();
+        //    }
+        //    return val;
+        //}
 
-        //Sucursal
-        private string PopularSucursal(string localidad)
-        {
-            string val = "NaN";
-            foreach (BE_Sucursal value in bllClientes.DameSucursales(localidad))
-            {
-                comboBox_sucursal.Items.Add(value.Descripcion);
-            }
-            if (!String.IsNullOrEmpty(comboBox_sucursal.Items[0].ToString()))
-            {
-                comboBox_sucursal.SelectedItem = comboBox_sucursal.Items[0];
-                val = comboBox_sucursal.Items[0].ToString();
-            }
-            return val;
-        }
+        ////Sucursal
+        //private string PopularSucursal(string localidad)
+        //{
+        //    string val = "NaN";
+        //    foreach (BE_Sucursal value in bllClientes.DameSucursales(localidad))
+        //    {
+        //        comboBox_sucursal.Items.Add(value.Descripcion);
+        //    }
+        //    if (!String.IsNullOrEmpty(comboBox_sucursal.Items[0].ToString()))
+        //    {
+        //        comboBox_sucursal.SelectedItem = comboBox_sucursal.Items[0];
+        //        val = comboBox_sucursal.Items[0].ToString();
+        //    }
+        //    return val;
+        //}
 
         //localidad
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(comboBox_Localidad.SelectedItem.ToString()))
-            {
-                string localidad = comboBox_Localidad.SelectedItem.ToString();
-                comboBox_sucursal.Items.Clear();
-                CascadeFilter("Sucursal", localidad);
-            }
+            //if (!String.IsNullOrEmpty(comboBox_Localidad.SelectedItem.ToString()))
+            //{
+            //    string localidad = comboBox_Localidad.SelectedItem.ToString();
+            //    comboBox_sucursal.Items.Clear();
+            //    CascadeFilter("Sucursal", localidad);
+            //}
         }
 
         public void comboBox_provincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(comboBox_provincia.SelectedItem.ToString()))
-            {
-                string provin = comboBox_provincia.SelectedItem.ToString();
-                comboBox_Localidad.Items.Clear();
-                comboBox_sucursal.Items.Clear();
-                CascadeFilter("Localidad", provin);
-            }
+            //if (!String.IsNullOrEmpty(comboBox_provincia.SelectedItem.ToString()))
+            //{
+            //    string provin = comboBox_provincia.SelectedItem.ToString();
+            //    comboBox_Localidad.Items.Clear();
+            //    comboBox_sucursal.Items.Clear();
+            //    CascadeFilter("Localidad", provin);
+            //}
         }
-        private void PopularProvincia(string prov)
-        {
-            if (comboBox_provincia.Items.Count.Equals(0))
-            {
-                foreach (BE_Provincia value in bllClientes.dameTodasProvincias())
-                {
-                    comboBox_provincia.Items.Add(value.Descripcion);
-                }
-            }
-            else
-            {
-                foreach (BE_Localidad value in bllClientes.DameLocalidad(prov))
-                {
-                    comboBox_Localidad.Items.Add(value.Descripcion);
-                }
-            }
-        }
+        //private void PopularProvincia(string prov)
+        //{
+        //    if (comboBox_provincia.Items.Count.Equals(0))
+        //    {
+        //        foreach (BE_Provincia value in bllClientes.dameTodasProvincias())
+        //        {
+        //            comboBox_provincia.Items.Add(value.Descripcion);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        foreach (BE_Localidad value in bllClientes.DameLocalidad(prov))
+        //        {
+        //            comboBox_Localidad.Items.Add(value.Descripcion);
+        //        }
+        //    }
+        //}
 
 
 
         private void comboBox_sucursal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(comboBox_sucursal.SelectedItem.ToString()))
-            {
-                string sucursal = comboBox_sucursal.SelectedItem.ToString();
-                //comboBox_sucursal.Items.Clear();
-                CascadeFilter("Empleado", sucursal);
-            }
+            //if (!String.IsNullOrEmpty(comboBox_sucursal.SelectedItem.ToString()))
+            //{
+            //    string sucursal = comboBox_sucursal.SelectedItem.ToString();
+            //    //comboBox_sucursal.Items.Clear();
+            //    CascadeFilter("Empleado", sucursal);
+            //}
         }
 
         private void comboBox_profesor_SelectedIndexChanged(object sender, EventArgs e)

@@ -34,13 +34,13 @@ namespace BE
 
 
 
-        private string dvh;
+        //private string dvh;
 
-        public string _DVH
-        {
-            get { return dvh; }
-            set { dvh = value; }
-        }
+        //public string _DVH
+        //{
+        //    get { return dvh; }
+        //    set { dvh = value; }
+        //}
 
         private int id_Estado;
 
