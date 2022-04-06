@@ -20,7 +20,7 @@ namespace DAL
                 SqlCommand comm = new SqlCommand();
                 comm.Connection = connect.sqlConn;
 
-                comm.CommandText = "INSERT INTO ClienteGYM (Nombre, Apellido, Dni, Calle, Numero, CodPostal, Telefono, Fecha_Nac, PesoKg, Id_Estado, Id_Sucursal, Id_Empleado) VALUES (@Nombre, @Apellido, @Dni, @Calle, @Numero, @CodPostal, @Telefono, @FechaNac, @Peso, @Estado, @Sucursal, @Empleado)";
+                comm.CommandText = "INSERT INTO ClienteGYM (Nombre, Apellido, Dni, Calle, Numero, CodPostal, Telefono, Fecha_Nac, PesoKg, Id_Estado, Id_Empleado) VALUES (@Nombre, @Apellido, @Dni, @Calle, @Numero, @CodPostal, @Telefono, @FechaNac, @Peso, @Estado, @Empleado)";
 
                 SqlParameter parameter1 = new SqlParameter();
                 parameter1.ParameterName = "@Nombre";

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BLL.Observer
 {
-    public enum IdiomaEnum
+    public enum IdiomaEnum 
     {
         Español = 1,
         English = 2
     }
+    
 }

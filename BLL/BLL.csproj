@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="probandoCositas.cs" />
     <Compile Include="Tecnico\BitacoraBLL.cs" />
     <Compile Include="Negocio\BLLClientes.cs" />
     <Compile Include="Negocio\BLLEmpleados.cs" />

@@ -10,97 +10,73 @@ namespace DAL
 {
     public class DigitoVerificadorDAL
     {
-        private Conexion connect = new Conexion();
         private BE.Usuario usuarioActual = BE.Usuario.Instance;
 
-        public List<string> ObtenerListaDeDVHUsuarios()
+        public DataTable ObtenerListaDeDVHUsuarios()
         {
-            List<string> dVHUsuariosTotales = new List<string>();
-
-            SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = "SELECT DVH FROM Usuario";
-            sqlcomm.Connection = connect.sqlConn;
-
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(sqlcomm);
-            connect.Conectar();
-
-            da.Fill(ds);
-            connect.Desconectar();
-            foreach (DataRow row in ds.Tables[0].Rows)
+            DataTable dt = new DataTable();
+            String query = "SELECT [HashCode] FROM [DVHUsuario]";
+            SqlCommand command = new SqlCommand(query);
+            try
             {
-                dVHUsuariosTotales.Add(row["DVH"].ToString());
+                dt = Singleton.Instance.ExecuteDataTable(command);
             }
-
-            return dVHUsuariosTotales;
+            catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
+            return dt;
         }
 
         public DataTable TraerDVV()
         {
-            DataSet ds = new DataSet();
-            DataTable dVTable;
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            DataTable dt = new DataTable();
+            String query = "SELECT [CodigoHash] FROM DVV";
+            SqlCommand command = new SqlCommand(query);
+            try
             {
-                String query = "SELECT Id_DVV, CodigoHash FROM DVV";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(command);
-                    connection.Open();
-                    da.Fill(ds);
-                }
+                dt = Singleton.Instance.ExecuteDataTable(command);
             }
-
-            dVTable = ds.Tables[0];
-            return dVTable;
+            catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
+            return dt;
         }
 
         public DataTable TraerDVH()
         {
-            DataSet ds = new DataSet();
-            DataTable dVTable;
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            DataTable returnable = new DataTable();
+            String query = "SELECT [id_Usuario], [HashCode] FROM [DVHUsuario]";
+            SqlCommand command = new SqlCommand(query);
+            try
             {
-                String query = "SELECT Usuario, DVH FROM Usuario";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(command);
-                    connection.Open();
-                    da.Fill(ds);
-                }
+                returnable = Singleton.Instance.ExecuteDataTable(command);
             }
-
-            dVTable = ds.Tables[0];
-            return dVTable;
+            catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
+            return returnable;
         }
 
         public void InsertarDVHEnUsuario(string codigoHash)
         {
 
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            String query = "UPDATE [DVHUsuario] set [HashCode] = @hashDVH WHERE id_Usuario = @IdUsuario";
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@IdUsuario", usuarioActual.IdUsuario);
+            command.Parameters.AddWithValue("@hashDVH", codigoHash);
+
+            try
             {
-                String query = "INSERT INTO Usuario (DVH) VALUES (@hashDVH) WHERE Usuario.Id_Usuario = @IdUsuario";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@IdUsuario", usuarioActual.IdUsuario);
-                    command.Parameters.AddWithValue("@hashDVH", codigoHash);
-                    connection.Open();
-                    int result = command.ExecuteNonQuery();
-                }
+                Singleton.Instance.ExecuteNonQuery(command);
             }
+            catch { System.Windows.Forms.MessageBox.Show("Error al intentar insertar DVH :("); }
         }
 
         public void InsertarDVV(string codigoHash)
         {
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            String query = "UPDATE [DVV] set [CodigoHash] = @hash";
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@hash", codigoHash);
+
+            try
             {
-                String query = "INSERT INTO DVV (CodigoHash) VALUES (@hash) WHERE DVV.Id_DVV = @IdDVVUsuarios";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@IdDVVUsuarios", "1");
-                    command.Parameters.AddWithValue("@hash", codigoHash);
-                    int result = command.ExecuteNonQuery();
-                }
+                Singleton.Instance.ExecuteNonQuery(command);
             }
+            catch { System.Windows.Forms.MessageBox.Show("Error al intentar insertar DVV :("); }
         }
 
 

@@ -39,7 +39,7 @@ namespace DAL
 
         public int ExecuteScalar(SqlCommand _paramCommand)
         {
-            if(sqlCon.State == ConnectionState.Open)
+            if (sqlCon.State == ConnectionState.Open)
             {
                 sqlCon.Close();
             }
@@ -48,21 +48,35 @@ namespace DAL
             return Convert.ToInt32(_paramCommand.ExecuteScalar());
         }
 
+        public int ExecuteNonQuery(SqlCommand _paramCommand)
+        {
+            if (sqlCon.State == ConnectionState.Open)
+            {
+                sqlCon.Close();
+            }
+            _paramCommand.Connection = sqlCon;
+            sqlCon.Open();
+            return Convert.ToInt32(_paramCommand.ExecuteNonQuery());
+        }
+
         public DataTable ExecuteDataTable(SqlCommand _paramCommand)
         {
             if (sqlCon.State == ConnectionState.Open)
             {
                 sqlCon.Close();
-            } 
+            }
+            DataTable _dt = new DataTable();
             try
             {
-                DataTable _dt = new DataTable();
-                SqlDataAdapter _dataAdapter = new SqlDataAdapter(_paramCommand);
+                //_paramCommand.Connection = sqlCon;
+                //sqlCon.Open();
+                
+                SqlDataAdapter _dataAdapter = new SqlDataAdapter(_paramCommand.CommandText, sqlCon);
                 _dataAdapter.Fill(_dt);
-                return _dt;
             }
             catch (Exception e)
             { throw e; }
+            return _dt;
         }
     }
 }
