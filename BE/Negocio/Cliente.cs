@@ -100,19 +100,13 @@ namespace BE
             set { fechaNacimiento = value; }
         }
 
-        private List<BE_Ejercicio> _rutina; 
-        public List<BE_Ejercicio> Rutina
-        {
-            get { return _rutina; }
-            set { _rutina = value; }
-        }
+        //private List<BE_Ejercicio> _rutina; 
+        //public List<BE_Ejercicio> Rutina
+        //{
+        //    get { return _rutina; }
+        //    set { _rutina = value; }
+        //}
 
-        private BE_Ejercicio _Ejercicio;
-        public BE_Ejercicio Ejercicio
-        {
-            get { return _Ejercicio; }
-            set { _Ejercicio = value; }
-        }
 
         //private int _idProvincia;
         //public int IDProvincia

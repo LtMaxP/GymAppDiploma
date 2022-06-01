@@ -8,14 +8,14 @@ using BE;
 
 namespace BLL
 {
-    public class Usuario
+    public class Usuario //: DAL.ICRUD<BE.ABMUsuarios> Esto tiene que ser así, arregl
     {
         DAL.BusquedaDAL buscar = new DAL.BusquedaDAL();
         DAL.ICRUD<BE.ABMUsuarios> cRUD = new DAL.ABMUsuariosDAL();
 
         public bool AgregarUsuario(string usuario, string contraseña, string idioma, string estado)
         {
-            contraseña = Seguridad.Encriptacion.Encriptador(contraseña);
+            contraseña = Servicios.Encriptacion.Encriptador(contraseña);
             ABMUsuarios altaUser = new ABMUsuarios();
             DevolverIDs(altaUser, idioma, estado);
             altaUser.User = usuario;
@@ -37,7 +37,7 @@ namespace BLL
             ABMUsuarios modUser = new ABMUsuarios();
             if (!string.IsNullOrEmpty(contraseña))
             {
-                contraseña = Seguridad.Encriptacion.Encriptador(contraseña);
+                contraseña = Servicios.Encriptacion.Encriptador(contraseña);
             }
             DevolverIDs(modUser, idioma, estado);
             modUser.User = usuario;

@@ -32,6 +32,15 @@ namespace BE
             set { movimiento = value; }
         }
 
+        private string _nivelDeProblema;
+
+        public string NivelDeProblema
+        {
+            get { return _nivelDeProblema; }
+            set { _nivelDeProblema = value; }
+        }
+
+
 
     }
 }

@@ -106,20 +106,20 @@ public class MyItemType : ISerializable
 // This is a console application.
 public static class Test
 {
-    static void Main()
-    {
-        // This is the name of the file holding the data. You can use any file extension you like.
-        string fileName = "dataStuff.myData";
+    //static void Main()
+    //{
+    //    // This is the name of the file holding the data. You can use any file extension you like.
+    //    string fileName = "dataStuff.myData";
 
-        // Use a BinaryFormatter or SoapFormatter.
-        IFormatter formatter = new BinaryFormatter();
-        //IFormatter formatter = new SoapFormatter();
+    //    // Use a BinaryFormatter or SoapFormatter.
+    //    IFormatter formatter = new BinaryFormatter();
+    //    //IFormatter formatter = new SoapFormatter();
 
-        Test.SerializeItem(fileName, formatter); // Serialize an instance of the class.
-        Test.DeserializeItem(fileName, formatter); // Deserialize the instance.
-        Console.WriteLine("Done");
-        Console.ReadLine();
-    }
+    //    Test.SerializeItem(fileName, formatter); // Serialize an instance of the class.
+    //    Test.DeserializeItem(fileName, formatter); // Deserialize the instance.
+    //    Console.WriteLine("Done");
+    //    Console.ReadLine();
+    //}
 
     public static void SerializeItem(string fileName, IFormatter formatter)
     {

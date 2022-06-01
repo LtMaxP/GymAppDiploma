@@ -19,7 +19,7 @@ namespace BLL
 
         private BE.Usuario user = BE.Usuario.Instance;
         private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
-        private Seguridad.Encriptacion encrip = new Seguridad.Encriptacion();
+        private Servicios.Encriptacion encrip = new Servicios.Encriptacion();
         private BLL.Composite.FormarArbolCompo formarArbol = new Composite.FormarArbolCompo();
         private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
 

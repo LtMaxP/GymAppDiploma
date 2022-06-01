@@ -28,7 +28,7 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataTable tableBit = bit.CargarBitacora();
+            List<BE.Bitacora> tableBit = bit.CargarBitacora();
             dataGridView1.DataSource = tableBit;
         }
 

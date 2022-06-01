@@ -220,6 +220,10 @@
       <Project>{84200b22-0835-4b14-8aa8-07267fa732b8}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Seguridad\Servicios.csproj">
+      <Project>{73166d6c-5de2-4e20-a7bb-a5167ed62571}</Project>
+      <Name>Servicios</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gymwallpaper.jpg" />

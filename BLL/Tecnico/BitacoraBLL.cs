@@ -9,16 +9,19 @@ namespace BLL
 {
     public class BitacoraBLL
     {
-        private BE.Bitacora bitacora = new BE.Bitacora();
         private DAL.BitacoraDAL bitDal = new DAL.BitacoraDAL();
+        private Servicios.BitacoraServicio bit = new Servicios.BitacoraServicio();
+
         public void RegistrarMovimiento(string movimiento, string nivelDelProblema)
         {
             bitDal.RegistrarBitacora(movimiento, nivelDelProblema, DateTime.Now);
         }
 
-        public DataTable CargarBitacora()
+        public List<BE.Bitacora> CargarBitacora()
         {
-            return bitDal.TraerBitacora();
+            DataTable dt = bitDal.TraerBitacora();
+            List<BE.Bitacora> bitacs = bit.CargarBitacora(dt);
+            return bitacs;
         }
     }
 }

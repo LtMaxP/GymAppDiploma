@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class BitacoraDAL
+    public class BitacoraDAL 
     {
         DAL.Conexion connect = new DAL.Conexion();
         public void RegistrarBitacora(string movimiento, string nivelDeProblema, DateTime fecha)
