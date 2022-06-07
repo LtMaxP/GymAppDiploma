@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class BE_Empleado
+    public abstract class BE_Empleado
     {
         private int _id;
 
@@ -40,6 +40,14 @@ namespace BE
             get { return _estado; }
             set { _estado = value; }
         }
+        private int _id_genero;
+
+        public int Id_genero
+        {
+            get { return _id_genero; }
+            set { _id_genero = value; }
+        }
+
 
         //private string _sucursal;
 
@@ -49,21 +57,15 @@ namespace BE
         //    set { _sucursal = value; }
         //}
 
-        private string _trabajo;
+        private int _id_trabajo;
 
-        public string Trabajo
+        public int Id_Trabajo
         {
-            get { return _trabajo; }
-            set { _trabajo = value; }
+            get { return _id_trabajo; }
+            set { _id_trabajo = value; }
         }
 
-        private List<Cliente> _personasACargo;
 
-        public List<Cliente> PersonasACargo
-        {
-            get { return _personasACargo; }
-            set { _personasACargo = value; }
-        }
 
     }
 }

@@ -8,28 +8,36 @@ namespace BE
 {
     public class BE_Ejercicio
     {
-        private int _idEjercicio;
+        private int _id_Ejercicio;
 
-        public int IDEjercicio
+        public int Id_Ejercicio
         {
-            get { return _idEjercicio; }
-            set { _idEjercicio = value; }
+            get { return _id_Ejercicio; }
+            set { _id_Ejercicio = value; }
         }
 
-        private string _Ejercicio;
+        private int _cantidad;
+
+        public int Cantidad
+        {
+            get { return _cantidad; }
+            set { _cantidad = value; }
+        }
+
+        private string _ejercicio;
 
         public string Ejercicio
         {
-            get { return _Ejercicio; }
-            set { _Ejercicio = value; }
+            get { return _ejercicio; }
+            set { _ejercicio = value; }
         }
 
-        private string _tiempoDescripcion;
+        private string _descripcion;
 
-        public string TiempoDescripcion
+        public string Descripcion
         {
-            get { return _tiempoDescripcion; }
-            set { _tiempoDescripcion = value; }
+            get { return _descripcion; }
+            set { _descripcion = value; }
         }
 
     }

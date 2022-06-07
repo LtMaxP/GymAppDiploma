@@ -128,6 +128,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tecnico\Permisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tecnico\Permisos.Designer.cs">
+      <DependentUpon>Permisos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tecnico\UsuariosABM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Tecnico\Permisos.resx">
+      <DependentUpon>Permisos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tecnico\UsuariosABM.resx">
       <DependentUpon>UsuariosABM.cs</DependentUpon>
     </EmbeddedResource>

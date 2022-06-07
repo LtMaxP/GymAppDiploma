@@ -46,12 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tecnico\ABMUsuarios.cs" />
+    <Compile Include="Negocio\BE_Administracion.cs" />
+    <Compile Include="Negocio\BE_Gerente.cs" />
+    <Compile Include="Negocio\Genero.cs" />
+    <Compile Include="Negocio\Item.cs" />
+    <Compile Include="Negocio\Profesor.cs" />
     <Compile Include="Negocio\BE_Ejercicio.cs" />
+    <Compile Include="Tecnico\ABMUsuarios.cs" />
     <Compile Include="Negocio\BE_Empleado.cs" />
     <Compile Include="Negocio\BE_Factura.cs" />
     <Compile Include="Negocio\BE_Listas.cs" />
-    <Compile Include="Negocio\BE_PagoCobro.cs" />
+    <Compile Include="Negocio\BE_Cuenta.cs" />
     <Compile Include="Tecnico\Bitacora.cs" />
     <Compile Include="Negocio\Cliente.cs" />
     <Compile Include="Tecnico\Composite.cs" />

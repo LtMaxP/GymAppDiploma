@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class BE_PagoCobro
+    public class BE_Gerente : BE_Empleado
     {
+
     }
 }

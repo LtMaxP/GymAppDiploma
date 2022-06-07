@@ -54,6 +54,7 @@ namespace BE
             set { idUsuario = value; }
         }
 
+        //No
         private string rol;
 
         public string Rol
@@ -61,6 +62,7 @@ namespace BE
             get { return rol; }
             set { rol = value; }
         }
+
 
         private int id_Estado;
 
@@ -77,6 +79,23 @@ namespace BE
             get { return id_Idioma; }
             set { id_Idioma = value; }
         }
+
+        private int _intentosFallidos;
+
+        public int IntentosFallidos
+        {
+            get { return _intentosFallidos; }
+            set { _intentosFallidos = value; }
+        }
+
+        private string _dVH;
+
+        public string DVH
+        {
+            get { return _dVH; }
+            set { _dVH = value; }
+        }
+
 
         private Composite _arbol;
 

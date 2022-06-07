@@ -100,12 +100,12 @@ namespace BE
             set { fechaNacimiento = value; }
         }
 
-        //private List<BE_Ejercicio> _rutina; 
-        //public List<BE_Ejercicio> Rutina
-        //{
-        //    get { return _rutina; }
-        //    set { _rutina = value; }
-        //}
+        private List<BE_Ejercicio> _rutina;
+        public List<BE_Ejercicio> Rutina
+        {
+            get { return _rutina; }
+            set { _rutina = value; }
+        }
 
 
         //private int _idProvincia;
@@ -121,6 +121,6 @@ namespace BE
         //    get { return _idLocalidad; }
         //    set { _idLocalidad = value; }
         //}
-            
+
     }
 }
