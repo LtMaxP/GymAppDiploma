@@ -10,12 +10,12 @@ namespace DAL
 {
     public class DALProvincia
     {
-        DAL.Conexion conn = new DAL.Conexion();
+        //descontinuado
         public DataTable DameProvincias()
         {
             DataTable dt = new DataTable();
             String query = "SELECT Id_Provincia, Descripcion FROM Provincia";
-            SqlCommand command = new SqlCommand(query, conn.sqlConn);
+            SqlCommand command = new SqlCommand(query);
 
             command.Connection.Open();
             try
@@ -38,7 +38,7 @@ namespace DAL
 
             try
             {
-                idReturn = Singleton.Instance.ExecuteScalar(command);
+                idReturn = Acceso.Instance.ExecuteScalar(command);
             }
             catch { }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Profesor : BE_Empleado
+    public class BE_Profesor : BE_Empleado
     {
 
         private List<Cliente> _personasACargo;

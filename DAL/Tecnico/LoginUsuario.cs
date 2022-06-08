@@ -12,13 +12,12 @@ namespace DAL
     {
         private BE.Usuario userBE = BE.Usuario.Instance;
 
-        Conexion conn = new Conexion();
         public bool BuscarUsuarioBD(string user, string pass)
         {
             
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "SELECT * FROM Usuario WHERE usuario.Usuario=@User AND Usuario.Password=@Pass";
-            sqlcomm.Connection = conn.sqlConn;
+            sqlcomm.Connection = Acceso.Instance.sqlCon;
 
             SqlParameter param1 = new SqlParameter();
             param1.ParameterName = "User";
@@ -35,10 +34,10 @@ namespace DAL
 
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(sqlcomm);
-            conn.Conectar();
+            Acceso.Instance.sqlCon.Open();
 
             da.Fill(ds);
-            conn.Desconectar();
+            Acceso.Instance.sqlCon.Close();
             return true;
         }
 
@@ -46,14 +45,14 @@ namespace DAL
         {
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "SELECT * FROM Usuario";
-            sqlcomm.Connection = conn.sqlConn;
+            sqlcomm.Connection = Acceso.Instance.sqlCon;
 
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(sqlcomm);
-            conn.Conectar();
+            Acceso.Instance.sqlCon.Open();
 
             da.Fill(ds);
-            conn.Desconectar();
+            Acceso.Instance.sqlCon.Close();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 if (row["Usuario"].ToString().Equals(user) && row["Password"].ToString().Equals(pass))

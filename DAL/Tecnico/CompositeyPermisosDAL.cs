@@ -10,7 +10,6 @@ namespace DAL
 {
     public class CompositeyPermisosDAL
     {
-        DAL.Conexion conn = new DAL.Conexion();
         public void CompoDAL()
         {
 
@@ -22,7 +21,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
+                comm.Connection = Acceso.Instance.sqlCon;
                 comm.CommandText = "Select Id_perfil, Id_Padre FROM PermisosRelacion;";
                 comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.IdUsuario.ToString());
 
@@ -48,7 +47,7 @@ namespace DAL
             {
                 DataSet ds = new DataSet();
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
+                comm.Connection = Acceso.Instance.sqlCon;
                 comm.CommandText = @"SELECT PermisosUsuarios.Id_Usuario, PermisosUsuarios.Id_Permiso, PerfilPyF.Nombre, PerfilPyF.Tipo
                                     FROM PermisosUsuarios
                                     inner join PerfilPyF ON
@@ -88,7 +87,7 @@ namespace DAL
             {
                 DataSet ds = new DataSet();
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
+                comm.Connection = Acceso.Instance.sqlCon;
                 comm.CommandText = @"SELECT PermisosRelacion.Id_Perfil, PerfilPyF.Nombre, PerfilPyF.Tipo
                                         FROM PermisosRelacion
                                         inner join PerfilPyF on PermisosRelacion.Id_Padre = @id

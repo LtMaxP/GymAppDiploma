@@ -8,28 +8,28 @@ using System.Data;
 
 namespace DAL
 {
-    public class Singleton
+    public class Acceso
     {
         //private const string sqlConnect = "Data Source=DESKTOP-N4A8Q47\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True"; //nb
         //private string ruta = "Data Source=DESKTOP-SLGG4A0\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True";//PCFija
 
         public SqlConnection sqlCon = new SqlConnection("Data Source=DESKTOP-SLGG4A0\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True");
 
-        private Singleton()
+        private Acceso()
         {
             if (sqlCon.State == ConnectionState.Open)
             {
                 sqlCon.Close();
             }
         }
-        private static Singleton instance = null;
-        public static Singleton Instance
+        private static Acceso instance = null;
+        public static Acceso Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new Singleton();
+                    instance = new Acceso();
                 }
                 return instance;
             }

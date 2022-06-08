@@ -9,7 +9,6 @@ namespace Servicios
 {
     public class DV
     {
-        BE.Usuario user = BE.Usuario.Instance;
         private DAL.DigitoVerificadorDAL dVDal = new DAL.DigitoVerificadorDAL();
         public void RecalcularDVV()
         {
@@ -34,7 +33,7 @@ namespace Servicios
         {
             string hash = string.Empty;
 
-            hash = user.IdUsuario.ToString() + user.User + user.Pass;
+            hash = BE.Usuario.Instance.IdUsuario.ToString() + BE.Usuario.Instance.User + BE.Usuario.Instance.Pass;
 
             //hasheo
             string hasheoDVH = Servicios.Encriptacion.Encriptador(hash);

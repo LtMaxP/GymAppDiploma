@@ -50,7 +50,7 @@
     <Compile Include="Negocio\BE_Gerente.cs" />
     <Compile Include="Negocio\Genero.cs" />
     <Compile Include="Negocio\Item.cs" />
-    <Compile Include="Negocio\Profesor.cs" />
+    <Compile Include="Negocio\BE_Profesor.cs" />
     <Compile Include="Negocio\BE_Ejercicio.cs" />
     <Compile Include="Tecnico\ABMUsuarios.cs" />
     <Compile Include="Negocio\BE_Empleado.cs" />

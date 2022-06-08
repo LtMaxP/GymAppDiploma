@@ -11,12 +11,12 @@ namespace DAL
 {
     public class DALSucursal
     {
-        DAL.Conexion conn = new DAL.Conexion();
+        //DESCONTINUADO
         public DataTable DameSucursal(int idLoc)
         {
             DataTable dt = new DataTable();
             String query = "SELECT Id_Sucursal, Descripcion FROM [Sucursal] WHERE Id_Localidad = @id";
-            SqlCommand command = new SqlCommand(query, conn.sqlConn);
+            SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@id", idLoc);
 
             command.Connection.Open();
@@ -34,7 +34,7 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             String query = "select * from [dbo].[DameTodoSucursalaProvincia](@id)";
-            SqlCommand command = new SqlCommand(query, conn.sqlConn);
+            SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@id", idCliente);
 
             command.Connection.Open();
@@ -56,7 +56,7 @@ namespace DAL
             command.Parameters.AddWithValue("@Sucursal", sucursal);
             try
             {
-                idReturn = Convert.ToInt32(Singleton.Instance.ExecuteScalar(command));
+                idReturn = Convert.ToInt32(Acceso.Instance.ExecuteScalar(command));
             }
             catch { }
             return idReturn;

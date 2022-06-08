@@ -67,8 +67,7 @@
     <Compile Include="Tecnico\ABMUsuariosDAL.cs" />
     <Compile Include="Tecnico\BitacoraDAL.cs" />
     <Compile Include="Tecnico\CompositeyPermisosDAL.cs" />
-    <Compile Include="Singleton.cs" />
-    <Compile Include="Tecnico\Conexion.cs" />
+    <Compile Include="Acceso.cs" />
     <Compile Include="Negocio\DALClientes.cs" />
     <Compile Include="Negocio\DALEmpleado.cs" />
     <Compile Include="Negocio\DALFactura.cs" />
@@ -83,8 +82,6 @@
     <Compile Include="Tecnico\IdiomaT.cs" />
     <Compile Include="Tecnico\LoginUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="App.Config" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,18 +92,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-    <Folder Include="bin\Release\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{bf5bb399-0bd2-4294-b13a-8a455b9199f0}</Project>
       <Name>BE</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

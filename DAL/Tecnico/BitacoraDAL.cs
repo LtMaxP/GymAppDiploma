@@ -8,23 +8,22 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class BitacoraDAL 
+    public class BitacoraDAL
     {
-        DAL.Conexion connect = new DAL.Conexion();
         public void RegistrarBitacora(string movimiento, string nivelDeProblema, DateTime fecha)
         {
 
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            using (Acceso.Instance.sqlCon)
             {
                 String query = "INSERT INTO Bitacora (FechaDelMov, Movimiento, NivelDelProblema) VALUES (@FechaMov, @Mov, @NivelDelP)";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@FechaMov", fecha);
-                    command.Parameters.AddWithValue("@Mov", movimiento);
-                    command.Parameters.AddWithValue("@NivelDelP", nivelDeProblema);
-                    connection.Open();
-                    int result = command.ExecuteNonQuery();
-                }
+                SqlCommand command = new SqlCommand(query);
+
+                command.Parameters.AddWithValue("@FechaMov", fecha);
+                command.Parameters.AddWithValue("@Mov", movimiento);
+                command.Parameters.AddWithValue("@NivelDelP", nivelDeProblema);
+                Acceso.Instance.sqlCon.Open();
+                int result = command.ExecuteNonQuery();
+
             }
         }
 
@@ -32,16 +31,16 @@ namespace DAL
         {
             DataSet ds = new DataSet();
             DataTable bitacoraTable;
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            using (Acceso.Instance.sqlCon)
             {
 
                 String query = "SELECT FechaDelMov, Movimiento, NivelDelProblema FROM Bitacora";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(command);
-                    connection.Open();
-                    da.Fill(ds);
-                }
+                SqlCommand command = new SqlCommand(query);
+
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                Acceso.Instance.sqlCon.Open();
+                da.Fill(ds);
+
             }
 
             bitacoraTable = ds.Tables[0];

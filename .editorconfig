@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0006: No se encontró el archivo de metadatos 'C:\Users\Portadag\source\repos\GymDiploma\DAL\bin\Debug\DAL.exe'
+dotnet_diagnostic.CS0006.severity = none

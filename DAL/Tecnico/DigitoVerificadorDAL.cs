@@ -19,7 +19,7 @@ namespace DAL
             SqlCommand command = new SqlCommand(query);
             try
             {
-                dt = Singleton.Instance.ExecuteDataTable(command);
+                dt = Acceso.Instance.ExecuteDataTable(command);
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
             return dt;
@@ -32,7 +32,7 @@ namespace DAL
             SqlCommand command = new SqlCommand(query);
             try
             {
-                dt = Singleton.Instance.ExecuteDataTable(command);
+                dt = Acceso.Instance.ExecuteDataTable(command);
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
             return dt;
@@ -45,7 +45,7 @@ namespace DAL
             SqlCommand command = new SqlCommand(query);
             try
             {
-                returnable = Singleton.Instance.ExecuteDataTable(command);
+                returnable = Acceso.Instance.ExecuteDataTable(command);
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
             return returnable;
@@ -61,7 +61,7 @@ namespace DAL
 
             try
             {
-                Singleton.Instance.ExecuteNonQuery(command);
+                Acceso.Instance.ExecuteNonQuery(command);
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar insertar DVH :("); }
         }
@@ -74,7 +74,7 @@ namespace DAL
 
             try
             {
-                Singleton.Instance.ExecuteNonQuery(command);
+                Acceso.Instance.ExecuteNonQuery(command);
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar insertar DVV :("); }
         }

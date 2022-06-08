@@ -12,14 +12,37 @@ namespace DAL
     public class DALEmpleado
     {
         
-        public DataTable DameEmpleados(int id_Sucursal)
+        public DataTable DameEmpleados()
         {
             DataTable dt = new DataTable();
-            String query = "select * from Empleado where id_Sucursal = @id";
-            SqlCommand command = new SqlCommand(query, Singleton.Instance.sqlCon);
-            command.Parameters.AddWithValue("@id", id_Sucursal);
-
-            dt = Singleton.Instance.ExecuteDataTable(command);
+            String query = "select * from Empleado";
+            SqlCommand command = new SqlCommand(query, Acceso.Instance.sqlCon);
+            dt = Acceso.Instance.ExecuteDataTable(command);
+            return dt;
+        }
+        public DataTable DameProfesores()
+        {
+            DataTable dt = new DataTable();
+            String query = "select * from Empleado where id_Trabajo between 1 AND 4";
+            SqlCommand command = new SqlCommand(query, Acceso.Instance.sqlCon);
+            dt = Acceso.Instance.ExecuteDataTable(command);
+            return dt;
+        }
+        public DataTable DameAsistentes()
+        {
+            DataTable dt = new DataTable();
+            String query = "select * from Empleado where id_Trabajo = 5";
+            SqlCommand command = new SqlCommand(query, Acceso.Instance.sqlCon);
+            dt = Acceso.Instance.ExecuteDataTable(command);
+            return dt;
+        }
+        public DataTable DameProfesorPorTipo(string trabajo)
+        {
+            DataTable dt = new DataTable();
+            String query = "Select * from Empleado where id_Trabajo = (select id_Trabajo from Trabajo where Descripcion = '@trabajo')";
+            SqlCommand command = new SqlCommand(query, Acceso.Instance.sqlCon);
+            command.Parameters.AddWithValue("@trabajo", trabajo);
+            dt = Acceso.Instance.ExecuteDataTable(command);
             return dt;
         }
     }

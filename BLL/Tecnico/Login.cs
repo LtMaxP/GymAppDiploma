@@ -6,20 +6,10 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public enum Roles
-    {
-        Administrador = 0,
-        Gerente = 1,
-        Empleado = 2,
-        Error = 404,
-    }
 
     public class Login
     {
-
-        private BE.Usuario user = BE.Usuario.Instance;
         private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
-        private Servicios.Encriptacion encrip = new Servicios.Encriptacion();
         private BLL.Composite.FormarArbolCompo formarArbol = new Composite.FormarArbolCompo();
         private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
 
