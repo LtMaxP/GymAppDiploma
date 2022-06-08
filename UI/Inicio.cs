@@ -88,12 +88,19 @@ namespace UI
         }
         #endregion
 
-        //Formularios
+
+        #region formularios
         Clientes Fclient;
         BitacoraYDV FbitDV;
         UsuariosABM FuserABM;
         Empleados Femp;
         BackupRestore Fbackrest;
+        Facturas Factu;
+        PagosCobros PyG;
+        Listas Listados;
+        Permisos Permi;
+        #endregion
+
         private void Inicio_Load(object sender, EventArgs e)
         {
             Subject.AddObserver(this);
@@ -263,6 +270,67 @@ namespace UI
         private void labelFacturas_Click(object sender, EventArgs e)
         {
             //facturas-pagoscobros-listas FALTANTE
+            if (Factu == null)
+            {
+                Factu = new Facturas();
+                Factu.MdiParent = this;
+                Factu.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                Factu.Show();
+            }
+            else
+            {
+                Factu.Activate();
+            }
+        }
+
+        private void labelPagosYCobros_Click(object sender, EventArgs e)
+        {
+            if (PyG == null)
+            {
+                PyG = new PagosCobros();
+                PyG.MdiParent = this;
+                PyG.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                PyG.Show();
+            }
+            else
+            {
+                PyG.Activate();
+            }
+        }
+
+        private void labelListas_Click(object sender, EventArgs e)
+        {
+            if (Listados == null)
+            {
+                Listados = new Listas();
+                Listados.MdiParent = this;
+                Listados.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                Listados.Show();
+            }
+            else
+            {
+                Listados.Activate();
+            }
+        }
+
+        private void permisosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelFamiliaPatentes_Click(object sender, EventArgs e)
+        {
+            if (Permi == null)
+            {
+                Permi = new Permisos();
+                Permi.MdiParent = this;
+                Permi.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                Permi.Show();
+            }
+            else
+            {
+                Permi.Activate();
+            }
         }
     }
 }

@@ -10,7 +10,6 @@ namespace DAL
 {
     public class CompositeyPermisosDAL
     {
-        DAL.Conexion conn = new DAL.Conexion();
         public void CompoDAL()
         {
 
@@ -22,7 +21,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
+                comm.Connection = Acceso.Instance.sqlCon;
                 comm.CommandText = "Select Id_perfil, Id_Padre FROM PermisosRelacion;";
                 comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.IdUsuario.ToString());
 
@@ -39,32 +38,28 @@ namespace DAL
         /// </summary>
         /// <param name="idUsuario"></param>
         /// <returns></returns>
-        public List<BE.Composite> ObtenerPermisoUsuario(string idUsuario)
+        public List<BE.Composite> ObtenerPermisoUsuario(int idUsuario)
         {
             List<BE.Composite> listPermisos = new List<BE.Composite>();
 
             //BE.Composite compo = new BE.Composite("idusuario", "idComponente", "descripcion", "idcomponenteHijo");
             try
             {
-                DataSet ds = new DataSet();
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
                 comm.CommandText = @"SELECT PermisosUsuarios.Id_Usuario, PermisosUsuarios.Id_Permiso, PerfilPyF.Nombre, PerfilPyF.Tipo
                                     FROM PermisosUsuarios
                                     inner join PerfilPyF ON
                                     PerfilPyF.Id_Perfil = PermisosUsuarios.Id_Permiso
                                     AND Id_Usuario = @id;";
                 comm.Parameters.AddWithValue("@id", idUsuario);
-                SqlDataAdapter da = new SqlDataAdapter(comm);
 
-                comm.Connection.Open();
-                da.Fill(ds);
-                comm.Connection.Close();
-                foreach (DataRow dr in ds.Tables[0].Rows)//esto es al pedo porq te traeria 1 Row
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+
+                foreach (DataRow dr in dt.Rows)//esto es al pedo porq te traeria 1 Row
                 {
                     if (!String.IsNullOrEmpty(dr["Id_Permiso"].ToString()))
                     {
-                        listPermisos.Add(new BE.Composite(idUsuario, dr["Id_Permiso"].ToString(), dr["Nombre"].ToString(), "hijos", dr["Tipo"].ToString()));
+                        listPermisos.Add(new BE.Composite(idUsuario.ToString(), dr["Id_Permiso"].ToString(), dr["Nombre"].ToString(), "hijos", dr["Tipo"].ToString()));
                     }
                 }
             }
@@ -86,20 +81,15 @@ namespace DAL
             //BE.Composite compo = new BE.Composite("idusuario", "idComponente", "descripcion", "idcomponenteHijo");
             try
             {
-                DataSet ds = new DataSet();
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
                 comm.CommandText = @"SELECT PermisosRelacion.Id_Perfil, PerfilPyF.Nombre, PerfilPyF.Tipo
                                         FROM PermisosRelacion
                                         inner join PerfilPyF on PermisosRelacion.Id_Padre = @id
                                         AND PerfilPyF.Id_Perfil = PermisosRelacion.Id_Perfil;";
                 comm.Parameters.AddWithValue("@id", idPerfil);
-                SqlDataAdapter da = new SqlDataAdapter(comm);
 
-                comm.Connection.Open();
-                da.Fill(ds);
-                comm.Connection.Close();
-                foreach (DataRow dr in ds.Tables[0].Rows)
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+                foreach (DataRow dr in dt.Rows)
                 {
                     if (!String.IsNullOrEmpty(dr["Id_Perfil"].ToString()) & !idPerfil.Equals(dr["Id_Perfil"].ToString()))///////isnot the same idPerfil
                     {

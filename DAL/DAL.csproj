@@ -73,9 +73,7 @@
     <Compile Include="Negocio\DALEmpleado.cs" />
     <Compile Include="Negocio\DALFactura.cs" />
     <Compile Include="Negocio\DALLista.cs" />
-    <Compile Include="Negocio\DALLocalidad.cs" />
     <Compile Include="Negocio\DALPagosCobros.cs" />
-    <Compile Include="Negocio\DALProvincia.cs" />
     <Compile Include="Negocio\DALSucursal.cs" />
     <Compile Include="Tecnico\DigitoVerificadorDAL.cs" />
     <Compile Include="Tecnico\BusquedaDAL.cs" />

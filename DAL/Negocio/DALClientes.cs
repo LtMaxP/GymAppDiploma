@@ -11,14 +11,13 @@ namespace DAL
 {
     public class DALClientes : DAL.ICRUD<BE.Cliente>
     {
-        private Conexion connect = new Conexion();
         public bool Alta(Cliente valAlta)
         {
             bool rpta = false;
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = connect.sqlConn;
+                comm.Connection = Acceso.Instance.sqlCon;
 
                 comm.CommandText = "INSERT INTO ClienteGYM (Nombre, Apellido, Dni, Calle, Numero, CodPostal, Telefono, Fecha_Nac, PesoKg, Id_Estado, Id_Empleado) VALUES (@Nombre, @Apellido, @Dni, @Calle, @Numero, @CodPostal, @Telefono, @FechaNac, @Peso, @Estado, @Empleado)";
 
@@ -112,7 +111,7 @@ namespace DAL
         public DataTable Leer(Cliente valBuscar)
         {
             DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(connect.ConexionRuta);
+            SqlConnection connection = Acceso.Instance.sqlCon;
             String query = "SELECT Id_Cliente, Nombre, Apellido, Dni FROM ClienteGYM WHERE Nombre = " + "'" + valBuscar._nombre + "'";
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -135,7 +134,7 @@ namespace DAL
         public bool ValidarSiExisteDAL(Cliente cli)
         {
             bool respuesta = false;
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
                 String query = "SELECT * FROM ClienteGYM WHERE EXISTS(SELECT * FROM ClienteGYM WHERE dni = " + cli._dni + ")";
                 SqlCommand command = new SqlCommand(query, connection);
@@ -161,7 +160,7 @@ namespace DAL
         public DataTable MostrarCliente(Cliente cli)
         {
             DataTable dt = new DataTable();
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
                 String query = "SELECT * FROM ClienteGYM WHERE dni = " + cli._dni;
                 SqlCommand command = new SqlCommand(query, connection);

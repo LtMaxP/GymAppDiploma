@@ -36,10 +36,12 @@ namespace BLL
         {
             Boolean retornableComoCocaCola = false;
             //string passEncript = Seguridad.Encriptacion.Encriptador(pass);
+            user.User = usuario;
+            user.Pass = pass;
             if (DALUserLogin.DetectarUsuario(usuario, pass)) //passEncript arreglalo que la cagaste
             {
                 //Composite arbol formado
-                var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario.ToString());
+                var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario);
 
 
                 foreach (Composite.Composite element in a.List())

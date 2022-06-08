@@ -10,8 +10,6 @@ namespace DAL
 {
     public class BusquedaDAL
     {
-        Conexion connect = new DAL.Conexion();
-
         public string DevolvemeElValorQueQuieroPorId(string id, string queEs)
         {
             string dato = string.Empty;
@@ -62,7 +60,7 @@ namespace DAL
             {
                 SqlCommand sqlcomm = new SqlCommand();
                 sqlcomm.CommandText = "SELECT " + devolver + " FROM " + tabla + " WHERE " + campoCondicional + " = @texto";
-                sqlcomm.Connection = connect.sqlConn;
+                sqlcomm.Connection = Acceso.Instance.sqlCon;
 
                 SqlParameter param1 = new SqlParameter();
                 param1.ParameterName = "@texto";
@@ -73,10 +71,10 @@ namespace DAL
 
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(sqlcomm);
-                connect.Conectar();
+                sqlcomm.Connection.Open();
 
                 da.Fill(ds);
-                connect.Desconectar();
+                sqlcomm.Connection.Close();
 
                 DataRow row = ds.Tables[0].Rows[0];
                 idDelDidioma = row[0].ToString();
@@ -95,7 +93,7 @@ namespace DAL
             {
                 SqlCommand sqlcomm = new SqlCommand();
                 sqlcomm.CommandText = "SELECT " + devolver + " FROM " + tabla + " WHERE " + campoCondicional + " = @ID";
-                sqlcomm.Connection = connect.sqlConn;
+                sqlcomm.Connection = Acceso.Instance.sqlCon;
 
                 SqlParameter param1 = new SqlParameter();
                 param1.ParameterName = "@ID";
@@ -106,10 +104,10 @@ namespace DAL
 
                 DataSet ds = new DataSet();
                 SqlDataAdapter da = new SqlDataAdapter(sqlcomm);
-                connect.Conectar();
+                Acceso.Instance.sqlCon.Open();
 
                 da.Fill(ds);
-                connect.Desconectar();
+                Acceso.Instance.sqlCon.Close();
 
                 DataRow row = ds.Tables[0].Rows[0];
                 idioma = row[0].ToString();
@@ -124,7 +122,7 @@ namespace DAL
         public bool ValidarSiExisteEnDAL(string tabla, string comparacion, string datoAComparar)
         {
             bool respuesta = false;
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
                 String query = "SELECT * FROM " + tabla + " WHERE EXISTS(SELECT * FROM  " + tabla + " WHERE " + comparacion + " = " + datoAComparar + ")";
                 SqlCommand command = new SqlCommand(query, connection);

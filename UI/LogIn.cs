@@ -28,7 +28,7 @@ namespace UI
 
         public void LogIn_Load(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -44,26 +44,27 @@ namespace UI
             {
                 MessageBox.Show("Debe ingresar un usuario o contraseña para avanzar");
             }
-            
-            //Detecta que el usuario exista
-            if(bllLog.DetectarUsuario(textBox1.Text, textBox2.Text))
-            {
-                this.Hide();
-                Inicio ini = new Inicio();
-                ini.Show();
-            }
             else
             {
-                MessageBox.Show("Usuario y/o Contraseña incorrectos");
-                if (contador == 3)
+                //Detecta que el usuario exista
+                if (bllLog.DetectarUsuario(textBox1.Text, textBox2.Text))
                 {
-                    contador = 0; //bloquee bloqueeeee
+                    this.Hide();
+                    Inicio ini = new Inicio();
+                    ini.Show();
                 }
                 else
-                { contador++; }
+                {
+                    MessageBox.Show("Usuario y/o Contraseña incorrectos");
+                    if (contador == 3)
+                    {
+                        contador = 0; //bloquee bloqueeeee
+                    }
+                    else
+                    { contador++; }
+                }
             }
-            
-            
+
         }
 
     }

@@ -8,31 +8,24 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class BitacoraDAL 
+    public class BitacoraDAL
     {
-        DAL.Conexion connect = new DAL.Conexion();
         public void RegistrarBitacora(string movimiento, string nivelDeProblema, DateTime fecha)
         {
+            String query = "INSERT INTO Bitacora (FechaDelMov, Movimiento, NivelDelProblema) VALUES (@FechaMov, @Mov, @NivelDelP)";
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@FechaMov", fecha);
+            command.Parameters.AddWithValue("@Mov", movimiento);
+            command.Parameters.AddWithValue("@NivelDelP", nivelDeProblema);
+            Acceso.Instance.ExecuteNonQuery(command);
 
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
-            {
-                String query = "INSERT INTO Bitacora (FechaDelMov, Movimiento, NivelDelProblema) VALUES (@FechaMov, @Mov, @NivelDelP)";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@FechaMov", fecha);
-                    command.Parameters.AddWithValue("@Mov", movimiento);
-                    command.Parameters.AddWithValue("@NivelDelP", nivelDeProblema);
-                    connection.Open();
-                    int result = command.ExecuteNonQuery();
-                }
-            }
         }
 
         public DataTable TraerBitacora()
         {
             DataSet ds = new DataSet();
             DataTable bitacoraTable;
-            using (SqlConnection connection = new SqlConnection(connect.ConexionRuta))
+            using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
 
                 String query = "SELECT FechaDelMov, Movimiento, NivelDelProblema FROM Bitacora";

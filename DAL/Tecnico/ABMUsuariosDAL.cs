@@ -19,7 +19,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
+                comm.Connection = Acceso.Instance.sqlCon;
 
                 comm.CommandText = "INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado ) VALUES (@NombreUsuario, @Contraseña, @IdIdioma, @IdEstado"; //INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Rol ) VALUES ('Pepe','123123','1','1', 'Prueba')
 
@@ -65,7 +65,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
+                comm.Connection = Acceso.Instance.sqlCon;
 
                 comm.CommandText = "UPDATE Usuario SET Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario";
 
@@ -101,7 +101,7 @@ namespace DAL
                 
                 DataSet ds = new DataSet();
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
+                comm.Connection = Acceso.Instance.sqlCon;
                 comm.CommandText = "SELECT Id_Usuario, Usuario, Id_Idioma, Id_Estado FROM Usuario WHERE Usuario.Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", valBuscar.User);
                 SqlDataAdapter da = new SqlDataAdapter(comm);
@@ -124,7 +124,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
+                comm.Connection = Acceso.Instance.sqlCon;
 
                 if (!string.IsNullOrEmpty(valModificar.Pass))
                 {
@@ -176,7 +176,7 @@ namespace DAL
 
                 DataSet ds = new DataSet();
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = conn.sqlConn;
+                comm.Connection = Acceso.Instance.sqlCon;
                 comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", user);
                 SqlDataAdapter da = new SqlDataAdapter(comm);

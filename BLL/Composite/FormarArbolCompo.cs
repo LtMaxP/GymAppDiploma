@@ -12,7 +12,7 @@ namespace BLL.Composite
 
 
 
-        public Composite FormarArbolDeUsuario(string idUsuario)
+        public Composite FormarArbolDeUsuario(int idUsuario)
         {
             List<BE.Composite> listCompo = comp.ObtenerPermisoUsuario(idUsuario);
 

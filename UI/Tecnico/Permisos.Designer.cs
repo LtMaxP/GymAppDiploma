@@ -1,5 +1,5 @@
 ﻿
-namespace UI.Tecnico
+namespace UI
 {
     partial class Permisos
     {
@@ -91,6 +91,7 @@ namespace UI.Tecnico
             this.SalirBtn.TabIndex = 4;
             this.SalirBtn.Text = "Salir";
             this.SalirBtn.UseVisualStyleBackColor = true;
+            this.SalirBtn.Click += new System.EventHandler(this.SalirBtn_Click);
             // 
             // list
             // 

@@ -45,12 +45,12 @@
             this.labelIdioma = new System.Windows.Forms.ToolStripMenuItem();
             this.labelEspañol = new System.Windows.Forms.ToolStripMenuItem();
             this.labelIngles = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.easterEggToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verSecretoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,11 +113,13 @@
             // 
             this.labelPagosYCobros.Name = "labelPagosYCobros";
             resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
+            this.labelPagosYCobros.Click += new System.EventHandler(this.labelPagosYCobros_Click);
             // 
             // labelListas
             // 
             this.labelListas.Name = "labelListas";
             resources.ApplyResources(this.labelListas, "labelListas");
+            this.labelListas.Click += new System.EventHandler(this.labelListas_Click);
             // 
             // labelSistema
             // 
@@ -139,6 +141,7 @@
             // 
             this.labelFamiliaPatentes.Name = "labelFamiliaPatentes";
             resources.ApplyResources(this.labelFamiliaPatentes, "labelFamiliaPatentes");
+            this.labelFamiliaPatentes.Click += new System.EventHandler(this.labelFamiliaPatentes_Click);
             // 
             // labelBitacoraDV
             // 
@@ -173,6 +176,11 @@
             resources.ApplyResources(this.labelIngles, "labelIngles");
             this.labelIngles.Click += new System.EventHandler(this.inglesToolStripMenuItem_Click);
             // 
+            // agregarIdiomaToolStripMenuItem
+            // 
+            this.agregarIdiomaToolStripMenuItem.Name = "agregarIdiomaToolStripMenuItem";
+            resources.ApplyResources(this.agregarIdiomaToolStripMenuItem, "agregarIdiomaToolStripMenuItem");
+            // 
             // labelAyuda
             // 
             this.labelAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -205,11 +213,6 @@
             // 
             this.contactoToolStripMenuItem.Name = "contactoToolStripMenuItem";
             resources.ApplyResources(this.contactoToolStripMenuItem, "contactoToolStripMenuItem");
-            // 
-            // agregarIdiomaToolStripMenuItem
-            // 
-            this.agregarIdiomaToolStripMenuItem.Name = "agregarIdiomaToolStripMenuItem";
-            resources.ApplyResources(this.agregarIdiomaToolStripMenuItem, "agregarIdiomaToolStripMenuItem");
             // 
             // Inicio
             // 

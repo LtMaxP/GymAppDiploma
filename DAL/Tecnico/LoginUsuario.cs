@@ -12,13 +12,11 @@ namespace DAL
     {
         private BE.Usuario userBE = BE.Usuario.Instance;
 
-        Conexion conn = new Conexion();
         public bool BuscarUsuarioBD(string user, string pass)
         {
             
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "SELECT * FROM Usuario WHERE usuario.Usuario=@User AND Usuario.Password=@Pass";
-            sqlcomm.Connection = conn.sqlConn;
 
             SqlParameter param1 = new SqlParameter();
             param1.ParameterName = "User";
@@ -32,13 +30,15 @@ namespace DAL
 
             sqlcomm.Parameters.Add(param1);
             sqlcomm.Parameters.Add(param2);
-
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(sqlcomm);
-            conn.Conectar();
-
-            da.Fill(ds);
-            conn.Desconectar();
+            int i = 0;
+            try
+            {
+                i = Acceso.Instance.ExecuteScalar(sqlcomm);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
             return true;
         }
 
@@ -46,15 +46,18 @@ namespace DAL
         {
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "SELECT * FROM Usuario";
-            sqlcomm.Connection = conn.sqlConn;
+            //sqlcomm.Connection = Acceso.Instance.sqlCon;
 
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(sqlcomm);
-            conn.Conectar();
+            //DataSet ds = new DataSet();
+            //SqlDataAdapter da = new SqlDataAdapter(sqlcomm);
+            //sqlcomm.Connection.Open();
 
-            da.Fill(ds);
-            conn.Desconectar();
-            foreach (DataRow row in ds.Tables[0].Rows)
+            //da.Fill(ds);
+            //sqlcomm.Connection.Close();
+
+            DataTable dt = new DataTable();
+            dt = Acceso.Instance.ExecuteDataTable(sqlcomm);
+            foreach (DataRow row in dt.Rows)
             {
                 if (row["Usuario"].ToString().Equals(user) && row["Password"].ToString().Equals(pass))
                 {
@@ -62,7 +65,7 @@ namespace DAL
                     userBE.Pass = row["Password"].ToString();
                     userBE.IdUsuario = int.Parse(row["Id_Usuario"].ToString());
                     userBE.idIdioma = int.Parse(row["Id_Idioma"].ToString());
-                    userBE.idEstado = int.Parse(row["Id_Estado"].ToString());
+                    userBE.idEstado = int.Parse(row["Id_Estado"].ToString()); 
                     return true;
                 }
             }
