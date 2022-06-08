@@ -16,10 +16,10 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             String query = "select * from Empleado where id_Sucursal = @id";
-            SqlCommand command = new SqlCommand(query, Singleton.Instance.sqlCon);
+            SqlCommand command = new SqlCommand(query, Acceso.Instance.sqlCon);
             command.Parameters.AddWithValue("@id", id_Sucursal);
 
-            dt = Singleton.Instance.ExecuteDataTable(command);
+            dt = Acceso.Instance.ExecuteDataTable(command);
             return dt;
         }
     }

@@ -54,15 +54,6 @@ namespace BE
             set { idUsuario = value; }
         }
 
-        //No
-        private string rol;
-
-        public string Rol
-        {
-            get { return rol; }
-            set { rol = value; }
-        }
-
 
         private int id_Estado;
 

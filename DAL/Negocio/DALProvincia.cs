@@ -38,7 +38,7 @@ namespace DAL
 
             try
             {
-                idReturn = Singleton.Instance.ExecuteScalar(command);
+                idReturn = Acceso.Instance.ExecuteScalar(command);
             }
             catch { }
 

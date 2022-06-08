@@ -16,10 +16,10 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             String query = "SELECT Id_Localidad, Descripcion FROM [Localidad] WHERE Id_Provincia = @id";
-            SqlCommand command = new SqlCommand(query, Singleton.Instance.sqlCon);
+            SqlCommand command = new SqlCommand(query, Acceso.Instance.sqlCon);
             command.Parameters.AddWithValue("@id", idProv);
 
-            dt = Singleton.Instance.ExecuteDataTable(command);
+            dt = Acceso.Instance.ExecuteDataTable(command);
             return dt;
         }
         public int DameIdLocalidad(string localidad)
@@ -31,7 +31,7 @@ namespace DAL
 
             try
             {
-                idReturn = Singleton.Instance.ExecuteScalar(command);
+                idReturn = Acceso.Instance.ExecuteScalar(command);
             }
             catch { }
 

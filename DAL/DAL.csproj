@@ -67,7 +67,7 @@
     <Compile Include="Tecnico\ABMUsuariosDAL.cs" />
     <Compile Include="Tecnico\BitacoraDAL.cs" />
     <Compile Include="Tecnico\CompositeyPermisosDAL.cs" />
-    <Compile Include="Singleton.cs" />
+    <Compile Include="Acceso.cs" />
     <Compile Include="Tecnico\Conexion.cs" />
     <Compile Include="Negocio\DALClientes.cs" />
     <Compile Include="Negocio\DALEmpleado.cs" />

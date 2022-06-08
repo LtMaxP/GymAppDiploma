@@ -56,7 +56,7 @@ namespace DAL
             command.Parameters.AddWithValue("@Sucursal", sucursal);
             try
             {
-                idReturn = Convert.ToInt32(Singleton.Instance.ExecuteScalar(command));
+                idReturn = Convert.ToInt32(Acceso.Instance.ExecuteScalar(command));
             }
             catch { }
             return idReturn;

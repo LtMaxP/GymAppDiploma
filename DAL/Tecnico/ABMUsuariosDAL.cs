@@ -10,10 +10,10 @@ using BE;
 namespace DAL
 {
     //ADO.Conectado
-    public class ABMUsuariosDAL : ICRUD<BE.ABMUsuarios>
+    public class ABMUsuariosDAL : ICRUD<BE_Usuarios>
     {
         DAL.Conexion conn = new DAL.Conexion();
-        public bool Alta(ABMUsuarios valAlta)
+        public bool Alta(BE_Usuarios valAlta)
         {
             bool ret = false;
             try
@@ -21,7 +21,7 @@ namespace DAL
                 SqlCommand comm = new SqlCommand();
                 comm.Connection = conn.sqlConn;
 
-                comm.CommandText = "INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Rol ) VALUES (@NombreUsuario, @Contraseña, @IdIdioma, @IdEstado, @Rol"; //INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Rol ) VALUES ('Pepe','123123','1','1', 'Prueba')
+                comm.CommandText = "INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado ) VALUES (@NombreUsuario, @Contraseña, @IdIdioma, @IdEstado"; //INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Rol ) VALUES ('Pepe','123123','1','1', 'Prueba')
 
                 SqlParameter parameter1 = new SqlParameter();
                 parameter1.ParameterName = "@NombreUsuario";
@@ -43,16 +43,10 @@ namespace DAL
                 parameter4.Value = valAlta.idEstado;
                 parameter4.SqlDbType = System.Data.SqlDbType.Int;
 
-                SqlParameter parameter5 = new SqlParameter();
-                parameter5.ParameterName = "@Rol";
-                parameter5.Value = valAlta.rol;
-                parameter5.SqlDbType = System.Data.SqlDbType.VarChar;
-
                 comm.Parameters.Add(parameter1);
                 comm.Parameters.Add(parameter2);
                 comm.Parameters.Add(parameter3);
                 comm.Parameters.Add(parameter4);
-                comm.Parameters.Add(parameter5);
 
                 comm.Connection.Open();
                 int result = comm.ExecuteNonQuery();
@@ -65,7 +59,7 @@ namespace DAL
 
 
         //ADO.Conectado
-        public bool Baja(ABMUsuarios valBaja)
+        public bool Baja(BE_Usuarios valBaja)
         {
             bool ret = false;
             try
@@ -99,7 +93,7 @@ namespace DAL
 
 
         //ADO.Desconectado
-        public DataTable Leer(ABMUsuarios valBuscar)
+        public DataTable Leer(BE_Usuarios valBuscar)
         {
             DataTable dt = new DataTable();
             try
@@ -124,7 +118,7 @@ namespace DAL
         }
 
         //ADO.Conectado
-        public bool Modificar(ABMUsuarios valModificar)
+        public bool Modificar(BE_Usuarios valModificar)
         {
             bool ret = false;
             try
@@ -134,7 +128,7 @@ namespace DAL
 
                 if (!string.IsNullOrEmpty(valModificar.Pass))
                 {
-                    comm.CommandText = "UPDATE Usuario SET Usuario.Password = @Contraseña, Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado, Usuario.Rol = @Rol WHERE Usuario.Usuario = @NombreUsuario";
+                    comm.CommandText = "UPDATE Usuario SET Usuario.Password = @Contraseña, Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario";
 
                     SqlParameter parameter2 = new SqlParameter();
                     parameter2.ParameterName = "@Contraseña";
@@ -142,7 +136,7 @@ namespace DAL
                     parameter2.SqlDbType = System.Data.SqlDbType.VarChar;
                     comm.Parameters.Add(parameter2);
                 }
-                else { comm.CommandText = "UPDATE Usuario SET Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado, Usuario.Rol = @Rol WHERE Usuario.Usuario = @NombreUsuario"; }
+                else { comm.CommandText = "UPDATE Usuario SET Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario"; }
 
                 SqlParameter parameter1 = new SqlParameter();
                 parameter1.ParameterName = "@NombreUsuario";
@@ -159,15 +153,10 @@ namespace DAL
                 parameter4.Value = valModificar.idEstado;
                 parameter4.SqlDbType = System.Data.SqlDbType.Int;
 
-                SqlParameter parameter5 = new SqlParameter();
-                parameter5.ParameterName = "@Rol";
-                parameter5.Value = valModificar.rol;
-                parameter5.SqlDbType = System.Data.SqlDbType.VarChar;
 
                 comm.Parameters.Add(parameter1);
                 comm.Parameters.Add(parameter3);
                 comm.Parameters.Add(parameter4);
-                comm.Parameters.Add(parameter5);
 
                 comm.Connection.Open();
                 int result = comm.ExecuteNonQuery();

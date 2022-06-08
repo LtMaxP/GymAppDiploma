@@ -11,12 +11,12 @@ namespace BLL
     public class Usuario //: DAL.ICRUD<BE.ABMUsuarios> Esto tiene que ser así, arregl
     {
         DAL.BusquedaDAL buscar = new DAL.BusquedaDAL();
-        DAL.ICRUD<BE.ABMUsuarios> cRUD = new DAL.ABMUsuariosDAL();
+        DAL.ICRUD<BE.BE_Usuarios> cRUD = new DAL.ABMUsuariosDAL();
 
         public bool AgregarUsuario(string usuario, string contraseña, string idioma, string estado)
         {
             contraseña = Servicios.Encriptacion.Encriptador(contraseña);
-            ABMUsuarios altaUser = new ABMUsuarios();
+            BE_Usuarios altaUser = new BE_Usuarios();
             DevolverIDs(altaUser, idioma, estado);
             altaUser.User = usuario;
             altaUser.Pass = contraseña;
@@ -26,7 +26,7 @@ namespace BLL
 
         public bool EliminarUsuario(string usuario)
         {
-            ABMUsuarios bajaUser = new ABMUsuarios();
+            BE_Usuarios bajaUser = new BE_Usuarios();
             bajaUser.User = usuario;
 
             return cRUD.Baja(bajaUser);
@@ -34,7 +34,7 @@ namespace BLL
 
         public bool ModificarUsuario(string usuario, string contraseña, string idioma, string estado)
         {
-            ABMUsuarios modUser = new ABMUsuarios();
+            BE_Usuarios modUser = new BE_Usuarios();
             if (!string.IsNullOrEmpty(contraseña))
             {
                 contraseña = Servicios.Encriptacion.Encriptador(contraseña);
@@ -46,7 +46,7 @@ namespace BLL
             return cRUD.Modificar(modUser);
         }
 
-        public void DevolverIDs(ABMUsuarios objetoUsuario, string idioma, string estado)
+        public void DevolverIDs(BE_Usuarios objetoUsuario, string idioma, string estado)
         {
             string idIdio = buscar.DevolvemeElIDQueQuieroPorTexto(idioma, "idioma");
             string idEst = buscar.DevolvemeElIDQueQuieroPorTexto(estado, "estado");
@@ -56,7 +56,7 @@ namespace BLL
 
         public String[] BuscarUsuario(string usuario)
         {
-            ABMUsuarios buscarUser = new ABMUsuarios();
+            BE_Usuarios buscarUser = new BE_Usuarios();
             buscarUser.User = usuario;
             string[] rowFix = new string[4];
 
@@ -90,7 +90,7 @@ namespace BLL
 
         public bool ValidarSiElUsuarioYaExiste(string usuario)
         {
-            ABMUsuarios buscarUser = new ABMUsuarios();
+            BE_Usuarios buscarUser = new BE_Usuarios();
             buscarUser.User = usuario;
 
             DataTable dt = cRUD.Leer(buscarUser);
