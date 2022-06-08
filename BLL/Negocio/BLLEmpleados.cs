@@ -19,7 +19,7 @@ namespace BLL
             DataTable data = dalemp.DameEmpleados(id_Sucursal);
             foreach (DataRow emp in data.Rows)
             {
-                BE_Empleado empleadoActual = new BE_Empleado();
+                BE_Empleado empleadoActual = (new Profesor());
                 empleadoActual.Id = int.Parse(emp.ItemArray[0].ToString());
                 empleadoActual.Nombre = emp.ItemArray[1].ToString();
                 empleadoActual.Apellido = emp.ItemArray[2].ToString();
