@@ -12,6 +12,8 @@ namespace BLL
         private DAL.BitacoraDAL bitDal = new DAL.BitacoraDAL();
         private Servicios.BitacoraServicio bit = new Servicios.BitacoraServicio();
 
+
+        //arreglar con clases
         public void RegistrarMovimiento(string movimiento, string nivelDelProblema)
         {
             bitDal.RegistrarBitacora(movimiento, nivelDelProblema, DateTime.Now);

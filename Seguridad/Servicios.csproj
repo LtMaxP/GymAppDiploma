@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitacoraBLL.cs" />
+    <Compile Include="DigitoVerificadorHV.cs" />
     <Compile Include="Encriptacion.cs" />
     <Compile Include="ICRUD.Servicios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

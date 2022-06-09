@@ -30,7 +30,6 @@
         {
             this.labelSalir = new System.Windows.Forms.Button();
             this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.labelModificar = new System.Windows.Forms.Button();
@@ -38,7 +37,6 @@
             this.labelAlta = new System.Windows.Forms.Button();
             this.labelEspecialidades = new System.Windows.Forms.Label();
             this.labelPersonasACargo = new System.Windows.Forms.Label();
-            this.labelSucursal = new System.Windows.Forms.Label();
             this.labelEstado = new System.Windows.Forms.Label();
             this.labelApellido = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
@@ -49,7 +47,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelBuscar = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelAgregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.Label();
             this.id_empleado = new System.Windows.Forms.Label();
@@ -71,13 +69,6 @@
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(148, 20);
             this.textBox14.TabIndex = 34;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(374, 194);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(148, 20);
-            this.textBox9.TabIndex = 35;
             // 
             // textBox3
             // 
@@ -123,7 +114,7 @@
             // labelEspecialidades
             // 
             this.labelEspecialidades.AutoSize = true;
-            this.labelEspecialidades.Location = new System.Drawing.Point(238, 229);
+            this.labelEspecialidades.Location = new System.Drawing.Point(238, 191);
             this.labelEspecialidades.Name = "labelEspecialidades";
             this.labelEspecialidades.Size = new System.Drawing.Size(43, 13);
             this.labelEspecialidades.TabIndex = 29;
@@ -137,15 +128,6 @@
             this.labelPersonasACargo.Size = new System.Drawing.Size(91, 13);
             this.labelPersonasACargo.TabIndex = 28;
             this.labelPersonasACargo.Text = "Personas a Cargo";
-            // 
-            // labelSucursal
-            // 
-            this.labelSucursal.AutoSize = true;
-            this.labelSucursal.Location = new System.Drawing.Point(239, 197);
-            this.labelSucursal.Name = "labelSucursal";
-            this.labelSucursal.Size = new System.Drawing.Size(48, 13);
-            this.labelSucursal.TabIndex = 23;
-            this.labelSucursal.Text = "Sucursal";
             // 
             // labelEstado
             // 
@@ -231,19 +213,19 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(374, 229);
+            this.comboBox1.Location = new System.Drawing.Point(374, 191);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(148, 21);
             this.comboBox1.TabIndex = 46;
             // 
-            // button1
+            // labelAgregar
             // 
-            this.button1.Location = new System.Drawing.Point(183, 366);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 23);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.labelAgregar.Location = new System.Drawing.Point(183, 366);
+            this.labelAgregar.Name = "labelAgregar";
+            this.labelAgregar.Size = new System.Drawing.Size(85, 23);
+            this.labelAgregar.TabIndex = 47;
+            this.labelAgregar.Text = "Agregar";
+            this.labelAgregar.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -278,11 +260,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 580);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelAgregar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.labelSalir);
             this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.labelModificar);
@@ -290,7 +271,6 @@
             this.Controls.Add(this.labelAlta);
             this.Controls.Add(this.labelEspecialidades);
             this.Controls.Add(this.labelPersonasACargo);
-            this.Controls.Add(this.labelSucursal);
             this.Controls.Add(this.labelEstado);
             this.Controls.Add(this.labelApellido);
             this.Controls.Add(this.id_empleado);
@@ -315,7 +295,6 @@
 
         private System.Windows.Forms.Button labelSalir;
         private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button labelModificar;
@@ -323,7 +302,6 @@
         private System.Windows.Forms.Button labelAlta;
         private System.Windows.Forms.Label labelEspecialidades;
         private System.Windows.Forms.Label labelPersonasACargo;
-        private System.Windows.Forms.Label labelSucursal;
         private System.Windows.Forms.Label labelEstado;
         private System.Windows.Forms.Label labelApellido;
         private System.Windows.Forms.Label labelNombre;
@@ -334,7 +312,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button labelBuscar;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button labelAgregar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Id;
         private System.Windows.Forms.Label id_empleado;

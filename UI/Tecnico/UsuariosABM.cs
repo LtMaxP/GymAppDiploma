@@ -29,6 +29,7 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             String usuario = textBox3.Text;
             String contraseña = textBox4.Text;
             String idioma = comboBox1.Text;
@@ -40,7 +41,7 @@ namespace UI
             }
             else
             {
-                if (usuarioABM.ValidarSiElUsuarioYaExiste(usuario))
+                if (!usuarioABM.ValidarSiElUsuarioYaExiste(usuario))
                 {
                     usuarioABM.AgregarUsuario(usuario, contraseña, idioma, estado);
                     MessageBox.Show("El usuario fue dado de Alta con éxito.");

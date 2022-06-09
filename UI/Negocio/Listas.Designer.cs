@@ -29,36 +29,36 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelListas = new System.Windows.Forms.Label();
+            this.labelSalir = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.checkBox_Clientes = new System.Windows.Forms.CheckBox();
-            this.checkBox_Estado = new System.Windows.Forms.CheckBox();
-            this.checkBox_Empleados = new System.Windows.Forms.CheckBox();
+            this.labelClientes = new System.Windows.Forms.CheckBox();
+            this.labelEstado = new System.Windows.Forms.CheckBox();
+            this.labelEmpleados = new System.Windows.Forms.CheckBox();
             this.checkBox_Pago = new System.Windows.Forms.CheckBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelListas
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Listas";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.labelListas.AutoSize = true;
+            this.labelListas.Location = new System.Drawing.Point(13, 13);
+            this.labelListas.Name = "labelListas";
+            this.labelListas.Size = new System.Drawing.Size(34, 13);
+            this.labelListas.TabIndex = 0;
+            this.labelListas.Text = "Listas";
+            this.labelListas.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button1
+            // labelSalir
             // 
-            this.button1.Location = new System.Drawing.Point(713, 415);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.labelSalir.Location = new System.Drawing.Point(713, 415);
+            this.labelSalir.Name = "labelSalir";
+            this.labelSalir.Size = new System.Drawing.Size(75, 23);
+            this.labelSalir.TabIndex = 1;
+            this.labelSalir.Text = "Salir";
+            this.labelSalir.UseVisualStyleBackColor = true;
+            this.labelSalir.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -70,35 +70,35 @@ namespace UI
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // checkBox_Clientes
+            // labelClientes
             // 
-            this.checkBox_Clientes.AutoSize = true;
-            this.checkBox_Clientes.Location = new System.Drawing.Point(16, 52);
-            this.checkBox_Clientes.Name = "checkBox_Clientes";
-            this.checkBox_Clientes.Size = new System.Drawing.Size(63, 17);
-            this.checkBox_Clientes.TabIndex = 3;
-            this.checkBox_Clientes.Text = "Clientes";
-            this.checkBox_Clientes.UseVisualStyleBackColor = true;
+            this.labelClientes.AutoSize = true;
+            this.labelClientes.Location = new System.Drawing.Point(16, 52);
+            this.labelClientes.Name = "labelClientes";
+            this.labelClientes.Size = new System.Drawing.Size(63, 17);
+            this.labelClientes.TabIndex = 3;
+            this.labelClientes.Text = "Clientes";
+            this.labelClientes.UseVisualStyleBackColor = true;
             // 
-            // checkBox_Estado
+            // labelEstado
             // 
-            this.checkBox_Estado.AutoSize = true;
-            this.checkBox_Estado.Location = new System.Drawing.Point(226, 52);
-            this.checkBox_Estado.Name = "checkBox_Estado";
-            this.checkBox_Estado.Size = new System.Drawing.Size(59, 17);
-            this.checkBox_Estado.TabIndex = 4;
-            this.checkBox_Estado.Text = "Estado";
-            this.checkBox_Estado.UseVisualStyleBackColor = true;
+            this.labelEstado.AutoSize = true;
+            this.labelEstado.Location = new System.Drawing.Point(226, 52);
+            this.labelEstado.Name = "labelEstado";
+            this.labelEstado.Size = new System.Drawing.Size(59, 17);
+            this.labelEstado.TabIndex = 4;
+            this.labelEstado.Text = "Estado";
+            this.labelEstado.UseVisualStyleBackColor = true;
             // 
-            // checkBox_Empleados
+            // labelEmpleados
             // 
-            this.checkBox_Empleados.AutoSize = true;
-            this.checkBox_Empleados.Location = new System.Drawing.Point(85, 52);
-            this.checkBox_Empleados.Name = "checkBox_Empleados";
-            this.checkBox_Empleados.Size = new System.Drawing.Size(78, 17);
-            this.checkBox_Empleados.TabIndex = 5;
-            this.checkBox_Empleados.Text = "Empleados";
-            this.checkBox_Empleados.UseVisualStyleBackColor = true;
+            this.labelEmpleados.AutoSize = true;
+            this.labelEmpleados.Location = new System.Drawing.Point(85, 52);
+            this.labelEmpleados.Name = "labelEmpleados";
+            this.labelEmpleados.Size = new System.Drawing.Size(78, 17);
+            this.labelEmpleados.TabIndex = 5;
+            this.labelEmpleados.Text = "Empleados";
+            this.labelEmpleados.UseVisualStyleBackColor = true;
             // 
             // checkBox_Pago
             // 
@@ -124,14 +124,15 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.checkBox_Pago);
-            this.Controls.Add(this.checkBox_Empleados);
-            this.Controls.Add(this.checkBox_Estado);
-            this.Controls.Add(this.checkBox_Clientes);
+            this.Controls.Add(this.labelEmpleados);
+            this.Controls.Add(this.labelEstado);
+            this.Controls.Add(this.labelClientes);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelSalir);
+            this.Controls.Add(this.labelListas);
             this.Name = "Listas";
             this.Text = "Listas";
             this.Load += new System.EventHandler(this.Listas_Load);
@@ -143,12 +144,12 @@ namespace UI
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelListas;
+        private System.Windows.Forms.Button labelSalir;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox checkBox_Clientes;
-        private System.Windows.Forms.CheckBox checkBox_Estado;
-        private System.Windows.Forms.CheckBox checkBox_Empleados;
+        private System.Windows.Forms.CheckBox labelClientes;
+        private System.Windows.Forms.CheckBox labelEstado;
+        private System.Windows.Forms.CheckBox labelEmpleados;
         private System.Windows.Forms.CheckBox checkBox_Pago;
         private System.Windows.Forms.DataGridView dataGridView;
     }

@@ -24,7 +24,7 @@ namespace DAL
         //        sqlCon.Close();
         //    }
         //}
-        public static Acceso instance;
+        private static Acceso instance;
         public static Acceso Instance
         {
             get
@@ -39,17 +39,36 @@ namespace DAL
 
         public int ExecuteScalar(SqlCommand _paramCommand)
         {
-            Abrir();
-            var returnable = _paramCommand.ExecuteScalar();
-            Cerrar();
-            return Convert.ToInt32(returnable);
-        }
+            try
+            {
 
+                Abrir();
+                _paramCommand.Connection = SQLC;
+                var returnable = _paramCommand.ExecuteScalar();
+                Cerrar();
+                return Convert.ToInt32(returnable);
+            }
+            catch (Exception e) { throw e; }
+        }
+        public Boolean ExecuteScalarBool(SqlCommand _paramCommand)
+        {
+            try
+            {
+
+                Abrir();
+                _paramCommand.Connection = SQLC;
+                Boolean returnable = Convert.ToBoolean(_paramCommand.ExecuteScalar());
+                Cerrar();
+                return returnable; 
+
+            }
+            catch (Exception e) { throw e; }
+        }
         public int ExecuteNonQuery(SqlCommand _paramCommand)
         {
             try
             {
-                
+
                 Abrir();
                 _paramCommand.Connection = SQLC;
                 var returnable = _paramCommand.ExecuteNonQuery();

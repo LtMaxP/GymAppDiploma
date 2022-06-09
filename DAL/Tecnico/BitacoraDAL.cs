@@ -23,21 +23,12 @@ namespace DAL
 
         public DataTable TraerBitacora()
         {
-            DataSet ds = new DataSet();
             DataTable bitacoraTable;
-            using (SqlConnection connection = Acceso.Instance.sqlCon)
-            {
+            String query = "SELECT FechaDelMov, Movimiento, NivelDelProblema FROM Bitacora";
+            SqlCommand command = new SqlCommand(query);
 
-                String query = "SELECT FechaDelMov, Movimiento, NivelDelProblema FROM Bitacora";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(command);
-                    connection.Open();
-                    da.Fill(ds);
-                }
-            }
+            bitacoraTable = Acceso.Instance.ExecuteDataTable(command);
 
-            bitacoraTable = ds.Tables[0];
             return bitacoraTable;
         }
     }

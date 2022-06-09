@@ -31,9 +31,9 @@ namespace UI
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.labelSalir = new System.Windows.Forms.Button();
             this.textBox = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.labelBuscar = new System.Windows.Forms.Button();
             this.listBox = new System.Windows.Forms.ListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,15 +61,15 @@ namespace UI
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // labelSalir
             // 
-            this.button2.Location = new System.Drawing.Point(156, 374);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 28);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Salir";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.labelSalir.Location = new System.Drawing.Point(156, 374);
+            this.labelSalir.Name = "labelSalir";
+            this.labelSalir.Size = new System.Drawing.Size(75, 28);
+            this.labelSalir.TabIndex = 2;
+            this.labelSalir.Text = "Salir";
+            this.labelSalir.UseVisualStyleBackColor = true;
+            this.labelSalir.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox
             // 
@@ -78,14 +78,14 @@ namespace UI
             this.textBox.Size = new System.Drawing.Size(138, 20);
             this.textBox.TabIndex = 3;
             // 
-            // button3
+            // labelBuscar
             // 
-            this.button3.Location = new System.Drawing.Point(156, 65);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 21);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Buscar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.labelBuscar.Location = new System.Drawing.Point(156, 65);
+            this.labelBuscar.Name = "labelBuscar";
+            this.labelBuscar.Size = new System.Drawing.Size(75, 21);
+            this.labelBuscar.TabIndex = 4;
+            this.labelBuscar.Text = "Buscar";
+            this.labelBuscar.UseVisualStyleBackColor = true;
             // 
             // listBox
             // 
@@ -118,12 +118,13 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.listBox);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.textBox);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.labelSalir);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "Facturas";
@@ -138,9 +139,9 @@ namespace UI
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button labelSalir;
         private System.Windows.Forms.TextBox textBox;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button labelBuscar;
         private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;

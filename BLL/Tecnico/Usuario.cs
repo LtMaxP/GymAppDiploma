@@ -12,7 +12,8 @@ namespace BLL
     public class Usuario //: DAL.ICRUD<BE.ABMUsuarios> Esto tiene que ser así, arregl
     {
         DAL.BusquedaDAL buscar = new DAL.BusquedaDAL();
-        DAL.ICRUD<BE.BE_Usuarios> cRUD = new DAL.ABMUsuariosDAL();
+        DAL.ABMUsuariosDAL abmUs = new DAL.ABMUsuariosDAL();
+        BitacoraBLL b = new BitacoraBLL();
 
         public bool AgregarUsuario(string usuario, string contraseña, string idioma, string estado)
         {
@@ -21,8 +22,10 @@ namespace BLL
             DevolverIDs(altaUser, idioma, estado);
             altaUser.User = usuario;
             altaUser.Pass = contraseña;
-            
-            return cRUD.Alta(altaUser);
+            altaUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(altaUser);
+            bool rpta = abmUs.Alta(altaUser);
+            //b.RegistrarMovimiento("Creacion exitosa de Usuario:","Ninguno");
+            return rpta;
         }
 
         public bool EliminarUsuario(string usuario)
@@ -30,7 +33,7 @@ namespace BLL
             BE_Usuarios bajaUser = new BE_Usuarios();
             bajaUser.User = usuario;
 
-            return cRUD.Baja(bajaUser);
+            return abmUs.Baja(bajaUser);
         }
 
         public bool ModificarUsuario(string usuario, string contraseña, string idioma, string estado)
@@ -44,7 +47,7 @@ namespace BLL
             modUser.User = usuario;
             modUser.Pass = contraseña;
 
-            return cRUD.Modificar(modUser);
+            return abmUs.Modificar(modUser);
         }
 
         public void DevolverIDs(BE_Usuarios objetoUsuario, string idioma, string estado)
@@ -61,7 +64,7 @@ namespace BLL
             buscarUser.User = usuario;
             string[] rowFix = new string[4];
 
-            DataTable dt = cRUD.Leer(buscarUser);
+            DataTable dt = abmUs.Leer(buscarUser);
 
             if (dt.Rows.Count == 0)
             { System.Windows.Forms.MessageBox.Show("Usuario no encontrado"); }
@@ -69,9 +72,9 @@ namespace BLL
             {
                 DataRow usuarioRow = dt.Rows[0];
 
-                for (int i = 0; i<4; i++)
+                for (int i = 0; i < 4; i++)
                 {
-                    switch(i)
+                    switch (i)
                     {
                         case 2:
                             rowFix[i] = buscar.DevolvemeElValorQueQuieroPorId(usuarioRow.ItemArray[i].ToString(), "idioma");
@@ -84,7 +87,7 @@ namespace BLL
                             break;
                     }
                 }
-                
+
             }
             return rowFix;
         }
@@ -93,13 +96,7 @@ namespace BLL
         {
             BE_Usuarios buscarUser = new BE_Usuarios();
             buscarUser.User = usuario;
-
-            DataTable dt = cRUD.Leer(buscarUser);
-
-            if (dt.Rows.Count == 0)
-            { return false; }
-            else
-            { return true;  }
+            return abmUs.ValidarExistenciaDeUsuario(buscarUser);
         }
 
     }

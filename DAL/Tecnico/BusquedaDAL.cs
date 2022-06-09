@@ -60,7 +60,7 @@ namespace DAL
             {
                 SqlCommand sqlcomm = new SqlCommand();
                 sqlcomm.CommandText = "SELECT " + devolver + " FROM " + tabla + " WHERE " + campoCondicional + " = @texto";
-                sqlcomm.Connection = Acceso.Instance.sqlCon;
+                
 
                 SqlParameter param1 = new SqlParameter();
                 param1.ParameterName = "@texto";
@@ -68,15 +68,7 @@ namespace DAL
                 param1.SqlDbType = System.Data.SqlDbType.VarChar;
 
                 sqlcomm.Parameters.Add(param1);
-
-                DataSet ds = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter(sqlcomm);
-                sqlcomm.Connection.Open();
-
-                da.Fill(ds);
-                sqlcomm.Connection.Close();
-
-                DataRow row = ds.Tables[0].Rows[0];
+                DataRow row = Acceso.Instance.ExecuteDataTable(sqlcomm).Rows[0];
                 idDelDidioma = row[0].ToString();
             }
             catch

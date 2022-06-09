@@ -48,7 +48,7 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Boolean[] checkboxs = new Boolean[] { checkBox_Clientes.Checked, checkBox_Empleados.Checked, checkBox_Pago.Checked, checkBox_Estado.Checked };
+            Boolean[] checkboxs = new Boolean[] { labelClientes.Checked, labelEmpleados.Checked, checkBox_Pago.Checked, labelEstado.Checked };
             
         }
     }

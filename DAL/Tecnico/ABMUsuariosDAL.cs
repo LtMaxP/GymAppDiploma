@@ -19,9 +19,8 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = Acceso.Instance.sqlCon;
 
-                comm.CommandText = "INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado ) VALUES (@NombreUsuario, @Contraseña, @IdIdioma, @IdEstado"; //INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Rol ) VALUES ('Pepe','123123','1','1', 'Prueba')
+                comm.CommandText = "INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.DVH ) VALUES (@NombreUsuario, @Contraseña, @IdIdioma, @IdEstado, @dvh)"; //INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Rol ) VALUES ('Pepe','123123','1','1', 'Prueba')
 
                 SqlParameter parameter1 = new SqlParameter();
                 parameter1.ParameterName = "@NombreUsuario";
@@ -43,14 +42,18 @@ namespace DAL
                 parameter4.Value = valAlta.idEstado;
                 parameter4.SqlDbType = System.Data.SqlDbType.Int;
 
+                SqlParameter parameter5 = new SqlParameter();
+                parameter4.ParameterName = "@dvh";
+                parameter4.Value = valAlta._DVH;
+                parameter4.SqlDbType = System.Data.SqlDbType.VarChar;
+
                 comm.Parameters.Add(parameter1);
                 comm.Parameters.Add(parameter2);
                 comm.Parameters.Add(parameter3);
                 comm.Parameters.Add(parameter4);
+                comm.Parameters.Add(parameter5);
 
-                comm.Connection.Open();
-                int result = comm.ExecuteNonQuery();
-                comm.Connection.Close();
+                int result = Acceso.Instance.ExecuteNonQuery(comm);
                 ret = true;
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
@@ -99,17 +102,11 @@ namespace DAL
             try
             {
                 
-                DataSet ds = new DataSet();
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = Acceso.Instance.sqlCon;
                 comm.CommandText = "SELECT Id_Usuario, Usuario, Id_Idioma, Id_Estado FROM Usuario WHERE Usuario.Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", valBuscar.User);
-                SqlDataAdapter da = new SqlDataAdapter(comm);
 
-                comm.Connection.Open();
-                da.Fill(ds);
-                comm.Connection.Close();
-                dt = ds.Tables[0];
+                dt = Acceso.Instance.ExecuteDataTable(comm);
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
 
@@ -168,22 +165,16 @@ namespace DAL
         }
 
         //ADO.Desconectado
-        public bool ValidarExistenciaDeUsuario(string user)
+        public bool ValidarExistenciaDeUsuario(BE_Usuarios usuari)
         {
             bool respuesta = false;
             try
             {
-
-                DataSet ds = new DataSet();
-                SqlCommand comm = new SqlCommand();
-                comm.Connection = Acceso.Instance.sqlCon;
+                               SqlCommand comm = new SqlCommand();
                 comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre";
-                comm.Parameters.AddWithValue("@nombre", user);
-                SqlDataAdapter da = new SqlDataAdapter(comm);
-
-                comm.Connection.Open();
-                respuesta = bool.Parse(comm.ExecuteScalar().ToString());
-                comm.Connection.Close();
+                comm.Parameters.AddWithValue("@nombre", usuari.User);
+                
+                respuesta = Acceso.Instance.ExecuteScalarBool(comm);
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de Leer la tabla."); }
             return respuesta;
