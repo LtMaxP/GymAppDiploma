@@ -5,16 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
-using DAL;
 
 namespace BLL
 {
     public class Usuario //: DAL.ICRUD<BE.ABMUsuarios> Esto tiene que ser así, arregl
     {
+        
         DAL.BusquedaDAL buscar = new DAL.BusquedaDAL();
         DAL.ABMUsuariosDAL abmUs = new DAL.ABMUsuariosDAL();
         BitacoraBLL b = new BitacoraBLL();
 
+        
         public bool AgregarUsuario(string usuario, string contraseña, string idioma, string estado)
         {
             contraseña = Servicios.Encriptacion.Encriptador(contraseña);
@@ -24,7 +25,10 @@ namespace BLL
             altaUser.Pass = contraseña;
             altaUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(altaUser);
             bool rpta = abmUs.Alta(altaUser);
-            //b.RegistrarMovimiento("Creacion exitosa de Usuario:","Ninguno");
+            //Servicios.BitacoraServicio
+            b.RegistrarMovimiento("Creacion exitosa de Usuario:","Ninguno");
+
+            
             return rpta;
         }
 

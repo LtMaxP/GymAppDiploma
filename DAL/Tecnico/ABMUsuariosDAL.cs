@@ -12,7 +12,11 @@ namespace DAL
     //ADO.Conectado
     public class ABMUsuariosDAL : ICRUD<BE_Usuarios>
     {
-        DAL.Conexion conn = new DAL.Conexion();
+        public BE.Bitacora OnRegBitEvent(object source, BE.Bitacora biti)
+        {
+
+            return biti;
+        }
         public bool Alta(BE_Usuarios valAlta)
         {
             bool ret = false;
@@ -54,6 +58,12 @@ namespace DAL
                 comm.Parameters.Add(parameter5);
 
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
+                Bitacora be = new Bitacora();
+                
+                var asd = new Servicios.BitacoraServicio();
+
+                asd.RegBit += Servicios.BitacoraServicio.(be);
+
                 ret = true;
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
