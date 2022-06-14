@@ -12,11 +12,6 @@ namespace DAL
     //ADO.Conectado
     public class ABMUsuariosDAL : ICRUD<BE_Usuarios>
     {
-        public BE.Bitacora OnRegBitEvent(object source, BE.Bitacora biti)
-        {
-
-            return biti;
-        }
         public bool Alta(BE_Usuarios valAlta)
         {
             bool ret = false;
@@ -58,17 +53,18 @@ namespace DAL
                 comm.Parameters.Add(parameter5);
 
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
-                Bitacora be = new Bitacora();
+
                 
-                var asd = new Servicios.BitacoraServicio();
-
-                asd.RegBit += Servicios.BitacoraServicio.(be);
-
+                BitacoraDAL.NewRegistrarBitacora(new Bitacora("Alta", "Ninguno"));
                 ret = true;
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
+            catch { 
+                System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario {0}.", valAlta.User);
+                //Servicios.BitacoraServicio.CrearMovimiento(new Bitacora("Alta", "Fallo"));
+            }
             return ret;
         }
+
 
 
         //ADO.Conectado
@@ -100,7 +96,7 @@ namespace DAL
                 comm.Dispose();
                 return ret;
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta el Usuario."); }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de baja el Usuario {0}.", valBaja.User); }
             return ret;
         }
 
@@ -170,7 +166,7 @@ namespace DAL
                 comm.Connection.Close();
                 ret = true;
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario."); }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de modificar el Usuario. {0}.", valModificar.User); }
             return ret;
         }
 
@@ -180,13 +176,13 @@ namespace DAL
             bool respuesta = false;
             try
             {
-                               SqlCommand comm = new SqlCommand();
+                SqlCommand comm = new SqlCommand();
                 comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", usuari.User);
                 
                 respuesta = Acceso.Instance.ExecuteScalarBool(comm);
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de Leer la tabla."); }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
             return respuesta;
         }
 

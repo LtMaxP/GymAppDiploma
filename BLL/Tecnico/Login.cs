@@ -31,43 +31,48 @@ namespace BLL
             Boolean bo = DALUserLogin.BuscarUsuarioBD(usuario, pass);
             return bo;
         }
-
         public Boolean DetectarUsuario(string usuario, string pass)
         {
             Boolean retornableComoCocaCola = false;
             //string passEncript = Seguridad.Encriptacion.Encriptador(pass);
             user.User = usuario;
             user.Pass = pass;
-            if (DALUserLogin.DetectarUsuario(usuario, pass)) //passEncript arreglalo que la cagaste
+            if (DALUserLogin.DetectarUsuario(usuario))
             {
-                //Composite arbol formado
-                var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario);
-
-
-                foreach (Composite.Composite element in a.List())
+                if (DALUserLogin.LoginUser(user)) //passEncript arreglalo que la cagaste
                 {
+                    //Composite arbol formado
+                    var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario);
 
-                    //if (element.descripcion.Equals("Restore"))// ejemplo de lo que tenes que hacer para validar QUE cosas habilitas luego
-                    if(!element.descripcion.Equals(" "))
+
+                    foreach (Composite.Composite element in a.List())
                     {
-                        retornableComoCocaCola = true;
-                        break;
-                    }
-                    else
-                    {
-                        EncontrarRolEnArbol(element.descripcion, element);
+
+                        //if (element.descripcion.Equals("Restore"))// ejemplo de lo que tenes que hacer para validar QUE cosas habilitas luego
+                        if (!element.descripcion.Equals(" "))
+                        {
+                            retornableComoCocaCola = true;
+                            break;
+                        }
+                        else
+                        {
+                            EncontrarRolEnArbol(element.descripcion, element);
+                        }
+
                     }
 
+
+                    bit.RegistrarMovimiento("Ingreso Usuario con ID: " + BE.Usuario.Instance.IdUsuario, "Bajo"); //cambiar a nueva clase
+                }
+                else if (user.IntentosFallidos == 3)
+                {
+                    //bloqueas usuario
+                }
+                else
+                {
                 }
 
-
-                bit.RegistrarMovimiento("Ingreso Usuario con ID: " + BE.Usuario.Instance.IdUsuario, "Bajo");
             }
-            else
-            {
-                retornableComoCocaCola = false;
-            }
-
             return retornableComoCocaCola;
         }
 
@@ -80,14 +85,14 @@ namespace BLL
                 foreach (Composite.Component comp in arbolObjeto.List())
                 {
                     //if (comp.descripcion.Equals("Restore"))
-                    if(!comp.descripcion.Equals(" "))
+                    if (!comp.descripcion.Equals(" "))
                     {
                         isOk = true;
                         break;
                     }
                     else
                     {
-                        if(EncontrarRolEnArbol(rol, comp))
+                        if (EncontrarRolEnArbol(rol, comp))
                         {
                             break;
                         }

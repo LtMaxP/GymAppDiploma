@@ -10,15 +10,21 @@ namespace Servicios
 {
     public class BitacoraServicio
     {
-        private BE.Bitacora bit = new BE.Bitacora();
         public BE.Bitacora RegistrarMovimiento(string movimiento, string nivelDelProblema)
         {
+            BE.Bitacora bit = new BE.Bitacora();
             bit.Movimiento = movimiento;
             bit.NivelDeProblema = nivelDelProblema;
             bit.Fecha = DateTime.Now;
+            bit.Usuario = Usuario.Instance.User;
             return bit;
         }
-
+        public static BE.Bitacora CrearMovimiento(BE.Bitacora bitacora)
+        {
+            bitacora.Fecha = DateTime.Now;
+            bitacora.Usuario = Usuario.Instance.User;
+            return bitacora;
+        }
         public List<BE.Bitacora> CargarBitacora(DataTable bitacora)
         {
             List<BE.Bitacora> bitacoras = new List<BE.Bitacora>();
@@ -38,6 +44,7 @@ namespace Servicios
 
             throw new NotImplementedException();
         }
+        
 
 
         public DataTable Leer(Bitacora valueBuscar)
@@ -55,21 +62,8 @@ namespace Servicios
             throw new NotImplementedException();
         }
 
-        //Eventos y delegados // Events and Delegates
-        
-        public event EventHandler<Bitacora> RegBit;
-
-        protected virtual BE.Bitacora OnRegBit(BE.Bitacora biti)
-        {
-            if (RegBit != null)
-            {
-                biti.Fecha = DateTime.Now;
-                RegBit(this, biti);
-            }
-            return biti;
-
-        }
 
 
     }
+
 }

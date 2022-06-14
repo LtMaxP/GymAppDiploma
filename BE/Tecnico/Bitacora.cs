@@ -8,6 +8,14 @@ namespace BE
 {
     public class Bitacora
     {
+        public Bitacora(string movimiento, string nivelDeProblema)
+        {
+            this.movimiento = movimiento;
+            this._nivelDeProblema = nivelDeProblema;
+        }
+        public Bitacora()
+        {
+        }
         private int id_Bitacora;
 
         public int IdBitacora
@@ -40,6 +48,13 @@ namespace BE
             set { _nivelDeProblema = value; }
         }
 
+        private string _usuario;
+
+        public string Usuario
+        {
+            get { return _usuario; }
+            set { _usuario = value; }
+        }
 
 
     }

@@ -5,16 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using BE;
 
 namespace DAL
 {
     public class LoginUsuario
     {
-        private BE.Usuario userBE = BE.Usuario.Instance;
-
         public bool BuscarUsuarioBD(string user, string pass)
         {
-            
+
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "SELECT * FROM Usuario WHERE usuario.Usuario=@User AND Usuario.Password=@Pass";
 
@@ -35,42 +34,73 @@ namespace DAL
             {
                 i = Acceso.Instance.ExecuteScalar(sqlcomm);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
             return true;
         }
 
-        public Boolean DetectarUsuario(string user, string pass)
+        public Boolean DetectarUsuario(string user)
         {
+            Boolean returnable = false;
             SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = "SELECT * FROM Usuario";
-            //sqlcomm.Connection = Acceso.Instance.sqlCon;
-
-            //DataSet ds = new DataSet();
-            //SqlDataAdapter da = new SqlDataAdapter(sqlcomm);
-            //sqlcomm.Connection.Open();
-
-            //da.Fill(ds);
-            //sqlcomm.Connection.Close();
-
-            DataTable dt = new DataTable();
-            dt = Acceso.Instance.ExecuteDataTable(sqlcomm);
-            foreach (DataRow row in dt.Rows)
+            sqlcomm.CommandText = "select CASE WHEN count(*) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @user;";
+            sqlcomm.Parameters.AddWithValue("@user", user);
+            try
             {
-                if (row["Usuario"].ToString().Equals(user) && row["Password"].ToString().Equals(pass))
-                {
-                    userBE.User = row["Usuario"].ToString();
-                    userBE.Pass = row["Password"].ToString();
-                    userBE.IdUsuario = int.Parse(row["Id_Usuario"].ToString());
-                    userBE.idIdioma = int.Parse(row["Id_Idioma"].ToString());
-                    userBE.idEstado = int.Parse(row["Id_Estado"].ToString()); 
-                    return true;
-                }
+                returnable = Acceso.Instance.ExecuteScalarBool(sqlcomm);
             }
+            catch { System.Windows.Forms.MessageBox.Show("No se encontro el usuario"); }
 
-            return false;
+            return returnable;
+        }
+        public Boolean LoginUser(Usuario user)
+        {
+            bool respuesta = false;
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre and Password = @pass";
+                comm.Parameters.AddWithValue("@nombre", user.User);
+                comm.Parameters.AddWithValue("@pass", user.Pass);
+
+                respuesta = Acceso.Instance.ExecuteScalarBool(comm);
+                GoodUser(user);
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Contraseña erronea");
+                BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Constraseña mal", "Medio"));
+                BadPass(user);
+            }
+            return respuesta;
+        }
+
+        private void GoodUser(Usuario user)
+        {
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = "Update Usuario set IntentosFallidos = 0 where Usuario = '@nombre' ";
+                comm.Parameters.AddWithValue("@nombre", user.User);
+
+                Acceso.Instance.ExecuteNonQuery(comm);
+            }
+            catch { };
+        }
+
+        public void BadPass(Usuario user)
+        {
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = "Update Usuario set IntentosFallidos = IntentosFallidos +1 where Usuario = '@nombre' ";
+                comm.Parameters.AddWithValue("@nombre", user.User);
+
+                Acceso.Instance.ExecuteNonQuery(comm);
+            }
+            catch { };
         }
     }
 }
