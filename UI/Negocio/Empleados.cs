@@ -39,5 +39,10 @@ namespace UI
         {
 
         }
+
+        private void labelAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

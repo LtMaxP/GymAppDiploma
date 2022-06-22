@@ -191,7 +191,7 @@
             // labelEstado
             // 
             this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(380, 263);
+            this.labelEstado.Location = new System.Drawing.Point(380, 250);
             this.labelEstado.Name = "labelEstado";
             this.labelEstado.Size = new System.Drawing.Size(43, 13);
             this.labelEstado.TabIndex = 9;
@@ -200,7 +200,7 @@
             // labelIdioma
             // 
             this.labelIdioma.AutoSize = true;
-            this.labelIdioma.Location = new System.Drawing.Point(380, 215);
+            this.labelIdioma.Location = new System.Drawing.Point(380, 211);
             this.labelIdioma.Name = "labelIdioma";
             this.labelIdioma.Size = new System.Drawing.Size(41, 13);
             this.labelIdioma.TabIndex = 9;
@@ -213,7 +213,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Español",
             "Ingles"});
-            this.comboBox1.Location = new System.Drawing.Point(480, 212);
+            this.comboBox1.Location = new System.Drawing.Point(480, 208);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 21);
             this.comboBox1.TabIndex = 11;
@@ -225,7 +225,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "Alta",
             "Baja"});
-            this.comboBox2.Location = new System.Drawing.Point(480, 260);
+            this.comboBox2.Location = new System.Drawing.Point(480, 247);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(100, 21);
             this.comboBox2.TabIndex = 11;

@@ -220,12 +220,13 @@
             // 
             // labelAgregar
             // 
-            this.labelAgregar.Location = new System.Drawing.Point(183, 366);
+            this.labelAgregar.Location = new System.Drawing.Point(235, 369);
             this.labelAgregar.Name = "labelAgregar";
             this.labelAgregar.Size = new System.Drawing.Size(85, 23);
             this.labelAgregar.TabIndex = 47;
             this.labelAgregar.Text = "Agregar";
             this.labelAgregar.UseVisualStyleBackColor = true;
+            this.labelAgregar.Click += new System.EventHandler(this.labelAgregar_Click);
             // 
             // label1
             // 
