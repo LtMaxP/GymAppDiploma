@@ -26,11 +26,12 @@ namespace BLL
 
         static void Main() { }
 
-        public Boolean BuscarUsuario(string usuario, string pass)
+        public void BuscarUsuario()
         {
-            Boolean bo = DALUserLogin.BuscarUsuarioBD(usuario, pass);
-            return bo;
+            DALUserLogin.BuscarUsuarioBD();
         }
+
+        //Login con validación de usuario
         public Boolean DetectarUsuario(string usuario, string pass)
         {
             Boolean retornableComoCocaCola = false;
@@ -41,9 +42,9 @@ namespace BLL
             {
                 if (DALUserLogin.LoginUser(user)) //passEncript arreglalo que la cagaste
                 {
+                    BuscarUsuario();
                     //Composite arbol formado
-                    var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario);
-
+                    var a = formarArbol.FormarArbolDeUsuario(user.IdUsuario);
 
                     foreach (Composite.Composite element in a.List())
                     {
@@ -61,15 +62,11 @@ namespace BLL
 
                     }
 
-
                     bit.RegistrarMovimiento("Ingreso Usuario con ID: " + BE.Usuario.Instance.IdUsuario, "Bajo"); //cambiar a nueva clase
                 }
-                else if (user.IntentosFallidos == 3)
+                if (user.IntentosFallidos == 3)
                 {
                     //bloqueas usuario
-                }
-                else
-                {
                 }
 
             }

@@ -11,28 +11,28 @@ namespace DAL
 {
     public class LoginUsuario
     {
-        public bool BuscarUsuarioBD(string user, string pass)
+        public bool BuscarUsuarioBD()
         {
 
             SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = "SELECT * FROM Usuario WHERE usuario.Usuario=@User AND Usuario.Password=@Pass";
+            sqlcomm.CommandText = "SELECT [Id_Usuario] FROM Usuario WHERE usuario.Usuario=@User AND Usuario.Password=@Pass";
 
             SqlParameter param1 = new SqlParameter();
             param1.ParameterName = "User";
-            param1.Value = user;
+            param1.Value = Usuario.Instance.User;
             param1.SqlDbType = System.Data.SqlDbType.VarChar;
 
             SqlParameter param2 = new SqlParameter();
             param2.ParameterName = "Pass";
-            param2.Value = pass;
+            param2.Value = Usuario.Instance.Pass;
             param2.SqlDbType = System.Data.SqlDbType.VarChar;
 
             sqlcomm.Parameters.Add(param1);
             sqlcomm.Parameters.Add(param2);
-            int i = 0;
+
             try
             {
-                i = Acceso.Instance.ExecuteScalar(sqlcomm);
+                Usuario.Instance.IdUsuario = Acceso.Instance.ExecuteScalar(sqlcomm);
             }
             catch (Exception e)
             {

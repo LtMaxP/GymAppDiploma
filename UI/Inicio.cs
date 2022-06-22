@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL.Observer;
+using UI.Negocio;
 
 namespace UI
 {
@@ -99,6 +100,9 @@ namespace UI
         PagosCobros PyG;
         Listas Listados;
         Permisos Permi;
+        Rutina Rutina;
+        Clases clases;
+        Productos productos;
         #endregion
 
         private void Inicio_Load(object sender, EventArgs e)
@@ -168,7 +172,7 @@ namespace UI
             {
                 FbitDV = new BitacoraYDV();
                 FbitDV.MdiParent = this;
-                FbitDV.FormClosed += FbitDV_FormClosed; ;
+                FbitDV.FormClosed += FbitDV_FormClosed;
                 FbitDV.Show();
             }
             else
@@ -243,13 +247,17 @@ namespace UI
             {
                 Femp = new Empleados();
                 Femp.MdiParent = this;
-                Femp.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                Femp.FormClosed += new FormClosedEventHandler(Femp_FormClosed);
                 Femp.Show();
             }
             else
             {
                 Femp.Activate();
             }
+        }
+        private void Femp_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Femp = null;
         }
 
         private void labelBackupRestore_Click(object sender, EventArgs e)
@@ -258,13 +266,17 @@ namespace UI
             {
                 Fbackrest = new BackupRestore();
                 Fbackrest.MdiParent = this;
-                Fbackrest.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                Fbackrest.FormClosed += new FormClosedEventHandler(Fbackrest_FormClosed);
                 Fbackrest.Show();
             }
             else
             {
                 Fbackrest.Activate();
             }
+        }
+        private void Fbackrest_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Fbackrest = null;
         }
 
         private void labelFacturas_Click(object sender, EventArgs e)
@@ -274,13 +286,17 @@ namespace UI
             {
                 Factu = new Facturas();
                 Factu.MdiParent = this;
-                Factu.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                Factu.FormClosed += new FormClosedEventHandler(Factu_FormClosed);
                 Factu.Show();
             }
             else
             {
                 Factu.Activate();
             }
+        }
+        private void Factu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Factu = null;
         }
 
         private void labelPagosYCobros_Click(object sender, EventArgs e)
@@ -289,13 +305,17 @@ namespace UI
             {
                 PyG = new PagosCobros();
                 PyG.MdiParent = this;
-                PyG.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                PyG.FormClosed += new FormClosedEventHandler(PyG_FormClosed);
                 PyG.Show();
             }
             else
             {
                 PyG.Activate();
             }
+        }
+        private void PyG_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            PyG = null;
         }
 
         private void labelListas_Click(object sender, EventArgs e)
@@ -304,13 +324,17 @@ namespace UI
             {
                 Listados = new Listas();
                 Listados.MdiParent = this;
-                Listados.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                Listados.FormClosed += new FormClosedEventHandler(Listados_FormClosed);
                 Listados.Show();
             }
             else
             {
                 Listados.Activate();
             }
+        }
+        private void Listados_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Listados = null;
         }
 
         private void permisosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -324,13 +348,73 @@ namespace UI
             {
                 Permi = new Permisos();
                 Permi.MdiParent = this;
-                Permi.FormClosed += new FormClosedEventHandler(Fclient_FormClosed);
+                Permi.FormClosed += new FormClosedEventHandler(Permi_FormClosed);
                 Permi.Show();
             }
             else
             {
                 Permi.Activate();
             }
+        }
+        private void Permi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Permi = null;
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (productos == null)
+            {
+                productos = new Productos();
+                productos.MdiParent = this;
+                productos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
+                productos.Show();
+            }
+            else
+            {
+                productos.Activate();
+            }
+        }
+        private void productos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            productos = null;
+        }
+        private void claseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (clases == null)
+            {
+                clases = new Clases();
+                clases.MdiParent = this;
+                clases.FormClosed += new FormClosedEventHandler(clases_FormClosed);
+                clases.Show();
+            }
+            else
+            {
+                clases.Activate();
+            }
+        }
+        private void clases_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            clases = null;
+        }
+
+        private void rutinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Rutina == null)
+            {
+                Rutina = new Rutina();
+                Rutina.MdiParent = this;
+                Rutina.FormClosed += new FormClosedEventHandler(Rutina_FormClosed);
+                Rutina.Show();
+            }
+            else
+            {
+                Rutina.Activate();
+            }
+        }
+        private void Rutina_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Rutina = null;
         }
     }
 }

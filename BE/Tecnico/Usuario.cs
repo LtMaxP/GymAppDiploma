@@ -88,9 +88,9 @@ namespace BE
         }
 
 
-        private Composite _arbol;
+        private List<Composite> _arbol;
 
-        public Composite arbol
+        public List<Composite> arbol
         {
             get { return _arbol; }
             set { _arbol = value; }

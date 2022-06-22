@@ -35,7 +35,28 @@ namespace BLL.Composite
 
             return composite;
         }
+        public void FormarArbolDeUsuarioLog()
+        {
+            List<BE.Composite> listCompo = comp.ObtenerPermisoUsuario(BE.Usuario.Instance.IdUsuario);
 
+            Composite composite = new Composite();
+            //se estaba creando y viendo composite con esto sin registros
+            foreach (var element in listCompo)
+            {
+
+                if (element.tipo.Contains("F"))
+                {
+                    Composite newcompo = FormarArbolito(element);
+                    composite.Agregar(newcompo);
+                }
+                else if (element.tipo.Contains("P"))
+                {
+                    composite.Agregar(new Hoja(element.idComponente, element.descripcion));
+                }
+
+            }
+
+        }
 
         public Composite FormarArbolito(BE.Composite compo)
         {

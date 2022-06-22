@@ -24,6 +24,7 @@ namespace UI
             if (MiDirectorio.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 txtDirectorioBackUp.Text = MiDirectorio.SelectedPath;
+                
             }
             else
             {

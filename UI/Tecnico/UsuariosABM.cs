@@ -29,11 +29,12 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            BE.BE_Usuarios nuevoUsuario = new BE.BE_Usuarios();
             String usuario = textBox3.Text;
             String contraseña = textBox4.Text;
             String idioma = comboBox1.Text;
             String estado = comboBox2.Text;
+            
 
             if (String.IsNullOrEmpty(usuario) || String.IsNullOrEmpty(contraseña) || String.IsNullOrEmpty(idioma) || String.IsNullOrEmpty(estado))
             {
@@ -41,9 +42,13 @@ namespace UI
             }
             else
             {
-                if (!usuarioABM.ValidarSiElUsuarioYaExiste(usuario))
+                nuevoUsuario.User = usuario;
+                nuevoUsuario.Pass = contraseña;
+                usuarioABM.DevolverIDs(nuevoUsuario, idioma, estado);
+
+                if (!usuarioABM.ValidarSiElUsuarioYaExiste(nuevoUsuario.User))
                 {
-                    usuarioABM.AgregarUsuario(usuario, contraseña, idioma, estado);
+                    usuarioABM.AgregarUsuario(nuevoUsuario);
                     MessageBox.Show("El usuario fue dado de Alta con éxito.");
                 }
                 else

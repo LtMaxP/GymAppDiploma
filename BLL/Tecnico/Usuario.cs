@@ -10,25 +10,38 @@ namespace BLL
 {
     public class Usuario //: DAL.ICRUD<BE.ABMUsuarios> Esto tiene que ser así, arregl
     {
-        
+
         DAL.BusquedaDAL buscar = new DAL.BusquedaDAL();
         DAL.ABMUsuariosDAL abmUs = new DAL.ABMUsuariosDAL();
         BitacoraBLL b = new BitacoraBLL();
 
-        
-        public bool AgregarUsuario(string usuario, string contraseña, string idioma, string estado)
+        /// <summary>
+        /// Crea el objeto BE_Usuario
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="contraseña"></param>
+        /// <param name="idioma"></param>
+        /// <param name="estado"></param>
+        /// <returns></returns>
+        public bool AgregarUsuario(BE_Usuarios altaUser)
         {
-            contraseña = Servicios.Encriptacion.Encriptador(contraseña);
-            BE_Usuarios altaUser = new BE_Usuarios();
-            DevolverIDs(altaUser, idioma, estado);
-            altaUser.User = usuario;
-            altaUser.Pass = contraseña;
+            altaUser.Pass = Servicios.Encriptacion.Encriptador(altaUser.Pass);
             altaUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(altaUser);
-            bool rpta = abmUs.Alta(altaUser);
-            //Servicios.BitacoraServicio
-            b.RegistrarMovimiento("Creacion exitosa de Usuario:","Ninguno");
+            bool rpta = false;
+            //recalcular DVV
+            try
+            {
 
-            
+                rpta = abmUs.Alta(altaUser);
+                //Servicios.BitacoraServicio
+                b.RegistrarMovimiento("Creacion exitosa de Usuario: " + altaUser.User, "Ninguno");
+            }
+            catch (Exception e)
+            {
+                b.RegistrarMovimiento("Error creando el Usuario: " + altaUser.User, "Alta");
+            }
+
+
             return rpta;
         }
 
@@ -61,6 +74,7 @@ namespace BLL
             objetoUsuario.idIdioma = int.Parse(idIdio);
             objetoUsuario.idEstado = int.Parse(idEst);
         }
+
 
         public String[] BuscarUsuario(string usuario)
         {

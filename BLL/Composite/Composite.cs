@@ -10,7 +10,7 @@ namespace BLL.Composite
     {
         private List<Component> listadoComponent = new List<Component>();
 
-        public Composite(string idPat, string descrip) : base(idPat, descrip)
+        public Composite(string idPat = null, string descrip = null) : base(idPat, descrip)
         {
         }
 
@@ -18,7 +18,7 @@ namespace BLL.Composite
         {
             if (componente != null)
             {
-                listadoComponent.Add(componente);
+                listadoComponent.Add(componente); //aca iria el listado para el usuario
             }
         }
 
@@ -33,7 +33,7 @@ namespace BLL.Composite
 
         public override List<Component> List()
         {
-            return listadoComponent;
+            return listadoComponent; //mismo list del usuario
         }
     }
 

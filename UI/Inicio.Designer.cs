@@ -37,6 +37,7 @@
             this.labelFacturas = new System.Windows.Forms.ToolStripMenuItem();
             this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
             this.labelListas = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.labelABMUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.labelFamiliaPatentes = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,9 @@
             this.verSecretoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.claseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rutinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,7 +91,8 @@
             this.labelFacturas,
             this.labelPagosYCobros,
             this.labelListas,
-            this.productosToolStripMenuItem});
+            this.productosToolStripMenuItem,
+            this.profesoresToolStripMenuItem});
             resources.ApplyResources(this.labelAcciones, "labelAcciones");
             this.labelAcciones.Name = "labelAcciones";
             this.labelAcciones.Tag = "";
@@ -122,6 +126,12 @@
             this.labelListas.Name = "labelListas";
             resources.ApplyResources(this.labelListas, "labelListas");
             this.labelListas.Click += new System.EventHandler(this.labelListas_Click);
+            // 
+            // productosToolStripMenuItem
+            // 
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
+            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // labelSistema
             // 
@@ -216,10 +226,25 @@
             this.contactoToolStripMenuItem.Name = "contactoToolStripMenuItem";
             resources.ApplyResources(this.contactoToolStripMenuItem, "contactoToolStripMenuItem");
             // 
-            // productosToolStripMenuItem
+            // profesoresToolStripMenuItem
             // 
-            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
+            this.profesoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.claseToolStripMenuItem,
+            this.rutinaToolStripMenuItem});
+            this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
+            resources.ApplyResources(this.profesoresToolStripMenuItem, "profesoresToolStripMenuItem");
+            // 
+            // claseToolStripMenuItem
+            // 
+            this.claseToolStripMenuItem.Name = "claseToolStripMenuItem";
+            resources.ApplyResources(this.claseToolStripMenuItem, "claseToolStripMenuItem");
+            this.claseToolStripMenuItem.Click += new System.EventHandler(this.claseToolStripMenuItem_Click);
+            // 
+            // rutinaToolStripMenuItem
+            // 
+            this.rutinaToolStripMenuItem.Name = "rutinaToolStripMenuItem";
+            resources.ApplyResources(this.rutinaToolStripMenuItem, "rutinaToolStripMenuItem");
+            this.rutinaToolStripMenuItem.Click += new System.EventHandler(this.rutinaToolStripMenuItem_Click);
             // 
             // Inicio
             // 
@@ -267,5 +292,8 @@
         private System.Windows.Forms.ToolStripMenuItem contactoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarIdiomaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem claseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rutinaToolStripMenuItem;
     }
 }
