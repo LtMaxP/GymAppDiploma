@@ -64,11 +64,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backup.cs" />
     <Compile Include="BitacoraService.cs" />
     <Compile Include="DigitoVerificadorHV.cs" />
     <Compile Include="Encriptacion.cs" />
     <Compile Include="ICRUD.Servicios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restore.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

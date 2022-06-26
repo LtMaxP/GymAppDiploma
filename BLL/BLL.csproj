@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tecnico\Backup.cs" />
     <Compile Include="Tecnico\BitacoraBLL.cs" />
     <Compile Include="Negocio\BLLClientes.cs" />
     <Compile Include="Negocio\BLLEmpleados.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Observer\SingletonIdioma.cs" />
     <Compile Include="Observer\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tecnico\Restore.cs" />
     <Compile Include="Tecnico\Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,8 @@ namespace UI
 {
     public partial class BackupRestore : Form, IObserver
     {
+        BLL.Tecnico.Backup bkpBLL = new BLL.Tecnico.Backup();
+
         public BackupRestore()
         {
             InitializeComponent();
@@ -20,29 +22,11 @@ namespace UI
 
         private void btnExaminarBackUp_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog MiDirectorio = new FolderBrowserDialog();
-            if (MiDirectorio.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                txtDirectorioBackUp.Text = MiDirectorio.SelectedPath;
-                
-            }
-            else
-            {
-                MessageBox.Show("Ruta incorrecta.");
-            }
+
         }
 
         private void btnExaminarRestore_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog MiDirectorio = new FolderBrowserDialog();
-            if (MiDirectorio.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                txtDirectorioRestore.Text = MiDirectorio.SelectedPath;
-            }
-            else
-            {
-                MessageBox.Show("Ruta incorrecta.");
-            }
         }
 
         private void BackupRestore_Load(object sender, EventArgs e)
@@ -60,6 +44,17 @@ namespace UI
         {
             Subject.RemoveObserver(this);
             this.Close();
+        }
+
+        private void btnEjecutarBackUp_Click(object sender, EventArgs e)
+        {
+            string msg = bkpBLL.BackupBD() ? "Backup Ok" : "Backup Fallo";
+            MessageBox.Show(msg);
+        }
+
+        private void btnVerBackUp_Click(object sender, EventArgs e)
+        {
+            DgBackup.DataSource = bkpBLL.TraerBackupsBD();
         }
     }
 }

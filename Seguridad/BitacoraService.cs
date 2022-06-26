@@ -25,6 +25,13 @@ namespace Servicios
             bitacora.Usuario = Usuario.Instance.User;
             return bitacora;
         }
+        public static BE.Bitacora CrearRegistroBkp(BE.Bitacora bitacora)
+        {
+            bitacora.Fecha = DateTime.Parse((DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute).ToString());
+            bitacora.Usuario = Usuario.Instance.User;
+            return bitacora;
+        }
+
         public List<BE.Bitacora> CargarBitacora(DataTable bitacora)
         {
             List<BE.Bitacora> bitacoras = new List<BE.Bitacora>();

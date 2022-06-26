@@ -78,7 +78,11 @@ namespace DAL
             }
             catch (Exception e) { throw e; }
         }
-
+        /// <summary>
+        /// Clase Acceso para Traer Data Tables
+        /// </summary>
+        /// <param name="_paramCommand"></param>
+        /// <returns></returns>
         public DataTable ExecuteDataTable(SqlCommand _paramCommand)
         {
             try

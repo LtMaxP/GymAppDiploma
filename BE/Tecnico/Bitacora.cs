@@ -8,6 +8,13 @@ namespace BE
 {
     public class Bitacora
     {
+        public Bitacora(DateTime fecha, string movimiento, string usuario, string nivelDeProblema)
+        {
+            this.Fecha = fecha;
+            this.movimiento = movimiento;
+            this._nivelDeProblema = nivelDeProblema;
+            this.Usuario = usuario;
+        }
         public Bitacora(string movimiento, string nivelDeProblema)
         {
             this.movimiento = movimiento;
