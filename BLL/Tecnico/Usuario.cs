@@ -36,7 +36,7 @@ namespace BLL
                 //Servicios.BitacoraServicio
                 b.RegistrarMovimiento("Creacion exitosa de Usuario: " + altaUser.User, "Ninguno");
             }
-            catch (Exception e)
+            catch 
             {
                 b.RegistrarMovimiento("Error creando el Usuario: " + altaUser.User, "Alta");
             }
@@ -53,17 +53,11 @@ namespace BLL
             return abmUs.Baja(bajaUser);
         }
 
-        public bool ModificarUsuario(string usuario, string contraseña, string idioma, string estado)
+        public bool ModificarUsuario(BE_Usuarios modUser, string idioma, string estado)
         {
-            BE_Usuarios modUser = new BE_Usuarios();
-            if (!string.IsNullOrEmpty(contraseña))
-            {
-                contraseña = Servicios.Encriptacion.Encriptador(contraseña);
-            }
+            modUser.Pass = Servicios.Encriptacion.Encriptador(modUser.Pass);
             DevolverIDs(modUser, idioma, estado);
-            modUser.User = usuario;
-            modUser.Pass = contraseña;
-
+            modUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(modUser);
             return abmUs.Modificar(modUser);
         }
 
@@ -76,38 +70,34 @@ namespace BLL
         }
 
 
-        public String[] BuscarUsuario(string usuario)
+        public List<BE_Usuarios> BuscarUsuario(BE_Usuarios buscarUser)
         {
-            BE_Usuarios buscarUser = new BE_Usuarios();
-            buscarUser.User = usuario;
-            string[] rowFix = new string[4];
+            List<BE_Usuarios> dt = abmUs.Leer2(buscarUser);
+            return dt;
+            //if (dt.Count == 0)
+            //{ System.Windows.Forms.MessageBox.Show("Usuario no encontrado"); }
+            //else
+            //{
+            //    DataRow usuarioRow = dt.Rows[0];
 
-            DataTable dt = abmUs.Leer(buscarUser);
+            //    for (int i = 0; i < 4; i++)
+            //    {
+            //        switch (i)
+            //        {
+            //            case 2:
+            //                rowFix[i] = buscar.DevolvemeElValorQueQuieroPorId(usuarioRow.ItemArray[i].ToString(), "idioma");
+            //                break;
+            //            case 3:
+            //                rowFix[i] = buscar.DevolvemeElValorQueQuieroPorId(usuarioRow.ItemArray[i].ToString(), "estado");
+            //                break;
+            //            default:
+            //                rowFix[i] = usuarioRow.ItemArray[i].ToString();
+            //                break;
+            //        }
+            //    }
 
-            if (dt.Rows.Count == 0)
-            { System.Windows.Forms.MessageBox.Show("Usuario no encontrado"); }
-            else
-            {
-                DataRow usuarioRow = dt.Rows[0];
-
-                for (int i = 0; i < 4; i++)
-                {
-                    switch (i)
-                    {
-                        case 2:
-                            rowFix[i] = buscar.DevolvemeElValorQueQuieroPorId(usuarioRow.ItemArray[i].ToString(), "idioma");
-                            break;
-                        case 3:
-                            rowFix[i] = buscar.DevolvemeElValorQueQuieroPorId(usuarioRow.ItemArray[i].ToString(), "estado");
-                            break;
-                        default:
-                            rowFix[i] = usuarioRow.ItemArray[i].ToString();
-                            break;
-                    }
-                }
-
-            }
-            return rowFix;
+            //}
+            
         }
 
         public bool ValidarSiElUsuarioYaExiste(string usuario)

@@ -80,6 +80,7 @@
             this.labelModificar.TabIndex = 2;
             this.labelModificar.Text = "Modificar";
             this.labelModificar.UseVisualStyleBackColor = true;
+            this.labelModificar.Click += new System.EventHandler(this.labelModificar_Click);
             // 
             // labelBuscar
             // 

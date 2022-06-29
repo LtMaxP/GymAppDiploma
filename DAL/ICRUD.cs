@@ -12,6 +12,7 @@ namespace DAL
         bool Alta(T valAlta);
         bool Baja(T valBaja);
         bool Modificar(T valMod);
-        DataTable Leer(T valBuscar);
+        T Leer(T valBuscar);
+        List<T> Leer2(T valBuscar);
     }
 }

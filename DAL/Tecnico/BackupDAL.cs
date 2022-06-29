@@ -25,7 +25,7 @@ namespace DAL.Tecnico
                 DAL.BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Backup Ok", "Ninguno"));
                 okb = true;
             }
-            catch (Exception e)
+            catch
             {
                 DAL.BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Backup fallido", "Alto"));
                 System.Windows.Forms.MessageBox.Show("Problema al hacer Backup");
@@ -50,7 +50,7 @@ namespace DAL.Tecnico
                 }
                 DAL.BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Trae listado de backups", "Ninguno"));
             }
-            catch (Exception e)
+            catch 
             {
                 DAL.BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Problema al traer Backups", "Medio"));
                 System.Windows.Forms.MessageBox.Show("Problema al traer Backups");

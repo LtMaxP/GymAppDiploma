@@ -177,6 +177,16 @@ namespace DAL
             return dt;
 
         }
+
+        Cliente ICRUD<Cliente>.Leer(Cliente valBuscar)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Cliente> Leer2(Cliente valBuscar)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

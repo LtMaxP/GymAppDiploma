@@ -55,7 +55,7 @@ namespace DAL
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
 
                 
-                BitacoraDAL.NewRegistrarBitacora(new Bitacora("Alta", "Ninguno"));
+                BitacoraDAL.NewRegistrarBitacora(new Bitacora("Creacion de usuario: " + valAlta.User, "Ninguno"));
                 ret = true;
             }
             catch { 
@@ -74,7 +74,6 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = Acceso.Instance.sqlCon;
 
                 comm.CommandText = "UPDATE Usuario SET Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario";
 
@@ -90,34 +89,40 @@ namespace DAL
                 comm.Parameters.Add(parameter1);
                 comm.Parameters.Add(parameter4);
 
-                comm.Connection.Open();
-                int result = comm.ExecuteNonQuery();
-                comm.Connection.Close();
-                comm.Dispose();
-                return ret;
+                int result = Acceso.Instance.ExecuteNonQuery(comm);
+                ret = true;
+                BitacoraDAL.NewRegistrarBitacora(new Bitacora("Baja de usuario: " + valBaja.User, "Ninguno"));
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de baja el Usuario {0}.", valBaja.User); }
             return ret;
         }
 
+        public BE_Usuarios Leer(BE_Usuarios valBuscar)
+        {
+            throw new NotImplementedException();
+        }
+
 
         //ADO.Desconectado
-        public DataTable Leer(BE_Usuarios valBuscar)
+        public List<BE_Usuarios> Leer2(BE_Usuarios valBuscar)
         {
-            DataTable dt = new DataTable();
+            List<BE_Usuarios> listUser = new List<BE_Usuarios>();
             try
             {
                 
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "SELECT Id_Usuario, Usuario, Id_Idioma, Id_Estado FROM Usuario WHERE Usuario.Usuario = @nombre";
+                comm.CommandText = "SELECT Usuario, Id_Idioma, Id_Estado FROM Usuario WHERE Usuario.Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", valBuscar.User);
 
-                dt = Acceso.Instance.ExecuteDataTable(comm);
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+                foreach(DataRow dr in dt.Rows)
+                {
+                    listUser.Add(new BE_Usuarios(dr["[Usuario]"].ToString(), (int)dr["[Id_Estado]"], (int)dr["[Id_Idioma]"]));
+                }
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
-
-            
-            return dt;
+                        
+            return listUser;
         }
 
         //ADO.Conectado
@@ -127,11 +132,10 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.Connection = Acceso.Instance.sqlCon;
 
                 if (!string.IsNullOrEmpty(valModificar.Pass))
                 {
-                    comm.CommandText = "UPDATE Usuario SET Usuario.Password = @Contraseña, Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario";
+                    comm.CommandText = "UPDATE Usuario SET Usuario.Password = @Contraseña, Usuario.DVH = @DVH, Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario";
 
                     SqlParameter parameter2 = new SqlParameter();
                     parameter2.ParameterName = "@Contraseña";
@@ -156,17 +160,20 @@ namespace DAL
                 parameter4.Value = valModificar.idEstado;
                 parameter4.SqlDbType = System.Data.SqlDbType.Int;
 
+                SqlParameter parameter5 = new SqlParameter();
+                parameter5.ParameterName = "@DVH";
+                parameter5.Value = valModificar._DVH;
+                parameter5.SqlDbType = System.Data.SqlDbType.VarChar;
 
                 comm.Parameters.Add(parameter1);
                 comm.Parameters.Add(parameter3);
                 comm.Parameters.Add(parameter4);
+                comm.Parameters.Add(parameter5);
 
-                comm.Connection.Open();
-                int result = comm.ExecuteNonQuery();
-                comm.Connection.Close();
+                int result = Acceso.Instance.ExecuteNonQuery(comm);
                 ret = true;
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de modificar el Usuario. {0}.", valModificar.User); }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de modificar el Usuario. {0}.", valModificar.User); }
             return ret;
         }
 

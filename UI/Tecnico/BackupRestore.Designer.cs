@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.btnEjecutarRestore = new System.Windows.Forms.Button();
-            this.btnVerRestore = new System.Windows.Forms.Button();
             this.DgBackup = new System.Windows.Forms.DataGridView();
             this.btnVerBackUp = new System.Windows.Forms.Button();
             this.btnVolverBackUp = new System.Windows.Forms.Button();
             this.btnEjecutarBackUp = new System.Windows.Forms.Button();
+            this.Checks = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgBackup)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,24 +45,18 @@
             this.btnEjecutarRestore.TabIndex = 44;
             this.btnEjecutarRestore.Text = "Realizar Restore";
             this.btnEjecutarRestore.UseVisualStyleBackColor = true;
-            // 
-            // btnVerRestore
-            // 
-            this.btnVerRestore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnVerRestore.Location = new System.Drawing.Point(120, 379);
-            this.btnVerRestore.Name = "btnVerRestore";
-            this.btnVerRestore.Size = new System.Drawing.Size(105, 26);
-            this.btnVerRestore.TabIndex = 41;
-            this.btnVerRestore.Text = "Cargar Restores";
-            this.btnVerRestore.UseVisualStyleBackColor = false;
+            this.btnEjecutarRestore.Click += new System.EventHandler(this.btnEjecutarRestore_Click);
             // 
             // DgBackup
             // 
             this.DgBackup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgBackup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Checks});
             this.DgBackup.Location = new System.Drawing.Point(12, 151);
             this.DgBackup.Name = "DgBackup";
             this.DgBackup.Size = new System.Drawing.Size(1060, 222);
             this.DgBackup.TabIndex = 40;
+            this.DgBackup.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgBackup_CellContentClick);
             // 
             // btnVerBackUp
             // 
@@ -95,6 +89,11 @@
             this.btnEjecutarBackUp.UseVisualStyleBackColor = true;
             this.btnEjecutarBackUp.Click += new System.EventHandler(this.btnEjecutarBackUp_Click);
             // 
+            // Checks
+            // 
+            this.Checks.HeaderText = "Check";
+            this.Checks.Name = "Checks";
+            // 
             // BackupRestore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,7 +102,6 @@
             this.ClientSize = new System.Drawing.Size(1091, 492);
             this.ControlBox = false;
             this.Controls.Add(this.btnEjecutarRestore);
-            this.Controls.Add(this.btnVerRestore);
             this.Controls.Add(this.DgBackup);
             this.Controls.Add(this.btnVerBackUp);
             this.Controls.Add(this.btnVolverBackUp);
@@ -119,10 +117,10 @@
         #endregion
 
         internal System.Windows.Forms.Button btnEjecutarRestore;
-        internal System.Windows.Forms.Button btnVerRestore;
         private System.Windows.Forms.DataGridView DgBackup;
         internal System.Windows.Forms.Button btnVerBackUp;
         internal System.Windows.Forms.Button btnVolverBackUp;
         internal System.Windows.Forms.Button btnEjecutarBackUp;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Checks;
     }
 }

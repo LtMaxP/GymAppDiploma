@@ -34,7 +34,7 @@ namespace UI
             String contraseña = textBox4.Text;
             String idioma = comboBox1.Text;
             String estado = comboBox2.Text;
-            
+
 
             if (String.IsNullOrEmpty(usuario) || String.IsNullOrEmpty(contraseña) || String.IsNullOrEmpty(idioma) || String.IsNullOrEmpty(estado))
             {
@@ -74,38 +74,39 @@ namespace UI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string valorDeBusqueda = textBox2.Text;
-            String[] filaDeDatos = usuarioABM.BuscarUsuario(valorDeBusqueda);
-            if (!string.IsNullOrEmpty(filaDeDatos[0]))
+            BE.BE_Usuarios usuario = new BE.BE_Usuarios();
+            usuario.User = textBox2.Text;
+            List<BE.BE_Usuarios> filaDeDatos = usuarioABM.BuscarUsuario(usuario);
+            if (filaDeDatos.Count > 1)
             {
-                ListViewItem lvi = new ListViewItem(filaDeDatos[0]);
-                for (int i = 1; i < 4; i++)
+                foreach (BE.BE_Usuarios u in filaDeDatos)
                 {
-                    lvi.SubItems.Add(filaDeDatos[i]);
+                    listView1.Items.Add(u.User);
+                    listView1.Items.Add(u.idIdioma.ToString());
+                    listView1.Items.Add(u.idEstado.ToString());
                 }
-                listView1.Items.Add(lvi);
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (listView1.CheckedIndices.Count > 1)
-            {
-                MessageBox.Show("Seleccione 1 usuario solo a mostrar");
-            }
-            else if (listView1.Items.Count > 0)
-            {
+            //if (listView1.CheckedIndices.Count > 1)
+            //{
+            //    MessageBox.Show("Seleccione 1 usuario solo a mostrar");
+            //}
+            //else if (listView1.Items.Count > 0)
+            //{
 
-                string user = listView1.SelectedItems[0].SubItems[1].Text;
-                String[] filaDeDatos = usuarioABM.BuscarUsuario(user);
-                textBox3.Text = filaDeDatos[1];
-                comboBox1.SelectedItem = filaDeDatos[2];
-                comboBox2.SelectedItem = filaDeDatos[3];
-            }
-            else
-            {
-                MessageBox.Show("Debe buscar un usuario y seleccionarlo para Mostrar");
-            }
+            //    string user = listView1.SelectedItems[0].SubItems[1].Text;
+            //    String[] filaDeDatos = usuarioABM.BuscarUsuario(user);
+            //    textBox3.Text = filaDeDatos[1];
+            //    comboBox1.SelectedItem = filaDeDatos[2];
+            //    comboBox2.SelectedItem = filaDeDatos[3];
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Debe buscar un usuario y seleccionarlo para Mostrar");
+            //}
         }
 
         private void UsuariosABM_Load(object sender, EventArgs e)
@@ -128,6 +129,38 @@ namespace UI
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void labelModificar_Click(object sender, EventArgs e)
+        {
+
+            BE.BE_Usuarios modUsuario = new BE.BE_Usuarios();
+            String usuario = textBox3.Text;
+            String contraseña = textBox4.Text;
+            String idioma = comboBox1.Text;
+            String estado = comboBox2.Text;
+
+
+            if (String.IsNullOrEmpty(usuario) || String.IsNullOrEmpty(contraseña) || String.IsNullOrEmpty(idioma) || String.IsNullOrEmpty(estado))
+            {
+                MessageBox.Show("Debe completar todos los campos.");
+            }
+            else
+            {
+                modUsuario.User = usuario;
+                modUsuario.Pass = contraseña;
+                usuarioABM.DevolverIDs(modUsuario, idioma, estado);
+
+                if (!usuarioABM.ValidarSiElUsuarioYaExiste(modUsuario.User))
+                {
+                    usuarioABM.ModificarUsuario(modUsuario, idioma, estado);
+                    MessageBox.Show("El usuario fue dado de Alta con éxito.");
+                }
+                else
+                {
+                    MessageBox.Show("El nombre de usuario ya existe");
+                }
+            }
         }
     }
 }

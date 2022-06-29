@@ -82,6 +82,7 @@
     <Compile Include="Tecnico\IdiomaT.cs" />
     <Compile Include="Tecnico\LoginUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tecnico\RestoreDAL.cs" />
     <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
