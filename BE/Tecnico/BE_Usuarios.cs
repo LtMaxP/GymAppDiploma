@@ -8,14 +8,13 @@ namespace BE
 {
     public class BE_Usuarios
     {
-        public BE_Usuarios(string usuario, string password, int id_Estado, int id_Idioma)
+        public BE_Usuarios(string usuario, string password, int id_Idioma)
         {
             this.User = usuario;
             this.Pass = password;
-            this.idEstado = id_Estado;
             this.idIdioma = id_Idioma;
         }
-        public BE_Usuarios(string usuario, int id_Estado, int id_Idioma)
+        public BE_Usuarios(string usuario, int id_Idioma, int id_Estado)
         {
             this.User = usuario;
             this.idEstado = id_Estado;

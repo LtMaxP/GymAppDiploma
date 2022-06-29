@@ -36,7 +36,7 @@ namespace BLL
                 //Servicios.BitacoraServicio
                 b.RegistrarMovimiento("Creacion exitosa de Usuario: " + altaUser.User, "Ninguno");
             }
-            catch 
+            catch
             {
                 b.RegistrarMovimiento("Error creando el Usuario: " + altaUser.User, "Alta");
             }
@@ -45,12 +45,12 @@ namespace BLL
             return rpta;
         }
 
-        public bool EliminarUsuario(string usuario)
+        public bool EliminarUsuario(BE_Usuarios bajaUser)
         {
-            BE_Usuarios bajaUser = new BE_Usuarios();
-            bajaUser.User = usuario;
-
-            return abmUs.Baja(bajaUser);
+            bool retornableComoCocaCola = false;
+            bajaUser.Pass = Servicios.Encriptacion.Encriptador(bajaUser.Pass);
+            retornableComoCocaCola = abmUs.Baja(bajaUser);
+            return retornableComoCocaCola;
         }
 
         public bool ModificarUsuario(BE_Usuarios modUser, string idioma, string estado)
@@ -97,9 +97,13 @@ namespace BLL
             //    }
 
             //}
-            
-        }
 
+        }
+        public BE_Usuarios MostrarUsuario(BE_Usuarios buscarUser)
+        {
+            BE_Usuarios dt = abmUs.Leer(buscarUser);
+            return dt;
+        }
         public bool ValidarSiElUsuarioYaExiste(string usuario)
         {
             BE_Usuarios buscarUser = new BE_Usuarios();

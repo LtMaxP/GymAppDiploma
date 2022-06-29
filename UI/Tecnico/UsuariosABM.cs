@@ -60,53 +60,70 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            String usuario = textBox3.Text;
-            if (String.IsNullOrEmpty(usuario))
+            BE.BE_Usuarios usuarioDelete = new BE.BE_Usuarios();
+            usuarioDelete.User = textBox3.Text;
+            usuarioDelete.Pass = textBox4.Text;
+            if (String.IsNullOrEmpty(usuarioDelete.User))
             {
                 MessageBox.Show("Debe Ingresar un usuario para eliminar");
             }
             else
             {
-                usuarioABM.EliminarUsuario(usuario);
+                usuarioABM.EliminarUsuario(usuarioDelete);
                 MessageBox.Show("El usuario fue neutralizado con éxito.");
             }
         }
-
+        /// <summary>
+        /// Buscar Usuario y mostrar listado de match
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             BE.BE_Usuarios usuario = new BE.BE_Usuarios();
             usuario.User = textBox2.Text;
             List<BE.BE_Usuarios> filaDeDatos = usuarioABM.BuscarUsuario(usuario);
-            if (filaDeDatos.Count > 1)
+
+            if (filaDeDatos.Count > 0)
             {
+                if (listView1.Items.Count > 0)
+                {
+                    listView1.Items.RemoveAt(0);
+                }
                 foreach (BE.BE_Usuarios u in filaDeDatos)
                 {
-                    listView1.Items.Add(u.User);
-                    listView1.Items.Add(u.idIdioma.ToString());
-                    listView1.Items.Add(u.idEstado.ToString());
+                    ListViewItem lista = new ListViewItem();
+                    lista.SubItems.Add(u.User.ToString());
+                    lista.SubItems.Add(u.idIdioma.ToString());
+                    lista.SubItems.Add(u.idEstado.ToString());
+                    listView1.Items.AddRange(new ListViewItem[] { lista });
                 }
             }
         }
-
+        /// <summary>
+        /// Buscar seleccion de Usuarios mostrados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button6_Click(object sender, EventArgs e)
         {
-            //if (listView1.CheckedIndices.Count > 1)
-            //{
-            //    MessageBox.Show("Seleccione 1 usuario solo a mostrar");
-            //}
-            //else if (listView1.Items.Count > 0)
-            //{
-
-            //    string user = listView1.SelectedItems[0].SubItems[1].Text;
-            //    String[] filaDeDatos = usuarioABM.BuscarUsuario(user);
-            //    textBox3.Text = filaDeDatos[1];
-            //    comboBox1.SelectedItem = filaDeDatos[2];
-            //    comboBox2.SelectedItem = filaDeDatos[3];
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Debe buscar un usuario y seleccionarlo para Mostrar");
-            //}
+            if (listView1.CheckedIndices.Count > 1)
+            {
+                MessageBox.Show("Seleccione 1 usuario solo a mostrar");
+            }
+            else if (listView1.Items.Count > 0)
+            {
+                BE.BE_Usuarios usuario = new BE.BE_Usuarios();
+                usuario.User = listView1.SelectedItems[0].SubItems[1].Text;
+                BE.BE_Usuarios filaDeDatos = usuarioABM.MostrarUsuario(usuario);
+                textBox3.Text = filaDeDatos.User;
+                comboBox1.SelectedIndex = filaDeDatos.idIdioma -1;
+                comboBox2.SelectedIndex = filaDeDatos.idEstado -1;
+            }
+            else
+            {
+                MessageBox.Show("Debe buscar un usuario y seleccionarlo para Mostrar");
+            }
         }
 
         private void UsuariosABM_Load(object sender, EventArgs e)

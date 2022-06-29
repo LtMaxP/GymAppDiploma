@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.labelAlta = new System.Windows.Forms.Button();
             this.labelBaja = new System.Windows.Forms.Button();
             this.labelModificar = new System.Windows.Forms.Button();
             this.labelBuscar = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader0 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelUser = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.labelBuscarUnUsuario = new System.Windows.Forms.Label();
@@ -50,6 +46,11 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.buttonSalir = new System.Windows.Forms.Button();
             this.labelMostrar = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.usuarioCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.IdiomaCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Estadocol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.hide = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // labelAlta
@@ -91,46 +92,6 @@
             this.labelBuscar.Text = "Buscar Usuario";
             this.labelBuscar.UseVisualStyleBackColor = true;
             this.labelBuscar.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader0,
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 103);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(286, 219);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // columnHeader0
-            // 
-            this.columnHeader0.Text = "ID";
-            this.columnHeader0.Width = 24;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Usuario";
-            this.columnHeader1.Width = 49;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Idioma Seleccionado";
-            this.columnHeader2.Width = 112;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Estado del Usuario";
-            this.columnHeader3.Width = 109;
             // 
             // labelUser
             // 
@@ -251,6 +212,52 @@
             this.labelMostrar.UseVisualStyleBackColor = true;
             this.labelMostrar.Click += new System.EventHandler(this.button6_Click);
             // 
+            // listView1
+            // 
+            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.hide,
+            this.usuarioCol,
+            this.IdiomaCol,
+            this.Estadocol});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.listView1.Location = new System.Drawing.Point(15, 103);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(286, 219);
+            this.listView1.TabIndex = 4;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // usuarioCol
+            // 
+            this.usuarioCol.DisplayIndex = 0;
+            this.usuarioCol.Text = "Usuario";
+            this.usuarioCol.Width = 100;
+            // 
+            // IdiomaCol
+            // 
+            this.IdiomaCol.DisplayIndex = 1;
+            this.IdiomaCol.Text = "Idioma";
+            this.IdiomaCol.Width = 100;
+            // 
+            // Estadocol
+            // 
+            this.Estadocol.DisplayIndex = 2;
+            this.Estadocol.Text = "Estado";
+            this.Estadocol.Width = 100;
+            // 
+            // hide
+            // 
+            this.hide.DisplayIndex = 3;
+            this.hide.Text = "";
+            this.hide.Width = 1;
+            // 
             // UsuariosABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,7 +296,6 @@
         private System.Windows.Forms.Button labelBaja;
         private System.Windows.Forms.Button labelModificar;
         private System.Windows.Forms.Button labelBuscar;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label labelBuscarUnUsuario;
@@ -303,9 +309,10 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Button labelMostrar;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader0;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader usuarioCol;
+        private System.Windows.Forms.ColumnHeader IdiomaCol;
+        private System.Windows.Forms.ColumnHeader Estadocol;
+        private System.Windows.Forms.ColumnHeader hide;
     }
 }

@@ -75,10 +75,14 @@ namespace DAL
             {
                 SqlCommand comm = new SqlCommand();
 
-                comm.CommandText = "UPDATE Usuario SET Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario";
+                comm.CommandText = "UPDATE Usuario SET Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario AND Usuario.Password = @Pass";
 
                 SqlParameter parameter1 = new SqlParameter();
                 parameter1.ParameterName = "@NombreUsuario";
+                parameter1.Value = valBaja.User;
+                parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
+                SqlParameter parameter2 = new SqlParameter();
+                parameter1.ParameterName = "@Pass";
                 parameter1.Value = valBaja.User;
                 parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
                 SqlParameter parameter4 = new SqlParameter();
@@ -86,7 +90,9 @@ namespace DAL
                 parameter4.Value = "2";
                 parameter4.SqlDbType = System.Data.SqlDbType.Int;
 
+
                 comm.Parameters.Add(parameter1);
+                comm.Parameters.Add(parameter2);
                 comm.Parameters.Add(parameter4);
 
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
@@ -99,7 +105,26 @@ namespace DAL
 
         public BE_Usuarios Leer(BE_Usuarios valBuscar)
         {
-            throw new NotImplementedException();
+            BE_Usuarios UserRet = new BE_Usuarios();
+            try
+            {
+
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = "SELECT Usuario, Password, Id_Idioma, Id_Estado FROM Usuario WHERE Usuario.Usuario = @nombre";
+                comm.Parameters.AddWithValue("@nombre", valBuscar.User);
+
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    UserRet.User = dr[0].ToString();
+                    UserRet.Pass = dr[1].ToString();
+                    UserRet.idIdioma = (int)dr[2];
+                    UserRet.idEstado = (int)dr[3];
+                }
+            }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
+
+            return UserRet;
         }
 
 
@@ -117,7 +142,7 @@ namespace DAL
                 DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
                 foreach(DataRow dr in dt.Rows)
                 {
-                    listUser.Add(new BE_Usuarios(dr["[Usuario]"].ToString(), (int)dr["[Id_Estado]"], (int)dr["[Id_Idioma]"]));
+                    listUser.Add(new BE_Usuarios(dr[0].ToString(), (int)dr[1], (int)dr[2]));
                 }
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
