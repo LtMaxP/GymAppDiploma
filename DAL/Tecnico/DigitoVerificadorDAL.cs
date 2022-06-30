@@ -15,7 +15,7 @@ namespace DAL
         public DataTable ObtenerListaDeDVHUsuarios()
         {
             DataTable dt = new DataTable();
-            String query = "SELECT [HashCode] FROM [DVHUsuario]";
+            String query = "SELECT [DVH] FROM [Usuario]";
             SqlCommand command = new SqlCommand(query);
             try
             {
@@ -25,29 +25,30 @@ namespace DAL
             return dt;
         }
 
-        public DataTable TraerDVV()
+        public String TraerDVV()
         {
-            DataTable dt = new DataTable();
+            string returnable = string.Empty;
             String query = "SELECT [CodigoHash] FROM DVV";
             SqlCommand command = new SqlCommand(query);
             try
             {
-                dt = Acceso.Instance.ExecuteDataTable(command);
+                DataTable dt = Acceso.Instance.ExecuteDataTable(command);
+                returnable = dt.Rows[0][1].ToString();
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
-            return dt;
+            return returnable;
         }
 
         public DataTable TraerDVH()
         {
             DataTable returnable = new DataTable();
-            String query = "SELECT [id_Usuario], [HashCode] FROM [DVHUsuario]";
+            String query = "SELECT [Id_Usuario], [DVH] FROM [Usuario]";
             SqlCommand command = new SqlCommand(query);
             try
             {
                 returnable = Acceso.Instance.ExecuteDataTable(command);
             }
-            catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
+            catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVH :("); }
             return returnable;
         }
 

@@ -11,7 +11,28 @@ namespace BLL
     {
         BE.Usuario user = BE.Usuario.Instance;
         private DAL.DigitoVerificadorDAL dVDal = new DAL.DigitoVerificadorDAL();
-        public void RecalcularDVV()
+        public Boolean RecalcularDVV()
+        {
+            DataTable listaDVHUsuarios = dVDal.ObtenerListaDeDVHUsuarios();
+
+            string hash = string.Empty;
+
+            foreach (var n in listaDVHUsuarios.Rows)
+            {
+                hash += n.ToString();
+            }
+
+            //hasheo
+            string hasheoDVV = Servicios.Encriptacion.Encriptador(hash);
+            String DVV = dVDal.TraerDVV();
+            if (DVV.Equals(hash))
+            {
+                return true;
+            }
+            else { return false; }
+
+        }
+        public void CalcularDVV()
         {
             DataTable listaDVHUsuarios = dVDal.ObtenerListaDeDVHUsuarios();
 
@@ -29,7 +50,6 @@ namespace BLL
             //probandoCositas.Pepe();
 
         }
-
         public void RecalcularDVH()
         {
             string hash = string.Empty;
@@ -42,7 +62,7 @@ namespace BLL
             dVDal.InsertarDVHEnUsuario(hasheoDVH);
         }
 
-        public DataTable TraerDVV()
+        public String TraerDVV()
         {
             return dVDal.TraerDVV(); 
         }

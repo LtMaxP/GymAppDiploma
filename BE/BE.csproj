@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Negocio\BE_Administracion.cs" />
     <Compile Include="Negocio\BE_Gerente.cs" />
-    <Compile Include="Negocio\Genero.cs" />
     <Compile Include="Negocio\Item.cs" />
     <Compile Include="Negocio\Profesor.cs" />
     <Compile Include="Negocio\BE_Ejercicio.cs" />

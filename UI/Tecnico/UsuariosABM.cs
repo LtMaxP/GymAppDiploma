@@ -130,6 +130,10 @@ namespace UI
         {
             Subject.AddObserver(this);
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+
+            DataTable dt = usuarioABM.CargarCombo("Rol");
+            comboBox3.DataSource = dt;
+            comboBox3.DisplayMember = "Nombre";
         }
 
         public void Update(Idioma idioma)
@@ -178,6 +182,12 @@ namespace UI
                     MessageBox.Show("El nombre de usuario ya existe");
                 }
             }
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }

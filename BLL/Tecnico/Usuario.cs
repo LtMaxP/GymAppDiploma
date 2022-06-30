@@ -111,5 +111,9 @@ namespace BLL
             return abmUs.ValidarExistenciaDeUsuario(buscarUser);
         }
 
+        public DataTable CargarCombo(string cmb)
+        {
+            return abmUs.TraerOpciones(cmb);
+        }
     }
 }

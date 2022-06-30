@@ -40,31 +40,30 @@ namespace BE
             get { return _estado; }
             set { _estado = value; }
         }
-        private int _id_genero;
+        private int _genero;
 
-        public int Id_genero
+        public int Genero
         {
-            get { return _id_genero; }
-            set { _id_genero = value; }
+            get { return _genero; }
+            set { _genero = value; }
         }
 
 
-        //private string _sucursal;
+        private string _trabajo;
 
-        //public string Sucursal
-        //{
-        //    get { return _sucursal; }
-        //    set { _sucursal = value; }
-        //}
-
-        private int _id_trabajo;
-
-        public int Id_Trabajo
+        public string Trabajo
         {
-            get { return _id_trabajo; }
-            set { _id_trabajo = value; }
+            get { return _trabajo; }
+            set { _trabajo = value; }
         }
 
+        private Decimal _sueldo;
+
+        public Decimal Sueldo
+        {
+            get { return _sueldo; }
+            set { _sueldo = value; }
+        }
 
 
     }

@@ -54,11 +54,12 @@ namespace DAL
 
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
 
-                
+
                 BitacoraDAL.NewRegistrarBitacora(new Bitacora("Creacion de usuario: " + valAlta.User, "Ninguno"));
                 ret = true;
             }
-            catch { 
+            catch
+            {
                 System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario {0}.", valAlta.User);
                 //Servicios.BitacoraServicio.CrearMovimiento(new Bitacora("Alta", "Fallo"));
             }
@@ -103,6 +104,30 @@ namespace DAL
             return ret;
         }
 
+        public DataTable TraerOpciones(string cmb)
+        {
+            string query = string.Empty;
+            switch (cmb)
+            {
+                case "Rol":
+                    query = "SELECT Nombre from PerfilPyF";
+                    break;
+                case "Idioma":
+                    query = "SELECT Idioma from [Idioma]";
+                    break;
+            }
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand comm = new SqlCommand(query);
+                dt = Acceso.Instance.ExecuteDataTable(comm);
+
+            }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
+
+            return dt;
+        }
+
         public BE_Usuarios Leer(BE_Usuarios valBuscar)
         {
             BE_Usuarios UserRet = new BE_Usuarios();
@@ -134,19 +159,19 @@ namespace DAL
             List<BE_Usuarios> listUser = new List<BE_Usuarios>();
             try
             {
-                
+
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "SELECT Usuario, Id_Idioma, Id_Estado FROM Usuario WHERE Usuario.Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", valBuscar.User);
 
                 DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
-                foreach(DataRow dr in dt.Rows)
+                foreach (DataRow dr in dt.Rows)
                 {
                     listUser.Add(new BE_Usuarios(dr[0].ToString(), (int)dr[1], (int)dr[2]));
                 }
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
-                        
+
             return listUser;
         }
 
@@ -211,7 +236,7 @@ namespace DAL
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", usuari.User);
-                
+
                 respuesta = Acceso.Instance.ExecuteScalarBool(comm);
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }

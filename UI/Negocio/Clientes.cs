@@ -86,9 +86,6 @@ namespace UI
                 fechaNacimiento.Value = client._fechaNacimiento;
                 textBox_Peso.Text = client._pesokg.ToString();
                 comboBox_estado.Text = client._idEstado.ToString();
-                //comboBox_sucursal.Text = client._IDSucursal.ToString();
-
-                comboBox_profesor.Text = client._IDEmpleado.ToString();
             }
         }
 

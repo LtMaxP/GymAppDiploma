@@ -16,8 +16,18 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             String query = "select * from Empleado where id_Sucursal = @id";
-            SqlCommand command = new SqlCommand(query, Acceso.Instance.sqlCon);
+            SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@id", id_Sucursal);
+
+            dt = Acceso.Instance.ExecuteDataTable(command);
+            return dt;
+        }
+
+        public DataTable TraerTrabajos()
+        {
+            DataTable dt = new DataTable();
+            String query = "select Descripcion from [Trabajo]";
+            SqlCommand command = new SqlCommand(query);
 
             dt = Acceso.Instance.ExecuteDataTable(command);
             return dt;

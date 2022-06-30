@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.labelAlta = new System.Windows.Forms.Button();
             this.labelBaja = new System.Windows.Forms.Button();
             this.labelModificar = new System.Windows.Forms.Button();
@@ -51,6 +51,8 @@
             this.IdiomaCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Estadocol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hide = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelAlta
@@ -121,7 +123,7 @@
             // labelUsuario2
             // 
             this.labelUsuario2.AutoSize = true;
-            this.labelUsuario2.Location = new System.Drawing.Point(380, 124);
+            this.labelUsuario2.Location = new System.Drawing.Point(380, 106);
             this.labelUsuario2.Name = "labelUsuario2";
             this.labelUsuario2.Size = new System.Drawing.Size(49, 13);
             this.labelUsuario2.TabIndex = 9;
@@ -130,7 +132,7 @@
             // labelPass
             // 
             this.labelPass.AutoSize = true;
-            this.labelPass.Location = new System.Drawing.Point(380, 169);
+            this.labelPass.Location = new System.Drawing.Point(380, 151);
             this.labelPass.Name = "labelPass";
             this.labelPass.Size = new System.Drawing.Size(64, 13);
             this.labelPass.TabIndex = 9;
@@ -138,14 +140,14 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(480, 121);
+            this.textBox3.Location = new System.Drawing.Point(480, 103);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 10;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(480, 166);
+            this.textBox4.Location = new System.Drawing.Point(480, 148);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 10;
@@ -153,7 +155,7 @@
             // labelEstado
             // 
             this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(380, 250);
+            this.labelEstado.Location = new System.Drawing.Point(380, 232);
             this.labelEstado.Name = "labelEstado";
             this.labelEstado.Size = new System.Drawing.Size(43, 13);
             this.labelEstado.TabIndex = 9;
@@ -162,7 +164,7 @@
             // labelIdioma
             // 
             this.labelIdioma.AutoSize = true;
-            this.labelIdioma.Location = new System.Drawing.Point(380, 211);
+            this.labelIdioma.Location = new System.Drawing.Point(380, 193);
             this.labelIdioma.Name = "labelIdioma";
             this.labelIdioma.Size = new System.Drawing.Size(41, 13);
             this.labelIdioma.TabIndex = 9;
@@ -175,7 +177,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Español",
             "Ingles"});
-            this.comboBox1.Location = new System.Drawing.Point(480, 208);
+            this.comboBox1.Location = new System.Drawing.Point(480, 190);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 21);
             this.comboBox1.TabIndex = 11;
@@ -187,7 +189,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "Alta",
             "Baja"});
-            this.comboBox2.Location = new System.Drawing.Point(480, 247);
+            this.comboBox2.Location = new System.Drawing.Point(480, 229);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(100, 21);
             this.comboBox2.TabIndex = 11;
@@ -224,7 +226,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.listView1.Location = new System.Drawing.Point(15, 103);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -258,11 +260,31 @@
             this.hide.Text = "";
             this.hide.Width = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(380, 275);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Rol:";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(480, 272);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(100, 21);
+            this.comboBox3.TabIndex = 11;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
             // UsuariosABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 518);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelMostrar);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
@@ -314,5 +336,7 @@
         private System.Windows.Forms.ColumnHeader IdiomaCol;
         private System.Windows.Forms.ColumnHeader Estadocol;
         private System.Windows.Forms.ColumnHeader hide;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

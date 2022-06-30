@@ -39,13 +39,13 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DataTable tableDV = dv.TraerDVV();
+            string tableDV = dv.TraerDVV();
             dataGridView1.DataSource = tableDV;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            dv.RecalcularDVV();
+            //dv.RecalcularDVV();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -68,6 +68,13 @@ namespace UI
         {
             DataTable tableDV = dv.TraerDVH();
             dataGridView1.DataSource = tableDV;
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            string mensajeD = string.Empty;
+            mensajeD = dv.RecalcularDVV() ? "Digito Verificador Vertical Correcto" : "Digito Verificador Vertical Incorrecto!! ERROR";
+            MessageBox.Show(mensajeD);
         }
     }
 }

@@ -11,11 +11,11 @@ namespace BLL
 {
     public class BLLEmpleados
     {
+        DALEmpleado dalemp = new DALEmpleado();
 
         public List<BE_Empleado> DameEmpleados(int id_Sucursal)
         {
             List<BE_Empleado> emplist = new List<BE_Empleado>();
-            DALEmpleado dalemp = new DALEmpleado();
             DataTable data = dalemp.DameEmpleados(id_Sucursal);
             foreach (DataRow emp in data.Rows)
             {
@@ -26,6 +26,10 @@ namespace BLL
                 emplist.Add(empleadoActual);
             }
             return emplist;
+        }
+        public DataTable CargarComboTrabajos()
+        {
+            return dalemp.TraerTrabajos();
         }
     }
 }

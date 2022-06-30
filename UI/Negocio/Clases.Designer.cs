@@ -49,15 +49,15 @@ namespace UI.Negocio
             this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,6 +196,7 @@ namespace UI.Negocio
             this.button3.TabIndex = 17;
             this.button3.Text = "Salir";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label6
             // 
@@ -238,32 +239,6 @@ namespace UI.Negocio
             this.dataGridView1.Size = new System.Drawing.Size(643, 150);
             this.dataGridView1.TabIndex = 21;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(193, 296);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(33, 23);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "Ok";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(25, 298);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(152, 21);
-            this.comboBox3.TabIndex = 23;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(35, 279);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 13);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Actividad";
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Clase";
@@ -293,6 +268,32 @@ namespace UI.Negocio
             // 
             this.Column6.HeaderText = "Descripcion";
             this.Column6.Name = "Column6";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(193, 296);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(33, 23);
+            this.button4.TabIndex = 22;
+            this.button4.Text = "Ok";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(25, 298);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(152, 21);
+            this.comboBox3.TabIndex = 23;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(35, 279);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Actividad";
             // 
             // Clases
             // 
@@ -325,6 +326,7 @@ namespace UI.Negocio
             this.Controls.Add(this.label1);
             this.Name = "Clases";
             this.Text = "Clases";
+            this.Load += new System.EventHandler(this.Clases_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
