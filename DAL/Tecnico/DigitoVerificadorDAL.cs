@@ -32,8 +32,7 @@ namespace DAL
             SqlCommand command = new SqlCommand(query);
             try
             {
-                DataTable dt = Acceso.Instance.ExecuteDataTable(command);
-                returnable = dt.Rows[0][1].ToString();
+                returnable = Acceso.Instance.ExecuteScalar2(command);
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
             return returnable;

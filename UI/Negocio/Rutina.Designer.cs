@@ -151,6 +151,7 @@ namespace UI.Negocio
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Rutina";
             this.Text = "Rutina";
             this.Load += new System.EventHandler(this.Rutina_Load);

@@ -65,6 +65,7 @@ namespace UI.Negocio
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(193, 21);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -111,7 +112,7 @@ namespace UI.Negocio
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(322, 69);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(272, 278);
+            this.dataGridView1.Size = new System.Drawing.Size(203, 278);
             this.dataGridView1.TabIndex = 6;
             // 
             // button2
@@ -179,9 +180,9 @@ namespace UI.Negocio
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(553, 455);
+            this.button4.Location = new System.Drawing.Point(450, 438);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(75, 30);
             this.button4.TabIndex = 14;
             this.button4.Text = "Salir";
             this.button4.UseVisualStyleBackColor = true;
@@ -192,7 +193,7 @@ namespace UI.Negocio
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(635, 490);
+            this.ClientSize = new System.Drawing.Size(551, 486);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label7);
@@ -208,6 +209,7 @@ namespace UI.Negocio
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Productos";
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.Productos_Load);

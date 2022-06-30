@@ -324,6 +324,7 @@ namespace UI.Negocio
             this.Controls.Add(this.Fecha);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Clases";
             this.Text = "Clases";
             this.Load += new System.EventHandler(this.Clases_Load);

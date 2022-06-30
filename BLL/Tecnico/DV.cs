@@ -17,15 +17,15 @@ namespace BLL
 
             string hash = string.Empty;
 
-            foreach (var n in listaDVHUsuarios.Rows)
+            foreach (DataRow row in listaDVHUsuarios.Rows)
             {
-                hash += n.ToString();
+                hash += row[0].ToString();
             }
 
             //hasheo
             string hasheoDVV = Servicios.Encriptacion.Encriptador(hash);
             String DVV = dVDal.TraerDVV();
-            if (DVV.Equals(hash))
+            if (DVV.Equals(hasheoDVV))
             {
                 return true;
             }

@@ -1,4 +1,5 @@
-﻿using BLL.Observer;
+﻿using BE;
+using BLL.Observer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,15 +14,13 @@ namespace UI.Negocio
 {
     public partial class Productos : Form, IObserver
     {
+        BLL.Negocio.BLLProducto BLLProd = new BLL.Negocio.BLLProducto();
+
         public Productos()
         {
             InitializeComponent();
         }
 
-        public void Update(Idioma idioma)
-        {
-            throw new NotImplementedException();
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -38,6 +37,19 @@ namespace UI.Negocio
         {
             Subject.AddObserver(this);
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+
+            comboBox1.DataSource = BLLProd.TraerProductos();
+            comboBox1.DisplayMember = "Descripcion";
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Update(BLL.Observer.Idioma idioma)
+        {
+            //throw new NotImplementedException();
         }
     }
 }

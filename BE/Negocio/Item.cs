@@ -8,6 +8,15 @@ namespace BE
 {
     public class Item
     {
+        public Item(string desc, decimal val, int cant)
+        {
+            this.Descripcion = desc;
+            this.Valor = val;
+            this.Cantidad = cant;
+        }
+        public Item()
+        { }
+        
         private int _id_Item;
 
         public int Id_Item
@@ -22,6 +31,14 @@ namespace BE
         {
             get { return _descripcion; }
             set { _descripcion = value; }
+        }
+
+        private Decimal _valor;
+
+        public Decimal Valor
+        {
+            get { return _valor; }
+            set { _valor = value; }
         }
 
         private int _cantidad;

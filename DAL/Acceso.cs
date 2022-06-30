@@ -36,12 +36,15 @@ namespace DAL
                 return instance;
             }
         }
-
+        /// <summary>
+        /// Consulta que retorna 1 valor int
+        /// </summary>
+        /// <param name="_paramCommand"></param>
+        /// <returns></returns>
         public int ExecuteScalar(SqlCommand _paramCommand)
         {
             try
             {
-
                 Abrir();
                 _paramCommand.Connection = SQLC;
                 var returnable = _paramCommand.ExecuteScalar();
@@ -50,6 +53,20 @@ namespace DAL
             }
             catch (Exception e) { throw e; }
         }
+
+        public String ExecuteScalar2(SqlCommand _paramCommand)
+        {
+            try
+            {
+                Abrir();
+                _paramCommand.Connection = SQLC;
+                String returnable = _paramCommand.ExecuteScalar().ToString();
+                Cerrar();
+                return returnable;
+            }
+            catch (Exception e) { throw e; }
+        }
+
         public Boolean ExecuteScalarBool(SqlCommand _paramCommand)
         {
             try
