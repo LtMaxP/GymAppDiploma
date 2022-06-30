@@ -100,6 +100,15 @@ namespace BE
             set { fechaNacimiento = value; }
         }
 
+        private decimal _membresia;
+
+        public decimal Membresia
+        {
+            get { return _membresia; }
+            set { _membresia = value; }
+        }
+
+
         private List<BE_Ejercicio> _rutina;
         public List<BE_Ejercicio> Rutina
         {

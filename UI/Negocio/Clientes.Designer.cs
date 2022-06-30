@@ -64,10 +64,10 @@
             this.textBox_Peso = new System.Windows.Forms.TextBox();
             this.fechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.comboBox_estado = new System.Windows.Forms.ComboBox();
-            this.comboBox_profesor = new System.Windows.Forms.ComboBox();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
@@ -186,7 +186,7 @@
             // labelEstado
             // 
             this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(552, 77);
+            this.labelEstado.Location = new System.Drawing.Point(538, 97);
             this.labelEstado.Name = "labelEstado";
             this.labelEstado.Size = new System.Drawing.Size(40, 13);
             this.labelEstado.TabIndex = 5;
@@ -234,11 +234,11 @@
             // labelEmpleadoACargo
             // 
             this.labelEmpleadoACargo.AutoSize = true;
-            this.labelEmpleadoACargo.Location = new System.Drawing.Point(574, 137);
+            this.labelEmpleadoACargo.Location = new System.Drawing.Point(538, 159);
             this.labelEmpleadoACargo.Name = "labelEmpleadoACargo";
-            this.labelEmpleadoACargo.Size = new System.Drawing.Size(46, 13);
+            this.labelEmpleadoACargo.Size = new System.Drawing.Size(58, 13);
             this.labelEmpleadoACargo.TabIndex = 5;
-            this.labelEmpleadoACargo.Text = "Profesor";
+            this.labelEmpleadoACargo.Text = "Membresia";
             this.labelEmpleadoACargo.Click += new System.EventHandler(this.label9_Click);
             // 
             // labelAlta
@@ -341,7 +341,7 @@
             // labelPeso
             // 
             this.labelPeso.AutoSize = true;
-            this.labelPeso.Location = new System.Drawing.Point(552, 107);
+            this.labelPeso.Location = new System.Drawing.Point(538, 127);
             this.labelPeso.Name = "labelPeso";
             this.labelPeso.Size = new System.Drawing.Size(47, 13);
             this.labelPeso.TabIndex = 5;
@@ -350,7 +350,7 @@
             // 
             // textBox_Peso
             // 
-            this.textBox_Peso.Location = new System.Drawing.Point(626, 104);
+            this.textBox_Peso.Location = new System.Drawing.Point(626, 126);
             this.textBox_Peso.Name = "textBox_Peso";
             this.textBox_Peso.Size = new System.Drawing.Size(134, 20);
             this.textBox_Peso.TabIndex = 9;
@@ -370,20 +370,11 @@
             // 
             this.comboBox_estado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox_estado.FormattingEnabled = true;
-            this.comboBox_estado.Location = new System.Drawing.Point(626, 73);
+            this.comboBox_estado.Location = new System.Drawing.Point(626, 95);
             this.comboBox_estado.Name = "comboBox_estado";
             this.comboBox_estado.Size = new System.Drawing.Size(134, 21);
             this.comboBox_estado.TabIndex = 12;
             this.comboBox_estado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // comboBox_profesor
-            // 
-            this.comboBox_profesor.FormattingEnabled = true;
-            this.comboBox_profesor.Location = new System.Drawing.Point(577, 158);
-            this.comboBox_profesor.Name = "comboBox_profesor";
-            this.comboBox_profesor.Size = new System.Drawing.Size(149, 21);
-            this.comboBox_profesor.TabIndex = 12;
-            this.comboBox_profesor.SelectedIndexChanged += new System.EventHandler(this.comboBox_profesor_SelectedIndexChanged);
             // 
             // clientesBindingSource
             // 
@@ -397,12 +388,19 @@
             // 
             this.clientesBindingSource2.DataSource = typeof(UI.Clientes);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(626, 154);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(134, 20);
+            this.textBox1.TabIndex = 13;
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox_profesor);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox_estado);
             this.Controls.Add(this.fechaNacimiento);
             this.Controls.Add(this.labelSalir);
@@ -486,9 +484,9 @@
         private System.Windows.Forms.ColumnHeader Nombre;
         private System.Windows.Forms.ColumnHeader Apellido;
         private System.Windows.Forms.ColumnHeader Dni;
-        private System.Windows.Forms.ComboBox comboBox_profesor;
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private System.Windows.Forms.BindingSource clientesBindingSource1;
         private System.Windows.Forms.BindingSource clientesBindingSource2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
