@@ -40,6 +40,7 @@ namespace UI.Negocio
 
             comboBox1.DataSource = BLLProd.TraerProductos();
             comboBox1.DisplayMember = "Descripcion";
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
