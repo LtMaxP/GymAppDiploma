@@ -99,6 +99,27 @@ namespace DAL
             { throw e; }
 
         }
+        /// <summary>
+        /// Obtener resultados multiples (Por ejemplo, SELECT col1, col2 from sometable)
+        /// </summary>
+        /// <param name="_paramCommand"></param>
+        /// <returns></returns>
+        public DataTable ExecuteReader(SqlCommand _paramCommand)
+        {
+            try
+            {
+                Abrir();
+                DataTable _dt = new DataTable();
+                _paramCommand.Connection = SQLC;
+                _dt.Load(_paramCommand.ExecuteReader());
+                Cerrar();
+                return _dt;
+            }
+            catch (Exception e)
+            { throw e; }
+
+        }
+
         private void Abrir()
         {
             try

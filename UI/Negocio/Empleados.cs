@@ -43,23 +43,23 @@ namespace UI
         {
             if(!textBox1.Text.Equals(string.Empty))
             {
-                BE.BE_Usuarios usuario = new BE.BE_Usuarios();
-                usuario.User = textBox2.Text;
-                List<BE.BE_Usuarios> filaDeDatos = usuarioABM.BuscarUsuario(usuario);
+                //BE.BE_Usuarios usuario = new BE.BE_Usuarios();
+                //usuario.User = textBox2.Text;
+                //List<BE.BE_Usuarios> filaDeDatos = usuarioABM.BuscarUsuario(usuario);
 
-                if (filaDeDatos.Count > 0)
-                {
-                    if (listView1.Items.Count > 0)
-                    {
-                        listView1.Items.RemoveAt(0);
-                    }
-                    foreach (BE.BE_Empleado u in filaDeDatos)
-                    {
-                        ListViewItem lista = new ListViewItem();
-                        lista.SubItems.Add(u.User.ToString());
-                        listView1.Items.AddRange(new ListViewItem[] { lista });
-                    }
-                }
+                //if (filaDeDatos.Count > 0)
+                //{
+                //    if (listView1.Items.Count > 0)
+                //    {
+                //        listView1.Items.RemoveAt(0);
+                //    }
+                //    foreach (BE.BE_Empleado u in filaDeDatos)
+                //    {
+                //        ListViewItem lista = new ListViewItem();
+                //        lista.SubItems.Add(u.User.ToString());
+                //        listView1.Items.AddRange(new ListViewItem[] { lista });
+                //    }
+                //}
             }
             else
             { MessageBox.Show("Debe ingresar un Empleado!"); }
