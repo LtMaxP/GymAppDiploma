@@ -6,43 +6,8 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Cliente
+    public class Cliente : Persona
     {
-        private int id_Cliente;
-
-        public int _IDCliente
-        {
-            get { return id_Cliente; }
-            set { id_Cliente = value; }
-        }
-
-        //private int id_Sucursal;
-        //public int _IDSucursal
-        //{
-        //    get { return id_Sucursal; }
-        //    set { id_Sucursal = value; }
-        //}
-
-        private int id_Empleado;
-        public int _IDEmpleado
-        {
-            get { return id_Empleado; }
-            set { id_Empleado = value; }
-        }
-
-        private string nombre;
-        public string _nombre
-        {
-            get { return nombre; }
-            set { nombre = value; }
-        }
-
-        private string apellido;
-        public string _apellido
-        {
-            get { return apellido; }
-            set { apellido = value; }
-        }
 
         private float pesokg;
         public float _pesokg
@@ -51,12 +16,6 @@ namespace BE
             set { pesokg = value; }
         }
 
-        private int id_Estado;
-        public int _idEstado
-        {
-            get { return id_Estado; }
-            set { id_Estado = value; }
-        }
 
         private int dni;
         public int _dni
@@ -100,22 +59,29 @@ namespace BE
             set { fechaNacimiento = value; }
         }
 
-        private decimal _membresia;
+        private Negocio.BE_Rutina _membresia;
 
-        public decimal Membresia
+        public Negocio.BE_Rutina Membresia
         {
             get { return _membresia; }
             set { _membresia = value; }
         }
 
 
-        private List<BE_Ejercicio> _rutina;
-        public List<BE_Ejercicio> Rutina
+        private Negocio.BE_Rutina _rutina;
+        public Negocio.BE_Rutina Rutina
         {
             get { return _rutina; }
             set { _rutina = value; }
         }
 
+        private List<Negocio.BE_Clase> _clases;
+
+        public List<Negocio.BE_Clase> Clases
+        {
+            get { return _clases; }
+            set { _clases = value; }
+        }
 
     }
 }

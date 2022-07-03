@@ -117,12 +117,12 @@ namespace BLL
             foreach (DataRow fila in cligym.MostrarCliente(valBuscar).Rows)
             {
                 BE.Cliente formaCliente = new BE.Cliente();
-                formaCliente._IDCliente = int.Parse(fila[0].ToString());
-                formaCliente._IDEmpleado = int.Parse(fila[2].ToString());
-                formaCliente._nombre = fila[3].ToString();
-                formaCliente._apellido = fila[4].ToString();
+                formaCliente.Id = int.Parse(fila[0].ToString());
+                //formaCliente.Empleado = int.Parse(fila[2].ToString());
+                formaCliente.Nombre = fila[3].ToString();
+                formaCliente.Apellido = fila[4].ToString();
                 formaCliente._pesokg = int.Parse(fila[5].ToString());
-                formaCliente._idEstado = int.Parse(fila[6].ToString());
+                formaCliente.Id_Estado = int.Parse(fila[6].ToString());
                 formaCliente._dni = int.Parse(fila[7].ToString());
                 formaCliente._calle = fila[8].ToString();
                 formaCliente._numero = int.Parse(fila[9].ToString());
@@ -139,21 +139,19 @@ namespace BLL
             BE.Cliente formaCliente = new BE.Cliente();
             foreach (DataRow fila in cligym.MostrarCliente(valBuscar).Rows)
             {
-                formaCliente._IDCliente = int.Parse(fila[0].ToString());
+                formaCliente.Id = int.Parse(fila[0].ToString());
                 //formaCliente._IDSucursal = int.Parse(fila[1].ToString());
-                formaCliente._IDEmpleado = int.Parse(fila[2].ToString());
-                formaCliente._nombre = fila[3].ToString();
-                formaCliente._apellido = fila[4].ToString();
+                //formaCliente._IDEmpleado = int.Parse(fila[2].ToString());
+                formaCliente.Nombre = fila[3].ToString();
+                formaCliente.Apellido = fila[4].ToString();
                 formaCliente._pesokg = int.Parse(fila[5].ToString());
-                formaCliente._idEstado = int.Parse(fila[6].ToString());
+                formaCliente.Id_Estado = int.Parse(fila[6].ToString());
                 formaCliente._dni = int.Parse(fila[7].ToString());
                 formaCliente._calle = fila[8].ToString();
                 formaCliente._numero = int.Parse(fila[9].ToString());
                 formaCliente._codPostal = int.Parse(fila[10].ToString());
                 formaCliente._telefono = int.Parse(fila[11].ToString());
                 formaCliente._fechaNacimiento = DateTime.Parse(fila[12].ToString());
-                //formaCliente.IDProvincia = int.Parse(fila[12].ToString());
-                //formaCliente.IDLocalidad = int.Parse(fila[13].ToString());
             }
             
             return formaCliente;
@@ -166,8 +164,8 @@ namespace BLL
             foreach (DataRow fila in cligym.Leer(valBuscar).Rows)
             {
                 BE.Cliente formaCliente = new BE.Cliente();
-                formaCliente._nombre = fila[1].ToString();
-                formaCliente._apellido = fila[2].ToString();
+                formaCliente.Nombre = fila[1].ToString();
+                formaCliente.Apellido = fila[2].ToString();
                 formaCliente._dni = int.Parse(fila[3].ToString());
                 listadoCliente.Add(formaCliente);
             }

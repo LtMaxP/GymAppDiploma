@@ -64,8 +64,8 @@ namespace UI
                 BE.Cliente client = new BE.Cliente();
                 client._dni = int.Parse(seleccionado);
                 client = bllClientes.MostrarCliente(client);
-                textBox_Nombre.Text = client._nombre;
-                textBox_Apellido.Text = client._apellido;
+                textBox_Nombre.Text = client.Nombre;
+                textBox_Apellido.Text = client.Apellido;
                 textBox_Dni.Text = client._dni.ToString();
                 textBox_Calle.Text = client._calle.ToString();
                 textBox_Numero.Text = client._numero.ToString();
@@ -73,7 +73,7 @@ namespace UI
                 textBox_Telefono.Text = client._telefono.ToString();
                 fechaNacimiento.Value = client._fechaNacimiento;
                 textBox_Peso.Text = client._pesokg.ToString();
-                comboBox_estado.Text = client._idEstado.ToString();
+                comboBox_estado.Text = client.Id_Estado.ToString();
             }
         }
 
@@ -86,8 +86,8 @@ namespace UI
             else
             {
                 BE.Cliente client = new BE.Cliente();
-                client._nombre = textBox_Nombre.Text;
-                client._apellido = textBox_Apellido.Text;
+                client.Nombre = textBox_Nombre.Text;
+                client.Apellido = textBox_Apellido.Text;
                 client._dni = int.Parse(textBox_Dni.Text);
                 client._calle = textBox_Calle.Text;
                 client._numero = int.Parse(textBox_Numero.Text);
@@ -95,7 +95,7 @@ namespace UI
                 client._telefono = int.Parse(textBox_Telefono.Text);
                 client._fechaNacimiento = fechaNacimiento.Value;
                 client._pesokg = int.Parse(textBox_Peso.Text);
-                client._idEstado = int.Parse(comboBox_estado.Text);
+                client.Id_Estado = int.Parse(comboBox_estado.Text);
                 if (!bllClientes.ValidarSiExiste(client))
                 {
                     if (bllClientes.Alta(client))
@@ -125,15 +125,15 @@ namespace UI
             else
             {
                 BE.Cliente cli = new BE.Cliente();
-                cli._nombre = textBox_Buscar.Text;
+                cli.Nombre = textBox_Buscar.Text;
                 List<Cliente> busquedaUsuario = bllClientes.AccionBusqueda(cli);
                 if (!busquedaUsuario.Count.Equals(0))
                 {
                     foreach (Cliente dr in busquedaUsuario)
                     {
                         ListViewItem lvi = new ListViewItem(dr._dni.ToString());
-                        lvi.SubItems.Add(dr._nombre);
-                        lvi.SubItems.Add(dr._apellido);
+                        lvi.SubItems.Add(dr.Nombre);
+                        lvi.SubItems.Add(dr.Apellido);
                         listView.Items.Add(lvi);
                     }
                 }

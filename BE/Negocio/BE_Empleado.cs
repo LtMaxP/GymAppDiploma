@@ -6,63 +6,24 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public abstract class BE_Empleado
+    public class BE_Empleado : Persona
     {
-        private int _id;
-
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
-
-        private string _nombre;
-
-        public string Nombre
-        {
-            get { return _nombre; }
-            set { _nombre = value; }
-        }
 
 
-        private string _apellido;
+        private BE.Negocio.Trabajo _trabajo;
 
-        public string Apellido
-        {
-            get { return _apellido; }
-            set { _apellido = value; }
-        }
-
-        private string _estado;
-
-        public string Estado
-        {
-            get { return _estado; }
-            set { _estado = value; }
-        }
-        private int _genero;
-
-        public int Genero
-        {
-            get { return _genero; }
-            set { _genero = value; }
-        }
-
-
-        private string _trabajo;
-
-        public string Trabajo
+        public BE.Negocio.Trabajo Trabajo
         {
             get { return _trabajo; }
             set { _trabajo = value; }
         }
 
-        private Decimal _sueldo;
+        private BE.BE_Cuenta _cuenta;
 
-        public Decimal Sueldo
+        public BE.BE_Cuenta Cuenta
         {
-            get { return _sueldo; }
-            set { _sueldo = value; }
+            get { return _cuenta; }
+            set { _cuenta = value; }
         }
 
 

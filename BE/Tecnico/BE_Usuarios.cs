@@ -79,7 +79,7 @@ namespace BE
             set { _rol = value; }
         }
 
-        private List<componente> _arbol;  //Mal tiene q venir el Component de la bll, pasar todo eso tmb a la BE
+        private List<Composite> _arbol;  //Mal tiene q venir el Component de la bll, pasar todo eso tmb a la BE
 
         public List<Composite> arbol
         {

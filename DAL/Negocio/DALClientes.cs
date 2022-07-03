@@ -22,12 +22,12 @@ namespace DAL
 
                 SqlParameter parameter1 = new SqlParameter();
                 parameter1.ParameterName = "@Nombre";
-                parameter1.Value = valAlta._nombre;
+                parameter1.Value = valAlta.Nombre;
                 parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
 
                 SqlParameter parameter2 = new SqlParameter();
                 parameter2.ParameterName = "@Apellido";
-                parameter2.Value = valAlta._apellido;
+                parameter2.Value = valAlta.Apellido;
                 parameter2.SqlDbType = System.Data.SqlDbType.VarChar;
 
                 SqlParameter parameter3 = new SqlParameter();
@@ -67,7 +67,7 @@ namespace DAL
 
                 SqlParameter parameter10 = new SqlParameter();
                 parameter10.ParameterName = "@Estado";
-                parameter10.Value = valAlta._idEstado;
+                parameter10.Value = valAlta.Id_Estado;
                 parameter10.SqlDbType = System.Data.SqlDbType.Int;
 
                 comm.Parameters.Add(parameter1);
@@ -107,7 +107,7 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             SqlConnection connection = Acceso.Instance.sqlCon;
-            String query = "SELECT Id_Cliente, Nombre, Apellido, Dni FROM ClienteGYM WHERE Nombre = " + "'" + valBuscar._nombre + "'";
+            String query = "SELECT Id_Cliente, Nombre, Apellido, Dni FROM ClienteGYM WHERE Nombre = " + "'" + valBuscar.Nombre + "'";
             SqlCommand comm = new SqlCommand(query);
             try
             {
@@ -129,12 +129,12 @@ namespace DAL
 
                 SqlParameter parameter1 = new SqlParameter();
                 parameter1.ParameterName = "@Nombre";
-                parameter1.Value = valMod._nombre;
+                parameter1.Value = valMod.Nombre;
                 parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
 
                 SqlParameter parameter2 = new SqlParameter();
                 parameter2.ParameterName = "@Apellido";
-                parameter2.Value = valMod._apellido;
+                parameter2.Value = valMod.Apellido;
                 parameter2.SqlDbType = System.Data.SqlDbType.VarChar;
 
                 SqlParameter parameter3 = new SqlParameter();
@@ -169,7 +169,7 @@ namespace DAL
 
                 SqlParameter parameter10 = new SqlParameter();
                 parameter10.ParameterName = "@Estado";
-                parameter10.Value = valMod._idEstado;
+                parameter10.Value = valMod.Id_Estado;
                 parameter10.SqlDbType = System.Data.SqlDbType.Int;
 
                 comm.Parameters.Add(parameter1);
