@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DigitoVerificadorDAL
     {
-        private BE.Usuario usuarioActual = BE.Usuario.Instance;
+        private BE.BE_Usuarios usuarioActual = BE.Usuario.Instance;
 
         public DataTable ObtenerListaDeDVHUsuarios()
         {
@@ -56,7 +56,7 @@ namespace DAL
 
             String query = "UPDATE [DVHUsuario] set [HashCode] = @hashDVH WHERE id_Usuario = @IdUsuario";
             SqlCommand command = new SqlCommand(query);
-            command.Parameters.AddWithValue("@IdUsuario", usuarioActual.IdUsuario);
+            command.Parameters.AddWithValue("@IdUsuario", BE.Usuario.Instance.IdUsuario);
             command.Parameters.AddWithValue("@hashDVH", codigoHash);
 
             try

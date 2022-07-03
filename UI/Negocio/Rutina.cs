@@ -37,7 +37,7 @@ namespace UI.Negocio
 
         public void Update(Idioma idioma)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

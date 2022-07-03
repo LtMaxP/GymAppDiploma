@@ -47,7 +47,6 @@ namespace BE
         }
 
 
-
         private string dvh;
 
         public string _DVH
@@ -78,6 +77,14 @@ namespace BE
         {
             get { return _rol; }
             set { _rol = value; }
+        }
+
+        private List<componente> _arbol;  //Mal tiene q venir el Component de la bll, pasar todo eso tmb a la BE
+
+        public List<Composite> arbol
+        {
+            get { return _arbol; }
+            set { _arbol = value; }
         }
 
     }

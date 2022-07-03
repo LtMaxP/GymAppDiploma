@@ -55,48 +55,48 @@ namespace DAL
 
             return returnable;
         }
-        public Boolean LoginUser(Usuario user)
+        public Boolean LoginUser()
         {
             bool respuesta = false;
             try
             {
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre and Password = @pass";
-                comm.Parameters.AddWithValue("@nombre", user.User);
-                comm.Parameters.AddWithValue("@pass", user.Pass);
+                comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
+                comm.Parameters.AddWithValue("@pass", BE.Usuario.Instance.Pass);
 
                 respuesta = Acceso.Instance.ExecuteScalarBool(comm);
-                GoodUser(user);
+                GoodUser();
             }
             catch
             {
                 System.Windows.Forms.MessageBox.Show("Contraseña erronea");
                 BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Constraseña mal", "Medio"));
-                BadPass(user);
+                BadPass();
             }
             return respuesta;
         }
 
-        private void GoodUser(Usuario user)
+        private void GoodUser()
         {
             try
             {
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "Update Usuario set IntentosFallidos = 0 where Usuario = '@nombre' ";
-                comm.Parameters.AddWithValue("@nombre", user.User);
+                comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
 
                 Acceso.Instance.ExecuteNonQuery(comm);
             }
             catch { };
         }
 
-        public void BadPass(Usuario user)
+        public void BadPass()
         {
             try
             {
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "Update Usuario set IntentosFallidos = IntentosFallidos +1 where Usuario = '@nombre' ";
-                comm.Parameters.AddWithValue("@nombre", user.User);
+                comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
 
                 Acceso.Instance.ExecuteNonQuery(comm);
             }

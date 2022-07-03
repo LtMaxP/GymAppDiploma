@@ -20,7 +20,7 @@ namespace UI.Negocio
 
         public void Update(Idioma idioma)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void button3_Click(object sender, EventArgs e)

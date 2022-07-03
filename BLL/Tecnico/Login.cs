@@ -17,7 +17,8 @@ namespace BLL
     public class Login
     {
 
-        private BE.Usuario user = BE.Usuario.Instance;
+        //private BE.Usuario user = new BE.Usuario();
+
         private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
         private Servicios.Encriptacion encrip = new Servicios.Encriptacion();
         private BLL.Composite.FormarArbolCompo formarArbol = new Composite.FormarArbolCompo();
@@ -36,15 +37,15 @@ namespace BLL
         {
             Boolean retornableComoCocaCola = false;
             //string passEncript = Seguridad.Encriptacion.Encriptador(pass);
-            user.User = usuario;
-            user.Pass = pass;
             if (DALUserLogin.DetectarUsuario(usuario))
             {
-                if (DALUserLogin.LoginUser(user)) //passEncript arreglalo que la cagaste
+                BE.Usuario.Instance.User = usuario;
+                BE.Usuario.Instance.Pass = pass;
+                if (DALUserLogin.LoginUser()) //passEncript arreglalo que la cagaste
                 {
                     BuscarUsuario();
                     //Composite arbol formado
-                    var a = formarArbol.FormarArbolDeUsuario(user.IdUsuario);
+                    var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario);
 
                     foreach (Composite.Composite element in a.List())
                     {
@@ -64,10 +65,10 @@ namespace BLL
 
                     bit.RegistrarMovimiento("Ingreso Usuario con ID: " + BE.Usuario.Instance.IdUsuario, "Bajo"); //cambiar a nueva clase
                 }
-                if (user.IntentosFallidos == 3)
-                {
-                    //bloqueas usuario
-                }
+                ////if (user.IntentosFallidos == 3)
+                ////{
+                ////    //bloqueas usuario
+                ////}
 
             }
             return retornableComoCocaCola;
