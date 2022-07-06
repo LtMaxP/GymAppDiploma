@@ -401,7 +401,7 @@ namespace UI
             }
             else
             {
-                Rutina.Activate();
+                AgIdioma.Activate();
             }
         }
         private void AgIdioma_FormClosed(object sender, FormClosedEventArgs e)

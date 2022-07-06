@@ -64,10 +64,33 @@ namespace UI.Tecnico
             lang.NombreIdioma = comboBox1.Text;
             lang = BLLIdioma.MostrarIdioma(lang);
             dataGridView1.AutoGenerateColumns = true;
-            foreach (Leyenda ley in lang.Leyendas)
+            dataGridView1.DataSource = lang.Leyendas;
+            dataGridView1.Columns[0].HeaderCell.Value = "Texto";
+            dataGridView1.Columns[1].HeaderCell.Value = "Nuevo Texto";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BE_Idioma idioma = new BE_Idioma();
+            idioma.NombreIdioma = comboBox1.Text;
+            if (BLLIdioma.ValidarExistencia(idioma))
             {
-                dataGridView1.Rows.Add(ley._textoLabel);
+
+                List<Leyenda> ley = new List<Leyenda>();
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    Leyenda leyenda = new Leyenda();
+                    leyenda._textoLabel = row.Cells[1].ToString();
+                    ley.Add(leyenda);
+                }
+                idioma.Leyendas = ley;
+                BLLIdioma.ModificarIdioma(idioma);
             }
+            else
+            {
+                MessageBox.Show("Idioma Erroneo NO lo modifiques ヾ(•ω•`)o");
+            }
+
         }
     }
 }

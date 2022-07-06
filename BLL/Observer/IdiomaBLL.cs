@@ -40,5 +40,19 @@ namespace BLL.Observer
         {
             return idiom.VerListadoIdioma(lang);
         }
+
+        /// <summary>
+        /// Envio del pack idioma con leyendas para modificar
+        /// </summary>
+        /// <param name="idiom"></param>
+        public void ModificarIdioma(BE_Idioma idioma)
+        {
+            idiom.ModificalIdiomaDAL(idioma);
+        }
+
+        public bool ValidarExistencia(BE_Idioma idioma)
+        {
+            return idiom.ValidarExistenciaIdioma(idioma);
+        }
     }
 }

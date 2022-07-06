@@ -156,84 +156,6 @@
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
-  <data name="labelAcciones.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Javanese Text, 9.75pt</value>
-  </data>
-  <data name="labelAcciones.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 33</value>
-  </data>
-  <data name="labelAcciones.Text" xml:space="preserve">
-    <value>Acciones</value>
-  </data>
-  <data name="labelSistema.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Javanese Text, 9.75pt</value>
-  </data>
-  <data name="labelSistema.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 33</value>
-  </data>
-  <data name="labelSistema.Text" xml:space="preserve">
-    <value>Sistema</value>
-  </data>
-  <data name="labelEspañol.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="labelEspañol.Text" xml:space="preserve">
-    <value>Español</value>
-  </data>
-  <data name="labelIngles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="labelIngles.Text" xml:space="preserve">
-    <value>Ingles</value>
-  </data>
-  <data name="agregarIdiomaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="agregarIdiomaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Agregar Idioma</value>
-  </data>
-  <data name="labelIdioma.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Javanese Text, 9.75pt</value>
-  </data>
-  <data name="labelIdioma.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 33</value>
-  </data>
-  <data name="labelIdioma.Text" xml:space="preserve">
-    <value>Idioma</value>
-  </data>
-  <data name="labelAyuda.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Javanese Text, 9.75pt</value>
-  </data>
-  <data name="labelAyuda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 33</value>
-  </data>
-  <data name="labelAyuda.Text" xml:space="preserve">
-    <value>Ayuda</value>
-  </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1442, 37</value>
-  </data>
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 34</value>
   </data>
@@ -270,23 +192,32 @@
   <data name="productosToolStripMenuItem.Text" xml:space="preserve">
     <value>Productos</value>
   </data>
+  <data name="claseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 34</value>
+  </data>
+  <data name="claseToolStripMenuItem.Text" xml:space="preserve">
+    <value>Clase</value>
+  </data>
+  <data name="rutinaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 34</value>
+  </data>
+  <data name="rutinaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Rutina</value>
+  </data>
   <data name="profesoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 34</value>
   </data>
   <data name="profesoresToolStripMenuItem.Text" xml:space="preserve">
     <value>Profesores</value>
   </data>
-  <data name="claseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+  <data name="labelAcciones.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Javanese Text, 9.75pt</value>
   </data>
-  <data name="claseToolStripMenuItem.Text" xml:space="preserve">
-    <value>Clase</value>
+  <data name="labelAcciones.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 33</value>
   </data>
-  <data name="rutinaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="rutinaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Rutina</value>
+  <data name="labelAcciones.Text" xml:space="preserve">
+    <value>Acciones</value>
   </data>
   <data name="labelABMUsuarios.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 34</value>
@@ -312,11 +243,29 @@
   <data name="labelBackupRestore.Text" xml:space="preserve">
     <value>Backup y Restore</value>
   </data>
-  <data name="easterEggToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 34</value>
+  <data name="labelSistema.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Javanese Text, 9.75pt</value>
   </data>
-  <data name="easterEggToolStripMenuItem.Text" xml:space="preserve">
-    <value>Mesa Especial</value>
+  <data name="labelSistema.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 33</value>
+  </data>
+  <data name="labelSistema.Text" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
+  <data name="agregarIdiomaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="agregarIdiomaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Seccion Idioma</value>
+  </data>
+  <data name="labelIdioma.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Javanese Text, 9.75pt</value>
+  </data>
+  <data name="labelIdioma.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 33</value>
+  </data>
+  <data name="labelIdioma.Text" xml:space="preserve">
+    <value>Idioma</value>
   </data>
   <data name="verSecretoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 34</value>
@@ -324,17 +273,56 @@
   <data name="verSecretoToolStripMenuItem.Text" xml:space="preserve">
     <value>VAS</value>
   </data>
+  <data name="easterEggToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="easterEggToolStripMenuItem.Text" xml:space="preserve">
+    <value>Mesa Especial</value>
+  </data>
   <data name="infoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 34</value>
+    <value>180, 34</value>
   </data>
   <data name="infoToolStripMenuItem.Text" xml:space="preserve">
     <value>Info.</value>
   </data>
   <data name="contactoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 34</value>
+    <value>180, 34</value>
   </data>
   <data name="contactoToolStripMenuItem.Text" xml:space="preserve">
     <value>Contacto</value>
+  </data>
+  <data name="labelAyuda.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Javanese Text, 9.75pt</value>
+  </data>
+  <data name="labelAyuda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 33</value>
+  </data>
+  <data name="labelAyuda.Text" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1442, 37</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -445,18 +433,6 @@
     <value>labelIdioma</value>
   </data>
   <data name="&gt;&gt;labelIdioma.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelEspañol.Name" xml:space="preserve">
-    <value>labelEspañol</value>
-  </data>
-  <data name="&gt;&gt;labelEspañol.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelIngles.Name" xml:space="preserve">
-    <value>labelIngles</value>
-  </data>
-  <data name="&gt;&gt;labelIngles.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;agregarIdiomaToolStripMenuItem.Name" xml:space="preserve">

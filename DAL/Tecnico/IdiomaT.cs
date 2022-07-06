@@ -45,6 +45,56 @@ namespace DAL
             #endregion
         }
 
+        public bool ValidarExistenciaIdioma(BE_Idioma idioma)
+        {
+            String qry = "SELECT Id_Idioma FROM [Idioma] WHERE Idioma = @Nombre";
+            String qry2 = @"SELECT Idioma,
+                            CASE
+                            WHEN Idioma = 'Español' THEN 'TRUE'
+                            ELSE 'FALSE' END AS Idi
+                            from[dbo].[Idioma]";
+            SqlCommand command = new SqlCommand(qry);
+            command.Parameters.AddWithValue("@Nombre", idioma.NombreIdioma);
+            Boolean resultado = false;
+            try
+            {
+                idioma.Id = Acceso.Instance.ExecuteScalar(command);
+                resultado = true;
+            }
+            catch { System.Windows.Forms.MessageBox.Show("Error al intentar traer el id del idioma"); }
+            return resultado;
+        }
+
+        /// <summary>
+        /// Inicio de Accion de modificar un idioma en la DAL
+        /// </summary>
+        /// <param name="idioma"></param>
+        public void ModificalIdiomaDAL(BE_Idioma idioma)
+        {
+            DameIdIdioma(idioma);
+            ModificarIdioma(idioma);
+        }
+
+        /// <summary>
+        /// Modificar por Query todos los campos del idioma elegido
+        /// </summary>
+        /// <param name="idioma"></param>
+        private void ModificarIdioma(BE_Idioma idioma)
+        {
+            String query = "UPDATE Usuario SET id_idioma = '" + idioma.Id + "' WHERE Id_Usuario = '" + BE.Usuario.Instance.IdUsuario + "'";
+            SqlCommand command = new SqlCommand(query);
+            try
+            {
+                int i = Acceso.Instance.ExecuteNonQuery(command);
+            }
+            catch { System.Windows.Forms.MessageBox.Show("Error al intentar Modificar idioma"); }
+        }
+
+        /// <summary>
+        /// Devuelve el id del Nombre de idioma q se pase
+        /// </summary>
+        /// <param name="idioma"></param>
+        /// <returns></returns>
         public BE_Idioma DameIdIdioma(BE_Idioma idioma)
         {
             String qry = "SELECT Id_Idioma FROM [Idioma] WHERE Idioma = @Nombre";
@@ -167,7 +217,7 @@ namespace DAL
             {
                 int i = Acceso.Instance.ExecuteNonQuery(command);
             }
-            catch { System.Windows.Forms.MessageBox.Show("Error al intentar CAMBIAR idioma"); }
+            catch { System.Windows.Forms.MessageBox.Show("Error al intentar CAMBIAR idioma del usuario"); }
             //if (i == 1)
             //{
             //    BE.Usuario.Instance.Idioma = idIdioma;

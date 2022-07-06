@@ -49,8 +49,6 @@ namespace UI
             this.labelBitacoraDV = new System.Windows.Forms.ToolStripMenuItem();
             this.labelBackupRestore = new System.Windows.Forms.ToolStripMenuItem();
             this.labelIdioma = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelEspañol = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelIngles = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.easterEggToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -192,24 +190,10 @@ namespace UI
             // labelIdioma
             // 
             this.labelIdioma.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelEspañol,
-            this.labelIngles,
             this.agregarIdiomaToolStripMenuItem});
             resources.ApplyResources(this.labelIdioma, "labelIdioma");
             this.labelIdioma.Name = "labelIdioma";
             this.labelIdioma.Click += new System.EventHandler(this.labelIdioma_Click);
-            // 
-            // labelEspañol
-            // 
-            this.labelEspañol.Name = "labelEspañol";
-            resources.ApplyResources(this.labelEspañol, "labelEspañol");
-            this.labelEspañol.Click += new System.EventHandler(this.españolToolStripMenuItem_Click);
-            // 
-            // labelIngles
-            // 
-            this.labelIngles.Name = "labelIngles";
-            resources.ApplyResources(this.labelIngles, "labelIngles");
-            this.labelIngles.Click += new System.EventHandler(this.inglesToolStripMenuItem_Click);
             // 
             // agregarIdiomaToolStripMenuItem
             // 
@@ -292,8 +276,6 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem labelBackupRestore;
         private System.Windows.Forms.ToolStripMenuItem labelABMUsuarios;
         private System.Windows.Forms.ToolStripMenuItem labelIdioma;
-        private System.Windows.Forms.ToolStripMenuItem labelEspañol;
-        private System.Windows.Forms.ToolStripMenuItem labelIngles;
         private System.Windows.Forms.ToolStripMenuItem labelAyuda;
         private System.Windows.Forms.ToolStripMenuItem easterEggToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verSecretoToolStripMenuItem;
