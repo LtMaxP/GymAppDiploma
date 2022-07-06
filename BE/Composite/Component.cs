@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Composite
+namespace BE.Compositergal
 {
     public abstract class Component
     {

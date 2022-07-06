@@ -30,12 +30,6 @@ namespace BE
         }
         #endregion
 
-        private List<Composite> _arbol;  //Mal tiene q venir el Component de la bll, pasar todo eso tmb a la BE
 
-        public List<Composite> arbol
-        {
-            get { return _arbol; }
-            set { _arbol = value; }
-        }
     }
 }

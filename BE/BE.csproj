@@ -59,6 +59,10 @@
     <Compile Include="Negocio\BE_Ejercicio.cs" />
     <Compile Include="Negocio\Trabajo.cs" />
     <Compile Include="Negocio\Persona.cs" />
+    <Compile Include="ObserverIdioma\BE_Idioma.cs" />
+    <Compile Include="ObserverIdioma\IObserverIdioma.cs" />
+    <Compile Include="ObserverIdioma\Leyenda.cs" />
+    <Compile Include="ObserverIdioma\SubjectIdioma.cs" />
     <Compile Include="Tecnico\BE_BackUp.cs" />
     <Compile Include="Tecnico\BE_Usuarios.cs" />
     <Compile Include="Negocio\BE_Empleado.cs" />

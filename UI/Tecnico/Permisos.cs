@@ -20,7 +20,7 @@ namespace UI
 
         public void Update(Idioma idioma)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void Permisos_Load(object sender, EventArgs e)

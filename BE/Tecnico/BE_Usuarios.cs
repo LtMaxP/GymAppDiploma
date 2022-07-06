@@ -71,6 +71,15 @@ namespace BE
             set { id_Idioma = value; }
         }
 
+        private ObserverIdioma.BE_Idioma _idioma;
+
+        public ObserverIdioma.BE_Idioma Idioma
+        {
+            get { return _idioma; }
+            set { _idioma = value; }
+        }
+
+
         private string _rol;
 
         public string rol
@@ -79,13 +88,13 @@ namespace BE
             set { _rol = value; }
         }
 
-        private List<Composite> _arbol;  //Mal tiene q venir el Component de la bll, pasar todo eso tmb a la BE
+        //private List<Composite.component> _arbol;  //Mal tiene q venir el Component de la bll, pasar todo eso tmb a la BE
 
-        public List<Composite> arbol
-        {
-            get { return _arbol; }
-            set { _arbol = value; }
-        }
+        //public List<BE.> arbol
+        //{
+        //    get { return _arbol; }
+        //    set { _arbol = value; }
+        //}
 
     }
 }

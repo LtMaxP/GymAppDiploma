@@ -44,6 +44,7 @@ namespace BLL
                 if (DALUserLogin.LoginUser()) //passEncript arreglalo que la cagaste
                 {
                     BuscarUsuario();
+
                     //Composite arbol formado
                     var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario);
 

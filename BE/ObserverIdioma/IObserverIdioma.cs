@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Observer
+namespace BE.ObserverIdioma
 {
-    public enum IdiomaEnum
+    public interface IObserverIdioma
     {
-        Español = 1,
-        English = 2
+        void Update();
     }
-    
 }

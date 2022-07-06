@@ -7,15 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BE.ObserverIdioma;
 using BLL.Observer;
 using UI.Negocio;
 
 namespace UI
 {
-    public partial class Inicio : Form, BLL.Observer.IObserver
+    public partial class Inicio : Form, IObserverIdioma
     {
         Bitmap secSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
         Bitmap wallpaper = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
+        IdiomaBLL BLLIdioma = new IdiomaBLL();
         int speIma = 0;
         public Inicio()
         {
@@ -24,26 +26,16 @@ namespace UI
         }
 
         #region traducir
-        private List<BE.Idioma> _pack;
-        private List<BE.Idioma> pack
-        {
-            get
-            {
-                if(_pack == null)
-                {
-                    _pack = IdiomaBLL.Instance.DamePackDeIdiomas;
-                }
-                return _pack;
-            }
-        }
+        //BE.ObserverIdioma.BE_Idioma pack = BLLIdioma.DamePackDeIdioma();
+    
 
         public void Traducir(Control c)
         {
             if (!string.IsNullOrEmpty(c.Text))
             {
-                foreach (BE.Idioma us in pack)
+                foreach (Leyenda us in BE.Usuario.Instance.Idioma.Leyendas)
                 {
-                    if (us._nombreEtiqueta == c.Name && us._idiomaPerteneciente == BE.Usuario.Instance.idIdioma)
+                    if (us._nombreEtiqueta == c.Name)
                     {
                         c.Text = us._textoLabel;
                     }
@@ -71,9 +63,9 @@ namespace UI
             {
                 if (!string.IsNullOrEmpty(item.Name))
                 {
-                    foreach (BE.Idioma us in pack)
+                    foreach (Leyenda us in BE.Usuario.Instance.Idioma.Leyendas)
                     {
-                        if (us._nombreEtiqueta == item.Name && us._idiomaPerteneciente == BE.Usuario.Instance.idIdioma)
+                        if (us._nombreEtiqueta == item.Name)
                         {
                             item.Text = us._textoLabel;
                         }
@@ -103,12 +95,13 @@ namespace UI
         Rutina Rutina;
         Clases clases;
         Productos productos;
+        UI.Tecnico.Idioma AgIdioma;
         #endregion
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            Subject.AddObserver(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            SubjectIdioma.AddObserverIdioma(this);
+            //Subject.Notify(SingletonIdioma.GetInstance().Idioma);
         }
 
 
@@ -126,6 +119,35 @@ namespace UI
             //uABM.Show();
         }
 
+
+
+        private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+            LogIn logg = new LogIn();
+            logg.Mostrar();
+
+        }
+
+
+        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
+            //BLL.Observer.IdiomaBLL.Instance.CambiarIdiomaDeUsuario();
+            //Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+        }
+
+        private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
+            //BLL.Observer.IdiomaBLL.Instance.CambiarIdiomaDeUsuario();
+            //Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+
+        }
+
+
+        #region formularios carga
+
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Fclient == null)
@@ -140,12 +162,10 @@ namespace UI
                 Fclient.Activate();
             }
         }
-
         private void Fclient_FormClosed(object sender, FormClosedEventArgs e)
         {
             Fclient = null;
         }
-
         private void aBMUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FuserABM == null)
@@ -160,12 +180,10 @@ namespace UI
                 FuserABM.Activate();
             }
         }
-
         private void FuserABM_FormClosed(object sender, FormClosedEventArgs e)
         {
             FuserABM = null;
         }
-
         private void bitacoraDVToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FbitDV == null)
@@ -180,53 +198,18 @@ namespace UI
                 FbitDV.Activate();
             }
         }
-
         private void FbitDV_FormClosed(object sender, FormClosedEventArgs e)
         {
             FbitDV = null;
         }
-
-
-        private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-            LogIn logg = new LogIn();
-            logg.Mostrar();
-
-        }
-        public void Update(Idioma idioma)
-        {
-            TraducirTodo();
-        }
-
-        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
-            BLL.Observer.IdiomaBLL.Instance.CambiarIdiomaDeUsuario();
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
-        }
-
-        private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
-            BLL.Observer.IdiomaBLL.Instance.CambiarIdiomaDeUsuario();
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
-
-        }
-
-
-
-
         private void easterEggToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void verSecretoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (speIma == 0)
@@ -240,7 +223,6 @@ namespace UI
                 speIma = 0;
             }
         }
-
         private void labelEmpleados_Click(object sender, EventArgs e)
         {
             if (Femp == null)
@@ -259,7 +241,6 @@ namespace UI
         {
             Femp = null;
         }
-
         private void labelBackupRestore_Click(object sender, EventArgs e)
         {
             if (Fbackrest == null)
@@ -278,10 +259,8 @@ namespace UI
         {
             Fbackrest = null;
         }
-
         private void labelFacturas_Click(object sender, EventArgs e)
         {
-            //facturas-pagoscobros-listas FALTANTE
             if (Factu == null)
             {
                 Factu = new Facturas();
@@ -298,7 +277,6 @@ namespace UI
         {
             Factu = null;
         }
-
         private void labelPagosYCobros_Click(object sender, EventArgs e)
         {
             if (PyG == null)
@@ -317,7 +295,6 @@ namespace UI
         {
             PyG = null;
         }
-
         private void labelListas_Click(object sender, EventArgs e)
         {
             if (Listados == null)
@@ -336,7 +313,6 @@ namespace UI
         {
             Listados = null;
         }
-
         private void permisosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -360,7 +336,6 @@ namespace UI
         {
             Permi = null;
         }
-
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (productos == null)
@@ -397,7 +372,6 @@ namespace UI
         {
             clases = null;
         }
-
         private void rutinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Rutina == null)
@@ -415,6 +389,33 @@ namespace UI
         private void Rutina_FormClosed(object sender, FormClosedEventArgs e)
         {
             Rutina = null;
+        }
+        private void agregarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (AgIdioma == null)
+            {
+                AgIdioma = new UI.Tecnico.Idioma();
+                AgIdioma.MdiParent = this;
+                AgIdioma.FormClosed += new FormClosedEventHandler(AgIdioma_FormClosed);
+                AgIdioma.Show();
+            }
+            else
+            {
+                Rutina.Activate();
+            }
+        }
+        private void AgIdioma_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            AgIdioma = null;
+        }
+
+        #endregion
+
+        public void Update()
+        {
+            //se ampliará pasando el idioma?
+            TraducirTodo();
+
         }
     }
 }

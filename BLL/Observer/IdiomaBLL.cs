@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE.ObserverIdioma;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,67 +10,35 @@ namespace BLL.Observer
 {
     public class IdiomaBLL
     {
-        private static IdiomaBLL _instance;
-        private IdiomaBLL()
+        public IdiomaBLL()
         { }
-
-        public static IdiomaBLL Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new IdiomaBLL();
-                }
-                return _instance;
-            }
-        }
 
         private DAL.IdiomaT idiom = new DAL.IdiomaT();
 
-        private List<BE.Idioma> _idiomasTotales;
 
-        public List<BE.Idioma> DamePackDeIdiomas
+        public BE_Idioma DamePackDeIdioma(BE_Idioma idioma)
         {
-            get
-            {
-                if(_idiomasTotales == null)
-                {
-                    _idiomasTotales = new List<BE.Idioma>();
-                    this.packIdioma();
-                }
-
-                return _idiomasTotales;
-            }
+            return idiom.TraerListaDeIdioma(idioma);
+        }
+        /// <summary>
+        /// Retorna listado de Idiomas existentes
+        /// </summary>
+        /// <returns></returns>
+        public List<BE_Idioma> DameIdiomas()
+        {
+            return idiom.IdiomasExistentes();
         }
 
-
-        private void packIdioma()
+        public void CambiarIdiomaDeUsuario(BE_Idioma idioma)
         {
-            DataTable dt = idiom.TraerListaDeIdiomas();
-            
-            foreach (DataRow fila in dt.Rows)
-            {
-                BE.Idioma transitorio = new BE.Idioma();
-                transitorio._idiomaPerteneciente = int.Parse(fila[0].ToString());
-                transitorio._textoLabel = fila[1].ToString();
-                transitorio._nombreEtiqueta = fila[2].ToString();
-
-                _idiomasTotales.Add(transitorio);
-            }
-
+            idioma = idiom.DameIdIdioma(idioma);
+            idiom.CambiarIDIdiomaDeUsuarioDAL(idioma);
+            idiom.CargarIdiomaAUsuarioPorId();
         }
-        
-        public void CambiarIdiomaDeUsuario()
+
+        public BE.ObserverIdioma.BE_Idioma MostrarIdioma(BE_Idioma lang)
         {
-            if(SingletonIdioma.GetInstance().Idioma.IdiomaSelected == IdiomaEnum.Español)
-            {
-                idiom.CambiarIdiomaDeUsuarioDAL(BE.Usuario.Instance.IdUsuario, 1);
-            }
-            else
-            {
-                idiom.CambiarIdiomaDeUsuarioDAL(BE.Usuario.Instance.IdUsuario, 2);
-            }
+            return idiom.VerListadoIdioma(lang);
         }
     }
 }
