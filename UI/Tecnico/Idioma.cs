@@ -65,17 +65,23 @@ namespace UI.Tecnico
             lang = BLLIdioma.MostrarIdioma(lang);
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = lang.Leyendas;
-            dataGridView1.Columns[0].HeaderCell.Value = "Texto";
-            dataGridView1.Columns[1].HeaderCell.Value = "Nuevo Texto";
+            dataGridView1.Columns[0].HeaderCell.Value = "Etiqueta";
+            dataGridView1.Columns[1].HeaderCell.Value = "Texto";
+            dataGridView1.Columns.Add("NewTxt", "Nuevo Texto");
+
         }
 
+        /// <summary>
+        /// Modificar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             BE_Idioma idioma = new BE_Idioma();
             idioma.NombreIdioma = comboBox1.Text;
             if (BLLIdioma.ValidarExistencia(idioma))
             {
-
                 List<Leyenda> ley = new List<Leyenda>();
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {

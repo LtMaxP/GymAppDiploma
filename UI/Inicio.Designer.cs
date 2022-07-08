@@ -55,6 +55,7 @@ namespace UI
             this.verSecretoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.controlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,7 +160,8 @@ namespace UI
             this.labelABMUsuarios,
             this.labelFamiliaPatentes,
             this.labelBitacoraDV,
-            this.labelBackupRestore});
+            this.labelBackupRestore,
+            this.controlDeCambiosToolStripMenuItem});
             resources.ApplyResources(this.labelSistema, "labelSistema");
             this.labelSistema.Name = "labelSistema";
             // 
@@ -234,6 +236,11 @@ namespace UI
             this.contactoToolStripMenuItem.Name = "contactoToolStripMenuItem";
             resources.ApplyResources(this.contactoToolStripMenuItem, "contactoToolStripMenuItem");
             // 
+            // controlDeCambiosToolStripMenuItem
+            // 
+            this.controlDeCambiosToolStripMenuItem.Name = "controlDeCambiosToolStripMenuItem";
+            resources.ApplyResources(this.controlDeCambiosToolStripMenuItem, "controlDeCambiosToolStripMenuItem");
+            // 
             // Inicio
             // 
             resources.ApplyResources(this, "$this");
@@ -286,5 +293,6 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem claseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rutinaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem controlDeCambiosToolStripMenuItem;
     }
 }

@@ -114,6 +114,12 @@
     <Compile Include="Negocio\Facturas.Designer.cs">
       <DependentUpon>Facturas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tecnico\ControlCambios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tecnico\ControlCambios.Designer.cs">
+      <DependentUpon>ControlCambios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tecnico\FamiliasYPatentes.cs">
       <SubType>Form</SubType>
     </Compile>
