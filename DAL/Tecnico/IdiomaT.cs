@@ -70,8 +70,21 @@ namespace DAL
         /// <param name="idioma"></param>
         public void ModificalIdiomaDAL(BE_Idioma idioma)
         {
-            DameIdIdioma(idioma);
-            ModificarIdioma(idioma);
+            foreach (Leyenda leye in idioma.Leyendas)
+            {
+                String query = "UPDATE CampoIdioma SET Texto_Lbl = @label WHERE Id_Idioma = @idioma AND Texto_Lbl = @Texto";
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@idioma", idioma.Id);
+                //string txt = (from L in idioma.Leyendas where L._textoLabel == "ElLabelBabe" select L._textoLabel).FirstOrDefault();
+                command.Parameters.AddWithValue("@Texto", leye._nombreEtiqueta);
+                command.Parameters.AddWithValue("@label", leye._textoLabel);
+                try
+                {
+                    int i = Acceso.Instance.ExecuteNonQuery(command);
+                }
+                catch { System.Windows.Forms.MessageBox.Show("Error al intentar Modificar idioma"); }
+
+            }
         }
 
         /// <summary>
@@ -80,11 +93,12 @@ namespace DAL
         /// <param name="idioma"></param>
         private void ModificarIdioma(BE_Idioma idioma)
         {
-            String query = "UPDATE CampoIdioma SET Texto_Lbl = @Texto WHERE Id_Idioma = @idioma AND Id_label = @label";
+            String query = "UPDATE CampoIdioma SET Texto_Lbl = @Texto WHERE Id_Idioma = @idioma AND Texto_Lbl = @label";
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@idioma", idioma.Id);
-            string txt = (from L in idioma.Leyendas where L._textoLabel == "ElLabelBabe" select L._textoLabel).FirstOrDefault();
-            command.Parameters.AddWithValue("@label", txt);
+            //string txt = (from L in idioma.Leyendas where L._textoLabel == "ElLabelBabe" select L._textoLabel).FirstOrDefault();
+            //command.Parameters.AddWithValue("@Texto", idioma.Leyendas.);
+            command.Parameters.AddWithValue("@label", "aa");
             try
             {
                 int i = Acceso.Instance.ExecuteNonQuery(command);
@@ -135,7 +149,7 @@ namespace DAL
                 foreach (DataRow fila in dt.Rows)
                 {
                     BE.ObserverIdioma.Leyenda transitorio = new BE.ObserverIdioma.Leyenda();
-                    transitorio._nombreEtiqueta = fila[3].ToString();
+                    //transitorio._nombreEtiqueta = fila[3].ToString();
                     transitorio._textoLabel = fila[2].ToString();
                     ley.Add(transitorio);
                 }

@@ -65,38 +65,86 @@ namespace UI.Tecnico
             lang = BLLIdioma.MostrarIdioma(lang);
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = lang.Leyendas;
-            dataGridView1.Columns[0].HeaderCell.Value = "Etiqueta";
-            dataGridView1.Columns[1].HeaderCell.Value = "Texto";
-            dataGridView1.Columns.Add("NewTxt", "Nuevo Texto");
-
+            dataGridView1.Columns[0].HeaderCell.Value = "Texto";
+            dataGridView1.Columns[1].HeaderCell.Value = "Nuevo Texto";
+            LabelIdi.Text = lang.NombreIdioma;
         }
 
         /// <summary>
-        /// Modificar
+        /// Modificar el idioma
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             BE_Idioma idioma = new BE_Idioma();
-            idioma.NombreIdioma = comboBox1.Text;
+            idioma.NombreIdioma = LabelIdi.Text;
             if (BLLIdioma.ValidarExistencia(idioma))
             {
                 List<Leyenda> ley = new List<Leyenda>();
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    Leyenda leyenda = new Leyenda();
-                    leyenda._textoLabel = row.Cells[1].ToString();
-                    ley.Add(leyenda);
+                    string txt = row.Cells[1].FormattedValue.ToString();
+                    if (!string.IsNullOrWhiteSpace(txt))
+                    {
+                        Leyenda leyenda = new Leyenda();
+                        leyenda._nombreEtiqueta = row.Cells[0].Value.ToString();
+                        leyenda._textoLabel = row.Cells[1].Value.ToString();
+                        ley.Add(leyenda);
+                    }
                 }
                 idioma.Leyendas = ley;
                 BLLIdioma.ModificarIdioma(idioma);
+                MessageBox.Show("Idioma modificado ! ヾ(•ω•`)o");
+                //reload?=
             }
             else
             {
-                MessageBox.Show("Idioma Erroneo NO lo modifiques ヾ(•ω•`)o");
+                MessageBox.Show("Seleccione un idioma existente a modificar ヾ(•ω•`)o");
             }
 
+        }
+
+        /// <summary>
+        /// Crear nuevo idioma
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(textBox1.Text))
+            {
+
+                BE_Idioma idioma = new BE_Idioma();
+                idioma.NombreIdioma = LabelIdi.Text;
+                if (!BLLIdioma.ValidarExistencia(idioma))
+                {
+                    List<Leyenda> ley = new List<Leyenda>();
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        string txt = row.Cells[1].FormattedValue.ToString();
+                        if (!string.IsNullOrWhiteSpace(txt))
+                        {
+                            Leyenda leyenda = new Leyenda();
+                            leyenda._nombreEtiqueta = row.Cells[0].Value.ToString();
+                            leyenda._textoLabel = row.Cells[1].Value.ToString();
+                            ley.Add(leyenda);
+                        }
+                    }
+                    idioma.Leyendas = ley;
+                    BLLIdioma.ModificarIdioma(idioma);
+                    MessageBox.Show("Idioma creado ! ヾ(•ω•`)o");
+                    //reload?=
+                }
+                else
+                {
+                    MessageBox.Show("Nombre de idioma ya existente ヾ(•ω•`)o");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe nombrar el nuevo idioma ヾ(•ω•`)o");
+            }
         }
     }
 }

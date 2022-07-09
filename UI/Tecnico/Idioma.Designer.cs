@@ -40,6 +40,7 @@ namespace UI.Tecnico
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.LabelIdi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,6 +76,7 @@ namespace UI.Tecnico
             this.button1.TabIndex = 3;
             this.button1.Text = "Crear";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
@@ -96,7 +98,7 @@ namespace UI.Tecnico
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(101, 194);
+            this.button2.Location = new System.Drawing.Point(121, 194);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(53, 22);
             this.button2.TabIndex = 6;
@@ -126,7 +128,7 @@ namespace UI.Tecnico
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(31, 194);
+            this.button5.Location = new System.Drawing.Point(44, 194);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(53, 22);
             this.button5.TabIndex = 9;
@@ -144,12 +146,21 @@ namespace UI.Tecnico
             this.label3.TabIndex = 10;
             this.label3.Text = "Idioma";
             // 
+            // LabelIdi
+            // 
+            this.LabelIdi.AutoSize = true;
+            this.LabelIdi.Location = new System.Drawing.Point(226, 45);
+            this.LabelIdi.Name = "LabelIdi";
+            this.LabelIdi.Size = new System.Drawing.Size(0, 13);
+            this.LabelIdi.TabIndex = 11;
+            // 
             // Idioma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(581, 591);
+            this.Controls.Add(this.LabelIdi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -184,5 +195,6 @@ namespace UI.Tecnico
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LabelIdi;
     }
 }

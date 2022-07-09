@@ -47,6 +47,7 @@ namespace BLL.Observer
         /// <param name="idiom"></param>
         public void ModificarIdioma(BE_Idioma idioma)
         {
+            idioma = idiom.DameIdIdioma(idioma);
             idiom.ModificalIdiomaDAL(idioma);
         }
 
