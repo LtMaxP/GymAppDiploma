@@ -36,6 +36,7 @@ namespace BLL.Observer
             idiom.CargarIdiomaAUsuarioPorId();
         }
 
+
         public BE.ObserverIdioma.BE_Idioma MostrarIdioma(BE_Idioma lang)
         {
             return idiom.VerListadoIdioma(lang);
@@ -49,6 +50,14 @@ namespace BLL.Observer
         {
             idioma = idiom.DameIdIdioma(idioma);
             idiom.ModificalIdiomaDAL(idioma);
+        }
+        /// <summary>
+        /// Crear nuevo idioma
+        /// </summary>
+        /// <param name="idioma"></param>
+        public void CrearIdioma(BE_Idioma idioma)
+        {
+           idiom.CrearIdiomaDAL(idioma);
         }
 
         public bool ValidarExistencia(BE_Idioma idioma)

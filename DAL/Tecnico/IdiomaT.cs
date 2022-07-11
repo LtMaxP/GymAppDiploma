@@ -80,30 +80,51 @@ namespace DAL
                 command.Parameters.AddWithValue("@label", leye._textoLabel);
                 try
                 {
-                    int i = Acceso.Instance.ExecuteNonQuery(command);
+                    Acceso.Instance.ExecuteNonQuery(command);
                 }
                 catch { System.Windows.Forms.MessageBox.Show("Error al intentar Modificar idioma"); }
-
             }
         }
 
         /// <summary>
-        /// Modificar por Query todos los campos del idioma elegido
+        /// Crear NUEVO idioma 
         /// </summary>
         /// <param name="idioma"></param>
-        private void ModificarIdioma(BE_Idioma idioma)
+        public void CrearIdiomaDAL(BE_Idioma idioma)
         {
-            String query = "UPDATE CampoIdioma SET Texto_Lbl = @Texto WHERE Id_Idioma = @idioma AND Texto_Lbl = @label";
-            SqlCommand command = new SqlCommand(query);
-            command.Parameters.AddWithValue("@idioma", idioma.Id);
-            //string txt = (from L in idioma.Leyendas where L._textoLabel == "ElLabelBabe" select L._textoLabel).FirstOrDefault();
-            //command.Parameters.AddWithValue("@Texto", idioma.Leyendas.);
-            command.Parameters.AddWithValue("@label", "aa");
             try
             {
-                int i = Acceso.Instance.ExecuteNonQuery(command);
+                String query = "INSERT INTO Idioma values (@nombre)";
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@nombre", idioma.NombreIdioma);
+                Acceso.Instance.ExecuteNonQuery(command);
+                idioma = DameIdIdioma(idioma);
+                CrearLabelsIdiomaDAL(idioma);
+
             }
-            catch { System.Windows.Forms.MessageBox.Show("Error al intentar Modificar idioma"); }
+            catch { System.Windows.Forms.MessageBox.Show("Error al intentar crear idioma"); }
+        }
+
+        /// <summary>
+        /// Insertar Labels nuevos
+        /// </summary>
+        /// <param name="idioma"></param>
+        public void CrearLabelsIdiomaDAL(BE_Idioma idioma)
+        {
+            foreach (Leyenda leye in idioma.Leyendas)
+            {
+                String query = "INSERT INTO [GymApp].[dbo].[CampoIdioma] VALUES(@idioma, @txtLbl, (select Id_label from [CampoIdioma] where Texto_Lbl = @Texto))";
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@idioma", idioma.Id);
+                //string txt = (from L in idioma.Leyendas where L._textoLabel == "ElLabelBabe" select L._textoLabel).FirstOrDefault();
+                command.Parameters.AddWithValue("@Texto", leye._nombreEtiqueta);
+                command.Parameters.AddWithValue("@txtLbl", leye._textoLabel);
+                try
+                {
+                    Acceso.Instance.ExecuteNonQuery(command);
+                }
+                catch { System.Windows.Forms.MessageBox.Show("Error al intentar crear labels del idioma"); }
+            }
         }
 
         /// <summary>

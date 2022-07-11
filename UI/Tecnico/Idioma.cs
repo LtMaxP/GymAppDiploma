@@ -36,6 +36,10 @@ namespace UI.Tecnico
             SubjectIdioma.AddObserverIdioma(this);
             //Subject.Notify(SingletonIdioma.GetInstance().Idioma);  usar el notify cuando se hace click en un idioma arriba
 
+            CargarComboIdiomas();
+        }
+        private void CargarComboIdiomas()
+        {
             comboBox1.DataSource = BLLIdioma.DameIdiomas();
             comboBox1.DisplayMember = "NombreIdioma";
         }
@@ -58,10 +62,19 @@ namespace UI.Tecnico
             SubjectIdioma.Notify();
         }
 
+        /// <summary>
+        /// Mostrar idioma seleccionado en tabla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             BE_Idioma lang = new BE_Idioma();
             lang.NombreIdioma = comboBox1.Text;
+            MostrarSeleccion(lang);
+        }
+        private void MostrarSeleccion(BE_Idioma lang)
+        {
             lang = BLLIdioma.MostrarIdioma(lang);
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = lang.Leyendas;
@@ -96,7 +109,7 @@ namespace UI.Tecnico
                 idioma.Leyendas = ley;
                 BLLIdioma.ModificarIdioma(idioma);
                 MessageBox.Show("Idioma modificado ! ヾ(•ω•`)o");
-                //reload?=
+                MostrarSeleccion(idioma);
             }
             else
             {
@@ -114,9 +127,8 @@ namespace UI.Tecnico
         {
             if (!String.IsNullOrEmpty(textBox1.Text))
             {
-
                 BE_Idioma idioma = new BE_Idioma();
-                idioma.NombreIdioma = LabelIdi.Text;
+                idioma.NombreIdioma = textBox1.Text;
                 if (!BLLIdioma.ValidarExistencia(idioma))
                 {
                     List<Leyenda> ley = new List<Leyenda>();
@@ -132,9 +144,11 @@ namespace UI.Tecnico
                         }
                     }
                     idioma.Leyendas = ley;
-                    BLLIdioma.ModificarIdioma(idioma);
+                    BLLIdioma.CrearIdioma(idioma);
+
                     MessageBox.Show("Idioma creado ! ヾ(•ω•`)o");
-                    //reload?=
+                    MostrarSeleccion(idioma);
+                    CargarComboIdiomas();
                 }
                 else
                 {
