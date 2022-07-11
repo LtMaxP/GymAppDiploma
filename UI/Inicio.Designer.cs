@@ -46,8 +46,11 @@ namespace UI
             this.labelSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.labelABMUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.labelFamiliaPatentes = new System.Windows.Forms.ToolStripMenuItem();
+            this.permisosGestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.permisosUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelBitacoraDV = new System.Windows.Forms.ToolStripMenuItem();
             this.labelBackupRestore = new System.Windows.Forms.ToolStripMenuItem();
+            this.controlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelIdioma = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +58,6 @@ namespace UI
             this.verSecretoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.controlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -173,9 +175,24 @@ namespace UI
             // 
             // labelFamiliaPatentes
             // 
+            this.labelFamiliaPatentes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.permisosGestionToolStripMenuItem,
+            this.permisosUsuarioToolStripMenuItem});
             this.labelFamiliaPatentes.Name = "labelFamiliaPatentes";
             resources.ApplyResources(this.labelFamiliaPatentes, "labelFamiliaPatentes");
             this.labelFamiliaPatentes.Click += new System.EventHandler(this.labelFamiliaPatentes_Click);
+            // 
+            // permisosGestionToolStripMenuItem
+            // 
+            this.permisosGestionToolStripMenuItem.Name = "permisosGestionToolStripMenuItem";
+            resources.ApplyResources(this.permisosGestionToolStripMenuItem, "permisosGestionToolStripMenuItem");
+            this.permisosGestionToolStripMenuItem.Click += new System.EventHandler(this.permisosGestionToolStripMenuItem_Click);
+            // 
+            // permisosUsuarioToolStripMenuItem
+            // 
+            this.permisosUsuarioToolStripMenuItem.Name = "permisosUsuarioToolStripMenuItem";
+            resources.ApplyResources(this.permisosUsuarioToolStripMenuItem, "permisosUsuarioToolStripMenuItem");
+            this.permisosUsuarioToolStripMenuItem.Click += new System.EventHandler(this.permisosUsuarioToolStripMenuItem_Click);
             // 
             // labelBitacoraDV
             // 
@@ -188,6 +205,11 @@ namespace UI
             this.labelBackupRestore.Name = "labelBackupRestore";
             resources.ApplyResources(this.labelBackupRestore, "labelBackupRestore");
             this.labelBackupRestore.Click += new System.EventHandler(this.labelBackupRestore_Click);
+            // 
+            // controlDeCambiosToolStripMenuItem
+            // 
+            this.controlDeCambiosToolStripMenuItem.Name = "controlDeCambiosToolStripMenuItem";
+            resources.ApplyResources(this.controlDeCambiosToolStripMenuItem, "controlDeCambiosToolStripMenuItem");
             // 
             // labelIdioma
             // 
@@ -235,11 +257,6 @@ namespace UI
             // 
             this.contactoToolStripMenuItem.Name = "contactoToolStripMenuItem";
             resources.ApplyResources(this.contactoToolStripMenuItem, "contactoToolStripMenuItem");
-            // 
-            // controlDeCambiosToolStripMenuItem
-            // 
-            this.controlDeCambiosToolStripMenuItem.Name = "controlDeCambiosToolStripMenuItem";
-            resources.ApplyResources(this.controlDeCambiosToolStripMenuItem, "controlDeCambiosToolStripMenuItem");
             // 
             // Inicio
             // 
@@ -294,5 +311,7 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem claseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rutinaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem controlDeCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem permisosGestionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem permisosUsuarioToolStripMenuItem;
     }
 }

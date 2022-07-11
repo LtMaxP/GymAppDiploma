@@ -11,7 +11,7 @@ using BLL.Observer;
 
 namespace UI
 {
-    public partial class BitacoraYDV : Form, BLL.Observer.IObserver
+    public partial class BitacoraYDV : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
         BLL.DV dv = new BLL.DV();
@@ -23,6 +23,7 @@ namespace UI
 
         private void button3_Click(object sender, EventArgs e)
         {
+            BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
 
@@ -55,11 +56,11 @@ namespace UI
 
         private void BitacoraYDV_Load(object sender, EventArgs e)
         {
-            Subject.AddObserver(this);
+            BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
             Subject.Notify(SingletonIdioma.GetInstance().Idioma);
         }
 
-        public void Update(Idioma idioma)
+        public void Update()
         {
             
         }

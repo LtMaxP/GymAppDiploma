@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE.ObserverIdioma;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,16 @@ using System.Windows.Forms;
 
 namespace UI.Tecnico
 {
-    public partial class ControlCambios : Form
+    public partial class ControlCambios : Form, IObserverIdioma
     {
         public ControlCambios()
         {
             InitializeComponent();
+        }
+
+        private void ControlCambios_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

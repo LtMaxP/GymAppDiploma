@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class BackupRestore : Form, IObserver
+    public partial class BackupRestore : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.Tecnico.Backup bkpBLL = new BLL.Tecnico.Backup();
         BLL.Tecnico.Restore rstBLL = new BLL.Tecnico.Restore();
@@ -31,18 +31,17 @@ namespace UI
 
         private void BackupRestore_Load(object sender, EventArgs e)
         {
-            Subject.AddObserver(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
         }
 
-        public void Update(Idioma idioma)
+        public void Update()
         {
 
         }
 
         private void btnVolverBackUp_Click(object sender, EventArgs e)
         {
-            Subject.RemoveObserver(this);
+            BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
 

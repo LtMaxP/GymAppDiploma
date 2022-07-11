@@ -22,11 +22,9 @@ namespace UI
         public Inicio()
         {
             InitializeComponent();
-            //TraducirTodo();
         }
 
         #region traducir
-        //BE.ObserverIdioma.BE_Idioma pack = BLLIdioma.DamePackDeIdioma();
     
 
         public void Traducir(Control c)
@@ -96,12 +94,14 @@ namespace UI
         Clases clases;
         Productos productos;
         UI.Tecnico.Idioma AgIdioma;
+        UI.Tecnico.ControlCambios CC;
+        PermisosUsuario PermUsu;
+
         #endregion
 
         private void Inicio_Load(object sender, EventArgs e)
         {
             SubjectIdioma.AddObserverIdioma(this);
-            //Subject.Notify(SingletonIdioma.GetInstance().Idioma);
         }
 
 
@@ -114,9 +114,6 @@ namespace UI
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            //UsuariosABM uABM = new UsuariosABM();
-            //uABM.Show();
         }
 
 
@@ -129,21 +126,6 @@ namespace UI
 
         }
 
-
-        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.Español;
-            //BLL.Observer.IdiomaBLL.Instance.CambiarIdiomaDeUsuario();
-            //Subject.Notify(SingletonIdioma.GetInstance().Idioma);
-        }
-
-        private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //SingletonIdioma.GetInstance().Idioma.IdiomaSelected = IdiomaEnum.English;
-            //BLL.Observer.IdiomaBLL.Instance.CambiarIdiomaDeUsuario();
-            //Subject.Notify(SingletonIdioma.GetInstance().Idioma);
-
-        }
 
 
         #region formularios carga
@@ -320,17 +302,7 @@ namespace UI
 
         private void labelFamiliaPatentes_Click(object sender, EventArgs e)
         {
-            if (Permi == null)
-            {
-                Permi = new Permisos();
-                Permi.MdiParent = this;
-                Permi.FormClosed += new FormClosedEventHandler(Permi_FormClosed);
-                Permi.Show();
-            }
-            else
-            {
-                Permi.Activate();
-            }
+
         }
         private void Permi_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -371,6 +343,10 @@ namespace UI
         private void clases_FormClosed(object sender, FormClosedEventArgs e)
         {
             clases = null;
+        }
+        private void PermiUsu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            PermUsu = null;
         }
         private void rutinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -413,9 +389,38 @@ namespace UI
 
         public void Update()
         {
-            //se ampliará pasando el idioma?
             TraducirTodo();
-
         }
+
+        private void permisosGestionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Permi == null)
+            {
+                Permi = new Permisos();
+                Permi.MdiParent = this;
+                Permi.FormClosed += new FormClosedEventHandler(Permi_FormClosed);
+                Permi.Show();
+            }
+            else
+            {
+                Permi.Activate();
+            }
+        }
+
+        private void permisosUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (PermUsu == null)
+            {
+                PermUsu = new PermisosUsuario();
+                PermUsu.MdiParent = this;
+                PermUsu.FormClosed += new FormClosedEventHandler(PermiUsu_FormClosed);
+                PermUsu.Show();
+            }
+            else
+            {
+                PermUsu.Activate();
+            }
+        }
+
     }
 }

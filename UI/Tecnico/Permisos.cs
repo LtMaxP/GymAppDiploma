@@ -1,4 +1,4 @@
-﻿using BLL.Observer;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,27 +11,28 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Permisos : Form, BLL.Observer.IObserver
+    public partial class Permisos : Form, BE.ObserverIdioma.IObserverIdioma
     {
         public Permisos()
         {
             InitializeComponent();
         }
 
-        public void Update(Idioma idioma)
-        {
-            //throw new NotImplementedException();
-        }
 
         private void Permisos_Load(object sender, EventArgs e)
         {
-
+            BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
         }
 
         private void SalirBtn_Click(object sender, EventArgs e)
         {
-            Subject.RemoveObserver(this);
+            BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
+        }
+
+        private void ConsultarBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -148,7 +148,6 @@ namespace UI.Tecnico
 
                     MessageBox.Show("Idioma creado ! ヾ(•ω•`)o");
                     MostrarSeleccion(idioma);
-                    CargarComboIdiomas();
                 }
                 else
                 {
