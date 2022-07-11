@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace UI.Negocio
 {
-    public partial class Productos : Form, IObserver
+    public partial class Productos : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.Negocio.BLLProducto BLLProd = new BLL.Negocio.BLLProducto();
 
@@ -29,14 +29,13 @@ namespace UI.Negocio
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            Subject.RemoveObserver(this);
+            BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
 
         private void Productos_Load(object sender, EventArgs e)
         {
-            Subject.AddObserver(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
 
             comboBox1.DataSource = BLLProd.TraerProductos();
             comboBox1.DisplayMember = "Descripcion";
@@ -48,9 +47,8 @@ namespace UI.Negocio
 
         }
 
-        public void Update(BLL.Observer.Idioma idioma)
+        public void Update()
         {
-            //throw new NotImplementedException();
         }
     }
 }

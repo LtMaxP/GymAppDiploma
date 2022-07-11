@@ -44,7 +44,7 @@ namespace UI.Negocio
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -180,15 +180,15 @@ namespace UI.Negocio
             this.textBox2.Size = new System.Drawing.Size(43, 20);
             this.textBox2.TabIndex = 13;
             // 
-            // button4
+            // buttonSalir
             // 
-            this.button4.Location = new System.Drawing.Point(450, 438);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 30);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Salir";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.buttonSalir.Location = new System.Drawing.Point(450, 438);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(75, 30);
+            this.buttonSalir.TabIndex = 14;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // label8
             // 
@@ -216,7 +216,7 @@ namespace UI.Negocio
             this.ClientSize = new System.Drawing.Size(551, 486);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -258,7 +258,7 @@ namespace UI.Negocio
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
     }

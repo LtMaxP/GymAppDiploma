@@ -11,27 +11,26 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class PagosCobros : Form, IObserver
+    public partial class PagosCobros : Form, BE.ObserverIdioma.IObserverIdioma
     {
         public PagosCobros()
         {
             InitializeComponent();
         }
 
-        public void Update(Idioma idioma)
+        public void Update()
         {
 
         }
 
         private void PagosCobros_Load(object sender, EventArgs e)
         {
-            Subject.AddObserver(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Subject.RemoveObserver(this);
+            BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
     }

@@ -37,6 +37,7 @@ namespace UI.Tecnico
             this.label1 = new System.Windows.Forms.Label();
             this.labelUsuarioModificado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,11 +116,24 @@ namespace UI.Tecnico
             this.label2.TabIndex = 7;
             this.label2.Text = "label2";
             // 
+            // buttonSalir
+            // 
+            this.buttonSalir.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSalir.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSalir.Location = new System.Drawing.Point(714, 398);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(72, 38);
+            this.buttonSalir.TabIndex = 8;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = false;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
+            // 
             // ControlCambios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelUsuarioModificado);
             this.Controls.Add(this.label1);
@@ -148,5 +162,6 @@ namespace UI.Tecnico
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelUsuarioModificado;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonSalir;
     }
 }

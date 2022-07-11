@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL.Observer;
 
 namespace UI
 {
 
-    public partial class UsuariosABM : Form, BLL.Observer.IObserver
+    public partial class UsuariosABM : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.Usuario usuarioABM = new BLL.Usuario();
 
@@ -23,7 +22,7 @@ namespace UI
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Subject.RemoveObserver(this);
+            BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
 
@@ -128,15 +127,14 @@ namespace UI
 
         private void UsuariosABM_Load(object sender, EventArgs e)
         {
-            Subject.AddObserver(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
 
-            DataTable dt = usuarioABM.CargarCombo("Rol");
-            comboBox3.DataSource = dt;
-            comboBox3.DisplayMember = "Nombre";
+            //////////////DataTable dt = usuarioABM.CargarCombo("Rol");
+            //////////////comboBox3.DataSource = dt;
+            //////////////comboBox3.DisplayMember = "Nombre";
         }
 
-        public void Update(Idioma idioma)
+        public void Update()
         {
 
             //RecurseToolStripItems(this.menuStrip1.Items);

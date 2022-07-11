@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL.Observer;
 
 namespace UI
 {
@@ -57,7 +56,6 @@ namespace UI
         private void BitacoraYDV_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
         }
 
         public void Update()

@@ -32,7 +32,7 @@ namespace UI
             this.labelPatente = new System.Windows.Forms.Label();
             this.AgregarBtn = new System.Windows.Forms.Button();
             this.AgregarBtn2 = new System.Windows.Forms.Button();
-            this.SalirBtn = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
             this.List = new System.Windows.Forms.ListBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -75,16 +75,16 @@ namespace UI
             this.AgregarBtn2.Text = "Agregar";
             this.AgregarBtn2.UseVisualStyleBackColor = true;
             // 
-            // SalirBtn
+            // buttonSalir
             // 
-            this.SalirBtn.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalirBtn.Location = new System.Drawing.Point(514, 427);
-            this.SalirBtn.Name = "SalirBtn";
-            this.SalirBtn.Size = new System.Drawing.Size(83, 38);
-            this.SalirBtn.TabIndex = 4;
-            this.SalirBtn.Text = "Salir";
-            this.SalirBtn.UseVisualStyleBackColor = true;
-            this.SalirBtn.Click += new System.EventHandler(this.SalirBtn_Click);
+            this.buttonSalir.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalir.Location = new System.Drawing.Point(514, 427);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(83, 38);
+            this.buttonSalir.TabIndex = 4;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.SalirBtn_Click);
             // 
             // List
             // 
@@ -178,7 +178,7 @@ namespace UI
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.List);
-            this.Controls.Add(this.SalirBtn);
+            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.AgregarBtn2);
             this.Controls.Add(this.AgregarBtn);
             this.Controls.Add(this.labelPatente);
@@ -196,7 +196,7 @@ namespace UI
         private System.Windows.Forms.Label labelPatente;
         private System.Windows.Forms.Button AgregarBtn;
         private System.Windows.Forms.Button AgregarBtn2;
-        private System.Windows.Forms.Button SalirBtn;
+        private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.ListBox List;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;

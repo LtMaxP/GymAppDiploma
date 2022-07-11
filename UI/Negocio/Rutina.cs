@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace UI.Negocio
 {
-    public partial class Rutina : Form, IObserver
+    public partial class Rutina : Form, BE.ObserverIdioma.IObserverIdioma
     {
         public Rutina()
         {
@@ -25,19 +25,22 @@ namespace UI.Negocio
 
         private void Rutina_Load(object sender, EventArgs e)
         {
-            Subject.AddObserver(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Subject.RemoveObserver(this);
+            BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
 
-        public void Update(Idioma idioma)
+        public void Update()
         {
-            //throw new NotImplementedException();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

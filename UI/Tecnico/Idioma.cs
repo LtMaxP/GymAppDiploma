@@ -20,7 +20,7 @@ namespace UI.Tecnico
             InitializeComponent();
         }
 
-        public void Update(BLL.Observer.Idioma idioma)
+        public void Update()
         {
         }
 

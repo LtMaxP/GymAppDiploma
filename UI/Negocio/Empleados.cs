@@ -7,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL.Observer;
 
 namespace UI
 {
-    public partial class Empleados : Form, BLL.Observer.IObserver
+    public partial class Empleados : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.BLLEmpleados bllEmp = new BLL.BLLEmpleados();
         public Empleados()
@@ -19,15 +18,13 @@ namespace UI
             InitializeComponent();
         }
 
-        public void Update(Idioma idioma)
+        public void Update()
         {
-            
         }
 
         private void Empleados_Load(object sender, EventArgs e)
         {
-            Subject.AddObserver(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
 
             comboBox1.DataSource = bllEmp.CargarComboTrabajos();
             comboBox1.DisplayMember = "Descripcion";
@@ -35,7 +32,7 @@ namespace UI
 
         private void labelSalir_Click(object sender, EventArgs e)
         {
-            Subject.RemoveObserver(this);
+            BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
 

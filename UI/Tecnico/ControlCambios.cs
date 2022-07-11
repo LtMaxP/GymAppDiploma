@@ -20,7 +20,12 @@ namespace UI.Tecnico
 
         private void ControlCambios_Load(object sender, EventArgs e)
         {
+            BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
+        }
 
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
         }
     }
 }

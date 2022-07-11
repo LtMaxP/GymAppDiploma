@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.labelAlta = new System.Windows.Forms.Button();
             this.labelBaja = new System.Windows.Forms.Button();
             this.labelModificar = new System.Windows.Forms.Button();
@@ -47,10 +47,10 @@
             this.buttonSalir = new System.Windows.Forms.Button();
             this.labelMostrar = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.hide = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.usuarioCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.IdiomaCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Estadocol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.hide = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -226,7 +226,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(15, 103);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -235,6 +235,12 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // hide
+            // 
+            this.hide.DisplayIndex = 3;
+            this.hide.Text = "";
+            this.hide.Width = 1;
             // 
             // usuarioCol
             // 
@@ -253,12 +259,6 @@
             this.Estadocol.DisplayIndex = 2;
             this.Estadocol.Text = "Estado";
             this.Estadocol.Width = 100;
-            // 
-            // hide
-            // 
-            this.hide.DisplayIndex = 3;
-            this.hide.Text = "";
-            this.hide.Width = 1;
             // 
             // label1
             // 

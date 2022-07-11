@@ -44,7 +44,7 @@ namespace UI.Negocio
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -188,15 +188,15 @@ namespace UI.Negocio
             this.label5.TabIndex = 15;
             this.label5.Text = "Descripcion";
             // 
-            // button3
+            // buttonSalir
             // 
-            this.button3.Location = new System.Drawing.Point(708, 570);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 36);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Salir";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonSalir.Location = new System.Drawing.Point(708, 570);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(80, 36);
+            this.buttonSalir.TabIndex = 17;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.button3_Click);
             // 
             // label6
             // 
@@ -273,9 +273,9 @@ namespace UI.Negocio
             // 
             this.button4.Location = new System.Drawing.Point(193, 296);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(33, 23);
+            this.button4.Size = new System.Drawing.Size(65, 23);
             this.button4.TabIndex = 22;
-            this.button4.Text = "Ok";
+            this.button4.Text = "Cargar";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // comboBox3
@@ -308,7 +308,7 @@ namespace UI.Negocio
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
@@ -351,7 +351,7 @@ namespace UI.Negocio
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;

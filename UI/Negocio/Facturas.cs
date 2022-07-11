@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Facturas : Form, IObserver
+    public partial class Facturas : Form, BE.ObserverIdioma.IObserverIdioma
     {
         public Facturas()
         {
@@ -20,19 +20,17 @@ namespace UI
 
         private void Facturas_Load(object sender, EventArgs e)
         {
-            Subject.AddObserver(this);
-            Subject.Notify(SingletonIdioma.GetInstance().Idioma);
+            BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Subject.RemoveObserver(this);
+            BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
 
-        public void Update(Idioma idioma)
+        public void Update()
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
