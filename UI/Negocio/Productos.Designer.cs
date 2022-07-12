@@ -31,22 +31,23 @@ namespace UI.Negocio
         {
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.buttonAgregar = new System.Windows.Forms.Button();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.labelNroTotal = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buttonQuitar = new System.Windows.Forms.Button();
+            this.buttonComprar = new System.Windows.Forms.Button();
+            this.labelCliente = new System.Windows.Forms.Label();
+            this.textBoxCliente = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.labelProducto = new System.Windows.Forms.Label();
+            this.labelCantidad = new System.Windows.Forms.Label();
+            this.txtBoxCantidad = new System.Windows.Forms.TextBox();
             this.buttonSalir = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.labelDisponible = new System.Windows.Forms.Label();
+            this.labelPrecio = new System.Windows.Forms.Label();
+            this.labelNroDisponible = new System.Windows.Forms.Label();
+            this.labelNroPrecio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,126 +64,123 @@ namespace UI.Negocio
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 160);
+            this.comboBox1.Location = new System.Drawing.Point(188, 117);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(193, 21);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // button1
+            // buttonAgregar
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(11, 315);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 32);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonAgregar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregar.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.buttonAgregar.Location = new System.Drawing.Point(155, 215);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(102, 32);
+            this.buttonAgregar.TabIndex = 2;
+            this.buttonAgregar.Text = "Agregar";
+            this.buttonAgregar.UseVisualStyleBackColor = false;
+            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
-            // label2
+            // labelTotal
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(296, 212);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(22, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "--->";
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(236, 462);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(34, 13);
+            this.labelTotal.TabIndex = 4;
+            this.labelTotal.Text = "Total:";
             // 
-            // label3
+            // labelNroTotal
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(319, 360);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Total:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(361, 360);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "$";
+            this.labelNroTotal.AutoSize = true;
+            this.labelNroTotal.Location = new System.Drawing.Point(278, 462);
+            this.labelNroTotal.Name = "labelNroTotal";
+            this.labelNroTotal.Size = new System.Drawing.Size(13, 13);
+            this.labelNroTotal.TabIndex = 5;
+            this.labelNroTotal.Text = "0";
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(322, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(44, 253);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(203, 278);
+            this.dataGridView1.Size = new System.Drawing.Size(464, 206);
             this.dataGridView1.TabIndex = 6;
             // 
-            // button2
+            // buttonQuitar
             // 
-            this.button2.Location = new System.Drawing.Point(235, 207);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(55, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Quitar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonQuitar.BackColor = System.Drawing.Color.Maroon;
+            this.buttonQuitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonQuitar.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.buttonQuitar.Location = new System.Drawing.Point(297, 215);
+            this.buttonQuitar.Name = "buttonQuitar";
+            this.buttonQuitar.Size = new System.Drawing.Size(102, 32);
+            this.buttonQuitar.TabIndex = 7;
+            this.buttonQuitar.Text = "Quitar";
+            this.buttonQuitar.UseVisualStyleBackColor = false;
+            this.buttonQuitar.Click += new System.EventHandler(this.buttonQuitar_Click);
             // 
-            // button3
+            // buttonComprar
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.button3.FlatAppearance.BorderSize = 10;
-            this.button3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button3.Location = new System.Drawing.Point(80, 406);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Comprar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonComprar.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.buttonComprar.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.buttonComprar.FlatAppearance.BorderSize = 10;
+            this.buttonComprar.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.buttonComprar.Location = new System.Drawing.Point(225, 524);
+            this.buttonComprar.Name = "buttonComprar";
+            this.buttonComprar.Size = new System.Drawing.Size(75, 23);
+            this.buttonComprar.TabIndex = 8;
+            this.buttonComprar.Text = "Comprar";
+            this.buttonComprar.UseVisualStyleBackColor = false;
             // 
-            // label5
+            // labelCliente
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 383);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Cliente";
+            this.labelCliente.AutoSize = true;
+            this.labelCliente.Location = new System.Drawing.Point(153, 501);
+            this.labelCliente.Name = "labelCliente";
+            this.labelCliente.Size = new System.Drawing.Size(39, 13);
+            this.labelCliente.TabIndex = 9;
+            this.labelCliente.Text = "Cliente";
             // 
-            // textBox1
+            // textBoxCliente
             // 
-            this.textBox1.Location = new System.Drawing.Point(53, 380);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 20);
-            this.textBox1.TabIndex = 10;
+            this.textBoxCliente.Location = new System.Drawing.Point(198, 498);
+            this.textBoxCliente.Name = "textBoxCliente";
+            this.textBoxCliente.Size = new System.Drawing.Size(148, 20);
+            this.textBoxCliente.TabIndex = 10;
             // 
-            // label6
+            // labelProducto
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 144);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Producto";
+            this.labelProducto.AutoSize = true;
+            this.labelProducto.Location = new System.Drawing.Point(185, 101);
+            this.labelProducto.Name = "labelProducto";
+            this.labelProducto.Size = new System.Drawing.Size(50, 13);
+            this.labelProducto.TabIndex = 11;
+            this.labelProducto.Text = "Producto";
             // 
-            // label7
+            // labelCantidad
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 256);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Cantidad";
+            this.labelCantidad.AutoSize = true;
+            this.labelCantidad.Location = new System.Drawing.Point(387, 172);
+            this.labelCantidad.Name = "labelCantidad";
+            this.labelCantidad.Size = new System.Drawing.Size(49, 13);
+            this.labelCantidad.TabIndex = 12;
+            this.labelCantidad.Text = "Cantidad";
             // 
-            // textBox2
+            // txtBoxCantidad
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 273);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(43, 20);
-            this.textBox2.TabIndex = 13;
+            this.txtBoxCantidad.Location = new System.Drawing.Point(442, 169);
+            this.txtBoxCantidad.Name = "txtBoxCantidad";
+            this.txtBoxCantidad.Size = new System.Drawing.Size(43, 20);
+            this.txtBoxCantidad.TabIndex = 13;
             // 
             // buttonSalir
             // 
-            this.buttonSalir.Location = new System.Drawing.Point(450, 438);
+            this.buttonSalir.Location = new System.Drawing.Point(464, 554);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(75, 30);
             this.buttonSalir.TabIndex = 14;
@@ -190,45 +188,64 @@ namespace UI.Negocio
             this.buttonSalir.UseVisualStyleBackColor = true;
             this.buttonSalir.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // label8
+            // labelDisponible
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 195);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Disponible: ";
+            this.labelDisponible.AutoSize = true;
+            this.labelDisponible.Location = new System.Drawing.Point(90, 172);
+            this.labelDisponible.Name = "labelDisponible";
+            this.labelDisponible.Size = new System.Drawing.Size(56, 13);
+            this.labelDisponible.TabIndex = 15;
+            this.labelDisponible.Text = "Disponible";
             // 
-            // label9
+            // labelPrecio
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 225);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Precio: ";
+            this.labelPrecio.AutoSize = true;
+            this.labelPrecio.Location = new System.Drawing.Point(247, 172);
+            this.labelPrecio.Name = "labelPrecio";
+            this.labelPrecio.Size = new System.Drawing.Size(37, 13);
+            this.labelPrecio.TabIndex = 16;
+            this.labelPrecio.Text = "Precio";
+            // 
+            // labelNroDisponible
+            // 
+            this.labelNroDisponible.AutoSize = true;
+            this.labelNroDisponible.Location = new System.Drawing.Point(152, 172);
+            this.labelNroDisponible.Name = "labelNroDisponible";
+            this.labelNroDisponible.Size = new System.Drawing.Size(37, 13);
+            this.labelNroDisponible.TabIndex = 17;
+            this.labelNroDisponible.Text = "labelD";
+            // 
+            // labelNroPrecio
+            // 
+            this.labelNroPrecio.AutoSize = true;
+            this.labelNroPrecio.Location = new System.Drawing.Point(290, 172);
+            this.labelNroPrecio.Name = "labelNroPrecio";
+            this.labelNroPrecio.Size = new System.Drawing.Size(36, 13);
+            this.labelNroPrecio.TabIndex = 18;
+            this.labelNroPrecio.Text = "labelP";
             // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(551, 486);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.ClientSize = new System.Drawing.Size(551, 596);
+            this.Controls.Add(this.labelNroPrecio);
+            this.Controls.Add(this.labelNroDisponible);
+            this.Controls.Add(this.labelPrecio);
+            this.Controls.Add(this.labelDisponible);
             this.Controls.Add(this.buttonSalir);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtBoxCantidad);
+            this.Controls.Add(this.labelCantidad);
+            this.Controls.Add(this.labelProducto);
+            this.Controls.Add(this.textBoxCliente);
+            this.Controls.Add(this.labelCliente);
+            this.Controls.Add(this.buttonComprar);
+            this.Controls.Add(this.buttonQuitar);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelNroTotal);
+            this.Controls.Add(this.labelTotal);
+            this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -245,21 +262,22 @@ namespace UI.Negocio
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonAgregar;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label labelNroTotal;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonQuitar;
+        private System.Windows.Forms.Button buttonComprar;
+        private System.Windows.Forms.Label labelCliente;
+        private System.Windows.Forms.TextBox textBoxCliente;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label labelProducto;
+        private System.Windows.Forms.Label labelCantidad;
+        private System.Windows.Forms.TextBox txtBoxCantidad;
         private System.Windows.Forms.Button buttonSalir;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelDisponible;
+        private System.Windows.Forms.Label labelPrecio;
+        private System.Windows.Forms.Label labelNroDisponible;
+        private System.Windows.Forms.Label labelNroPrecio;
     }
 }

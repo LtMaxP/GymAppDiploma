@@ -15,6 +15,7 @@ namespace UI.Negocio
     public partial class Productos : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.Negocio.BLLProducto BLLProd = new BLL.Negocio.BLLProducto();
+        List<Item> items = new List<Item>();
 
         public Productos()
         {
@@ -36,19 +37,56 @@ namespace UI.Negocio
         private void Productos_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
-
-            comboBox1.DataSource = BLLProd.TraerProductos();
+            items = BLLProd.TraerProductos();
+            comboBox1.DataSource = items;
             comboBox1.DisplayMember = "Descripcion";
-            
+            GenerarGrilla();
+        }
+        private void GenerarGrilla()
+        {
+            dataGridView1.Columns.Add("ProductoCol", "Producto");
+            dataGridView1.Columns.Add("CantidadCol", "Cantidad");
+            dataGridView1.Columns.Add("PrecioCol", "Precio");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (!String.IsNullOrEmpty(comboBox1.Text))
+            {
+                var item = items.FirstOrDefault(x => x.Descripcion == comboBox1.Text);
+                labelNroDisponible.Text = item.Cantidad.ToString();
+                labelNroPrecio.Text = item.Valor.ToString();
+            }
         }
 
         public void Update()
         {
+        }
+
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtBoxCantidad.Text))
+            {
+                dataGridView1.Rows.Add(comboBox1.Text, txtBoxCantidad.Text, labelNroPrecio.Text);
+
+                labelNroTotal.Text = ((Decimal.Parse(txtBoxCantidad.Text) * Decimal.Parse(labelNroPrecio.Text)) + Decimal.Parse(labelNroTotal.Text)).ToString();
+            }
+            else
+            {
+                MessageBox.Show("Debe agregar una cantidad del producto seleccionado");
+            }
+        }
+
+        private void buttonQuitar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                //////////////////
+                foreach (int row in dataGridView1.SelectedRows)
+                {
+                    dataGridView1.Rows.RemoveAt(row);
+                }
+            }
         }
     }
 }
