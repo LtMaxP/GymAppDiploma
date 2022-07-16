@@ -67,31 +67,44 @@ namespace UI.Negocio
         {
             if (!String.IsNullOrEmpty(txtBoxCantidad.Text))
             {
-                string selectioncmb = ((Item)comboBox1.SelectedItem).Descripcion;
-                Boolean found = false;
-                try
+                if (!ValidarCantidadDisponible())
                 {
-                    if (dataGridView1.Rows.Count > 1)
+                    string selectioncmb = ((Item)comboBox1.SelectedItem).Descripcion;
+                    Boolean found = false;
+                    try
                     {
-                        foreach (DataGridViewRow dgr in dataGridView1.Rows)
+                        if (dataGridView1.Rows.Count > 1)
                         {
-                            if (!dgr.Index.Equals(dataGridView1.Rows.Count - 1))
-                                if (dgr.Cells["Producto"].Value.ToString().Equals(selectioncmb))
-                                {
-                                    dgr.Cells["Cantidad"].Value = (Decimal.Parse(dgr.Cells["Cantidad"].Value.ToString()) + Decimal.Parse(txtBoxCantidad.Text)).ToString();
-                                    found = true;
-                                    break;
-                                }
+                            foreach (DataGridViewRow dgr in dataGridView1.Rows)
+                            {
+                                if (!dgr.Index.Equals(dataGridView1.Rows.Count - 1))
+                                    if (dgr.Cells["Producto"].Value.ToString().Equals(selectioncmb))
+                                    {
+                                        dgr.Cells["Cantidad"].Value = (int.Parse(dgr.Cells["Cantidad"].Value.ToString()) + int.Parse(txtBoxCantidad.Text)).ToString();
+                                        var Citem = items.First(x => x.Descripcion == selectioncmb).Cantidad.ToString();
+                                        var CUI = dgr.Cells["Cantidad"].Value.ToString();
+                                        labelNroDisponible.Text = (int.Parse(Citem) - int.Parse(CUI)).ToString();
+                                        found = true;
+                                        break;
+                                    }
+                            }
                         }
                     }
-                }
-                catch { }
-                if (!found)
-                {
-                    dataGridView1.Rows.Add(comboBox1.Text, txtBoxCantidad.Text, labelNroPrecio.Text);
-                }
+                    catch { }
+                    if (!found)
+                    {
+                        dataGridView1.Rows.Add(comboBox1.Text, txtBoxCantidad.Text, labelNroPrecio.Text);
+                        var Citem = items.First(x => x.Descripcion == selectioncmb).Cantidad.ToString();
+                        var CUI = txtBoxCantidad.Text;
+                        labelNroDisponible.Text = (int.Parse(Citem) - int.Parse(CUI)).ToString();
+                    }
 
-                CalcularValorTotal();
+                    CalcularValorTotal();
+                }
+                else
+                {
+                    MessageBox.Show("La cantidad del producto es mayor a la disponible");
+                }
             }
             else
             {
@@ -99,14 +112,17 @@ namespace UI.Negocio
             }
         }
 
+        /// <summary>
+        /// Suma productos para el Total $$$
+        /// </summary>
         private void CalcularValorTotal()
         {
-            Decimal total = Decimal.Parse(labelNroTotal.Text);
+            Decimal total = 0;
             try
             {
                 foreach (DataGridViewRow dgr in dataGridView1.Rows)
                 {
-                    if (!dgr.Index.Equals(0) && !dgr.Index.Equals(dataGridView1.Rows.Count - 1))
+                    if (dgr.Cells[1].Value != null)
                     {
                         total += (Decimal.Parse(dgr.Cells["Cantidad"].Value.ToString()) * Decimal.Parse(dgr.Cells["Precio"].Value.ToString()));
                     }
@@ -123,9 +139,20 @@ namespace UI.Negocio
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
                     labelNroTotal.Text = (decimal.Parse(labelNroTotal.Text) - (decimal.Parse(row.Cells[1].Value.ToString()) * decimal.Parse(row.Cells[2].Value.ToString()))).ToString();
+                    txtBoxCantidad.Text = (int.Parse(txtBoxCantidad.Text) + (int.Parse(row.Cells[1].Value.ToString()))).ToString();
                     dataGridView1.Rows.Remove(row);
                 }
             }
+        }
+
+
+        /// <summary>
+        /// Calcula si hay disponibilidad
+        /// </summary>
+        /// <returns></returns>
+        private Boolean ValidarCantidadDisponible()
+        {
+            return int.Parse(txtBoxCantidad.Text) > int.Parse(labelNroDisponible.Text) ? true : false;
         }
     }
 }
