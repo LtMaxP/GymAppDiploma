@@ -110,6 +110,10 @@ namespace BLL
             return true;
         }
 
+        public int DameIdCliente(string nombre)
+        {
+            return cligym.DameIdCliente(nombre);
+        }
         
         public List<BE.Cliente> Leer(Cliente valBuscar)
         {

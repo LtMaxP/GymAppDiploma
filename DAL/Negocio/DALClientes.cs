@@ -234,6 +234,23 @@ namespace DAL
 
         }
 
+        public int DameIdCliente(string nombre)
+        {
+            int idCliente = 0;
+            using (SqlConnection connection = Acceso.Instance.sqlCon)
+            {
+                String query = "SELECT Id_Cliente FROM ClienteGYM WHERE Nombre = @nombre";
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@nombre", nombre);
+                try
+                {
+                    idCliente = Acceso.Instance.ExecuteScalar(command);
+                }
+                catch
+                { }
+            }
+            return idCliente;
+        }
         Cliente ICRUD<Cliente>.Leer(Cliente valBuscar)
         {
             throw new NotImplementedException();

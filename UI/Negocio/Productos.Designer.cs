@@ -136,6 +136,7 @@ namespace UI.Negocio
             this.buttonComprar.TabIndex = 8;
             this.buttonComprar.Text = "Comprar";
             this.buttonComprar.UseVisualStyleBackColor = false;
+            this.buttonComprar.Click += new System.EventHandler(this.buttonComprar_Click);
             // 
             // labelCliente
             // 

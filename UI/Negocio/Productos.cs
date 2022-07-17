@@ -15,6 +15,7 @@ namespace UI.Negocio
     public partial class Productos : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.Negocio.BLLProducto BLLProd = new BLL.Negocio.BLLProducto();
+        BLL.BLLClientes clients = new BLL.BLLClientes();
         List<Item> items = new List<Item>();
         public Productos()
         {
@@ -50,6 +51,10 @@ namespace UI.Negocio
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            FillComboBox1();
+        }
+        private void FillComboBox1()
+        {
             string selectioncmb = ((Item)comboBox1.SelectedItem).Descripcion;
             if (!String.IsNullOrEmpty(comboBox1.Text))
             {
@@ -81,9 +86,9 @@ namespace UI.Negocio
                                     if (dgr.Cells["Producto"].Value.ToString().Equals(selectioncmb))
                                     {
                                         dgr.Cells["Cantidad"].Value = (int.Parse(dgr.Cells["Cantidad"].Value.ToString()) + int.Parse(txtBoxCantidad.Text)).ToString();
-                                        var Citem = items.First(x => x.Descripcion == selectioncmb).Cantidad.ToString();
-                                        var CUI = dgr.Cells["Cantidad"].Value.ToString();
-                                        labelNroDisponible.Text = (int.Parse(Citem) - int.Parse(CUI)).ToString();
+                                        var item = items.First(x => x.Descripcion == selectioncmb);
+                                        item.Cantidad -= int.Parse(txtBoxCantidad.Text);
+                                        labelNroDisponible.Text = item.Cantidad.ToString();
                                         found = true;
                                         break;
                                     }
@@ -94,9 +99,9 @@ namespace UI.Negocio
                     if (!found)
                     {
                         dataGridView1.Rows.Add(comboBox1.Text, txtBoxCantidad.Text, labelNroPrecio.Text);
-                        var Citem = items.First(x => x.Descripcion == selectioncmb).Cantidad.ToString();
-                        var CUI = txtBoxCantidad.Text;
-                        labelNroDisponible.Text = (int.Parse(Citem) - int.Parse(CUI)).ToString();
+                        var item = items.First(x => x.Descripcion == selectioncmb);
+                        item.Cantidad -= int.Parse(txtBoxCantidad.Text);
+                        labelNroDisponible.Text = item.Cantidad.ToString();
                     }
 
                     CalcularValorTotal();
@@ -138,8 +143,12 @@ namespace UI.Negocio
             {
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
+                    string selectioncmb = ((Item)comboBox1.SelectedItem).Descripcion;
+                    var item = items.First(x => x.Descripcion == selectioncmb);
+                    item.Cantidad += int.Parse(txtBoxCantidad.Text);
+                    labelNroDisponible.Text = item.Cantidad.ToString();
+
                     labelNroTotal.Text = (decimal.Parse(labelNroTotal.Text) - (decimal.Parse(row.Cells[1].Value.ToString()) * decimal.Parse(row.Cells[2].Value.ToString()))).ToString();
-                    txtBoxCantidad.Text = (int.Parse(txtBoxCantidad.Text) + (int.Parse(row.Cells[1].Value.ToString()))).ToString();
                     dataGridView1.Rows.Remove(row);
                 }
             }
@@ -153,6 +162,44 @@ namespace UI.Negocio
         private Boolean ValidarCantidadDisponible()
         {
             return int.Parse(txtBoxCantidad.Text) > int.Parse(labelNroDisponible.Text) ? true : false;
+        }
+
+        private void buttonComprar_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(textBoxCliente.Text))
+                if (dataGridView1.Rows.Count > 1)
+                {
+                    BE_Factura Compra = new BE_Factura();
+                    List<Item> productos = new List<Item>();
+                    foreach (DataGridViewRow dgr in dataGridView1.Rows)
+                    {
+                        if (dgr.Cells[1].Value != null)
+                        {
+                            productos.Add(new Item(dgr.Cells["Producto"].Value.ToString(), Decimal.Parse(dgr.Cells["Precio"].Value.ToString()), int.Parse(dgr.Cells["Cantidad"].Value.ToString())));
+                        }
+                    }
+                    Compra.Items = productos;
+                    Compra.Fecha = DateTime.Now;
+                    Compra.Monto = Decimal.Parse(labelNroTotal.Text);
+                    Compra.Id_Cliente = clients.DameIdCliente(textBoxCliente.Text);
+                    BLL.BLLFacturas.EjecutarCompra(Compra);
+
+                    //refresh part
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Refresh();
+                    items = BLLProd.TraerProductos();
+                    FillComboBox1();
+                }
+                else
+                {
+                    MessageBox.Show("Debe agregar productos a comprar");
+                }
+            else
+            {
+                MessageBox.Show("Debe ingresar un cliente a comprar");
+            }
+
+
         }
     }
 }

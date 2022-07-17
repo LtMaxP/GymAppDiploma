@@ -12,6 +12,10 @@ namespace DAL.Tecnico
     public class BackupDAL
     {
         Servicios.Backup bkserv = new Servicios.Backup();
+        /// <summary>
+        /// Realizar backup de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public bool BackupDBDAL()
         {
             bool okb = false;
@@ -32,7 +36,10 @@ namespace DAL.Tecnico
             }
             return okb;
         }
-
+        /// <summary>
+        /// Traer listado de los Backups de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public List<BE_BackUp> TraerBackupDBDAL()
         {
             List<BE_BackUp> listBkp = new List<BE_BackUp>();

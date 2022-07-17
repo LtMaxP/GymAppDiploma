@@ -54,7 +54,6 @@
     <Compile Include="Negocio\BE_Membresia.cs" />
     <Compile Include="Negocio\BE_Rutina.cs" />
     <Compile Include="Negocio\Item.cs" />
-    <Compile Include="Negocio\Probando.cs" />
     <Compile Include="Negocio\Profesor.cs" />
     <Compile Include="Negocio\BE_Ejercicio.cs" />
     <Compile Include="Negocio\Trabajo.cs" />

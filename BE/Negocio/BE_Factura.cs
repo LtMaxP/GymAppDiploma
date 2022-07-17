@@ -39,6 +39,13 @@ namespace BE
             get { return _fecha; }
             set { _fecha = value; }
         }
+        private int _id_Cliente;
+
+        public int Id_Cliente
+        {
+            get { return _id_Cliente; }
+            set { _id_Cliente = value; }
+        }
 
     }
 }
