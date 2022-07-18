@@ -9,7 +9,7 @@ namespace Servicios
 {
     public class DigitoVerificadorHV
     {
-        public static string CrearDVH(BE_Usuarios user)
+        public static string CrearDVH(BE_Usuario user)
         {
             string hash = user.IdUsuario.ToString() + user.User + user.Pass;
 

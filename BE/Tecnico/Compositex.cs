@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BE
 {
 
-    public class Composite
+    public class Compositex
     {
         public string UsuarioID { get; set; }
         public string idComponente { get; set; }
@@ -16,10 +16,10 @@ namespace BE
 
         public string tipo { get; set; }
 
-        public Composite()
+        public Compositex()
         { }
 
-        public Composite(string UsuarioID, string idComponente, string descripcion, string idComponentoHijo, string tipo)
+        public Compositex(string UsuarioID, string idComponente, string descripcion, string idComponentoHijo, string tipo)
         {
             this.UsuarioID = UsuarioID;
             this.idComponente = idComponente;

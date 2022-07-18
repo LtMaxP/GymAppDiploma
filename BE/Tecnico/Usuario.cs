@@ -16,14 +16,14 @@ namespace BE
         private Usuario()
         { }
 
-        private static BE_Usuarios _instance;
-        public static BE_Usuarios Instance
+        private static BE_Usuario _instance;
+        public static BE_Usuario Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new BE_Usuarios();
+                    _instance = new BE_Usuario();
                 }
                 return _instance;
             }

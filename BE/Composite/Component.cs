@@ -4,22 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE.Compositergal
+namespace BE.Composite
 {
     public abstract class Component
     {
-
+        public BE_Usuario usuario { get; set; }
         public string iDPatente { get; set; }
         public string descripcion { get; set; }
-        public abstract List<Component> List();
-
-        public Component(string idPat, string descrip)
-        {
-            this.iDPatente = idPat;
-            this.descripcion = descrip;
-        }
-
-        public abstract void Agregar(Component componente);
-        public abstract void Eliminar(Component componente);
+        public abstract List<Component> ObtenerPermisos();
+        public abstract void AgregarHijo(Component _miComponente);
+        public abstract void Eliminar(Component _miComponente);
+        public abstract bool VerificarSiExiste(Component componente);
+        public abstract IEnumerable<Component> ObtenerHijo();
     }
 }

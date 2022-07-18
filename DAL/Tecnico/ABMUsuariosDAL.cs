@@ -10,9 +10,9 @@ using BE;
 namespace DAL
 {
     //ADO.Conectado
-    public class ABMUsuariosDAL : ICRUD<BE_Usuarios>
+    public class ABMUsuariosDAL : ICRUD<BE_Usuario>
     {
-        public bool Alta(BE_Usuarios valAlta)
+        public bool Alta(BE_Usuario valAlta)
         {
             bool ret = false;
             try
@@ -33,7 +33,7 @@ namespace DAL
 
                 SqlParameter parameter3 = new SqlParameter();
                 parameter3.ParameterName = "@IdIdioma";
-                parameter3.Value = valAlta.idIdioma;
+                parameter3.Value = valAlta.Idioma.Id;
                 parameter3.SqlDbType = System.Data.SqlDbType.Int;
 
                 SqlParameter parameter4 = new SqlParameter();
@@ -69,7 +69,7 @@ namespace DAL
 
 
         //ADO.Conectado
-        public bool Baja(BE_Usuarios valBaja)
+        public bool Baja(BE_Usuario valBaja)
         {
             bool ret = false;
             try
@@ -128,9 +128,9 @@ namespace DAL
             return dt;
         }
 
-        public BE_Usuarios Leer(BE_Usuarios valBuscar)
+        public BE_Usuario Leer(BE_Usuario valBuscar)
         {
-            BE_Usuarios UserRet = new BE_Usuarios();
+            BE_Usuario UserRet = new BE_Usuario();
             try
             {
 
@@ -143,7 +143,7 @@ namespace DAL
                 {
                     UserRet.User = dr[0].ToString();
                     UserRet.Pass = dr[1].ToString();
-                    UserRet.idIdioma = (int)dr[2];
+                    UserRet.Idioma.Id = (int)dr[2];
                     UserRet.idEstado = (int)dr[3];
                 }
             }
@@ -154,9 +154,9 @@ namespace DAL
 
 
         //ADO.Desconectado
-        public List<BE_Usuarios> Leer2(BE_Usuarios valBuscar)
+        public List<BE_Usuario> Leer2(BE_Usuario valBuscar)
         {
-            List<BE_Usuarios> listUser = new List<BE_Usuarios>();
+            List<BE_Usuario> listUser = new List<BE_Usuario>();
             try
             {
 
@@ -167,7 +167,12 @@ namespace DAL
                 DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    listUser.Add(new BE_Usuarios(dr[0].ToString(), (int)dr[1], (int)dr[2]));
+                    BE_Usuario user = new BE_Usuario();
+                    user.User = dr[0].ToString();
+                    user.Idioma = new BE.ObserverIdioma.BE_Idioma();
+                    user.Idioma.Id = (int)dr[1];
+                    user.idEstado = (int)dr[2];
+                    listUser.Add(user);
                 }
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
@@ -176,7 +181,7 @@ namespace DAL
         }
 
         //ADO.Conectado
-        public bool Modificar(BE_Usuarios valModificar)
+        public bool Modificar(BE_Usuario valModificar)
         {
             bool ret = false;
             try
@@ -202,7 +207,7 @@ namespace DAL
 
                 SqlParameter parameter3 = new SqlParameter();
                 parameter3.ParameterName = "@IdIdioma";
-                parameter3.Value = valModificar.idIdioma;
+                parameter3.Value = valModificar.Idioma.Id;
                 parameter3.SqlDbType = System.Data.SqlDbType.Int;
 
                 SqlParameter parameter4 = new SqlParameter();
@@ -228,7 +233,7 @@ namespace DAL
         }
 
         //ADO.Desconectado
-        public bool ValidarExistenciaDeUsuario(BE_Usuarios usuari)
+        public bool ValidarExistenciaDeUsuario(BE_Usuario usuari)
         {
             bool respuesta = false;
             try

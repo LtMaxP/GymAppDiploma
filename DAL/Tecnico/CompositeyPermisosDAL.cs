@@ -38,9 +38,9 @@ namespace DAL
         /// </summary>
         /// <param name="idUsuario"></param>
         /// <returns></returns>
-        public List<BE.Composite> ObtenerPermisoUsuario(int idUsuario)
+        public List<BE.Compositex> ObtenerPermisoUsuario(int idUsuario)
         {
-            List<BE.Composite> listPermisos = new List<BE.Composite>();
+            List<BE.Compositex> listPermisos = new List<BE.Compositex>();
 
             //BE.Composite compo = new BE.Composite("idusuario", "idComponente", "descripcion", "idcomponenteHijo");
             try
@@ -59,7 +59,7 @@ namespace DAL
                 {
                     if (!String.IsNullOrEmpty(dr["Id_Permiso"].ToString()))
                     {
-                        listPermisos.Add(new BE.Composite(idUsuario.ToString(), dr["Id_Permiso"].ToString(), dr["Nombre"].ToString(), "hijos", dr["Tipo"].ToString()));
+                        listPermisos.Add(new BE.Compositex(idUsuario.ToString(), dr["Id_Permiso"].ToString(), dr["Nombre"].ToString(), "hijos", dr["Tipo"].ToString()));
                     }
                 }
             }
@@ -74,9 +74,9 @@ namespace DAL
         /// </summary>
         /// <param name="idPerfil"></param>
         /// <returns></returns>
-        public List<BE.Composite> ObtenerPerfilConTipo(string idPerfil)
+        public List<BE.Compositex> ObtenerPerfilConTipo(string idPerfil)
         {
-            List<BE.Composite> listPermisos = new List<BE.Composite>();
+            List<BE.Compositex> listPermisos = new List<BE.Compositex>();
 
             //BE.Composite compo = new BE.Composite("idusuario", "idComponente", "descripcion", "idcomponenteHijo");
             try
@@ -93,7 +93,7 @@ namespace DAL
                 {
                     if (!String.IsNullOrEmpty(dr["Id_Perfil"].ToString()) & !idPerfil.Equals(dr["Id_Perfil"].ToString()))///////isnot the same idPerfil
                     {
-                        listPermisos.Add(new BE.Composite("", dr["Id_Perfil"].ToString(), dr["Nombre"].ToString(), "hijos", dr["Tipo"].ToString()));
+                        listPermisos.Add(new BE.Compositex("", dr["Id_Perfil"].ToString(), dr["Nombre"].ToString(), "hijos", dr["Tipo"].ToString()));
                     }
                 }
             }

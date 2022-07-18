@@ -23,7 +23,7 @@ namespace BLL
         /// <param name="idioma"></param>
         /// <param name="estado"></param>
         /// <returns></returns>
-        public bool AgregarUsuario(BE_Usuarios altaUser)
+        public bool AgregarUsuario(BE_Usuario altaUser)
         {
             altaUser.Pass = Servicios.Encriptacion.Encriptador(altaUser.Pass);
             altaUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(altaUser);
@@ -45,7 +45,7 @@ namespace BLL
             return rpta;
         }
 
-        public bool EliminarUsuario(BE_Usuarios bajaUser)
+        public bool EliminarUsuario(BE_Usuario bajaUser)
         {
             bool retornableComoCocaCola = false;
             bajaUser.Pass = Servicios.Encriptacion.Encriptador(bajaUser.Pass);
@@ -53,7 +53,7 @@ namespace BLL
             return retornableComoCocaCola;
         }
 
-        public bool ModificarUsuario(BE_Usuarios modUser, string idioma, string estado)
+        public bool ModificarUsuario(BE_Usuario modUser, string idioma, string estado)
         {
             modUser.Pass = Servicios.Encriptacion.Encriptador(modUser.Pass);
             DevolverIDs(modUser, idioma, estado);
@@ -61,18 +61,18 @@ namespace BLL
             return abmUs.Modificar(modUser);
         }
 
-        public void DevolverIDs(BE_Usuarios objetoUsuario, string idioma, string estado)
+        public void DevolverIDs(BE_Usuario objetoUsuario, string idioma, string estado)
         {
             string idIdio = buscar.DevolvemeElIDQueQuieroPorTexto(idioma, "idioma");
             string idEst = buscar.DevolvemeElIDQueQuieroPorTexto(estado, "estado");
-            objetoUsuario.idIdioma = int.Parse(idIdio);
+            objetoUsuario.Idioma.Id = int.Parse(idIdio);
             objetoUsuario.idEstado = int.Parse(idEst);
         }
 
 
-        public List<BE_Usuarios> BuscarUsuario(BE_Usuarios buscarUser)
+        public List<BE_Usuario> BuscarUsuario(BE_Usuario buscarUser)
         {
-            List<BE_Usuarios> dt = abmUs.Leer2(buscarUser);
+            List<BE_Usuario> dt = abmUs.Leer2(buscarUser);
             return dt;
             //if (dt.Count == 0)
             //{ System.Windows.Forms.MessageBox.Show("Usuario no encontrado"); }
@@ -99,14 +99,14 @@ namespace BLL
             //}
 
         }
-        public BE_Usuarios MostrarUsuario(BE_Usuarios buscarUser)
+        public BE_Usuario MostrarUsuario(BE_Usuario buscarUser)
         {
-            BE_Usuarios dt = abmUs.Leer(buscarUser);
+            BE_Usuario dt = abmUs.Leer(buscarUser);
             return dt;
         }
         public bool ValidarSiElUsuarioYaExiste(string usuario)
         {
-            BE_Usuarios buscarUser = new BE_Usuarios();
+            BE_Usuario buscarUser = new BE_Usuario();
             buscarUser.User = usuario;
             return abmUs.ValidarExistenciaDeUsuario(buscarUser);
         }

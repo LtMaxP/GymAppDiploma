@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DigitoVerificadorDAL
     {
-        private BE.BE_Usuarios usuarioActual = BE.Usuario.Instance;
+        private BE.BE_Usuario usuarioActual = BE.Usuario.Instance;
 
         public DataTable ObtenerListaDeDVHUsuarios()
         {

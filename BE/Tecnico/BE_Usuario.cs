@@ -6,21 +6,9 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class BE_Usuarios
+    public class BE_Usuario
     {
-        public BE_Usuarios(string usuario, string password, int id_Idioma)
-        {
-            this.User = usuario;
-            this.Pass = password;
-            this.idIdioma = id_Idioma;
-        }
-        public BE_Usuarios(string usuario, int id_Idioma, int id_Estado)
-        {
-            this.User = usuario;
-            this.idEstado = id_Estado;
-            this.idIdioma = id_Idioma;
-        }
-        public BE_Usuarios() { }
+        public BE_Usuario() { }
 
         private string user;
 
@@ -63,16 +51,7 @@ namespace BE
             set { id_Estado = value; }
         }
 
-        private int id_Idioma;
-
-        public int idIdioma
-        {
-            get { return id_Idioma; }
-            set { id_Idioma = value; }
-        }
-
         private ObserverIdioma.BE_Idioma _idioma;
-
         public ObserverIdioma.BE_Idioma Idioma
         {
             get { return _idioma; }
@@ -80,21 +59,12 @@ namespace BE
         }
 
 
-        private string _rol;
-
-        public string rol
+        private List<BE.Composite.Component> _permisos;
+        public List<BE.Composite.Component> Permisos
         {
-            get { return _rol; }
-            set { _rol = value; }
+            get { return _permisos; }
+            set { _permisos = value; }
         }
-
-        //private List<Composite.component> _arbol;  //Mal tiene q venir el Component de la bll, pasar todo eso tmb a la BE
-
-        //public List<BE.> arbol
-        //{
-        //    get { return _arbol; }
-        //    set { _arbol = value; }
-        //}
 
     }
 }

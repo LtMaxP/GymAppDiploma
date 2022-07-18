@@ -14,7 +14,7 @@ namespace BLL.Composite
 
         public Composite FormarArbolDeUsuario(int idUsuario)
         {
-            List<BE.Composite> listCompo = comp.ObtenerPermisoUsuario(idUsuario);
+            List<BE.Compositex> listCompo = comp.ObtenerPermisoUsuario(idUsuario);
 
             Composite composite = new Composite("0", "Arbol");
 
@@ -37,7 +37,7 @@ namespace BLL.Composite
         }
         public void FormarArbolDeUsuarioLog()
         {
-            List<BE.Composite> listCompo = comp.ObtenerPermisoUsuario(BE.Usuario.Instance.IdUsuario);
+            List<BE.Compositex> listCompo = comp.ObtenerPermisoUsuario(BE.Usuario.Instance.IdUsuario);
 
             Composite composite = new Composite();
             //se estaba creando y viendo composite con esto sin registros
@@ -58,9 +58,9 @@ namespace BLL.Composite
 
         }
 
-        public Composite FormarArbolito(BE.Composite compo)
+        public Composite FormarArbolito(BE.Compositex compo)
         {
-            List<BE.Composite> listC = comp.ObtenerPerfilConTipo(compo.idComponente);
+            List<BE.Compositex> listC = comp.ObtenerPerfilConTipo(compo.idComponente);
             Composite element = new Composite(compo.idComponente, compo.descripcion);
 
             foreach (var ele in listC)

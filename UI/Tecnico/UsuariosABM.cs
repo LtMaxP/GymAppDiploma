@@ -28,7 +28,7 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BE.BE_Usuarios nuevoUsuario = new BE.BE_Usuarios();
+            BE.BE_Usuario nuevoUsuario = new BE.BE_Usuario();
             String usuario = textBox3.Text;
             String contraseña = textBox4.Text;
             String idioma = comboBox1.Text;
@@ -59,7 +59,7 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            BE.BE_Usuarios usuarioDelete = new BE.BE_Usuarios();
+            BE.BE_Usuario usuarioDelete = new BE.BE_Usuario();
             usuarioDelete.User = textBox3.Text;
             usuarioDelete.Pass = textBox4.Text;
             if (String.IsNullOrEmpty(usuarioDelete.User))
@@ -79,9 +79,9 @@ namespace UI
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
-            BE.BE_Usuarios usuario = new BE.BE_Usuarios();
+            BE.BE_Usuario usuario = new BE.BE_Usuario();
             usuario.User = textBox2.Text;
-            List<BE.BE_Usuarios> filaDeDatos = usuarioABM.BuscarUsuario(usuario);
+            List<BE.BE_Usuario> filaDeDatos = usuarioABM.BuscarUsuario(usuario);
 
             if (filaDeDatos.Count > 0)
             {
@@ -89,11 +89,11 @@ namespace UI
                 {
                     listView1.Items.RemoveAt(0);
                 }
-                foreach (BE.BE_Usuarios u in filaDeDatos)
+                foreach (BE.BE_Usuario u in filaDeDatos)
                 {
                     ListViewItem lista = new ListViewItem();
                     lista.SubItems.Add(u.User.ToString());
-                    lista.SubItems.Add(u.idIdioma.ToString());
+                    lista.SubItems.Add(u.Idioma.Id.ToString());
                     lista.SubItems.Add(u.idEstado.ToString());
                     listView1.Items.AddRange(new ListViewItem[] { lista });
                 }
@@ -112,11 +112,11 @@ namespace UI
             }
             else if (listView1.Items.Count > 0)
             {
-                BE.BE_Usuarios usuario = new BE.BE_Usuarios();
+                BE.BE_Usuario usuario = new BE.BE_Usuario();
                 usuario.User = listView1.SelectedItems[0].SubItems[1].Text;
-                BE.BE_Usuarios filaDeDatos = usuarioABM.MostrarUsuario(usuario);
+                BE.BE_Usuario filaDeDatos = usuarioABM.MostrarUsuario(usuario);
                 textBox3.Text = filaDeDatos.User;
-                comboBox1.SelectedIndex = filaDeDatos.idIdioma -1;
+                comboBox1.SelectedIndex = filaDeDatos.Idioma.Id -1;
                 comboBox2.SelectedIndex = filaDeDatos.idEstado -1;
             }
             else
@@ -153,7 +153,7 @@ namespace UI
         private void labelModificar_Click(object sender, EventArgs e)
         {
 
-            BE.BE_Usuarios modUsuario = new BE.BE_Usuarios();
+            BE.BE_Usuario modUsuario = new BE.BE_Usuario();
             String usuario = textBox3.Text;
             String contraseña = textBox4.Text;
             String idioma = comboBox1.Text;
