@@ -167,39 +167,56 @@ namespace UI.Negocio
         private void buttonComprar_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(textBoxCliente.Text))
-                if (dataGridView1.Rows.Count > 1)
+            {
+                BE.Cliente cliente = new BE.Cliente();
+                cliente._dni = int.Parse(textBoxCliente.Text);
+                if (clients.ValidarSiExiste(cliente))
                 {
-                    BE_Factura Compra = new BE_Factura();
-                    List<Item> productos = new List<Item>();
-                    foreach (DataGridViewRow dgr in dataGridView1.Rows)
+                    if (dataGridView1.Rows.Count > 1)
                     {
-                        if (dgr.Cells[1].Value != null)
+                        BE_Factura Compra = new BE_Factura();
+                        List<Item> productos = new List<Item>();
+                        foreach (DataGridViewRow dgr in dataGridView1.Rows)
                         {
-                            productos.Add(new Item(dgr.Cells["Producto"].Value.ToString(), Decimal.Parse(dgr.Cells["Precio"].Value.ToString()), int.Parse(dgr.Cells["Cantidad"].Value.ToString())));
+                            if (dgr.Cells[1].Value != null)
+                            {
+                                productos.Add(new Item(dgr.Cells["Producto"].Value.ToString(), Decimal.Parse(dgr.Cells["Precio"].Value.ToString()), int.Parse(dgr.Cells["Cantidad"].Value.ToString())));
+                            }
                         }
-                    }
-                    Compra.Items = productos;
-                    Compra.Fecha = DateTime.Now;
-                    Compra.Monto = Decimal.Parse(labelNroTotal.Text);
-                    Compra.Id_Cliente = clients.DameIdCliente(textBoxCliente.Text);
-                    BLL.BLLFacturas.EjecutarCompra(Compra);
+                        Compra.Items = productos;
+                        Compra.Fecha = DateTime.Now;
+                        Compra.Monto = Decimal.Parse(labelNroTotal.Text);
+                        Compra.Id_Cliente = clients.DameIdCliente(cliente);
+                        BLL.BLLFacturas.EjecutarCompra(Compra);
 
-                    //refresh part
-                    dataGridView1.Rows.Clear();
-                    dataGridView1.Refresh();
-                    items = BLLProd.TraerProductos();
-                    FillComboBox1();
+                        //refresh part
+                        dataGridView1.Rows.Clear();
+                        dataGridView1.Refresh();
+                        items = BLLProd.TraerProductos();
+                        FillComboBox1();
+                        MessageBox.Show("Compra exitosa ^_^");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe agregar productos a comprar");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Debe agregar productos a comprar");
+                    MessageBox.Show("Debe ingresar un DNI de cliente a comprar");
                 }
-            else
-            {
-                MessageBox.Show("Debe ingresar un cliente a comprar");
             }
 
+        }
 
+        private void textBoxCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBoxCliente.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Ingrese solamente numeros");
+                textBoxCliente.Text = textBoxCliente.Text.Remove(textBoxCliente.Text.Length - 1);
+            }
         }
     }
 }

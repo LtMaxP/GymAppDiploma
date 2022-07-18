@@ -189,27 +189,24 @@ namespace DAL
             return rpta;
         }
 
+        /// <summary>
+        /// Validar existencia de cliente por DNI
+        /// </summary>
+        /// <param name="cli"></param>
+        /// <returns></returns>
         public bool ValidarSiExisteDAL(Cliente cli)
         {
             bool respuesta = false;
             using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
-                String query = "SELECT * FROM ClienteGYM WHERE EXISTS(SELECT * FROM ClienteGYM WHERE dni = " + cli._dni + ")";
-                SqlCommand command = new SqlCommand(query, connection);
-
-                command.Connection.Open();
+                String query = "SELECT * FROM ClienteGYM WHERE EXISTS(SELECT * FROM ClienteGYM WHERE Dni = @dni)";
                 try
                 {
-                    int resquery = Convert.ToInt32(command.ExecuteScalar());
-                    if (resquery == 1)
-                    {
-                        respuesta = true;
-                    }
+                    SqlCommand command = new SqlCommand(query);
+                    command.Parameters.AddWithValue("@dni", cli._dni);
+                    respuesta = Acceso.Instance.ExecuteScalarBool(command);
                 }
-                catch
-                { respuesta = false; }
-                command.Connection.Close();
-
+                catch { }
             }
             return respuesta;
 
@@ -234,14 +231,14 @@ namespace DAL
 
         }
 
-        public int DameIdCliente(string nombre)
+        public int DameIdCliente(BE.Cliente cliente)
         {
             int idCliente = 0;
             using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
-                String query = "SELECT Id_Cliente FROM ClienteGYM WHERE Nombre = @nombre";
+                String query = "SELECT Id_Cliente FROM ClienteGYM WHERE Dni = @dni";
                 SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@nombre", nombre);
+                command.Parameters.AddWithValue("@dni", cliente._dni);
                 try
                 {
                     idCliente = Acceso.Instance.ExecuteScalar(command);

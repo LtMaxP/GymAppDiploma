@@ -110,9 +110,14 @@ namespace BLL
             return true;
         }
 
-        public int DameIdCliente(string nombre)
+        /// <summary>
+        /// Devuelve el id del cliente por el nombre
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
+        public int DameIdCliente(BE.Cliente cliente)
         {
-            return cligym.DameIdCliente(nombre);
+            return cligym.DameIdCliente(cliente);
         }
         
         public List<BE.Cliente> Leer(Cliente valBuscar)
@@ -183,8 +188,7 @@ namespace BLL
 
         public bool ValidarSiExiste(Cliente cli)
         {
-            DALClientes dalCli = new DALClientes();
-            return dalCli.ValidarSiExisteDAL(cli);
+            return cligym.ValidarSiExisteDAL(cli);
         }
     }
 }

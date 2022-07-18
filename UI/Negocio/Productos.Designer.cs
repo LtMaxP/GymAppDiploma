@@ -149,10 +149,13 @@ namespace UI.Negocio
             // 
             // textBoxCliente
             // 
+            this.textBoxCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.textBoxCliente.Location = new System.Drawing.Point(198, 498);
+            this.textBoxCliente.MaxLength = 8;
             this.textBoxCliente.Name = "textBoxCliente";
             this.textBoxCliente.Size = new System.Drawing.Size(148, 20);
             this.textBoxCliente.TabIndex = 10;
+            this.textBoxCliente.TextChanged += new System.EventHandler(this.textBoxCliente_TextChanged);
             // 
             // labelProducto
             // 
