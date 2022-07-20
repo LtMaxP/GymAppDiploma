@@ -63,7 +63,7 @@ namespace DAL
 
                 DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
 
-                BE.Composite.Component Permisos = new BE.Composite.Composite();
+                BE.Composite.Component Permisos = new BE.Composite.Composite("0", "Arbol");
 
                 foreach (DataRow element in dt.Rows)
                 {
@@ -78,8 +78,8 @@ namespace DAL
                         }
                         else if (element[3].ToString().Contains("P"))
                         {
-                            newcompo = new BE.Composite.Hoja(element[1].ToString(), element[2].ToString());
-                            Permisos.Agregar(newcompo);
+                            //newcompo = new BE.Composite.Hoja(element[1].ToString(), element[2].ToString());
+                            Permisos.Agregar(new BE.Composite.Hoja(element[1].ToString(), element[2].ToString()));
                         }
                     }
                     Permisos.Agregar(Permisos);
@@ -170,14 +170,12 @@ namespace DAL
                     {
                         if (element[2].ToString().Contains("F"))
                         {
-                            newcompo = new BE.Composite.Composite(element[0].ToString(), element[1].ToString());
+                            newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[0].ToString(), element[1].ToString()));
                             Permisos.Agregar(newcompo);
-                            newcompo = ArmarArbolConIdPadre(newcompo);
                         }
                         else if (element[2].ToString().Contains("P"))
                         {
-                            newcompo = new BE.Composite.Hoja(element[0].ToString(), element[1].ToString());
-                            Permisos.Agregar(newcompo);
+                            Permisos.Agregar(new BE.Composite.Hoja(element[0].ToString(), element[1].ToString()));
                         }
                     }
                 }
