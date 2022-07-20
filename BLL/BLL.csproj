@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Negocio\BLLProducto.cs" />
+    <Compile Include="Tecnico\PermisosBLL.cs" />
     <Compile Include="Tecnico\Backup.cs" />
     <Compile Include="Tecnico\BitacoraBLL.cs" />
     <Compile Include="Negocio\BLLClientes.cs" />

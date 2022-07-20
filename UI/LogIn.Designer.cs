@@ -51,11 +51,13 @@
             // 
             // buttonIngresar
             // 
-            this.buttonIngresar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonIngresar.BackColor = System.Drawing.Color.DarkSlateGray;
             this.buttonIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonIngresar.Location = new System.Drawing.Point(309, 198);
+            this.buttonIngresar.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIngresar.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonIngresar.Location = new System.Drawing.Point(294, 199);
             this.buttonIngresar.Name = "buttonIngresar";
-            this.buttonIngresar.Size = new System.Drawing.Size(111, 37);
+            this.buttonIngresar.Size = new System.Drawing.Size(143, 47);
             this.buttonIngresar.TabIndex = 1;
             this.buttonIngresar.Text = "Ingresar";
             this.buttonIngresar.UseVisualStyleBackColor = false;
@@ -63,13 +65,16 @@
             // 
             // buttonSalir
             // 
+            this.buttonSalir.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSalir.Location = new System.Drawing.Point(521, 367);
+            this.buttonSalir.Font = new System.Drawing.Font("Courier New", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalir.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSalir.Location = new System.Drawing.Point(541, 373);
             this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(84, 40);
+            this.buttonSalir.Size = new System.Drawing.Size(64, 34);
             this.buttonSalir.TabIndex = 2;
             this.buttonSalir.Text = "Salir";
-            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.UseVisualStyleBackColor = false;
             this.buttonSalir.Click += new System.EventHandler(this.button2_Click);
             // 
             // labelPass

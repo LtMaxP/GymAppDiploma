@@ -13,6 +13,7 @@ namespace UI
 {
     public partial class Permisos : Form, BE.ObserverIdioma.IObserverIdioma
     {
+        BLL.Tecnico.PermisosBLL PermBLL = new BLL.Tecnico.PermisosBLL();
         public Permisos()
         {
             InitializeComponent();
@@ -22,6 +23,8 @@ namespace UI
         private void Permisos_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
+            comboBox1.DataSource = PermBLL.TraerFamilias();
+            comboBox2.DataSource = PermBLL.TraerPatentes();
         }
 
         private void SalirBtn_Click(object sender, EventArgs e)
@@ -31,6 +34,11 @@ namespace UI
         }
 
         private void ConsultarBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -61,9 +61,15 @@ namespace BLL
             dVDal.InsertarDVHEnUsuario(hasheoDVH);
         }
 
+        public bool VerificarDB()
+        {
+            string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(dVDal.ObtenerListaDeDVHUsuarios());
+            return DVV.Equals(dVDal.TraerDVV()) ? true : false;
+        }
+
         public String TraerDVV()
         {
-            return dVDal.TraerDVV(); 
+            return dVDal.TraerDVV();
         }
 
         public DataTable TraerDVH()

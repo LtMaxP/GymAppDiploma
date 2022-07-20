@@ -22,50 +22,45 @@ namespace BLL
         private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
 
         static void Main() { }
-
+        /// <summary>
+        /// Buscar el ID del usuario
+        /// </summary>
         public void BuscarUsuario()
         {
             DALUserLogin.BuscarUsuarioBD();
         }
 
         //Login con validación de usuario
-        public Boolean DetectarUsuario(string usuario, string pass)
+        public Boolean DetectarUsuario(BE.BE_Usuario user)
         {
             Boolean retornableComoCocaCola = false;
-            BE.Usuario.Instance.User = usuario;
-            BE.Usuario.Instance.Pass = Servicios.Encriptacion.Encriptador(pass);
-            if (DALUserLogin.DetectarUsuario(usuario))
+            BE.Usuario.Instance.User = user.User;
+            BE.Usuario.Instance.Pass = Servicios.Encriptacion.Encriptador(user.Pass);
+            if (DALUserLogin.DetectarUsuario())
             {
-                if (DALUserLogin.LoginUser()) //passEncript arreglalo que la cagaste
+                if (DALUserLogin.ValidarBloqueo())
                 {
-                    BuscarUsuario();
-
-                    //Composite arbol formado
-                    formarArbol.FormarArbolDeUsuarioLog();
-
-                    foreach (var element in BE.Usuario.Instance.Permisos.List())
+                    if (DALUserLogin.LoginUser())
                     {
+                        BuscarUsuario();
+                        formarArbol.FormarArbolDeUsuarioLog(); //Composite arbol formado
 
-                        //if (element.descripcion.Equals("Restore"))// ejemplo de lo que tenes que hacer para validar QUE cosas habilitas luego
-                        if (!element.descripcion.Equals(" "))
+                        foreach (var element in BE.Usuario.Instance.Permisos.List())
                         {
-                            retornableComoCocaCola = true;
-                            break;
+                            //if (element.descripcion.Equals("Restore"))// ejemplo de lo que tenes que hacer para validar QUE cosas habilitas luego
+                            if (!element.descripcion.Equals(" "))
+                            {
+                                retornableComoCocaCola = true;
+                                break;
+                            }
+                            else
+                            {
+                                EncontrarRolEnArbol(element.descripcion, element);
+                            }
                         }
-                        else
-                        {
-                            EncontrarRolEnArbol(element.descripcion, element);
-                        }
-
+                        bit.RegistrarMovimiento("Ingreso Usuario con ID: " + BE.Usuario.Instance.IdUsuario, "Bajo"); //cambiar a nueva clase
                     }
-
-                    bit.RegistrarMovimiento("Ingreso Usuario con ID: " + BE.Usuario.Instance.IdUsuario, "Bajo"); //cambiar a nueva clase
                 }
-                ////if (user.IntentosFallidos == 3)
-                ////{
-                ////    //bloqueas usuario
-                ////}
-
             }
             return retornableComoCocaCola;
         }

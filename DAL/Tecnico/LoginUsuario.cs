@@ -40,13 +40,17 @@ namespace DAL
             }
             return true;
         }
-
-        public Boolean DetectarUsuario(string user)
+        /// <summary>
+        /// Valida si el usuario existe
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public Boolean DetectarUsuario()
         {
             Boolean returnable = false;
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "select CASE WHEN count(*) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @user;";
-            sqlcomm.Parameters.AddWithValue("@user", user);
+            sqlcomm.Parameters.AddWithValue("@user", BE.Usuario.Instance.User);
             try
             {
                 returnable = Acceso.Instance.ExecuteScalarBool(sqlcomm);
@@ -55,6 +59,10 @@ namespace DAL
 
             return returnable;
         }
+        /// <summary>
+        /// Detectar user y pass resetea o suma 1 a intentos fallidos
+        /// </summary>
+        /// <returns></returns>
         public Boolean LoginUser()
         {
             bool respuesta = false;
@@ -90,7 +98,7 @@ namespace DAL
             catch { };
         }
 
-        public void BadPass()
+        private void BadPass()
         {
             try
             {
@@ -101,6 +109,45 @@ namespace DAL
                 Acceso.Instance.ExecuteNonQuery(comm);
             }
             catch { };
+        }
+
+        /// <summary>
+        /// Devuelve la cantidad de intentos fallidos del usuario
+        /// </summary>
+        /// <returns></returns>
+        public int GetIntentosFallidos()
+        {
+            int result = 0;
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = "SELECT IntentosFallidos FROM Usuario WHERE Usuario = '@nombre' ";
+                comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
+
+                result = Acceso.Instance.ExecuteScalar(comm);
+            }
+            catch { };
+
+            return result;
+        }
+        /// <summary>
+        /// Validar si esta bloqueado
+        /// </summary>
+        /// <returns></returns>
+        public bool ValidarBloqueo()
+        {
+            bool result = false;
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = '@nombre' and Id_Estado = 1 OR IntentosFallidos <= 3";
+                comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
+
+                result = Acceso.Instance.ExecuteScalarBool(comm);
+            }
+            catch { };
+
+            return result;
         }
     }
 }

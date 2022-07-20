@@ -21,7 +21,7 @@ namespace DAL
             {
                 dt = Acceso.Instance.ExecuteDataTable(command);
             }
-            catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
+            catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVH :("); }
             return dt;
         }
 

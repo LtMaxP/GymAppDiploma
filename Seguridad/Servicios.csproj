@@ -69,6 +69,7 @@
     <Compile Include="DigitoVerificadorHV.cs" />
     <Compile Include="Encriptacion.cs" />
     <Compile Include="ICRUD.Servicios.cs" />
+    <Compile Include="Permisos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Restore.cs" />
   </ItemGroup>

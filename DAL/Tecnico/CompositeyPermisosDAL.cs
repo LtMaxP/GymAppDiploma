@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE.Composite;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -217,8 +218,14 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Obtener PermisosUsuario."); }
         }
 
+        public List<Component> TraerFamiliasDAL()
+        {
+            throw new NotImplementedException();
+        }
 
-
-
+        public List<Component> TraerPatentesDAL()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

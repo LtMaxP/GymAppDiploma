@@ -18,6 +18,7 @@ namespace UI
         Bitmap secSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
         Bitmap wallpaper = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
         IdiomaBLL BLLIdioma = new IdiomaBLL();
+        Servicios.Permisos Perm = new Servicios.Permisos();
         int speIma = 0;
         public Inicio()
         {
@@ -25,7 +26,7 @@ namespace UI
         }
 
         #region traducir
-    
+
 
         public void Traducir(Control c)
         {
@@ -225,16 +226,19 @@ namespace UI
         }
         private void labelBackupRestore_Click(object sender, EventArgs e)
         {
-            if (Fbackrest == null)
+            if (Perm.ValidarPermiso("BackupRestore"))
             {
-                Fbackrest = new BackupRestore();
-                Fbackrest.MdiParent = this;
-                Fbackrest.FormClosed += new FormClosedEventHandler(Fbackrest_FormClosed);
-                Fbackrest.Show();
-            }
-            else
-            {
-                Fbackrest.Activate();
+                if (Fbackrest == null)
+                {
+                    Fbackrest = new BackupRestore();
+                    Fbackrest.MdiParent = this;
+                    Fbackrest.FormClosed += new FormClosedEventHandler(Fbackrest_FormClosed);
+                    Fbackrest.Show();
+                }
+                else
+                {
+                    Fbackrest.Activate();
+                }
             }
         }
         private void Fbackrest_FormClosed(object sender, FormClosedEventArgs e)

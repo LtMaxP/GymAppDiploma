@@ -46,12 +46,12 @@ namespace UI.Tecnico
             dataGridView1.Columns[1].Name = "descripcion";
             dataGridView1.Columns[1].DataPropertyName = "descripcion";
 
-            dataGridView1.Columns[2].Name = "accion";
-            dataGridView1.Columns[2].DataPropertyName = "accion";
+            dataGridView1.Columns[2].Name = "Secuencia";
+            dataGridView1.Columns[2].DataPropertyName = "Secuencia";
             dataGridView1.Columns[2].Visible = false;
 
-            dataGridView1.Columns[3].Name = "campo";
-            dataGridView1.Columns[3].DataPropertyName = "campo";
+            dataGridView1.Columns[3].Name = "UsuarioID";
+            dataGridView1.Columns[3].DataPropertyName = "UsuarioID";
 
             dataGridView1.Columns[4].Name = "valorOriginal";
             dataGridView1.Columns[4].DataPropertyName = "valorOriginal";
@@ -64,12 +64,6 @@ namespace UI.Tecnico
 
             dataGridView1.Columns[7].Name = "Operacion";
             dataGridView1.Columns[7].DataPropertyName = "Operacion";
-
-            dataGridView1.Columns[8].Name = "Secuencia";
-            dataGridView1.Columns[8].DataPropertyName = "Secuencia";
-
-            dataGridView1.Columns[9].Name = "UsuarioID";
-            dataGridView1.Columns[9].DataPropertyName = "UsuarioID";
 
 
             dataGridView1.DataSource = BLL.Tecnico.ControlCambiosBLL.TraerCC();

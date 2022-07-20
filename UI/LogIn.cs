@@ -20,7 +20,8 @@ namespace UI
 
         private BLL.Login bllLog = new BLL.Login();
         private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
-        int contador = 0;
+        private BLL.DV DigitosVerificadores = new BLL.DV(); 
+
         public LogIn()
         {
             InitializeComponent();
@@ -46,22 +47,27 @@ namespace UI
             }
             else
             {
+                BE.BE_Usuario user = new BE.BE_Usuario();
+                user.User = textBox1.Text;
+                user.Pass = textBox2.Text;
                 //Detecta que el usuario exista
-                if (bllLog.DetectarUsuario(textBox1.Text, textBox2.Text))
+                if (bllLog.DetectarUsuario(user))
                 {
-                    this.Hide();
-                    Inicio ini = new Inicio();
-                    ini.Show();
+                    //Validar DVV
+                    if (DigitosVerificadores.VerificarDB())
+                    {
+                        this.Hide();
+                        Inicio ini = new Inicio();
+                        ini.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("BASE DE DATOS CORRUPTA !!! ");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Usuario y/o Contraseña incorrectos");
-                    if (contador == 3)
-                    {
-                        contador = 0; //bloquee bloqueeeee
-                    }
-                    else
-                    { contador++; }
                 }
             }
 
