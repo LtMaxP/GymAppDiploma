@@ -6,48 +6,40 @@ using System.Threading.Tasks;
 
 namespace BE.Composite
 {
-    public class Composite
+    public class Composite : Component
     {
-        /// <summary>
-        /// Codigo de usuario de composite
-        /// </summary>
-        public string UsuarioCodigo { get; set; }
-        /// <summary>
-        /// Codigo del permiso
-        /// </summary>
-        public string PermisoCodigo { get; set; }
-        /// <summary>
-        /// Representa el id del compontene
-        /// </summary>
-        public string IdComponente { get; set; }
-        /// <summary>
-        /// Representa la descripcion del composite
-        /// </summary>
-        public string Descripcion { get; set; }
-        /// <summary>
-        /// Representa el id del componente hijo
-        /// </summary>
-        public string IdComponenteHijo { get; set; }
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public Composite()
-        { }
-        /// <summary>
-        /// Constructor sobrecargado
-        /// </summary>
-        /// <param name="UsuarioCodigo"></param>
-        /// <param name="PermisoCodigo"></param>
-        /// <param name="IdComponente"></param>
-        /// <param name="Descripcion"></param>
-        /// <param name="IdComponenteHijo"></param>
-        public Composite(string UsuarioCodigo, string PermisoCodigo, string IdComponente, string Descripcion, string IdComponenteHijo)
+        private List<Component> listadoComponent;
+
+        public Composite(string idPat = null, string descrip = null) : base(idPat, descrip)
         {
-            this.UsuarioCodigo = UsuarioCodigo;
-            this.PermisoCodigo = PermisoCodigo;
-            this.IdComponente = IdComponente;
-            this.Descripcion = Descripcion;
-            this.IdComponenteHijo = IdComponenteHijo;
+            listadoComponent = new List<Component>();
+        }
+
+        public override void Agregar(Component componente)
+        {
+            if (componente != null)
+            {
+                listadoComponent.Add(componente); //aca iria el listado para el usuario
+            }
+        }
+
+        public override void Eliminar(Component componente)
+        {
+            if (componente != null)
+            {
+                listadoComponent.Remove(componente);
+            }
+        }
+
+
+        public override IList<Component> List()
+        {
+            return listadoComponent.ToArray(); //mismo list del usuario
+        }
+
+        public override bool VerificarSiExiste(Component componente)
+        {
+            return this.iDPatente == componente.iDPatente || listadoComponent.Any(p => p.VerificarSiExiste(componente));
         }
     }
 

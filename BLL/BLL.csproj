@@ -56,11 +56,9 @@
     <Compile Include="Negocio\BLLFacturas.cs" />
     <Compile Include="Negocio\BLLListas.cs" />
     <Compile Include="Negocio\BLLPagosCobros.cs" />
-    <Compile Include="Composite\Component.cs" />
-    <Compile Include="Composite\Composite.cs" />
     <Compile Include="Composite\FormarArbolCompo.cs" />
+    <Compile Include="Tecnico\ControlCambiosBLL.cs" />
     <Compile Include="Tecnico\DV.cs" />
-    <Compile Include="Composite\Hoja.cs" />
     <Compile Include="Observer\IdiomaBLL.cs" />
     <Compile Include="Tecnico\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

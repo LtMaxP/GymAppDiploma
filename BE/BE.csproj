@@ -48,8 +48,7 @@
   <ItemGroup>
     <Compile Include="Composite\Component.cs" />
     <Compile Include="Composite\Composite.cs" />
-    <Compile Include="Composite\Familia.cs" />
-    <Compile Include="Composite\Patente.cs" />
+    <Compile Include="Composite\Hoja.cs" />
     <Compile Include="Negocio\BE_Administracion.cs" />
     <Compile Include="Negocio\BE_Clase.cs" />
     <Compile Include="Negocio\BE_Gerente.cs" />
@@ -72,6 +71,7 @@
     <Compile Include="Tecnico\Bitacora.cs" />
     <Compile Include="Negocio\Cliente.cs" />
     <Compile Include="Tecnico\Compositex.cs" />
+    <Compile Include="Tecnico\ControlCambio.cs" />
     <Compile Include="Tecnico\Idioma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tecnico\Usuario.cs" />

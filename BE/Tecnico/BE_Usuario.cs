@@ -59,8 +59,8 @@ namespace BE
         }
 
 
-        private List<BE.Composite.Component> _permisos;
-        public List<BE.Composite.Component> Permisos
+        private BE.Composite.Component _permisos;
+        public BE.Composite.Component Permisos
         {
             get { return _permisos; }
             set { _permisos = value; }

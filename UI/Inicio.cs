@@ -422,5 +422,23 @@ namespace UI
             }
         }
 
+        private void controlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CC == null)
+            {
+                CC = new Tecnico.ControlCambios();
+                CC.MdiParent = this;
+                CC.FormClosed += new FormClosedEventHandler(CC_FormClosed);
+                CC.Show();
+            }
+            else
+            {
+                PermUsu.Activate();
+            }
+        }
+        private void CC_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CC = null;
+        }
     }
 }

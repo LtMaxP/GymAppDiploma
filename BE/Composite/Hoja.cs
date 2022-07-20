@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Composite
+namespace BE.Composite
 {
-    public class Hoja : Component
+    public class Hoja : BE.Composite.Component
     {
-        public Hoja(string idPat, string descrip) : base(idPat, descrip)
+        public Hoja(string idPat = null, string descrip = null) : base(idPat, descrip)
         {
 
         }
 
         public override void Agregar(Component componente)
         {
-            
+
         }
 
         public override void Eliminar(Component componente)
@@ -23,9 +23,14 @@ namespace BLL.Composite
            
         }
 
-        public override List<Component> List()
+        public override IList<Component> List()
         {
             return null;
+        }
+
+        public override bool VerificarSiExiste(Component componente)
+        {
+            return this.iDPatente == componente.iDPatente;
         }
     }
 }

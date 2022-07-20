@@ -51,8 +51,6 @@
             this.usuarioCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.IdiomaCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Estadocol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelAlta
@@ -260,31 +258,11 @@
             this.Estadocol.Text = "Estado";
             this.Estadocol.Width = 100;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(380, 275);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Rol:";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(480, 272);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 21);
-            this.comboBox3.TabIndex = 11;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
-            // 
             // UsuariosABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 518);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelMostrar);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
@@ -336,7 +314,5 @@
         private System.Windows.Forms.ColumnHeader IdiomaCol;
         private System.Windows.Forms.ColumnHeader Estadocol;
         private System.Windows.Forms.ColumnHeader hide;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

@@ -12,67 +12,49 @@ namespace BLL.Composite
 
 
 
-        public Composite FormarArbolDeUsuario(int idUsuario)
-        {
-            List<BE.Compositex> listCompo = comp.ObtenerPermisoUsuario(idUsuario);
+        //public BE.Composite.Component FormarArbolDeUsuario(int idUsuario)
+        //{
+        //    List<BE.Composite.Component> listCompo = comp.ObtenerPermisoUsuario(idUsuario);
 
-            Composite composite = new Composite("0", "Arbol");
+        //    BE.Composite.Composite composite = new BE.Composite.Composite("0", "Arbol");
 
-            foreach (var element in listCompo)
-            {
+        //    foreach (var element in listCompo)
+        //    {
 
-                if (element.tipo.Contains("F"))
-                {
-                    Composite newcompo = FormarArbolito(element);
-                    composite.Agregar(newcompo);
-                }
-                else if (element.tipo.Contains("P"))
-                {
-                    composite.Agregar(new Hoja(element.idComponente, element.descripcion));
-                }
+        //        if (element.tipo.Contains("F"))
+        //        {
+        //            BE.Composite.Composite newcompo = FormarArbolito(element);
+        //            composite.Agregar(newcompo);
+        //        }
+        //        else if (element.tipo.Contains("P"))
+        //        {
+        //            composite.Agregar(new BE.Composite.Hoja(element.idComponente, element.descripcion));
+        //        }
 
-            }
+        //    }
 
-            return composite;
-        }
+        //    return composite;
+        //}
         public void FormarArbolDeUsuarioLog()
         {
-            List<BE.Compositex> listCompo = comp.ObtenerPermisoUsuario(BE.Usuario.Instance.IdUsuario);
-
-            Composite composite = new Composite();
-            //se estaba creando y viendo composite con esto sin registros
-            foreach (var element in listCompo)
-            {
-
-                if (element.tipo.Contains("F"))
-                {
-                    Composite newcompo = FormarArbolito(element);
-                    composite.Agregar(newcompo);
-                }
-                else if (element.tipo.Contains("P"))
-                {
-                    composite.Agregar(new Hoja(element.idComponente, element.descripcion));
-                }
-
-            }
-
+            comp.NewObtenerPermisoUsuario();
         }
 
-        public Composite FormarArbolito(BE.Compositex compo)
+        public BE.Composite.Composite FormarArbolito(BE.Compositex compo)
         {
             List<BE.Compositex> listC = comp.ObtenerPerfilConTipo(compo.idComponente);
-            Composite element = new Composite(compo.idComponente, compo.descripcion);
+            BE.Composite.Composite element = new BE.Composite.Composite(compo.idComponente, compo.descripcion);
 
             foreach (var ele in listC)
             {
                 if (ele.tipo.Contains("F"))
                 {
-                    Composite newcompo = FormarArbolito(ele);
+                    BE.Composite.Composite newcompo = FormarArbolito(ele);
                     element.Agregar(newcompo);
                 }
                 else if (ele.tipo.Contains("P"))
                 {
-                    element.Agregar(new Hoja(ele.idComponente, ele.descripcion));
+                    element.Agregar(new BE.Composite.Hoja(ele.idComponente, ele.descripcion));
                 }
             }
 

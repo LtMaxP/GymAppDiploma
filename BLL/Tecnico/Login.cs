@@ -16,14 +16,10 @@ namespace BLL
 
     public class Login
     {
-
-        //private BE.Usuario user = new BE.Usuario();
-
         private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
         private Servicios.Encriptacion encrip = new Servicios.Encriptacion();
         private BLL.Composite.FormarArbolCompo formarArbol = new Composite.FormarArbolCompo();
         private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
-
 
         static void Main() { }
 
@@ -36,19 +32,18 @@ namespace BLL
         public Boolean DetectarUsuario(string usuario, string pass)
         {
             Boolean retornableComoCocaCola = false;
-            //string passEncript = Seguridad.Encriptacion.Encriptador(pass);
+            BE.Usuario.Instance.User = usuario;
+            BE.Usuario.Instance.Pass = Servicios.Encriptacion.Encriptador(pass);
             if (DALUserLogin.DetectarUsuario(usuario))
             {
-                BE.Usuario.Instance.User = usuario;
-                BE.Usuario.Instance.Pass = pass;
                 if (DALUserLogin.LoginUser()) //passEncript arreglalo que la cagaste
                 {
                     BuscarUsuario();
 
                     //Composite arbol formado
-                    var a = formarArbol.FormarArbolDeUsuario(BE.Usuario.Instance.IdUsuario);
+                    formarArbol.FormarArbolDeUsuarioLog();
 
-                    foreach (Composite.Composite element in a.List())
+                    foreach (var element in BE.Usuario.Instance.Permisos.List())
                     {
 
                         //if (element.descripcion.Equals("Restore"))// ejemplo de lo que tenes que hacer para validar QUE cosas habilitas luego
@@ -76,12 +71,12 @@ namespace BLL
         }
 
 
-        public bool EncontrarRolEnArbol(string rol, Composite.Component arbolObjeto)
+        public bool EncontrarRolEnArbol(string rol, BE.Composite.Component arbolObjeto)
         {
             Boolean isOk = false;
             if (arbolObjeto.List() != null)
             {
-                foreach (Composite.Component comp in arbolObjeto.List())
+                foreach (BE.Composite.Component comp in arbolObjeto.List())
                 {
                     //if (comp.descripcion.Equals("Restore"))
                     if (!comp.descripcion.Equals(" "))
