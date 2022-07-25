@@ -269,7 +269,6 @@ namespace DAL
                 comm.CommandText = @"SELECT * FROM [PerfilPyF]";
                 DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
 
-                //BE.Composite.Component Permisos = new BE.Composite.Composite("0", "Arbol");
                 foreach (DataRow element in dt.Rows)
                 {
                     BE.Composite.Component newcompo = null;
@@ -279,7 +278,6 @@ namespace DAL
                         if (element[2].ToString().Contains("F"))
                         {
                             newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[0].ToString(), element[1].ToString()));
-                            //Permisos.Agregar(newcompo);
                             if (!compoList.VerificarSiExiste(newcompo))
                             {
                                 compoList.Agregar(newcompo);
@@ -292,10 +290,8 @@ namespace DAL
                             {
                                 compoList.Agregar(newcompo);
                             }
-                            //compoList.Agregar(newcompo);
                         }
                     }
-                    //compoList.Agregar(Permisos);
                 }
             }
             catch

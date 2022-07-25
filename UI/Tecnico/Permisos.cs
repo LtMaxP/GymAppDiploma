@@ -25,10 +25,28 @@ namespace UI
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
             //comboBox1.DataSource = PermBLL.TraerFamilias();
             //arreglar para q divida entre patentes y familias a mostrar en List como le gusta a comboBox
-            comboBox1.DataSource = PermBLL.TraerComponentesFyP();
+            //comboBox1.DataSource = PermBLL.TraerComponentesFyP();
+            BE.Composite.Component asd = PermBLL.TraerComponentesFyP();
+            //comboBox1.DataSource = asd.List();
+            BE.Composite.Component family = new BE.Composite.Composite();
+            BE.Composite.Component childs = new BE.Composite.Composite();
+            foreach (var adsd in asd.List())
+            {
+                if (adsd.GetType() == typeof(BE.Composite.Composite))
+                {
+                    family.Agregar(adsd);
+                }
+                if (adsd.GetType() == typeof(BE.Composite.Hoja))
+                {
+                    childs.Agregar(adsd);
+                }
+            }
+            comboBox1.DataSource = family.List();
+            comboBox2.DataSource = childs.List();
+
             comboBox1.ValueMember = "descripcion";
-            //comboBox2.DataSource = PermBLL.TraerPatentes();
-            comboBox2.DataSource = PermBLL.TraerComponentesFyP();
+            ////comboBox2.DataSource = PermBLL.TraerPatentes();
+            //comboBox2.DataSource = PermBLL.TraerComponentesFyP();
             comboBox2.ValueMember = "descripcion";
 
         }
@@ -82,11 +100,13 @@ namespace UI
                 BE.BE_Usuario user = new BE.BE_Usuario();
                 user.User = txtName.Text;
                 if (PermBLL.DetectarUsuario(user))
-                {   ////////////////MODIFICAR EL LISTADO PARA Q CONTENGA COMPONENTES Y PASE LOS OBJETOS DIRECTOS PARA MANIPULAR
+                {   
+                    BE.Composite.Component permisos = new BE.Composite.Composite();
                     foreach (BE.Composite.Component element in ListaPerm.Items)
                     {
-                        user.Permisos.Agregar(element);
+                        permisos.Agregar(element);
                     }
+                    user.Permisos = permisos;
                 }
                 else
                 {
