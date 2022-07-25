@@ -33,13 +33,13 @@ namespace UI
             this.AgregarBtn = new System.Windows.Forms.Button();
             this.AgregarBtn2 = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
-            this.List = new System.Windows.Forms.ListBox();
+            this.ListaPerm = new System.Windows.Forms.ListBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.labelFamilia = new System.Windows.Forms.Label();
             this.labelNombre = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -63,6 +63,7 @@ namespace UI
             this.AgregarBtn.Tag = "AgregarBtn";
             this.AgregarBtn.Text = "Agregar";
             this.AgregarBtn.UseVisualStyleBackColor = true;
+            this.AgregarBtn.Click += new System.EventHandler(this.AgregarBtn_Click);
             // 
             // AgregarBtn2
             // 
@@ -74,6 +75,7 @@ namespace UI
             this.AgregarBtn2.Tag = "AgregarBtn";
             this.AgregarBtn2.Text = "Agregar";
             this.AgregarBtn2.UseVisualStyleBackColor = true;
+            this.AgregarBtn2.Click += new System.EventHandler(this.AgregarBtn2_Click);
             // 
             // buttonSalir
             // 
@@ -86,13 +88,13 @@ namespace UI
             this.buttonSalir.UseVisualStyleBackColor = true;
             this.buttonSalir.Click += new System.EventHandler(this.SalirBtn_Click);
             // 
-            // List
+            // ListaPerm
             // 
-            this.List.FormattingEnabled = true;
-            this.List.Location = new System.Drawing.Point(29, 122);
-            this.List.Name = "List";
-            this.List.Size = new System.Drawing.Size(219, 212);
-            this.List.TabIndex = 5;
+            this.ListaPerm.FormattingEnabled = true;
+            this.ListaPerm.Location = new System.Drawing.Point(29, 122);
+            this.ListaPerm.Name = "ListaPerm";
+            this.ListaPerm.Size = new System.Drawing.Size(219, 212);
+            this.ListaPerm.TabIndex = 5;
             // 
             // comboBox1
             // 
@@ -142,16 +144,17 @@ namespace UI
             this.btnGuardar.Tag = "Guardar";
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(102, 83);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 11;
+            this.txtName.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Location = new System.Drawing.Point(102, 83);
+            this.txtName.Multiline = true;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(146, 20);
+            this.txtName.TabIndex = 11;
             // 
             // label1
             // 
@@ -172,13 +175,13 @@ namespace UI
             this.ClientSize = new System.Drawing.Size(609, 477);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelFamilia);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.List);
+            this.Controls.Add(this.ListaPerm);
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.AgregarBtn2);
             this.Controls.Add(this.AgregarBtn);
@@ -198,13 +201,13 @@ namespace UI
         private System.Windows.Forms.Button AgregarBtn;
         private System.Windows.Forms.Button AgregarBtn2;
         private System.Windows.Forms.Button buttonSalir;
-        private System.Windows.Forms.ListBox List;
+        private System.Windows.Forms.ListBox ListaPerm;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label labelFamilia;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
     }
 }

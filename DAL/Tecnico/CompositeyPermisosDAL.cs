@@ -220,12 +220,107 @@ namespace DAL
 
         public List<Component> TraerFamiliasDAL()
         {
-            throw new NotImplementedException();
+            List<Component> compoList = new List<Component>();
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = @"SELECT * FROM [PerfilPyF] WHERE Tipo = 'F'";
+
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+                foreach (DataRow dr in dt.Rows)
+                {
+
+                    compoList.Add(new Hoja(dr[0].ToString(), dr[1].ToString()));
+                }
+            }
+            catch
+            { }
+            return compoList;
         }
 
-        public List<Component> TraerPatentesDAL()
+        public List<Component> TraerFamiliasOPatentesDAL(string fop)
         {
-            throw new NotImplementedException();
+            List<Component> compoList = new List<Component>();
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = @"SELECT * FROM [PerfilPyF] WHERE Tipo = @charFoP";
+                comm.Parameters.AddWithValue("@charFoP", fop);
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    compoList.Add(new Hoja(dr[0].ToString(), dr[1].ToString()));
+                }
+            }
+            catch
+            { }
+            return compoList;
+        }
+        /// <summary>
+        /// Trae todos los componentes de la lista para mostrar
+        /// </summary>
+        /// <returns></returns>
+        public Component TraerTodoFamiliasOPatentesDALNEW()
+        {
+            Component compoList = new BE.Composite.Composite("0", "Arbol");
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = @"SELECT * FROM [PerfilPyF]";
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+
+                //BE.Composite.Component Permisos = new BE.Composite.Composite("0", "Arbol");
+                foreach (DataRow element in dt.Rows)
+                {
+                    BE.Composite.Component newcompo = null;
+
+                    if (!String.IsNullOrEmpty(element[0].ToString()))
+                    {
+                        if (element[2].ToString().Contains("F"))
+                        {
+                            newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[0].ToString(), element[1].ToString()));
+                            //Permisos.Agregar(newcompo);
+                            if (!compoList.VerificarSiExiste(newcompo))
+                            {
+                                compoList.Agregar(newcompo);
+                            }
+                        }
+                        else if (element[2].ToString().Contains("P"))
+                        {
+                            newcompo = new BE.Composite.Hoja(element[0].ToString(), element[1].ToString());
+                            if (!compoList.VerificarSiExiste(newcompo))
+                            {
+                                compoList.Agregar(newcompo);
+                            }
+                            //compoList.Agregar(newcompo);
+                        }
+                    }
+                    //compoList.Agregar(Permisos);
+                }
+            }
+            catch
+            { }
+            return compoList;
+        }
+
+        /// <summary>
+        /// Valida si el usuario existe
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public Boolean DetectarUsuario(BE.BE_Usuario user)
+        {
+            Boolean returnable = false;
+            SqlCommand sqlcomm = new SqlCommand();
+            sqlcomm.CommandText = "select CASE WHEN count(*) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @user;";
+            sqlcomm.Parameters.AddWithValue("@user", user.User);
+            try
+            {
+                returnable = Acceso.Instance.ExecuteScalarBool(sqlcomm);
+            }
+            catch { System.Windows.Forms.MessageBox.Show("No se encontro el usuario"); }
+
+            return returnable;
         }
     }
 }

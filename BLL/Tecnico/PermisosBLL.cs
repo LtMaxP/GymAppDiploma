@@ -11,12 +11,21 @@ namespace BLL.Tecnico
         DAL.CompositeyPermisosDAL CyPDAL = new DAL.CompositeyPermisosDAL();
         public List<BE.Composite.Component> TraerFamilias()
         {
-            return CyPDAL.TraerFamiliasDAL();
+            return CyPDAL.TraerFamiliasOPatentesDAL("F");
         }
 
         public List<BE.Composite.Component> TraerPatentes()
         {
-            return CyPDAL.TraerPatentesDAL();
+            return CyPDAL.TraerFamiliasOPatentesDAL("P");
+        }
+        public BE.Composite.Component TraerComponentesFyP()
+        {
+            return CyPDAL.TraerTodoFamiliasOPatentesDALNEW();
+        }
+        
+        public bool DetectarUsuario(BE.BE_Usuario user)
+        {
+            return CyPDAL.DetectarUsuario(user);
         }
     }
 }

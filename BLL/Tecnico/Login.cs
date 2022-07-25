@@ -30,7 +30,11 @@ namespace BLL
             DALUserLogin.BuscarUsuarioBD();
         }
 
-        //Login con validación de usuario
+        /// <summary>
+        /// Login con validación de usuario
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public Boolean DetectarUsuario(BE.BE_Usuario user)
         {
             Boolean retornableComoCocaCola = false;
