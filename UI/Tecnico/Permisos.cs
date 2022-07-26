@@ -14,41 +14,30 @@ namespace UI
     public partial class Permisos : Form, BE.ObserverIdioma.IObserverIdioma
     {
         private BLL.Tecnico.PermisosBLL PermBLL = new BLL.Tecnico.PermisosBLL();
+        BE.Composite.Component family = new BE.Composite.Composite();
         public Permisos()
         {
             InitializeComponent();
         }
 
-
         private void Permisos_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
-            //comboBox1.DataSource = PermBLL.TraerFamilias();
-            //arreglar para q divida entre patentes y familias a mostrar en List como le gusta a comboBox
-            //comboBox1.DataSource = PermBLL.TraerComponentesFyP();
-            BE.Composite.Component asd = PermBLL.TraerComponentesFyP();
-            //comboBox1.DataSource = asd.List();
-            BE.Composite.Component family = new BE.Composite.Composite();
-            BE.Composite.Component childs = new BE.Composite.Composite();
-            foreach (var adsd in asd.List())
+            var PermisosTotal = PermBLL.TraerComponentesFyP();
+            foreach (var element in PermisosTotal.List())
             {
-                if (adsd.GetType() == typeof(BE.Composite.Composite))
+                if (element.GetType() == typeof(BE.Composite.Composite))
                 {
-                    family.Agregar(adsd);
+                    comboBox1.Items.Add(element);
                 }
-                if (adsd.GetType() == typeof(BE.Composite.Hoja))
+                else
                 {
-                    childs.Agregar(adsd);
+                    comboBox2.Items.Add(element);
                 }
             }
-            comboBox1.DataSource = family.List();
-            comboBox2.DataSource = childs.List();
-
             comboBox1.ValueMember = "descripcion";
-            ////comboBox2.DataSource = PermBLL.TraerPatentes();
-            //comboBox2.DataSource = PermBLL.TraerComponentesFyP();
             comboBox2.ValueMember = "descripcion";
-
+            ListaPerm.ValueMember = "descripcion";
         }
 
         private void SalirBtn_Click(object sender, EventArgs e)
@@ -69,27 +58,30 @@ namespace UI
 
         private void AgregarBtn_Click(object sender, EventArgs e)
         {
-            if (!ListaPerm.Items.Contains(comboBox1.SelectedItem))
-            {
-                ListaPerm.Items.Add(comboBox1.SelectedItem);
-                ListaPerm.ValueMember = "descripcion";
-            }
-            else
-            {
-                MessageBox.Show("Ya fue agregado ^_~");
-            }
+            BE.Composite.Component elem = (BE.Composite.Component)comboBox1.SelectedItem;
+            VerificarSiEsta(elem);
         }
 
         private void AgregarBtn2_Click(object sender, EventArgs e)
         {
-            if (!ListaPerm.Items.Contains(comboBox2.SelectedItem))
+            BE.Composite.Component elem = (BE.Composite.Component)comboBox2.SelectedItem;
+            VerificarSiEsta(elem);
+
+        }
+        private void VerificarSiEsta(BE.Composite.Component element)
+        {
+            if(element == null)
             {
-                ListaPerm.Items.Add(comboBox2.SelectedItem);
-                ListaPerm.ValueMember = "descripcion";
+                MessageBox.Show("Debe seleccionar un permiso");
+            }
+            else if (family.VerificarSiExiste(element))
+            {
+                MessageBox.Show("El permiso ya existe");
             }
             else
             {
-                MessageBox.Show("Ya fue agregado ^_~");
+                family.Agregar(element);
+                ListaPerm.Items.Add(element);
             }
         }
 
@@ -107,6 +99,7 @@ namespace UI
                         permisos.Agregar(element);
                     }
                     user.Permisos = permisos;
+                    //agregar al usuario permisos y fin
                 }
                 else
                 {
