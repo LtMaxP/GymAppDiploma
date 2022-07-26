@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -60,7 +61,7 @@ namespace DAL
             {
                 SqlCommand sqlcomm = new SqlCommand();
                 sqlcomm.CommandText = "SELECT " + devolver + " FROM " + tabla + " WHERE " + campoCondicional + " = @texto";
-                
+
 
                 SqlParameter param1 = new SqlParameter();
                 param1.ParameterName = "@texto";
@@ -76,6 +77,38 @@ namespace DAL
                 System.Windows.Forms.MessageBox.Show("Ocurrió un problema");
             }
             return idDelDidioma;
+        }
+
+        /// <summary>
+        /// Devuelve todos los IDs de Usuarios
+        /// </summary>
+        /// <returns></returns>
+        public List<BE_Usuario> TraerUsuarios()
+        {
+            List<BE_Usuario> users = new List<BE_Usuario>();
+            try
+            {
+                SqlCommand sqlcomm = new SqlCommand();
+                sqlcomm.CommandText = "SELECT Id_Usuario, Usuario from Usuario";
+
+                DataTable dt = Acceso.Instance.ExecuteDataTable(sqlcomm);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (dr != null)
+                    {
+                        BE_Usuario us = new BE_Usuario();
+                        us.IdUsuario = (int)dr[0];
+                        us.User = dr[1].ToString();
+                        //permisos seguro tmb
+                        users.Add(us);
+                    }
+                }
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Ocurrió un problema al traer los ids de usuarios");
+            }
+            return users;
         }
 
         private string DameTexto(string id, string devolver, string tabla, string campoCondicional)
@@ -128,7 +161,7 @@ namespace DAL
                         respuesta = true;
                     }
                 }
-                catch 
+                catch
                 { respuesta = false; }
                 command.Connection.Close();
 

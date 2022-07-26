@@ -68,7 +68,10 @@ namespace BLL
             objetoUsuario.Idioma.Id = int.Parse(idIdio);
             objetoUsuario.idEstado = int.Parse(idEst);
         }
-
+        public List<BE_Usuario> TraerUsuarios()
+        {
+            return buscar.TraerUsuarios();
+        }
 
         public List<BE_Usuario> BuscarUsuario(BE_Usuario buscarUser)
         {

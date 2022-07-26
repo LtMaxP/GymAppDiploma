@@ -103,6 +103,10 @@ namespace UI
         private void Inicio_Load(object sender, EventArgs e)
         {
             SubjectIdioma.AddObserverIdioma(this);
+            if (!BE.Usuario.Instance.Permisos.VerificarSiExiste(new BE.Composite.Composite("15", "Admin")))
+            {
+                labelSistema.Visible = false;
+            }
         }
 
 
