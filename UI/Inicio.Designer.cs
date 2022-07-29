@@ -98,42 +98,48 @@ namespace UI
             this.profesoresToolStripMenuItem});
             resources.ApplyResources(this.labelAcciones, "labelAcciones");
             this.labelAcciones.Name = "labelAcciones";
-            this.labelAcciones.Tag = "";
+            this.labelAcciones.Tag = "99";
             // 
             // labelClientes
             // 
             this.labelClientes.Name = "labelClientes";
             resources.ApplyResources(this.labelClientes, "labelClientes");
+            this.labelClientes.Tag = "4";
             this.labelClientes.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // labelEmpleados
             // 
             this.labelEmpleados.Name = "labelEmpleados";
             resources.ApplyResources(this.labelEmpleados, "labelEmpleados");
+            this.labelEmpleados.Tag = "22";
             this.labelEmpleados.Click += new System.EventHandler(this.labelEmpleados_Click);
             // 
             // labelFacturas
             // 
             this.labelFacturas.Name = "labelFacturas";
             resources.ApplyResources(this.labelFacturas, "labelFacturas");
+            this.labelFacturas.Tag = "28";
             this.labelFacturas.Click += new System.EventHandler(this.labelFacturas_Click);
             // 
             // labelPagosYCobros
             // 
             this.labelPagosYCobros.Name = "labelPagosYCobros";
             resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
+            this.labelPagosYCobros.Tag = "24";
             this.labelPagosYCobros.Click += new System.EventHandler(this.labelPagosYCobros_Click);
             // 
             // labelListas
             // 
             this.labelListas.Name = "labelListas";
             resources.ApplyResources(this.labelListas, "labelListas");
+            this.labelListas.Tag = "29";
             this.labelListas.Click += new System.EventHandler(this.labelListas_Click);
             // 
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
+            this.productosToolStripMenuItem.Tag = "18";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // profesoresToolStripMenuItem
@@ -143,17 +149,20 @@ namespace UI
             this.rutinaToolStripMenuItem});
             this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
             resources.ApplyResources(this.profesoresToolStripMenuItem, "profesoresToolStripMenuItem");
+            this.profesoresToolStripMenuItem.Tag = "99";
             // 
             // claseToolStripMenuItem
             // 
             this.claseToolStripMenuItem.Name = "claseToolStripMenuItem";
             resources.ApplyResources(this.claseToolStripMenuItem, "claseToolStripMenuItem");
+            this.claseToolStripMenuItem.Tag = "25";
             this.claseToolStripMenuItem.Click += new System.EventHandler(this.claseToolStripMenuItem_Click);
             // 
             // rutinaToolStripMenuItem
             // 
             this.rutinaToolStripMenuItem.Name = "rutinaToolStripMenuItem";
             resources.ApplyResources(this.rutinaToolStripMenuItem, "rutinaToolStripMenuItem");
+            this.rutinaToolStripMenuItem.Tag = "26";
             this.rutinaToolStripMenuItem.Click += new System.EventHandler(this.rutinaToolStripMenuItem_Click);
             // 
             // labelSistema
@@ -166,11 +175,13 @@ namespace UI
             this.controlDeCambiosToolStripMenuItem});
             resources.ApplyResources(this.labelSistema, "labelSistema");
             this.labelSistema.Name = "labelSistema";
+            this.labelSistema.Tag = "99";
             // 
             // labelABMUsuarios
             // 
             this.labelABMUsuarios.Name = "labelABMUsuarios";
             resources.ApplyResources(this.labelABMUsuarios, "labelABMUsuarios");
+            this.labelABMUsuarios.Tag = "10";
             this.labelABMUsuarios.Click += new System.EventHandler(this.aBMUsuariosToolStripMenuItem_Click);
             // 
             // labelFamiliaPatentes
@@ -180,36 +191,42 @@ namespace UI
             this.permisosUsuarioToolStripMenuItem});
             this.labelFamiliaPatentes.Name = "labelFamiliaPatentes";
             resources.ApplyResources(this.labelFamiliaPatentes, "labelFamiliaPatentes");
+            this.labelFamiliaPatentes.Tag = "15";
             this.labelFamiliaPatentes.Click += new System.EventHandler(this.labelFamiliaPatentes_Click);
             // 
             // permisosGestionToolStripMenuItem
             // 
             this.permisosGestionToolStripMenuItem.Name = "permisosGestionToolStripMenuItem";
             resources.ApplyResources(this.permisosGestionToolStripMenuItem, "permisosGestionToolStripMenuItem");
+            this.permisosGestionToolStripMenuItem.Tag = "16";
             this.permisosGestionToolStripMenuItem.Click += new System.EventHandler(this.permisosGestionToolStripMenuItem_Click);
             // 
             // permisosUsuarioToolStripMenuItem
             // 
             this.permisosUsuarioToolStripMenuItem.Name = "permisosUsuarioToolStripMenuItem";
             resources.ApplyResources(this.permisosUsuarioToolStripMenuItem, "permisosUsuarioToolStripMenuItem");
+            this.permisosUsuarioToolStripMenuItem.Tag = "16";
             this.permisosUsuarioToolStripMenuItem.Click += new System.EventHandler(this.permisosUsuarioToolStripMenuItem_Click);
             // 
             // labelBitacoraDV
             // 
             this.labelBitacoraDV.Name = "labelBitacoraDV";
             resources.ApplyResources(this.labelBitacoraDV, "labelBitacoraDV");
+            this.labelBitacoraDV.Tag = "14";
             this.labelBitacoraDV.Click += new System.EventHandler(this.bitacoraDVToolStripMenuItem_Click);
             // 
             // labelBackupRestore
             // 
             this.labelBackupRestore.Name = "labelBackupRestore";
             resources.ApplyResources(this.labelBackupRestore, "labelBackupRestore");
+            this.labelBackupRestore.Tag = "12";
             this.labelBackupRestore.Click += new System.EventHandler(this.labelBackupRestore_Click);
             // 
             // controlDeCambiosToolStripMenuItem
             // 
             this.controlDeCambiosToolStripMenuItem.Name = "controlDeCambiosToolStripMenuItem";
             resources.ApplyResources(this.controlDeCambiosToolStripMenuItem, "controlDeCambiosToolStripMenuItem");
+            this.controlDeCambiosToolStripMenuItem.Tag = "17";
             this.controlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.controlDeCambiosToolStripMenuItem_Click);
             // 
             // labelIdioma
@@ -218,12 +235,14 @@ namespace UI
             this.agregarIdiomaToolStripMenuItem});
             resources.ApplyResources(this.labelIdioma, "labelIdioma");
             this.labelIdioma.Name = "labelIdioma";
+            this.labelIdioma.Tag = "99";
             this.labelIdioma.Click += new System.EventHandler(this.labelIdioma_Click);
             // 
             // agregarIdiomaToolStripMenuItem
             // 
             this.agregarIdiomaToolStripMenuItem.Name = "agregarIdiomaToolStripMenuItem";
             resources.ApplyResources(this.agregarIdiomaToolStripMenuItem, "agregarIdiomaToolStripMenuItem");
+            this.agregarIdiomaToolStripMenuItem.Tag = "99";
             this.agregarIdiomaToolStripMenuItem.Click += new System.EventHandler(this.agregarIdiomaToolStripMenuItem_Click);
             // 
             // labelAyuda
@@ -234,6 +253,7 @@ namespace UI
             this.contactoToolStripMenuItem});
             resources.ApplyResources(this.labelAyuda, "labelAyuda");
             this.labelAyuda.Name = "labelAyuda";
+            this.labelAyuda.Tag = "99";
             // 
             // easterEggToolStripMenuItem
             // 
@@ -241,23 +261,27 @@ namespace UI
             this.verSecretoToolStripMenuItem});
             this.easterEggToolStripMenuItem.Name = "easterEggToolStripMenuItem";
             resources.ApplyResources(this.easterEggToolStripMenuItem, "easterEggToolStripMenuItem");
+            this.easterEggToolStripMenuItem.Tag = "99";
             this.easterEggToolStripMenuItem.Click += new System.EventHandler(this.easterEggToolStripMenuItem_Click);
             // 
             // verSecretoToolStripMenuItem
             // 
             this.verSecretoToolStripMenuItem.Name = "verSecretoToolStripMenuItem";
             resources.ApplyResources(this.verSecretoToolStripMenuItem, "verSecretoToolStripMenuItem");
+            this.verSecretoToolStripMenuItem.Tag = "99";
             this.verSecretoToolStripMenuItem.Click += new System.EventHandler(this.verSecretoToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
             resources.ApplyResources(this.infoToolStripMenuItem, "infoToolStripMenuItem");
+            this.infoToolStripMenuItem.Tag = "99";
             // 
             // contactoToolStripMenuItem
             // 
             this.contactoToolStripMenuItem.Name = "contactoToolStripMenuItem";
             resources.ApplyResources(this.contactoToolStripMenuItem, "contactoToolStripMenuItem");
+            this.contactoToolStripMenuItem.Tag = "99";
             // 
             // Inicio
             // 

@@ -12,6 +12,7 @@ namespace BE.Composite
         public string iDPatente { get; set; }
         public string descripcion { get; set; }
         public abstract IList<Component> List();
+        public abstract IEnumerable<Component> ListHoja();
 
         public Component(string idPat, string descrip)
         {
@@ -22,5 +23,6 @@ namespace BE.Composite
         public abstract void Agregar(Component componente);
         public abstract void Eliminar(Component componente);
         public abstract bool VerificarSiExiste(Component componente);
+        public abstract bool VerificarSiExistePermiso(string id);
     }
 }

@@ -103,9 +103,35 @@ namespace UI
         private void Inicio_Load(object sender, EventArgs e)
         {
             SubjectIdioma.AddObserverIdioma(this);
-            if (!BE.Usuario.Instance.Permisos.VerificarSiExiste(new BE.Composite.Composite("15", "Admin")))
+            ////////PermisosRecurseToolStripItems(this.menuStrip1.Items);
+        }
+
+        /// <summary>
+        /// Recursividad para habilitar permisos
+        /// </summary>
+        /// <param name="tsic"></param>
+        private void PermisosRecurseToolStripItems(ToolStripItemCollection tsic)
+        {
+            foreach (ToolStripItem item in tsic)
             {
-                labelSistema.Visible = false;
+                if (!string.IsNullOrEmpty(item.Tag.ToString()))
+                    foreach (BE.Composite.Component cmp in BE.Usuario.Instance.Permisos.List())
+                    {
+                        if (cmp is BE.Composite.Composite)
+                        {
+                            if (!String.IsNullOrEmpty(cmp.iDPatente))
+                            {
+                                if (cmp.VerificarSiExiste(new BE.Composite.Composite(item.Tag.ToString(), "Badabum")))
+                                    item.Visible = false;
+                            }
+                        }
+                    }
+
+                if (item is ToolStripMenuItem)
+                {
+                    ToolStripMenuItem item2 = (ToolStripMenuItem)item;
+                    PermisosRecurseToolStripItems(item2.DropDown.Items);
+                }
             }
         }
 
