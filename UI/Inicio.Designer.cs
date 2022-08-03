@@ -98,7 +98,7 @@ namespace UI
             this.profesoresToolStripMenuItem});
             resources.ApplyResources(this.labelAcciones, "labelAcciones");
             this.labelAcciones.Name = "labelAcciones";
-            this.labelAcciones.Tag = "99";
+            this.labelAcciones.Tag = "30";
             // 
             // labelClientes
             // 
@@ -175,7 +175,7 @@ namespace UI
             this.controlDeCambiosToolStripMenuItem});
             resources.ApplyResources(this.labelSistema, "labelSistema");
             this.labelSistema.Name = "labelSistema";
-            this.labelSistema.Tag = "99";
+            this.labelSistema.Tag = "31";
             // 
             // labelABMUsuarios
             // 

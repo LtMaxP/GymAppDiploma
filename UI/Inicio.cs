@@ -104,6 +104,7 @@ namespace UI
         {
             SubjectIdioma.AddObserverIdioma(this);
             PermisosRecurseToolStripItems(this.menuStrip1.Items);
+            //CheckVisible(this.menuStrip1.Items);
         }
 
         /// <summary>
@@ -122,7 +123,7 @@ namespace UI
                             if (!String.IsNullOrEmpty(cmp.iDPatente) && !cmp.descripcion.Equals("Arbol"))
                             {
                                 if (cmp.VerificarSiExiste(new BE.Composite.Composite(item.Tag.ToString(), "Badabum")))
-                                    item.Visible = false;
+                                    item.Visible = true;
                             }
                         }
                     }
@@ -133,6 +134,18 @@ namespace UI
                     PermisosRecurseToolStripItems(item2.DropDown.Items);
                 }
             }
+            
+        }
+        private void CheckVisible(ToolStripItemCollection tsic)
+        {
+            //foreach ()
+            //{
+
+            //}
+            //if (labelSistema.DropDown.Items. >= 1)
+            //{
+            //    labelSistema.Visible = true;
+            //}
         }
 
 

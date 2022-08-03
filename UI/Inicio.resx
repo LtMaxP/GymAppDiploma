@@ -162,11 +162,17 @@
   <data name="labelClientes.Text" xml:space="preserve">
     <value>Clientes</value>
   </data>
+  <data name="labelClientes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="labelEmpleados.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 34</value>
   </data>
   <data name="labelEmpleados.Text" xml:space="preserve">
     <value>Empleados</value>
+  </data>
+  <data name="labelEmpleados.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 34</value>
@@ -174,11 +180,17 @@
   <data name="labelFacturas.Text" xml:space="preserve">
     <value>Facturas</value>
   </data>
+  <data name="labelFacturas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 34</value>
   </data>
   <data name="labelPagosYCobros.Text" xml:space="preserve">
     <value>Pagos y Cobros</value>
+  </data>
+  <data name="labelPagosYCobros.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="labelListas.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 34</value>
@@ -186,29 +198,44 @@
   <data name="labelListas.Text" xml:space="preserve">
     <value>Listas</value>
   </data>
+  <data name="labelListas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="productosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 34</value>
   </data>
   <data name="productosToolStripMenuItem.Text" xml:space="preserve">
     <value>Productos</value>
   </data>
+  <data name="productosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="claseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>124, 34</value>
   </data>
   <data name="claseToolStripMenuItem.Text" xml:space="preserve">
     <value>Clase</value>
   </data>
+  <data name="claseToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="rutinaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>124, 34</value>
   </data>
   <data name="rutinaToolStripMenuItem.Text" xml:space="preserve">
     <value>Rutina</value>
+  </data>
+  <data name="rutinaToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="profesoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 34</value>
   </data>
   <data name="profesoresToolStripMenuItem.Text" xml:space="preserve">
     <value>Profesores</value>
+  </data>
+  <data name="profesoresToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="labelAcciones.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
@@ -219,11 +246,17 @@
   <data name="labelAcciones.Text" xml:space="preserve">
     <value>Acciones</value>
   </data>
+  <data name="labelAcciones.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="labelABMUsuarios.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 34</value>
   </data>
   <data name="labelABMUsuarios.Text" xml:space="preserve">
     <value>Gestion Usuarios</value>
+  </data>
+  <data name="labelABMUsuarios.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="permisosGestionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 34</value>
@@ -231,11 +264,17 @@
   <data name="permisosGestionToolStripMenuItem.Text" xml:space="preserve">
     <value>Permisos Gestion</value>
   </data>
+  <data name="permisosGestionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="permisosUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 34</value>
   </data>
   <data name="permisosUsuarioToolStripMenuItem.Text" xml:space="preserve">
     <value>Permisos Usuario</value>
+  </data>
+  <data name="permisosUsuarioToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="labelFamiliaPatentes.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 34</value>
@@ -243,11 +282,17 @@
   <data name="labelFamiliaPatentes.Text" xml:space="preserve">
     <value>Permisos</value>
   </data>
+  <data name="labelFamiliaPatentes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="labelBitacoraDV.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 34</value>
   </data>
   <data name="labelBitacoraDV.Text" xml:space="preserve">
     <value>Bitacora / DV</value>
+  </data>
+  <data name="labelBitacoraDV.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="labelBackupRestore.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 34</value>
@@ -255,11 +300,17 @@
   <data name="labelBackupRestore.Text" xml:space="preserve">
     <value>Backup y Restore</value>
   </data>
+  <data name="labelBackupRestore.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="controlDeCambiosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 34</value>
   </data>
   <data name="controlDeCambiosToolStripMenuItem.Text" xml:space="preserve">
     <value>Control de Cambios</value>
+  </data>
+  <data name="controlDeCambiosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="labelSistema.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
@@ -270,8 +321,11 @@
   <data name="labelSistema.Text" xml:space="preserve">
     <value>Sistema</value>
   </data>
+  <data name="labelSistema.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="agregarIdiomaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 34</value>
+    <value>180, 34</value>
   </data>
   <data name="agregarIdiomaToolStripMenuItem.Text" xml:space="preserve">
     <value>Seccion Idioma</value>
