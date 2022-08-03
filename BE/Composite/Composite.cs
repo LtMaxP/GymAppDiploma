@@ -8,10 +8,11 @@ namespace BE.Composite
 {
     public class Composite : Component
     {
-        private List<Component> listadoComponent = new List<Component>();
+        private List<Component> listadoComponent;
 
         public Composite(string idPat = null, string descrip = null) : base(idPat, descrip)
         {
+            listadoComponent = new List<Component>();
         }
 
         public override void Agregar(Component componente)

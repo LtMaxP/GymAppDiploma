@@ -103,7 +103,7 @@ namespace UI
         private void Inicio_Load(object sender, EventArgs e)
         {
             SubjectIdioma.AddObserverIdioma(this);
-            ////////PermisosRecurseToolStripItems(this.menuStrip1.Items);
+            PermisosRecurseToolStripItems(this.menuStrip1.Items);
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace UI
                     {
                         if (cmp is BE.Composite.Composite)
                         {
-                            if (!String.IsNullOrEmpty(cmp.iDPatente))
+                            if (!String.IsNullOrEmpty(cmp.iDPatente) && !cmp.descripcion.Equals("Arbol"))
                             {
                                 if (cmp.VerificarSiExiste(new BE.Composite.Composite(item.Tag.ToString(), "Badabum")))
                                     item.Visible = false;

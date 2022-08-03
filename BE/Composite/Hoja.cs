@@ -8,32 +8,26 @@ namespace BE.Composite
 {
     public class Hoja : BE.Composite.Component
     {
-        private List<Component> listadoComponent = new List<Component>();
         public Hoja(string idPat = null, string descrip = null) : base(idPat, descrip)
         {
         }
 
         public override void Agregar(Component componente)
         {
-            if (componente != null)
-            {
-                listadoComponent.Add(componente);
-            }
         }
 
         public override void Eliminar(Component componente)
         {
-           
         }
 
         public override IList<Component> List()
         {
-            return listadoComponent;
+            return null;
         }
 
         public override IEnumerable<Component> ListHoja()
         {
-            return listadoComponent;
+            return null;
         }
 
         public override bool VerificarSiExiste(Component componente)

@@ -149,7 +149,7 @@ namespace UI
             this.rutinaToolStripMenuItem});
             this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
             resources.ApplyResources(this.profesoresToolStripMenuItem, "profesoresToolStripMenuItem");
-            this.profesoresToolStripMenuItem.Tag = "99";
+            this.profesoresToolStripMenuItem.Tag = "27";
             // 
             // claseToolStripMenuItem
             // 
