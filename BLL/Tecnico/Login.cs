@@ -48,20 +48,7 @@ namespace BLL
                     {
                         BuscarUsuario();
                         formarArbol.FormarArbolDeUsuarioLog(); //Composite arbol formado
-
-                        foreach (var element in BE.Usuario.Instance.Permisos.List())
-                        {
-                            //if (element.descripcion.Equals("Restore"))// ejemplo de lo que tenes que hacer para validar QUE cosas habilitas luego
-                            if (!element.descripcion.Equals(" "))
-                            {
-                                retornableComoCocaCola = true;
-                                break;
-                            }
-                            else
-                            {
-                                EncontrarRolEnArbol(element.descripcion, element);
-                            }
-                        }
+                        retornableComoCocaCola = true;
                         bit.RegistrarMovimiento("Ingreso Usuario con ID: " + BE.Usuario.Instance.IdUsuario, "Bajo"); //cambiar a nueva clase
                     }
                 }

@@ -33,8 +33,9 @@ namespace UI
             users = bLLUsuario.TraerUsuarios();
             foreach (var id in users)
             {
-                comboBox1.Items.Add(id.IdUsuario);
+                comboBox1.Items.Add(id);
             }
+            comboBox1.ValueMember = "User";
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -45,15 +46,21 @@ namespace UI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            BE.BE_Usuario us = (BE.BE_Usuario)comboBox1.SelectedItem;
+            lblUserName.Text = us.User;
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(label4.Text))
+            if (String.IsNullOrEmpty(lblUserName.Text))
             {
-                label4.Text = users.First(x => x.IdUsuario == int.Parse(comboBox1.Text)).User;
+                lblUserName.Text = users.First(x => x.IdUsuario == int.Parse(comboBox1.Text)).User;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
