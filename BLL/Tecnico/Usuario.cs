@@ -77,30 +77,6 @@ namespace BLL
         {
             List<BE_Usuario> dt = abmUs.Leer2(buscarUser);
             return dt;
-            //if (dt.Count == 0)
-            //{ System.Windows.Forms.MessageBox.Show("Usuario no encontrado"); }
-            //else
-            //{
-            //    DataRow usuarioRow = dt.Rows[0];
-
-            //    for (int i = 0; i < 4; i++)
-            //    {
-            //        switch (i)
-            //        {
-            //            case 2:
-            //                rowFix[i] = buscar.DevolvemeElValorQueQuieroPorId(usuarioRow.ItemArray[i].ToString(), "idioma");
-            //                break;
-            //            case 3:
-            //                rowFix[i] = buscar.DevolvemeElValorQueQuieroPorId(usuarioRow.ItemArray[i].ToString(), "estado");
-            //                break;
-            //            default:
-            //                rowFix[i] = usuarioRow.ItemArray[i].ToString();
-            //                break;
-            //        }
-            //    }
-
-            //}
-
         }
         public BE_Usuario MostrarUsuario(BE_Usuario buscarUser)
         {

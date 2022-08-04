@@ -27,5 +27,9 @@ namespace BLL.Tecnico
         {
             return CyPDAL.DetectarUsuario(user);
         }
+        public BE.BE_Usuario TraerUsuarioConPermisos(BE.BE_Usuario user)
+        {
+            return CyPDAL.PermisosPorUsuario(user);
+        }
     }
 }

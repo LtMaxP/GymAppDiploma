@@ -52,7 +52,48 @@ namespace DAL
                 BE.Usuario.Instance.Permisos = Permisos;
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Obtener PermisosUsuario."); }
+        }
 
+        /// <summary>
+        /// Obtener los permisos del usuario enviado
+        /// </summary>
+        public BE.BE_Usuario PermisosPorUsuario(BE.BE_Usuario user)
+        {
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = @"SELECT PermisosUsuarios.Id_Usuario, PermisosUsuarios.Id_Permiso, PerfilPyF.Nombre, PerfilPyF.Tipo
+                                    FROM PermisosUsuarios
+                                    inner join PerfilPyF ON
+                                    PerfilPyF.Id_Perfil = PermisosUsuarios.Id_Permiso
+                                    AND Id_Usuario = @id;";
+                comm.Parameters.AddWithValue("@id", user.IdUsuario);
+
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+
+                BE.Composite.Component Permisos = new BE.Composite.Composite("0", "Arbol");
+
+                foreach (DataRow element in dt.Rows)
+                {
+                    if (!String.IsNullOrEmpty(element["Tipo"].ToString()))
+                    {
+                        BE.Composite.Component newcompo = null;
+                        if (element[3].ToString().Contains("F"))
+                        {
+                            newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[1].ToString(), element[2].ToString()));
+                            Permisos.Agregar(newcompo);
+                        }
+                        else if (element[3].ToString().Contains("P"))
+                        {
+                            Permisos.Agregar(new BE.Composite.Hoja(element[1].ToString(), element[2].ToString()));
+                        }
+                    }
+                    Permisos.Agregar(Permisos);
+                }
+                user.Permisos = Permisos;
+            }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Obtener PermisosUsuario."); }
+            return user;
         }
 
         public BE.Composite.Component ArmarArbolConIdPadre(BE.Composite.Component cmp)

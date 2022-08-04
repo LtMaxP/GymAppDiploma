@@ -14,6 +14,7 @@ namespace UI
     public partial class PermisosUsuario : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.Usuario bLLUsuario = new BLL.Usuario();
+        BLL.Tecnico.PermisosBLL Perm = new BLL.Tecnico.PermisosBLL();
         private List<BE.BE_Usuario> users;
         public PermisosUsuario()
         {
@@ -30,7 +31,7 @@ namespace UI
         private void PermisosUsuario_Load_1(object sender, EventArgs e)
         {
             SubjectIdioma.AddObserverIdioma(this);
-            users = bLLUsuario.TraerUsuarios();
+            users = bLLUsuario.TraerUsuarios(); //traer usuario con permisos aca o luego? o hacer otra clase?
             foreach (var id in users)
             {
                 comboBox1.Items.Add(id);
@@ -60,7 +61,22 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            treeView2.Nodes.Clear();
+            BE.BE_Usuario user = (BE.BE_Usuario)comboBox1.SelectedItem;
+            user = Perm.TraerUsuarioConPermisos(user);
+            int cnt = 0;
+            foreach (var perm in user.Permisos.List())
+            {
+                if (!perm.descripcion.Equals("Arbol"))
+                {
+                    treeView2.Nodes.Add(cnt++.ToString(), perm.descripcion);
+                    if(perm is BE.Composite.Component)
+                        foreach(var subperm in perm.List())
+                        {
+                            treeView2.Nodes.Add((cnt + 1).ToString(), subperm.descripcion);
+                        }
+                }
+            }
         }
     }
 }
