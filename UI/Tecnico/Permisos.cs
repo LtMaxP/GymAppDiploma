@@ -37,7 +37,7 @@ namespace UI
             }
             comboBox1.ValueMember = "descripcion";
             comboBox2.ValueMember = "descripcion";
-            ListaPerm.ValueMember = "descripcion";
+
         }
 
         private void SalirBtn_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace UI
         }
         private void VerificarSiEsta(BE.Composite.Component element)
         {
-            if(element == null)
+            if (element == null)
             {
                 MessageBox.Show("Debe seleccionar un permiso");
             }
@@ -81,8 +81,35 @@ namespace UI
             else
             {
                 family.Agregar(element);
-                ListaPerm.Items.Add(element);
+                TreeNode nodoHijo = new TreeNode(element.descripcion);
+                if (element is BE.Composite.Composite)
+                    ListaPerm.Nodes.Add(ExtenderArbol(element, nodoHijo));
+                else
+                    ListaPerm.Nodes.Add(nodoHijo);
+
             }
+        }
+
+
+        private TreeNode ExtenderArbol(BE.Composite.Component perm, TreeNode nodo)
+        {
+            TreeNode nodoHijo = null;
+            if (perm is BE.Composite.Composite)
+            {
+                foreach (var subperm in perm.List())
+                {
+                    if (subperm is BE.Composite.Composite)
+                    {
+                        nodoHijo = new TreeNode(subperm.descripcion);
+                        nodo.Nodes.Add(ExtenderArbol(subperm, nodoHijo));
+                    }
+                    else
+                        nodo.Nodes.Add(subperm.descripcion);
+                }
+            }
+            else
+                nodo.Nodes.Add(perm.descripcion);
+            return nodo;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -92,13 +119,13 @@ namespace UI
                 BE.BE_Usuario user = new BE.BE_Usuario();
                 user.User = txtName.Text;
                 if (PermBLL.DetectarUsuario(user))
-                {   
+                {
                     BE.Composite.Component permisos = new BE.Composite.Composite();
-                    foreach (BE.Composite.Component element in ListaPerm.Items)
-                    {
-                        permisos.Agregar(element);
-                    }
-                    user.Permisos = permisos;
+                    //foreach (BE.Composite.Component element in ListaPerm.Items)
+                    //{
+                    //    permisos.Agregar(element);
+                    //}
+                    //user.Permisos = permisos;
                     //agregar al usuario permisos y fin
                 }
                 else

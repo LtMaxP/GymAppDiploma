@@ -33,7 +33,6 @@ namespace UI
             this.AgregarBtn = new System.Windows.Forms.Button();
             this.AgregarBtn2 = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
-            this.ListaPerm = new System.Windows.Forms.ListBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.labelFamilia = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@ namespace UI
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ListaPerm = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // labelPatente
@@ -88,14 +88,6 @@ namespace UI
             this.buttonSalir.UseVisualStyleBackColor = true;
             this.buttonSalir.Click += new System.EventHandler(this.SalirBtn_Click);
             // 
-            // ListaPerm
-            // 
-            this.ListaPerm.FormattingEnabled = true;
-            this.ListaPerm.Location = new System.Drawing.Point(29, 122);
-            this.ListaPerm.Name = "ListaPerm";
-            this.ListaPerm.Size = new System.Drawing.Size(219, 212);
-            this.ListaPerm.TabIndex = 5;
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -137,7 +129,7 @@ namespace UI
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(157, 340);
+            this.btnGuardar.Location = new System.Drawing.Point(157, 371);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(91, 41);
             this.btnGuardar.TabIndex = 10;
@@ -166,6 +158,13 @@ namespace UI
             this.label1.TabIndex = 12;
             this.label1.Text = "Administracion Permisos";
             // 
+            // ListaPerm
+            // 
+            this.ListaPerm.Location = new System.Drawing.Point(29, 128);
+            this.ListaPerm.Name = "ListaPerm";
+            this.ListaPerm.Size = new System.Drawing.Size(219, 221);
+            this.ListaPerm.TabIndex = 13;
+            // 
             // Permisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +173,7 @@ namespace UI
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(609, 477);
             this.ControlBox = false;
+            this.Controls.Add(this.ListaPerm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnGuardar);
@@ -181,7 +181,6 @@ namespace UI
             this.Controls.Add(this.labelFamilia);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.ListaPerm);
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.AgregarBtn2);
             this.Controls.Add(this.AgregarBtn);
@@ -201,7 +200,6 @@ namespace UI
         private System.Windows.Forms.Button AgregarBtn;
         private System.Windows.Forms.Button AgregarBtn2;
         private System.Windows.Forms.Button buttonSalir;
-        private System.Windows.Forms.ListBox ListaPerm;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label labelFamilia;
@@ -209,5 +207,6 @@ namespace UI
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TreeView ListaPerm;
     }
 }
