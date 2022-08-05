@@ -62,21 +62,39 @@ namespace UI
         private void button2_Click(object sender, EventArgs e)
         {
             treeView2.Nodes.Clear();
+            TreeNode nodoHijo = null;
             BE.BE_Usuario user = (BE.BE_Usuario)comboBox1.SelectedItem;
             user = Perm.TraerUsuarioConPermisos(user);
-            int cnt = 0;
+
             foreach (var perm in user.Permisos.List())
             {
                 if (!perm.descripcion.Equals("Arbol"))
                 {
-                    treeView2.Nodes.Add(cnt++.ToString(), perm.descripcion);
-                    if(perm is BE.Composite.Component)
-                        foreach(var subperm in perm.List())
-                        {
-                            treeView2.Nodes.Add((cnt + 1).ToString(), subperm.descripcion);
-                        }
+                    nodoHijo = new TreeNode(perm.descripcion);
+                    treeView2.Nodes.Add(ExtenderArbol(perm, nodoHijo));
                 }
             }
+        }
+
+        private TreeNode ExtenderArbol(BE.Composite.Component perm, TreeNode nodo) //va a la bll mepa
+        {
+            TreeNode nodoHijo = null;
+            if (perm is BE.Composite.Composite)
+            {
+                foreach (var subperm in perm.List())
+                {
+                    if (subperm is BE.Composite.Composite)
+                    {
+                        nodoHijo = new TreeNode(subperm.descripcion);
+                        nodo.Nodes.Add(ExtenderArbol(subperm, nodoHijo));
+                    }
+                    else
+                        nodo.Nodes.Add(subperm.descripcion);
+                }
+            }
+            else
+                nodo.Nodes.Add(perm.descripcion);
+            return nodo;
         }
     }
 }
