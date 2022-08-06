@@ -41,13 +41,14 @@ namespace UI
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ListaPerm = new System.Windows.Forms.TreeView();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelPatente
             // 
             this.labelPatente.AutoSize = true;
             this.labelPatente.Font = new System.Drawing.Font("Algerian", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPatente.Location = new System.Drawing.Point(358, 219);
+            this.labelPatente.Location = new System.Drawing.Point(388, 220);
             this.labelPatente.Name = "labelPatente";
             this.labelPatente.Size = new System.Drawing.Size(92, 21);
             this.labelPatente.TabIndex = 0;
@@ -56,7 +57,7 @@ namespace UI
             // AgregarBtn
             // 
             this.AgregarBtn.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgregarBtn.Location = new System.Drawing.Point(362, 155);
+            this.AgregarBtn.Location = new System.Drawing.Point(392, 156);
             this.AgregarBtn.Name = "AgregarBtn";
             this.AgregarBtn.Size = new System.Drawing.Size(75, 28);
             this.AgregarBtn.TabIndex = 1;
@@ -68,7 +69,7 @@ namespace UI
             // AgregarBtn2
             // 
             this.AgregarBtn2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgregarBtn2.Location = new System.Drawing.Point(362, 270);
+            this.AgregarBtn2.Location = new System.Drawing.Point(392, 271);
             this.AgregarBtn2.Name = "AgregarBtn2";
             this.AgregarBtn2.Size = new System.Drawing.Size(75, 28);
             this.AgregarBtn2.TabIndex = 2;
@@ -91,7 +92,7 @@ namespace UI
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(305, 128);
+            this.comboBox1.Location = new System.Drawing.Point(335, 129);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(207, 21);
             this.comboBox1.TabIndex = 6;
@@ -100,7 +101,7 @@ namespace UI
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(305, 243);
+            this.comboBox2.Location = new System.Drawing.Point(335, 244);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(207, 21);
             this.comboBox2.TabIndex = 7;
@@ -109,7 +110,7 @@ namespace UI
             // 
             this.labelFamilia.AutoSize = true;
             this.labelFamilia.Font = new System.Drawing.Font("Algerian", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFamilia.Location = new System.Drawing.Point(355, 104);
+            this.labelFamilia.Location = new System.Drawing.Point(385, 105);
             this.labelFamilia.Name = "labelFamilia";
             this.labelFamilia.Size = new System.Drawing.Size(95, 21);
             this.labelFamilia.TabIndex = 8;
@@ -165,6 +166,16 @@ namespace UI
             this.ListaPerm.Size = new System.Drawing.Size(246, 221);
             this.ListaPerm.TabIndex = 13;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(282, 201);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "-->";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Permisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,6 +184,7 @@ namespace UI
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(609, 477);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ListaPerm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
@@ -208,5 +220,6 @@ namespace UI
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TreeView ListaPerm;
+        private System.Windows.Forms.Button button1;
     }
 }

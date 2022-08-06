@@ -130,7 +130,7 @@ namespace DAL
 
             return cmp;
         }
-        
+
         public List<Component> TraerFamiliasOPatentesDAL(string fop)
         {
             List<Component> compoList = new List<Component>();
@@ -210,6 +210,35 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("No se encontro el usuario"); }
 
             return returnable;
+        }
+        /// <summary>
+        /// Funcionalidades para crear la familia
+        /// </summary>
+        /// <param name="newFamilia"></param>
+        /// <param name="familiaNombre"></param>
+        /// <returns></returns>
+        public bool CrearFamilia(Component newFamilia, string familiaNombre)
+        {
+            //validar q no existe ya
+            ValidarSiYaExiste();
+            //crear aca y sacar el id [PerfilPyF] 
+            int fam = GenerarFamilia(familiaNombre);
+            //Hacer la relacion de cada idPerfil aca [PermisosRelacion]
+            GenerarRelacionesPatenteFamilia(fam);
+            return true;
+        }
+        private void ValidarSiYaExiste()
+        {
+
+        }
+        private int GenerarFamilia(string familiaNombre)
+        {
+
+            return 1;
+        }
+        private bool GenerarRelacionesPatenteFamilia(int familia)
+        {
+            return true;
         }
     }
 }

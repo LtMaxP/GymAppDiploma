@@ -89,7 +89,6 @@ namespace UI
                 }
                 else
                     ListaPerm.Nodes.Add(nodoHijo);
-
             }
         }
 
@@ -104,8 +103,8 @@ namespace UI
                     nodesDelete.Add(node);
                 }
             }
-            foreach(TreeNode nod in nodesDelete)
-                    ListaPerm.Nodes.Remove(nod);//si se remueve se caga el ListaPerm.Nodes
+            foreach (TreeNode nod in nodesDelete)
+                ListaPerm.Nodes.Remove(nod);
         }
 
         private TreeNode ExtenderArbol(BE.Composite.Component perm, TreeNode nodo)
@@ -125,7 +124,7 @@ namespace UI
                 }
             }
             else
-                nodo.Nodes.Add(perm.iDPatente + "-" + perm.descripcion);//element.iDPatente + "-" + element.descripcion
+                nodo.Nodes.Add(perm.iDPatente + "-" + perm.descripcion);
             return nodo;
         }
 
@@ -133,27 +132,41 @@ namespace UI
         {
             if (!String.IsNullOrEmpty(txtName.Text))
             {
-                BE.BE_Usuario user = new BE.BE_Usuario();
-                user.User = txtName.Text;
-                if (PermBLL.DetectarUsuario(user))
+                string familiaNombre = txtName.Text;
+                BE.Composite.Component newFamilia = new BE.Composite.Composite();
+                foreach (TreeNode element in ListaPerm.Nodes)
                 {
-                    BE.Composite.Component permisos = new BE.Composite.Composite();
-                    //foreach (BE.Composite.Component element in ListaPerm.Items)
-                    //{
-                    //    permisos.Agregar(element);
-                    //}
-                    //user.Permisos = permisos;
-                    //agregar al usuario permisos y fin
+                    string[] permiso = element.Text.Split('-');
+                    newFamilia.Agregar(new BE.Composite.Composite(permiso[0], permiso[1]));
                 }
-                else
+
+                if(PermBLL.CrearFamilia(newFamilia, familiaNombre))
                 {
-                    MessageBox.Show("Usuario no encontrado");
+                    txtName.Clear();
+                    ListaPerm.Refresh();
+                    MessageBox.Show("Familia creada");
                 }
+
+            }
+            else if (ListaPerm.Nodes.Count == 0)
+            {
+                MessageBox.Show("Ingrese al menos 1 permiso");
             }
             else
             {
-                MessageBox.Show("Ingrese un usuario");
+                MessageBox.Show("Ingrese un nombre a la familia");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(!ListaPerm.SelectedNode.IsSelected)
+                MessageBox.Show("Debe seleccionar una patente");
+            else
+            {
+                ListaPerm.SelectedNode.Remove();
+            }
+
         }
     }
 }
