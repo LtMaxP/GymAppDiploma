@@ -81,15 +81,32 @@ namespace UI
             else
             {
                 family.Agregar(element);
-                TreeNode nodoHijo = new TreeNode(element.descripcion);
+                TreeNode nodoHijo = new TreeNode(element.iDPatente + "-" + element.descripcion);
                 if (element is BE.Composite.Composite)
+                {
+                    CheckTree(element);
                     ListaPerm.Nodes.Add(ExtenderArbol(element, nodoHijo));
+                }
                 else
                     ListaPerm.Nodes.Add(nodoHijo);
 
             }
         }
 
+        private void CheckTree(BE.Composite.Component perm)
+        {
+            List<TreeNode> nodesDelete = new List<TreeNode>();
+            foreach (TreeNode node in ListaPerm.Nodes)
+            {
+                string[] permiso = node.Text.Split('-');
+                if (perm.VerificarSiExiste(new BE.Composite.Composite(permiso[0], permiso[1])))
+                {
+                    nodesDelete.Add(node);
+                }
+            }
+            foreach(TreeNode nod in nodesDelete)
+                    ListaPerm.Nodes.Remove(nod);//si se remueve se caga el ListaPerm.Nodes
+        }
 
         private TreeNode ExtenderArbol(BE.Composite.Component perm, TreeNode nodo)
         {
@@ -100,15 +117,15 @@ namespace UI
                 {
                     if (subperm is BE.Composite.Composite)
                     {
-                        nodoHijo = new TreeNode(subperm.descripcion);
+                        nodoHijo = new TreeNode(subperm.iDPatente + "-" + subperm.descripcion);
                         nodo.Nodes.Add(ExtenderArbol(subperm, nodoHijo));
                     }
                     else
-                        nodo.Nodes.Add(subperm.descripcion);
+                        nodo.Nodes.Add(subperm.iDPatente + "-" + subperm.descripcion);
                 }
             }
             else
-                nodo.Nodes.Add(perm.descripcion);
+                nodo.Nodes.Add(perm.iDPatente + "-" + perm.descripcion);//element.iDPatente + "-" + element.descripcion
             return nodo;
         }
 

@@ -119,7 +119,7 @@ namespace UI
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(26, 85);
+            this.labelNombre.Location = new System.Drawing.Point(26, 333);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(70, 18);
             this.labelNombre.TabIndex = 9;
@@ -129,7 +129,7 @@ namespace UI
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(157, 371);
+            this.btnGuardar.Location = new System.Drawing.Point(114, 357);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(91, 41);
             this.btnGuardar.TabIndex = 10;
@@ -142,10 +142,10 @@ namespace UI
             // 
             this.txtName.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtName.Location = new System.Drawing.Point(102, 83);
+            this.txtName.Location = new System.Drawing.Point(102, 331);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(146, 20);
+            this.txtName.Size = new System.Drawing.Size(173, 20);
             this.txtName.TabIndex = 11;
             // 
             // label1
@@ -160,9 +160,9 @@ namespace UI
             // 
             // ListaPerm
             // 
-            this.ListaPerm.Location = new System.Drawing.Point(29, 128);
+            this.ListaPerm.Location = new System.Drawing.Point(29, 104);
             this.ListaPerm.Name = "ListaPerm";
-            this.ListaPerm.Size = new System.Drawing.Size(219, 221);
+            this.ListaPerm.Size = new System.Drawing.Size(246, 221);
             this.ListaPerm.TabIndex = 13;
             // 
             // Permisos

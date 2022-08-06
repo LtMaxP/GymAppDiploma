@@ -143,6 +143,7 @@ namespace DAL
                 {
                     UserRet.User = dr[0].ToString();
                     UserRet.Pass = dr[1].ToString();
+                    UserRet.Idioma = new BE.ObserverIdioma.BE_Idioma();
                     UserRet.Idioma.Id = (int)dr[2];
                     UserRet.idEstado = (int)dr[3];
                 }

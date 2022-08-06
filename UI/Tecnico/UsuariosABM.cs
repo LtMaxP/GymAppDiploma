@@ -129,20 +129,10 @@ namespace UI
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
 
-            //////////////DataTable dt = usuarioABM.CargarCombo("Rol");
-            //////////////comboBox3.DataSource = dt;
-            //////////////comboBox3.DisplayMember = "Nombre";
         }
 
         public void Update()
         {
-
-            //RecurseToolStripItems(this.menuStrip1.Items);
-            //foreach (Control item in this.Controls)
-            //{
-            //    Inicio ini = new Inicio();
-            //    ini.Traducir(item);
-            //}
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
