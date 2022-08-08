@@ -33,7 +33,7 @@ namespace BLL.Tecnico
             return CyPDAL.PermisosPorUsuario(user);
         }
 
-        public bool CrearFamilia(Component newFamilia, string familiaNombre)
+        public bool CrearFamilia(BE.Composite.Composite newFamilia, string familiaNombre)
         {
             return CyPDAL.CrearFamilia(newFamilia, familiaNombre);
         }

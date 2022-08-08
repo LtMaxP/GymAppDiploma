@@ -133,14 +133,14 @@ namespace UI
             if (!String.IsNullOrEmpty(txtName.Text))
             {
                 string familiaNombre = txtName.Text;
-                BE.Composite.Component newFamilia = new BE.Composite.Composite();
+                BE.Composite.Composite newFamilia = new BE.Composite.Composite();
                 foreach (TreeNode element in ListaPerm.Nodes)
                 {
                     string[] permiso = element.Text.Split('-');
                     newFamilia.Agregar(new BE.Composite.Composite(permiso[0], permiso[1]));
                 }
 
-                if(PermBLL.CrearFamilia(newFamilia, familiaNombre))
+                if (PermBLL.CrearFamilia(newFamilia, familiaNombre))
                 {
                     txtName.Clear();
                     ListaPerm.Refresh();
@@ -157,14 +157,27 @@ namespace UI
                 MessageBox.Show("Ingrese un nombre a la familia");
             }
         }
-
+        /// <summary>
+        /// Quitar de la lista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if(!ListaPerm.SelectedNode.IsSelected)
+            if (!ListaPerm.SelectedNode.IsSelected)
                 MessageBox.Show("Debe seleccionar una patente");
             else
             {
-                ListaPerm.SelectedNode.Remove();
+                if (ListaPerm.SelectedNode.Level > 0)
+                {
+                    MessageBox.Show("No puede quitar un permiso de una familia ya creada");
+                }
+                else
+                {   //arreglar el quitar, queda registrado, una vez listo eso guardar relaciones
+                    string[] permiso = ListaPerm.SelectedNode.Text.Split('-');
+                    family.Eliminar(new BE.Composite.Composite(permiso[0], permiso[1]));
+                    ListaPerm.SelectedNode.Remove();
+                }
             }
 
         }

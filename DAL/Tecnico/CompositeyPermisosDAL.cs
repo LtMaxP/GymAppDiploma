@@ -217,7 +217,7 @@ namespace DAL
         /// <param name="newFamilia"></param>
         /// <param name="familiaNombre"></param>
         /// <returns></returns>
-        public bool CrearFamilia(Component newFamilia, string familiaNombre)
+        public bool CrearFamilia(Composite newFamilia, string familiaNombre)
         {
             //validar q no existe ya
             ValidarSiYaExiste();
