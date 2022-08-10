@@ -269,8 +269,8 @@ namespace UI
         }
         private void labelBackupRestore_Click(object sender, EventArgs e)
         {
-            if (Perm.ValidarPermiso("BackupRestore"))
-            {
+            //if (Perm.ValidarPermiso("BackupRestore"))
+            //{
                 if (Fbackrest == null)
                 {
                     Fbackrest = new BackupRestore();
@@ -282,7 +282,7 @@ namespace UI
                 {
                     Fbackrest.Activate();
                 }
-            }
+            //}
         }
         private void Fbackrest_FormClosed(object sender, FormClosedEventArgs e)
         {

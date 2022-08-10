@@ -10,7 +10,7 @@ namespace Servicios
     {
         public bool ValidarPermiso(string permiso)
         {
-            var asddddddda = (from L in BE.Usuario.Instance.Permisos.descripcion where L.Equals("asdasdasd") select L).First();
+            //var asddddddda = (from L in BE.Usuario.Instance.Permisos.descripcion where L.Equals("asdasdasd") select L).First();
             return true;
         }
     }
