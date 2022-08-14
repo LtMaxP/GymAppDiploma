@@ -86,9 +86,8 @@ namespace UI.Negocio
                                     if (dgr.Cells["Producto"].Value.ToString().Equals(selectioncmb))
                                     {
                                         dgr.Cells["Cantidad"].Value = (int.Parse(dgr.Cells["Cantidad"].Value.ToString()) + int.Parse(txtBoxCantidad.Text)).ToString();
-                                        var item = items.First(x => x.Descripcion == selectioncmb);
-                                        item.Cantidad -= int.Parse(txtBoxCantidad.Text);
-                                        labelNroDisponible.Text = item.Cantidad.ToString();
+                                        items.First(x => x.Descripcion == selectioncmb).Cantidad -= int.Parse(txtBoxCantidad.Text);
+                                        labelNroDisponible.Text = items.First(x => x.Descripcion == selectioncmb).Cantidad.ToString();
                                         found = true;
                                         break;
                                     }
@@ -99,9 +98,8 @@ namespace UI.Negocio
                     if (!found)
                     {
                         dataGridView1.Rows.Add(comboBox1.Text, txtBoxCantidad.Text, labelNroPrecio.Text);
-                        var item = items.First(x => x.Descripcion == selectioncmb);
-                        item.Cantidad -= int.Parse(txtBoxCantidad.Text);
-                        labelNroDisponible.Text = item.Cantidad.ToString();
+                        items.First(x => x.Descripcion == selectioncmb).Cantidad -= int.Parse(txtBoxCantidad.Text);
+                        labelNroDisponible.Text = items.First(x => x.Descripcion == selectioncmb).Cantidad.ToString();
                     }
 
                     CalcularValorTotal();
@@ -143,10 +141,11 @@ namespace UI.Negocio
             {
                 foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
-                    string selectioncmb = ((Item)comboBox1.SelectedItem).Descripcion;
-                    var item = items.First(x => x.Descripcion == selectioncmb);
-                    item.Cantidad += int.Parse(txtBoxCantidad.Text);
-                    labelNroDisponible.Text = item.Cantidad.ToString();
+                    //string selectioncmb = ((Item)comboBox1.SelectedItem).Descripcion;//aca estas tomando del combobox no de la lista seleccionada
+                    //string selectioncmb = ((Item)row.DataBoundItem).Descripcion;
+                    string selectioncmb = row.Cells[0].FormattedValue.ToString();
+                    items.First(x => x.Descripcion == selectioncmb).Cantidad += int.Parse(txtBoxCantidad.Text);
+                    labelNroDisponible.Text = items.First(x => x.Descripcion == selectioncmb).Cantidad.ToString();
 
                     labelNroTotal.Text = (decimal.Parse(labelNroTotal.Text) - (decimal.Parse(row.Cells[1].Value.ToString()) * decimal.Parse(row.Cells[2].Value.ToString()))).ToString();
                     dataGridView1.Rows.Remove(row);
