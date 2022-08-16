@@ -173,9 +173,8 @@ namespace UI
                     MessageBox.Show("No puede quitar un permiso de una familia ya creada");
                 }
                 else
-                {   //arreglar el quitar, queda registrado, una vez listo eso guardar relaciones
+                {   
                     string[] permiso = ListaPerm.SelectedNode.Text.Split('-');
-                    
                     family.Eliminar(family.TraetePermiso(permiso[0]));
                     ListaPerm.SelectedNode.Remove();
                 }
