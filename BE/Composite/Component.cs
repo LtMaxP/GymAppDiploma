@@ -24,5 +24,6 @@ namespace BE.Composite
         public abstract void Eliminar(Component componente);
         public abstract bool VerificarSiExiste(Component componente);
         public abstract bool VerificarSiExistePermiso(string id);
+        public abstract Component TraetePermiso(string id);
     }
 }

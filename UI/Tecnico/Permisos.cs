@@ -175,7 +175,8 @@ namespace UI
                 else
                 {   //arreglar el quitar, queda registrado, una vez listo eso guardar relaciones
                     string[] permiso = ListaPerm.SelectedNode.Text.Split('-');
-                    family.Eliminar(new BE.Composite.Composite(permiso[0], permiso[1]));
+                    
+                    family.Eliminar(family.TraetePermiso(permiso[0]));
                     ListaPerm.SelectedNode.Remove();
                 }
             }

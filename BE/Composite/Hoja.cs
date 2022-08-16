@@ -30,6 +30,11 @@ namespace BE.Composite
             return null;
         }
 
+        public override Component TraetePermiso(string id)
+        {
+            return null;
+        }
+
         public override bool VerificarSiExiste(Component componente)
         {
             return this.iDPatente == componente.iDPatente;

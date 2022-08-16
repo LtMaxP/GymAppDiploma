@@ -12,7 +12,7 @@ namespace BE.Composite
 
         public Composite(string idPat = null, string descrip = null) : base(idPat, descrip)
         {
-            
+
         }
 
         public override void Agregar(Component componente)
@@ -50,6 +50,10 @@ namespace BE.Composite
         public override bool VerificarSiExistePermiso(string id)
         {
             return this.iDPatente == id || listadoComponent.Any(p => p.VerificarSiExistePermiso(id));
+        }
+        public override Component TraetePermiso(string id)
+        {
+            return listadoComponent.Find(p => p.iDPatente.Equals(id));
         }
     }
 
