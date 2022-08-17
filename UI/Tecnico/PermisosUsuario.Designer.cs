@@ -34,7 +34,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -102,18 +102,18 @@
             this.lblUserName.Text = "____________________";
             this.lblUserName.Click += new System.EventHandler(this.label4_Click);
             // 
-            // button2
+            // btnConsultar
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(572, 106);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 35);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Consultar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnConsultar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnConsultar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnConsultar.Location = new System.Drawing.Point(572, 106);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(151, 35);
+            this.btnConsultar.TabIndex = 6;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.button2_Click);
             // 
             // label5
             // 
@@ -189,7 +189,7 @@
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
@@ -213,7 +213,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TreeView treeView1;

@@ -31,7 +31,7 @@ namespace UI
         private void PermisosUsuario_Load_1(object sender, EventArgs e)
         {
             SubjectIdioma.AddObserverIdioma(this);
-            users = bLLUsuario.TraerUsuarios(); //traer usuario con permisos aca o luego? o hacer otra clase?
+            users = bLLUsuario.TraerUsuarios();
             foreach (var id in users)
             {
                 comboBox1.Items.Add(id);
@@ -58,7 +58,11 @@ namespace UI
                 lblUserName.Text = users.First(x => x.IdUsuario == int.Parse(comboBox1.Text)).User;
             }
         }
-
+        /// <summary>
+        /// Boton Consultar carga los asignados al cliente y llama a la función que detecte los q no estan en la lista para cargad disponible
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             treeView2.Nodes.Clear();
@@ -70,13 +74,45 @@ namespace UI
             {
                 if (!perm.descripcion.Equals("Arbol"))
                 {
+
                     nodoHijo = new TreeNode(perm.descripcion);
                     treeView2.Nodes.Add(ExtenderArbol(perm, nodoHijo));
                 }
             }
+            CargarDisponibles(treeView1);
+
         }
 
-        private TreeNode ExtenderArbol(BE.Composite.Component perm, TreeNode nodo) //va a la bll mepa
+        private void CargarDisponibles(TreeView tree)
+        {
+            List<TreeNode> nodesAdd = new List<TreeNode>();
+            foreach (TreeNode node in tree.Nodes)
+            {
+                string[] permiso = node.Text.Split('-');
+                //if (perm.VerificarSiExiste(new BE.Composite.Composite(permiso[0], permiso[1])))
+                //{
+                    nodesAdd.Add(node);
+                //}
+            }
+            foreach (TreeNode nod in nodesAdd)
+                tree.Nodes.Add(nod);
+        }
+
+        private void CheckTree(BE.Composite.Component perm, TreeNode tree)
+        {
+            List<TreeNode> nodesDelete = new List<TreeNode>();
+            foreach (TreeNode node in tree.Nodes)
+            {
+                string[] permiso = node.Text.Split('-');
+                if (perm.VerificarSiExiste(new BE.Composite.Composite(permiso[0], permiso[1])))
+                {
+                    nodesDelete.Add(node);
+                }
+            }
+            foreach (TreeNode nod in nodesDelete)
+                tree.Nodes.Remove(nod);
+        }
+        private TreeNode ExtenderArbol(BE.Composite.Component perm, TreeNode nodo)
         {
             TreeNode nodoHijo = null;
             if (perm is BE.Composite.Composite)
@@ -85,15 +121,15 @@ namespace UI
                 {
                     if (subperm is BE.Composite.Composite)
                     {
-                        nodoHijo = new TreeNode(subperm.descripcion);
+                        nodoHijo = new TreeNode(subperm.iDPatente + "-" + subperm.descripcion);
                         nodo.Nodes.Add(ExtenderArbol(subperm, nodoHijo));
                     }
                     else
-                        nodo.Nodes.Add(subperm.descripcion);
+                        nodo.Nodes.Add(subperm.iDPatente + "-" + subperm.descripcion);
                 }
             }
             else
-                nodo.Nodes.Add(perm.descripcion);
+                nodo.Nodes.Add(perm.iDPatente + "-" + perm.descripcion);
             return nodo;
         }
     }
