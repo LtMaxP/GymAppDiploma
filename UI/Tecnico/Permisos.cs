@@ -66,7 +66,6 @@ namespace UI
         {
             BE.Composite.Component elem = (BE.Composite.Component)comboBox2.SelectedItem;
             VerificarSiEsta(elem);
-
         }
         private void VerificarSiEsta(BE.Composite.Component element)
         {

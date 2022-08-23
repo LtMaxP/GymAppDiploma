@@ -13,9 +13,13 @@ namespace UI
 {
     public partial class PermisosUsuario : Form, BE.ObserverIdioma.IObserverIdioma
     {
-        BLL.Usuario bLLUsuario = new BLL.Usuario();
-        BLL.Tecnico.PermisosBLL Perm = new BLL.Tecnico.PermisosBLL();
-        private List<BE.BE_Usuario> users;
+        private BLL.Usuario bLLUsuario = new BLL.Usuario();
+        private BLL.Tecnico.PermisosBLL _perm = new BLL.Tecnico.PermisosBLL();
+        private List<BE.BE_Usuario> _users;
+        private BE.Composite.Component _permisosTotal;
+        private BE.Composite.Component _pDispo = new BE.Composite.Composite();
+        private BE.Composite.Component _pAsig = new BE.Composite.Composite();
+
         public PermisosUsuario()
         {
             InitializeComponent();
@@ -31,12 +35,14 @@ namespace UI
         private void PermisosUsuario_Load_1(object sender, EventArgs e)
         {
             SubjectIdioma.AddObserverIdioma(this);
-            users = bLLUsuario.TraerUsuarios();
-            foreach (var id in users)
+            _users = bLLUsuario.TraerUsuarios();
+            foreach (var id in _users)
             {
                 comboBox1.Items.Add(id);
             }
             comboBox1.ValueMember = "User";
+            _permisosTotal = _perm.TraerComponentesFyP();
+            CargarDisponibles();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -55,9 +61,10 @@ namespace UI
         {
             if (String.IsNullOrEmpty(lblUserName.Text))
             {
-                lblUserName.Text = users.First(x => x.IdUsuario == int.Parse(comboBox1.Text)).User;
+                lblUserName.Text = _users.First(x => x.IdUsuario == int.Parse(comboBox1.Text)).User;
             }
         }
+
         /// <summary>
         /// Boton Consultar carga los asignados al cliente y llama a la función que detecte los q no estan en la lista para cargad disponible
         /// </summary>
@@ -66,45 +73,65 @@ namespace UI
         private void button2_Click(object sender, EventArgs e)
         {
             treeView2.Nodes.Clear();
-            TreeNode nodoHijo = null;
             BE.BE_Usuario user = (BE.BE_Usuario)comboBox1.SelectedItem;
-            user = Perm.TraerUsuarioConPermisos(user);
+            user = _perm.TraerUsuarioConPermisos(user);
+            CargarAsignadosUsuario(user);
+        }
 
-            foreach (var perm in user.Permisos.List())
+        /// <summary>
+        /// Carga Todo el campo PyF Disponibles 
+        /// </summary>
+        private void CargarDisponibles()
+        {
+            foreach (BE.Composite.Component perm in _permisosTotal.List())
             {
                 if (!perm.descripcion.Equals("Arbol"))
                 {
-
-                    nodoHijo = new TreeNode(perm.descripcion);
-                    treeView2.Nodes.Add(ExtenderArbol(perm, nodoHijo));
+                    TreeNode nodoHijo = new TreeNode(perm.iDPatente + "-" + perm.descripcion);
+                    if (perm is BE.Composite.Composite)
+                    {
+                        CheckTree(perm, treeView1);
+                        treeView1.Nodes.Add(ExtenderArbol(perm, nodoHijo));
+                    }
+                    else
+                    {
+                        treeView1.Nodes.Add(nodoHijo);
+                    }
                 }
             }
-            CargarDisponibles(treeView1);
-
         }
 
-        private void CargarDisponibles(TreeView tree)
+        /// <summary>
+        /// Cargar los permisos asignados por usuario
+        /// </summary>
+        /// <param name="user"></param>
+        private void CargarAsignadosUsuario(BE.BE_Usuario user)
         {
-            List<TreeNode> nodesAdd = new List<TreeNode>();
-            foreach (TreeNode node in tree.Nodes)
+            foreach (BE.Composite.Component perm in user.Permisos.List())
             {
-                string[] permiso = node.Text.Split('-');
-                //if (perm.VerificarSiExiste(new BE.Composite.Composite(permiso[0], permiso[1])))
-                //{
-                    nodesAdd.Add(node);
-                //}
+                if (!perm.descripcion.Equals("Arbol"))
+                {
+                    TreeNode nodoHijo = new TreeNode(perm.iDPatente + "-" + perm.descripcion);
+                    if (perm is BE.Composite.Composite)
+                    {
+                        CheckTree(perm, treeView2);
+                        treeView2.Nodes.Add(ExtenderArbol(perm, nodoHijo));
+                    }
+                    else
+                    {
+                        treeView2.Nodes.Add(nodoHijo);
+                    }
+                }
             }
-            foreach (TreeNode nod in nodesAdd)
-                tree.Nodes.Add(nod);
         }
 
-        private void CheckTree(BE.Composite.Component perm, TreeNode tree)
+        private void CheckTree(BE.Composite.Component perm, TreeView tree)
         {
             List<TreeNode> nodesDelete = new List<TreeNode>();
             foreach (TreeNode node in tree.Nodes)
             {
                 string[] permiso = node.Text.Split('-');
-                if (perm.VerificarSiExiste(new BE.Composite.Composite(permiso[0], permiso[1])))
+                if (perm.VerificarSiExiste(perm.TraetePermiso(permiso[0])))
                 {
                     nodesDelete.Add(node);
                 }
@@ -112,6 +139,7 @@ namespace UI
             foreach (TreeNode nod in nodesDelete)
                 tree.Nodes.Remove(nod);
         }
+
         private TreeNode ExtenderArbol(BE.Composite.Component perm, TreeNode nodo)
         {
             TreeNode nodoHijo = null;
