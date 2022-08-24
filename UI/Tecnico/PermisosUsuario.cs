@@ -42,7 +42,7 @@ namespace UI
             }
             comboBox1.ValueMember = "User";
             _permisosTotal = _perm.TraerComponentesFyP();
-            CargarDisponibles();
+            CargarArbol(_permisosTotal, arbolDisponibles);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -72,59 +72,35 @@ namespace UI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            treeView2.Nodes.Clear();
+            arbolAsignados.Nodes.Clear();
             BE.BE_Usuario user = (BE.BE_Usuario)comboBox1.SelectedItem;
             user = _perm.TraerUsuarioConPermisos(user);
-            CargarAsignadosUsuario(user);
-        }
-
-        /// <summary>
-        /// Carga Todo el campo PyF Disponibles 
-        /// </summary>
-        private void CargarDisponibles()
-        {
-            foreach (BE.Composite.Component perm in _permisosTotal.List())
-            {
-                if (!perm.descripcion.Equals("Arbol"))
-                {
-                    TreeNode nodoHijo = new TreeNode(perm.iDPatente + "-" + perm.descripcion);
-                    if (perm is BE.Composite.Composite)
-                    {
-                        CheckTree(perm, treeView1);
-                        treeView1.Nodes.Add(ExtenderArbol(perm, nodoHijo));
-                    }
-                    else
-                    {
-                        treeView1.Nodes.Add(nodoHijo);
-                    }
-                }
-            }
+            CargarArbol(user.Permisos, arbolAsignados);
         }
 
         /// <summary>
         /// Cargar los permisos asignados por usuario
         /// </summary>
         /// <param name="user"></param>
-        private void CargarAsignadosUsuario(BE.BE_Usuario user)
+        private void CargarArbol(BE.Composite.Component cmp, TreeView arbolReferido)
         {
-            foreach (BE.Composite.Component perm in user.Permisos.List())
+            foreach (BE.Composite.Component perm in cmp.List())
             {
                 if (!perm.descripcion.Equals("Arbol"))
                 {
                     TreeNode nodoHijo = new TreeNode(perm.iDPatente + "-" + perm.descripcion);
                     if (perm is BE.Composite.Composite)
                     {
-                        CheckTree(perm, treeView2);
-                        treeView2.Nodes.Add(ExtenderArbol(perm, nodoHijo));
+                        CheckTree(perm, arbolReferido);
+                        arbolReferido.Nodes.Add(ExtenderArbol(perm, nodoHijo));
                     }
                     else
                     {
-                        treeView2.Nodes.Add(nodoHijo);
+                        arbolReferido.Nodes.Add(nodoHijo);
                     }
                 }
             }
         }
-
         private void CheckTree(BE.Composite.Component perm, TreeView tree)
         {
             List<TreeNode> nodesDelete = new List<TreeNode>();

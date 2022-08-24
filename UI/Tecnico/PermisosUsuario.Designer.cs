@@ -37,8 +37,8 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.treeView2 = new System.Windows.Forms.TreeView();
+            this.arbolDisponibles = new System.Windows.Forms.TreeView();
+            this.arbolAsignados = new System.Windows.Forms.TreeView();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -135,19 +135,19 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Permisos Asignados";
             // 
-            // treeView1
+            // arbolDisponibles
             // 
-            this.treeView1.Location = new System.Drawing.Point(60, 209);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(319, 171);
-            this.treeView1.TabIndex = 9;
+            this.arbolDisponibles.Location = new System.Drawing.Point(60, 209);
+            this.arbolDisponibles.Name = "arbolDisponibles";
+            this.arbolDisponibles.Size = new System.Drawing.Size(319, 171);
+            this.arbolDisponibles.TabIndex = 9;
             // 
-            // treeView2
+            // arbolAsignados
             // 
-            this.treeView2.Location = new System.Drawing.Point(507, 209);
-            this.treeView2.Name = "treeView2";
-            this.treeView2.Size = new System.Drawing.Size(319, 171);
-            this.treeView2.TabIndex = 10;
+            this.arbolAsignados.Location = new System.Drawing.Point(507, 209);
+            this.arbolAsignados.Name = "arbolAsignados";
+            this.arbolAsignados.Size = new System.Drawing.Size(319, 171);
+            this.arbolAsignados.TabIndex = 10;
             // 
             // button3
             // 
@@ -185,8 +185,8 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.treeView2);
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.arbolAsignados);
+            this.Controls.Add(this.arbolDisponibles);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnConsultar);
@@ -216,8 +216,8 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.TreeView treeView2;
+        private System.Windows.Forms.TreeView arbolDisponibles;
+        private System.Windows.Forms.TreeView arbolAsignados;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
