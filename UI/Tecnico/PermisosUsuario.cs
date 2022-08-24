@@ -73,10 +73,35 @@ namespace UI
         private void button2_Click(object sender, EventArgs e)
         {
             arbolAsignados.Nodes.Clear();
+            arbolDisponibles.Nodes.Clear();
             BE.BE_Usuario user = (BE.BE_Usuario)comboBox1.SelectedItem;
             user = _perm.TraerUsuarioConPermisos(user);
+            //CargarArbol(_pDispo, arbolDisponibles);
             CargarArbol(user.Permisos, arbolAsignados);
+            DisponiblesPorUsuario(user.Permisos);
         }
+
+        private void DisponiblesPorUsuario(BE.Composite.Component permisos)
+        {
+            foreach (BE.Composite.Component cmp in _permisosTotal.List())
+            {
+                if (!cmp.descripcion.Equals("Arbol"))
+                {
+                    if (!permisos.VerificarSiExiste(_permisosTotal.TraetePermiso(cmp.iDPatente)))
+                    {
+                        TreeNode nodoHijo = new TreeNode(cmp.iDPatente + "-" + cmp.descripcion);
+                        if (cmp is BE.Composite.Composite)
+                        {
+                            CheckTree(cmp, arbolDisponibles);
+                            arbolDisponibles.Nodes.Add(ExtenderArbol(cmp, nodoHijo));
+                        }
+                        else
+                            arbolDisponibles.Nodes.Add(nodoHijo);
+                    }
+                }
+            }
+        }
+
 
         /// <summary>
         /// Cargar los permisos asignados por usuario
