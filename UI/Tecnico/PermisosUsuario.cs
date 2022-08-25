@@ -17,7 +17,7 @@ namespace UI
         private BLL.Tecnico.PermisosBLL _perm = new BLL.Tecnico.PermisosBLL();
         private List<BE.BE_Usuario> _users;
         private BE.Composite.Component _permisosTotal;
-        private BE.Composite.Component _pDispo = new BE.Composite.Composite();
+        private BE.Composite.Component _pDispo = new BE.Composite.Composite("0", "Arbol");
         private BE.Composite.Component _pAsig = new BE.Composite.Composite();
 
         public PermisosUsuario()
@@ -76,9 +76,10 @@ namespace UI
             arbolDisponibles.Nodes.Clear();
             BE.BE_Usuario user = (BE.BE_Usuario)comboBox1.SelectedItem;
             user = _perm.TraerUsuarioConPermisos(user);
-            //CargarArbol(_pDispo, arbolDisponibles);
             CargarArbol(user.Permisos, arbolAsignados);
             DisponiblesPorUsuario(user.Permisos);
+            //CargarArbol(_pDispo, arbolDisponibles);
+            ArbolDisponibleFiltro(_pDispo, arbolDisponibles);
         }
 
         private void DisponiblesPorUsuario(BE.Composite.Component permisos)
@@ -87,7 +88,7 @@ namespace UI
             {
                 if (!cmp.descripcion.Equals("Arbol"))
                 {
-                    if (!permisos.VerificarSiExiste(_permisosTotal.TraetePermiso(cmp.iDPatente)))
+                    if (!permisos.VerificarSiExiste(cmp))
                     {
                         TreeNode nodoHijo = new TreeNode(cmp.iDPatente + "-" + cmp.descripcion);
                         if (cmp is BE.Composite.Composite)
@@ -98,6 +99,8 @@ namespace UI
                         else
                             arbolDisponibles.Nodes.Add(nodoHijo);
                     }
+                    else
+                        _pDispo.Agregar(cmp);
                 }
             }
         }
@@ -140,7 +143,48 @@ namespace UI
             foreach (TreeNode nod in nodesDelete)
                 tree.Nodes.Remove(nod);
         }
-
+        private void ArbolDisponibleFiltro(BE.Composite.Component perm, TreeView tree)
+        {
+            List<TreeNode> nodesDelete = new List<TreeNode>();
+            foreach (TreeNode node in tree.Nodes)
+            {
+                if (node.Nodes.Count > 0)
+                {
+                    RecursivoArbolDisponibleFiltro(perm, tree, node);
+                }
+                else
+                {
+                    string[] permiso = node.Text.Split('-');
+                    if (perm.VerificarSiExiste(_permisosTotal.TraetePermiso(permiso[0])))
+                    {
+                        nodesDelete.Add(node);
+                    }
+                }
+            }
+            foreach (TreeNode nod in nodesDelete)
+                tree.Nodes.Remove(nod);
+        }
+        private void RecursivoArbolDisponibleFiltro(BE.Composite.Component perm, TreeView tree, TreeNode nodoArbol)
+        {
+            List<TreeNode> nodesDelete = new List<TreeNode>();
+            foreach (TreeNode node in nodoArbol.Nodes)
+            {
+                if (node.Nodes.Count > 0)
+                {
+                    RecursivoArbolDisponibleFiltro(perm, tree, node);
+                }
+                else
+                {
+                    string[] permiso = node.Text.Split('-');
+                    if (perm.VerificarSiExiste(_permisosTotal.TraetePermiso(permiso[0])))
+                    {
+                        nodesDelete.Add(node);
+                    }
+                }
+            }
+            foreach (TreeNode nod in nodesDelete)
+                tree.Nodes.Remove(nod);
+        }
         private TreeNode ExtenderArbol(BE.Composite.Component perm, TreeNode nodo)
         {
             TreeNode nodoHijo = null;

@@ -47,7 +47,7 @@ namespace DAL
                             Permisos.Agregar(new BE.Composite.Hoja(element[1].ToString(), element[2].ToString()));
                         }
                     }
-                    Permisos.Agregar(Permisos);
+                    //Permisos.Agregar(Permisos);
                 }
                 BE.Usuario.Instance.Permisos = Permisos;
             }
@@ -88,7 +88,7 @@ namespace DAL
                             Permisos.Agregar(new BE.Composite.Hoja(element[1].ToString(), element[2].ToString()));
                         }
                     }
-                    Permisos.Agregar(Permisos);
+                    //Permisos.Agregar(Permisos);
                 }
                 user.Permisos = Permisos;
             }
