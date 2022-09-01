@@ -67,6 +67,10 @@ namespace UI
             BE.Composite.Component elem = (BE.Composite.Component)comboBox2.SelectedItem;
             VerificarSiEsta(elem);
         }
+        /// <summary>
+        /// Verifica si no existe entre los permisos, sino lo agrega
+        /// </summary>
+        /// <param name="element"></param>
         private void VerificarSiEsta(BE.Composite.Component element)
         {
             if (element == null)
@@ -100,6 +104,7 @@ namespace UI
                 if (perm.VerificarSiExiste(new BE.Composite.Composite(permiso[0], permiso[1])))
                 {
                     nodesDelete.Add(node);
+                    family.Eliminar(family.TraetePermiso(permiso[0]));
                 }
             }
             foreach (TreeNode nod in nodesDelete)
@@ -145,7 +150,10 @@ namespace UI
                     ListaPerm.Refresh();
                     MessageBox.Show("Familia creada");
                 }
-
+                else
+                {
+                    MessageBox.Show("Familia ya existente");
+                }
             }
             else if (ListaPerm.Nodes.Count == 0)
             {

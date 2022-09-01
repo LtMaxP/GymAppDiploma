@@ -23,7 +23,7 @@ namespace BLL.Tecnico
         {
             return CyPDAL.TraerTodoFamiliasOPatentesDALNEW();
         }
-        
+
         public bool DetectarUsuario(BE.BE_Usuario user)
         {
             return CyPDAL.DetectarUsuario(user);

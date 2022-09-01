@@ -47,7 +47,6 @@ namespace DAL
                             Permisos.Agregar(new BE.Composite.Hoja(element[1].ToString(), element[2].ToString()));
                         }
                     }
-                    //Permisos.Agregar(Permisos);
                 }
                 BE.Usuario.Instance.Permisos = Permisos;
             }
@@ -220,16 +219,38 @@ namespace DAL
         public bool CrearFamilia(Composite newFamilia, string familiaNombre)
         {
             //validar q no existe ya
-            ValidarSiYaExiste();
-            //crear aca y sacar el id [PerfilPyF] 
-            int fam = GenerarFamilia(familiaNombre);
-            //Hacer la relacion de cada idPerfil aca [PermisosRelacion]
-            GenerarRelacionesPatenteFamilia(fam);
-            return true;
+            if (!ValidarSiYaExiste(newFamilia))
+            {
+                //crear aca y sacar el id [PerfilPyF] 
+                int fam = GenerarFamilia(familiaNombre);
+                //Hacer la relacion de cada idPerfil aca [PermisosRelacion]
+                GenerarRelacionesPatenteFamilia(fam);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        private void ValidarSiYaExiste()
+        /// <summary>
+        /// Valida si ya existe la familia
+        /// </summary>
+        /// <param name="newFamilia"></param>
+        /// <returns></returns>
+        private bool ValidarSiYaExiste(Composite newFamilia)
         {
+            DataTable dt = new DataTable();
+            bool returnable = false;
+            SqlCommand sqlcomm = new SqlCommand();
+            sqlcomm.CommandText = "select CASE WHEN count(*) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @user;";
 
+            try
+            {
+                dt = Acceso.Instance.ExecuteDataTable(sqlcomm);
+            }
+            catch { System.Windows.Forms.MessageBox.Show("No se pudo traer los permisos"); }
+
+            return returnable;
         }
         private int GenerarFamilia(string familiaNombre)
         {
