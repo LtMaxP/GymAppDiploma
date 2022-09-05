@@ -170,5 +170,31 @@ namespace UI
                 nodo.Nodes.Add(perm.iDPatente + "-" + perm.descripcion);
             return nodo;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (!arbolDisponibles.SelectedNode.IsSelected)
+                MessageBox.Show("Debe seleccionar un permiso");
+            else
+            {
+                string[] permiso = arbolDisponibles.SelectedNode.Text.Split('-');
+                if (_pDispo.VerificarSiExistePermiso(permiso[0]))
+                {
+                    if (!_pAsig.VerificarSiExistePermiso(permiso[0]))
+                    {
+                        _pDispo.Eliminar(_permisosTotal.TraetePermiso(permiso[0]));
+                        _pAsig.Agregar(_permisosTotal.TraetePermiso(permiso[0]));
+                        arbolAsignados.Nodes.Clear();
+                        arbolDisponibles.Nodes.Clear();
+                        CargarArbol(_pAsig, arbolAsignados);
+                        CargarDisponibles(arbolDisponibles);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El usuario ya tiene el permiso");
+                }
+            }
+        }
     }
 }

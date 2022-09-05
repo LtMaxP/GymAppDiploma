@@ -32,8 +32,11 @@ namespace UI
         }
         private void ClearAll()
         {
+            ListaPerm.Nodes.Clear();
             ListaPerm.Refresh();
+            comboBox1.Items.Clear();
             comboBox1.Refresh();
+            comboBox2.Items.Clear();
             comboBox2.Refresh();
         }
         private void LoadStart()
