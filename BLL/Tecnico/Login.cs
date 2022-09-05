@@ -64,7 +64,6 @@ namespace BLL
             {
                 foreach (BE.Composite.Component comp in arbolObjeto.List())
                 {
-                    //if (comp.descripcion.Equals("Restore"))
                     if (!comp.descripcion.Equals(" "))
                     {
                         isOk = true;

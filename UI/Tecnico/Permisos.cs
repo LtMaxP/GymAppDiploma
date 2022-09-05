@@ -14,7 +14,7 @@ namespace UI
     public partial class Permisos : Form, BE.ObserverIdioma.IObserverIdioma
     {
         private BLL.Tecnico.PermisosBLL PermBLL = new BLL.Tecnico.PermisosBLL();
-        BE.Composite.Component family = new BE.Composite.Composite();
+        BE.Composite.Component family;
         public Permisos()
         {
             InitializeComponent();
@@ -23,6 +23,22 @@ namespace UI
         private void Permisos_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
+            this.LoadForm();
+        }
+        private void LoadForm()
+        {
+            this.ClearAll();
+            this.LoadStart();
+        }
+        private void ClearAll()
+        {
+            ListaPerm.Refresh();
+            comboBox1.Refresh();
+            comboBox2.Refresh();
+        }
+        private void LoadStart()
+        {
+            family = new BE.Composite.Composite();
             var PermisosTotal = PermBLL.TraerComponentesFyP();
             foreach (var element in PermisosTotal.List())
             {
@@ -37,7 +53,6 @@ namespace UI
             }
             comboBox1.ValueMember = "descripcion";
             comboBox2.ValueMember = "descripcion";
-
         }
 
         private void SalirBtn_Click(object sender, EventArgs e)
@@ -141,13 +156,16 @@ namespace UI
                 foreach (TreeNode element in ListaPerm.Nodes)
                 {
                     string[] permiso = element.Text.Split('-');
-                    newFamilia.Agregar(new BE.Composite.Composite(permiso[0], permiso[1]));
+                    if(element.Nodes.Count > 1)
+                        newFamilia.Agregar(new BE.Composite.Composite(permiso[0], permiso[1]));
+                    else
+                        newFamilia.Agregar(new BE.Composite.Hoja(permiso[0], permiso[1]));
                 }
 
                 if (PermBLL.CrearFamilia(newFamilia, familiaNombre))
                 {
                     txtName.Clear();
-                    ListaPerm.Refresh();
+                    this.LoadForm();
                     MessageBox.Show("Familia creada");
                 }
                 else

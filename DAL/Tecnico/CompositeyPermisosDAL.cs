@@ -218,48 +218,97 @@ namespace DAL
         /// <returns></returns>
         public bool CrearFamilia(Composite newFamilia, string familiaNombre)
         {
+            bool returnable = false;
             //validar q no existe ya
-            if (!ValidarSiYaExiste(newFamilia))
+            if (!ValidarSiYaExiste(familiaNombre))
             {
                 //crear aca y sacar el id [PerfilPyF] 
                 int fam = GenerarFamilia(familiaNombre);
                 //Hacer la relacion de cada idPerfil aca [PermisosRelacion]
-                GenerarRelacionesPatenteFamilia(fam);
-                return true;
+                if (fam != 0)
+                {
+                    returnable = GenerarRelacionesPatenteFamilia(newFamilia, fam); //falta preguntar o hacer algo con lo q regresa
+                }
             }
-            else
-            {
-                return false;
-            }
+            return returnable;
         }
         /// <summary>
         /// Valida si ya existe la familia
         /// </summary>
         /// <param name="newFamilia"></param>
         /// <returns></returns>
-        private bool ValidarSiYaExiste(Composite newFamilia)
+        private bool ValidarSiYaExiste(string familiaNombre)
         {
             DataTable dt = new DataTable();
             bool returnable = false;
             SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = "select CASE WHEN count(*) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @user;";
+            sqlcomm.CommandText = "select CASE WHEN count(*) > 0 THEN 'true' ELSE 'false' END from [GymApp].[dbo].[PerfilPyF] where [Nombre] =  @nombre";
+            sqlcomm.Parameters.AddWithValue("@nombre", familiaNombre);
 
             try
             {
-                dt = Acceso.Instance.ExecuteDataTable(sqlcomm);
+                returnable = Acceso.Instance.ExecuteScalarBool(sqlcomm);
             }
-            catch { System.Windows.Forms.MessageBox.Show("No se pudo traer los permisos"); }
+            catch { System.Windows.Forms.MessageBox.Show("Validacion - Familia ya existente"); }
 
             return returnable;
         }
+
+        /// <summary>
+        /// Crea nueva familia y devuelve el ID de la creación bajo un SP
+        /// </summary>
+        /// <param name="familiaNombre"></param>
+        /// <returns></returns>
         private int GenerarFamilia(string familiaNombre)
         {
-
-            return 1;
+            int returnable = 0;
+            try
+            {
+                var sqlCmd = Acceso.Instance.CrearCommandStoredProcedure("CrearFamilia");
+                sqlCmd.Parameters.Add("@NombreFamilia", SqlDbType.VarChar).Value = familiaNombre;
+                returnable = Acceso.Instance.ExecuteSPWithReturnable(sqlCmd);
+            }
+            catch { System.Windows.Forms.MessageBox.Show("No se pudo generar la familia SP"); }
+            return returnable;
         }
-        private bool GenerarRelacionesPatenteFamilia(int familia)
+
+        /// <summary>
+        /// Crea las relaciones pertinentes a la nueva familia previamente creada
+        /// </summary>
+        /// <param name="newFamilia"></param>
+        /// <param name="familia"></param>
+        /// <returns></returns>
+        private bool GenerarRelacionesPatenteFamilia(Composite newFamilia, int familia)
         {
-            return true;
+            bool ret = true;
+            SqlCommand sqlcomm = new SqlCommand();
+            sqlcomm.CommandText = "INSERT INTO [PermisosRelacion] ([Id_Perfil], [Id_Padre]) VALUES (@ID_PERFIL, @ID_PADRE)";
+            sqlcomm.Parameters.Add("@ID_PERFIL", SqlDbType.Int);
+            sqlcomm.Parameters.Add("@ID_PADRE", SqlDbType.Int);
+            try
+            {
+                foreach (var perfil in newFamilia.List())
+                {
+                    //ponele q es algo así
+                    if (perfil is Composite)
+                    {
+                        sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;
+                        sqlcomm.Parameters["@ID_PADRE"].Value = familia;
+                    }
+                    else
+                    {
+                        sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;// esto si es compo o una hoja es por las dudas q se requiera
+                        sqlcomm.Parameters["@ID_PADRE"].Value = familia;
+                    }
+                    Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                }
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("No se pudo generar los permisos familia");
+                ret = false;
+            }
+            return ret;
         }
     }
 }
