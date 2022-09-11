@@ -17,12 +17,13 @@ namespace UI
         private BLL.Tecnico.PermisosBLL _perm = new BLL.Tecnico.PermisosBLL();
         private List<BE.BE_Usuario> _users;
         private BE.Composite.Component _permisosTotal;
-        private BE.Composite.Component _pDispo = null;
-        private BE.Composite.Component _pAsig = null;
+        private BE.Composite.Component _pAsig;
+        private BE.BE_Usuario user = null;
 
         public PermisosUsuario()
         {
             InitializeComponent();
+            _permisosTotal = _perm.TraerAgrupadosDAL();
         }
 
 
@@ -41,7 +42,7 @@ namespace UI
                 comboBox1.Items.Add(id);
             }
             comboBox1.ValueMember = "User";
-            _permisosTotal = _perm.TraerComponentesFyP();
+
             //CargarArbol(_permisosTotal, arbolDisponibles);
         }
 
@@ -64,7 +65,58 @@ namespace UI
                 lblUserName.Text = _users.First(x => x.IdUsuario == int.Parse(comboBox1.Text)).User;
             }
         }
+        #region guardado
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    BE.BE_Usuario user = (BE.BE_Usuario)comboBox1.SelectedItem;
+        //    _pDispo = new BE.Composite.Composite("0", "Arbol");
+        //    _pAsig = new BE.Composite.Composite("0", "Arbol");
+        //    user = _perm.TraerUsuarioConPermisos(user);
+        //    CargarArboles(user.Permisos);
+        //}
 
+        //private void CargarArboles(BE.Composite.Component _permisosUsuario)
+        //{
+        //    foreach (BE.Composite.Component permiso in _permisosTotal.List())
+        //    {
+        //        if (!permiso.descripcion.Equals("Arbol"))
+        //        {
+        //            if (_permisosUsuario.VerificarSiExiste(permiso))
+        //            {
+        //                if (permiso is BE.Composite.Composite)
+        //                {
+        //                    FormateoFamilia(permiso, _pAsig);
+        //                    _pAsig.Agregar(permiso);
+        //                }
+        //                else
+        //                    _pAsig.Agregar(permiso);
+        //            }
+        //            else
+        //            {
+        //                if (permiso is BE.Composite.Composite)
+        //                {
+        //                    FormateoFamilia(permiso, _pDispo);
+        //                    _pDispo.Agregar(permiso);
+        //                }
+        //                else
+        //                    _pDispo.Agregar(permiso);
+        //            }
+        //        }
+        //    }
+        //}
+
+        //private void FormateoFamilia(BE.Composite.Component perm, BE.Composite.Component permContenedor)
+        //{
+        //    foreach (var node in permContenedor.List())
+        //    {
+        //        if (perm.VerificarSiExiste(node))
+        //        {
+        //            perm.Eliminar(node);
+        //        }
+        //    }
+        //}
+
+        #endregion
         /// <summary>
         /// Boton Consultar carga los asignados al cliente y llama a la función que detecte los q no estan en la lista para cargad disponible
         /// </summary>
@@ -72,14 +124,15 @@ namespace UI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            _pDispo = new BE.Composite.Composite("0", "Arbol");
             _pAsig = new BE.Composite.Composite();
             arbolAsignados.Nodes.Clear();
             arbolDisponibles.Nodes.Clear();
-            BE.BE_Usuario user = (BE.BE_Usuario)comboBox1.SelectedItem;
+            user = (BE.BE_Usuario)comboBox1.SelectedItem;
             user = _perm.TraerUsuarioConPermisos(user);
-            CargarArbol(user.Permisos, arbolAsignados);
-            CargarDisponibles(arbolDisponibles);
+            _pAsig = user.Permisos;
+            //CargarArbol(user.Permisos, arbolAsignados, _pAsig);
+            CargarAsignados(_pAsig, arbolAsignados);
+            CargarAsignados(_permisosTotal, arbolDisponibles);
         }
 
         private void CargarDisponibles(TreeView arbolDisponibles)
@@ -89,31 +142,25 @@ namespace UI
                 if (!perm.descripcion.Equals("Arbol"))
                 {
                     TreeNode nodoHijo = new TreeNode(perm.iDPatente + "-" + perm.descripcion);
-                    if (!_pAsig.VerificarSiExiste(perm))
+                    if (perm is BE.Composite.Composite)
                     {
-                        if (perm is BE.Composite.Composite)
-                        {
-                            CheckTree(perm, arbolDisponibles);
-                            arbolDisponibles.Nodes.Add(ExtenderArbol(perm, nodoHijo));
-                        }
-                        else
-                        {
-                            arbolDisponibles.Nodes.Add(nodoHijo);
-                        }
-                        _pDispo.Agregar(perm);
+                        CheckTree(perm, arbolDisponibles);
+                        arbolDisponibles.Nodes.Add(ExtenderArbol(perm, nodoHijo));
                     }
+                    else
+                    {
+                        arbolDisponibles.Nodes.Add(nodoHijo);
+                    }
+                    //_pDispo.Agregar(perm);
                 }
             }
         }
-
-
-
 
         /// <summary>
         /// Cargar los permisos asignados por usuario
         /// </summary>
         /// <param name="user"></param>
-        private void CargarArbol(BE.Composite.Component cmp, TreeView arbolReferido)
+        private void CargarArbol(BE.Composite.Component cmp, TreeView arbolReferido, BE.Composite.Component permReferido)
         {
             foreach (BE.Composite.Component perm in cmp.List())
             {
@@ -122,14 +169,37 @@ namespace UI
                     TreeNode nodoHijo = new TreeNode(perm.iDPatente + "-" + perm.descripcion);
                     if (perm is BE.Composite.Composite)
                     {
-                        //CheckTree(perm, arbolReferido);
+                        CheckTree(perm, arbolReferido);
                         arbolReferido.Nodes.Add(ExtenderArbol(perm, nodoHijo));
                     }
                     else
                     {
                         arbolReferido.Nodes.Add(nodoHijo);
                     }
-                    _pAsig.Agregar(cmp);
+                    permReferido.Agregar(cmp);
+                }
+            }
+        }
+        private void CargarAsignados(BE.Composite.Component cmp, TreeView arbolReferido)
+        {
+            foreach (BE.Composite.Component perm in cmp.List())
+            {
+                if (!perm.descripcion.Equals("Arbol"))
+                {
+                    TreeNode nodoHijo = new TreeNode(perm.iDPatente + "-" + perm.descripcion);
+                    if (perm is BE.Composite.Composite)
+                    {
+                        CheckTree(perm, arbolReferido);
+                        arbolReferido.Nodes.Add(ExtenderArbol(perm, nodoHijo));
+                    }
+                    else
+                    {
+                        arbolReferido.Nodes.Add(nodoHijo);
+                    }
+                }
+                else if (perm.descripcion.Equals("Arbol"))
+                {
+                    CargarAsignados(perm, arbolReferido);
                 }
             }
         }
@@ -139,7 +209,7 @@ namespace UI
             foreach (TreeNode node in tree.Nodes)
             {
                 string[] permiso = node.Text.Split('-');
-                if (perm.VerificarSiExiste(_permisosTotal.TraetePermiso(permiso[0])))
+                if (perm.VerificarSiExistePermiso(permiso[0]))
                 {
                     nodesDelete.Add(node);
                 }
@@ -154,23 +224,25 @@ namespace UI
             {
                 foreach (var subperm in perm.List())
                 {
-                    if (!_pAsig.VerificarSiExiste(subperm))
+                    //if (!_pAsig.VerificarSiExiste(subperm))
+                    TreeNode nodoHijo = new TreeNode(subperm.iDPatente + "-" + subperm.descripcion);
+                    if (subperm is BE.Composite.Composite)
                     {
-                        TreeNode nodoHijo = new TreeNode(subperm.iDPatente + "-" + subperm.descripcion);
-                        if (subperm is BE.Composite.Composite)
-                        {
-                            nodo.Nodes.Add(ExtenderArbol(subperm, nodoHijo));
-                        }
-                        else
-                            nodo.Nodes.Add(nodoHijo);
+                        nodo.Nodes.Add(ExtenderArbol(subperm, nodoHijo));
                     }
+                    else
+                        nodo.Nodes.Add(nodoHijo);
                 }
             }
             else
                 nodo.Nodes.Add(perm.iDPatente + "-" + perm.descripcion);
             return nodo;
         }
-
+        /// <summary>
+        /// Agregar Permiso
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             if (!arbolDisponibles.SelectedNode.IsSelected)
@@ -178,21 +250,48 @@ namespace UI
             else
             {
                 string[] permiso = arbolDisponibles.SelectedNode.Text.Split('-');
-                if (_pDispo.VerificarSiExistePermiso(permiso[0]))
+                if (!_pAsig.VerificarSiExistePermiso(permiso[0])) //parece casi estar... se agregan como 2 bitacoras y no se agrega Admin
                 {
-                    if (!_pAsig.VerificarSiExistePermiso(permiso[0]))
+                    if (_permisosTotal.VerificarSiExistePermiso(permiso[0]))
                     {
-                        _pDispo.Eliminar(_permisosTotal.TraetePermiso(permiso[0]));
-                        _pAsig.Agregar(_permisosTotal.TraetePermiso(permiso[0]));
-                        arbolAsignados.Nodes.Clear();
-                        arbolDisponibles.Nodes.Clear();
-                        CargarArbol(_pAsig, arbolAsignados);
-                        CargarDisponibles(arbolDisponibles);
+                        foreach (var p in _permisosTotal.List())
+                        {
+                            if (p.TraetePermiso(permiso[0]) != null)
+                            {
+                                _pAsig.Agregar(p.TraetePermiso(permiso[0])); //arreglar el agregar y esta, no encuentra
+                                arbolAsignados.Nodes.Clear();
+                                CargarAsignados(_pAsig, arbolAsignados);
+                            }
+                        }
                     }
                 }
                 else
                 {
                     MessageBox.Show("El usuario ya tiene el permiso");
+                }
+            }
+        }
+        /// <summary>
+        /// Eliminar Permiso
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (!arbolDisponibles.SelectedNode.IsSelected)
+                MessageBox.Show("Debe seleccionar un permiso");
+            else
+            {
+                string[] permiso = arbolAsignados.SelectedNode.Text.Split('-');
+                if (_pAsig.VerificarSiExistePermiso(permiso[0]))
+                {
+                    _pAsig.Eliminar(_permisosTotal.TraetePermiso(permiso[0]));
+                    arbolAsignados.Nodes.Clear();
+                    CargarAsignados(_pAsig, arbolAsignados);
+                }
+                else
+                {
+                    MessageBox.Show("¿El usuario no tiene el permiso?");
                 }
             }
         }

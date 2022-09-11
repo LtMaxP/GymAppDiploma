@@ -116,11 +116,18 @@ namespace DAL
                         if (element[2].ToString().Contains("F"))
                         {
                             newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[0].ToString(), element[1].ToString()));
-                            cmp.Agregar(newcompo);
+                            if (!cmp.VerificarSiExiste(newcompo)) //easdasfasdas
+                            {
+                                cmp.Agregar(newcompo);
+                            }
                         }
                         else if (element[2].ToString().Contains("P"))
                         {
-                            cmp.Agregar(new BE.Composite.Hoja(element[0].ToString(), element[1].ToString()));
+                            newcompo = new BE.Composite.Hoja(element[0].ToString(), element[1].ToString());
+                            if (!cmp.VerificarSiExiste(newcompo))
+                            {
+                                cmp.Agregar(newcompo);
+                            }
                         }
                     }
                 }
@@ -130,26 +137,27 @@ namespace DAL
             return cmp;
         }
 
-        public List<Component> TraerFamiliasOPatentesDAL(string fop)
-        {
-            List<Component> compoList = new List<Component>();
-            try
-            {
-                SqlCommand comm = new SqlCommand();
-                comm.CommandText = @"SELECT * FROM [PerfilPyF] WHERE Tipo = @charFoP";
-                comm.Parameters.AddWithValue("@charFoP", fop);
-                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
-                foreach (DataRow dr in dt.Rows)
-                {
-                    compoList.Add(new Hoja(dr[0].ToString(), dr[1].ToString()));
-                }
-            }
-            catch
-            { }
-            return compoList;
-        }
+        //public List<Component> TraerFamiliasOPatentesDAL(string fop)
+        //{
+        //    List<Component> compoList = new List<Component>();
+        //    try
+        //    {
+        //        SqlCommand comm = new SqlCommand();
+        //        comm.CommandText = @"SELECT * FROM [PerfilPyF] WHERE Tipo = @charFoP";
+        //        comm.Parameters.AddWithValue("@charFoP", fop);
+        //        DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+        //        foreach (DataRow dr in dt.Rows)
+        //        {
+        //            compoList.Add(new Hoja(dr[0].ToString(), dr[1].ToString()));
+        //        }
+        //    }
+        //    catch
+        //    { }
+        //    return compoList;
+        //}
+
         /// <summary>
-        /// Trae todos los componentes de la lista para mostrar
+        /// Trae todos los componentes de la lista para mostrar SUELTO
         /// </summary>
         /// <returns></returns>
         public Component TraerTodoFamiliasOPatentesDALNEW()
@@ -170,8 +178,64 @@ namespace DAL
                         if (element[2].ToString().Contains("F"))
                         {
                             newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[0].ToString(), element[1].ToString()));
+                            //if (!compoList.VerificarSiExiste(newcompo))
+                            //{
+                            //ReiteracionCompo(compoList, newcompo); //fijate si aca o en ArmarArbol, si se repite algo eliminalo
+                            compoList.Agregar(newcompo);
+                            //}
+                        }
+                        else if (element[2].ToString().Contains("P"))
+                        {
+                            newcompo = new BE.Composite.Hoja(element[0].ToString(), element[1].ToString());
+                            //if (!compoList.VerificarSiExiste(newcompo))
+                            //{
+                            compoList.Agregar(newcompo);
+                            //}
+                        }
+                    }
+                }
+            }
+            catch
+            { }
+            return compoList;
+        }
+
+        private void ReiteracionCompo(Component compoList, Component newcompo)
+        {
+            foreach (var node in compoList.List())
+            {
+                if (newcompo.VerificarSiExiste(node))
+                {
+                    compoList.Eliminar(node);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Trae todos los componentes de la lista para mostrar AGRUPADO
+        /// </summary>
+        /// <returns></returns>
+        public Component TraerComponentesAgrupadosDAL()
+        {
+            Component compoList = new BE.Composite.Composite("0", "Arbol");
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = @"SELECT * FROM [PerfilPyF]";
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+
+                foreach (DataRow element in dt.Rows)
+                {
+                    BE.Composite.Component newcompo = null;
+
+                    if (!String.IsNullOrEmpty(element[0].ToString()))
+                    {
+                        if (element[2].ToString().Contains("F"))
+                        {
+                            newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[0].ToString(), element[1].ToString()));
                             if (!compoList.VerificarSiExiste(newcompo))
                             {
+                                ReiteracionCompo(compoList, newcompo); //fijate si aca o en ArmarArbol, si se repite algo eliminalo
                                 compoList.Agregar(newcompo);
                             }
                         }
@@ -219,19 +283,17 @@ namespace DAL
         public bool CrearFamilia(Composite newFamilia, string familiaNombre)
         {
             bool returnable = false;
-            //validar q no existe ya
             if (!ValidarSiYaExiste(familiaNombre))
             {
-                //crear aca y sacar el id [PerfilPyF] 
                 int fam = GenerarFamilia(familiaNombre);
-                //Hacer la relacion de cada idPerfil aca [PermisosRelacion]
                 if (fam != 0)
                 {
-                    returnable = GenerarRelacionesPatenteFamilia(newFamilia, fam); //falta preguntar o hacer algo con lo q regresa
+                    returnable = GenerarRelacionesPatenteFamilia(newFamilia, fam);
                 }
             }
             return returnable;
         }
+
         /// <summary>
         /// Valida si ya existe la familia
         /// </summary>

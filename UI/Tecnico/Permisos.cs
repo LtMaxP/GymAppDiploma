@@ -113,6 +113,10 @@ namespace UI
             }
         }
 
+        /// <summary>
+        /// Filtrado del arbol, eliminando los q estan y generando un desgloce de hojas en la rama componente
+        /// </summary>
+        /// <param name="perm"></param>
         private void CheckTree(BE.Composite.Component perm)
         {
             List<TreeNode> nodesDelete = new List<TreeNode>();
