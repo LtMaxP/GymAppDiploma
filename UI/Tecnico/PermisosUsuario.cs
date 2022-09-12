@@ -250,18 +250,17 @@ namespace UI
             else
             {
                 string[] permiso = arbolDisponibles.SelectedNode.Text.Split('-');
-                if (!_pAsig.VerificarSiExistePermiso(permiso[0])) //parece casi estar... se agregan como 2 bitacoras y no se agrega Admin
+                if (!_pAsig.VerificarSiExistePermiso(permiso[0])) 
                 {
-                    if (_permisosTotal.VerificarSiExistePermiso(permiso[0]))
+                    foreach (var p in _permisosTotal.List())
                     {
-                        foreach (var p in _permisosTotal.List())
+
+                        if (p.TraetePermiso(permiso[0]) != null || p.iDPatente.Equals(permiso[0]) && !_pAsig.VerificarSiExistePermiso(permiso[0])) //no pero si
                         {
-                            if (p.TraetePermiso(permiso[0]) != null)
-                            {
-                                _pAsig.Agregar(p.TraetePermiso(permiso[0])); //arreglar el agregar y esta, no encuentra
-                                arbolAsignados.Nodes.Clear();
-                                CargarAsignados(_pAsig, arbolAsignados);
-                            }
+                            CheckPerm(p.TraetePermiso(permiso[0])); //validacion acá mismo si no es el mismo perm
+                            _pAsig.Agregar(p.TraetePermiso(permiso[0]));
+                            arbolAsignados.Nodes.Clear();
+                            CargarAsignados(_pAsig, arbolAsignados);
                         }
                     }
                 }
@@ -271,6 +270,18 @@ namespace UI
                 }
             }
         }
+
+        private void CheckPerm(BE.Composite.Component p)
+        {
+            foreach (var pow in _pAsig.List())
+            {
+                if (p.VerificarSiExiste(pow))
+                {
+                    _pAsig.Eliminar(p);
+                }
+            }
+        }
+
         /// <summary>
         /// Eliminar Permiso
         /// </summary>
@@ -278,14 +289,14 @@ namespace UI
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
-            if (!arbolDisponibles.SelectedNode.IsSelected)
+            if (!arbolAsignados.SelectedNode.IsSelected)
                 MessageBox.Show("Debe seleccionar un permiso");
             else
             {
                 string[] permiso = arbolAsignados.SelectedNode.Text.Split('-');
                 if (_pAsig.VerificarSiExistePermiso(permiso[0]))
                 {
-                    _pAsig.Eliminar(_permisosTotal.TraetePermiso(permiso[0]));
+                    _pAsig.Eliminar(_pAsig.TraetePermiso(permiso[0]));
                     arbolAsignados.Nodes.Clear();
                     CargarAsignados(_pAsig, arbolAsignados);
                 }
