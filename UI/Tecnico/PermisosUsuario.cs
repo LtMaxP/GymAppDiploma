@@ -250,15 +250,18 @@ namespace UI
             else
             {
                 string[] permiso = arbolDisponibles.SelectedNode.Text.Split('-');
-                if (!_pAsig.VerificarSiExistePermiso(permiso[0])) 
+                if (!_pAsig.VerificarSiExistePermiso(permiso[0]))
                 {
                     foreach (var p in _permisosTotal.List())
                     {
-
-                        if (p.TraetePermiso(permiso[0]) != null || p.iDPatente.Equals(permiso[0]) && !_pAsig.VerificarSiExistePermiso(permiso[0])) //no pero si
+                        if (p.iDPatente.Equals(permiso[0]) || p.VerificarSiExistePermiso(permiso[0])) 
                         {
-                            CheckPerm(p.TraetePermiso(permiso[0])); //validacion acá mismo si no es el mismo perm
-                            _pAsig.Agregar(p.TraetePermiso(permiso[0]));
+                            if (p.iDPatente.Equals(permiso[0]))
+                                CheckPerm(p); 
+                            else
+                                CheckPerm(p.TraetePermiso(permiso[0]));
+
+                            _pAsig.Agregar(_permisosTotal.TraetePermiso(permiso[0]));
                             arbolAsignados.Nodes.Clear();
                             CargarAsignados(_pAsig, arbolAsignados);
                         }
@@ -277,7 +280,7 @@ namespace UI
             {
                 if (p.VerificarSiExiste(pow))
                 {
-                    _pAsig.Eliminar(p);
+                    _pAsig.Eliminar(pow);
                 }
             }
         }

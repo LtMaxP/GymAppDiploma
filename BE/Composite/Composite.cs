@@ -53,7 +53,22 @@ namespace BE.Composite
         }
         public override Component TraetePermiso(string id)
         {
-            return listadoComponent.Find(p => p.iDPatente.Equals(id));
+            Component perm = null;
+            foreach (var a in listadoComponent)
+            {
+                if (a.iDPatente == id)
+                {
+                    perm = a;
+                    return perm; 
+                }
+                if (a is Composite)
+                {
+                    perm = a.TraetePermiso(id);
+                    if (perm != null)
+                        return perm;
+                }
+            }
+            return perm;// listadoComponent.Find(p => p.iDPatente.Equals(id));
         }
     }
 
