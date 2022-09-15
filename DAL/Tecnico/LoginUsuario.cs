@@ -90,7 +90,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "Update Usuario set IntentosFallidos = 0 where Usuario = '@nombre' ";
+                comm.CommandText = "Update Usuario set IntentosFallidos = 0 where Usuario = @nombre ";
                 comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
 
                 Acceso.Instance.ExecuteNonQuery(comm);
@@ -103,7 +103,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "Update Usuario set IntentosFallidos = IntentosFallidos +1 where Usuario = '@nombre' ";
+                comm.CommandText = "Update Usuario set IntentosFallidos = IntentosFallidos +1 where Usuario = @nombre ";
                 comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
 
                 Acceso.Instance.ExecuteNonQuery(comm);
@@ -121,7 +121,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "SELECT IntentosFallidos FROM Usuario WHERE Usuario = '@nombre' ";
+                comm.CommandText = "SELECT IntentosFallidos FROM Usuario WHERE Usuario = @nombre ";
                 comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
 
                 result = Acceso.Instance.ExecuteScalar(comm);
@@ -140,7 +140,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = '@nombre' and Id_Estado = 1 OR IntentosFallidos <= 3";
+                comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre and Id_Estado = 1 and IntentosFallidos <= 3";
                 comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
 
                 result = Acceso.Instance.ExecuteScalarBool(comm);

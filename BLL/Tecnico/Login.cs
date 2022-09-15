@@ -57,31 +57,5 @@ namespace BLL
         }
 
 
-        public bool EncontrarRolEnArbol(string rol, BE.Composite.Component arbolObjeto)
-        {
-            Boolean isOk = false;
-            if (arbolObjeto.List() != null)
-            {
-                foreach (BE.Composite.Component comp in arbolObjeto.List())
-                {
-                    if (!comp.descripcion.Equals(" "))
-                    {
-                        isOk = true;
-                        break;
-                    }
-                    else
-                    {
-                        if (EncontrarRolEnArbol(rol, comp))
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
-            return isOk;
-        }
-
-
-
     }
 }
