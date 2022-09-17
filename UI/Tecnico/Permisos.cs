@@ -163,7 +163,7 @@ namespace UI
                 foreach (TreeNode element in ListaPerm.Nodes)
                 {
                     string[] permiso = element.Text.Split('-');
-                    if(element.Nodes.Count > 1)
+                    if (element.Nodes.Count > 1)
                         newFamilia.Agregar(new BE.Composite.Composite(permiso[0], permiso[1]));
                     else
                         newFamilia.Agregar(new BE.Composite.Hoja(permiso[0], permiso[1]));
@@ -205,13 +205,34 @@ namespace UI
                     MessageBox.Show("No puede quitar un permiso de una familia ya creada");
                 }
                 else
-                {   
+                {
                     string[] permiso = ListaPerm.SelectedNode.Text.Split('-');
                     family.Eliminar(family.TraetePermiso(permiso[0]));
                     ListaPerm.SelectedNode.Remove();
                 }
             }
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(comboBox1.Text))
+            {
+                MessageBox.Show("Debe seleccionar un permiso");
+            }
+            else
+            {
+
+                var result = MessageBox.Show("¿Desea borrar la familia?", "Advertencia", MessageBoxButtons.YesNo);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    if (PermBLL.EliminarFamilia(comboBox1.Text))
+                    {
+                        MessageBox.Show("Familia eliminada con exito");
+                        this.ClearAll();
+                        this.LoadStart();
+                    }
+                }
+            }
         }
     }
 }

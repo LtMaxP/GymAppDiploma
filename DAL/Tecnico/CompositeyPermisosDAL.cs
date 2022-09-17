@@ -53,6 +53,40 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Obtener PermisosUsuario."); }
         }
 
+        public bool EliminarFamilia(int idFam)
+        {
+            bool rpta = false; 
+            SqlCommand sqlcomm = new SqlCommand();
+            sqlcomm.CommandText = @"DELETE FROM [GymApp].[dbo].[PerfilPyF] WHERE [Id_Perfil] = @idFam
+                                    DELETE FROM [GymApp].[dbo].[PermisosRelacion] WHERE [Id_Padre] = @idFam";
+            sqlcomm.Parameters.AddWithValue("@idFam", idFam);
+
+            try
+            {
+                int i = Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                if (i > 1)
+                    rpta = true;
+            }
+            catch { System.Windows.Forms.MessageBox.Show("No se pudo eliminar la familia"); }
+            return rpta;
+        }
+
+        public int DameIdPorNombre(string nombreFamilia)
+        {
+            int returnable = 404;
+            SqlCommand sqlcomm = new SqlCommand();
+            sqlcomm.CommandText = "SELECT Id_Perfil FROM [GymApp].[dbo].[PerfilPyF] WHERE [Nombre] =  @nombre";
+            sqlcomm.Parameters.AddWithValue("@nombre", nombreFamilia);
+
+            try
+            {
+                returnable = Acceso.Instance.ExecuteScalar(sqlcomm);
+            }
+            catch { System.Windows.Forms.MessageBox.Show("No se encontró la familia"); }
+
+            return returnable;
+        }
+
         /// <summary>
         /// Obtener los permisos del usuario enviado
         /// </summary>
@@ -87,7 +121,6 @@ namespace DAL
                             Permisos.Agregar(new BE.Composite.Hoja(element[1].ToString(), element[2].ToString()));
                         }
                     }
-                    //Permisos.Agregar(Permisos);
                 }
                 user.Permisos = Permisos;
             }
@@ -137,25 +170,6 @@ namespace DAL
             return cmp;
         }
 
-        //public List<Component> TraerFamiliasOPatentesDAL(string fop)
-        //{
-        //    List<Component> compoList = new List<Component>();
-        //    try
-        //    {
-        //        SqlCommand comm = new SqlCommand();
-        //        comm.CommandText = @"SELECT * FROM [PerfilPyF] WHERE Tipo = @charFoP";
-        //        comm.Parameters.AddWithValue("@charFoP", fop);
-        //        DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
-        //        foreach (DataRow dr in dt.Rows)
-        //        {
-        //            compoList.Add(new Hoja(dr[0].ToString(), dr[1].ToString()));
-        //        }
-        //    }
-        //    catch
-        //    { }
-        //    return compoList;
-        //}
-
         /// <summary>
         /// Trae todos los componentes de la lista para mostrar SUELTO
         /// </summary>
@@ -178,19 +192,12 @@ namespace DAL
                         if (element[2].ToString().Contains("F"))
                         {
                             newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[0].ToString(), element[1].ToString()));
-                            //if (!compoList.VerificarSiExiste(newcompo))
-                            //{
-                            //ReiteracionCompo(compoList, newcompo); //fijate si aca o en ArmarArbol, si se repite algo eliminalo
                             compoList.Agregar(newcompo);
-                            //}
                         }
                         else if (element[2].ToString().Contains("P"))
                         {
                             newcompo = new BE.Composite.Hoja(element[0].ToString(), element[1].ToString());
-                            //if (!compoList.VerificarSiExiste(newcompo))
-                            //{
                             compoList.Agregar(newcompo);
-                            //}
                         }
                     }
                 }
@@ -256,25 +263,6 @@ namespace DAL
         }
 
         /// <summary>
-        /// Valida si el usuario existe
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        public Boolean DetectarUsuario(BE.BE_Usuario user)
-        {
-            Boolean returnable = false;
-            SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = "select CASE WHEN count(*) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @user;";
-            sqlcomm.Parameters.AddWithValue("@user", user.User);
-            try
-            {
-                returnable = Acceso.Instance.ExecuteScalarBool(sqlcomm);
-            }
-            catch { System.Windows.Forms.MessageBox.Show("No se encontro el usuario"); }
-
-            return returnable;
-        }
-        /// <summary>
         /// Funcionalidades para crear la familia
         /// </summary>
         /// <param name="newFamilia"></param>
@@ -301,7 +289,6 @@ namespace DAL
         /// <returns></returns>
         private bool ValidarSiYaExiste(string familiaNombre)
         {
-            DataTable dt = new DataTable();
             bool returnable = false;
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "select CASE WHEN count(*) > 0 THEN 'true' ELSE 'false' END from [GymApp].[dbo].[PerfilPyF] where [Nombre] =  @nombre";
@@ -351,7 +338,6 @@ namespace DAL
             {
                 foreach (var perfil in newFamilia.List())
                 {
-                    //ponele q es algo así
                     if (perfil is Composite)
                     {
                         sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;

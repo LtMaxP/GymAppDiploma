@@ -42,6 +42,7 @@ namespace UI
             this.label1 = new System.Windows.Forms.Label();
             this.ListaPerm = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelPatente
@@ -57,7 +58,7 @@ namespace UI
             // AgregarBtn
             // 
             this.AgregarBtn.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgregarBtn.Location = new System.Drawing.Point(392, 156);
+            this.AgregarBtn.Location = new System.Drawing.Point(350, 157);
             this.AgregarBtn.Name = "AgregarBtn";
             this.AgregarBtn.Size = new System.Drawing.Size(75, 28);
             this.AgregarBtn.TabIndex = 1;
@@ -176,6 +177,16 @@ namespace UI
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(451, 158);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 27);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Permisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,6 +195,7 @@ namespace UI
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(609, 477);
             this.ControlBox = false;
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ListaPerm);
             this.Controls.Add(this.label1);
@@ -221,5 +233,6 @@ namespace UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TreeView ListaPerm;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

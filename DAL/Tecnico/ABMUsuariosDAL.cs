@@ -66,9 +66,6 @@ namespace DAL
             return ret;
         }
 
-
-
-        //ADO.Conectado
         public bool Baja(BE_Usuario valBaja)
         {
             bool ret = false;
@@ -154,7 +151,6 @@ namespace DAL
         }
 
 
-        //ADO.Desconectado
         public List<BE_Usuario> Leer2(BE_Usuario valBuscar)
         {
             List<BE_Usuario> listUser = new List<BE_Usuario>();
@@ -233,7 +229,6 @@ namespace DAL
             return ret;
         }
 
-        //ADO.Desconectado
         public bool ValidarExistenciaDeUsuario(BE_Usuario usuari)
         {
             bool respuesta = false;

@@ -150,7 +150,9 @@ namespace UI
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            if (!arbolDisponibles.SelectedNode.IsSelected)
+            if (arbolAsignados.Nodes.Count == 0 && arbolDisponibles.Nodes.Count == 0)
+                MessageBox.Show("Debe cargar los permisos");
+            else if (arbolAsignados.Nodes.Count != 0 && (arbolDisponibles.SelectedNode == null || arbolDisponibles.SelectedNode == null))
                 MessageBox.Show("Debe seleccionar un permiso");
             else
             {
@@ -201,7 +203,9 @@ namespace UI
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
-            if (!arbolAsignados.SelectedNode.IsSelected)
+            if (arbolAsignados.Nodes.Count == 0 && arbolDisponibles.Nodes.Count == 0)
+                MessageBox.Show("Debe cargar los permisos");
+            else if (arbolAsignados.Nodes.Count != 0 && (arbolDisponibles.SelectedNode == null || arbolDisponibles.SelectedNode == null))
                 MessageBox.Show("Debe seleccionar un permiso");
             else
             {

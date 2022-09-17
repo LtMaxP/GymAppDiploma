@@ -56,7 +56,7 @@ namespace BLL
         public bool ModificarUsuario(BE_Usuario modUser, string idioma, string estado)
         {
             modUser.Pass = Servicios.Encriptacion.Encriptador(modUser.Pass);
-            DevolverIDs(modUser, idioma, estado);
+            DevolverIDs(modUser, idioma, estado); //crear SP para darte el id del usuario
             modUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(modUser);
             return abmUs.Modificar(modUser);
         }

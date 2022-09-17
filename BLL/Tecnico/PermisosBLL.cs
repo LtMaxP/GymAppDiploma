@@ -28,5 +28,24 @@ namespace BLL.Tecnico
         {
             return CyPDAL.CrearFamilia(newFamilia, familiaNombre);
         }
+        /// <summary>
+        /// Eliminar la familia por el nombre, si el id es menor a 50 es un permiso ya definido para el sistema
+        /// </summary>
+        /// <param name="nombreFamilia"></param>
+        /// <returns></returns>
+        public bool EliminarFamilia(string nombreFamilia)
+        {
+            bool ret = false;
+            int idFam = CyPDAL.DameIdPorNombre(nombreFamilia);
+            if(idFam != 404 && idFam > 50)
+            {
+                ret = CyPDAL.EliminarFamilia(idFam);
+            }
+            else if (idFam < 50)
+            {
+                System.Windows.Forms.MessageBox.Show("No se pueden eliminar las Familias del sistema");
+            }
+            return ret;
+        }
     }
 }
