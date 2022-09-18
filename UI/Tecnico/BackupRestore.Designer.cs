@@ -30,7 +30,6 @@
         {
             this.btnEjecutarRestore = new System.Windows.Forms.Button();
             this.DgBackup = new System.Windows.Forms.DataGridView();
-            this.Checks = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnVerBackUp = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
             this.btnEjecutarBackUp = new System.Windows.Forms.Button();
@@ -50,18 +49,12 @@
             // DgBackup
             // 
             this.DgBackup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgBackup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Checks});
             this.DgBackup.Location = new System.Drawing.Point(12, 151);
             this.DgBackup.Name = "DgBackup";
+            this.DgBackup.ReadOnly = true;
             this.DgBackup.Size = new System.Drawing.Size(1060, 222);
             this.DgBackup.TabIndex = 40;
             this.DgBackup.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgBackup_CellContentClick);
-            // 
-            // Checks
-            // 
-            this.Checks.HeaderText = "Check";
-            this.Checks.Name = "Checks";
             // 
             // btnVerBackUp
             // 
@@ -121,6 +114,5 @@
         internal System.Windows.Forms.Button btnVerBackUp;
         internal System.Windows.Forms.Button buttonSalir;
         internal System.Windows.Forms.Button btnEjecutarBackUp;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Checks;
     }
 }

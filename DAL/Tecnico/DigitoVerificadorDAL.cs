@@ -10,9 +10,8 @@ namespace DAL
 {
     public class DigitoVerificadorDAL
     {
-        private BE.BE_Usuario usuarioActual = BE.Usuario.Instance;
 
-        public DataTable ObtenerListaDeDVHUsuarios()
+        public static DataTable ObtenerListaDeDVHUsuarios()
         {
             DataTable dt = new DataTable();
             String query = "SELECT [DVH] FROM [Usuario]";
@@ -53,7 +52,6 @@ namespace DAL
 
         public void InsertarDVHEnUsuario(string codigoHash)
         {
-
             String query = "UPDATE [DVHUsuario] set [HashCode] = @hashDVH WHERE id_Usuario = @IdUsuario";
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@IdUsuario", BE.Usuario.Instance.IdUsuario);
@@ -66,7 +64,7 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar insertar DVH :("); }
         }
 
-        public void InsertarDVV(string codigoHash)
+        public static void InsertarDVV(string codigoHash)
         {
             String query = "UPDATE [DVV] set [CodigoHash] = @hash";
             SqlCommand command = new SqlCommand(query);
@@ -78,7 +76,5 @@ namespace DAL
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar insertar DVV :("); }
         }
-
-
     }
 }

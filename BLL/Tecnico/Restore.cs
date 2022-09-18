@@ -12,7 +12,6 @@ namespace BLL.Tecnico
         public void RestoreBD(string ruta)
         {
             restore.GenerarRestore(ruta);
-
         }
     }
 }

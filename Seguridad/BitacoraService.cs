@@ -10,13 +10,11 @@ namespace Servicios
 {
     public class BitacoraServicio
     {
-        public BE.Bitacora RegistrarMovimiento(string movimiento, string nivelDelProblema)
+        public static BE.Bitacora RegistrarMovimiento(string movimiento, string nivelDelProblema)
         {
             BE.Bitacora bit = new BE.Bitacora();
             bit.Movimiento = movimiento;
             bit.NivelDeProblema = nivelDelProblema;
-            bit.Fecha = DateTime.Now;
-            bit.Usuario = Usuario.Instance.User;
             return bit;
         }
         public static BE.Bitacora CrearMovimiento(BE.Bitacora bitacora)
@@ -25,12 +23,12 @@ namespace Servicios
             bitacora.Usuario = Usuario.Instance.User;
             return bitacora;
         }
-        public static BE.Bitacora CrearRegistroBkp(BE.Bitacora bitacora)
-        {
-            bitacora.Fecha = DateTime.Parse((DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute).ToString());
-            bitacora.Usuario = Usuario.Instance.User;
-            return bitacora;
-        }
+        //public static BE.Bitacora CrearRegistroBkp(BE.Bitacora bitacora)
+        //{
+        //    bitacora.Fecha = DateTime.Parse((DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute).ToString());
+        //    bitacora.Usuario = Usuario.Instance.User;
+        //    return bitacora;
+        //}
 
         public List<BE.Bitacora> CargarBitacora(DataTable bitacora)
         {
@@ -45,31 +43,6 @@ namespace Servicios
             }
             return bitacoras;
         }
-
-        public static bool Alta(Bitacora valueAlta)
-        {
-
-            throw new NotImplementedException();
-        }
-        
-
-
-        public DataTable Leer(Bitacora valueBuscar)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="valBuscar"></param>
-        /// <returns></returns>
-        public List<Bitacora> Leer2(Bitacora valBuscar)
-        {
-            throw new NotImplementedException();
-        }
-
-
 
     }
 

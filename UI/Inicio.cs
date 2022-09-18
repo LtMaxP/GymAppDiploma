@@ -18,7 +18,6 @@ namespace UI
         //Bitmap secSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
         //Bitmap wallpaper = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
         IdiomaBLL BLLIdioma = new IdiomaBLL();
-        Servicios.Permisos Perm = new Servicios.Permisos();
         int speIma = 0;
         public Inicio()
         {

@@ -8,12 +8,10 @@ using BE;
 
 namespace BLL
 {
-    public class Usuario //: DAL.ICRUD<BE.ABMUsuarios> Esto tiene que ser así, arregl
+    public class Usuario
     {
-
-        DAL.BusquedaDAL buscar = new DAL.BusquedaDAL();
         DAL.ABMUsuariosDAL abmUs = new DAL.ABMUsuariosDAL();
-        BitacoraBLL b = new BitacoraBLL();
+        DAL.IdiomaT idiomaDal = new DAL.IdiomaT();
 
         /// <summary>
         /// Crea el objeto BE_Usuario
@@ -27,22 +25,8 @@ namespace BLL
         {
             altaUser.Pass = Servicios.Encriptacion.Encriptador(altaUser.Pass);
             altaUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(altaUser);
-            bool rpta = false;
-            //recalcular DVV
-            try
-            {
-
-                rpta = abmUs.Alta(altaUser);
-                //Servicios.BitacoraServicio
-                b.RegistrarMovimiento("Creacion exitosa de Usuario: " + altaUser.User, "Ninguno");
-            }
-            catch
-            {
-                b.RegistrarMovimiento("Error creando el Usuario: " + altaUser.User, "Alta");
-            }
-
-
-            return rpta;
+            altaUser.Idioma = idiomaDal.DameIdIdioma(altaUser.Idioma);
+            return abmUs.Alta(altaUser);
         }
 
         public bool EliminarUsuario(BE_Usuario bajaUser)
@@ -53,36 +37,41 @@ namespace BLL
             return retornableComoCocaCola;
         }
 
-        public bool ModificarUsuario(BE_Usuario modUser, string idioma, string estado)
+        public bool ModificarUsuario(BE_Usuario modUser)
         {
-            modUser.Pass = Servicios.Encriptacion.Encriptador(modUser.Pass);
-            DevolverIDs(modUser, idioma, estado); //crear SP para darte el id del usuario
+            if (!String.IsNullOrEmpty(modUser.Pass))
+                modUser.Pass = Servicios.Encriptacion.Encriptador(modUser.Pass); //stand by
+
+            modUser.Idioma = idiomaDal.DameIdIdioma(modUser.Idioma);
             modUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(modUser);
             return abmUs.Modificar(modUser);
         }
 
-        public void DevolverIDs(BE_Usuario objetoUsuario, string idioma, string estado)
-        {
-            string idIdio = buscar.DevolvemeElIDQueQuieroPorTexto(idioma, "idioma");
-            string idEst = buscar.DevolvemeElIDQueQuieroPorTexto(estado, "estado");
-            objetoUsuario.Idioma.Id = int.Parse(idIdio);
-            objetoUsuario.idEstado = int.Parse(idEst);
-        }
         public List<BE_Usuario> TraerUsuarios()
         {
-            return buscar.TraerUsuarios();
+            return abmUs.TraerUsuarios();
         }
 
+        /// <summary>
+        /// Buscar el o los usuarios bajo el mismo nombre
+        /// </summary>
+        /// <param name="buscarUser"></param>
+        /// <returns></returns>
         public List<BE_Usuario> BuscarUsuario(BE_Usuario buscarUser)
         {
-            List<BE_Usuario> dt = abmUs.Leer2(buscarUser);
-            return dt;
+            return abmUs.Leer2(buscarUser);
         }
+
         public BE_Usuario MostrarUsuario(BE_Usuario buscarUser)
         {
-            BE_Usuario dt = abmUs.Leer(buscarUser);
-            return dt;
+            return abmUs.Leer(buscarUser);
         }
+
+        /// <summary>
+        /// Validar existencia del nombre de usuario
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public bool ValidarSiElUsuarioYaExiste(string usuario)
         {
             BE_Usuario buscarUser = new BE_Usuario();
@@ -90,9 +79,5 @@ namespace BLL
             return abmUs.ValidarExistenciaDeUsuario(buscarUser);
         }
 
-        public DataTable CargarCombo(string cmb)
-        {
-            return abmUs.TraerOpciones(cmb);
-        }
     }
 }

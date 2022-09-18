@@ -28,26 +28,20 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BE.BE_Usuario nuevoUsuario = new BE.BE_Usuario();
-            String usuario = textBox3.Text;
-            String contraseña = textBox4.Text;
-            String idioma = comboBox1.Text;
-            String estado = comboBox2.Text;
-
-
-            if (String.IsNullOrEmpty(usuario) || String.IsNullOrEmpty(contraseña) || String.IsNullOrEmpty(idioma) || String.IsNullOrEmpty(estado))
+            if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text))
             {
                 MessageBox.Show("Debe completar todos los campos.");
             }
             else
             {
-                nuevoUsuario.User = usuario;
-                nuevoUsuario.Pass = contraseña;
-                usuarioABM.DevolverIDs(nuevoUsuario, idioma, estado);
-
-                if (!usuarioABM.ValidarSiElUsuarioYaExiste(nuevoUsuario.User))
+                if (usuarioABM.ValidarSiElUsuarioYaExiste(textBox3.Text))
                 {
-                    usuarioABM.AgregarUsuario(nuevoUsuario);
+                    BE.BE_Usuario modUsuario = new BE.BE_Usuario();
+                    modUsuario.User = textBox3.Text;
+                    modUsuario.Pass = textBox4.Text;
+                    modUsuario.Idioma.NombreIdioma = comboBox1.Text;
+                    modUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
+                    usuarioABM.AgregarUsuario(modUsuario);
                     MessageBox.Show("El usuario fue dado de Alta con éxito.");
                 }
                 else
@@ -89,7 +83,7 @@ namespace UI
                 {
                     listView1.Items.RemoveAt(0);
                 }
-                foreach (BE.BE_Usuario u in filaDeDatos)
+                foreach (var u in filaDeDatos)
                 {
                     ListViewItem lista = new ListViewItem();
                     lista.SubItems.Add(u.User.ToString());
@@ -99,6 +93,7 @@ namespace UI
                 }
             }
         }
+
         /// <summary>
         /// Buscar seleccion de Usuarios mostrados
         /// </summary>
@@ -108,7 +103,7 @@ namespace UI
         {
             if (listView1.CheckedIndices.Count > 1)
             {
-                MessageBox.Show("Seleccione 1 usuario solo a mostrar");
+                MessageBox.Show("Seleccione solo un usuario a mostrar");
             }
             else if (listView1.Items.Count > 0)
             {
@@ -116,8 +111,8 @@ namespace UI
                 usuario.User = listView1.SelectedItems[0].SubItems[1].Text;
                 BE.BE_Usuario filaDeDatos = usuarioABM.MostrarUsuario(usuario);
                 textBox3.Text = filaDeDatos.User;
-                comboBox1.SelectedIndex = filaDeDatos.Idioma.Id -1;
-                comboBox2.SelectedIndex = filaDeDatos.idEstado -1;
+                comboBox1.SelectedIndex = filaDeDatos.Idioma.Id - 1;
+                comboBox2.SelectedIndex = filaDeDatos.idEstado - 1;
             }
             else
             {
@@ -128,7 +123,6 @@ namespace UI
         private void UsuariosABM_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
-
         }
 
         public void Update()
@@ -142,39 +136,32 @@ namespace UI
 
         private void labelModificar_Click(object sender, EventArgs e)
         {
-
-            BE.BE_Usuario modUsuario = new BE.BE_Usuario();
-            String usuario = textBox3.Text;
-            String contraseña = textBox4.Text;
-            String idioma = comboBox1.Text;
-            String estado = comboBox2.Text;
-
-
-            if (String.IsNullOrEmpty(usuario) || String.IsNullOrEmpty(contraseña) || String.IsNullOrEmpty(idioma) || String.IsNullOrEmpty(estado))
+            if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text))
             {
-                MessageBox.Show("Debe completar todos los campos.");
+                MessageBox.Show("Debe completar todos los campos para modificar.");
             }
             else
             {
-                modUsuario.User = usuario;
-                modUsuario.Pass = contraseña;
-                usuarioABM.DevolverIDs(modUsuario, idioma, estado);
-
-                if (!usuarioABM.ValidarSiElUsuarioYaExiste(modUsuario.User))
+                if (usuarioABM.ValidarSiElUsuarioYaExiste(textBox3.Text))
                 {
-                    usuarioABM.ModificarUsuario(modUsuario, idioma, estado);
+                    BE.BE_Usuario modUsuario = new BE.BE_Usuario();
+                    modUsuario.User = textBox3.Text;
+                    modUsuario.Pass = textBox4.Text;
+                    modUsuario.Idioma = new BE.ObserverIdioma.BE_Idioma(comboBox1.Text);
+                    modUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
+                    usuarioABM.ModificarUsuario(modUsuario);
                     MessageBox.Show("El usuario fue dado de Alta con éxito.");
                 }
                 else
                 {
-                    MessageBox.Show("El nombre de usuario ya existe");
+                    MessageBox.Show("El nombre de usuario a modificar NO existe");
                 }
             }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
         }
     }

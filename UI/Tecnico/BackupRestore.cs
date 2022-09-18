@@ -53,19 +53,16 @@ namespace UI
 
         private void btnVerBackUp_Click(object sender, EventArgs e)
         {
-            DgBackup.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgBackup.DataSource = bkpBLL.TraerBackupsBD();
+            DgBackup.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnEjecutarRestore_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in DgBackup.Rows)
+            if (DgBackup.SelectedRows.Count == 1)
             {
-                bool selected = Convert.ToBoolean(row.Cells["Checks"].Value);
-                if (selected)
-                {
-                    rstBLL.RestoreBD(row.Cells["Path"].Value.ToString());
-                }
+                string ruta = DgBackup.SelectedRows[0].Cells[0].Value.ToString();
+                rstBLL.RestoreBD(ruta);
             }
         }
 

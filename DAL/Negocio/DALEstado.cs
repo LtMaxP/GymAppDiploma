@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAL.Negocio
+{
+    public class DALEstado
+    {
+        public static int DameIdEstado(string estado)
+        {
+            int idEstado = 0;
+            using (SqlConnection connection = Acceso.Instance.sqlCon)
+            {
+                String query = "SELECT Id_Estado FROM Estado WHERE Descripcion = @estado";
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@estado", estado);
+                try
+                {
+                    idEstado = Acceso.Instance.ExecuteScalar(command);
+                }
+                catch
+                { }
+            }
+            return idEstado;
+        }
+    }
+}

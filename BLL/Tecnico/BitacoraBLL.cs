@@ -13,12 +13,17 @@ namespace BLL
         private Servicios.BitacoraServicio bit = new Servicios.BitacoraServicio();
 
 
-        //arreglar con clases
-        public void RegistrarMovimiento(string movimiento, string nivelDelProblema)
-        {
-            bitDal.RegistrarBitacora(movimiento, nivelDelProblema, DateTime.Now);
-        }
-
+        ////arreglar con clases
+        //public void RegistrarMovimiento(string movimiento, string nivelDelProblema)
+        //{
+        //    bitDal.RegistrarBitacora(movimiento, nivelDelProblema, DateTime.Now);
+        //}
+        //public void RegistrarEnBitacora(BE.Bitacora bitacora)
+        //{
+        //    bitacora.Usuario = BE.Usuario.Instance.IdUsuario.ToString();
+        //    bitacora.Fecha = DateTime.Now;
+        //    bitDal..RegistrarBitacora(bitacora);
+        //}
         public List<BE.Bitacora> CargarBitacora()
         {
             DataTable dt = bitDal.TraerBitacora();

@@ -42,7 +42,6 @@ namespace DAL
             command.Parameters.AddWithValue("@NivelDelP", bitacora.NivelDeProblema);
             command.Parameters.AddWithValue("@Usuario", bitacora.Usuario);
             Acceso.Instance.ExecuteNonQuery(command);
-
         }
 
     }

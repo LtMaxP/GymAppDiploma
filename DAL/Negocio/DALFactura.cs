@@ -43,11 +43,11 @@ namespace DAL
                     command3.Parameters.AddWithValue("@desc", itm.Descripcion);
                     Acceso.Instance.ExecuteNonQuery(command3);
                 }
-                DAL.BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Factura " + factura.Id_Factura + " creada al cliente: " + factura.Id_Cliente, "Ninguno"));
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Factura " + factura.Id_Factura + " creada al cliente: " + factura.Id_Cliente, "Ninguno"));
             }
             catch
             {
-                DAL.BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Error al crear factura", "Medio"));
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Error al crear factura", "Medio"));
             }
         }
     }

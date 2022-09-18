@@ -9,7 +9,6 @@ using BE;
 
 namespace DAL
 {
-    //ADO.Conectado
     public class ABMUsuariosDAL : ICRUD<BE_Usuario>
     {
         public bool Alta(BE_Usuario valAlta)
@@ -18,7 +17,6 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-
                 comm.CommandText = "INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.DVH ) VALUES (@NombreUsuario, @Contraseña, @IdIdioma, @IdEstado, @dvh)"; //INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Rol ) VALUES ('Pepe','123123','1','1', 'Prueba')
 
                 SqlParameter parameter1 = new SqlParameter();
@@ -52,20 +50,23 @@ namespace DAL
                 comm.Parameters.Add(parameter4);
                 comm.Parameters.Add(parameter5);
 
-                int result = Acceso.Instance.ExecuteNonQuery(comm);
-
-
-                BitacoraDAL.NewRegistrarBitacora(new Bitacora("Creacion de usuario: " + valAlta.User, "Ninguno"));
+                Acceso.Instance.ExecuteNonQuery(comm);
+                //recalcular dvv ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Creacion de usuario: " + valAlta.User, "Ninguno"));
                 ret = true;
             }
             catch
             {
-                System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta al Usuario {0}.", valAlta.User);
-                //Servicios.BitacoraServicio.CrearMovimiento(new Bitacora("Alta", "Fallo"));
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Error en creacion de usuario: " + valAlta.User, "Medio"));
             }
             return ret;
         }
 
+        /// <summary>
+        /// Eliminar el usuario
+        /// </summary>
+        /// <param name="valBaja"></param>
+        /// <returns></returns>
         public bool Baja(BE_Usuario valBaja)
         {
             bool ret = false;
@@ -88,43 +89,23 @@ namespace DAL
                 parameter4.Value = "2";
                 parameter4.SqlDbType = System.Data.SqlDbType.Int;
 
-
                 comm.Parameters.Add(parameter1);
                 comm.Parameters.Add(parameter2);
                 comm.Parameters.Add(parameter4);
 
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
                 ret = true;
-                BitacoraDAL.NewRegistrarBitacora(new Bitacora("Baja de usuario: " + valBaja.User, "Ninguno"));
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Baja de usuario: " + valBaja.User, "Ninguno"));
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de baja el Usuario {0}.", valBaja.User); }
+            catch {DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Problema al tratar de dar de baja el Usuario " + valBaja.User, "Medio"));}
             return ret;
         }
 
-        public DataTable TraerOpciones(string cmb)
-        {
-            string query = string.Empty;
-            switch (cmb)
-            {
-                case "Rol":
-                    query = "SELECT Nombre from PerfilPyF";
-                    break;
-                case "Idioma":
-                    query = "SELECT Idioma from [Idioma]";
-                    break;
-            }
-            DataTable dt = new DataTable();
-            try
-            {
-                SqlCommand comm = new SqlCommand(query);
-                dt = Acceso.Instance.ExecuteDataTable(comm);
-
-            }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
-
-            return dt;
-        }
-
+        /// <summary>
+        /// Traer usuario buscado por nombre
+        /// </summary>
+        /// <param name="valBuscar"></param>
+        /// <returns></returns>
         public BE_Usuario Leer(BE_Usuario valBuscar)
         {
             BE_Usuario UserRet = new BE_Usuario();
@@ -177,7 +158,38 @@ namespace DAL
             return listUser;
         }
 
-        //ADO.Conectado
+        /// <summary>
+        /// Devuelve todos los IDs de Usuarios  ||||||||||||||||||||||||||||||||||||||||||||||||||||||| VER
+        /// </summary>
+        /// <returns></returns>
+        public List<BE_Usuario> TraerUsuarios()
+        {
+            List<BE_Usuario> users = new List<BE_Usuario>();
+            try
+            {
+                SqlCommand sqlcomm = new SqlCommand();
+                sqlcomm.CommandText = "SELECT Id_Usuario, Usuario from Usuario";
+
+                DataTable dt = Acceso.Instance.ExecuteDataTable(sqlcomm);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (dr != null)
+                    {
+                        BE_Usuario us = new BE_Usuario();
+                        us.IdUsuario = (int)dr[0];
+                        us.User = dr[1].ToString();
+                        users.Add(us);
+                    }
+                }
+            }
+            catch
+            {
+                System.Windows.Forms.MessageBox.Show("Ocurrió un problema al traer los ids de usuarios");
+            }
+            return users;
+        }
+
+
         public bool Modificar(BE_Usuario valModificar)
         {
             bool ret = false;
@@ -222,10 +234,16 @@ namespace DAL
                 comm.Parameters.Add(parameter4);
                 comm.Parameters.Add(parameter5);
 
-                int result = Acceso.Instance.ExecuteNonQuery(comm);
+                Acceso.Instance.ExecuteNonQuery(comm);
+                string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
+                DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
                 ret = true;
+                if(!string.IsNullOrEmpty(valModificar.Pass))
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Exito la contraseña del Usuario " + valModificar.User, "Ninguno"));
+                else
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Exito al modificar el Usuario " + valModificar.User, "Ninguno"));
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de modificar el Usuario. {0}.", valModificar.User); }
+            catch { DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Problema al tratar de modificar el Usuario " + valModificar.User, "Medio")); }
             return ret;
         }
 

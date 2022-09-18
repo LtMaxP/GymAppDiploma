@@ -8,6 +8,10 @@ namespace BE.ObserverIdioma
 {
     public class BE_Idioma
     {
+        public BE_Idioma(string idiomaName = null)
+        {
+            this.NombreIdioma = idiomaName;
+        }
 
         private int _id;
 

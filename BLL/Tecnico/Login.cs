@@ -6,20 +6,13 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public enum Roles
-    {
-        Administrador = 0,
-        Gerente = 1,
-        Empleado = 2,
-        Error = 404,
-    }
-
     public class Login
     {
         private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
         private Servicios.Encriptacion encrip = new Servicios.Encriptacion();
-        private BLL.Composite.FormarArbolCompo formarArbol = new Composite.FormarArbolCompo();
-        private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
+        private Servicios.BitacoraServicio bit = new Servicios.BitacoraServicio();
+        DAL.CompositeyPermisosDAL comp = new DAL.CompositeyPermisosDAL();
+        DAL.BitacoraDAL bitacora = new DAL.BitacoraDAL();
 
         static void Main() { }
         /// <summary>
@@ -47,15 +40,13 @@ namespace BLL
                     if (DALUserLogin.LoginUser())
                     {
                         BuscarUsuario();
-                        formarArbol.FormarArbolDeUsuarioLog(); //Composite arbol formado
+                        comp.NewObtenerPermisoUsuario();
                         retornableComoCocaCola = true;
-                        bit.RegistrarMovimiento("Ingreso Usuario con ID: " + BE.Usuario.Instance.IdUsuario, "Bajo"); //cambiar a nueva clase
+                        DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario", "Ninguno"));
                     }
                 }
             }
             return retornableComoCocaCola;
         }
-
-
     }
 }
