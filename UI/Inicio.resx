@@ -156,60 +156,6 @@
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
-  <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="labelPagosYCobros.Text" xml:space="preserve">
-    <value>Pagos y Cobros</value>
-  </data>
-  <data name="labelPagosYCobros.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelListas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="labelListas.Text" xml:space="preserve">
-    <value>Listas</value>
-  </data>
-  <data name="labelListas.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="labelFacturas.Text" xml:space="preserve">
-    <value>Facturas</value>
-  </data>
-  <data name="labelFacturas.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 34</value>
-  </data>
-  <data name="labelClientes.Text" xml:space="preserve">
-    <value>Gestion de clientes</value>
-  </data>
-  <data name="labelClientes.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelEmpleados.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 34</value>
-  </data>
-  <data name="labelEmpleados.Text" xml:space="preserve">
-    <value>Gestion de empleados</value>
-  </data>
-  <data name="labelEmpleados.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="productosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 34</value>
-  </data>
-  <data name="productosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Gestion de ventas</value>
-  </data>
-  <data name="productosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="labelAcciones.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
@@ -231,24 +177,6 @@
   <data name="labelABMUsuarios.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="permisosGestionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 34</value>
-  </data>
-  <data name="permisosGestionToolStripMenuItem.Text" xml:space="preserve">
-    <value>Permisos Gestion</value>
-  </data>
-  <data name="permisosGestionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="permisosUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 34</value>
-  </data>
-  <data name="permisosUsuarioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Permisos Usuario</value>
-  </data>
-  <data name="permisosUsuarioToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="labelFamiliaPatentes.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 34</value>
   </data>
@@ -262,7 +190,7 @@
     <value>198, 34</value>
   </data>
   <data name="labelBitacoraDV.Text" xml:space="preserve">
-    <value>Bitacora / DV</value>
+    <value>Bitacora</value>
   </data>
   <data name="labelBitacoraDV.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -297,12 +225,6 @@
   <data name="labelSistema.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="agregarIdiomaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 34</value>
-  </data>
-  <data name="agregarIdiomaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Seccion Idioma</value>
-  </data>
   <data name="labelIdioma.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
@@ -311,30 +233,6 @@
   </data>
   <data name="labelIdioma.Text" xml:space="preserve">
     <value>Idioma</value>
-  </data>
-  <data name="verSecretoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 34</value>
-  </data>
-  <data name="verSecretoToolStripMenuItem.Text" xml:space="preserve">
-    <value>VAS</value>
-  </data>
-  <data name="easterEggToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 34</value>
-  </data>
-  <data name="easterEggToolStripMenuItem.Text" xml:space="preserve">
-    <value>Mesa Especial</value>
-  </data>
-  <data name="infoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 34</value>
-  </data>
-  <data name="infoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Info.</value>
-  </data>
-  <data name="contactoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 34</value>
-  </data>
-  <data name="contactoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Contacto</value>
   </data>
   <data name="labelAyuda.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
@@ -368,6 +266,108 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 34</value>
+  </data>
+  <data name="labelClientes.Text" xml:space="preserve">
+    <value>Gestion de clientes</value>
+  </data>
+  <data name="labelClientes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelEmpleados.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 34</value>
+  </data>
+  <data name="labelEmpleados.Text" xml:space="preserve">
+    <value>Gestion de empleados</value>
+  </data>
+  <data name="labelEmpleados.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="productosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 34</value>
+  </data>
+  <data name="productosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Gestion de ventas</value>
+  </data>
+  <data name="productosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="permisosGestionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 34</value>
+  </data>
+  <data name="permisosGestionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Permisos Gestion</value>
+  </data>
+  <data name="permisosGestionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="permisosUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 34</value>
+  </data>
+  <data name="permisosUsuarioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Permisos Usuario</value>
+  </data>
+  <data name="permisosUsuarioToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="agregarIdiomaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 34</value>
+  </data>
+  <data name="agregarIdiomaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Seccion Idioma</value>
+  </data>
+  <data name="easterEggToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 34</value>
+  </data>
+  <data name="easterEggToolStripMenuItem.Text" xml:space="preserve">
+    <value>Mesa Especial</value>
+  </data>
+  <data name="verSecretoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 34</value>
+  </data>
+  <data name="verSecretoToolStripMenuItem.Text" xml:space="preserve">
+    <value>VAS</value>
+  </data>
+  <data name="infoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 34</value>
+  </data>
+  <data name="infoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Info.</value>
+  </data>
+  <data name="contactoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 34</value>
+  </data>
+  <data name="contactoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="labelFacturas.Text" xml:space="preserve">
+    <value>Facturas</value>
+  </data>
+  <data name="labelFacturas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="labelPagosYCobros.Text" xml:space="preserve">
+    <value>Pagos y Cobros</value>
+  </data>
+  <data name="labelPagosYCobros.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelListas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="labelListas.Text" xml:space="preserve">
+    <value>Listas</value>
+  </data>
+  <data name="labelListas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
