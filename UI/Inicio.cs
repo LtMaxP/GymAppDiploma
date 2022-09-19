@@ -488,5 +488,10 @@ namespace UI
         {
             CC = null;
         }
+
+        private void labelAcciones_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
