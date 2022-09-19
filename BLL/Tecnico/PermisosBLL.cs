@@ -1,4 +1,5 @@
-﻿using BE.Composite;
+﻿using BE;
+using BE.Composite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,12 @@ namespace BLL.Tecnico
                 System.Windows.Forms.MessageBox.Show("No se pueden eliminar las Familias del sistema");
             }
             return ret;
+        }
+
+        public bool GuardarP(Component pAsig, BE_Usuario user)
+        {
+            CyPDAL.QuitarPermisosUsuario(user);
+            return CyPDAL.GuardarPermisosAsignados(pAsig, user);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,19 +10,11 @@ namespace BLL
     public class Login
     {
         private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
-        private Servicios.Encriptacion encrip = new Servicios.Encriptacion();
-        private Servicios.BitacoraServicio bit = new Servicios.BitacoraServicio();
         DAL.CompositeyPermisosDAL comp = new DAL.CompositeyPermisosDAL();
         DAL.BitacoraDAL bitacora = new DAL.BitacoraDAL();
+        BLL.Usuario usuarioABM = new BLL.Usuario();
 
         static void Main() { }
-        /// <summary>
-        /// Buscar el ID del usuario
-        /// </summary>
-        public void BuscarUsuario()
-        {
-            DALUserLogin.BuscarUsuarioBD();
-        }
 
         /// <summary>
         /// Login con validación de usuario
@@ -39,7 +32,7 @@ namespace BLL
                 {
                     if (DALUserLogin.LoginUser())
                     {
-                        BuscarUsuario();
+                        DALUserLogin.BuscarUsuarioBD();
                         comp.NewObtenerPermisoUsuario();
                         retornableComoCocaCola = true;
                         DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario", "Ninguno"));
@@ -47,6 +40,24 @@ namespace BLL
                 }
             }
             return retornableComoCocaCola;
+        }
+
+        /// <summary>
+        /// Validar por pregunta si el usuario se desbloquea
+        /// </summary>
+        public bool ValidacionPalabraSecreta(BE.BE_Usuario user, string palabraSecreta)
+        {
+            return DALUserLogin.ValidacionPalabraSecreta(user, palabraSecreta);
+        }
+
+        /// <summary>
+        /// Metodo de ruta para cambiar la pass del usuario |Recupero de pass aplica
+        /// </summary>
+        /// <param name="user"></param>
+        public void CambiarPass(BE_Usuario user)
+        {
+            usuarioABM.ModificarUsuario(user);
+            DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se restableció la contraseña " + user.User, "Ninguno"));
         }
     }
 }

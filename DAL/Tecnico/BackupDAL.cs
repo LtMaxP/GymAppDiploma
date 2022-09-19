@@ -26,12 +26,12 @@ namespace DAL.Tecnico
             try
             {
                 Acceso.Instance.ExecuteNonQuery(command);
-                DAL.BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Backup Ok", "Ninguno"));
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Backup Ok", "Ninguno"));
                 okb = true;
             }
             catch
             {
-                DAL.BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Backup fallido", "Alto"));
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Backup fallido", "Alto"));
                 System.Windows.Forms.MessageBox.Show("Problema al hacer Backup");
             }
             return okb;

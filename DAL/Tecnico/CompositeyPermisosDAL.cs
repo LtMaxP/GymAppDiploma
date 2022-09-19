@@ -1,4 +1,5 @@
-﻿using BE.Composite;
+﻿using BE;
+using BE.Composite;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -53,9 +54,46 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Obtener PermisosUsuario."); }
         }
 
+        public void QuitarPermisosUsuario(BE_Usuario user)
+        {
+            SqlCommand sqlcomm = new SqlCommand();
+            sqlcomm.CommandText = @"DELETE FROM [GymApp].[dbo].[PermisosRelacion] WHERE [Id_Usuario] = @idUser";
+            sqlcomm.Parameters.AddWithValue("@idUser", user.IdUsuario);
+
+            try
+            {
+                Acceso.Instance.ExecuteNonQuery(sqlcomm);
+            }
+            catch { }
+        }
+
+        public bool GuardarPermisosAsignados(Component permisos, BE_Usuario user)
+        {
+            bool returnable = false;
+            SqlCommand sqlcomm = new SqlCommand();
+            sqlcomm.CommandText = "INSERT INTO [PermisosUsuarios] ([Id_Permiso], [Id_Usuario]) VALUES (@Id_Permiso, @Id_Usuario)";
+            sqlcomm.Parameters.Add("@Id_Permiso", SqlDbType.Int);
+            sqlcomm.Parameters.Add("@Id_Usuario", SqlDbType.Int);
+            try
+            {
+                foreach (var perfil in permisos.List())
+                {
+                    sqlcomm.Parameters["@Id_Permiso"].Value = perfil.iDPatente;
+                    sqlcomm.Parameters["@Id_Usuario"].Value = user.IdUsuario;
+                    Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                }
+                returnable = true;
+            }
+            catch
+            { }
+
+            DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se modificaron los permisos en usuario " + user.User, "Ninguno"));
+            return returnable;
+        }
+
         public bool EliminarFamilia(int idFam)
         {
-            bool rpta = false; 
+            bool rpta = false;
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = @"DELETE FROM [GymApp].[dbo].[PerfilPyF] WHERE [Id_Perfil] = @idFam
                                     DELETE FROM [GymApp].[dbo].[PermisosRelacion] WHERE [Id_Padre] = @idFam";
@@ -71,6 +109,11 @@ namespace DAL
             return rpta;
         }
 
+        /// <summary>
+        /// Devolveme el id del Perfil por su nombre
+        /// </summary>
+        /// <param name="nombreFamilia"></param>
+        /// <returns></returns>
         public int DameIdPorNombre(string nombreFamilia)
         {
             int returnable = 404;
@@ -277,6 +320,7 @@ namespace DAL
                 if (fam != 0)
                 {
                     returnable = GenerarRelacionesPatenteFamilia(newFamilia, fam);
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se creo una nueva Familia " + familiaNombre, "Ninguno"));
                 }
             }
             return returnable;

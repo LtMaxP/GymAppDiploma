@@ -28,7 +28,11 @@ namespace BLL
             altaUser.Idioma = idiomaDal.DameIdIdioma(altaUser.Idioma);
             return abmUs.Alta(altaUser);
         }
-
+        /// <summary>
+        /// Eliminar Usuario
+        /// </summary>
+        /// <param name="bajaUser"></param>
+        /// <returns></returns>
         public bool EliminarUsuario(BE_Usuario bajaUser)
         {
             bool retornableComoCocaCola = false;
@@ -36,17 +40,22 @@ namespace BLL
             retornableComoCocaCola = abmUs.Baja(bajaUser);
             return retornableComoCocaCola;
         }
-
+        /// <summary>
+        /// Modificar Usuario, si se desea modificar la contraseña, enviarla también
+        /// </summary>
+        /// <param name="modUser"></param>
+        /// <returns></returns>
         public bool ModificarUsuario(BE_Usuario modUser)
         {
             if (!String.IsNullOrEmpty(modUser.Pass))
-                modUser.Pass = Servicios.Encriptacion.Encriptador(modUser.Pass); //stand by
+                modUser.Pass = Servicios.Encriptacion.Encriptador(modUser.Pass);
 
             modUser.Idioma = idiomaDal.DameIdIdioma(modUser.Idioma);
             modUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(modUser);
             return abmUs.Modificar(modUser);
         }
 
+        //Traer listado de todos los Usuarios con sus IDs
         public List<BE_Usuario> TraerUsuarios()
         {
             return abmUs.TraerUsuarios();
@@ -68,16 +77,24 @@ namespace BLL
         }
 
         /// <summary>
+        /// Validar usuario y pass
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+        public bool ValidarUsuarioyPass(BE_Usuario buscarUser)
+        {
+            //////buscarUser.Pass = Servicios.Encriptacion.Encriptador(buscarUser.Pass); POR AHORA HASTA MODIFICARLOS
+            return abmUs.ValidarExistenciaDeUsuario(buscarUser);
+        }
+
+        /// <summary>
         /// Validar existencia del nombre de usuario
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
-        public bool ValidarSiElUsuarioYaExiste(string usuario)
+        public bool ValidarSiElUsuarioYaExiste(BE_Usuario buscarUser)
         {
-            BE_Usuario buscarUser = new BE_Usuario();
-            buscarUser.User = usuario;
             return abmUs.ValidarExistenciaDeUsuario(buscarUser);
         }
-
     }
 }

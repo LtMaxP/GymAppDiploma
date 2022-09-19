@@ -73,5 +73,24 @@ namespace UI
 
         }
 
+        private void Recuperacion_Click(object sender, EventArgs e)
+        {
+            if(!String.IsNullOrEmpty(textBox1.Text) && !String.IsNullOrEmpty(textBox2.Text))
+            {
+                BE.BE_Usuario user = new BE.BE_Usuario();
+                user.User = textBox1.Text;
+                user.Pass = textBox2.Text;
+                string respuesta = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la palabra secreta", "Recuperar contraseña", "Palabra secreta");
+                if (bllLog.ValidacionPalabraSecreta(user, respuesta))
+                {
+                    bllLog.CambiarPass(user);
+                    MessageBox.Show("Cambio de contraseña exitoso");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un nombre de usuario y nueva contraseña a recuperar");
+            }
+        }
     }
 }

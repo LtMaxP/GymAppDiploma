@@ -222,5 +222,15 @@ namespace UI
                 }
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(_perm.GuardarP(_pAsig, user))
+            {
+                MessageBox.Show("Permisos guardados con exito");
+            }
+            else
+                MessageBox.Show("Error al asignar ");
+        }
     }
 }

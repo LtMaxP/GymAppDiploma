@@ -17,8 +17,9 @@ namespace UI
     {
         //Bitmap secSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
         //Bitmap wallpaper = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
+        //int speIma = 0;
         IdiomaBLL BLLIdioma = new IdiomaBLL();
-        int speIma = 0;
+        BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
         public Inicio()
         {
             InitializeComponent();
@@ -150,6 +151,7 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bit.RegistrarMovimiento("Usuario Logout", "Ninguno");
             this.Close();
             LogIn logg = new LogIn();
             logg.Mostrar();

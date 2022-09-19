@@ -20,6 +20,10 @@ namespace DAL.Negocio
                 try
                 {
                     idEstado = Acceso.Instance.ExecuteScalar(command);
+                    if(idEstado == 0)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Error al tratar de conseguir el Estado");
+                    }
                 }
                 catch
                 { }

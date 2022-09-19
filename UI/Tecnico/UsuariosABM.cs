@@ -34,14 +34,14 @@ namespace UI
             }
             else
             {
-                if (usuarioABM.ValidarSiElUsuarioYaExiste(textBox3.Text))
+                BE.BE_Usuario newUsuario = new BE.BE_Usuario();
+                newUsuario.User = textBox3.Text;
+                if (usuarioABM.ValidarSiElUsuarioYaExiste(newUsuario))
                 {
-                    BE.BE_Usuario modUsuario = new BE.BE_Usuario();
-                    modUsuario.User = textBox3.Text;
-                    modUsuario.Pass = textBox4.Text;
-                    modUsuario.Idioma.NombreIdioma = comboBox1.Text;
-                    modUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
-                    usuarioABM.AgregarUsuario(modUsuario);
+                    newUsuario.Pass = textBox4.Text;
+                    newUsuario.Idioma.NombreIdioma = comboBox1.Text;
+                    newUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
+                    usuarioABM.AgregarUsuario(newUsuario);
                     MessageBox.Show("El usuario fue dado de Alta con éxito.");
                 }
                 else
@@ -136,21 +136,37 @@ namespace UI
 
         private void labelModificar_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text))
+            if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text))
             {
                 MessageBox.Show("Debe completar todos los campos para modificar.");
             }
             else
             {
-                if (usuarioABM.ValidarSiElUsuarioYaExiste(textBox3.Text))
+                BE.BE_Usuario modUsuario = new BE.BE_Usuario();
+                modUsuario.User = textBox3.Text;
+                if (usuarioABM.ValidarSiElUsuarioYaExiste(modUsuario))
                 {
-                    BE.BE_Usuario modUsuario = new BE.BE_Usuario();
+                    if (!String.IsNullOrEmpty(textBox4.Text))
+                    {
+                        BE.BE_Usuario validacionUserPass = new BE.BE_Usuario();
+                        validacionUserPass.User = textBox3.Text;
+                        string respuesta = Microsoft.VisualBasic.Interaction.InputBox("Ingrese contraseña del usuario", "Validacion contraseña", "Contraseña vieja");
+                        validacionUserPass.Pass = respuesta;
+                        if (usuarioABM.ValidarUsuarioyPass(validacionUserPass))
+                        {
+                            modUsuario.Pass = textBox4.Text;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Contraseña incorrecta");
+                        }
+                    }
                     modUsuario.User = textBox3.Text;
-                    modUsuario.Pass = textBox4.Text;
                     modUsuario.Idioma = new BE.ObserverIdioma.BE_Idioma(comboBox1.Text);
                     modUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
                     usuarioABM.ModificarUsuario(modUsuario);
-                    MessageBox.Show("El usuario fue dado de Alta con éxito.");
+
+                    MessageBox.Show("El usuario fue Modificado con éxito.");
                 }
                 else
                 {

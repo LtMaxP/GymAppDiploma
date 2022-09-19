@@ -35,6 +35,7 @@
             this.labelPass = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Recuperacion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelUser
@@ -55,7 +56,7 @@
             this.buttonIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonIngresar.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIngresar.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonIngresar.Location = new System.Drawing.Point(294, 199);
+            this.buttonIngresar.Location = new System.Drawing.Point(323, 200);
             this.buttonIngresar.Name = "buttonIngresar";
             this.buttonIngresar.Size = new System.Drawing.Size(143, 47);
             this.buttonIngresar.TabIndex = 1;
@@ -94,7 +95,7 @@
             this.textBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.textBox1.Location = new System.Drawing.Point(230, 101);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(305, 20);
+            this.textBox1.Size = new System.Drawing.Size(281, 20);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
@@ -103,8 +104,21 @@
             this.textBox2.Location = new System.Drawing.Point(230, 145);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(306, 20);
+            this.textBox2.Size = new System.Drawing.Size(281, 20);
             this.textBox2.TabIndex = 5;
+            // 
+            // Recuperacion
+            // 
+            this.Recuperacion.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Recuperacion.Font = new System.Drawing.Font("Baskerville Old Face", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Recuperacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Recuperacion.Location = new System.Drawing.Point(212, 206);
+            this.Recuperacion.Name = "Recuperacion";
+            this.Recuperacion.Size = new System.Drawing.Size(93, 32);
+            this.Recuperacion.TabIndex = 6;
+            this.Recuperacion.Text = "Recuperar";
+            this.Recuperacion.UseVisualStyleBackColor = false;
+            this.Recuperacion.Click += new System.EventHandler(this.Recuperacion_Click);
             // 
             // LogIn
             // 
@@ -113,6 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(628, 419);
+            this.Controls.Add(this.Recuperacion);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labelPass);
@@ -139,6 +154,7 @@
         private System.Windows.Forms.Label labelPass;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button Recuperacion;
     }
 }
 

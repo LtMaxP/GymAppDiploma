@@ -51,7 +51,9 @@ namespace DAL
                 comm.Parameters.Add(parameter5);
 
                 Acceso.Instance.ExecuteNonQuery(comm);
-                //recalcular dvv ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+                string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
+                DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Creacion de usuario: " + valAlta.User, "Ninguno"));
                 ret = true;
             }
@@ -73,7 +75,6 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-
                 comm.CommandText = "UPDATE Usuario SET Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario AND Usuario.Password = @Pass";
 
                 SqlParameter parameter1 = new SqlParameter();
@@ -95,9 +96,11 @@ namespace DAL
 
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
                 ret = true;
+                string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
+                DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Baja de usuario: " + valBaja.User, "Ninguno"));
             }
-            catch {DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Problema al tratar de dar de baja el Usuario " + valBaja.User, "Medio"));}
+            catch { DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Problema al tratar de dar de baja el Usuario " + valBaja.User, "Medio")); }
             return ret;
         }
 
@@ -111,7 +114,6 @@ namespace DAL
             BE_Usuario UserRet = new BE_Usuario();
             try
             {
-
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "SELECT Usuario, Password, Id_Idioma, Id_Estado FROM Usuario WHERE Usuario.Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", valBuscar.User);
@@ -238,8 +240,8 @@ namespace DAL
                 string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
                 DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
                 ret = true;
-                if(!string.IsNullOrEmpty(valModificar.Pass))
-                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Exito la contraseña del Usuario " + valModificar.User, "Ninguno"));
+                if (!string.IsNullOrEmpty(valModificar.Pass))
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Exito al modificar la contraseña y el Usuario " + valModificar.User, "Ninguno"));
                 else
                     DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Exito al modificar el Usuario " + valModificar.User, "Ninguno"));
             }
@@ -253,15 +255,21 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre";
-                comm.Parameters.AddWithValue("@nombre", usuari.User);
-
+                if (!String.IsNullOrEmpty(usuari.Pass))
+                {
+                    comm.CommandText = "SELECT CASE WHEN COUNT(1) > 0 THEN 'true' ELSE 'false' END FROM Usuario WHERE Usuario = @nombre AND Password = @Pass";
+                    comm.Parameters.AddWithValue("@nombre", usuari.User);
+                    comm.Parameters.AddWithValue("@Pass", usuari.Pass);
+                }
+                else
+                {
+                    comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre";
+                    comm.Parameters.AddWithValue("@nombre", usuari.User);
+                }
                 respuesta = Acceso.Instance.ExecuteScalarBool(comm);
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
             return respuesta;
         }
-
-
     }
 }

@@ -14,9 +14,6 @@ namespace DAL.Tecnico
             try
             {
                 string query = null;
-                //query = @"USE [master]
-                //        RESTORE DATABASE [GymApp] FROM  DISK = N'" +ruta+ "' WITH  FILE = 1,  NOUNLOAD,  STATS = 5            " +
-                //        "GO";
                 query = @"USE master
                             ALTER DATABASE GymApp
                             SET SINGLE_USER WITH ROLLBACK IMMEDIATE
@@ -25,9 +22,11 @@ namespace DAL.Tecnico
                             "ALTER DATABASE GymApp SET MULTI_USER";
                 SqlCommand cmd = new SqlCommand(query);
                 Acceso.Instance.ExecuteNonQuery(cmd);
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Es generando Restore en BD", "Ninguno"));
             }
             catch (Exception)
             {
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Problema generando Restore en BD", "Bajo"));
                 throw new Exception("Error al realizar Restore");
             }
         }

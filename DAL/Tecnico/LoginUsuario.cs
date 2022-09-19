@@ -13,7 +13,6 @@ namespace DAL
     {
         public bool BuscarUsuarioBD()
         {
-
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "SELECT [Id_Usuario] FROM Usuario WHERE usuario.Usuario=@User AND Usuario.Password=@Pass";
 
@@ -75,11 +74,12 @@ namespace DAL
 
                 respuesta = Acceso.Instance.ExecuteScalarBool(comm);
                 GoodUser();
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario " + BE.Usuario.Instance.User, "Ninguno"));
             }
             catch
             {
                 System.Windows.Forms.MessageBox.Show("Contraseña erronea");
-                BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Constraseña mal", "Medio"));
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Constraseña erronea usuario " + BE.Usuario.Instance.User, "Medio"));
                 BadPass();
             }
             return respuesta;
@@ -90,25 +90,64 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "Update Usuario set IntentosFallidos = 0 where Usuario = @nombre ";
+                comm.CommandText = "Update Usuario set IntentosFallidos = 0, Id_Estado = 1 where Usuario = @nombre ";
                 comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
-
                 Acceso.Instance.ExecuteNonQuery(comm);
             }
             catch { };
         }
 
-        private void BadPass()
+        /// <summary>
+        /// Validar por pregunta si el usuario se desbloquea
+        /// </summary>
+        public bool ValidacionPalabraSecreta(BE.BE_Usuario user, string palabraSecreta)
         {
+            bool validacion = false;
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "Update Usuario set IntentosFallidos = IntentosFallidos +1 where Usuario = @nombre ";
-                comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
-
-                Acceso.Instance.ExecuteNonQuery(comm);
+                comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END FROM Usuario WHERE Usuario = @user AND [Palabra_Secreta] = @palabra ";
+                comm.Parameters.AddWithValue("@palabra", palabraSecreta);
+                comm.Parameters.AddWithValue("@user", user.User);
+                if (Acceso.Instance.ExecuteScalarBool(comm))
+                {
+                    BE.Usuario.Instance.User = user.User;
+                    validacion = true;
+                    GoodUser();
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Desbloqueado el usuario " + BE.Usuario.Instance.User, "Bajo"));
+                }
             }
             catch { };
+            return validacion;
+        }
+
+
+
+        private void BadPass()
+        {
+            if (GetIntentosFallidos() > 3)
+            {
+                try
+                {
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandText = "Update Usuario set Id_Estado = 2 where Usuario = @nombre ";
+                    comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
+                    Acceso.Instance.ExecuteNonQuery(comm);
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Bloqueo por intentos fallidos del usuario " + BE.Usuario.Instance.User, "Alto"));
+                }
+                catch { };
+            }
+            else
+            {
+                try
+                {
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandText = "Update Usuario set IntentosFallidos = IntentosFallidos +1 where Usuario = @nombre ";
+                    comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
+                    Acceso.Instance.ExecuteNonQuery(comm);
+                }
+                catch { };
+            }
         }
 
         /// <summary>

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.labelAlta = new System.Windows.Forms.Button();
             this.labelBaja = new System.Windows.Forms.Button();
             this.labelModificar = new System.Windows.Forms.Button();
@@ -55,7 +55,7 @@
             // 
             // labelAlta
             // 
-            this.labelAlta.Location = new System.Drawing.Point(354, 328);
+            this.labelAlta.Location = new System.Drawing.Point(295, 333);
             this.labelAlta.Name = "labelAlta";
             this.labelAlta.Size = new System.Drawing.Size(75, 23);
             this.labelAlta.TabIndex = 0;
@@ -65,7 +65,7 @@
             // 
             // labelBaja
             // 
-            this.labelBaja.Location = new System.Drawing.Point(454, 328);
+            this.labelBaja.Location = new System.Drawing.Point(386, 333);
             this.labelBaja.Name = "labelBaja";
             this.labelBaja.Size = new System.Drawing.Size(75, 23);
             this.labelBaja.TabIndex = 1;
@@ -75,7 +75,7 @@
             // 
             // labelModificar
             // 
-            this.labelModificar.Location = new System.Drawing.Point(554, 328);
+            this.labelModificar.Location = new System.Drawing.Point(467, 333);
             this.labelModificar.Name = "labelModificar";
             this.labelModificar.Size = new System.Drawing.Size(75, 23);
             this.labelModificar.TabIndex = 2;
@@ -85,7 +85,7 @@
             // 
             // labelBuscar
             // 
-            this.labelBuscar.Location = new System.Drawing.Point(223, 61);
+            this.labelBuscar.Location = new System.Drawing.Point(197, 61);
             this.labelBuscar.Name = "labelBuscar";
             this.labelBuscar.Size = new System.Drawing.Size(59, 20);
             this.labelBuscar.TabIndex = 3;
@@ -106,7 +106,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(57, 61);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(137, 20);
+            this.textBox2.Size = new System.Drawing.Size(122, 20);
             this.textBox2.TabIndex = 5;
             // 
             // labelBuscarUnUsuario
@@ -121,7 +121,7 @@
             // labelUsuario2
             // 
             this.labelUsuario2.AutoSize = true;
-            this.labelUsuario2.Location = new System.Drawing.Point(380, 106);
+            this.labelUsuario2.Location = new System.Drawing.Point(292, 120);
             this.labelUsuario2.Name = "labelUsuario2";
             this.labelUsuario2.Size = new System.Drawing.Size(49, 13);
             this.labelUsuario2.TabIndex = 9;
@@ -130,7 +130,7 @@
             // labelPass
             // 
             this.labelPass.AutoSize = true;
-            this.labelPass.Location = new System.Drawing.Point(380, 151);
+            this.labelPass.Location = new System.Drawing.Point(292, 177);
             this.labelPass.Name = "labelPass";
             this.labelPass.Size = new System.Drawing.Size(64, 13);
             this.labelPass.TabIndex = 9;
@@ -138,22 +138,22 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(480, 103);
+            this.textBox3.Location = new System.Drawing.Point(392, 117);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.Size = new System.Drawing.Size(131, 20);
             this.textBox3.TabIndex = 10;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(480, 148);
+            this.textBox4.Location = new System.Drawing.Point(392, 174);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(131, 20);
             this.textBox4.TabIndex = 10;
             // 
             // labelEstado
             // 
             this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(380, 232);
+            this.labelEstado.Location = new System.Drawing.Point(292, 274);
             this.labelEstado.Name = "labelEstado";
             this.labelEstado.Size = new System.Drawing.Size(43, 13);
             this.labelEstado.TabIndex = 9;
@@ -162,7 +162,7 @@
             // labelIdioma
             // 
             this.labelIdioma.AutoSize = true;
-            this.labelIdioma.Location = new System.Drawing.Point(380, 193);
+            this.labelIdioma.Location = new System.Drawing.Point(292, 230);
             this.labelIdioma.Name = "labelIdioma";
             this.labelIdioma.Size = new System.Drawing.Size(41, 13);
             this.labelIdioma.TabIndex = 9;
@@ -175,9 +175,9 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Español",
             "Ingles"});
-            this.comboBox1.Location = new System.Drawing.Point(480, 190);
+            this.comboBox1.Location = new System.Drawing.Point(392, 227);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.Size = new System.Drawing.Size(131, 21);
             this.comboBox1.TabIndex = 11;
             // 
             // comboBox2
@@ -187,14 +187,14 @@
             this.comboBox2.Items.AddRange(new object[] {
             "Alta",
             "Baja"});
-            this.comboBox2.Location = new System.Drawing.Point(480, 229);
+            this.comboBox2.Location = new System.Drawing.Point(392, 271);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 21);
+            this.comboBox2.Size = new System.Drawing.Size(131, 21);
             this.comboBox2.TabIndex = 11;
             // 
             // buttonSalir
             // 
-            this.buttonSalir.Location = new System.Drawing.Point(566, 464);
+            this.buttonSalir.Location = new System.Drawing.Point(494, 395);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(99, 42);
             this.buttonSalir.TabIndex = 3;
@@ -204,9 +204,9 @@
             // 
             // labelMostrar
             // 
-            this.labelMostrar.Location = new System.Drawing.Point(119, 328);
+            this.labelMostrar.Location = new System.Drawing.Point(99, 328);
             this.labelMostrar.Name = "labelMostrar";
-            this.labelMostrar.Size = new System.Drawing.Size(75, 23);
+            this.labelMostrar.Size = new System.Drawing.Size(95, 32);
             this.labelMostrar.TabIndex = 12;
             this.labelMostrar.Text = "Mostrar";
             this.labelMostrar.UseVisualStyleBackColor = true;
@@ -224,11 +224,11 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.listView1.Location = new System.Drawing.Point(15, 103);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(286, 219);
+            this.listView1.Size = new System.Drawing.Size(241, 219);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -262,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 518);
+            this.ClientSize = new System.Drawing.Size(605, 449);
             this.Controls.Add(this.labelMostrar);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
