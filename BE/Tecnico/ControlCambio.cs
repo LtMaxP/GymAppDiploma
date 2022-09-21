@@ -9,7 +9,7 @@ namespace BE.Tecnico
     public class ControlCambio
     {
         public int idEntidad { get; set; }
-        public string accion { get; set; }
+        public string descripcion { get; set; }
         public string campo { get; set; }
         public string valorOriginal { get; set; }
         public string valorNuevo { get; set; }
