@@ -72,7 +72,7 @@
             this.labelCertif = new System.Windows.Forms.Label();
             this.checkBoxCertif = new System.Windows.Forms.CheckBox();
             this.labelipc = new System.Windows.Forms.Label();
-            this.labelipcCalc = new System.Windows.Forms.Label();
+            this.labelimcCalc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
@@ -439,20 +439,20 @@
             this.labelipc.AutoSize = true;
             this.labelipc.Location = new System.Drawing.Point(538, 272);
             this.labelipc.Name = "labelipc";
-            this.labelipc.Size = new System.Drawing.Size(24, 13);
+            this.labelipc.Size = new System.Drawing.Size(26, 13);
             this.labelipc.TabIndex = 5;
-            this.labelipc.Text = "IPC";
+            this.labelipc.Text = "IMC";
             this.labelipc.Click += new System.EventHandler(this.label9_Click);
             // 
-            // labelipcCalc
+            // labelimcCalc
             // 
-            this.labelipcCalc.AutoSize = true;
-            this.labelipcCalc.Location = new System.Drawing.Point(628, 272);
-            this.labelipcCalc.Name = "labelipcCalc";
-            this.labelipcCalc.Size = new System.Drawing.Size(14, 13);
-            this.labelipcCalc.TabIndex = 5;
-            this.labelipcCalc.Text = "X";
-            this.labelipcCalc.Click += new System.EventHandler(this.label9_Click);
+            this.labelimcCalc.AutoSize = true;
+            this.labelimcCalc.Location = new System.Drawing.Point(628, 272);
+            this.labelimcCalc.Name = "labelimcCalc";
+            this.labelimcCalc.Size = new System.Drawing.Size(14, 13);
+            this.labelimcCalc.TabIndex = 5;
+            this.labelimcCalc.Text = "X";
+            this.labelimcCalc.Click += new System.EventHandler(this.label9_Click);
             // 
             // Clientes
             // 
@@ -479,7 +479,7 @@
             this.Controls.Add(this.labelMembres);
             this.Controls.Add(this.labelCertif);
             this.Controls.Add(this.labelPeso);
-            this.Controls.Add(this.labelipcCalc);
+            this.Controls.Add(this.labelimcCalc);
             this.Controls.Add(this.labelValorEdad);
             this.Controls.Add(this.labelipc);
             this.Controls.Add(this.label1);
@@ -556,6 +556,6 @@
         private System.Windows.Forms.Label labelCertif;
         private System.Windows.Forms.CheckBox checkBoxCertif;
         private System.Windows.Forms.Label labelipc;
-        private System.Windows.Forms.Label labelipcCalc;
+        private System.Windows.Forms.Label labelimcCalc;
     }
 }
