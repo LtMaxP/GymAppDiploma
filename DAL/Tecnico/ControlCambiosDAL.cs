@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE.Tecnico;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,18 +11,41 @@ namespace DAL.Tecnico
 {
     public class ControlCambiosDAL
     {
+
         /// <summary>
-        /// Trae listado de CC
+        /// Ejecuta el SP para grabar el recupero del Control de Cambios
+        /// </summary>
+        /// <param name="rCC"></param>
+        public static void GrabarCC(ControlCambio rCC)
+        {
+            try
+            {
+                var sqlCmd = Acceso.Instance.CrearCommandStoredProcedure("ControlCambiosRecupero");
+                sqlCmd.Parameters.Add("@IdEntidad", SqlDbType.Int).Value = rCC.idEntidad;
+                sqlCmd.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = rCC.descripcion;
+                sqlCmd.Parameters.Add("@Valor", SqlDbType.Decimal).Value = rCC.valor;
+                sqlCmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = rCC.cantidad;
+                sqlCmd.Parameters.Add("@Operacion", SqlDbType.VarChar).Value = rCC.operacion;
+                sqlCmd.Parameters.Add("@Secuencia", SqlDbType.Int).Value = rCC.secuencia;
+                sqlCmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = rCC.usuarioID;
+                Acceso.Instance.ExecuteNonQuery(sqlCmd);
+            }
+            catch
+            { }
+        }
+
+        /// <summary>
+        /// Trae todo CC
         /// </summary>
         /// <param name="rCC"></param>
         /// <returns></returns>
-        public static List<BE.Tecnico.ControlCambio> TraerCC()
+        public static List<BE.Tecnico.ControlCambio> TTCC()
         {
             List<BE.Tecnico.ControlCambio> controldeCambios = new List<BE.Tecnico.ControlCambio>();
 
             try
             {
-                string query = "SELECT itemH.[Id_Item], itemH.[Descripcion], itemH.[Valor], itemO.[Cantidad], itemH.[Cantidad], itemH.[FechaCC], itemH.[UsuarioID], itemH.[Operacion], [Secuencia] FROM [GymApp].[dbo].[ItemHistoricoCC] AS itemH left join [GymApp].[dbo].[Item] AS itemO on itemO.Id_Item = itemH.Id_Item";
+                string query = "select * from [GymApp].[dbo].[ItemHistoricoCC]";// AS itemH left join [GymApp].[dbo].[Item] AS itemO on itemO.Id_Item = itemH.Id_Item";
                 SqlCommand comm = new SqlCommand(query);
                 DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
                 foreach (DataRow row in dt.Rows)
@@ -29,13 +53,12 @@ namespace DAL.Tecnico
                     BE.Tecnico.ControlCambio cc = new BE.Tecnico.ControlCambio();
                     cc.idEntidad = (int)row[0];
                     cc.descripcion = row[1].ToString();
-                    cc.campo = row[2].ToString();
-                    cc.valorNuevo = row[3].ToString();//
-                    cc.valorOriginal = row[4].ToString();//
-                    cc.fechaModificacion = DateTime.Parse(row[5].ToString());
-                    cc.UsuarioID = (int)row[6];//
-                    cc.Operacion = row[7].ToString();//
-                    cc.secuencia = (int)row[8];
+                    cc.valor = (decimal)row[2];
+                    cc.cantidad = (int)row[3];
+                    cc.fechaModificacion = DateTime.Parse(row[4].ToString());
+                    cc.usuarioID = (int)row[5];
+                    cc.operacion = row[6].ToString();
+                    cc.secuencia = (int)row[7];
 
                     controldeCambios.Add(cc);
                 }
@@ -43,38 +66,6 @@ namespace DAL.Tecnico
             catch { }
             return controldeCambios;
         }
-        /// <summary>
-        /// Trae en base a un CC especifico el resultado ??
-        /// </summary>
-        /// <param name="rCC"></param>
-        /// <returns></returns>
-        public static List<BE.Tecnico.ControlCambio> TraerCCPorCC(BE.Tecnico.ControlCambio rCC)
-        {
-            List<BE.Tecnico.ControlCambio> controldeCambios = new List<BE.Tecnico.ControlCambio>();
 
-            try
-            {
-                string query = "SELECT itemH.[Id_Item], itemH.[Descripcion], itemH.[Valor], itemO.[Valor], itemH.[Cantidad], itemH.[FechaCC], itemH.[UsuarioID], itemH.[Operacion] FROM [ItemHistoricoCC] AS itemH left join Item AS itemO on itemO.Id_Item = itemH.Id_Item";
-                SqlCommand comm = new SqlCommand(query);
-                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
-                foreach (DataRow row in dt.Rows)
-                {
-                    BE.Tecnico.ControlCambio cc = new BE.Tecnico.ControlCambio();
-                    cc.idEntidad = (int)row[0];
-                    cc.descripcion = row[1].ToString();
-                    cc.campo = row[2].ToString();
-                    cc.valorOriginal = row[3].ToString();
-                    cc.valorNuevo = row[4].ToString();
-                    cc.fechaModificacion = (DateTime)row[5];
-                    cc.secuencia = (int)row[6];
-                    cc.Operacion = row[7].ToString();
-                    cc.UsuarioID = (int)row[8];
-
-                    controldeCambios.Add(cc);
-                }
-            }
-            catch { }
-            return controldeCambios;
-        }
     }
 }

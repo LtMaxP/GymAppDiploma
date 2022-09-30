@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BLL.Tecnico
 {
@@ -14,17 +15,13 @@ namespace BLL.Tecnico
         /// <returns></returns>
         public static List<BE.Tecnico.ControlCambio> TraerCC()
         {
-            return DAL.Tecnico.ControlCambiosDAL.TraerCC();
+            return DAL.Tecnico.ControlCambiosDAL.TTCC();
         }
 
-        /// <summary>
-        /// Traer en base a un CC especificado
-        /// </summary>
-        /// <param name="rCC"></param>
-        /// <returns></returns>
-        public static List<BE.Tecnico.ControlCambio> TraerCCPorCC(BE.Tecnico.ControlCambio rCC)
+        public static void GuardarCC(BE.Tecnico.ControlCambio rCC)
         {
-            return DAL.Tecnico.ControlCambiosDAL.TraerCC();
+            rCC.idEntidad = BE.Usuario.Instance.IdUsuario;
+            DAL.Tecnico.ControlCambiosDAL.GrabarCC(rCC);
         }
     }
 }
