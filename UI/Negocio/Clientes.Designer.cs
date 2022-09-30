@@ -46,8 +46,7 @@
             this.labelCodPostal = new System.Windows.Forms.Label();
             this.labelTelefono = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
-            this.labelRutina = new System.Windows.Forms.Label();
-            this.labelEmpleadoACargo = new System.Windows.Forms.Label();
+            this.labelMembres = new System.Windows.Forms.Label();
             this.labelAlta = new System.Windows.Forms.Button();
             this.labelBaja = new System.Windows.Forms.Button();
             this.labelModificar = new System.Windows.Forms.Button();
@@ -59,7 +58,6 @@
             this.textBox_Telefono = new System.Windows.Forms.TextBox();
             this.textBox_CodPost = new System.Windows.Forms.TextBox();
             this.labelSalir = new System.Windows.Forms.Button();
-            this.listRutina = new System.Windows.Forms.ListView();
             this.labelPeso = new System.Windows.Forms.Label();
             this.textBox_Peso = new System.Windows.Forms.TextBox();
             this.fechaNacimiento = new System.Windows.Forms.DateTimePicker();
@@ -67,7 +65,14 @@
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonCalc = new System.Windows.Forms.Button();
+            this.labelValorEdad = new System.Windows.Forms.Label();
+            this.comboMem = new System.Windows.Forms.ComboBox();
+            this.labelCertif = new System.Windows.Forms.Label();
+            this.checkBoxCertif = new System.Windows.Forms.CheckBox();
+            this.labelipc = new System.Windows.Forms.Label();
+            this.labelipcCalc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
@@ -216,36 +221,26 @@
             this.labelFecha.AutoSize = true;
             this.labelFecha.Location = new System.Drawing.Point(262, 267);
             this.labelFecha.Name = "labelFecha";
-            this.labelFecha.Size = new System.Drawing.Size(108, 13);
+            this.labelFecha.Size = new System.Drawing.Size(60, 26);
             this.labelFecha.TabIndex = 5;
-            this.labelFecha.Text = "Fecha de Nacimiento";
+            this.labelFecha.Text = "Fecha \r\nNacimiento";
             this.labelFecha.Click += new System.EventHandler(this.label9_Click);
             // 
-            // labelRutina
+            // labelMembres
             // 
-            this.labelRutina.AutoSize = true;
-            this.labelRutina.Location = new System.Drawing.Point(595, 193);
-            this.labelRutina.Name = "labelRutina";
-            this.labelRutina.Size = new System.Drawing.Size(71, 13);
-            this.labelRutina.TabIndex = 5;
-            this.labelRutina.Text = "Rutina Actual";
-            this.labelRutina.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // labelEmpleadoACargo
-            // 
-            this.labelEmpleadoACargo.AutoSize = true;
-            this.labelEmpleadoACargo.Location = new System.Drawing.Point(538, 159);
-            this.labelEmpleadoACargo.Name = "labelEmpleadoACargo";
-            this.labelEmpleadoACargo.Size = new System.Drawing.Size(58, 13);
-            this.labelEmpleadoACargo.TabIndex = 5;
-            this.labelEmpleadoACargo.Text = "Membresia";
-            this.labelEmpleadoACargo.Click += new System.EventHandler(this.label9_Click);
+            this.labelMembres.AutoSize = true;
+            this.labelMembres.Location = new System.Drawing.Point(538, 236);
+            this.labelMembres.Name = "labelMembres";
+            this.labelMembres.Size = new System.Drawing.Size(58, 13);
+            this.labelMembres.TabIndex = 5;
+            this.labelMembres.Text = "Membresia";
+            this.labelMembres.Click += new System.EventHandler(this.label9_Click);
             // 
             // labelAlta
             // 
-            this.labelAlta.Location = new System.Drawing.Point(577, 344);
+            this.labelAlta.Location = new System.Drawing.Point(551, 326);
             this.labelAlta.Name = "labelAlta";
-            this.labelAlta.Size = new System.Drawing.Size(52, 23);
+            this.labelAlta.Size = new System.Drawing.Size(64, 25);
             this.labelAlta.TabIndex = 6;
             this.labelAlta.Text = "Alta";
             this.labelAlta.UseVisualStyleBackColor = true;
@@ -253,18 +248,18 @@
             // 
             // labelBaja
             // 
-            this.labelBaja.Location = new System.Drawing.Point(635, 344);
+            this.labelBaja.Location = new System.Drawing.Point(623, 326);
             this.labelBaja.Name = "labelBaja";
-            this.labelBaja.Size = new System.Drawing.Size(52, 23);
+            this.labelBaja.Size = new System.Drawing.Size(64, 25);
             this.labelBaja.TabIndex = 7;
             this.labelBaja.Text = "Baja";
             this.labelBaja.UseVisualStyleBackColor = true;
             // 
             // labelModificar
             // 
-            this.labelModificar.Location = new System.Drawing.Point(693, 344);
+            this.labelModificar.Location = new System.Drawing.Point(693, 326);
             this.labelModificar.Name = "labelModificar";
-            this.labelModificar.Size = new System.Drawing.Size(59, 23);
+            this.labelModificar.Size = new System.Drawing.Size(71, 25);
             this.labelModificar.TabIndex = 8;
             this.labelModificar.Text = "Modificar";
             this.labelModificar.UseVisualStyleBackColor = true;
@@ -321,22 +316,13 @@
             // 
             // labelSalir
             // 
-            this.labelSalir.Location = new System.Drawing.Point(670, 410);
+            this.labelSalir.Location = new System.Drawing.Point(706, 410);
             this.labelSalir.Name = "labelSalir";
             this.labelSalir.Size = new System.Drawing.Size(82, 28);
             this.labelSalir.TabIndex = 10;
             this.labelSalir.Text = "Salir";
             this.labelSalir.UseVisualStyleBackColor = true;
             this.labelSalir.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // listRutina
-            // 
-            this.listRutina.HideSelection = false;
-            this.listRutina.Location = new System.Drawing.Point(514, 212);
-            this.listRutina.Name = "listRutina";
-            this.listRutina.Size = new System.Drawing.Size(246, 95);
-            this.listRutina.TabIndex = 3;
-            this.listRutina.UseCompatibleStateImageBehavior = false;
             // 
             // labelPeso
             // 
@@ -360,7 +346,7 @@
             this.fechaNacimiento.Cursor = System.Windows.Forms.Cursors.PanSE;
             this.fechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fechaNacimiento.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.fechaNacimiento.Location = new System.Drawing.Point(393, 264);
+            this.fechaNacimiento.Location = new System.Drawing.Point(393, 273);
             this.fechaNacimiento.MinDate = new System.DateTime(1889, 1, 1, 0, 0, 0, 0);
             this.fechaNacimiento.Name = "fechaNacimiento";
             this.fechaNacimiento.Size = new System.Drawing.Size(100, 20);
@@ -370,7 +356,7 @@
             // 
             this.comboBox_estado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox_estado.FormattingEnabled = true;
-            this.comboBox_estado.Location = new System.Drawing.Point(626, 95);
+            this.comboBox_estado.Location = new System.Drawing.Point(626, 94);
             this.comboBox_estado.Name = "comboBox_estado";
             this.comboBox_estado.Size = new System.Drawing.Size(134, 21);
             this.comboBox_estado.TabIndex = 12;
@@ -388,19 +374,94 @@
             // 
             this.clientesBindingSource2.DataSource = typeof(UI.Clientes);
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Location = new System.Drawing.Point(626, 154);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 20);
-            this.textBox1.TabIndex = 13;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(262, 307);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Edad";
+            this.label1.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // buttonCalc
+            // 
+            this.buttonCalc.Font = new System.Drawing.Font("Arial Black", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCalc.Location = new System.Drawing.Point(669, 204);
+            this.buttonCalc.Name = "buttonCalc";
+            this.buttonCalc.Size = new System.Drawing.Size(41, 23);
+            this.buttonCalc.TabIndex = 14;
+            this.buttonCalc.Text = "Calc";
+            this.buttonCalc.UseVisualStyleBackColor = true;
+            this.buttonCalc.Click += new System.EventHandler(this.buttonCalc_Click);
+            // 
+            // labelValorEdad
+            // 
+            this.labelValorEdad.AutoSize = true;
+            this.labelValorEdad.Location = new System.Drawing.Point(426, 307);
+            this.labelValorEdad.Name = "labelValorEdad";
+            this.labelValorEdad.Size = new System.Drawing.Size(14, 13);
+            this.labelValorEdad.TabIndex = 5;
+            this.labelValorEdad.Text = "X";
+            this.labelValorEdad.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // comboMem
+            // 
+            this.comboMem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboMem.FormattingEnabled = true;
+            this.comboMem.Location = new System.Drawing.Point(626, 233);
+            this.comboMem.Name = "comboMem";
+            this.comboMem.Size = new System.Drawing.Size(134, 21);
+            this.comboMem.TabIndex = 12;
+            this.comboMem.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // labelCertif
+            // 
+            this.labelCertif.AutoSize = true;
+            this.labelCertif.Location = new System.Drawing.Point(538, 162);
+            this.labelCertif.Name = "labelCertif";
+            this.labelCertif.Size = new System.Drawing.Size(60, 26);
+            this.labelCertif.TabIndex = 5;
+            this.labelCertif.Text = "Cerfificado \r\nMedico";
+            this.labelCertif.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // checkBoxCertif
+            // 
+            this.checkBoxCertif.AutoSize = true;
+            this.checkBoxCertif.Location = new System.Drawing.Point(626, 170);
+            this.checkBoxCertif.Name = "checkBoxCertif";
+            this.checkBoxCertif.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxCertif.TabIndex = 15;
+            this.checkBoxCertif.UseVisualStyleBackColor = true;
+            // 
+            // labelipc
+            // 
+            this.labelipc.AutoSize = true;
+            this.labelipc.Location = new System.Drawing.Point(538, 272);
+            this.labelipc.Name = "labelipc";
+            this.labelipc.Size = new System.Drawing.Size(24, 13);
+            this.labelipc.TabIndex = 5;
+            this.labelipc.Text = "IPC";
+            this.labelipc.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // labelipcCalc
+            // 
+            this.labelipcCalc.AutoSize = true;
+            this.labelipcCalc.Location = new System.Drawing.Point(628, 272);
+            this.labelipcCalc.Name = "labelipcCalc";
+            this.labelipcCalc.Size = new System.Drawing.Size(14, 13);
+            this.labelipcCalc.TabIndex = 5;
+            this.labelipcCalc.Text = "X";
+            this.labelipcCalc.Click += new System.EventHandler(this.label9_Click);
             // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.checkBoxCertif);
+            this.Controls.Add(this.buttonCalc);
+            this.Controls.Add(this.comboMem);
             this.Controls.Add(this.comboBox_estado);
             this.Controls.Add(this.fechaNacimiento);
             this.Controls.Add(this.labelSalir);
@@ -415,9 +476,13 @@
             this.Controls.Add(this.labelModificar);
             this.Controls.Add(this.labelBaja);
             this.Controls.Add(this.labelAlta);
-            this.Controls.Add(this.labelEmpleadoACargo);
-            this.Controls.Add(this.labelRutina);
+            this.Controls.Add(this.labelMembres);
+            this.Controls.Add(this.labelCertif);
             this.Controls.Add(this.labelPeso);
+            this.Controls.Add(this.labelipcCalc);
+            this.Controls.Add(this.labelValorEdad);
+            this.Controls.Add(this.labelipc);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.labelTelefono);
             this.Controls.Add(this.labelCodPostal);
@@ -428,7 +493,6 @@
             this.Controls.Add(this.labelApellido);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelMostrar);
-            this.Controls.Add(this.listRutina);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.labelBuscarUnUsuario);
             this.Controls.Add(this.textBox_Buscar);
@@ -463,8 +527,7 @@
         private System.Windows.Forms.Label labelCodPostal;
         private System.Windows.Forms.Label labelTelefono;
         private System.Windows.Forms.Label labelFecha;
-        private System.Windows.Forms.Label labelRutina;
-        private System.Windows.Forms.Label labelEmpleadoACargo;
+        private System.Windows.Forms.Label labelMembres;
         private System.Windows.Forms.Button labelAlta;
         private System.Windows.Forms.Button labelBaja;
         private System.Windows.Forms.Button labelModificar;
@@ -476,7 +539,6 @@
         private System.Windows.Forms.TextBox textBox_Telefono;
         private System.Windows.Forms.TextBox textBox_CodPost;
         private System.Windows.Forms.Button labelSalir;
-        private System.Windows.Forms.ListView listRutina;
         private System.Windows.Forms.Label labelPeso;
         private System.Windows.Forms.TextBox textBox_Peso;
         private System.Windows.Forms.DateTimePicker fechaNacimiento;
@@ -487,6 +549,13 @@
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private System.Windows.Forms.BindingSource clientesBindingSource1;
         private System.Windows.Forms.BindingSource clientesBindingSource2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonCalc;
+        private System.Windows.Forms.Label labelValorEdad;
+        private System.Windows.Forms.ComboBox comboMem;
+        private System.Windows.Forms.Label labelCertif;
+        private System.Windows.Forms.CheckBox checkBoxCertif;
+        private System.Windows.Forms.Label labelipc;
+        private System.Windows.Forms.Label labelipcCalc;
     }
 }

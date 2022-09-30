@@ -37,6 +37,7 @@ namespace UI
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
             DameEstados();
+            comboMem.Enabled = false;
         }
 
 
@@ -170,6 +171,15 @@ namespace UI
         private void textBox_Estado_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCalc_Click(object sender, EventArgs e)
+        {
+            comboMem.Enabled = checkBoxCertif.Checked == true ? true : false;
+            if (comboMem.Enabled)
+            {
+
+            }
         }
     }
 }
