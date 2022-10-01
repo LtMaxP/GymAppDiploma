@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Servicios
+namespace DAL.Negocio
 {
-    public class Restore
+    public class DALCalculos
     {
-        public void RestoreBD()
+        public static int DameIdM(string text)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

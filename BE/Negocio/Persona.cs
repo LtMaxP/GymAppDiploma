@@ -24,6 +24,14 @@ namespace BE
             set { _nombre = value; }
         }
 
+        private int _dni;
+
+        public int Dni
+        {
+            get { return _dni; }
+            set { _dni = value; }
+        }
+
 
         private string _apellido;
 

@@ -71,8 +71,11 @@
             this.comboMem = new System.Windows.Forms.ComboBox();
             this.labelCertif = new System.Windows.Forms.Label();
             this.checkBoxCertif = new System.Windows.Forms.CheckBox();
-            this.labelipc = new System.Windows.Forms.Label();
-            this.labelimcCalc = new System.Windows.Forms.Label();
+            this.labelDescuento = new System.Windows.Forms.Label();
+            this.labelAltura = new System.Windows.Forms.Label();
+            this.textBoxAltura = new System.Windows.Forms.TextBox();
+            this.labelIMC = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
@@ -113,7 +116,7 @@
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(16, 70);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(228, 231);
+            this.listView.Size = new System.Drawing.Size(228, 188);
             this.listView.TabIndex = 3;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -135,7 +138,7 @@
             // labelMostrar
             // 
             this.labelMostrar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.labelMostrar.Location = new System.Drawing.Point(95, 307);
+            this.labelMostrar.Location = new System.Drawing.Point(93, 272);
             this.labelMostrar.Name = "labelMostrar";
             this.labelMostrar.Size = new System.Drawing.Size(75, 23);
             this.labelMostrar.TabIndex = 4;
@@ -191,7 +194,7 @@
             // labelEstado
             // 
             this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(538, 97);
+            this.labelEstado.Location = new System.Drawing.Point(538, 77);
             this.labelEstado.Name = "labelEstado";
             this.labelEstado.Size = new System.Drawing.Size(40, 13);
             this.labelEstado.TabIndex = 5;
@@ -229,7 +232,7 @@
             // labelMembres
             // 
             this.labelMembres.AutoSize = true;
-            this.labelMembres.Location = new System.Drawing.Point(538, 236);
+            this.labelMembres.Location = new System.Drawing.Point(538, 202);
             this.labelMembres.Name = "labelMembres";
             this.labelMembres.Size = new System.Drawing.Size(58, 13);
             this.labelMembres.TabIndex = 5;
@@ -238,7 +241,7 @@
             // 
             // labelAlta
             // 
-            this.labelAlta.Location = new System.Drawing.Point(551, 326);
+            this.labelAlta.Location = new System.Drawing.Point(551, 336);
             this.labelAlta.Name = "labelAlta";
             this.labelAlta.Size = new System.Drawing.Size(64, 25);
             this.labelAlta.TabIndex = 6;
@@ -248,7 +251,7 @@
             // 
             // labelBaja
             // 
-            this.labelBaja.Location = new System.Drawing.Point(623, 326);
+            this.labelBaja.Location = new System.Drawing.Point(623, 336);
             this.labelBaja.Name = "labelBaja";
             this.labelBaja.Size = new System.Drawing.Size(64, 25);
             this.labelBaja.TabIndex = 7;
@@ -257,7 +260,7 @@
             // 
             // labelModificar
             // 
-            this.labelModificar.Location = new System.Drawing.Point(693, 326);
+            this.labelModificar.Location = new System.Drawing.Point(693, 336);
             this.labelModificar.Name = "labelModificar";
             this.labelModificar.Size = new System.Drawing.Size(71, 25);
             this.labelModificar.TabIndex = 8;
@@ -327,7 +330,7 @@
             // labelPeso
             // 
             this.labelPeso.AutoSize = true;
-            this.labelPeso.Location = new System.Drawing.Point(538, 127);
+            this.labelPeso.Location = new System.Drawing.Point(538, 107);
             this.labelPeso.Name = "labelPeso";
             this.labelPeso.Size = new System.Drawing.Size(47, 13);
             this.labelPeso.TabIndex = 5;
@@ -336,7 +339,7 @@
             // 
             // textBox_Peso
             // 
-            this.textBox_Peso.Location = new System.Drawing.Point(626, 126);
+            this.textBox_Peso.Location = new System.Drawing.Point(626, 106);
             this.textBox_Peso.Name = "textBox_Peso";
             this.textBox_Peso.Size = new System.Drawing.Size(134, 20);
             this.textBox_Peso.TabIndex = 9;
@@ -351,12 +354,13 @@
             this.fechaNacimiento.Name = "fechaNacimiento";
             this.fechaNacimiento.Size = new System.Drawing.Size(100, 20);
             this.fechaNacimiento.TabIndex = 11;
+            this.fechaNacimiento.ValueChanged += new System.EventHandler(this.fechaNacimiento_ValueChanged);
             // 
             // comboBox_estado
             // 
             this.comboBox_estado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox_estado.FormattingEnabled = true;
-            this.comboBox_estado.Location = new System.Drawing.Point(626, 94);
+            this.comboBox_estado.Location = new System.Drawing.Point(626, 74);
             this.comboBox_estado.Name = "comboBox_estado";
             this.comboBox_estado.Size = new System.Drawing.Size(134, 21);
             this.comboBox_estado.TabIndex = 12;
@@ -387,11 +391,11 @@
             // buttonCalc
             // 
             this.buttonCalc.Font = new System.Drawing.Font("Arial Black", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalc.Location = new System.Drawing.Point(669, 204);
+            this.buttonCalc.Location = new System.Drawing.Point(541, 275);
             this.buttonCalc.Name = "buttonCalc";
-            this.buttonCalc.Size = new System.Drawing.Size(41, 23);
+            this.buttonCalc.Size = new System.Drawing.Size(57, 34);
             this.buttonCalc.TabIndex = 14;
-            this.buttonCalc.Text = "Calc";
+            this.buttonCalc.Text = "Calcular IMC";
             this.buttonCalc.UseVisualStyleBackColor = true;
             this.buttonCalc.Click += new System.EventHandler(this.buttonCalc_Click);
             // 
@@ -409,7 +413,7 @@
             // 
             this.comboMem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboMem.FormattingEnabled = true;
-            this.comboMem.Location = new System.Drawing.Point(626, 233);
+            this.comboMem.Location = new System.Drawing.Point(626, 199);
             this.comboMem.Name = "comboMem";
             this.comboMem.Size = new System.Drawing.Size(134, 21);
             this.comboMem.TabIndex = 12;
@@ -422,7 +426,7 @@
             this.labelCertif.Name = "labelCertif";
             this.labelCertif.Size = new System.Drawing.Size(60, 26);
             this.labelCertif.TabIndex = 5;
-            this.labelCertif.Text = "Cerfificado \r\nMedico";
+            this.labelCertif.Text = "Certificado \r\nMedico";
             this.labelCertif.Click += new System.EventHandler(this.label9_Click);
             // 
             // checkBoxCertif
@@ -434,25 +438,63 @@
             this.checkBoxCertif.TabIndex = 15;
             this.checkBoxCertif.UseVisualStyleBackColor = true;
             // 
-            // labelipc
+            // labelDescuento
             // 
-            this.labelipc.AutoSize = true;
-            this.labelipc.Location = new System.Drawing.Point(538, 272);
-            this.labelipc.Name = "labelipc";
-            this.labelipc.Size = new System.Drawing.Size(26, 13);
-            this.labelipc.TabIndex = 5;
-            this.labelipc.Text = "IMC";
-            this.labelipc.Click += new System.EventHandler(this.label9_Click);
+            this.labelDescuento.AutoSize = true;
+            this.labelDescuento.Location = new System.Drawing.Point(538, 241);
+            this.labelDescuento.Name = "labelDescuento";
+            this.labelDescuento.Size = new System.Drawing.Size(59, 13);
+            this.labelDescuento.TabIndex = 5;
+            this.labelDescuento.Text = "Descuento";
+            this.labelDescuento.Click += new System.EventHandler(this.label9_Click);
             // 
-            // labelimcCalc
+            // labelAltura
             // 
-            this.labelimcCalc.AutoSize = true;
-            this.labelimcCalc.Location = new System.Drawing.Point(628, 272);
-            this.labelimcCalc.Name = "labelimcCalc";
-            this.labelimcCalc.Size = new System.Drawing.Size(14, 13);
-            this.labelimcCalc.TabIndex = 5;
-            this.labelimcCalc.Text = "X";
-            this.labelimcCalc.Click += new System.EventHandler(this.label9_Click);
+            this.labelAltura.AutoSize = true;
+            this.labelAltura.Location = new System.Drawing.Point(538, 134);
+            this.labelAltura.Name = "labelAltura";
+            this.labelAltura.Size = new System.Drawing.Size(51, 13);
+            this.labelAltura.TabIndex = 5;
+            this.labelAltura.Text = "Altura cm";
+            this.labelAltura.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // textBoxAltura
+            // 
+            this.textBoxAltura.Location = new System.Drawing.Point(626, 133);
+            this.textBoxAltura.Name = "textBoxAltura";
+            this.textBoxAltura.Size = new System.Drawing.Size(134, 20);
+            this.textBoxAltura.TabIndex = 9;
+            // 
+            // labelIMC
+            // 
+            this.labelIMC.AutoSize = true;
+            this.labelIMC.Location = new System.Drawing.Point(627, 286);
+            this.labelIMC.Name = "labelIMC";
+            this.labelIMC.Size = new System.Drawing.Size(14, 13);
+            this.labelIMC.TabIndex = 5;
+            this.labelIMC.Text = "X";
+            this.labelIMC.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "10%",
+            "20%",
+            "30%",
+            "40%",
+            "50%",
+            "60%",
+            "70%",
+            "80%",
+            "90%",
+            "100%"});
+            this.comboBox1.Location = new System.Drawing.Point(626, 237);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(67, 21);
+            this.comboBox1.TabIndex = 12;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Clientes
             // 
@@ -461,11 +503,13 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.checkBoxCertif);
             this.Controls.Add(this.buttonCalc);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.comboMem);
             this.Controls.Add(this.comboBox_estado);
             this.Controls.Add(this.fechaNacimiento);
             this.Controls.Add(this.labelSalir);
             this.Controls.Add(this.textBox_CodPost);
+            this.Controls.Add(this.textBoxAltura);
             this.Controls.Add(this.textBox_Peso);
             this.Controls.Add(this.textBox_Calle);
             this.Controls.Add(this.textBox_Telefono);
@@ -477,11 +521,12 @@
             this.Controls.Add(this.labelBaja);
             this.Controls.Add(this.labelAlta);
             this.Controls.Add(this.labelMembres);
+            this.Controls.Add(this.labelAltura);
             this.Controls.Add(this.labelCertif);
             this.Controls.Add(this.labelPeso);
-            this.Controls.Add(this.labelimcCalc);
+            this.Controls.Add(this.labelIMC);
             this.Controls.Add(this.labelValorEdad);
-            this.Controls.Add(this.labelipc);
+            this.Controls.Add(this.labelDescuento);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.labelTelefono);
@@ -555,7 +600,10 @@
         private System.Windows.Forms.ComboBox comboMem;
         private System.Windows.Forms.Label labelCertif;
         private System.Windows.Forms.CheckBox checkBoxCertif;
-        private System.Windows.Forms.Label labelipc;
-        private System.Windows.Forms.Label labelimcCalc;
+        private System.Windows.Forms.Label labelDescuento;
+        private System.Windows.Forms.Label labelAltura;
+        private System.Windows.Forms.TextBox textBoxAltura;
+        private System.Windows.Forms.Label labelIMC;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

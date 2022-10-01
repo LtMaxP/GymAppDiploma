@@ -71,23 +71,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Negocio\Clases.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Negocio\Clases.Designer.cs">
-      <DependentUpon>Clases.cs</DependentUpon>
-    </Compile>
     <Compile Include="Negocio\Productos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Negocio\Productos.Designer.cs">
       <DependentUpon>Productos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Negocio\Rutina.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Negocio\Rutina.Designer.cs">
-      <DependentUpon>Rutina.cs</DependentUpon>
     </Compile>
     <Compile Include="Tecnico\BackupRestore.cs">
       <SubType>Form</SubType>
@@ -175,14 +163,8 @@
     <Compile Include="Tecnico\UsuariosABM.Designer.cs">
       <DependentUpon>UsuariosABM.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Negocio\Clases.resx">
-      <DependentUpon>Clases.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Negocio\Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Negocio\Rutina.resx">
-      <DependentUpon>Rutina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tecnico\BackupRestore.resx">
       <DependentUpon>BackupRestore.cs</DependentUpon>

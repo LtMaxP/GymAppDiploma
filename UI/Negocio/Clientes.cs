@@ -16,7 +16,6 @@ namespace UI
     public partial class Clientes : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLLClientes bllClientes = new BLLClientes();
-        BLLEmpleados bllEmpleados = new BLLEmpleados();
         public Clientes()
         {
             InitializeComponent();
@@ -81,18 +80,27 @@ namespace UI
             else
             {
                 BE.Cliente client = new BE.Cliente();
-                client.Nombre = textBox_Nombre.Text;
-                client.Apellido = textBox_Apellido.Text;
                 client._dni = int.Parse(textBox_Dni.Text);
-                client._calle = textBox_Calle.Text;
-                client._numero = int.Parse(textBox_Numero.Text);
-                client._codPostal = int.Parse(textBox_CodPost.Text);
-                client._telefono = int.Parse(textBox_Telefono.Text);
-                client._fechaNacimiento = fechaNacimiento.Value;
-                client._pesokg = int.Parse(textBox_Peso.Text);
-                client.Id_Estado = int.Parse(comboBox_estado.Text);
                 if (!bllClientes.ValidarSiExiste(client))
                 {
+                    client.Nombre = textBox_Nombre.Text;
+                    client.Apellido = textBox_Apellido.Text;
+                    client._calle = textBox_Calle.Text;
+                    client._numero = int.Parse(textBox_Numero.Text);
+                    client._codPostal = int.Parse(textBox_CodPost.Text);
+                    client._telefono = int.Parse(textBox_Telefono.Text);
+                    client._fechaNacimiento = fechaNacimiento.Value;
+                    client._pesokg = int.Parse(textBox_Peso.Text);
+                    client.Certificado = checkBoxCertif.Checked;
+                    if (checkBoxCertif.Checked)
+                    {
+                        client.Id_Estado = 1;
+                        client.Membresia = BLL.Negocio.BLLCalculos.DameIdM(labelMembres.Text);
+                    }
+                    else
+                    {
+                        client.Id_Estado = 3;
+                    }
                     if (bllClientes.Alta(client))
                     {
 
@@ -126,7 +134,8 @@ namespace UI
                 {
                     foreach (Cliente dr in busquedaUsuario)
                     {
-                        ListViewItem lvi = new ListViewItem(dr._dni.ToString());
+                        ListViewItem lvi = new ListViewItem();
+                        lvi.SubItems.Add(dr._dni.ToString());
                         lvi.SubItems.Add(dr.Nombre);
                         lvi.SubItems.Add(dr.Apellido);
                         listView.Items.Add(lvi);
@@ -178,8 +187,15 @@ namespace UI
             comboMem.Enabled = checkBoxCertif.Checked == true ? true : false;
             if (comboMem.Enabled)
             {
-
+                string peso = textBox_Peso.Text;
+                string altura = textBoxAltura.Text;
+                labelIMC.Text = Servicios.Calculos.CalcularIMC(peso, altura);
             }
+        }
+
+        private void fechaNacimiento_ValueChanged(object sender, EventArgs e)
+        {
+            labelValorEdad.Text = (DateTime.Now - fechaNacimiento.Value).ToString();
         }
     }
 }

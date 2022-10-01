@@ -91,8 +91,9 @@ namespace DAL
         public bool Baja(Cliente valBaja)
         {
             bool retornable = false;
-            String query = "UPDATE ClienteGYM SET [Id_Estado] = " + "2" + " WHERE Dni = " + valBaja._dni;
+            String query = "UPDATE ClienteGYM SET [Id_Estado] = 2 WHERE Dni = @dni";
             SqlCommand comm = new SqlCommand(query);
+            comm.Parameters.AddWithValue("@dni", valBaja._dni);
             try
             {
                 Acceso.Instance.ExecuteNonQuery(comm);
@@ -107,8 +108,9 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             SqlConnection connection = Acceso.Instance.sqlCon;
-            String query = "SELECT Id_Cliente, Nombre, Apellido, Dni FROM ClienteGYM WHERE Nombre = " + "'" + valBuscar.Nombre + "'";
+            String query = "SELECT Dni, Nombre, Apellido FROM ClienteGYM WHERE Nombre = @name";
             SqlCommand comm = new SqlCommand(query);
+            comm.Parameters.AddWithValue("@name", valBuscar.Nombre);
             try
             {
                 dt = Acceso.Instance.ExecuteDataTable(comm);
@@ -127,61 +129,16 @@ namespace DAL
 
                 comm.CommandText = "UPDATE ClienteGYM SET Nombre = @Nombre, Apellido = @Apellido, Calle = @Calle, Numero = @Numero, CodPostal = @CodPostal, Telefono = @Telefono, PesoKg = @Peso, Id_Estado = @Estado WHERE Dni = @Dni";
 
-                SqlParameter parameter1 = new SqlParameter();
-                parameter1.ParameterName = "@Nombre";
-                parameter1.Value = valMod.Nombre;
-                parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter2 = new SqlParameter();
-                parameter2.ParameterName = "@Apellido";
-                parameter2.Value = valMod.Apellido;
-                parameter2.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter3 = new SqlParameter();
-                parameter3.ParameterName = "@Dni";
-                parameter3.Value = valMod._dni;
-                parameter3.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter4 = new SqlParameter();
-                parameter4.ParameterName = "@Calle";
-                parameter4.Value = valMod._calle;
-                parameter4.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter5 = new SqlParameter();
-                parameter5.ParameterName = "@Numero";
-                parameter5.Value = valMod._numero;
-                parameter5.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter6 = new SqlParameter();
-                parameter6.ParameterName = "@CodPostal";
-                parameter6.Value = valMod._codPostal;
-                parameter6.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter7 = new SqlParameter();
-                parameter7.ParameterName = "@Telefono";
-                parameter7.Value = valMod._telefono;
-                parameter7.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter9 = new SqlParameter();
-                parameter9.ParameterName = "@Peso";
-                parameter9.Value = valMod._pesokg;
-                parameter9.SqlDbType = System.Data.SqlDbType.Float;
-
-                SqlParameter parameter10 = new SqlParameter();
-                parameter10.ParameterName = "@Estado";
-                parameter10.Value = valMod.Id_Estado;
-                parameter10.SqlDbType = System.Data.SqlDbType.Int;
-
-                comm.Parameters.Add(parameter1);
-                comm.Parameters.Add(parameter2);
-                comm.Parameters.Add(parameter3);
-                comm.Parameters.Add(parameter4);
-                comm.Parameters.Add(parameter5);
-                comm.Parameters.Add(parameter6);
-                comm.Parameters.Add(parameter7);
-                comm.Parameters.Add(parameter9);
-                comm.Parameters.Add(parameter10);
-
+                comm.Parameters.AddWithValue("@Nombre", valMod.Nombre);
+                comm.Parameters.AddWithValue("@Apellido", valMod.Apellido);
+                comm.Parameters.AddWithValue("@Dni", valMod._dni);
+                comm.Parameters.AddWithValue("@Calle", valMod._calle);
+                comm.Parameters.AddWithValue("@Numero", valMod._numero);
+                comm.Parameters.AddWithValue("@CodPostal", valMod._codPostal);
+                comm.Parameters.AddWithValue("@Telefono", valMod._telefono);
+                comm.Parameters.AddWithValue("@Estado", valMod.Id_Estado);
+                comm.Parameters.AddWithValue("@Peso", valMod._pesokg);
+                
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
                 rpta = true;
             }

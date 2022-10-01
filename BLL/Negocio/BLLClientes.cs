@@ -17,6 +17,7 @@ namespace BLL
         {
             Alta = 1,
             Baja = 2,
+            Pendiente = 3,
         }
         public string[] dameEstados()
         {
