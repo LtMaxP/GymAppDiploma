@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Negocio\DALCalculos.cs" />
+    <Compile Include="Negocio\DALMembresia.cs" />
     <Compile Include="Negocio\DALProducto.cs" />
     <Compile Include="Tecnico\ABMUsuariosDAL.cs" />
     <Compile Include="Tecnico\BackupDAL.cs" />

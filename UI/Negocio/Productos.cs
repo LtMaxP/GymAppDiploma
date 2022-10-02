@@ -168,7 +168,7 @@ namespace UI.Negocio
             if (!String.IsNullOrEmpty(textBoxCliente.Text))
             {
                 BE.Cliente cliente = new BE.Cliente();
-                cliente._dni = int.Parse(textBoxCliente.Text);
+                cliente.Dni = int.Parse(textBoxCliente.Text);
                 if (clients.ValidarSiExiste(cliente))
                 {
                     if (dataGridView1.Rows.Count > 1)

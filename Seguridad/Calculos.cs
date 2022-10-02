@@ -16,25 +16,26 @@ namespace Servicios
         /// <returns></returns>
         public static string CalcularIMC(string peso, string altura)
         {
-            double calculo = double.Parse(peso) / (Math.Pow(double.Parse(altura), 2));
-            string respuesta = null;
-            if(calculo <= 18.5)
+            float alturaf = float.Parse(altura);
+            alturaf = alturaf / 100;
+            float pesof = float.Parse(peso);
+            float imc = (pesof / (alturaf * alturaf));
+            if(imc <= 18.5)
             {
-                respuesta = "Peso inferior al normal";
+                return "Peso inferior al normal";
             }
-            else if (calculo >= 18.5 && calculo <= 24.9)
+            else if (imc >= 18.5 && imc <= 24.9)
             {
-                respuesta = "Normal";
+                return "Normal";
             }
-            else if (calculo >= 25.0 && calculo <= 29.9)
+            else if (imc >= 25.0 && imc <= 29.9)
             {
-                respuesta = "Peso superior al normal";
+                return "Peso superior al normal";
             }
-            else if (calculo >= 30.0)
+            else //(calculo >= 30.0)
             {
-                respuesta = "Obesidad";
+                return "Obesidad";
             }
-            return respuesta;
         }
     }
 }

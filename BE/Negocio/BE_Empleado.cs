@@ -9,10 +9,9 @@ namespace BE
     public class BE_Empleado : Persona
     {
 
+        private string _trabajo;
 
-        private BE.Negocio.Trabajo _trabajo;
-
-        public BE.Negocio.Trabajo Trabajo
+        public string Trabajo
         {
             get { return _trabajo; }
             set { _trabajo = value; }

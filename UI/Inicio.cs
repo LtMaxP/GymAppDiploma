@@ -91,8 +91,6 @@ namespace UI
         PagosCobros PyG;
         Listas Listados;
         Permisos Permi;
-        Rutina Rutina;
-        Clases clases;
         Productos productos;
         UI.Tecnico.Idioma AgIdioma;
         UI.Tecnico.ControlCambios CC;
@@ -374,46 +372,12 @@ namespace UI
         {
             productos = null;
         }
-        private void claseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (clases == null)
-            {
-                clases = new Clases();
-                clases.MdiParent = this;
-                clases.FormClosed += new FormClosedEventHandler(clases_FormClosed);
-                clases.Show();
-            }
-            else
-            {
-                clases.Activate();
-            }
-        }
-        private void clases_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            clases = null;
-        }
+
         private void PermiUsu_FormClosed(object sender, FormClosedEventArgs e)
         {
             PermUsu = null;
         }
-        private void rutinaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Rutina == null)
-            {
-                Rutina = new Rutina();
-                Rutina.MdiParent = this;
-                Rutina.FormClosed += new FormClosedEventHandler(Rutina_FormClosed);
-                Rutina.Show();
-            }
-            else
-            {
-                Rutina.Activate();
-            }
-        }
-        private void Rutina_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Rutina = null;
-        }
+
         private void agregarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (AgIdioma == null)

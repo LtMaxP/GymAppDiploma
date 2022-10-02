@@ -30,12 +30,5 @@ namespace BE.Negocio
             set { _descripcion = value; }
         }
 
-        private Profesor _profesor;
-        public Profesor Profesor
-        {
-            get { return _profesor; }
-            set { _profesor = value; }
-        }
-
     }
 }

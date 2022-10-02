@@ -18,68 +18,22 @@ namespace DAL
             {
                 SqlCommand comm = new SqlCommand();
 
-                comm.CommandText = "INSERT INTO ClienteGYM (Nombre, Apellido, Dni, Calle, Numero, CodPostal, Telefono, Fecha_Nac, PesoKg, Id_Estado) VALUES (@Nombre, @Apellido, @Dni, @Calle, @Numero, @CodPostal, @Telefono, @FechaNac, @Peso, @Estado)";
+                comm.CommandText = "INSERT INTO ClienteGYM ([Nombre], [Apellido], [PesoKg], [Dni], [Calle], [Numero], [CodPostal], [Telefono], [Fecha_Nac], [Id_Membresia], [Id_Estado], [Certificado], [Descuento], [Altura]) VALUES (@Nombre, @Apellido, @Peso, @Dni, @Calle, @Numero, @CodPostal, @Telefono, @FechaNac, @Membresia, @Estado, @Certificado, @Descuento, @Altura)";
 
-                SqlParameter parameter1 = new SqlParameter();
-                parameter1.ParameterName = "@Nombre";
-                parameter1.Value = valAlta.Nombre;
-                parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter2 = new SqlParameter();
-                parameter2.ParameterName = "@Apellido";
-                parameter2.Value = valAlta.Apellido;
-                parameter2.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter3 = new SqlParameter();
-                parameter3.ParameterName = "@Dni";
-                parameter3.Value = valAlta._dni;
-                parameter3.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter4 = new SqlParameter();
-                parameter4.ParameterName = "@Calle";
-                parameter4.Value = valAlta._calle;
-                parameter4.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter5 = new SqlParameter();
-                parameter5.ParameterName = "@Numero";
-                parameter5.Value = valAlta._numero;
-                parameter5.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter6 = new SqlParameter();
-                parameter6.ParameterName = "@CodPostal";
-                parameter6.Value = valAlta._codPostal;
-                parameter6.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter7 = new SqlParameter();
-                parameter7.ParameterName = "@Telefono";
-                parameter7.Value = valAlta._telefono;
-                parameter7.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter8 = new SqlParameter();
-                parameter8.ParameterName = "@FechaNac";
-                parameter8.Value = valAlta._fechaNacimiento;
-                parameter8.SqlDbType = System.Data.SqlDbType.DateTime;
-
-                SqlParameter parameter9 = new SqlParameter();
-                parameter9.ParameterName = "@Peso";
-                parameter9.Value = valAlta._pesokg;
-                parameter9.SqlDbType = System.Data.SqlDbType.Float;
-
-                SqlParameter parameter10 = new SqlParameter();
-                parameter10.ParameterName = "@Estado";
-                parameter10.Value = valAlta.Id_Estado;
-                parameter10.SqlDbType = System.Data.SqlDbType.Int;
-
-                comm.Parameters.Add(parameter1);
-                comm.Parameters.Add(parameter2);
-                comm.Parameters.Add(parameter3);
-                comm.Parameters.Add(parameter4);
-                comm.Parameters.Add(parameter5);
-                comm.Parameters.Add(parameter6);
-                comm.Parameters.Add(parameter7);
-                comm.Parameters.Add(parameter8);
-                comm.Parameters.Add(parameter9);
-                comm.Parameters.Add(parameter10);
+                comm.Parameters.AddWithValue("@Nombre", valAlta.Nombre);
+                comm.Parameters.AddWithValue("@Apellido", valAlta.Apellido);
+                comm.Parameters.AddWithValue("@FechaNac", valAlta._fechaNacimiento);
+                comm.Parameters.AddWithValue("@Dni", valAlta.Dni);
+                comm.Parameters.AddWithValue("@Calle", valAlta._calle);
+                comm.Parameters.AddWithValue("@Numero", valAlta._numero);
+                comm.Parameters.AddWithValue("@CodPostal", valAlta._codPostal);
+                comm.Parameters.AddWithValue("@Telefono", valAlta._telefono);
+                comm.Parameters.AddWithValue("@Estado", valAlta.Id_Estado);
+                comm.Parameters.AddWithValue("@Peso", valAlta._pesokg);
+                comm.Parameters.AddWithValue("@Altura", valAlta.Altura);
+                comm.Parameters.AddWithValue("@Certificado", valAlta.Certificado);
+                comm.Parameters.AddWithValue("@Membresia", valAlta.Membresia.Id);
+                comm.Parameters.AddWithValue("@Descuento", valAlta.Descuento);
 
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
                 rpta = true;
@@ -93,7 +47,7 @@ namespace DAL
             bool retornable = false;
             String query = "UPDATE ClienteGYM SET [Id_Estado] = 2 WHERE Dni = @dni";
             SqlCommand comm = new SqlCommand(query);
-            comm.Parameters.AddWithValue("@dni", valBaja._dni);
+            comm.Parameters.AddWithValue("@dni", valBaja.Dni);
             try
             {
                 Acceso.Instance.ExecuteNonQuery(comm);
@@ -127,22 +81,26 @@ namespace DAL
             {
                 SqlCommand comm = new SqlCommand();
 
-                comm.CommandText = "UPDATE ClienteGYM SET Nombre = @Nombre, Apellido = @Apellido, Calle = @Calle, Numero = @Numero, CodPostal = @CodPostal, Telefono = @Telefono, PesoKg = @Peso, Id_Estado = @Estado WHERE Dni = @Dni";
+                comm.CommandText = "UPDATE ClienteGYM SET Nombre = @Nombre, Apellido = @Apellido, Calle = @Calle, Numero = @Numero, CodPostal = @CodPostal, Telefono = @Telefono, PesoKg = @Peso, Id_Estado = @Estado, Altura = @Altura, Certificado = @Certificado, Id_Membresia = @Membresia, Descuento = @Descuento WHERE Dni = @Dni";
 
                 comm.Parameters.AddWithValue("@Nombre", valMod.Nombre);
                 comm.Parameters.AddWithValue("@Apellido", valMod.Apellido);
-                comm.Parameters.AddWithValue("@Dni", valMod._dni);
+                comm.Parameters.AddWithValue("@Dni", valMod.Dni);
                 comm.Parameters.AddWithValue("@Calle", valMod._calle);
                 comm.Parameters.AddWithValue("@Numero", valMod._numero);
                 comm.Parameters.AddWithValue("@CodPostal", valMod._codPostal);
                 comm.Parameters.AddWithValue("@Telefono", valMod._telefono);
                 comm.Parameters.AddWithValue("@Estado", valMod.Id_Estado);
                 comm.Parameters.AddWithValue("@Peso", valMod._pesokg);
-                
+                comm.Parameters.AddWithValue("@Altura", valMod.Altura);
+                comm.Parameters.AddWithValue("@Certificado", valMod.Certificado);
+                comm.Parameters.AddWithValue("@Membresia", valMod.Membresia.Id);
+                comm.Parameters.AddWithValue("@Descuento", valMod.Descuento);
+
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
                 rpta = true;
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta el Usuario."); }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de modificar el Usuario."); }
             return rpta;
         }
 
@@ -160,7 +118,7 @@ namespace DAL
                 try
                 {
                     SqlCommand command = new SqlCommand(query);
-                    command.Parameters.AddWithValue("@dni", cli._dni);
+                    command.Parameters.AddWithValue("@dni", cli.Dni);
                     respuesta = Acceso.Instance.ExecuteScalarBool(command);
                 }
                 catch { }
@@ -169,22 +127,38 @@ namespace DAL
 
         }
 
-        public DataTable MostrarCliente(Cliente cli)
+        public BE.Cliente MostrarCliente(Cliente cli)
         {
-            DataTable dt = new DataTable();
+            BE.Cliente formaCliente = new BE.Cliente();
             using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
-                String query = "SELECT * FROM ClienteGYM WHERE dni = " + cli._dni;
+                String query = "SELECT * FROM ClienteGYM WHERE dni = " + cli.Dni;
                 SqlCommand command = new SqlCommand(query);
                 try
                 {
-                    dt = Acceso.Instance.ExecuteReader(command);
+                    DataTable dt = Acceso.Instance.ExecuteReader(command);
+                    foreach (DataRow fila in dt.Rows)
+                    {
+                        formaCliente.Nombre = fila["Nombre"].ToString();
+                        formaCliente.Apellido = fila["Apellido"].ToString();
+                        formaCliente._pesokg = float.Parse(fila["PesoKg"].ToString());
+                        formaCliente.Dni = int.Parse(fila["Dni"].ToString());
+                        formaCliente._calle = fila["Calle"].ToString();
+                        formaCliente._numero = int.Parse(fila["Numero"].ToString());
+                        formaCliente._codPostal = int.Parse(fila["CodPostal"].ToString());
+                        formaCliente._telefono = int.Parse(fila["Telefono"].ToString());
+                        formaCliente._fechaNacimiento = DateTime.Parse(fila["Fecha_Nac"].ToString());
+                        formaCliente.Membresia.Id = int.Parse(fila["Id_Membresia"].ToString());
+                        formaCliente.Id_Estado = int.Parse(fila["Id_Estado"].ToString());
+                        formaCliente.Certificado = bool.Parse(fila["Certificado"].ToString());
+                        formaCliente.Descuento = int.Parse(fila["Descuento"].ToString());
+                        formaCliente.Altura = float.Parse(fila["Altura"].ToString());
+                    }
                 }
                 catch
                 { }
-
             }
-            return dt;
+            return formaCliente;
 
         }
 
@@ -195,7 +169,7 @@ namespace DAL
             {
                 String query = "SELECT Id_Cliente FROM ClienteGYM WHERE Dni = @dni";
                 SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@dni", cliente._dni);
+                command.Parameters.AddWithValue("@dni", cliente.Dni);
                 try
                 {
                     idCliente = Acceso.Instance.ExecuteScalar(command);

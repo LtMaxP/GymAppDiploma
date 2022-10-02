@@ -33,9 +33,6 @@
             this.textBox_Buscar = new System.Windows.Forms.TextBox();
             this.labelBuscarUnUsuario = new System.Windows.Forms.Label();
             this.listView = new System.Windows.Forms.ListView();
-            this.Dni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Apellido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelMostrar = new System.Windows.Forms.Button();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelApellido = new System.Windows.Forms.Label();
@@ -62,9 +59,6 @@
             this.textBox_Peso = new System.Windows.Forms.TextBox();
             this.fechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.comboBox_estado = new System.Windows.Forms.ComboBox();
-            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.buttonCalc = new System.Windows.Forms.Button();
             this.labelValorEdad = new System.Windows.Forms.Label();
@@ -75,7 +69,14 @@
             this.labelAltura = new System.Windows.Forms.Label();
             this.textBoxAltura = new System.Windows.Forms.TextBox();
             this.labelIMC = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboDesc = new System.Windows.Forms.ComboBox();
+            this.dni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.apellido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Select = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource2)).BeginInit();
@@ -110,9 +111,10 @@
             // listView
             // 
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Dni,
-            this.Nombre,
-            this.Apellido});
+            this.Select,
+            this.dni,
+            this.nombre,
+            this.apellido});
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(16, 70);
             this.listView.Name = "listView";
@@ -120,20 +122,6 @@
             this.listView.TabIndex = 3;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
-            // 
-            // Dni
-            // 
-            this.Dni.Text = "Dni";
-            // 
-            // Nombre
-            // 
-            this.Nombre.Text = "Nombre";
-            this.Nombre.Width = 81;
-            // 
-            // Apellido
-            // 
-            this.Apellido.Text = "Apellido";
-            this.Apellido.Width = 83;
             // 
             // labelMostrar
             // 
@@ -266,6 +254,7 @@
             this.labelModificar.TabIndex = 8;
             this.labelModificar.Text = "Modificar";
             this.labelModificar.UseVisualStyleBackColor = true;
+            this.labelModificar.Click += new System.EventHandler(this.labelModificar_Click);
             // 
             // textBox_Nombre
             // 
@@ -366,18 +355,6 @@
             this.comboBox_estado.TabIndex = 12;
             this.comboBox_estado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // clientesBindingSource
-            // 
-            this.clientesBindingSource.DataSource = typeof(UI.Clientes);
-            // 
-            // clientesBindingSource1
-            // 
-            this.clientesBindingSource1.DataSource = typeof(UI.Clientes);
-            // 
-            // clientesBindingSource2
-            // 
-            this.clientesBindingSource2.DataSource = typeof(UI.Clientes);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -402,7 +379,7 @@
             // labelValorEdad
             // 
             this.labelValorEdad.AutoSize = true;
-            this.labelValorEdad.Location = new System.Drawing.Point(426, 307);
+            this.labelValorEdad.Location = new System.Drawing.Point(390, 307);
             this.labelValorEdad.Name = "labelValorEdad";
             this.labelValorEdad.Size = new System.Drawing.Size(14, 13);
             this.labelValorEdad.TabIndex = 5;
@@ -437,6 +414,7 @@
             this.checkBoxCertif.Size = new System.Drawing.Size(15, 14);
             this.checkBoxCertif.TabIndex = 15;
             this.checkBoxCertif.UseVisualStyleBackColor = true;
+            this.checkBoxCertif.CheckedChanged += new System.EventHandler(this.checkBoxCertif_CheckedChanged);
             // 
             // labelDescuento
             // 
@@ -475,11 +453,13 @@
             this.labelIMC.Text = "X";
             this.labelIMC.Click += new System.EventHandler(this.label9_Click);
             // 
-            // comboBox1
+            // comboDesc
             // 
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboDesc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboDesc.Enabled = false;
+            this.comboDesc.FormattingEnabled = true;
+            this.comboDesc.Items.AddRange(new object[] {
+            "0%",
             "10%",
             "20%",
             "30%",
@@ -490,11 +470,42 @@
             "80%",
             "90%",
             "100%"});
-            this.comboBox1.Location = new System.Drawing.Point(626, 237);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(67, 21);
-            this.comboBox1.TabIndex = 12;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboDesc.Location = new System.Drawing.Point(626, 237);
+            this.comboDesc.Name = "comboDesc";
+            this.comboDesc.Size = new System.Drawing.Size(67, 21);
+            this.comboDesc.TabIndex = 12;
+            this.comboDesc.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // dni
+            // 
+            this.dni.Text = "DNI";
+            this.dni.Width = 79;
+            // 
+            // nombre
+            // 
+            this.nombre.Text = "Nombre";
+            this.nombre.Width = 62;
+            // 
+            // apellido
+            // 
+            this.apellido.Text = "Apellido";
+            // 
+            // Select
+            // 
+            this.Select.Text = "X";
+            this.Select.Width = 20;
+            // 
+            // clientesBindingSource
+            // 
+            this.clientesBindingSource.DataSource = typeof(UI.Clientes);
+            // 
+            // clientesBindingSource1
+            // 
+            this.clientesBindingSource1.DataSource = typeof(UI.Clientes);
+            // 
+            // clientesBindingSource2
+            // 
+            this.clientesBindingSource2.DataSource = typeof(UI.Clientes);
             // 
             // Clientes
             // 
@@ -503,7 +514,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.checkBoxCertif);
             this.Controls.Add(this.buttonCalc);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboDesc);
             this.Controls.Add(this.comboMem);
             this.Controls.Add(this.comboBox_estado);
             this.Controls.Add(this.fechaNacimiento);
@@ -588,9 +599,6 @@
         private System.Windows.Forms.TextBox textBox_Peso;
         private System.Windows.Forms.DateTimePicker fechaNacimiento;
         private System.Windows.Forms.ComboBox comboBox_estado;
-        private System.Windows.Forms.ColumnHeader Nombre;
-        private System.Windows.Forms.ColumnHeader Apellido;
-        private System.Windows.Forms.ColumnHeader Dni;
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private System.Windows.Forms.BindingSource clientesBindingSource1;
         private System.Windows.Forms.BindingSource clientesBindingSource2;
@@ -604,6 +612,10 @@
         private System.Windows.Forms.Label labelAltura;
         private System.Windows.Forms.TextBox textBoxAltura;
         private System.Windows.Forms.Label labelIMC;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboDesc;
+        private System.Windows.Forms.ColumnHeader dni;
+        private System.Windows.Forms.ColumnHeader nombre;
+        private System.Windows.Forms.ColumnHeader apellido;
+        private System.Windows.Forms.ColumnHeader Select;
     }
 }

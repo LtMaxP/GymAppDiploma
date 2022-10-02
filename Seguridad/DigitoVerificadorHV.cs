@@ -10,6 +10,11 @@ namespace Servicios
 {
     public class DigitoVerificadorHV
     {
+        /// <summary>
+        /// Creacion de DVH
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static string CrearDVH(BE_Usuario user)
         {
             string hash = user.IdUsuario.ToString() + user.User + user.Pass;

@@ -50,14 +50,11 @@
     <Compile Include="Composite\Composite.cs" />
     <Compile Include="Composite\Hoja.cs" />
     <Compile Include="Negocio\BE_Administracion.cs" />
-    <Compile Include="Negocio\BE_Clase.cs" />
     <Compile Include="Negocio\BE_Gerente.cs" />
     <Compile Include="Negocio\BE_Membresia.cs" />
     <Compile Include="Negocio\BE_Rutina.cs" />
     <Compile Include="Negocio\Item.cs" />
-    <Compile Include="Negocio\Profesor.cs" />
     <Compile Include="Negocio\BE_Ejercicio.cs" />
-    <Compile Include="Negocio\Trabajo.cs" />
     <Compile Include="Negocio\Persona.cs" />
     <Compile Include="ObserverIdioma\BE_Idioma.cs" />
     <Compile Include="ObserverIdioma\IObserverIdioma.cs" />

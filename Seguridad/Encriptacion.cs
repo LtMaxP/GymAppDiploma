@@ -10,6 +10,11 @@ namespace Servicios
     public class Encriptacion
     {
         static void Main() { }
+        /// <summary>
+        /// Metodo encriptador
+        /// </summary>
+        /// <param name="txtEnciptar"></param>
+        /// <returns></returns>
         public static string Encriptador(string txtEnciptar)
         {
             byte[] cadenaDeBytes;

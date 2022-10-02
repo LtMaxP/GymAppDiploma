@@ -9,12 +9,12 @@ namespace BE
     public class Cliente : Persona
     {
 
-        private int dni;
-        public int _dni
-        {
-            get { return dni; }
-            set { dni = value; }
-        }
+        //private int dni;
+        //public int _dni
+        //{
+        //    get { return dni; }
+        //    set { dni = value; }
+        //}
 
         private string calle;
         public string _calle
@@ -58,20 +58,26 @@ namespace BE
             set { pesokg = value; }
         }
 
-        private int _membresia;
-        public int Membresia
+        private BE.Negocio.BE_Membresia _Membresia;
+
+        public BE.Negocio.BE_Membresia Membresia
         {
-            get { return _membresia; }
-            set { _membresia = value; }
+            get { if (_Membresia == null)
+                {
+                    _Membresia = new Negocio.BE_Membresia();
+                }
+                    return _Membresia; }
+            set { _Membresia = value; }
         }
 
-        private int _idEstado;
 
-        public int IdEstado
-        {
-            get { return _idEstado; }
-            set { _idEstado = value; }
-        }
+        //private int _idEstado;
+
+        //public int IdEstado
+        //{
+        //    get { return _idEstado; }
+        //    set { _idEstado = value; }
+        //}
 
         private bool _certificado;
 
@@ -81,16 +87,15 @@ namespace BE
             set { _certificado = value; }
         }
 
-        private decimal _descuento;
-
-        public decimal Descuento
+        private int _descuento;
+        public int Descuento
         {
             get { return _descuento; }
             set { _descuento = value; }
         }
-        private decimal _altura;
+        private float _altura;
 
-        public decimal Altura
+        public float Altura
         {
             get { return _altura; }
             set { _altura = value; }
