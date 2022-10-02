@@ -63,6 +63,14 @@ namespace UI
                     else
                     {
                         MessageBox.Show("BASE DE DATOS CORRUPTA !!! ");
+                        if (user.Permisos.VerificarSiExistePermiso("15"))
+                        {
+                            this.Hide();
+                            Inicio ini = new Inicio();
+                            ini.Show();
+                            //yblablabla recupera
+                        }
+
                     }
                 }
                 else

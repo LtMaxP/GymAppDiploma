@@ -73,15 +73,19 @@ namespace DAL
                 comm.Parameters.AddWithValue("@pass", BE.Usuario.Instance.Pass);
 
                 respuesta = Acceso.Instance.ExecuteScalarBool(comm);
-                GoodUser();
-                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario " + BE.Usuario.Instance.User, "Ninguno"));
+                if (respuesta)
+                {
+                    GoodUser();
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario " + BE.Usuario.Instance.User, "Ninguno"));
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Contraseña erronea");
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Constraseña erronea usuario " + BE.Usuario.Instance.User, "Medio"));
+                    BadPass();
+                }
             }
-            catch
-            {
-                System.Windows.Forms.MessageBox.Show("Contraseña erronea");
-                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Constraseña erronea usuario " + BE.Usuario.Instance.User, "Medio"));
-                BadPass();
-            }
+            catch { }
             return respuesta;
         }
 

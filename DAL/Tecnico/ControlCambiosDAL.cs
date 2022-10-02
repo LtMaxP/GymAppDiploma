@@ -1,4 +1,5 @@
-﻿using BE.Tecnico;
+﻿using BE;
+using BE.Tecnico;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,13 +21,13 @@ namespace DAL.Tecnico
         {
             try
             {
-                var sqlCmd = Acceso.Instance.CrearCommandStoredProcedure("ControlCambiosRecupero");
+                var sqlCmd = Acceso.Instance.CrearCommandStoredProcedure("[dbo].[ControlCambiosRecupero]");
                 sqlCmd.Parameters.Add("@IdEntidad", SqlDbType.Int).Value = rCC.idEntidad;
                 sqlCmd.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = rCC.descripcion;
                 sqlCmd.Parameters.Add("@Valor", SqlDbType.Decimal).Value = rCC.valor;
                 sqlCmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = rCC.cantidad;
                 sqlCmd.Parameters.Add("@Operacion", SqlDbType.VarChar).Value = rCC.operacion;
-                sqlCmd.Parameters.Add("@Secuencia", SqlDbType.Int).Value = rCC.secuencia;
+                //sqlCmd.Parameters.Add("@Secuencia", SqlDbType.Int).Value = rCC.secuencia;
                 sqlCmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = rCC.usuarioID;
                 Acceso.Instance.ExecuteNonQuery(sqlCmd);
             }
@@ -66,6 +67,25 @@ namespace DAL.Tecnico
             catch { }
             return controldeCambios;
         }
-
+        /// <summary>
+        /// Grabar Historico por CC pasado
+        /// </summary>
+        /// <param name="itm"></param>
+        public static void GrabarHistoricoCC(BE.Tecnico.ControlCambio itm)
+        {
+            try
+            {
+                var sqlCmd = Acceso.Instance.CrearCommandStoredProcedure("[dbo].[ControlCambiosGrabar]");
+                sqlCmd.Parameters.Add("@IdEntidad", SqlDbType.Int).Value = itm.idEntidad;
+                sqlCmd.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = itm.descripcion;
+                sqlCmd.Parameters.Add("@Valor", SqlDbType.Decimal).Value = itm.valor;
+                sqlCmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = itm.cantidad;
+                sqlCmd.Parameters.Add("@Operacion", SqlDbType.VarChar).Value = itm.operacion;
+                sqlCmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = Usuario.Instance.IdUsuario;
+                Acceso.Instance.ExecuteNonQuery(sqlCmd);
+            }
+            catch
+            { }
+        }
     }
 }

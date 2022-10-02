@@ -124,7 +124,6 @@ namespace DAL
                 catch { }
             }
             return respuesta;
-
         }
 
         public BE.Cliente MostrarCliente(Cliente cli)

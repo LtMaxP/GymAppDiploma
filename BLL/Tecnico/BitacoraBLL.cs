@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using BE;
 
 namespace BLL
 {
@@ -28,6 +29,11 @@ namespace BLL
             DataTable dt = bitDal.TraerBitacora();
             List<BE.Bitacora> bitacs = bit.CargarBitacora(dt);
             return bitacs;
+        }
+
+        public List<Bitacora> CargarBitacoraFechas(DateTime dt1, DateTime dt2)
+        {
+            return DAL.BitacoraDAL.TraerBitacoraPorFecha(dt1, dt2);
         }
     }
 }

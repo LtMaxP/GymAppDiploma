@@ -20,7 +20,7 @@ namespace BLL.Tecnico
 
         public static void GuardarCC(BE.Tecnico.ControlCambio rCC)
         {
-            rCC.idEntidad = BE.Usuario.Instance.IdUsuario;
+            rCC.usuarioID = BE.Usuario.Instance.IdUsuario;
             DAL.Tecnico.ControlCambiosDAL.GrabarCC(rCC);
         }
     }

@@ -42,6 +42,9 @@ namespace DAL
                     command3.Parameters.AddWithValue("@cantidad", itm.Cantidad);
                     command3.Parameters.AddWithValue("@desc", itm.Descripcion);
                     Acceso.Instance.ExecuteNonQuery(command3);
+
+                    //Grabar historico CC
+                    DAL.Tecnico.ControlCambiosDAL.GrabarHistoricoCC(new BE.Tecnico.ControlCambio(itm.Id_Item, itm.Valor, itm.Cantidad, itm.Descripcion, "Compra Factura " + factura.Id_Factura, 99));
                 }
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Factura " + factura.Id_Factura + " creada al cliente: " + factura.Id_Cliente, "Ninguno"));
             }
