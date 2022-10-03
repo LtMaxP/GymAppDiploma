@@ -20,7 +20,7 @@ namespace UI
 
         private BLL.Login bllLog = new BLL.Login();
         private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
-        private BLL.DV DigitosVerificadores = new BLL.DV(); 
+        private BLL.DV DigitosVerificadores = new BLL.DV();
 
         public LogIn()
         {
@@ -62,14 +62,15 @@ namespace UI
                     else
                     {
                         MessageBox.Show("BASE DE DATOS CORRUPTA !!! ");
-                        if (user.Permisos != null && user.Permisos.VerificarSiExistePermiso("15"))
-                        {
-                            this.Hide();
-                            Inicio ini = new Inicio();
-                            ini.Show();
-                            BackupRestore bk = new BackupRestore();
-                            bk.Show();
-                        }
+                        if (user.Permisos != null)
+                            if (user.Permisos.VerificarSiExistePermiso("15"))
+                            {
+                                this.Hide();
+                                Inicio ini = new Inicio();
+                                ini.Show();
+                                BackupRestore bk = new BackupRestore();
+                                bk.Show();
+                            }
                     }
                 }
                 else
@@ -82,7 +83,7 @@ namespace UI
 
         private void Recuperacion_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(textBox1.Text) && !String.IsNullOrEmpty(textBox2.Text))
+            if (!String.IsNullOrEmpty(textBox1.Text) && !String.IsNullOrEmpty(textBox2.Text))
             {
                 BE.BE_Usuario user = new BE.BE_Usuario();
                 user.User = textBox1.Text;
