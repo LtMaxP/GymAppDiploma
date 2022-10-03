@@ -18,10 +18,12 @@ namespace DAL.Tecnico
                             ALTER DATABASE GymApp
                             SET SINGLE_USER WITH ROLLBACK IMMEDIATE
 
-                            RESTORE DATABASE GymApp FROM DISK = '" + ruta + "'" + " WITH REPLACE " +
-                            "ALTER DATABASE GymApp SET MULTI_USER";
+                            RESTORE DATABASE GymApp FROM DISK = @ruta WITH REPLACE 
+                            ALTER DATABASE GymApp SET MULTI_USER";
                 SqlCommand cmd = new SqlCommand(query);
+                cmd.Parameters.AddWithValue("@ruta", ruta);
                 Acceso.Instance.ExecuteNonQuery(cmd);
+
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Es generando Restore en BD", "Ninguno"));
             }
             catch (Exception)
