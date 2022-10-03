@@ -40,7 +40,6 @@ namespace UI
 
         public void button1_Click(object sender, EventArgs e)
         {
-
             if (textBox1.Text == String.Empty || textBox2.Text == String.Empty)
             {
                 MessageBox.Show("Debe ingresar un usuario o contraseña para avanzar");
@@ -63,14 +62,14 @@ namespace UI
                     else
                     {
                         MessageBox.Show("BASE DE DATOS CORRUPTA !!! ");
-                        if (user.Permisos.VerificarSiExistePermiso("15"))
+                        if (user.Permisos != null && user.Permisos.VerificarSiExistePermiso("15"))
                         {
                             this.Hide();
                             Inicio ini = new Inicio();
                             ini.Show();
-                            //yblablabla recupera
+                            BackupRestore bk = new BackupRestore();
+                            bk.Show();
                         }
-
                     }
                 }
                 else

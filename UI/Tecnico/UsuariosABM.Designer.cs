@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.labelAlta = new System.Windows.Forms.Button();
             this.labelBaja = new System.Windows.Forms.Button();
             this.labelModificar = new System.Windows.Forms.Button();
@@ -51,6 +51,8 @@
             this.usuarioCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.IdiomaCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Estadocol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelPalabraS = new System.Windows.Forms.Label();
+            this.textBoxPalabraS = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelAlta
@@ -121,7 +123,7 @@
             // labelUsuario2
             // 
             this.labelUsuario2.AutoSize = true;
-            this.labelUsuario2.Location = new System.Drawing.Point(292, 120);
+            this.labelUsuario2.Location = new System.Drawing.Point(292, 117);
             this.labelUsuario2.Name = "labelUsuario2";
             this.labelUsuario2.Size = new System.Drawing.Size(49, 13);
             this.labelUsuario2.TabIndex = 9;
@@ -130,7 +132,7 @@
             // labelPass
             // 
             this.labelPass.AutoSize = true;
-            this.labelPass.Location = new System.Drawing.Point(292, 177);
+            this.labelPass.Location = new System.Drawing.Point(292, 155);
             this.labelPass.Name = "labelPass";
             this.labelPass.Size = new System.Drawing.Size(64, 13);
             this.labelPass.TabIndex = 9;
@@ -138,14 +140,14 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(392, 117);
+            this.textBox3.Location = new System.Drawing.Point(392, 114);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(131, 20);
             this.textBox3.TabIndex = 10;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(392, 174);
+            this.textBox4.Location = new System.Drawing.Point(392, 152);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(131, 20);
             this.textBox4.TabIndex = 10;
@@ -224,7 +226,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem3});
             this.listView1.Location = new System.Drawing.Point(15, 103);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -258,18 +260,38 @@
             this.Estadocol.Text = "Estado";
             this.Estadocol.Width = 100;
             // 
+            // labelPalabraS
+            // 
+            this.labelPalabraS.AutoSize = true;
+            this.labelPalabraS.Location = new System.Drawing.Point(292, 191);
+            this.labelPalabraS.Name = "labelPalabraS";
+            this.labelPalabraS.Size = new System.Drawing.Size(86, 13);
+            this.labelPalabraS.TabIndex = 9;
+            this.labelPalabraS.Text = "Palabra Secreta:";
+            // 
+            // textBoxPalabraS
+            // 
+            this.textBoxPalabraS.Location = new System.Drawing.Point(392, 188);
+            this.textBoxPalabraS.Name = "textBoxPalabraS";
+            this.textBoxPalabraS.Size = new System.Drawing.Size(131, 20);
+            this.textBoxPalabraS.TabIndex = 10;
+            // 
             // UsuariosABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(605, 449);
+            this.ControlBox = false;
             this.Controls.Add(this.labelMostrar);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBoxPalabraS);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.labelIdioma);
             this.Controls.Add(this.labelEstado);
+            this.Controls.Add(this.labelPalabraS);
             this.Controls.Add(this.labelPass);
             this.Controls.Add(this.labelUsuario2);
             this.Controls.Add(this.labelBuscarUnUsuario);
@@ -281,7 +303,6 @@
             this.Controls.Add(this.labelModificar);
             this.Controls.Add(this.labelBaja);
             this.Controls.Add(this.labelAlta);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UsuariosABM";
             this.Text = "UsuariosABM";
             this.Load += new System.EventHandler(this.UsuariosABM_Load);
@@ -314,5 +335,7 @@
         private System.Windows.Forms.ColumnHeader IdiomaCol;
         private System.Windows.Forms.ColumnHeader Estadocol;
         private System.Windows.Forms.ColumnHeader hide;
+        private System.Windows.Forms.Label labelPalabraS;
+        private System.Windows.Forms.TextBox textBoxPalabraS;
     }
 }

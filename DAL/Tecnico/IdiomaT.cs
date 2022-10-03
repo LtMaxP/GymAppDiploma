@@ -81,6 +81,7 @@ namespace DAL
                 try
                 {
                     Acceso.Instance.ExecuteNonQuery(command);
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se modifico el idioma " + idioma.Id, "Ninguno"));
                 }
                 catch { System.Windows.Forms.MessageBox.Show("Error al intentar Modificar idioma"); }
             }
@@ -100,7 +101,7 @@ namespace DAL
                 Acceso.Instance.ExecuteNonQuery(command);
                 idioma = DameIdIdioma(idioma);
                 CrearLabelsIdiomaDAL(idioma);
-
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se creo el idioma " + idioma.Leyendas, "Ninguno"));
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar crear idioma"); }
         }
@@ -241,6 +242,7 @@ namespace DAL
                 }
                 idiom.Leyendas = ley;
                 BE.Usuario.Instance.Idioma = idiom;
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Cambio de idioma a " + idIdioma, "Ninguno"));
             }
 
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar traer idioma"); }

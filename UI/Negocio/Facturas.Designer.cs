@@ -53,7 +53,7 @@ namespace UI
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 325);
+            this.button1.Location = new System.Drawing.Point(41, 323);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace UI
             // 
             // labelSalir
             // 
-            this.labelSalir.Location = new System.Drawing.Point(156, 374);
+            this.labelSalir.Location = new System.Drawing.Point(424, 410);
             this.labelSalir.Name = "labelSalir";
             this.labelSalir.Size = new System.Drawing.Size(75, 28);
             this.labelSalir.TabIndex = 2;
@@ -73,16 +73,16 @@ namespace UI
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(12, 66);
+            this.textBox.Location = new System.Drawing.Point(41, 66);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(138, 20);
+            this.textBox.Size = new System.Drawing.Size(192, 20);
             this.textBox.TabIndex = 3;
             // 
             // labelBuscar
             // 
-            this.labelBuscar.Location = new System.Drawing.Point(156, 65);
+            this.labelBuscar.Location = new System.Drawing.Point(276, 65);
             this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(75, 21);
+            this.labelBuscar.Size = new System.Drawing.Size(129, 21);
             this.labelBuscar.TabIndex = 4;
             this.labelBuscar.Text = "Buscar";
             this.labelBuscar.UseVisualStyleBackColor = true;
@@ -90,16 +90,16 @@ namespace UI
             // listBox
             // 
             this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(12, 94);
+            this.listBox.Location = new System.Drawing.Point(41, 92);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(219, 199);
+            this.listBox.Size = new System.Drawing.Size(431, 199);
             this.listBox.TabIndex = 5;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 299);
+            this.dateTimePicker1.Location = new System.Drawing.Point(41, 297);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(88, 20);
             this.dateTimePicker1.TabIndex = 6;
@@ -107,7 +107,7 @@ namespace UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 50);
+            this.label2.Location = new System.Drawing.Point(38, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 13);
             this.label2.TabIndex = 7;

@@ -209,7 +209,6 @@ namespace UI
             this.Controls.Add(this.AgregarBtn2);
             this.Controls.Add(this.AgregarBtn);
             this.Controls.Add(this.labelPatente);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Permisos";
             this.Text = "Permisos";
             this.Load += new System.EventHandler(this.Permisos_Load);

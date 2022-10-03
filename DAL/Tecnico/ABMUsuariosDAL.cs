@@ -17,7 +17,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.DVH ) VALUES (@NombreUsuario, @Contraseña, @IdIdioma, @IdEstado, @dvh)"; //INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Rol ) VALUES ('Pepe','123123','1','1', 'Prueba')
+                comm.CommandText = "INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.DVH, Usuario.Palabra_Secreta ) VALUES (@NombreUsuario, @Contraseña, @IdIdioma, @IdEstado, @dvh, @PSecreta)"; //INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Rol ) VALUES ('Pepe','123123','1','1', 'Prueba')
 
                 SqlParameter parameter1 = new SqlParameter();
                 parameter1.ParameterName = "@NombreUsuario";
@@ -44,11 +44,18 @@ namespace DAL
                 parameter4.Value = valAlta._DVH;
                 parameter4.SqlDbType = System.Data.SqlDbType.VarChar;
 
+                SqlParameter parameter6 = new SqlParameter();
+                parameter4.ParameterName = "@PSecreta";
+                parameter4.Value = valAlta.PSecreta;
+                parameter4.SqlDbType = System.Data.SqlDbType.VarChar;
+                
+
                 comm.Parameters.Add(parameter1);
                 comm.Parameters.Add(parameter2);
                 comm.Parameters.Add(parameter3);
                 comm.Parameters.Add(parameter4);
                 comm.Parameters.Add(parameter5);
+                comm.Parameters.Add(parameter6);
 
                 Acceso.Instance.ExecuteNonQuery(comm);
 
@@ -115,7 +122,7 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "SELECT Usuario, Password, Id_Idioma, Id_Estado FROM Usuario WHERE Usuario.Usuario = @nombre";
+                comm.CommandText = "SELECT Usuario, Password, Id_Idioma, Id_Estado, Palabra_Secreta FROM Usuario WHERE Usuario.Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", valBuscar.User);
 
                 DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
@@ -126,6 +133,7 @@ namespace DAL
                     UserRet.Idioma = new BE.ObserverIdioma.BE_Idioma();
                     UserRet.Idioma.Id = (int)dr[2];
                     UserRet.idEstado = (int)dr[3];
+                    UserRet.PSecreta = dr["Palabra_Secreta"].ToString();
                 }
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
@@ -201,7 +209,7 @@ namespace DAL
 
                 if (!string.IsNullOrEmpty(valModificar.Pass))
                 {
-                    comm.CommandText = "UPDATE Usuario SET Usuario.Password = @Contraseña, Usuario.DVH = @DVH, Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario";
+                    comm.CommandText = "UPDATE Usuario SET Usuario.Password = @Contraseña, Usuario.DVH = @DVH, Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado, Usuario.Palabra_Secreta = @Palabra_Secreta WHERE Usuario.Usuario = @NombreUsuario";
 
                     SqlParameter parameter2 = new SqlParameter();
                     parameter2.ParameterName = "@Contraseña";
@@ -209,7 +217,7 @@ namespace DAL
                     parameter2.SqlDbType = System.Data.SqlDbType.VarChar;
                     comm.Parameters.Add(parameter2);
                 }
-                else { comm.CommandText = "UPDATE Usuario SET Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario"; }
+                else { comm.CommandText = "UPDATE Usuario SET Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado, Usuario.Palabra_Secreta = @Palabra_Secreta WHERE Usuario.Usuario = @NombreUsuario"; }
 
                 SqlParameter parameter1 = new SqlParameter();
                 parameter1.ParameterName = "@NombreUsuario";
@@ -231,10 +239,16 @@ namespace DAL
                 parameter5.Value = valModificar._DVH;
                 parameter5.SqlDbType = System.Data.SqlDbType.VarChar;
 
+                SqlParameter parameter6 = new SqlParameter();
+                parameter5.ParameterName = "@Palabra_Secreta";
+                parameter5.Value = valModificar.PSecreta;
+                parameter5.SqlDbType = System.Data.SqlDbType.VarChar;
+
                 comm.Parameters.Add(parameter1);
                 comm.Parameters.Add(parameter3);
                 comm.Parameters.Add(parameter4);
                 comm.Parameters.Add(parameter5);
+                comm.Parameters.Add(parameter6);
 
                 Acceso.Instance.ExecuteNonQuery(comm);
                 string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());

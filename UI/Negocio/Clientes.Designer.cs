@@ -33,6 +33,10 @@
             this.textBox_Buscar = new System.Windows.Forms.TextBox();
             this.labelBuscarUnUsuario = new System.Windows.Forms.Label();
             this.listView = new System.Windows.Forms.ListView();
+            this.Select = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.apellido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelMostrar = new System.Windows.Forms.Button();
             this.labelNombre = new System.Windows.Forms.Label();
             this.labelApellido = new System.Windows.Forms.Label();
@@ -70,10 +74,6 @@
             this.textBoxAltura = new System.Windows.Forms.TextBox();
             this.labelIMC = new System.Windows.Forms.Label();
             this.comboDesc = new System.Windows.Forms.ComboBox();
-            this.dni = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.apellido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Select = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clientesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
@@ -122,6 +122,25 @@
             this.listView.TabIndex = 3;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
+            // 
+            // Select
+            // 
+            this.Select.Text = "X";
+            this.Select.Width = 20;
+            // 
+            // dni
+            // 
+            this.dni.Text = "DNI";
+            this.dni.Width = 79;
+            // 
+            // nombre
+            // 
+            this.nombre.Text = "Nombre";
+            this.nombre.Width = 62;
+            // 
+            // apellido
+            // 
+            this.apellido.Text = "Apellido";
             // 
             // labelMostrar
             // 
@@ -476,25 +495,6 @@
             this.comboDesc.TabIndex = 12;
             this.comboDesc.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // dni
-            // 
-            this.dni.Text = "DNI";
-            this.dni.Width = 79;
-            // 
-            // nombre
-            // 
-            this.nombre.Text = "Nombre";
-            this.nombre.Width = 62;
-            // 
-            // apellido
-            // 
-            this.apellido.Text = "Apellido";
-            // 
-            // Select
-            // 
-            this.Select.Text = "X";
-            this.Select.Width = 20;
-            // 
             // clientesBindingSource
             // 
             this.clientesBindingSource.DataSource = typeof(UI.Clientes);
@@ -553,7 +553,6 @@
             this.Controls.Add(this.labelBuscarUnUsuario);
             this.Controls.Add(this.textBox_Buscar);
             this.Controls.Add(this.labelBuscar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Clientes";

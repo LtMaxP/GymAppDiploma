@@ -38,5 +38,6 @@ namespace Servicios
             string hasheoDVH = Servicios.Encriptacion.Encriptador(hash);
             return hasheoDVH;
         }
+
     }
 }

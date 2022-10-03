@@ -237,7 +237,6 @@
             this.Controls.Add(this.labelBuscarUnUsuario);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labelBuscar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Empleados";
             this.Text = "Empleados";
             this.Load += new System.EventHandler(this.Empleados_Load);

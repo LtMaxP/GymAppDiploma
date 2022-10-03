@@ -66,5 +66,13 @@ namespace BE
             set { _permisos = value; }
         }
 
+        private string _pSecreta;
+        public string PSecreta
+        {
+            get { return _pSecreta; }
+            set { _pSecreta = value; }
+        }
+
+
     }
 }

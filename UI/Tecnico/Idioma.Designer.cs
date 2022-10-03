@@ -159,7 +159,9 @@ namespace UI.Tecnico
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(581, 591);
+            this.ControlBox = false;
             this.Controls.Add(this.LabelIdi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button5);
@@ -172,7 +174,6 @@ namespace UI.Tecnico
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Idioma";
             this.Text = "Idioma";
             this.Load += new System.EventHandler(this.Idioma_Load);

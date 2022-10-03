@@ -185,6 +185,7 @@
             // PermisosUsuario
             // 
             this.ClientSize = new System.Drawing.Size(923, 476);
+            this.ControlBox = false;
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -199,7 +200,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSalir);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PermisosUsuario";
             this.Load += new System.EventHandler(this.PermisosUsuario_Load_1);
             this.ResumeLayout(false);

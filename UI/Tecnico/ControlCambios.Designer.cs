@@ -60,7 +60,7 @@ namespace UI.Tecnico
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(610, 330);
+            this.button1.Location = new System.Drawing.Point(25, 330);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(138, 42);
             this.button1.TabIndex = 2;
@@ -86,11 +86,11 @@ namespace UI.Tecnico
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelControlCambios);
             this.Controls.Add(this.dataGridView1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ControlCambios";
             this.Text = "ControlCambios";
             this.Load += new System.EventHandler(this.ControlCambios_Load);

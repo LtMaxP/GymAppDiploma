@@ -53,7 +53,6 @@ namespace UI
 
         private void button5_Click(object sender, EventArgs e)
         {
-            dv.RecalcularDVH();
         }
 
         private void BitacoraYDV_Load(object sender, EventArgs e)
@@ -74,9 +73,10 @@ namespace UI
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            string mensajeD = string.Empty;
-            mensajeD = dv.RecalcularDVV() ? "Digito Verificador Vertical Correcto" : "Digito Verificador Vertical Incorrecto!! ERROR";
-            MessageBox.Show(mensajeD);
+            //DVV recalcular?
+            //string mensajeD = string.Empty;
+            //mensajeD = dv.RecalcularDVV() ? "Digito Verificador Vertical Correcto" : "Digito Verificador Vertical Incorrecto!! ERROR";
+            //MessageBox.Show(mensajeD);
         }
     }
 }

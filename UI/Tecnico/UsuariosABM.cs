@@ -26,9 +26,14 @@ namespace UI
             this.Close();
         }
 
+        /// <summary>
+        /// Dar de alta nuevo usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text))
+            if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text) || String.IsNullOrEmpty(textBoxPalabraS.Text))
             {
                 MessageBox.Show("Debe completar todos los campos.");
             }
@@ -41,6 +46,7 @@ namespace UI
                     newUsuario.Pass = textBox4.Text;
                     newUsuario.Idioma.NombreIdioma = comboBox1.Text;
                     newUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
+                    newUsuario.PSecreta = textBoxPalabraS.Text;
                     usuarioABM.AgregarUsuario(newUsuario);
                     MessageBox.Show("El usuario fue dado de Alta con éxito.");
                 }
@@ -133,10 +139,14 @@ namespace UI
         {
 
         }
-
+        /// <summary>
+        /// Modificar nuevo usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelModificar_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text))
+            if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text) || String.IsNullOrEmpty(textBoxPalabraS.Text))
             {
                 MessageBox.Show("Debe completar todos los campos para modificar.");
             }
@@ -164,6 +174,7 @@ namespace UI
                     modUsuario.User = textBox3.Text;
                     modUsuario.Idioma = new BE.ObserverIdioma.BE_Idioma(comboBox1.Text);
                     modUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
+                    modUsuario.PSecreta = textBoxPalabraS.Text;
                     usuarioABM.ModificarUsuario(modUsuario);
 
                     MessageBox.Show("El usuario fue Modificado con éxito.");
