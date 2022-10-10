@@ -14,7 +14,7 @@ namespace BLL
         DAL.BitacoraDAL bitacora = new DAL.BitacoraDAL();
         BLL.Usuario usuarioABM = new BLL.Usuario();
 
-        static void Main() { }
+        //static void Main() { }
 
         /// <summary>
         /// Login con validación de usuario
@@ -45,9 +45,9 @@ namespace BLL
         /// <summary>
         /// Validar por pregunta si el usuario se desbloquea
         /// </summary>
-        public bool ValidacionPalabraSecreta(BE.BE_Usuario user, string palabraSecreta)
+        public bool ValidacionPalabraSecreta(BE.BE_Usuario user)
         {
-            return DALUserLogin.ValidacionPalabraSecreta(user, palabraSecreta);
+            return DALUserLogin.ValidacionPalabraSecreta(user);
         }
 
         /// <summary>
@@ -56,6 +56,9 @@ namespace BLL
         /// <param name="user"></param>
         public void CambiarPass(BE_Usuario user)
         {
+            user = DAL.ABMUsuariosDAL.DameId(user);
+            user._DVH = Servicios.DigitoVerificadorHV.CrearDVH(user);
+            DAL.ABMUsuariosDAL.RecuperoPass(user);
             usuarioABM.ModificarUsuario(user);
             DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se restableció la contraseña " + user.User, "Ninguno"));
         }

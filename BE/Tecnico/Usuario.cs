@@ -9,9 +9,9 @@ namespace BE
 
     public class Usuario
     {
-        public static void Main(string[] args)
-        {
-        }
+        //public static void Main(string[] args)
+        //{
+        //}
         #region singleton
         private Usuario()
         { }

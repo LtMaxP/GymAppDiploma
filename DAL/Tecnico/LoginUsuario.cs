@@ -54,7 +54,7 @@ namespace DAL
             {
                 returnable = Acceso.Instance.ExecuteScalarBool(sqlcomm);
             }
-            catch { System.Windows.Forms.MessageBox.Show("No se encontro el usuario"); }
+            catch { }
 
             return returnable;
         }
@@ -104,14 +104,14 @@ namespace DAL
         /// <summary>
         /// Validar por pregunta si el usuario se desbloquea
         /// </summary>
-        public bool ValidacionPalabraSecreta(BE.BE_Usuario user, string palabraSecreta)
+        public bool ValidacionPalabraSecreta(BE.BE_Usuario user)
         {
             bool validacion = false;
             try
             {
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END FROM Usuario WHERE Usuario = @user AND [Palabra_Secreta] = @palabra ";
-                comm.Parameters.AddWithValue("@palabra", palabraSecreta);
+                comm.Parameters.AddWithValue("@palabra", user.PSecreta);
                 comm.Parameters.AddWithValue("@user", user.User);
                 if (Acceso.Instance.ExecuteScalarBool(comm))
                 {

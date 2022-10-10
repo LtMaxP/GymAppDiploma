@@ -24,7 +24,7 @@ namespace DAL
             return dt;
         }
 
-        public String TraerDVV()
+        public static String TraerDVV()
         {
             string returnable = string.Empty;
             String query = "SELECT [CodigoHash] FROM DVV";
@@ -37,7 +37,7 @@ namespace DAL
             return returnable;
         }
 
-        public DataTable TraerDVH()
+        public static DataTable TraerDVH()
         {
             DataTable returnable = new DataTable();
             String query = "SELECT [Id_Usuario], [DVH] FROM [Usuario]";
@@ -50,7 +50,7 @@ namespace DAL
             return returnable;
         }
 
-        public void InsertarDVHEnUsuario(string codigoHash)
+        public static void InsertarDVHEnUsuario(string codigoHash)
         {
             String query = "UPDATE [DVHUsuario] set [HashCode] = @hashDVH WHERE id_Usuario = @IdUsuario";
             SqlCommand command = new SqlCommand(query);

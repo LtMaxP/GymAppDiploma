@@ -115,13 +115,9 @@ namespace DAL
             using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
                 String query = "SELECT * FROM ClienteGYM WHERE EXISTS(SELECT * FROM ClienteGYM WHERE Dni = @dni)";
-                try
-                {
-                    SqlCommand command = new SqlCommand(query);
-                    command.Parameters.AddWithValue("@dni", cli.Dni);
-                    respuesta = Acceso.Instance.ExecuteScalarBool(command);
-                }
-                catch { }
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@dni", cli.Dni);
+                respuesta = Acceso.Instance.ExecuteScalarBool(command);
             }
             return respuesta;
         }

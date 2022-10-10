@@ -89,7 +89,8 @@ namespace UI
                 user.User = textBox1.Text;
                 user.Pass = textBox2.Text;
                 string respuesta = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la palabra secreta", "Recuperar contraseña", "Palabra secreta");
-                if (bllLog.ValidacionPalabraSecreta(user, respuesta))
+                user.PSecreta = respuesta;
+                if (bllLog.ValidacionPalabraSecreta(user))
                 {
                     bllLog.CambiarPass(user);
                     MessageBox.Show("Cambio de contraseña exitoso");

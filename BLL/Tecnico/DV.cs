@@ -9,7 +9,6 @@ namespace BLL
 {
     public class DV
     {
-        private DAL.DigitoVerificadorDAL dVDal = new DAL.DigitoVerificadorDAL();
         
         //posible a borrar
         public void RecalcularDVV()
@@ -49,33 +48,33 @@ namespace BLL
             //Insertar
             DAL.DigitoVerificadorDAL.InsertarDVV(hasheoDVV);
         }
-        public void RecalcularDVH()
+        public static void RecalcularDVH()
         {
-            //string hash = string.Empty;
+            string hash = string.Empty;
 
-            //hash = BE.Usuario.Instance.IdUsuario.ToString() + BE.Usuario.Instance.User + BE.Usuario.Instance.Pass;
+            hash = BE.Usuario.Instance.IdUsuario.ToString() + BE.Usuario.Instance.User + BE.Usuario.Instance.Pass;
 
-            ////hasheo
-            //string hasheoDVH = Servicios.Encriptacion.Encriptador(hash);
-            ////Insertar
-            //dVDal.InsertarDVHEnUsuario(hasheoDVH);
+            //hasheo
+            string hasheoDVH = Servicios.Encriptacion.Encriptador(hash);
+            //Insertar
+            DAL.DigitoVerificadorDAL.InsertarDVHEnUsuario(hasheoDVH);
         }
 
         public bool VerificarDB()
         {
             string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
-            return DVV.Equals(dVDal.TraerDVV()) ? true : false;
+            return DVV.Equals(DAL.DigitoVerificadorDAL.TraerDVV()) ? true : false;
         }
 
         public String TraerDVV()
         {
-            return dVDal.TraerDVV();
+            return DAL.DigitoVerificadorDAL.TraerDVV();
         }
 
         public DataTable TraerDVH()
         {
             DataTable dt = new DataTable();
-            dt = dVDal.TraerDVH();
+            dt = DAL.DigitoVerificadorDAL.TraerDVH();
             return dt;
         }
 

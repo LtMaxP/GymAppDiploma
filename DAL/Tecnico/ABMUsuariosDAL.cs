@@ -71,6 +71,32 @@ namespace DAL
             return ret;
         }
 
+        public static void RecuperoPass(BE_Usuario user)
+        {
+            using (SqlConnection connection = Acceso.Instance.sqlCon)
+            {
+                String query = "UPDATE Usuario SET Password = @pass AND DVH = @DVH";
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@pass", user.Pass);
+                command.Parameters.AddWithValue("@DVH", user._DVH);
+                user.IdUsuario = Acceso.Instance.ExecuteScalar(command);
+                //////DAL.DigitoVerificadorDAL. que recalcule los DVH y DVV si cambias la pass
+            }
+        }
+
+        public static BE_Usuario DameId(BE_Usuario user)
+        {
+            using (SqlConnection connection = Acceso.Instance.sqlCon)
+            {
+                String query = "SELECT id FROM Usuario WHERE usuario = @user AND Palabra_Secreta = @PSecret";
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@user", user.User);
+                command.Parameters.AddWithValue("@PSecret", user.PSecreta);
+                user.IdUsuario = Acceso.Instance.ExecuteScalar(command);
+            }
+            return user;
+        }
+
         /// <summary>
         /// Eliminar el usuario
         /// </summary>
