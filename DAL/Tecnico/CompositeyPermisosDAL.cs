@@ -27,7 +27,7 @@ namespace DAL
                                     inner join PerfilPyF ON
                                     PerfilPyF.Id_Perfil = PermisosUsuarios.Id_Permiso
                                     AND Id_Usuario = @id;";
-                comm.Parameters.AddWithValue("@id", BE.Usuario.Instance.IdUsuario);
+                comm.Parameters.AddWithValue("@id", Servicios.Sesion.GetInstance.usuario.IdUsuario);
 
                 DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
 
@@ -49,7 +49,7 @@ namespace DAL
                         }
                     }
                 }
-                BE.Usuario.Instance.Permisos = Permisos;
+                Servicios.Sesion.GetInstance.usuario.Permisos = Permisos;
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Obtener PermisosUsuario."); }
         }

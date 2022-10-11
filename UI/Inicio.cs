@@ -32,7 +32,7 @@ namespace UI
         {
             if (!string.IsNullOrEmpty(c.Text))
             {
-                foreach (Leyenda us in BE.Usuario.Instance.Idioma.Leyendas)
+                foreach (Leyenda us in Servicios.Sesion.GetInstance.usuario.Idioma.Leyendas)
                 {
                     if (us._nombreEtiqueta == c.Name)
                     {
@@ -62,7 +62,7 @@ namespace UI
             {
                 if (!string.IsNullOrEmpty(item.Name))
                 {
-                    foreach (Leyenda us in BE.Usuario.Instance.Idioma.Leyendas)
+                    foreach (Leyenda us in Servicios.Sesion.GetInstance.usuario.Idioma.Leyendas)
                     {
                         if (us._nombreEtiqueta == item.Name)
                         {
@@ -114,7 +114,7 @@ namespace UI
             foreach (ToolStripItem item in tsic)
             {
                 if (!string.IsNullOrEmpty(item.Tag.ToString()))
-                    foreach (BE.Composite.Component cmp in BE.Usuario.Instance.Permisos.List())
+                    foreach (BE.Composite.Component cmp in Servicios.Sesion.GetInstance.usuario.Permisos.List())
                     {
                         if (cmp is BE.Composite.Composite)
                         {
@@ -151,6 +151,7 @@ namespace UI
         {
             bit.RegistrarMovimiento("Usuario Logout", "Ninguno");
             this.Close();
+            Servicios.Sesion.Logout();
             LogIn logg = new LogIn();
             logg.Mostrar();
         }

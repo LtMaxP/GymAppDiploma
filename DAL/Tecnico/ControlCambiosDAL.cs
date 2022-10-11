@@ -81,7 +81,7 @@ namespace DAL.Tecnico
                 sqlCmd.Parameters.Add("@Valor", SqlDbType.Decimal).Value = itm.valor;
                 sqlCmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = itm.cantidad;
                 sqlCmd.Parameters.Add("@Operacion", SqlDbType.VarChar).Value = itm.operacion;
-                sqlCmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = Usuario.Instance.IdUsuario;
+                sqlCmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = Servicios.Sesion.GetInstance.usuario.IdUsuario;
                 Acceso.Instance.ExecuteNonQuery(sqlCmd);
             }
             catch

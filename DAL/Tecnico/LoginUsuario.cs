@@ -18,12 +18,12 @@ namespace DAL
             
             SqlParameter param1 = new SqlParameter();
             param1.ParameterName = "User";
-            param1.Value = Usuario.Instance.User;
+            param1.Value = Servicios.Sesion.GetInstance.usuario.User;
             param1.SqlDbType = System.Data.SqlDbType.VarChar;
 
             SqlParameter param2 = new SqlParameter();
             param2.ParameterName = "Pass";
-            param2.Value = Usuario.Instance.Pass;
+            param2.Value = Servicios.Sesion.GetInstance.usuario.Pass;
             param2.SqlDbType = System.Data.SqlDbType.VarChar;
 
             sqlcomm.Parameters.Add(param1);
@@ -31,7 +31,7 @@ namespace DAL
 
             try
             {
-                Usuario.Instance.IdUsuario = Acceso.Instance.ExecuteScalar(sqlcomm);///aca metes id nuevo en sesion.usuario.getinstance()
+                Servicios.Sesion.GetInstance.usuario.IdUsuario = Acceso.Instance.ExecuteScalar(sqlcomm);///aca metes id nuevo en sesion.usuario.getinstance()
             }
             catch (Exception e)
             {
@@ -48,7 +48,7 @@ namespace DAL
         {
             Boolean returnable = false;
             SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario WHERE Usuario = @nombre AND Password = @pass AND Id_Estado = 1 AND IntentosFallidos <= 3";
+            sqlcomm.CommandText = "SELECT CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario WHERE Usuario = @user AND Password = @pass AND Id_Estado = 1 AND IntentosFallidos <= 3";
             sqlcomm.Parameters.AddWithValue("@user", usuario.User);
             sqlcomm.Parameters.AddWithValue("@pass", usuario.Pass);
             try
@@ -140,7 +140,7 @@ namespace DAL
                     comm.Parameters.AddWithValue("@nombre", usuario.User);
                     comm.Parameters.AddWithValue("@pass", usuario.Pass);
                     Acceso.Instance.ExecuteNonQuery(comm);
-                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Bloqueo por intentos fallidos del usuario " + BE.Usuario.Instance.User, "Alto"));
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Bloqueo por intentos fallidos del usuario " + Servicios.Sesion.GetInstance.usuario.User, "Alto"));
                 }
                 catch { };
             }
@@ -188,7 +188,7 @@ namespace DAL
             {
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre and Id_Estado = 1 and IntentosFallidos <= 3";
-                comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
+                comm.Parameters.AddWithValue("@nombre", Servicios.Sesion.GetInstance.usuario.User);
 
                 result = Acceso.Instance.ExecuteScalarBool(comm);
             }

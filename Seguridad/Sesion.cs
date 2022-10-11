@@ -42,7 +42,7 @@ namespace Servicios
                 }
             }
         }
-        public static void Logout(BE.BE_Usuario user)
+        public static void Logout()
         {
             lock (_lock)
             {

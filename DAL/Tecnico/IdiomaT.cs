@@ -192,18 +192,18 @@ namespace DAL
                             ON I.Id_Idioma = C.Id_Idioma
                             where I.Idioma = @Nombre";
             SqlCommand command = new SqlCommand(qry);
-            command.Parameters.AddWithValue("@Nombre", BE.Usuario.Instance.Idioma.NombreIdioma);
+            command.Parameters.AddWithValue("@Nombre", Servicios.Sesion.GetInstance.usuario.Idioma.NombreIdioma);
             try
             {
                 DataTable dt = Acceso.Instance.ExecuteDataTable(command);
-                BE.Usuario.Instance.Idioma.Id = int.Parse(dt.Rows[0]["Id_Idioma"].ToString());
+                Servicios.Sesion.GetInstance.usuario.Idioma.Id = int.Parse(dt.Rows[0]["Id_Idioma"].ToString());
                 foreach (DataRow fila in dt.Rows)
                 {
                     BE.ObserverIdioma.Leyenda transitorio = new BE.ObserverIdioma.Leyenda();
                     transitorio._textoLabel = fila[2].ToString();
                     transitorio._nombreEtiqueta = fila[3].ToString();
 
-                    BE.Usuario.Instance.Idioma.Leyendas.Add(transitorio);
+                    Servicios.Sesion.GetInstance.usuario.Idioma.Leyendas.Add(transitorio);
                 }
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar traer idioma"); }
@@ -222,7 +222,7 @@ namespace DAL
                             ON I.Id_Idioma = C.Id_Idioma
                             WHERE I.Id_Idioma = (select Id_Idioma from Usuario where Id_Usuario = @idIdi)";
             SqlCommand command = new SqlCommand(qry);
-            command.Parameters.AddWithValue("@idIdi", BE.Usuario.Instance.IdUsuario);
+            command.Parameters.AddWithValue("@idIdi", Servicios.Sesion.GetInstance.usuario.IdUsuario);
             try
             {
                 DataTable dt = Acceso.Instance.ExecuteDataTable(command);
@@ -241,7 +241,7 @@ namespace DAL
                     ley.Add(transitorio);
                 }
                 idiom.Leyendas = ley;
-                BE.Usuario.Instance.Idioma = idiom;
+                Servicios.Sesion.GetInstance.usuario.Idioma = idiom;
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Cambio de idioma a " + idIdioma, "Ninguno"));
             }
 
@@ -250,7 +250,7 @@ namespace DAL
         }
         public void CambiarIDIdiomaDeUsuarioDAL(BE_Idioma Idioma)
         {
-            String query = "UPDATE Usuario SET id_idioma = '" + Idioma.Id + "' WHERE Id_Usuario = '" + BE.Usuario.Instance.IdUsuario + "'";
+            String query = "UPDATE Usuario SET id_idioma = '" + Idioma.Id + "' WHERE Id_Usuario = '" + Servicios.Sesion.GetInstance.usuario.IdUsuario + "'";
             SqlCommand command = new SqlCommand(query);
             try
             {

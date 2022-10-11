@@ -54,7 +54,7 @@ namespace DAL
         {
             String query = "UPDATE [DVHUsuario] set [HashCode] = @hashDVH WHERE id_Usuario = @IdUsuario";
             SqlCommand command = new SqlCommand(query);
-            command.Parameters.AddWithValue("@IdUsuario", BE.Usuario.Instance.IdUsuario);
+            command.Parameters.AddWithValue("@IdUsuario", Servicios.Sesion.GetInstance.usuario.IdUsuario);
             command.Parameters.AddWithValue("@hashDVH", codigoHash);
 
             try

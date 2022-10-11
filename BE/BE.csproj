@@ -72,7 +72,6 @@
     <Compile Include="Negocio\Cliente.cs" />
     <Compile Include="Tecnico\ControlCambio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tecnico\Usuario.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
