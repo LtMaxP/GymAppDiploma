@@ -14,8 +14,6 @@ namespace BLL
         DAL.BitacoraDAL bitacora = new DAL.BitacoraDAL();
         BLL.Usuario usuarioABM = new BLL.Usuario();
 
-        //static void Main() { }
-
         /// <summary>
         /// Login con validación de usuario
         /// </summary>
@@ -24,20 +22,21 @@ namespace BLL
         public Boolean DetectarUsuario(BE.BE_Usuario user)
         {
             Boolean retornableComoCocaCola = false;
-            BE.Usuario.Instance.User = user.User;
-            BE.Usuario.Instance.Pass = Servicios.Encriptacion.Encriptador(user.Pass);
-            if (DALUserLogin.DetectarUsuario())
+
+            user.Pass = Servicios.Encriptacion.Encriptador(user.Pass);
+            if (DALUserLogin.DetectarUsuario(user))
             {
-                if (DALUserLogin.ValidarBloqueo())
+                //if (DALUserLogin.ValidarBloqueo())
+                //{
+                if (DALUserLogin.LoginUser(user))
                 {
-                    if (DALUserLogin.LoginUser())
-                    {
-                        DALUserLogin.BuscarUsuarioBD();
-                        comp.NewObtenerPermisoUsuario();
-                        retornableComoCocaCola = true;
-                        DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario", "Ninguno"));
-                    }
+                    Servicios.Sesion.Login(user);
+                    DALUserLogin.BuscarUsuarioBD();
+                    comp.NewObtenerPermisoUsuario();
+                    retornableComoCocaCola = true;
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario", "Ninguno"));
                 }
+                //}
             }
             return retornableComoCocaCola;
         }

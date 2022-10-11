@@ -9,12 +9,7 @@ namespace BE
 
     public class Usuario
     {
-        //public static void Main(string[] args)
-        //{
-        //}
         #region singleton
-        private Usuario()
-        { }
 
         private static BE_Usuario _instance;
         public static BE_Usuario Instance
@@ -28,6 +23,8 @@ namespace BE
                 return _instance;
             }
         }
+
+
         #endregion
 
 

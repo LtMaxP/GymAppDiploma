@@ -9,7 +9,7 @@ namespace Servicios
 {
     public class Encriptacion
     {
-        static void Main() { }
+        
         /// <summary>
         /// Metodo encriptador
         /// </summary>

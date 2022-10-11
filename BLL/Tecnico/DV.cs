@@ -52,7 +52,7 @@ namespace BLL
         {
             string hash = string.Empty;
 
-            hash = BE.Usuario.Instance.IdUsuario.ToString() + BE.Usuario.Instance.User + BE.Usuario.Instance.Pass;
+            hash = Servicios.Sesion.GetInstance.usuario.IdUsuario.ToString() + Servicios.Sesion.GetInstance.usuario.User + Servicios.Sesion.GetInstance.usuario.Pass;
 
             //hasheo
             string hasheoDVH = Servicios.Encriptacion.Encriptador(hash);

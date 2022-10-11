@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using BE;
 
 namespace Servicios
 {
@@ -20,7 +19,7 @@ namespace Servicios
         public static BE.Bitacora CrearMovimiento(BE.Bitacora bitacora)
         {
             bitacora.Fecha = DateTime.Now;
-            bitacora.Usuario = Usuario.Instance.User;
+            bitacora.Usuario = Sesion.GetInstance.usuario.User;
             return bitacora;
         }
         //public static BE.Bitacora CrearRegistroBkp(BE.Bitacora bitacora)

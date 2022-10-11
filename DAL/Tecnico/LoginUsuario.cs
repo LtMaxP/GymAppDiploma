@@ -15,7 +15,7 @@ namespace DAL
         {
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "SELECT [Id_Usuario] FROM Usuario WHERE usuario.Usuario=@User AND Usuario.Password=@Pass";
-
+            
             SqlParameter param1 = new SqlParameter();
             param1.ParameterName = "User";
             param1.Value = Usuario.Instance.User;
@@ -31,7 +31,7 @@ namespace DAL
 
             try
             {
-                Usuario.Instance.IdUsuario = Acceso.Instance.ExecuteScalar(sqlcomm);
+                Usuario.Instance.IdUsuario = Acceso.Instance.ExecuteScalar(sqlcomm);///aca metes id nuevo en sesion.usuario.getinstance()
             }
             catch (Exception e)
             {
@@ -40,16 +40,17 @@ namespace DAL
             return true;
         }
         /// <summary>
-        /// Valida si el usuario existe
+        /// Valida si el usuario existe y especialmente sin bloqueo
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public Boolean DetectarUsuario()
+        public Boolean DetectarUsuario(BE_Usuario usuario)
         {
             Boolean returnable = false;
             SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = "select CASE WHEN count(*) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @user;";
-            sqlcomm.Parameters.AddWithValue("@user", BE.Usuario.Instance.User);
+            sqlcomm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario WHERE Usuario = @nombre AND Password = @pass AND Id_Estado = 1 AND IntentosFallidos <= 3";
+            sqlcomm.Parameters.AddWithValue("@user", usuario.User);
+            sqlcomm.Parameters.AddWithValue("@pass", usuario.Pass);
             try
             {
                 returnable = Acceso.Instance.ExecuteScalarBool(sqlcomm);
@@ -62,40 +63,41 @@ namespace DAL
         /// Detectar user y pass resetea o suma 1 a intentos fallidos
         /// </summary>
         /// <returns></returns>
-        public Boolean LoginUser()
+        public Boolean LoginUser(BE_Usuario usuario)
         {
             bool respuesta = false;
             try
             {
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre and Password = @pass";
-                comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
-                comm.Parameters.AddWithValue("@pass", BE.Usuario.Instance.Pass);
+                comm.Parameters.AddWithValue("@nombre", usuario.User);
+                comm.Parameters.AddWithValue("@pass", usuario.Pass);
 
                 respuesta = Acceso.Instance.ExecuteScalarBool(comm);
                 if (respuesta)
                 {
-                    GoodUser();
-                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario " + BE.Usuario.Instance.User, "Ninguno"));
+                    GoodUser(usuario);
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario " + usuario.User, "Ninguno"));
                 }
                 else
                 {
                     System.Windows.Forms.MessageBox.Show("Contraseña erronea");
-                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Constraseña erronea usuario " + BE.Usuario.Instance.User, "Medio"));
-                    BadPass();
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Constraseña erronea usuario " + usuario.User, "Medio"));
+                    BadPass(usuario);
                 }
             }
             catch { }
             return respuesta;
         }
 
-        private void GoodUser()
+        private void GoodUser(BE_Usuario usuario)
         {
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "Update Usuario set IntentosFallidos = 0, Id_Estado = 1 where Usuario = @nombre ";
-                comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
+                comm.CommandText = "Update Usuario set IntentosFallidos = 0, Id_Estado = 1 where Usuario = @nombre AND Password = @pass ";
+                comm.Parameters.AddWithValue("@nombre", usuario.User);
+                comm.Parameters.AddWithValue("@pass", usuario.Pass);
                 Acceso.Instance.ExecuteNonQuery(comm);
             }
             catch { };
@@ -115,10 +117,10 @@ namespace DAL
                 comm.Parameters.AddWithValue("@user", user.User);
                 if (Acceso.Instance.ExecuteScalarBool(comm))
                 {
-                    BE.Usuario.Instance.User = user.User;
+                    comm.CommandText = "Update Usuario set IntentosFallidos = 0, Id_Estado = 1 where Usuario = @nombre AND [Palabra_Secreta] = @palabra";
+                    Acceso.Instance.ExecuteNonQuery(comm);
                     validacion = true;
-                    GoodUser();
-                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Desbloqueado el usuario " + BE.Usuario.Instance.User, "Bajo"));
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Desbloqueado el usuario " + user.User, "Bajo"));
                 }
             }
             catch { };
@@ -127,15 +129,16 @@ namespace DAL
 
 
 
-        private void BadPass()
+        private void BadPass(BE.BE_Usuario usuario)
         {
-            if (GetIntentosFallidos() > 3)
+            if (GetIntentosFallidos(usuario) > 3)
             {
                 try
                 {
                     SqlCommand comm = new SqlCommand();
-                    comm.CommandText = "Update Usuario set Id_Estado = 2 where Usuario = @nombre ";
-                    comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
+                    comm.CommandText = "Update Usuario set Id_Estado = 2 where Usuario = @nombre AND Password = @pass  ";
+                    comm.Parameters.AddWithValue("@nombre", usuario.User);
+                    comm.Parameters.AddWithValue("@pass", usuario.Pass);
                     Acceso.Instance.ExecuteNonQuery(comm);
                     DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Bloqueo por intentos fallidos del usuario " + BE.Usuario.Instance.User, "Alto"));
                 }
@@ -146,8 +149,9 @@ namespace DAL
                 try
                 {
                     SqlCommand comm = new SqlCommand();
-                    comm.CommandText = "Update Usuario set IntentosFallidos = IntentosFallidos +1 where Usuario = @nombre ";
-                    comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
+                    comm.CommandText = "Update Usuario set IntentosFallidos = IntentosFallidos +1 where Usuario = @nombre AND Password = @pass ";
+                    comm.Parameters.AddWithValue("@nombre", usuario.User);
+                    comm.Parameters.AddWithValue("@pass", usuario.Pass);
                     Acceso.Instance.ExecuteNonQuery(comm);
                 }
                 catch { };
@@ -158,15 +162,15 @@ namespace DAL
         /// Devuelve la cantidad de intentos fallidos del usuario
         /// </summary>
         /// <returns></returns>
-        public int GetIntentosFallidos()
+        public int GetIntentosFallidos(BE.BE_Usuario usuario)
         {
             int result = 0;
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "SELECT IntentosFallidos FROM Usuario WHERE Usuario = @nombre ";
-                comm.Parameters.AddWithValue("@nombre", BE.Usuario.Instance.User);
-
+                comm.CommandText = "SELECT IntentosFallidos FROM Usuario WHERE Usuario = @nombre AND Password = @pass ";
+                comm.Parameters.AddWithValue("@nombre", usuario.User);
+                comm.Parameters.AddWithValue("@pass", usuario.Pass);
                 result = Acceso.Instance.ExecuteScalar(comm);
             }
             catch { };
