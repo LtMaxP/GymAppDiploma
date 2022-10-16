@@ -18,85 +18,14 @@ namespace UI
         //Bitmap secSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
         //Bitmap wallpaper = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
         //int speIma = 0;
-        IdiomaBLL BLLIdioma = new IdiomaBLL();
-        BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
+        IdiomaBLL BLLIdioma;
+        BLL.BitacoraBLL bit;
         public Inicio()
         {
             InitializeComponent();
+            BLLIdioma = new IdiomaBLL();
+            bit = new BLL.BitacoraBLL();
         }
-
-        #region traducir
-
-
-        public void Traducir(Control c)
-        {
-            if (!string.IsNullOrEmpty(c.Text))
-            {
-                foreach (Leyenda us in Servicios.Sesion.GetInstance.usuario.Idioma.Leyendas)
-                {
-                    if (us._nombreEtiqueta == c.Name)
-                    {
-                        c.Text = us._textoLabel;
-                    }
-                }
-            }
-            foreach (Control cont in c.Controls)
-            {
-                Traducir(cont);
-            }
-        }
-
-        public void TraducirTodo()
-        {
-            RecurseToolStripItems(this.menuStrip1.Items);
-            foreach (Control item in this.Controls)
-            {
-                Traducir(item);
-            }
-        }
-
-        private void RecurseToolStripItems(ToolStripItemCollection tsic)
-        {
-
-            foreach (ToolStripItem item in tsic)
-            {
-                if (!string.IsNullOrEmpty(item.Name))
-                {
-                    foreach (Leyenda us in Servicios.Sesion.GetInstance.usuario.Idioma.Leyendas)
-                    {
-                        if (us._nombreEtiqueta == item.Name)
-                        {
-                            item.Text = us._textoLabel;
-                        }
-                    }
-                }
-                // Aqui implementamos la recursividad donde el método se llama a sí mismo, así trabaja para cualquier cantidad de niveles de menu.
-                if (item is ToolStripMenuItem)
-                {
-                    ToolStripMenuItem item2 = (ToolStripMenuItem)item;
-                    RecurseToolStripItems(item2.DropDown.Items);
-                }
-            }
-        }
-        #endregion
-
-
-        #region formularios
-        Clientes Fclient;
-        BitacoraYDV FbitDV;
-        UsuariosABM FuserABM;
-        Empleados Femp;
-        BackupRestore Fbackrest;
-        Facturas Factu;
-        PagosCobros PyG;
-        Listas Listados;
-        Permisos Permi;
-        Productos productos;
-        UI.Tecnico.Idioma AgIdioma;
-        UI.Tecnico.ControlCambios CC;
-        PermisosUsuario PermUsu;
-
-        #endregion
 
         private void Inicio_Load(object sender, EventArgs e)
         {
@@ -114,39 +43,32 @@ namespace UI
             foreach (ToolStripItem item in tsic)
             {
                 if (!string.IsNullOrEmpty(item.Tag.ToString()))
+                    #region a la bll
                     foreach (BE.Composite.Component cmp in Servicios.Sesion.GetInstance.usuario.Permisos.List())
                     {
                         if (cmp is BE.Composite.Composite)
                         {
                             if (!String.IsNullOrEmpty(cmp.iDPatente) && !cmp.descripcion.Equals("Arbol"))
                             {
-                                if (cmp.VerificarSiExiste(new BE.Composite.Composite(item.Tag.ToString(), "Badabum")))
+                                if (cmp.VerificarSiExiste(new BE.Composite.Composite(item.Tag.ToString(), "T")))
                                     item.Visible = true;
                             }
                         }
                     }
-
+                    #endregion
                 if (item is ToolStripMenuItem)
                 {
-                    ToolStripMenuItem item2 = (ToolStripMenuItem)item;
-                    PermisosRecurseToolStripItems(item2.DropDown.Items);
+                    //ToolStripMenuItem item2 = (ToolStripMenuItem)item;
+                    PermisosRecurseToolStripItems(((ToolStripMenuItem)item).DropDown.Items);
                 }
             }
-            
-        }
-        private void CheckVisible(ToolStripItemCollection tsic)
-        {
-            //foreach ()
-            //{
-
-            //}
-            //if (labelSistema.DropDown.Items. >= 1)
-            //{
-            //    labelSistema.Visible = true;
-            //}
         }
 
-
+        /// <summary>
+        /// Boton Logout
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             bit.RegistrarMovimiento("Usuario Logout", "Ninguno");
@@ -155,22 +77,15 @@ namespace UI
             LogIn logg = new LogIn();
             logg.Mostrar();
         }
-
         private void button7_Click(object sender, EventArgs e)
         {
         }
-
-
-
         private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
             LogIn logg = new LogIn();
             logg.Mostrar();
-
         }
-
-
 
         #region formularios carga
 
@@ -399,12 +314,81 @@ namespace UI
         }
 
         #endregion
+        #region traducir
+
+
+        public void Traducir(Control c)
+        {
+            if (!string.IsNullOrEmpty(c.Text))
+            {
+                foreach (Leyenda us in Servicios.Sesion.GetInstance.usuario.Idioma.Leyendas)
+                {
+                    if (us._nombreEtiqueta == c.Name)
+                    {
+                        c.Text = us._textoLabel;
+                    }
+                }
+            }
+            foreach (Control cont in c.Controls)
+            {
+                Traducir(cont);
+            }
+        }
+
+        public void TraducirTodo()
+        {
+            RecurseToolStripItems(this.menuStrip1.Items);
+            foreach (Control item in this.Controls)
+            {
+                Traducir(item);
+            }
+        }
+
+        private void RecurseToolStripItems(ToolStripItemCollection tsic)
+        {
+
+            foreach (ToolStripItem item in tsic)
+            {
+                if (!string.IsNullOrEmpty(item.Name))
+                {
+                    foreach (Leyenda us in Servicios.Sesion.GetInstance.usuario.Idioma.Leyendas)
+                    {
+                        if (us._nombreEtiqueta == item.Name)
+                        {
+                            item.Text = us._textoLabel;
+                        }
+                    }
+                }
+                // Aqui implementamos la recursividad donde el método se llama a sí mismo, así trabaja para cualquier cantidad de niveles de menu.
+                if (item is ToolStripMenuItem)
+                {
+                    ToolStripMenuItem item2 = (ToolStripMenuItem)item;
+                    RecurseToolStripItems(item2.DropDown.Items);
+                }
+            }
+        }
+        #endregion
+        #region formularios
+        Clientes Fclient;
+        BitacoraYDV FbitDV;
+        UsuariosABM FuserABM;
+        Empleados Femp;
+        BackupRestore Fbackrest;
+        Facturas Factu;
+        PagosCobros PyG;
+        Listas Listados;
+        Permisos Permi;
+        Productos productos;
+        UI.Tecnico.Idioma AgIdioma;
+        UI.Tecnico.ControlCambios CC;
+        PermisosUsuario PermUsu;
+
+        #endregion
 
         public void Update()
         {
             TraducirTodo();
         }
-
         private void permisosGestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Permi == null)
@@ -419,7 +403,6 @@ namespace UI
                 Permi.Activate();
             }
         }
-
         private void permisosUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (PermUsu == null)
@@ -434,7 +417,6 @@ namespace UI
                 PermUsu.Activate();
             }
         }
-
         private void controlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (CC == null)
@@ -453,7 +435,6 @@ namespace UI
         {
             CC = null;
         }
-
         private void labelAcciones_Click(object sender, EventArgs e)
         {
 

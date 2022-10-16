@@ -9,6 +9,16 @@ namespace Servicios
 {
     public class BitacoraServicio
     {
+        public BitacoraServicio()
+        {
+
+        }
+        /// <summary>
+        /// Crea un objeto bitacora por medio del movimiento y el nivel del problema que pase
+        /// </summary>
+        /// <param name="movimiento"></param>
+        /// <param name="nivelDelProblema"></param>
+        /// <returns></returns>
         public static BE.Bitacora RegistrarMovimiento(string movimiento, string nivelDelProblema)
         {
             BE.Bitacora bit = new BE.Bitacora();
@@ -16,19 +26,23 @@ namespace Servicios
             bit.NivelDeProblema = nivelDelProblema;
             return bit;
         }
+        /// <summary>
+        /// devuelve la bitacora con el usuario logeado y la fecha con hora actual 
+        /// </summary>
+        /// <param name="bitacora"></param>
+        /// <returns></returns>
         public static BE.Bitacora CrearMovimiento(BE.Bitacora bitacora)
         {
             bitacora.Fecha = DateTime.Now;
             bitacora.Usuario = Sesion.GetInstance.usuario.User;
             return bitacora;
         }
-        //public static BE.Bitacora CrearRegistroBkp(BE.Bitacora bitacora)
-        //{
-        //    bitacora.Fecha = DateTime.Parse((DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute).ToString());
-        //    bitacora.Usuario = Usuario.Instance.User;
-        //    return bitacora;
-        //}
 
+        /// <summary>
+        /// Traer Listado de bitacoras formado pasando un Data Table
+        /// </summary>
+        /// <param name="bitacora"></param>
+        /// <returns></returns>
         public List<BE.Bitacora> CargarBitacora(DataTable bitacora)
         {
             List<BE.Bitacora> bitacoras = new List<BE.Bitacora>();
@@ -42,7 +56,6 @@ namespace Servicios
             }
             return bitacoras;
         }
-
     }
 
 }

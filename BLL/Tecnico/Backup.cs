@@ -10,14 +10,19 @@ namespace BLL.Tecnico
 {
     public class Backup
     {
-        DAL.Tecnico.BackupDAL bk = new DAL.Tecnico.BackupDAL();
+        DAL.Tecnico.BackupDAL bk;
+        public Backup() 
+        {
+            bk = new DAL.Tecnico.BackupDAL();
+        }
+
         /// <summary>
         /// Crear Backup de la DB
         /// </summary>
         /// <returns></returns>
-        public bool BackupBD()
+        public bool BackupBD(string path)
         {
-            return bk.BackupDBDAL();
+            return bk.BackupDBDAL(path);
         }
         /// <summary>
         /// Traer listado de los backups hechos

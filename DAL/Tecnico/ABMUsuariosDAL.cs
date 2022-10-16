@@ -225,6 +225,35 @@ namespace DAL
             return users;
         }
 
+        /// <summary>
+        /// Listado de usuarios | posible modificable incorporando datos
+        /// </summary>
+        /// <returns></returns>
+        public static List<BE_Usuario> ListadoUsuarios()
+        {
+            List<BE_Usuario> users = new List<BE_Usuario>();
+            using (SqlConnection conn = Acceso.Instance.sqlCon)
+            {
+                SqlCommand sqlcomm = new SqlCommand();
+                sqlcomm.CommandText = "SELECT * from Usuario";
+
+                DataTable dt = Acceso.Instance.ExecuteDataTable(sqlcomm);
+                BE_Usuario us;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (dr != null)
+                    {
+                        us = new BE_Usuario();
+                        us.IdUsuario = (int)dr["Id_Usuario"];
+                        us.User = dr["Usuario"].ToString();
+                        us.Pass = dr["Password"].ToString();
+                        us._DVH = dr["DVH"].ToString();
+                        users.Add(us);
+                    }
+                }
+            }
+            return users;
+        }
 
         public bool Modificar(BE_Usuario valModificar)
         {

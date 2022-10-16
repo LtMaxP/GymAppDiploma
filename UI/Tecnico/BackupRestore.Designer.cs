@@ -33,14 +33,15 @@
             this.btnVerBackUp = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
             this.btnEjecutarBackUp = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgBackup)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEjecutarRestore
             // 
-            this.btnEjecutarRestore.Location = new System.Drawing.Point(571, 53);
+            this.btnEjecutarRestore.Location = new System.Drawing.Point(239, 34);
             this.btnEjecutarRestore.Name = "btnEjecutarRestore";
-            this.btnEjecutarRestore.Size = new System.Drawing.Size(215, 52);
+            this.btnEjecutarRestore.Size = new System.Drawing.Size(177, 31);
             this.btnEjecutarRestore.TabIndex = 44;
             this.btnEjecutarRestore.Text = "Realizar Restore";
             this.btnEjecutarRestore.UseVisualStyleBackColor = true;
@@ -49,10 +50,10 @@
             // DgBackup
             // 
             this.DgBackup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgBackup.Location = new System.Drawing.Point(12, 151);
+            this.DgBackup.Location = new System.Drawing.Point(13, 71);
             this.DgBackup.Name = "DgBackup";
             this.DgBackup.ReadOnly = true;
-            this.DgBackup.Size = new System.Drawing.Size(1060, 222);
+            this.DgBackup.Size = new System.Drawing.Size(1060, 292);
             this.DgBackup.TabIndex = 40;
             this.DgBackup.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgBackup_CellContentClick);
             // 
@@ -79,13 +80,23 @@
             // 
             // btnEjecutarBackUp
             // 
-            this.btnEjecutarBackUp.Location = new System.Drawing.Point(160, 53);
+            this.btnEjecutarBackUp.Location = new System.Drawing.Point(40, 34);
             this.btnEjecutarBackUp.Name = "btnEjecutarBackUp";
-            this.btnEjecutarBackUp.Size = new System.Drawing.Size(215, 52);
+            this.btnEjecutarBackUp.Size = new System.Drawing.Size(177, 31);
             this.btnEjecutarBackUp.TabIndex = 36;
             this.btnEjecutarBackUp.Text = "Realizar Backup";
             this.btnEjecutarBackUp.UseVisualStyleBackColor = true;
             this.btnEjecutarBackUp.Click += new System.EventHandler(this.btnEjecutarBackUp_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 412);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 23);
+            this.button2.TabIndex = 46;
+            this.button2.Text = "Recalcular DV";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // BackupRestore
             // 
@@ -94,6 +105,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1091, 492);
             this.ControlBox = false;
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnEjecutarRestore);
             this.Controls.Add(this.DgBackup);
             this.Controls.Add(this.btnVerBackUp);
@@ -114,5 +126,6 @@
         internal System.Windows.Forms.Button btnVerBackUp;
         internal System.Windows.Forms.Button buttonSalir;
         internal System.Windows.Forms.Button btnEjecutarBackUp;
+        private System.Windows.Forms.Button button2;
     }
 }

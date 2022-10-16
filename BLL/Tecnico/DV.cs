@@ -9,28 +9,29 @@ namespace BLL
 {
     public class DV
     {
-        
-        //posible a borrar
-        public void RecalcularDVV()
+        //DAL.ABMUsuariosDAL ABMUs = new DAL.ABMUsuariosDAL();
+
+        public static void RecalcularDigitosVerificadores()
         {
-            //DataTable listaDVHUsuarios = DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios();
+            foreach (BE.BE_Usuario usu in DAL.ABMUsuariosDAL.ListadoUsuarios())
+            {
+                RecalcularDVH(usu);
+            }
+            RecalcularDVV(DAL.ABMUsuariosDAL.ListadoUsuarios());
+        }
 
-            //string hash = string.Empty;
+        private static void RecalcularDVV(List<BE.BE_Usuario> listadoUsers)
+        {
+            string hash = string.Empty;
+            foreach (BE.BE_Usuario usu in listadoUsers)
+            {
+                hash += usu._DVH;
+            }
 
-            //foreach (DataRow row in listaDVHUsuarios.Rows)
-            //{
-            //    hash += row[0].ToString();
-            //}
-
-            ////hasheo
-            //string hasheoDVV = Servicios.Encriptacion.Encriptador(hash);
-            //String DVV = dVDal.TraerDVV();
-            //if (DVV.Equals(hasheoDVV))
-            //{
-            //    return true;
-            //}
-            //else { return false; }
-
+            //hasheo
+            string hasheoDVV = Servicios.Encriptacion.Encriptador(hash);
+            //insertar
+            DAL.DigitoVerificadorDAL.InsertarDVV(hasheoDVV);
         }
         public void CalcularDVV()
         {
@@ -48,16 +49,21 @@ namespace BLL
             //Insertar
             DAL.DigitoVerificadorDAL.InsertarDVV(hasheoDVV);
         }
-        public static void RecalcularDVH()
+
+        /// <summary>
+        /// Recalcula el DVH del usuario pasado y se inserta en la DB
+        /// </summary>
+        /// <param name="user"></param>
+        private static void RecalcularDVH(BE.BE_Usuario user)
         {
             string hash = string.Empty;
 
-            hash = Servicios.Sesion.GetInstance.usuario.IdUsuario.ToString() + Servicios.Sesion.GetInstance.usuario.User + Servicios.Sesion.GetInstance.usuario.Pass;
+            hash = user.IdUsuario.ToString() + user.User + user.Pass;
 
             //hasheo
-            string hasheoDVH = Servicios.Encriptacion.Encriptador(hash);
+            user._DVH = Servicios.Encriptacion.Encriptador(hash);
             //Insertar
-            DAL.DigitoVerificadorDAL.InsertarDVHEnUsuario(hasheoDVH);
+            DAL.DigitoVerificadorDAL.InsertarDVHEnUsuario(user);
         }
 
         public bool VerificarDB()

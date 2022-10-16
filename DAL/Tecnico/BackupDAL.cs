@@ -16,10 +16,10 @@ namespace DAL.Tecnico
         /// Realizar backup de la base de datos
         /// </summary>
         /// <returns></returns>
-        public bool BackupDBDAL()
+        public bool BackupDBDAL(string path)
         {
             bool okb = false;
-            string path = bkserv.BackupBDDir();
+            //string path = bkserv.BackupBDDir();
             SqlCommand command = new SqlCommand("BackupRegistry");
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.Add("@path", SqlDbType.VarChar).Value = path;

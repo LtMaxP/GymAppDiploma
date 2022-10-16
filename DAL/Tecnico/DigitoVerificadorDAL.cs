@@ -50,12 +50,12 @@ namespace DAL
             return returnable;
         }
 
-        public static void InsertarDVHEnUsuario(string codigoHash)
+        public static void InsertarDVHEnUsuario(BE.BE_Usuario usuario)
         {
-            String query = "UPDATE [DVHUsuario] set [HashCode] = @hashDVH WHERE id_Usuario = @IdUsuario";
+            String query = "UPDATE Usuario SET [DVH] = @hashDVH WHERE Id_Usuario = @IdUsuario";
             SqlCommand command = new SqlCommand(query);
-            command.Parameters.AddWithValue("@IdUsuario", Servicios.Sesion.GetInstance.usuario.IdUsuario);
-            command.Parameters.AddWithValue("@hashDVH", codigoHash);
+            command.Parameters.AddWithValue("@IdUsuario", usuario.IdUsuario);
+            command.Parameters.AddWithValue("@hashDVH", usuario._DVH);
 
             try
             {

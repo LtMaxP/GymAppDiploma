@@ -18,12 +18,6 @@ namespace BLL
         {
             DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento(movimiento, nivelDelProblema));
         }
-        //public void RegistrarEnBitacora(BE.Bitacora bitacora)
-        //{
-        //    bitacora.Usuario = BE.Usuario.Instance.IdUsuario.ToString();
-        //    bitacora.Fecha = DateTime.Now;
-        //    bitDal..RegistrarBitacora(bitacora);
-        //}
         public List<BE.Bitacora> CargarBitacora()
         {
             DataTable dt = bitDal.TraerBitacora();
