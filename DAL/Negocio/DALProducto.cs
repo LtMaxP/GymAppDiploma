@@ -28,5 +28,23 @@ namespace DAL.Negocio
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
             return ret;
         }
+
+        public bool DALCargarProducto(Item item)
+        {
+            bool ret = false;
+            try
+            {
+                var sqlCmd = Acceso.Instance.CrearCommandStoredProcedure("[dbo].[CargarItems]");
+                sqlCmd.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = item.Descripcion;
+                sqlCmd.Parameters.Add("@Valor", SqlDbType.Decimal).Value = item.Valor;
+                sqlCmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = item.Cantidad;
+                Acceso.Instance.ExecuteNonQuery(sqlCmd);
+                //cargar cc
+                //DAL.Tecnico.ControlCambiosDAL.GrabarHistoricoCC(/*new BE.Tecnico.ControlCambio(item.Id_Item,item.Valor,item*/);
+                ret = true;
+            }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de ejecutar SP."); }
+            return ret;
+        }
     }
 }

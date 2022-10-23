@@ -15,11 +15,6 @@ namespace BLL.Observer
 
         private DAL.IdiomaT idiom = new DAL.IdiomaT();
 
-
-        public BE_Idioma DamePackDeIdioma(BE_Idioma idioma)
-        {
-            return idiom.TraerListaDeIdioma(idioma);
-        }
         /// <summary>
         /// Retorna listado de Idiomas existentes
         /// </summary>
@@ -28,20 +23,25 @@ namespace BLL.Observer
         {
             return idiom.IdiomasExistentes();
         }
-
+        /// <summary>
+        /// Cambiar idioma del usuario
+        /// </summary>
+        /// <param name="idioma"></param>
         public void CambiarIdiomaDeUsuario(BE_Idioma idioma)
         {
             idioma = idiom.DameIdIdioma(idioma);
             idiom.CambiarIDIdiomaDeUsuarioDAL(idioma);
             idiom.CargarIdiomaAUsuarioPorId();
         }
-
-
+        /// <summary>
+        /// Traer listado de Textos del idioma
+        /// </summary>
+        /// <param name="lang"></param>
+        /// <returns></returns>
         public BE.ObserverIdioma.BE_Idioma MostrarIdioma(BE_Idioma lang)
         {
             return idiom.VerListadoIdioma(lang);
         }
-
         /// <summary>
         /// Envio del pack idioma con leyendas para modificar
         /// </summary>
@@ -57,12 +57,24 @@ namespace BLL.Observer
         /// <param name="idioma"></param>
         public void CrearIdioma(BE_Idioma idioma)
         {
-           idiom.CrearIdiomaDAL(idioma);
+            idiom.CrearIdiomaDAL(idioma);
         }
-
+        /// <summary>
+        /// Validar que el idioma exista
+        /// </summary>
+        /// <param name="idioma"></param>
+        /// <returns></returns>
         public bool ValidarExistencia(BE_Idioma idioma)
         {
             return idiom.ValidarExistenciaIdioma(idioma);
+        }
+        /// <summary>
+        /// EliminarIdioma
+        /// </summary>
+        /// <param name="idioma"></param>
+        public void EliminarIdioma(BE_Idioma idioma)
+        {
+            idiom.EliminarIdioma(idioma);
         }
     }
 }

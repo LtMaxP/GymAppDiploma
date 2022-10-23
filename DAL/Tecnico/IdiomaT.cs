@@ -17,7 +17,7 @@ namespace DAL
         /// <returns></returns>
         public BE.ObserverIdioma.BE_Idioma TraerListaDeIdioma(BE.ObserverIdioma.BE_Idioma ListadoIdioma)
         {
-            #region block
+            #region bloque de cod
             String qry = @"SELECT c.Id_Idioma, I.Idioma, c.Texto_Lbl, LblI.NombreEtiqueta 
                             FROM CampoIdioma as C
                             INNER JOIN Label_Etiqueta as LblI
@@ -45,6 +45,11 @@ namespace DAL
             #endregion
         }
 
+        public void EliminarIdioma(BE_Idioma idioma)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Buscar si existe el nombre de un idioma
         /// </summary>
@@ -63,7 +68,6 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar traer el id del idioma"); }
             return resultado;
         }
-
         /// <summary>
         /// Inicio de Accion de modificar un idioma en la DAL
         /// </summary>
@@ -86,7 +90,6 @@ namespace DAL
                 catch { System.Windows.Forms.MessageBox.Show("Error al intentar Modificar idioma"); }
             }
         }
-
         /// <summary>
         /// Crear NUEVO idioma 
         /// </summary>
@@ -105,7 +108,6 @@ namespace DAL
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar crear idioma"); }
         }
-
         /// <summary>
         /// Insertar Labels nuevos
         /// </summary>
@@ -127,7 +129,6 @@ namespace DAL
                 catch { System.Windows.Forms.MessageBox.Show("Error al intentar crear labels del idioma"); }
             }
         }
-
         /// <summary>
         /// Devuelve el id del Nombre de idioma q se pase
         /// </summary>
@@ -146,9 +147,8 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar traer el id del idioma"); }
             return idioma;
         }
-
         /// <summary>
-        /// Devuelve el listado de Textos Del idioma
+        /// Devuelve el listado de Textos del idioma
         /// </summary>
         /// <param name="lang"></param>
         /// <returns></returns>
@@ -180,37 +180,9 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar traer idioma"); }
             return lang;
         }
-
-        public void CargarIdiomaAUsuario()
-        {
-            #region block
-            String qry = @"SELECT c.Id_Idioma, I.Idioma, c.Texto_Lbl, LblI.NombreEtiqueta 
-                            FROM CampoIdioma as C
-                            INNER JOIN Label_Etiqueta as LblI
-                            ON C.Id_label = LblI.Id_label
-                            INNER JOIN Idioma as I
-                            ON I.Id_Idioma = C.Id_Idioma
-                            where I.Idioma = @Nombre";
-            SqlCommand command = new SqlCommand(qry);
-            command.Parameters.AddWithValue("@Nombre", Servicios.Sesion.GetInstance.usuario.Idioma.NombreIdioma);
-            try
-            {
-                DataTable dt = Acceso.Instance.ExecuteDataTable(command);
-                Servicios.Sesion.GetInstance.usuario.Idioma.Id = int.Parse(dt.Rows[0]["Id_Idioma"].ToString());
-                foreach (DataRow fila in dt.Rows)
-                {
-                    BE.ObserverIdioma.Leyenda transitorio = new BE.ObserverIdioma.Leyenda();
-                    transitorio._textoLabel = fila[2].ToString();
-                    transitorio._nombreEtiqueta = fila[3].ToString();
-
-                    Servicios.Sesion.GetInstance.usuario.Idioma.Leyendas.Add(transitorio);
-                }
-            }
-            catch { System.Windows.Forms.MessageBox.Show("Error al intentar traer idioma"); }
-            #endregion
-        }
-
-
+        /// <summary>
+        /// Cambiar idioma de usuario
+        /// </summary>
         public void CargarIdiomaAUsuarioPorId()
         {
             #region block
@@ -248,21 +220,26 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar traer idioma"); }
             #endregion
         }
+        /// <summary>
+        /// Cargar al usuario nuevo idioma
+        /// </summary>
+        /// <param name="Idioma"></param>
         public void CambiarIDIdiomaDeUsuarioDAL(BE_Idioma Idioma)
         {
-            String query = "UPDATE Usuario SET id_idioma = '" + Idioma.Id + "' WHERE Id_Usuario = '" + Servicios.Sesion.GetInstance.usuario.IdUsuario + "'";
+            String query = "UPDATE Usuario SET id_idioma = @idIdioma WHERE Id_Usuario = @IdUsuario";
             SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@idIdioma", Idioma.Id);
+            command.Parameters.AddWithValue("@IdUsuario", Servicios.Sesion.GetInstance.usuario.IdUsuario);
             try
             {
                 int i = Acceso.Instance.ExecuteNonQuery(command);
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar CAMBIAR idioma del usuario"); }
-            //if (i == 1)
-            //{
-            //    BE.Usuario.Instance.Idioma = idIdioma;
-            //}
         }
-
+        /// <summary>
+        /// Traer nombres de los idiomas
+        /// </summary>
+        /// <returns></returns>
         public List<BE.ObserverIdioma.BE_Idioma> IdiomasExistentes()
         {
             String qry = "SELECT Idioma FROM [Idioma]";

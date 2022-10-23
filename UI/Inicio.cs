@@ -77,15 +77,6 @@ namespace UI
             LogIn logg = new LogIn();
             logg.Mostrar();
         }
-        private void button7_Click(object sender, EventArgs e)
-        {
-        }
-        private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-            LogIn logg = new LogIn();
-            logg.Mostrar();
-        }
 
         #region formularios carga
 
@@ -148,6 +139,56 @@ namespace UI
 
         }
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void permisosGestionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Permi == null)
+            {
+                Permi = new Permisos();
+                Permi.MdiParent = this;
+                Permi.FormClosed += new FormClosedEventHandler(Permi_FormClosed);
+                Permi.Show();
+            }
+            else
+            {
+                Permi.Activate();
+            }
+        }
+        private void permisosUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (PermUsu == null)
+            {
+                PermUsu = new PermisosUsuario();
+                PermUsu.MdiParent = this;
+                PermUsu.FormClosed += new FormClosedEventHandler(PermiUsu_FormClosed);
+                PermUsu.Show();
+            }
+            else
+            {
+                PermUsu.Activate();
+            }
+        }
+        private void controlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CC == null)
+            {
+                CC = new Tecnico.ControlCambios();
+                CC.MdiParent = this;
+                CC.FormClosed += new FormClosedEventHandler(CC_FormClosed);
+                CC.Show();
+            }
+            else
+            {
+                PermUsu.Activate();
+            }
+        }
+        private void CC_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CC = null;
+        }
+        private void labelAcciones_Click(object sender, EventArgs e)
         {
 
         }
@@ -239,29 +280,6 @@ namespace UI
         {
             PyG = null;
         }
-        private void labelListas_Click(object sender, EventArgs e)
-        {
-            if (Listados == null)
-            {
-                Listados = new Listas();
-                Listados.MdiParent = this;
-                Listados.FormClosed += new FormClosedEventHandler(Listados_FormClosed);
-                Listados.Show();
-            }
-            else
-            {
-                Listados.Activate();
-            }
-        }
-        private void Listados_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Listados = null;
-        }
-        private void permisosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void labelFamiliaPatentes_Click(object sender, EventArgs e)
         {
 
@@ -288,12 +306,10 @@ namespace UI
         {
             productos = null;
         }
-
         private void PermiUsu_FormClosed(object sender, FormClosedEventArgs e)
         {
             PermUsu = null;
         }
-
         private void agregarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (AgIdioma == null)
@@ -376,7 +392,6 @@ namespace UI
         BackupRestore Fbackrest;
         Facturas Factu;
         PagosCobros PyG;
-        Listas Listados;
         Permisos Permi;
         Productos productos;
         UI.Tecnico.Idioma AgIdioma;
@@ -389,55 +404,6 @@ namespace UI
         {
             TraducirTodo();
         }
-        private void permisosGestionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Permi == null)
-            {
-                Permi = new Permisos();
-                Permi.MdiParent = this;
-                Permi.FormClosed += new FormClosedEventHandler(Permi_FormClosed);
-                Permi.Show();
-            }
-            else
-            {
-                Permi.Activate();
-            }
-        }
-        private void permisosUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (PermUsu == null)
-            {
-                PermUsu = new PermisosUsuario();
-                PermUsu.MdiParent = this;
-                PermUsu.FormClosed += new FormClosedEventHandler(PermiUsu_FormClosed);
-                PermUsu.Show();
-            }
-            else
-            {
-                PermUsu.Activate();
-            }
-        }
-        private void controlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (CC == null)
-            {
-                CC = new Tecnico.ControlCambios();
-                CC.MdiParent = this;
-                CC.FormClosed += new FormClosedEventHandler(CC_FormClosed);
-                CC.Show();
-            }
-            else
-            {
-                PermUsu.Activate();
-            }
-        }
-        private void CC_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            CC = null;
-        }
-        private void labelAcciones_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

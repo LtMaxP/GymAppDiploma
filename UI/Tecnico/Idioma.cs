@@ -19,41 +19,48 @@ namespace UI.Tecnico
         {
             InitializeComponent();
         }
-
         public void Update()
         {
         }
-
+        /// <summary>
+        /// Salir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
-
+        /// <summary>
+        /// Form load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Idioma_Load(object sender, EventArgs e)
         {
-
             SubjectIdioma.AddObserverIdioma(this);
             //Subject.Notify(SingletonIdioma.GetInstance().Idioma);  usar el notify cuando se hace click en un idioma arriba
-
             CargarComboIdiomas();
         }
+        /// <summary>
+        /// Cargar combobox con Idiomas existentes
+        /// </summary>
         private void CargarComboIdiomas()
         {
             comboBox1.DataSource = BLLIdioma.DameIdiomas();
             comboBox1.DisplayMember = "NombreIdioma";
         }
-
+        //-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
-        public void Update(BE_Idioma idioma)
-        {
-
-        }
-
+        /// <summary>
+        /// Cambiar idioma del usuario loggeado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
             BE_Idioma selection = new BE_Idioma();
@@ -61,7 +68,6 @@ namespace UI.Tecnico
             BLLIdioma.CambiarIdiomaDeUsuario(selection);
             SubjectIdioma.Notify();
         }
-
         /// <summary>
         /// Mostrar idioma seleccionado en tabla
         /// </summary>
@@ -73,6 +79,10 @@ namespace UI.Tecnico
             lang.NombreIdioma = comboBox1.Text;
             MostrarSeleccion(lang);
         }
+        /// <summary>
+        /// Mostrar seleccion
+        /// </summary>
+        /// <param name="lang"></param>
         private void MostrarSeleccion(BE_Idioma lang)
         {
             lang = BLLIdioma.MostrarIdioma(lang);
@@ -82,7 +92,6 @@ namespace UI.Tecnico
             dataGridView1.Columns[1].HeaderCell.Value = "Nuevo Texto";
             LabelIdi.Text = lang.NombreIdioma;
         }
-
         /// <summary>
         /// Modificar el idioma
         /// </summary>
@@ -117,7 +126,6 @@ namespace UI.Tecnico
             }
 
         }
-
         /// <summary>
         /// Crear nuevo idioma
         /// </summary>
@@ -157,6 +165,24 @@ namespace UI.Tecnico
             else
             {
                 MessageBox.Show("Debe nombrar el nuevo idioma ヾ(•ω•`)o");
+            }
+        }
+        /// <summary>
+        /// Eliminar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            if(comboBox1.Text.Equals("Español") || comboBox1.Text.Equals("Ingles"))
+            {
+                BE_Idioma idioma = new BE_Idioma();
+                idioma.NombreIdioma = comboBox1.Text;
+                BLLIdioma.EliminarIdioma(idioma);
+            }
+            else
+            {
+                //Aca si borra
             }
         }
     }

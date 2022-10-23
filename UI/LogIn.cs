@@ -32,12 +32,21 @@ namespace UI
 
         }
 
-
+        /// <summary>
+        /// Boton Salir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Boton Ingresar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == String.Empty || textBox2.Text == String.Empty)

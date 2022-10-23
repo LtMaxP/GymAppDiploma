@@ -17,11 +17,14 @@ namespace UI
         {
             InitializeComponent();
         }
-
         public void Update()
         {
         }
-
+        /// <summary>
+        /// Form load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Empleados_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
@@ -29,13 +32,21 @@ namespace UI
             comboBox1.DataSource = bllEmp.CargarComboTrabajos();
             comboBox1.DisplayMember = "Descripcion";
         }
-
+        /// <summary>
+        /// Salir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelSalir_Click(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
-
+        /// <summary>
+        /// Buscar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelBuscar_Click(object sender, EventArgs e)
         {
             if(!textBox1.Text.Equals(string.Empty))

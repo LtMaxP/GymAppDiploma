@@ -23,32 +23,34 @@ namespace UI
             bkpBLL = new BLL.Tecnico.Backup();
             rstBLL = new BLL.Tecnico.Restore();
         }
-
-        private void btnExaminarBackUp_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExaminarRestore_Click(object sender, EventArgs e)
-        {
-        }
-
+        /// <summary>
+        /// Form carga inicial
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackupRestore_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
         }
-
         public void Update()
         {
 
         }
-
+        /// <summary>
+        /// Salir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVolverBackUp_Click(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
-
+        /// <summary>
+        /// Ejecutar Backup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEjecutarBackUp_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
@@ -62,13 +64,21 @@ namespace UI
                 MessageBox.Show(msg);
             }
         }
-
+        /// <summary>
+        /// Traer backups
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVerBackUp_Click(object sender, EventArgs e)
         {
             DgBackup.DataSource = bkpBLL.TraerBackupsBD();
             DgBackup.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
-
+        /// <summary>
+        /// Ejecutar Restore
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEjecutarRestore_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -78,12 +88,11 @@ namespace UI
                 rstBLL.RestoreBD(ruta);
             }
         }
-
+        //-
         private void DgBackup_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
         /// <summary>
         /// Boton de recalcular DV totales
         /// </summary>
@@ -92,11 +101,6 @@ namespace UI
         private void button2_Click(object sender, EventArgs e)
         {
             BLL.DV.RecalcularDigitosVerificadores();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

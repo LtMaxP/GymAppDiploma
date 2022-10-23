@@ -64,11 +64,11 @@ namespace UI
             // 
             this.labelPagosYCobros.AutoSize = true;
             this.labelPagosYCobros.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPagosYCobros.Location = new System.Drawing.Point(8, -3);
+            this.labelPagosYCobros.Location = new System.Drawing.Point(12, 25);
             this.labelPagosYCobros.Name = "labelPagosYCobros";
-            this.labelPagosYCobros.Size = new System.Drawing.Size(85, 75);
+            this.labelPagosYCobros.Size = new System.Drawing.Size(78, 25);
             this.labelPagosYCobros.TabIndex = 2;
-            this.labelPagosYCobros.Text = "Pagos \r\n    y \r\ncobros";
+            this.labelPagosYCobros.Text = "Pagos";
             // 
             // dateTimePicker1
             // 

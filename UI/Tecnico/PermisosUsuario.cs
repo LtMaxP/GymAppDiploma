@@ -25,12 +25,11 @@ namespace UI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SubjectIdioma.RemoveObserverIdioma(this);
-            this.Close();
-        }
-
+        /// <summary>
+        /// Form load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PermisosUsuario_Load_1(object sender, EventArgs e)
         {
             SubjectIdioma.AddObserverIdioma(this);
@@ -42,19 +41,31 @@ namespace UI
             }
             comboBox1.ValueMember = "User";
         }
-
+        /// <summary>
+        /// Salir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
-
+        /// <summary>
+        /// Cargar combobox con usuarios
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             BE.BE_Usuario us = (BE.BE_Usuario)comboBox1.SelectedItem;
             lblUserName.Text = us.User;
         }
-
+        /// <summary>
+        /// label mostrar usuario NA
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void label4_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(lblUserName.Text))
@@ -62,7 +73,6 @@ namespace UI
                 lblUserName.Text = _users.First(x => x.IdUsuario == int.Parse(comboBox1.Text)).User;
             }
         }
-        
         /// <summary>
         /// Boton Consultar carga los asignados al cliente y llama a la función que detecte los q no estan en la lista para cargad disponible
         /// </summary>
@@ -79,7 +89,6 @@ namespace UI
             CargarAsignados(_pAsig, arbolAsignados);
             CargarAsignados(_permisosTotal, arbolDisponibles);
         }
-
         /// <summary>
         /// Cargar arbol con datos deseados
         /// </summary>
@@ -108,6 +117,11 @@ namespace UI
                 }
             }
         }
+        /// <summary>
+        /// Checkear arbol
+        /// </summary>
+        /// <param name="perm"></param>
+        /// <param name="tree"></param>
         private void CheckTree(BE.Composite.Component perm, TreeView tree)
         {
             List<TreeNode> nodesDelete = new List<TreeNode>();
@@ -122,7 +136,12 @@ namespace UI
             foreach (TreeNode nod in nodesDelete)
                 tree.Nodes.Remove(nod);
         }
-
+        /// <summary>
+        /// Extensiones arbol
+        /// </summary>
+        /// <param name="perm"></param>
+        /// <param name="nodo"></param>
+        /// <returns></returns>
         private TreeNode ExtenderArbol(BE.Composite.Component perm, TreeNode nodo)
         {
             if (perm is BE.Composite.Composite)
@@ -142,7 +161,6 @@ namespace UI
                 nodo.Nodes.Add(perm.iDPatente + "-" + perm.descripcion);
             return nodo;
         }
-
         /// <summary>
         /// Boton de agregar Permiso
         /// </summary>
@@ -180,7 +198,6 @@ namespace UI
                 }
             }
         }
-
         /// <summary>
         /// Se pasa un permiso compuesto y verifica en el arbol si ya tiene sus hojas en el listado se quitan
         /// </summary>
@@ -195,7 +212,6 @@ namespace UI
                 }
             }
         }
-
         /// <summary>
         /// Eliminar Permiso
         /// </summary>
@@ -222,7 +238,11 @@ namespace UI
                 }
             }
         }
-
+        /// <summary>
+        /// Guardar permisos en usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
             if(_perm.GuardarP(_pAsig, user))

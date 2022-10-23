@@ -19,17 +19,27 @@ namespace UI
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Inicio de carga Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Permisos_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
             this.LoadForm();
         }
+        /// <summary>
+        /// Limpiar y cargar form
+        /// </summary>
         private void LoadForm()
         {
             this.ClearAll();
             this.LoadStart();
         }
+        /// <summary>
+        /// Limpiar todo
+        /// </summary>
         private void ClearAll()
         {
             ListaPerm.Nodes.Clear();
@@ -39,6 +49,9 @@ namespace UI
             comboBox2.Items.Clear();
             comboBox2.Refresh();
         }
+        /// <summary>
+        /// Cargar comboboxes
+        /// </summary>
         private void LoadStart()
         {
             family = new BE.Composite.Composite();
@@ -57,29 +70,36 @@ namespace UI
             comboBox1.ValueMember = "descripcion";
             comboBox2.ValueMember = "descripcion";
         }
-
+        /// <summary>
+        /// Salir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SalirBtn_Click(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
-
-        private void ConsultarBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
+        /// <summary>
+        /// Agregar Familia en arbol
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AgregarBtn_Click(object sender, EventArgs e)
         {
             BE.Composite.Component elem = (BE.Composite.Component)comboBox1.SelectedItem;
             VerificarSiEsta(elem);
         }
-
+        /// <summary>
+        /// Agregar Patente en arbol
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AgregarBtn2_Click(object sender, EventArgs e)
         {
             BE.Composite.Component elem = (BE.Composite.Component)comboBox2.SelectedItem;
@@ -112,7 +132,6 @@ namespace UI
                     ListaPerm.Nodes.Add(nodoHijo);
             }
         }
-
         /// <summary>
         /// Filtrado del arbol, eliminando los q estan y generando un desgloce de hojas en la rama componente
         /// </summary>
@@ -132,7 +151,12 @@ namespace UI
             foreach (TreeNode nod in nodesDelete)
                 ListaPerm.Nodes.Remove(nod);
         }
-
+        /// <summary>
+        /// Extender arbol
+        /// </summary>
+        /// <param name="perm"></param>
+        /// <param name="nodo"></param>
+        /// <returns></returns>
         private TreeNode ExtenderArbol(BE.Composite.Component perm, TreeNode nodo)
         {
             TreeNode nodoHijo = null;
@@ -153,7 +177,11 @@ namespace UI
                 nodo.Nodes.Add(perm.iDPatente + "-" + perm.descripcion);
             return nodo;
         }
-
+        /// <summary>
+        /// Guardar Familia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtName.Text))
@@ -212,7 +240,11 @@ namespace UI
                 }
             }
         }
-
+        /// <summary>
+        /// Eliminar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(comboBox1.Text))
@@ -221,7 +253,6 @@ namespace UI
             }
             else
             {
-
                 var result = MessageBox.Show("¿Desea borrar la familia?", "Advertencia", MessageBoxButtons.YesNo);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {

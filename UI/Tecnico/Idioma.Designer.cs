@@ -41,6 +41,7 @@ namespace UI.Tecnico
             this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.LabelIdi = new System.Windows.Forms.Label();
+            this.btn_Eliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@ namespace UI.Tecnico
             // 
             this.textBox1.Location = new System.Drawing.Point(31, 352);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(109, 20);
+            this.textBox1.Size = new System.Drawing.Size(96, 20);
             this.textBox1.TabIndex = 1;
             // 
             // dataGridView1
@@ -70,7 +71,7 @@ namespace UI.Tecnico
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(146, 351);
+            this.button1.Location = new System.Drawing.Point(133, 351);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(57, 21);
             this.button1.TabIndex = 3;
@@ -80,6 +81,7 @@ namespace UI.Tecnico
             // 
             // comboBox1
             // 
+            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(31, 167);
             this.comboBox1.Name = "comboBox1";
@@ -108,9 +110,9 @@ namespace UI.Tecnico
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(31, 259);
+            this.button3.Location = new System.Drawing.Point(31, 222);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(172, 30);
+            this.button3.Size = new System.Drawing.Size(159, 30);
             this.button3.TabIndex = 7;
             this.button3.Text = "Modificar";
             this.button3.UseVisualStyleBackColor = true;
@@ -154,6 +156,16 @@ namespace UI.Tecnico
             this.LabelIdi.Size = new System.Drawing.Size(0, 13);
             this.LabelIdi.TabIndex = 11;
             // 
+            // btn_Eliminar
+            // 
+            this.btn_Eliminar.Location = new System.Drawing.Point(75, 258);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Eliminar.TabIndex = 12;
+            this.btn_Eliminar.Text = "Eliminar";
+            this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
+            // 
             // Idioma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,6 +174,7 @@ namespace UI.Tecnico
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(581, 591);
             this.ControlBox = false;
+            this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.LabelIdi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button5);
@@ -197,5 +210,6 @@ namespace UI.Tecnico
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LabelIdi;
+        private System.Windows.Forms.Button btn_Eliminar;
     }
 }

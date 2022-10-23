@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BE;
 using DAL;
 
 namespace BLL.Negocio
@@ -13,6 +14,11 @@ namespace BLL.Negocio
         public List<BE.Item> TraerProductos()
         {
             return Prod.DALTraerProductos();
+        }
+
+        public bool CargarProducto(Item item)
+        {
+            return Prod.DALCargarProducto(item);
         }
     }
 }

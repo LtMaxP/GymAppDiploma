@@ -19,13 +19,16 @@ namespace UI
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Salir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
-
         /// <summary>
         /// Dar de alta nuevo usuario
         /// </summary>
@@ -56,7 +59,11 @@ namespace UI
                 }
             }
         }
-
+        /// <summary>
+        /// Eliminar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             BE.BE_Usuario usuarioDelete = new BE.BE_Usuario();
@@ -99,7 +106,6 @@ namespace UI
                 }
             }
         }
-
         /// <summary>
         /// Buscar seleccion de Usuarios mostrados
         /// </summary>
@@ -125,16 +131,19 @@ namespace UI
                 MessageBox.Show("Debe buscar un usuario y seleccionarlo para Mostrar");
             }
         }
-
+        /// <summary>
+        /// Form Load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UsuariosABM_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
         }
-
         public void Update()
         {
         }
-
+        //-
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -184,12 +193,6 @@ namespace UI
                     MessageBox.Show("El nombre de usuario a modificar NO existe");
                 }
             }
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
         }
     }
 }

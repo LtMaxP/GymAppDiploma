@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.labelSalir = new System.Windows.Forms.Button();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtbox_Estado = new System.Windows.Forms.TextBox();
+            this.txtbox_Apellido = new System.Windows.Forms.TextBox();
+            this.txtbox_Nombre = new System.Windows.Forms.TextBox();
             this.labelModificar = new System.Windows.Forms.Button();
             this.labelBaja = new System.Windows.Forms.Button();
             this.labelAlta = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             this.labelBuscar = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtbox_Sueldo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelSalir
@@ -59,26 +59,26 @@
             this.labelSalir.UseVisualStyleBackColor = true;
             this.labelSalir.Click += new System.EventHandler(this.labelSalir_Click);
             // 
-            // textBox14
+            // txtbox_Estado
             // 
-            this.textBox14.Location = new System.Drawing.Point(275, 216);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(148, 20);
-            this.textBox14.TabIndex = 34;
+            this.txtbox_Estado.Location = new System.Drawing.Point(275, 216);
+            this.txtbox_Estado.Name = "txtbox_Estado";
+            this.txtbox_Estado.Size = new System.Drawing.Size(148, 20);
+            this.txtbox_Estado.TabIndex = 34;
             // 
-            // textBox3
+            // txtbox_Apellido
             // 
-            this.textBox3.Location = new System.Drawing.Point(275, 169);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(148, 20);
-            this.textBox3.TabIndex = 42;
+            this.txtbox_Apellido.Location = new System.Drawing.Point(275, 169);
+            this.txtbox_Apellido.Name = "txtbox_Apellido";
+            this.txtbox_Apellido.Size = new System.Drawing.Size(148, 20);
+            this.txtbox_Apellido.TabIndex = 42;
             // 
-            // textBox2
+            // txtbox_Nombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(275, 124);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(148, 20);
-            this.textBox2.TabIndex = 43;
+            this.txtbox_Nombre.Location = new System.Drawing.Point(275, 124);
+            this.txtbox_Nombre.Name = "txtbox_Nombre";
+            this.txtbox_Nombre.Size = new System.Drawing.Size(148, 20);
+            this.txtbox_Nombre.TabIndex = 43;
             // 
             // labelModificar
             // 
@@ -206,25 +206,25 @@
             this.label1.TabIndex = 47;
             this.label1.Text = "Sueldo";
             // 
-            // textBox4
+            // txtbox_Sueldo
             // 
-            this.textBox4.Location = new System.Drawing.Point(275, 299);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(148, 20);
-            this.textBox4.TabIndex = 48;
+            this.txtbox_Sueldo.Location = new System.Drawing.Point(275, 299);
+            this.txtbox_Sueldo.Name = "txtbox_Sueldo";
+            this.txtbox_Sueldo.Size = new System.Drawing.Size(148, 20);
+            this.txtbox_Sueldo.TabIndex = 48;
             // 
             // Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 474);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtbox_Sueldo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.labelSalir);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtbox_Estado);
+            this.Controls.Add(this.txtbox_Apellido);
+            this.Controls.Add(this.txtbox_Nombre);
             this.Controls.Add(this.labelModificar);
             this.Controls.Add(this.labelBaja);
             this.Controls.Add(this.labelAlta);
@@ -248,9 +248,9 @@
         #endregion
 
         private System.Windows.Forms.Button labelSalir;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtbox_Estado;
+        private System.Windows.Forms.TextBox txtbox_Apellido;
+        private System.Windows.Forms.TextBox txtbox_Nombre;
         private System.Windows.Forms.Button labelModificar;
         private System.Windows.Forms.Button labelBaja;
         private System.Windows.Forms.Button labelAlta;
@@ -265,6 +265,6 @@
         private System.Windows.Forms.Button labelBuscar;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtbox_Sueldo;
     }
 }

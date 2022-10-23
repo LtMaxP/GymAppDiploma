@@ -20,24 +20,35 @@ namespace UI
         {
             InitializeComponent();
         }
-
+        //--
         private void label9_Click(object sender, EventArgs e)
         {
 
         }
-
+        /// <summary>
+        /// Boton Salir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button6_Click(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
-
+        /// <summary>
+        /// Form open
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Clientes_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
             DameEstados();
             SetDataInicial();
         }
+        /// <summary>
+        /// Cargar data inicial
+        /// </summary>
         private void SetDataInicial()
         {
             foreach (var memb in BLL.Negocio.BLLMembresia.DameMembresias())
@@ -48,13 +59,15 @@ namespace UI
             comboMem.Enabled = false;
 
         }
-
-
         public void Update()
         {
 
         }
-
+        /// <summary>
+        /// Mostrar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelMostrar_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count == 0)
@@ -86,7 +99,9 @@ namespace UI
                 comboDesc.SelectedItem = comboDesc.Items[descComi];
             }
         }
-
+        /// <summary>
+        /// Limpiar todos los campos
+        /// </summary>
         private void resetAll()
         {
             textBox_Nombre.Clear();
@@ -104,7 +119,11 @@ namespace UI
             textBox_Dni.Clear();
 
         }
-
+        /// <summary>
+        /// Boton Alta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelAlta_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBox_Nombre.Text) || String.IsNullOrEmpty(textBox_Apellido.Text) || String.IsNullOrEmpty(textBox_Dni.Text) || String.IsNullOrEmpty(textBox_Calle.Text) || String.IsNullOrEmpty(textBox_Numero.Text) || String.IsNullOrEmpty(textBox_CodPost.Text) || String.IsNullOrEmpty(textBox_Telefono.Text) || String.IsNullOrEmpty(textBox_Peso.Text) || String.IsNullOrEmpty(comboBox_estado.Text))
@@ -153,7 +172,11 @@ namespace UI
             }
 
         }
-
+        /// <summary>
+        /// Buscar por nombre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBox_Buscar.Text))
@@ -182,17 +205,19 @@ namespace UI
                 }
             }
         }
-
+        //--
         private void textBox_Nombre_TextChanged(object sender, EventArgs e)
         {
 
         }
-
-        //Manera de agregar al combobox valores
+        //--
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+        /// <summary>
+        /// Traer estados
+        /// </summary>
         private void DameEstados()
         {
             if (comboBox_estado.Items.Count.Equals(0))
@@ -204,16 +229,11 @@ namespace UI
                 comboBox_estado.SelectedItem = comboBox_estado.Items[0]; //podrias modificarlo
             }
         }
-
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox_Estado_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Calcular IMC
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCalc_Click(object sender, EventArgs e)
         {
             comboMem.Enabled = checkBoxCertif.Checked == true ? true : false;
@@ -228,13 +248,21 @@ namespace UI
                 MessageBox.Show("Debe completar los datos del cliente para Calcular el IMC");
             }
         }
-
+        /// <summary>
+        /// Calculo automatico fecha de nacimiento
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void fechaNacimiento_ValueChanged(object sender, EventArgs e)
         {
             var edad = DateTime.Now.Year - fechaNacimiento.Value.Year;
             labelValorEdad.Text = edad.ToString();
         }
-
+        /// <summary>
+        /// Validacion para checkbox certificado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBoxCertif_CheckedChanged(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(textBox_Dni.Text))
@@ -251,7 +279,11 @@ namespace UI
                 MessageBox.Show("Debe completar los datos del cliente para esta validación");
             }
         }
-
+        /// <summary>
+        /// Modificar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelModificar_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBox_Nombre.Text) || String.IsNullOrEmpty(textBox_Apellido.Text) || String.IsNullOrEmpty(textBox_Dni.Text) || String.IsNullOrEmpty(textBox_Calle.Text) || String.IsNullOrEmpty(textBox_Numero.Text) || String.IsNullOrEmpty(textBox_CodPost.Text) || String.IsNullOrEmpty(textBox_Telefono.Text) || String.IsNullOrEmpty(textBox_Peso.Text) || String.IsNullOrEmpty(comboBox_estado.Text))

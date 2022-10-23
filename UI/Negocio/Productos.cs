@@ -21,19 +21,21 @@ namespace UI.Negocio
         {
             InitializeComponent();
         }
-
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //check cliente y guardar para productos a comprarle
-        }
-
+        /// <summary>
+        /// Salir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click_1(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
-
+        /// <summary>
+        /// Form carga inicial
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Productos_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
@@ -42,17 +44,22 @@ namespace UI.Negocio
             comboBox1.DisplayMember = "Descripcion";
             GenerarGrilla();
         }
+        /// <summary>
+        /// Formar grilla
+        /// </summary>
         private void GenerarGrilla()
         {
             dataGridView1.Columns.Add("Producto", "Producto");
             dataGridView1.Columns.Add("Cantidad", "Cantidad");
             dataGridView1.Columns.Add("Precio", "Precio");
         }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             FillComboBox1();
         }
+        /// <summary>
+        /// Cargar ComboBox con productos
+        /// </summary>
         private void FillComboBox1()
         {
             string selectioncmb = ((Item)comboBox1.SelectedItem).Descripcion;
@@ -63,11 +70,14 @@ namespace UI.Negocio
                 labelNroPrecio.Text = item.Valor.ToString();
             }
         }
-
         public void Update()
         {
         }
-
+        /// <summary>
+        /// Agregar a la grilla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtBoxCantidad.Text))
@@ -114,7 +124,6 @@ namespace UI.Negocio
                 MessageBox.Show("Debe agregar una cantidad del producto seleccionado");
             }
         }
-
         /// <summary>
         /// Suma productos para el Total $$$
         /// </summary>
@@ -134,7 +143,11 @@ namespace UI.Negocio
             catch { }
             labelNroTotal.Text = total.ToString();
         }
-
+        /// <summary>
+        /// Quitar de la grilla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonQuitar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -150,10 +163,9 @@ namespace UI.Negocio
                     labelNroTotal.Text = (decimal.Parse(labelNroTotal.Text) - (decimal.Parse(row.Cells[1].Value.ToString()) * decimal.Parse(row.Cells[2].Value.ToString()))).ToString();
                     dataGridView1.Rows.Remove(row);
                 }
+                CalcularValorTotal();
             }
         }
-
-
         /// <summary>
         /// Calcula si hay disponibilidad
         /// </summary>
@@ -162,7 +174,11 @@ namespace UI.Negocio
         {
             return int.Parse(txtBoxCantidad.Text) > int.Parse(labelNroDisponible.Text) ? true : false;
         }
-
+        /// <summary>
+        /// Comprar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonComprar_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(textBoxCliente.Text))
@@ -208,7 +224,11 @@ namespace UI.Negocio
             }
 
         }
-
+        /// <summary>
+        /// Validacion para insertar solo DNI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBoxCliente_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(textBoxCliente.Text, "[^0-9]"))

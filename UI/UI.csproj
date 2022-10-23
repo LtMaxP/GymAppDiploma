@@ -78,6 +78,12 @@
     <Compile Include="Negocio\Productos.Designer.cs">
       <DependentUpon>Productos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Negocio\Stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Stock.Designer.cs">
+      <DependentUpon>Stock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tecnico\BackupRestore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,12 +126,6 @@
     <Compile Include="Tecnico\PermisosUsuario.Designer.cs">
       <DependentUpon>PermisosUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Negocio\Listas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Negocio\Listas.Designer.cs">
-      <DependentUpon>Listas.cs</DependentUpon>
-    </Compile>
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,11 +138,11 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Negocio\PagosCobros.cs">
+    <Compile Include="Negocio\Pagos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Negocio\PagosCobros.Designer.cs">
-      <DependentUpon>PagosCobros.cs</DependentUpon>
+    <Compile Include="Negocio\Pagos.Designer.cs">
+      <DependentUpon>Pagos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -166,6 +166,9 @@
     </Compile>
     <EmbeddedResource Include="Negocio\Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Stock.resx">
+      <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tecnico\BackupRestore.resx">
       <DependentUpon>BackupRestore.cs</DependentUpon>
@@ -191,9 +194,6 @@
     <EmbeddedResource Include="Inicio.agq.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Negocio\Listas.resx">
-      <DependentUpon>Listas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,8 +201,8 @@
       <DependentUpon>Inicio.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Negocio\PagosCobros.resx">
-      <DependentUpon>PagosCobros.cs</DependentUpon>
+    <EmbeddedResource Include="Negocio\Pagos.resx">
+      <DependentUpon>Pagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -271,7 +271,6 @@
     <None Include="Resources\gymwallpaper.jpg" />
     <None Include="Resources\focmili.jpg" />
     <Content Include="icoGym.ico" />
-    <None Include="Resources\icono.bmp" />
     <None Include="Resources\icoGym.ico" />
     <Content Include="SecSemiR-45\focmili.jpg" />
   </ItemGroup>
