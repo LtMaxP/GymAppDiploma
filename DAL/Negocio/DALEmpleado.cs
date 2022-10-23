@@ -9,17 +9,21 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class DALEmpleado
+    public class DALEmpleado : ICRUD<BE.BE_Empleado>
     {
-        
-        public DataTable DameEmpleados(int id_Sucursal)
+
+        public DataTable DameEmpleados()
         {
             DataTable dt = new DataTable();
-            String query = "select * from Empleado where id_Sucursal = @id";
-            SqlCommand command = new SqlCommand(query);
-            command.Parameters.AddWithValue("@id", id_Sucursal);
+            try
+            {
+                String query = @"select nombre, apellido, T.Descripcion, C.Sueldo, Es.Id_Estado 
+                                    from Empleado E inner join Trabajo T on T.Id_Trabajo = E.id_Trabajo inner join Cuenta C on E.id_Cuenta = C.Id_Cuenta inner join Estado Es on Es.Id_Estado = E.Id_Estado";
+                SqlCommand command = new SqlCommand(query);
 
-            dt = Acceso.Instance.ExecuteDataTable(command);
+                dt = Acceso.Instance.ExecuteDataTable(command);
+            }
+            catch { }
             return dt;
         }
 
@@ -31,6 +35,36 @@ namespace DAL
 
             dt = Acceso.Instance.ExecuteDataTable(command);
             return dt;
+        }
+
+        public DataTable TraerEmpleados()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Alta(BE_Empleado valAlta)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Baja(BE_Empleado valBaja)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Modificar(BE_Empleado valMod)
+        {
+            throw new NotImplementedException();
+        }
+
+        public BE_Empleado Leer(BE_Empleado valBuscar)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<BE_Empleado> Leer2(BE_Empleado valBuscar)
+        {
+            throw new NotImplementedException();
         }
     }
 }

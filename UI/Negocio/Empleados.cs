@@ -31,6 +31,8 @@ namespace UI
 
             comboBox1.DataSource = bllEmp.CargarComboTrabajos();
             comboBox1.DisplayMember = "Descripcion";
+            cmbBoxEmpleado.DataSource = bllEmp.DameEmpleados();
+            cmbBoxEmpleado.DisplayMember = "Nombre";
         }
         /// <summary>
         /// Salir
@@ -42,45 +44,55 @@ namespace UI
             BE.ObserverIdioma.SubjectIdioma.RemoveObserverIdioma(this);
             this.Close();
         }
-        /// <summary>
-        /// Buscar
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void labelBuscar_Click(object sender, EventArgs e)
-        {
-            if(!textBox1.Text.Equals(string.Empty))
-            {
-                //BE.BE_Usuarios usuario = new BE.BE_Usuarios();
-                //usuario.User = textBox2.Text;
-                //List<BE.BE_Usuarios> filaDeDatos = usuarioABM.BuscarUsuario(usuario);
-
-                //if (filaDeDatos.Count > 0)
-                //{
-                //    if (listView1.Items.Count > 0)
-                //    {
-                //        listView1.Items.RemoveAt(0);
-                //    }
-                //    foreach (BE.BE_Empleado u in filaDeDatos)
-                //    {
-                //        ListViewItem lista = new ListViewItem();
-                //        lista.SubItems.Add(u.User.ToString());
-                //        listView1.Items.AddRange(new ListViewItem[] { lista });
-                //    }
-                //}
-            }
-            else
-            { MessageBox.Show("Debe ingresar un Empleado!"); }
-        }
-
-        private void labelAgregar_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //--
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void labelAlta_Click(object sender, EventArgs e)
+        {
+            string name = txtbox_Nombre.Text;
+            string apellido = txtbox_Apellido.Text;
+            string dni = txtBox_DNI.Text;
+            string estado = txtbox_Estado.Text;
+            string trabajo = comboBox1.Text;
+            string sueldo = txtbox_Sueldo.Text;
+            if(String.IsNullOrEmpty(name) || String.IsNullOrEmpty(apellido) || String.IsNullOrEmpty(dni) || String.IsNullOrEmpty(estado) || String.IsNullOrEmpty(trabajo) || String.IsNullOrEmpty(sueldo))
+            {
+                MessageBox.Show("Debe completar todos los campos");
+            }
+            else
+            {
+                BE.BE_Empleado emp = new BE.BE_Empleado();
+                emp.Nombre = name;
+                emp.Apellido = apellido;
+                emp.Dni = int.Parse(dni);
+                emp.Id_Estado = 1;
+                emp.Cuenta = new BE.BE_Cuenta()
+                {
+                    Monto = Double.Parse(sueldo)
+                };
+                bllEmp.AltaNuevoEmpleado(emp);
+            }
+        }
+
+        private void labelBaja_Click(object sender, EventArgs e)
+        {
+            string name = txtbox_Nombre.Text;
+            string apellido = txtbox_Apellido.Text;
+            string dni = txtBox_DNI.Text;
+            string estado = txtbox_Estado.Text;
+            string trabajo = comboBox1.Text;
+            string sueldo = txtbox_Sueldo.Text;
+            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(apellido) || String.IsNullOrEmpty(dni) || String.IsNullOrEmpty(estado) || String.IsNullOrEmpty(trabajo) || String.IsNullOrEmpty(sueldo))
+            {
+                MessageBox.Show("Debe tener todos los campos");
+            }
+            else
+            {
+                bllEmp.EliminarEmpleado(dni);
+            }
         }
     }
 }

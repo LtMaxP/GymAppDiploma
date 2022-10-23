@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -52,6 +53,30 @@ namespace DAL
             {
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Error al crear factura", "Medio"));
             }
+        }
+
+        public static List<BE_Factura> TraerFacturas(string dni)
+        {
+            List<BE_Factura> facturaList = new List<BE_Factura>();
+            try
+            {
+                //Crea factura
+                string query = @"select * from factura where id_cliente = (select id_cliente from clienteGym where dni = @dni)";
+                SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@dni", dni);
+                DataTable dt = Acceso.Instance.ExecuteDataTable(command);
+
+                foreach (DataRow fact in dt.Rows)
+                {
+                    BE_Factura factura = new BE_Factura();
+                    factura.Fecha = DateTime.Parse(fact["fecha"].ToString());
+                    factura.Monto = decimal.Parse(fact["monto"].ToString());
+                    factura.Id_Factura = int.Parse(fact["Id_Factura"].ToString());
+                    facturaList.Add(factura);
+                }
+            }
+            catch { }
+            return facturaList;
         }
     }
 }
