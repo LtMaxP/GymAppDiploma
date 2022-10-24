@@ -36,6 +36,7 @@ namespace UI
             this.listBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Exportar = new System.Windows.Forms.Button();
+            this.btn_PDF = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -105,12 +106,23 @@ namespace UI
             this.btn_Exportar.UseVisualStyleBackColor = true;
             this.btn_Exportar.Click += new System.EventHandler(this.btn_Exportar_Click);
             // 
+            // btn_PDF
+            // 
+            this.btn_PDF.Location = new System.Drawing.Point(136, 336);
+            this.btn_PDF.Name = "btn_PDF";
+            this.btn_PDF.Size = new System.Drawing.Size(75, 23);
+            this.btn_PDF.TabIndex = 9;
+            this.btn_PDF.Text = "PDF";
+            this.btn_PDF.UseVisualStyleBackColor = true;
+            this.btn_PDF.Click += new System.EventHandler(this.btn_PDF_Click);
+            // 
             // Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.btn_PDF);
             this.Controls.Add(this.btn_Exportar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBox);
@@ -135,5 +147,6 @@ namespace UI
         private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_Exportar;
+        private System.Windows.Forms.Button btn_PDF;
     }
 }

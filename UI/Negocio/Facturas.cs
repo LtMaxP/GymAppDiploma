@@ -84,5 +84,10 @@ namespace UI
                 //Fecha Monto
             }
         }
+
+        private void btn_PDF_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
