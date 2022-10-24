@@ -14,7 +14,6 @@ namespace UI.Negocio
     public partial class Stock : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.Negocio.BLLProducto BLLProd = new BLL.Negocio.BLLProducto();
-        BLL.BLLClientes clients = new BLL.BLLClientes();
         List<Item> items = new List<Item>();
         public Stock()
         {

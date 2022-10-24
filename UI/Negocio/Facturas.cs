@@ -50,13 +50,9 @@ namespace UI
             if(listBox.Items.Count != 0)
             {
                 List<BE.BE_Factura> listadoFacturas = new List<BE.BE_Factura>();
-                foreach(DataRow it in listBox.Items)
+                foreach(BE.BE_Factura it in listBox.Items)
                 {
-                    BE.BE_Factura fac = new BE.BE_Factura();
-                    fac.Fecha = DateTime.Parse(it["fecha"].ToString());
-                    fac.Monto = decimal.Parse(it["monto"].ToString());
-                    fac.Id_Factura = int.Parse(it["Id_Factura"].ToString());
-                    listadoFacturas.Add(fac);
+                    listadoFacturas.Add(it);
                 }
                 
                 //Ruta a llevar
@@ -79,9 +75,13 @@ namespace UI
             string dni = textBox.Text;
             if (bllFacturas.DetectarCliente(dni))
             {
+                listBox.DataSource = null;
                 listBox.Items.Clear();
                 List<BE.BE_Factura> facturas = bllFacturas.TraerFacturas(dni);
                 listBox.DataSource = facturas;
+                listBox.DisplayMember = "Fecha";
+                listBox.DisplayMember = "Monto";
+                //Fecha Monto
             }
         }
     }

@@ -5,25 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace DAL
 {
     public class Acceso
     {
-        //private const string sqlConnect = "Data Source=DESKTOP-N4A8Q47\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True"; //nb
-        //private string ruta = "Data Source=DESKTOP-SLGG4A0\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True";//PCFija
-
+        
         public SqlConnection sqlCon = null; /* new SqlConnection("Data Source=DESKTOP-SLGG4A0\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True");*/
         private SqlConnection SQLC = null;
         //private SqlTransaction TX;
 
-        //private Acceso()
-        //{
-        //    if (sqlCon.State == ConnectionState.Open)
-        //    {
-        //        sqlCon.Close();
-        //    }
-        //}
         private static Acceso instance;
         public static Acceso Instance
         {
@@ -195,7 +187,7 @@ namespace DAL
             {
                 if (SQLC == null)
                 {
-                    SQLC = new SqlConnection("Data Source=DESKTOP-SLGG4A0\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True");
+                    SQLC = new SqlConnection(ConexionRuta());
                     SQLC.Open();
                 }
                 else if (SQLC.State == ConnectionState.Open)
@@ -208,6 +200,11 @@ namespace DAL
             {
                 throw (ex);
             }
+        }
+        private string ConexionRuta()
+        {
+            string connString = ConfigurationManager.ConnectionStrings["ConnectionDB"].ConnectionString;
+            return connString;
         }
         public void Cerrar()
         {

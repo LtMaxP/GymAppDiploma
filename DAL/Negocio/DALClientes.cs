@@ -36,6 +36,7 @@ namespace DAL
                 comm.Parameters.AddWithValue("@Descuento", valAlta.Descuento);
 
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Creacion de cliente: " + valAlta.Dni, "Ninguno"));
                 rpta = true;
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta el Usuario."); }

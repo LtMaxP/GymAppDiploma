@@ -35,8 +35,11 @@ namespace UI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.labelAcciones = new System.Windows.Forms.ToolStripMenuItem();
             this.labelClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelFacturas = new System.Windows.Forms.ToolStripMenuItem();
             this.labelEmpleados = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDeStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.labelABMUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.labelFamiliaPatentes = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,9 +55,6 @@ namespace UI
             this.verSecretoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelFacturas = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelListas = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,7 +88,8 @@ namespace UI
             this.labelAcciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelClientes,
             this.labelEmpleados,
-            this.productosToolStripMenuItem});
+            this.productosToolStripMenuItem,
+            this.gestionDeStockToolStripMenuItem});
             resources.ApplyResources(this.labelAcciones, "labelAcciones");
             this.labelAcciones.Name = "labelAcciones";
             this.labelAcciones.Tag = "30";
@@ -98,12 +99,25 @@ namespace UI
             // 
             this.labelClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelPagosYCobros,
-            this.labelListas,
             this.labelFacturas});
             this.labelClientes.Name = "labelClientes";
             resources.ApplyResources(this.labelClientes, "labelClientes");
             this.labelClientes.Tag = "4";
             this.labelClientes.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // labelPagosYCobros
+            // 
+            this.labelPagosYCobros.Name = "labelPagosYCobros";
+            resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
+            this.labelPagosYCobros.Tag = "24";
+            this.labelPagosYCobros.Click += new System.EventHandler(this.labelPagosYCobros_Click_1);
+            // 
+            // labelFacturas
+            // 
+            this.labelFacturas.Name = "labelFacturas";
+            resources.ApplyResources(this.labelFacturas, "labelFacturas");
+            this.labelFacturas.Tag = "28";
+            this.labelFacturas.Click += new System.EventHandler(this.labelFacturas_Click_1);
             // 
             // labelEmpleados
             // 
@@ -118,6 +132,13 @@ namespace UI
             resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
             this.productosToolStripMenuItem.Tag = "18";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
+            // 
+            // gestionDeStockToolStripMenuItem
+            // 
+            this.gestionDeStockToolStripMenuItem.Name = "gestionDeStockToolStripMenuItem";
+            resources.ApplyResources(this.gestionDeStockToolStripMenuItem, "gestionDeStockToolStripMenuItem");
+            this.gestionDeStockToolStripMenuItem.Tag = "19";
+            this.gestionDeStockToolStripMenuItem.Click += new System.EventHandler(this.gestionDeStockToolStripMenuItem_Click);
             // 
             // labelSistema
             // 
@@ -237,24 +258,6 @@ namespace UI
             resources.ApplyResources(this.contactoToolStripMenuItem, "contactoToolStripMenuItem");
             this.contactoToolStripMenuItem.Tag = "99";
             // 
-            // labelFacturas
-            // 
-            this.labelFacturas.Name = "labelFacturas";
-            resources.ApplyResources(this.labelFacturas, "labelFacturas");
-            this.labelFacturas.Tag = "28";
-            // 
-            // labelPagosYCobros
-            // 
-            this.labelPagosYCobros.Name = "labelPagosYCobros";
-            resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
-            this.labelPagosYCobros.Tag = "24";
-            // 
-            // labelListas
-            // 
-            this.labelListas.Name = "labelListas";
-            resources.ApplyResources(this.labelListas, "labelListas");
-            this.labelListas.Tag = "29";
-            // 
             // Inicio
             // 
             resources.ApplyResources(this, "$this");
@@ -305,7 +308,7 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem permisosGestionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem permisosUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem labelPagosYCobros;
-        private System.Windows.Forms.ToolStripMenuItem labelListas;
         private System.Windows.Forms.ToolStripMenuItem labelFacturas;
+        private System.Windows.Forms.ToolStripMenuItem gestionDeStockToolStripMenuItem;
     }
 }

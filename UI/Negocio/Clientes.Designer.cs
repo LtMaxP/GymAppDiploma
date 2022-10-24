@@ -116,9 +116,9 @@
             this.nombre,
             this.apellido});
             this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(16, 70);
+            this.listView.Location = new System.Drawing.Point(12, 70);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(228, 188);
+            this.listView.Size = new System.Drawing.Size(232, 188);
             this.listView.TabIndex = 3;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -126,7 +126,7 @@
             // Select
             // 
             this.Select.Text = "X";
-            this.Select.Width = 20;
+            this.Select.Width = 21;
             // 
             // dni
             // 
@@ -196,7 +196,7 @@
             this.labelNumero.Name = "labelNumero";
             this.labelNumero.Size = new System.Drawing.Size(44, 13);
             this.labelNumero.TabIndex = 5;
-            this.labelNumero.Text = "Numero";
+            this.labelNumero.Text = "Número";
             // 
             // labelEstado
             // 
@@ -223,7 +223,7 @@
             this.labelTelefono.Name = "labelTelefono";
             this.labelTelefono.Size = new System.Drawing.Size(49, 13);
             this.labelTelefono.TabIndex = 5;
-            this.labelTelefono.Text = "Telefono";
+            this.labelTelefono.Text = "Teléfono";
             this.labelTelefono.Click += new System.EventHandler(this.label9_Click);
             // 
             // labelFecha
@@ -241,9 +241,9 @@
             this.labelMembres.AutoSize = true;
             this.labelMembres.Location = new System.Drawing.Point(538, 202);
             this.labelMembres.Name = "labelMembres";
-            this.labelMembres.Size = new System.Drawing.Size(58, 13);
+            this.labelMembres.Size = new System.Drawing.Size(60, 13);
             this.labelMembres.TabIndex = 5;
-            this.labelMembres.Text = "Membresia";
+            this.labelMembres.Text = "Membresía";
             this.labelMembres.Click += new System.EventHandler(this.label9_Click);
             // 
             // labelAlta
@@ -422,7 +422,7 @@
             this.labelCertif.Name = "labelCertif";
             this.labelCertif.Size = new System.Drawing.Size(60, 26);
             this.labelCertif.TabIndex = 5;
-            this.labelCertif.Text = "Certificado \r\nMedico";
+            this.labelCertif.Text = "Certificado \r\nMédico";
             this.labelCertif.Click += new System.EventHandler(this.label9_Click);
             // 
             // checkBoxCertif

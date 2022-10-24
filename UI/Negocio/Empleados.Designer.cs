@@ -51,7 +51,7 @@
             // 
             // labelSalir
             // 
-            this.labelSalir.Location = new System.Drawing.Point(391, 417);
+            this.labelSalir.Location = new System.Drawing.Point(410, 442);
             this.labelSalir.Name = "labelSalir";
             this.labelSalir.Size = new System.Drawing.Size(85, 34);
             this.labelSalir.TabIndex = 45;
@@ -218,7 +218,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 474);
+            this.ClientSize = new System.Drawing.Size(507, 488);
             this.Controls.Add(this.txtbox_Sueldo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBoxEmpleado);
@@ -238,6 +238,7 @@
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.labelMostrar);
             this.Controls.Add(this.labelBuscarUnUsuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Empleados";
             this.Text = "Empleados";
             this.Load += new System.EventHandler(this.Empleados_Load);

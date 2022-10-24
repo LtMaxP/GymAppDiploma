@@ -244,7 +244,7 @@ namespace UI
         {
             Fbackrest = null;
         }
-        private void labelFacturas_Click(object sender, EventArgs e)
+        private void labelFacturas_Click_1(object sender, EventArgs e)
         {
             if (Factu == null)
             {
@@ -262,7 +262,7 @@ namespace UI
         {
             Factu = null;
         }
-        private void labelPagosYCobros_Click(object sender, EventArgs e)
+        private void labelPagosYCobros_Click_1(object sender, EventArgs e)
         {
             if (PyG == null)
             {
@@ -324,11 +324,29 @@ namespace UI
                 AgIdioma.Activate();
             }
         }
+        private void gestionDeStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+                            if (Stock == null)
+            {
+                Stock= new UI.Negocio.Stock();
+                Stock.MdiParent = this;
+                Stock.FormClosed += new FormClosedEventHandler(Stock_FormClosed);
+                Stock.Show();
+            }
+            else
+            {
+                Stock.Activate();
+            }
+        }
         private void AgIdioma_FormClosed(object sender, FormClosedEventArgs e)
         {
             AgIdioma = null;
         }
-
+        private void Stock_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Stock = null;
+        }
         #endregion
         #region traducir
 
@@ -397,13 +415,14 @@ namespace UI
         UI.Tecnico.Idioma AgIdioma;
         UI.Tecnico.ControlCambios CC;
         PermisosUsuario PermUsu;
-
+        UI.Negocio.Stock Stock;
         #endregion
 
         public void Update()
         {
             TraducirTodo();
         }
+
 
     }
 }
