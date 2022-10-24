@@ -47,14 +47,14 @@ namespace UI
         /// <param name="e"></param>
         private void btn_Exportar_Click(object sender, EventArgs e)
         {
-            if(listBox.Items.Count != 0)
+            if (listBox.Items.Count != 0)
             {
                 List<BE.BE_Factura> listadoFacturas = new List<BE.BE_Factura>();
-                foreach(BE.BE_Factura it in listBox.Items)
+                foreach (BE.BE_Factura it in listBox.Items)
                 {
                     listadoFacturas.Add(it);
                 }
-                
+
                 //Ruta a llevar
                 FolderBrowserDialog folderDlg = new FolderBrowserDialog();
                 folderDlg.ShowNewFolderButton = true;
@@ -79,6 +79,20 @@ namespace UI
                 listBox.Items.Clear();
                 List<BE.BE_Factura> facturas = bllFacturas.TraerFacturas(dni);
                 listBox.DataSource = facturas;
+
+                //listBox.Items.Add("Monto");
+                //listBox.Items.Add("Fecha");
+
+                //foreach (BE.BE_Factura factu in facturas)
+                //{
+                //    ListViewItem elementos = new ListViewItem(listBox.Items["Monto"]);
+                //    elementos.SubItems.Add(factu.Monto.ToString());
+                //    ListViewItem elementos2 = new ListViewItem(listBox.Items["Fecha"]);
+                //    elementos2.SubItems.Add(factu.Fecha.ToString());
+                //}
+
+
+
                 listBox.DisplayMember = "Fecha";
                 listBox.DisplayMember = "Monto";
                 //Fecha Monto

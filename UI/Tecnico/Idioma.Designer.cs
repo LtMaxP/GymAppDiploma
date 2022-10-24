@@ -81,7 +81,6 @@ namespace UI.Tecnico
             // 
             // comboBox1
             // 
-            this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(31, 167);
             this.comboBox1.Name = "comboBox1";

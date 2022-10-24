@@ -49,7 +49,14 @@ namespace UI.Negocio
         {
             if (int.Parse(txtBoxCantidad.Text) > 0)
             {
-                BLLProd.CargarProducto(new Item(comboBox1.SelectedItem.ToString(), Decimal.Parse(txtBoxPrecio.Text), int.Parse(txtBoxCantidad.ToString())));
+                Item it = new Item();
+                it.Descripcion = comboBox1.Text;
+                it.Cantidad = int.Parse(txtBoxCantidad.Text);
+                it.Valor = Decimal.Parse(txtBoxPrecio.Text);
+                if(BLLProd.CargarProducto(it))
+                    MessageBox.Show("Se cargo stock con exito");
+                else
+                    MessageBox.Show("No se pudo cargar stock");
             }
             else
             {
