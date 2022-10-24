@@ -15,17 +15,20 @@ namespace Servicios
     {
         public static void Guardar<T>(T data, String url)
         {
+            url += "/Serializado.xml";
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                FileStream fStream = File.Open(url, FileMode.Create);
+                XmlSerializer serializer = new XmlSerializer(data.GetType());
+                FileStream fStream = File.Open(url, FileMode.Create, FileAccess.Write);
                 serializer.Serialize(fStream, data);
                 fStream.Close();
+                fStream.Dispose();
             }
             catch (Exception e)
             {
             }
 
         }
+
     }
 }
