@@ -9,7 +9,7 @@ namespace DAL.Tecnico
 {
     public class RestoreDAL
     {
-        public void GenerarRestore(string ruta)
+        public bool GenerarRestore(string ruta)
         {
             try
             {
@@ -25,11 +25,13 @@ namespace DAL.Tecnico
                 Acceso.Instance.ExecuteNonQuery(cmd);
 
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Es generando Restore en BD", "Ninguno"));
+                return true;
             }
             catch (Exception)
             {
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Problema generando Restore en BD", "Bajo"));
                 throw new Exception("Error al realizar Restore");
+                return false;
             }
         }
     }

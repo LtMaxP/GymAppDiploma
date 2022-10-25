@@ -36,6 +36,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.Recuperacion = new System.Windows.Forms.Button();
+            this.btn_España = new System.Windows.Forms.Button();
+            this.btn_usa = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelUser
@@ -55,10 +57,10 @@
             this.buttonIngresar.BackColor = System.Drawing.Color.DarkSlateGray;
             this.buttonIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonIngresar.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIngresar.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.buttonIngresar.Location = new System.Drawing.Point(323, 200);
+            this.buttonIngresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonIngresar.Location = new System.Drawing.Point(326, 197);
             this.buttonIngresar.Name = "buttonIngresar";
-            this.buttonIngresar.Size = new System.Drawing.Size(143, 47);
+            this.buttonIngresar.Size = new System.Drawing.Size(151, 49);
             this.buttonIngresar.TabIndex = 1;
             this.buttonIngresar.Text = "Ingresar";
             this.buttonIngresar.UseVisualStyleBackColor = false;
@@ -111,14 +113,33 @@
             // 
             this.Recuperacion.BackColor = System.Drawing.Color.DarkSlateGray;
             this.Recuperacion.Font = new System.Drawing.Font("Baskerville Old Face", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Recuperacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Recuperacion.Location = new System.Drawing.Point(212, 206);
+            this.Recuperacion.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Recuperacion.Location = new System.Drawing.Point(219, 208);
             this.Recuperacion.Name = "Recuperacion";
-            this.Recuperacion.Size = new System.Drawing.Size(93, 32);
+            this.Recuperacion.Size = new System.Drawing.Size(84, 28);
             this.Recuperacion.TabIndex = 6;
             this.Recuperacion.Text = "Recuperar";
             this.Recuperacion.UseVisualStyleBackColor = false;
             this.Recuperacion.Click += new System.EventHandler(this.Recuperacion_Click);
+            // 
+            // btn_España
+            // 
+            this.btn_España.Image = global::UI.Properties.Resources.logo_España1;
+            this.btn_España.Location = new System.Drawing.Point(12, 378);
+            this.btn_España.Name = "btn_España";
+            this.btn_España.Size = new System.Drawing.Size(38, 29);
+            this.btn_España.TabIndex = 7;
+            this.btn_España.UseVisualStyleBackColor = true;
+            // 
+            // btn_usa
+            // 
+            this.btn_usa.Image = global::UI.Properties.Resources.logo_USA;
+            this.btn_usa.Location = new System.Drawing.Point(56, 378);
+            this.btn_usa.Name = "btn_usa";
+            this.btn_usa.Size = new System.Drawing.Size(38, 29);
+            this.btn_usa.TabIndex = 7;
+            this.btn_usa.UseVisualStyleBackColor = true;
+            this.btn_usa.Click += new System.EventHandler(this.btn_usa_Click);
             // 
             // LogIn
             // 
@@ -127,6 +148,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(628, 419);
+            this.Controls.Add(this.btn_usa);
+            this.Controls.Add(this.btn_España);
             this.Controls.Add(this.Recuperacion);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -155,6 +178,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button Recuperacion;
+        private System.Windows.Forms.Button btn_España;
+        private System.Windows.Forms.Button btn_usa;
     }
 }
 

@@ -82,10 +82,14 @@ namespace UI
         private void btnEjecutarRestore_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog().Equals(true))
+            openFileDialog.ShowDialog().Equals(true);
+            string ruta = openFileDialog.FileName;
+            if (!String.IsNullOrEmpty(ruta))
             {
-                string ruta = openFileDialog.FileName;
-                rstBLL.RestoreBD(ruta);
+                if(rstBLL.RestoreBD(ruta))
+                    MessageBox.Show("Restore Realizado");
+                else
+                    MessageBox.Show("No se pudo realizar el Restore");
             }
         }
         //-

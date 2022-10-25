@@ -58,7 +58,6 @@ namespace BLL
             user = DAL.ABMUsuariosDAL.DameId(user);
             user._DVH = Servicios.DigitoVerificadorHV.CrearDVH(user);
             DAL.ABMUsuariosDAL.RecuperoPass(user);
-            usuarioABM.ModificarUsuario(user);
             DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se restableció la contraseña " + user.User, "Ninguno"));
         }
     }

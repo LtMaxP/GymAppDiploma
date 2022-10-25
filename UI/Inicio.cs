@@ -15,9 +15,9 @@ namespace UI
 {
     public partial class Inicio : Form, IObserverIdioma
     {
-        //Bitmap secSemi45 = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
-        //Bitmap wallpaper = new Bitmap(@"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
-        //int speIma = 0;
+        Bitmap secSemi45 = new Bitmap(Properties.Resources.focmili);//@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
+        Bitmap wallpaper = new Bitmap(Properties.Resources.gymwallpaper);// @"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
+        int speIma = 0;
         IdiomaBLL BLLIdioma;
         BLL.BitacoraBLL bit;
         public Inicio()
@@ -194,16 +194,16 @@ namespace UI
         }
         private void verSecretoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //if (speIma == 0)
-            //{
-            //    this.BackgroundImage = secSemi45;
-            //    speIma = 1;
-            //}
-            //else
-            //{
-            //    this.BackgroundImage = wallpaper;
-            //    speIma = 0;
-            //}
+            if (speIma == 0)
+            {
+                this.BackgroundImage = secSemi45;
+                speIma = 1;
+            }
+            else
+            {
+                this.BackgroundImage = wallpaper;
+                speIma = 0;
+            }
         }
         private void labelEmpleados_Click(object sender, EventArgs e)
         {

@@ -9,9 +9,9 @@ namespace BLL.Tecnico
     public class Restore
     {
         DAL.Tecnico.RestoreDAL restore = new DAL.Tecnico.RestoreDAL();
-        public void RestoreBD(string ruta)
+        public bool RestoreBD(string ruta)
         {
-            restore.GenerarRestore(ruta);
+            return restore.GenerarRestore(ruta);
         }
     }
 }

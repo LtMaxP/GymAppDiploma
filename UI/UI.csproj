@@ -272,6 +272,9 @@
     <None Include="Resources\focmili.jpg" />
     <Content Include="icoGym.ico" />
     <None Include="Resources\icoGym.ico" />
+    <None Include="Resources\logo_España.jpg" />
+    <None Include="Resources\logo_España1.jpg" />
+    <None Include="Resources\logo_USA.jpg" />
     <Content Include="SecSemiR-45\focmili.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

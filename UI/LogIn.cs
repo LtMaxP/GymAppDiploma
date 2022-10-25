@@ -19,7 +19,6 @@ namespace UI
         }
 
         private BLL.Login bllLog = new BLL.Login();
-        private BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
         private BLL.DV DigitosVerificadores = new BLL.DV();
 
         public LogIn()
@@ -97,7 +96,7 @@ namespace UI
                 BE.BE_Usuario user = new BE.BE_Usuario();
                 user.User = textBox1.Text;
                 user.Pass = textBox2.Text;
-                string respuesta = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la palabra secreta", "Recuperar contraseña", "Palabra secreta");
+                string respuesta = Microsoft.VisualBasic.Interaction.InputBox("Usuario y Pass nueva tomados, ingrese la palabra secreta ya creada", "Recuperar contraseña", "Palabra secreta");
                 user.PSecreta = respuesta;
                 if (bllLog.ValidacionPalabraSecreta(user))
                 {
@@ -109,6 +108,11 @@ namespace UI
             {
                 MessageBox.Show("Debe ingresar un nombre de usuario y nueva contraseña a recuperar");
             }
+        }
+
+        private void btn_usa_Click(object sender, EventArgs e)
+        {
+            //UI.Inicio.
         }
     }
 }

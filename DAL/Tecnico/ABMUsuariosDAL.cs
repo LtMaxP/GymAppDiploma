@@ -75,12 +75,15 @@ namespace DAL
         {
             using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
-                String query = "UPDATE Usuario SET Password = @pass AND DVH = @DVH";
+                String query = "UPDATE Usuario SET Password = @pass AND DVH = @DVH WHERE Id_Usuario = @idUser";
                 SqlCommand command = new SqlCommand(query);
+                command.Parameters.AddWithValue("@idUser", user.IdUsuario);
                 command.Parameters.AddWithValue("@pass", user.Pass);
                 command.Parameters.AddWithValue("@DVH", user._DVH);
                 user.IdUsuario = Acceso.Instance.ExecuteScalar(command);
-                //////DAL.DigitoVerificadorDAL. que recalcule los DVH y DVV si cambias la pass
+
+                string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
+                DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
             }
         }
 
