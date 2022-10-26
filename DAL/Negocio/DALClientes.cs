@@ -11,6 +11,11 @@ namespace DAL
 {
     public class DALClientes : DAL.ICRUD<BE.Cliente>
     {
+        /// <summary>
+        /// Dar de Alta cliente
+        /// </summary>
+        /// <param name="valAlta"></param>
+        /// <returns></returns>
         public bool Alta(Cliente valAlta)
         {
             bool rpta = false;
@@ -42,7 +47,11 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de alta el Usuario."); }
             return rpta;
         }
-
+        /// <summary>
+        /// Cambia a baja el dni del cliente enviado
+        /// </summary>
+        /// <param name="valBaja"></param>
+        /// <returns></returns>
         public bool Baja(Cliente valBaja)
         {
             bool retornable = false;
@@ -53,12 +62,17 @@ namespace DAL
             {
                 Acceso.Instance.ExecuteNonQuery(comm);
                 retornable = true;
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Dado de baja el Cliente : " + valBaja.Dni, "Ninguno"));
             }
             catch
             { }
             return retornable;
         }
-
+        /// <summary>
+        /// Trae dni/nombre/apellido del nombre dado
+        /// </summary>
+        /// <param name="valBuscar"></param>
+        /// <returns></returns>
         public DataTable Leer(Cliente valBuscar)
         {
             DataTable dt = new DataTable();
@@ -74,34 +88,41 @@ namespace DAL
             { }
             return dt;
         }
-
+        /// <summary>
+        /// Modificar Cliente
+        /// </summary>
+        /// <param name="valMod"></param>
+        /// <returns></returns>
         public bool Modificar(Cliente valMod)
         {
             bool rpta = false;
-            try
+            using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
-                SqlCommand comm = new SqlCommand();
+                try
+                {
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandText = "UPDATE ClienteGYM SET Nombre = @Nombre, Apellido = @Apellido, Calle = @Calle, Numero = @Numero, CodPostal = @CodPostal, Telefono = @Telefono, PesoKg = @Peso, Id_Estado = @Estado, Altura = @Altura, Certificado = @Certificado, Id_Membresia = @Membresia, Descuento = @Descuento WHERE Dni = @Dni";
 
-                comm.CommandText = "UPDATE ClienteGYM SET Nombre = @Nombre, Apellido = @Apellido, Calle = @Calle, Numero = @Numero, CodPostal = @CodPostal, Telefono = @Telefono, PesoKg = @Peso, Id_Estado = @Estado, Altura = @Altura, Certificado = @Certificado, Id_Membresia = @Membresia, Descuento = @Descuento WHERE Dni = @Dni";
+                    comm.Parameters.AddWithValue("@Nombre", valMod.Nombre);
+                    comm.Parameters.AddWithValue("@Apellido", valMod.Apellido);
+                    comm.Parameters.AddWithValue("@Dni", valMod.Dni);
+                    comm.Parameters.AddWithValue("@Calle", valMod._calle);
+                    comm.Parameters.AddWithValue("@Numero", valMod._numero);
+                    comm.Parameters.AddWithValue("@CodPostal", valMod._codPostal);
+                    comm.Parameters.AddWithValue("@Telefono", valMod._telefono);
+                    comm.Parameters.AddWithValue("@Estado", valMod.Id_Estado);
+                    comm.Parameters.AddWithValue("@Peso", valMod._pesokg);
+                    comm.Parameters.AddWithValue("@Altura", valMod.Altura);
+                    comm.Parameters.AddWithValue("@Certificado", valMod.Certificado);
+                    comm.Parameters.AddWithValue("@Membresia", valMod.Membresia.Id);
+                    comm.Parameters.AddWithValue("@Descuento", valMod.Descuento);
 
-                comm.Parameters.AddWithValue("@Nombre", valMod.Nombre);
-                comm.Parameters.AddWithValue("@Apellido", valMod.Apellido);
-                comm.Parameters.AddWithValue("@Dni", valMod.Dni);
-                comm.Parameters.AddWithValue("@Calle", valMod._calle);
-                comm.Parameters.AddWithValue("@Numero", valMod._numero);
-                comm.Parameters.AddWithValue("@CodPostal", valMod._codPostal);
-                comm.Parameters.AddWithValue("@Telefono", valMod._telefono);
-                comm.Parameters.AddWithValue("@Estado", valMod.Id_Estado);
-                comm.Parameters.AddWithValue("@Peso", valMod._pesokg);
-                comm.Parameters.AddWithValue("@Altura", valMod.Altura);
-                comm.Parameters.AddWithValue("@Certificado", valMod.Certificado);
-                comm.Parameters.AddWithValue("@Membresia", valMod.Membresia.Id);
-                comm.Parameters.AddWithValue("@Descuento", valMod.Descuento);
-
-                int result = Acceso.Instance.ExecuteNonQuery(comm);
-                rpta = true;
+                    int result = Acceso.Instance.ExecuteNonQuery(comm);
+                    rpta = true;
+                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se modificó el cliente: " + valMod.Dni, "Ninguno"));
+                }
+                catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de modificar el Usuario."); }
             }
-            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de dar de modificar el Usuario."); }
             return rpta;
         }
 
@@ -115,20 +136,27 @@ namespace DAL
             bool respuesta = false;
             using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
-                String query = "SELECT * FROM ClienteGYM WHERE EXISTS(SELECT * FROM ClienteGYM WHERE Dni = @dni)";
-                SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@dni", cli.Dni);
-                respuesta = Acceso.Instance.ExecuteScalarBool(command);
+                try
+                {
+                    String query = "SELECT * FROM ClienteGYM WHERE EXISTS(SELECT * FROM ClienteGYM WHERE Dni = @dni)";
+                    SqlCommand command = new SqlCommand(query);
+                    command.Parameters.AddWithValue("@dni", cli.Dni);
+                    respuesta = Acceso.Instance.ExecuteScalarBool(command);
+                }
+                catch { }
             }
             return respuesta;
         }
-
-        public BE.Cliente MostrarCliente(Cliente cli)
+        /// <summary>
+        /// Trae el cliente en base al dni pasado
+        /// </summary>
+        /// <param name="cli"></param>
+        /// <returns></returns>
+        public BE.Cliente MostrarCliente(Cliente formaCliente)
         {
-            BE.Cliente formaCliente = new BE.Cliente();
             using (SqlConnection connection = Acceso.Instance.sqlCon)
             {
-                String query = "SELECT * FROM ClienteGYM WHERE dni = " + cli.Dni;
+                String query = "SELECT * FROM ClienteGYM WHERE dni = " + formaCliente.Dni;
                 SqlCommand command = new SqlCommand(query);
                 try
                 {
@@ -155,7 +183,6 @@ namespace DAL
                 { }
             }
             return formaCliente;
-
         }
 
         public int DameIdCliente(BE.Cliente cliente)

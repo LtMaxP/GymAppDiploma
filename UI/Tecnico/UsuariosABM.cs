@@ -125,6 +125,7 @@ namespace UI
                 textBox3.Text = filaDeDatos.User;
                 comboBox1.SelectedIndex = filaDeDatos.Idioma.Id - 1;
                 comboBox2.SelectedIndex = filaDeDatos.idEstado - 1;
+                //////////////////////////////// VER
             }
             else
             {
@@ -139,6 +140,8 @@ namespace UI
         private void UsuariosABM_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
+
+            //acá podes cargar la lista de empleados sin id de usuario en la tabla
         }
         public void Update()
         {

@@ -49,16 +49,19 @@ namespace UI
         {
 
         }
-
+        /// <summary>
+        /// Dar de alta nuevo empleado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelAlta_Click(object sender, EventArgs e)
         {
             string name = txtbox_Nombre.Text;
             string apellido = txtbox_Apellido.Text;
             string dni = txtBox_DNI.Text;
-            string estado = txtbox_Estado.Text;
             string trabajo = comboBox1.Text;
             string sueldo = txtbox_Sueldo.Text;
-            if(String.IsNullOrEmpty(name) || String.IsNullOrEmpty(apellido) || String.IsNullOrEmpty(dni) || String.IsNullOrEmpty(estado) || String.IsNullOrEmpty(trabajo) || String.IsNullOrEmpty(sueldo))
+            if(String.IsNullOrEmpty(name) || String.IsNullOrEmpty(apellido) || String.IsNullOrEmpty(dni) || String.IsNullOrEmpty(trabajo) || String.IsNullOrEmpty(sueldo))
             {
                 MessageBox.Show("Debe completar todos los campos");
             }
@@ -76,16 +79,19 @@ namespace UI
                 bllEmp.AltaNuevoEmpleado(emp);
             }
         }
-
+        /// <summary>
+        /// Baja empleado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelBaja_Click(object sender, EventArgs e)
         {
             string name = txtbox_Nombre.Text;
             string apellido = txtbox_Apellido.Text;
             string dni = txtBox_DNI.Text;
-            string estado = txtbox_Estado.Text;
             string trabajo = comboBox1.Text;
             string sueldo = txtbox_Sueldo.Text;
-            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(apellido) || String.IsNullOrEmpty(dni) || String.IsNullOrEmpty(estado) || String.IsNullOrEmpty(trabajo) || String.IsNullOrEmpty(sueldo))
+            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(apellido) || String.IsNullOrEmpty(dni) || String.IsNullOrEmpty(trabajo) || String.IsNullOrEmpty(sueldo))
             {
                 MessageBox.Show("Debe tener todos los campos");
             }

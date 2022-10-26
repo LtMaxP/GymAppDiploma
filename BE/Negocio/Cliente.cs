@@ -9,13 +9,6 @@ namespace BE
     public class Cliente : Persona
     {
 
-        //private int dni;
-        //public int _dni
-        //{
-        //    get { return dni; }
-        //    set { dni = value; }
-        //}
-
         private string calle;
         public string _calle
         {
@@ -59,7 +52,6 @@ namespace BE
         }
 
         private BE.Negocio.BE_Membresia _Membresia;
-
         public BE.Negocio.BE_Membresia Membresia
         {
             get { if (_Membresia == null)
@@ -70,17 +62,7 @@ namespace BE
             set { _Membresia = value; }
         }
 
-
-        //private int _idEstado;
-
-        //public int IdEstado
-        //{
-        //    get { return _idEstado; }
-        //    set { _idEstado = value; }
-        //}
-
         private bool _certificado;
-
         public bool Certificado
         {
             get { return _certificado; }
@@ -93,16 +75,12 @@ namespace BE
             get { return _descuento; }
             set { _descuento = value; }
         }
-        private float _altura;
 
+        private float _altura;
         public float Altura
         {
             get { return _altura; }
             set { _altura = value; }
         }
-
-
-
-
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.labelAlta = new System.Windows.Forms.Button();
             this.labelBaja = new System.Windows.Forms.Button();
             this.labelModificar = new System.Windows.Forms.Button();
@@ -53,6 +53,8 @@
             this.Estadocol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelPalabraS = new System.Windows.Forms.Label();
             this.textBoxPalabraS = new System.Windows.Forms.TextBox();
+            this.lbl_Empleado = new System.Windows.Forms.Label();
+            this.cmbBox_Empleado = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelAlta
@@ -226,7 +228,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(15, 103);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -276,6 +278,26 @@
             this.textBoxPalabraS.Size = new System.Drawing.Size(131, 20);
             this.textBoxPalabraS.TabIndex = 10;
             // 
+            // lbl_Empleado
+            // 
+            this.lbl_Empleado.AutoSize = true;
+            this.lbl_Empleado.Location = new System.Drawing.Point(292, 81);
+            this.lbl_Empleado.Name = "lbl_Empleado";
+            this.lbl_Empleado.Size = new System.Drawing.Size(57, 13);
+            this.lbl_Empleado.TabIndex = 9;
+            this.lbl_Empleado.Text = "Empleado:";
+            // 
+            // cmbBox_Empleado
+            // 
+            this.cmbBox_Empleado.FormattingEnabled = true;
+            this.cmbBox_Empleado.Items.AddRange(new object[] {
+            "Español",
+            "Ingles"});
+            this.cmbBox_Empleado.Location = new System.Drawing.Point(392, 78);
+            this.cmbBox_Empleado.Name = "cmbBox_Empleado";
+            this.cmbBox_Empleado.Size = new System.Drawing.Size(131, 21);
+            this.cmbBox_Empleado.TabIndex = 11;
+            // 
             // UsuariosABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,9 +307,11 @@
             this.ControlBox = false;
             this.Controls.Add(this.labelMostrar);
             this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbBox_Empleado);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBoxPalabraS);
             this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.lbl_Empleado);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.labelIdioma);
             this.Controls.Add(this.labelEstado);
@@ -337,5 +361,7 @@
         private System.Windows.Forms.ColumnHeader hide;
         private System.Windows.Forms.Label labelPalabraS;
         private System.Windows.Forms.TextBox textBoxPalabraS;
+        private System.Windows.Forms.Label lbl_Empleado;
+        private System.Windows.Forms.ComboBox cmbBox_Empleado;
     }
 }

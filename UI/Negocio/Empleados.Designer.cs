@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.labelSalir = new System.Windows.Forms.Button();
-            this.txtbox_Estado = new System.Windows.Forms.TextBox();
             this.txtbox_Apellido = new System.Windows.Forms.TextBox();
             this.txtbox_Nombre = new System.Windows.Forms.TextBox();
             this.labelModificar = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@
             this.cmbBoxEmpleado = new System.Windows.Forms.ComboBox();
             this.lbl_dni = new System.Windows.Forms.Label();
             this.txtBox_DNI = new System.Windows.Forms.TextBox();
+            this.cmb_Estado = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelSalir
@@ -58,13 +58,6 @@
             this.labelSalir.Text = "Salir";
             this.labelSalir.UseVisualStyleBackColor = true;
             this.labelSalir.Click += new System.EventHandler(this.labelSalir_Click);
-            // 
-            // txtbox_Estado
-            // 
-            this.txtbox_Estado.Location = new System.Drawing.Point(160, 205);
-            this.txtbox_Estado.Name = "txtbox_Estado";
-            this.txtbox_Estado.Size = new System.Drawing.Size(199, 20);
-            this.txtbox_Estado.TabIndex = 34;
             // 
             // txtbox_Apellido
             // 
@@ -214,6 +207,15 @@
             this.txtBox_DNI.Size = new System.Drawing.Size(199, 20);
             this.txtBox_DNI.TabIndex = 42;
             // 
+            // cmb_Estado
+            // 
+            this.cmb_Estado.FormattingEnabled = true;
+            this.cmb_Estado.Location = new System.Drawing.Point(160, 205);
+            this.cmb_Estado.Name = "cmb_Estado";
+            this.cmb_Estado.Size = new System.Drawing.Size(199, 21);
+            this.cmb_Estado.TabIndex = 46;
+            this.cmb_Estado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,9 +224,9 @@
             this.Controls.Add(this.txtbox_Sueldo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBoxEmpleado);
+            this.Controls.Add(this.cmb_Estado);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.labelSalir);
-            this.Controls.Add(this.txtbox_Estado);
             this.Controls.Add(this.txtBox_DNI);
             this.Controls.Add(this.txtbox_Apellido);
             this.Controls.Add(this.txtbox_Nombre);
@@ -250,7 +252,6 @@
         #endregion
 
         private System.Windows.Forms.Button labelSalir;
-        private System.Windows.Forms.TextBox txtbox_Estado;
         private System.Windows.Forms.TextBox txtbox_Apellido;
         private System.Windows.Forms.TextBox txtbox_Nombre;
         private System.Windows.Forms.Button labelModificar;
@@ -268,5 +269,6 @@
         private System.Windows.Forms.ComboBox cmbBoxEmpleado;
         private System.Windows.Forms.Label lbl_dni;
         private System.Windows.Forms.TextBox txtBox_DNI;
+        private System.Windows.Forms.ComboBox cmb_Estado;
     }
 }
