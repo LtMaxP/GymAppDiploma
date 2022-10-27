@@ -31,7 +31,6 @@ namespace DAL.Tecnico
             {
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Problema generando Restore en BD", "Bajo"));
                 throw new Exception("Error al realizar Restore");
-                return false;
             }
         }
     }

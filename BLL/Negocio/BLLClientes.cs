@@ -157,7 +157,7 @@ namespace BLL
         public List<BE.Cliente> AccionBusqueda(Cliente valBuscar)
         {
             List<BE.Cliente> listadoCliente = new List<Cliente>();
-            foreach (DataRow fila in cligym.Leer(valBuscar).Rows)
+            foreach (DataRow fila in cligym.BuscarUsuarios(valBuscar).Rows)
             {
                 BE.Cliente formaCliente = new BE.Cliente();
                 formaCliente.Nombre = fila["Nombre"].ToString();

@@ -48,7 +48,7 @@ namespace DAL
                 parameter4.ParameterName = "@PSecreta";
                 parameter4.Value = valAlta.PSecreta;
                 parameter4.SqlDbType = System.Data.SqlDbType.VarChar;
-                
+
 
                 comm.Parameters.Add(parameter1);
                 comm.Parameters.Add(parameter2);
@@ -70,33 +70,32 @@ namespace DAL
             }
             return ret;
         }
-
+        /// <summary>
+        /// Recupero de pass
+        /// </summary>
+        /// <param name="user"></param>
         public static void RecuperoPass(BE_Usuario user)
         {
-            using (SqlConnection connection = Acceso.Instance.sqlCon)
-            {
-                String query = "UPDATE Usuario SET Password = @pass AND DVH = @DVH WHERE Id_Usuario = @idUser";
-                SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@idUser", user.IdUsuario);
-                command.Parameters.AddWithValue("@pass", user.Pass);
-                command.Parameters.AddWithValue("@DVH", user._DVH);
-                user.IdUsuario = Acceso.Instance.ExecuteScalar(command);
+            String query = "UPDATE Usuario SET Password = @pass AND DVH = @DVH WHERE Id_Usuario = @idUser";
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@idUser", user.IdUsuario);
+            command.Parameters.AddWithValue("@pass", user.Pass);
+            command.Parameters.AddWithValue("@DVH", user._DVH);
+            Acceso.Instance.ExecuteNonQuery(command);
 
-                string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
-                DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
-            }
+            string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
+            DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
+
         }
 
         public static BE_Usuario DameId(BE_Usuario user)
         {
-            using (SqlConnection connection = Acceso.Instance.sqlCon)
-            {
-                String query = "SELECT id FROM Usuario WHERE usuario = @user AND Palabra_Secreta = @PSecret";
-                SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@user", user.User);
-                command.Parameters.AddWithValue("@PSecret", user.PSecreta);
-                user.IdUsuario = Acceso.Instance.ExecuteScalar(command);
-            }
+            String query = "SELECT id FROM Usuario WHERE usuario = @user AND Palabra_Secreta = @PSecret";
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@user", user.User);
+            command.Parameters.AddWithValue("@PSecret", user.PSecreta);
+            user.IdUsuario = Acceso.Instance.ExecuteScalar(command);
+
             return user;
         }
 
@@ -235,26 +234,24 @@ namespace DAL
         public static List<BE_Usuario> ListadoUsuarios()
         {
             List<BE_Usuario> users = new List<BE_Usuario>();
-            using (SqlConnection conn = Acceso.Instance.sqlCon)
-            {
-                SqlCommand sqlcomm = new SqlCommand();
-                sqlcomm.CommandText = "SELECT * from Usuario";
+            SqlCommand sqlcomm = new SqlCommand();
+            sqlcomm.CommandText = "SELECT * from Usuario";
 
-                DataTable dt = Acceso.Instance.ExecuteDataTable(sqlcomm);
-                BE_Usuario us;
-                foreach (DataRow dr in dt.Rows)
+            DataTable dt = Acceso.Instance.ExecuteDataTable(sqlcomm);
+            BE_Usuario us;
+            foreach (DataRow dr in dt.Rows)
+            {
+                if (dr != null)
                 {
-                    if (dr != null)
-                    {
-                        us = new BE_Usuario();
-                        us.IdUsuario = (int)dr["Id_Usuario"];
-                        us.User = dr["Usuario"].ToString();
-                        us.Pass = dr["Password"].ToString();
-                        us._DVH = dr["DVH"].ToString();
-                        users.Add(us);
-                    }
+                    us = new BE_Usuario();
+                    us.IdUsuario = (int)dr["Id_Usuario"];
+                    us.User = dr["Usuario"].ToString();
+                    us.Pass = dr["Password"].ToString();
+                    us._DVH = dr["DVH"].ToString();
+                    users.Add(us);
                 }
             }
+
             return users;
         }
 

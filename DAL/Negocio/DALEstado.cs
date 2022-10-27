@@ -12,22 +12,15 @@ namespace DAL.Negocio
         public static int DameIdEstado(string estado)
         {
             int idEstado = 0;
-            using (SqlConnection connection = Acceso.Instance.sqlCon)
+            String query = "SELECT Id_Estado FROM Estado WHERE Descripcion = @estado";
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@estado", estado);
+            idEstado = Acceso.Instance.ExecuteScalar(command);
+            if (idEstado == 0)
             {
-                String query = "SELECT Id_Estado FROM Estado WHERE Descripcion = @estado";
-                SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@estado", estado);
-                try
-                {
-                    idEstado = Acceso.Instance.ExecuteScalar(command);
-                    if(idEstado == 0)
-                    {
-                        System.Windows.Forms.MessageBox.Show("Error al tratar de conseguir el Estado");
-                    }
-                }
-                catch
-                { }
+                System.Windows.Forms.MessageBox.Show("Error al tratar de conseguir el Estado");
             }
+
             return idEstado;
         }
     }

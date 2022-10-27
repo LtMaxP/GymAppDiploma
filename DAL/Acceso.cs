@@ -11,10 +11,9 @@ namespace DAL
 {
     public class Acceso
     {
-        
-        public SqlConnection sqlCon = null; /* new SqlConnection("Data Source=DESKTOP-SLGG4A0\\SQLEXPRESS;Initial Catalog=GymApp;Integrated Security=True");*/
+
         private SqlConnection SQLC = null;
-        //private SqlTransaction TX;
+        private SqlTransaction tx;
 
         private static Acceso instance;
         public static Acceso Instance
@@ -103,19 +102,55 @@ namespace DAL
         /// <returns></returns>
         public DataTable ExecuteDataTable(SqlCommand _paramCommand)
         {
-            try
+            DataTable _dt = new DataTable();
+            using (SqlDataAdapter da = new SqlDataAdapter())
             {
-                Abrir();
-                DataTable _dt = new DataTable();
-                SqlDataAdapter _dataAdapter = new SqlDataAdapter(_paramCommand);
-                _paramCommand.Connection = SQLC;
-                _dataAdapter.Fill(_dt);
-                Cerrar();
-                return _dt;
+                try
+                {
+                    Abrir();
+                    _paramCommand.Connection = SQLC;
+                    da.SelectCommand = _paramCommand;
+                    da.Fill(_dt);
+                    Cerrar();
+                }
+                catch (Exception e)
+                { throw e; }
             }
-            catch (Exception e)
-            { throw e; }
+            return _dt;
+        }
+        /// <summary>
+        /// Crear comando SP
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="pars"></param>
+        /// <returns></returns>
+        private SqlCommand CrearComando2(string nombre, List<SqlParameter> pars)
+        {
+            SqlCommand cmd = new SqlCommand(nombre, SQLC);
+            if (tx != null)
+            {
+                cmd.Transaction = tx;
+            }
+            if (pars != null && pars.Count > 0)
+            {
+                cmd.Parameters.AddRange(pars.ToArray());
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            return cmd;
+        }
 
+        private SqlCommand CrearComando(string nombre, SqlParameter pars)
+        {
+            SqlCommand cmd = new SqlCommand(nombre, SQLC);
+            if (tx != null)
+            {
+                cmd.Transaction = tx;
+            }
+            if (pars != null)
+            {
+                cmd.Parameters.Add(pars);
+            }
+            return cmd;
         }
         /// <summary>
         /// Clase que ingresan parametros y retorna dataTable ||||| Reveer
@@ -180,7 +215,9 @@ namespace DAL
             catch (Exception e)
             { throw e; }
         }
-
+        /// <summary>
+        /// Abrir conexión
+        /// </summary>
         private void Abrir()
         {
             try
@@ -201,16 +238,63 @@ namespace DAL
                 throw (ex);
             }
         }
+        /// <summary>
+        /// Ruta al app.config
+        /// </summary>
+        /// <returns></returns>
         private string ConexionRuta()
         {
             string connString = ConfigurationManager.ConnectionStrings["ConnectionDB"].ConnectionString;
             return connString;
         }
+        /// <summary>
+        /// Cerrar conexión
+        /// </summary>
         public void Cerrar()
         {
             SQLC.Close();
             SQLC.Dispose();
             SQLC = null;
+            GC.Collect();
+        }
+
+        public void ComenzarTransaccion()
+        {
+            if (tx == null)
+            {
+                tx = SQLC.BeginTransaction();
+            }
+        }
+
+        public void CancelarTransaccion()
+        {
+            if (tx != null)
+            {
+                tx.Rollback();
+            }
+        }
+
+        public void ConfirmarTransaccion()
+        {
+            if (tx != null)
+            {
+                tx.Commit();
+            }
+        }
+
+        private SqlCommand CrearComando(string nombre, List<SqlParameter> pars)
+        {
+            SqlCommand cmd = new SqlCommand(nombre, SQLC);
+            if (tx != null)
+            {
+                cmd.Transaction = tx;
+            }
+            if (pars != null && pars.Count > 0)
+            {
+                cmd.Parameters.AddRange(pars.ToArray());
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            return cmd;
         }
     }
 }
