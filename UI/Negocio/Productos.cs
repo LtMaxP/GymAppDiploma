@@ -222,7 +222,6 @@ namespace UI.Negocio
                     MessageBox.Show("Debe ingresar un DNI de cliente a comprar");
                 }
             }
-
         }
         /// <summary>
         /// Validacion para insertar solo DNI
@@ -236,6 +235,11 @@ namespace UI.Negocio
                 MessageBox.Show("Ingrese solamente numeros");
                 textBoxCliente.Text = textBoxCliente.Text.Remove(textBoxCliente.Text.Length - 1);
             }
+        }
+
+        private void labelCliente_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

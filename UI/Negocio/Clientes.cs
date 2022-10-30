@@ -57,7 +57,6 @@ namespace UI
             }
             comboMem.ValueMember = "Descripcion";
             comboMem.Enabled = false;
-
         }
         public void Update()
         {

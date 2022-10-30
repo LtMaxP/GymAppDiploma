@@ -148,6 +148,7 @@ namespace UI.Negocio
             this.labelCliente.Size = new System.Drawing.Size(39, 13);
             this.labelCliente.TabIndex = 9;
             this.labelCliente.Text = "Cliente";
+            this.labelCliente.Click += new System.EventHandler(this.labelCliente_Click);
             // 
             // textBoxCliente
             // 
