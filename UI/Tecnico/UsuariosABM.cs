@@ -44,14 +44,16 @@ namespace UI
             {
                 BE.BE_Usuario newUsuario = new BE.BE_Usuario();
                 newUsuario.User = textBox3.Text;
-                if (usuarioABM.ValidarSiElUsuarioYaExiste(newUsuario))
+                if (!usuarioABM.ValidarSiElUsuarioYaExiste(newUsuario))
                 {
                     newUsuario.Pass = textBox4.Text;
-                    newUsuario.Idioma.NombreIdioma = comboBox1.Text;
-                    newUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
+                    newUsuario.Idioma = new BE.ObserverIdioma.BE_Idioma(comboBox1.Text);
+                    newUsuario.idEstado = 1;
                     newUsuario.PSecreta = textBoxPalabraS.Text;
-                    usuarioABM.AgregarUsuario(newUsuario);
-                    MessageBox.Show("El usuario fue dado de Alta con éxito.");
+                    if (usuarioABM.AgregarUsuario(newUsuario))
+                        MessageBox.Show("El usuario fue dado de Alta con éxito.");
+                    else
+                        MessageBox.Show("El usuario no pudo ser dado de Alta.");
                 }
                 else
                 {
@@ -69,14 +71,21 @@ namespace UI
             BE.BE_Usuario usuarioDelete = new BE.BE_Usuario();
             usuarioDelete.User = textBox3.Text;
             usuarioDelete.Pass = textBox4.Text;
-            if (String.IsNullOrEmpty(usuarioDelete.User))
+            if (String.IsNullOrEmpty(usuarioDelete.User) || String.IsNullOrEmpty(usuarioDelete.Pass))
             {
-                MessageBox.Show("Debe Ingresar un usuario para eliminar");
+                MessageBox.Show("Debe Ingresar un usuario y contraseña para eliminar");
             }
             else
             {
-                usuarioABM.EliminarUsuario(usuarioDelete);
-                MessageBox.Show("El usuario fue neutralizado con éxito.");
+                if (usuarioABM.ValidarUsuarioyPass(usuarioDelete))
+                {
+                    if (usuarioABM.EliminarUsuario(usuarioDelete))
+                        MessageBox.Show("El usuario fue neutralizado con éxito.");
+                    else
+                        MessageBox.Show("El usuario no fue dado de baja.");
+                }
+                else
+                    MessageBox.Show("Usuario o contraseña erroneos.");
             }
         }
         /// <summary>
@@ -117,15 +126,15 @@ namespace UI
             {
                 MessageBox.Show("Seleccione solo un usuario a mostrar");
             }
-            else if (listView1.Items.Count > 0)
+            else if (listView1.Items.Count > 0 && listView1.SelectedItems.Count > 0)
             {
                 BE.BE_Usuario usuario = new BE.BE_Usuario();
                 usuario.User = listView1.SelectedItems[0].SubItems[1].Text;
-                BE.BE_Usuario filaDeDatos = usuarioABM.MostrarUsuario(usuario);
-                textBox3.Text = filaDeDatos.User;
-                comboBox1.SelectedIndex = filaDeDatos.Idioma.Id - 1;
-                comboBox2.SelectedIndex = filaDeDatos.idEstado - 1;
-                //////////////////////////////// VER
+                usuario = usuarioABM.MostrarUsuario(usuario);
+                textBox3.Text = usuario.User;
+                comboBox1.SelectedIndex = usuario.Idioma.Id - 1;
+                comboBox2.SelectedIndex = usuario.idEstado - 1;
+                textBoxPalabraS.Text = usuario.PSecreta;
             }
             else
             {
@@ -157,9 +166,9 @@ namespace UI
         /// <param name="e"></param>
         private void labelModificar_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text) || String.IsNullOrEmpty(textBoxPalabraS.Text))
+            if (String.IsNullOrEmpty(textBox3.Text))
             {
-                MessageBox.Show("Debe completar todos los campos para modificar.");
+                MessageBox.Show("Debe tener un usuario a modificar.");
             }
             else
             {
@@ -180,14 +189,13 @@ namespace UI
                         else
                         {
                             MessageBox.Show("Contraseña incorrecta");
+                            return;
                         }
                     }
-                    modUsuario.User = textBox3.Text;
                     modUsuario.Idioma = new BE.ObserverIdioma.BE_Idioma(comboBox1.Text);
                     modUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
                     modUsuario.PSecreta = textBoxPalabraS.Text;
                     usuarioABM.ModificarUsuario(modUsuario);
-
                     MessageBox.Show("El usuario fue Modificado con éxito.");
                 }
                 else

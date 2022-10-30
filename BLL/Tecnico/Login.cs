@@ -53,9 +53,24 @@ namespace BLL
         public void CambiarPass(BE_Usuario user)
         {
             user = DAL.ABMUsuariosDAL.DameId(user);
-            user._DVH = Servicios.DigitoVerificadorHV.CrearDVH(user);
             DAL.ABMUsuariosDAL.RecuperoPass(user);
+            BLL.DV.RecalcularDigitosVerificadores();
             DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se reestableció la contraseña " + user.User, "Ninguno"));
+        }
+        /// <summary>
+        /// Validacion que el usuario tenga perfil Admin
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public bool ValidarAdmin(BE_Usuario user)
+        {
+            if (user.Permisos != null)
+                if (user.Permisos.VerificarSiExistePermiso("15"))
+                    return true;
+                else
+                    return false;
+            return
+                false;
         }
     }
 }

@@ -70,17 +70,16 @@ namespace UI
                     else
                     {
                         MessageBox.Show("BASE DE DATOS CORRUPTA !!! ");
-                        if (user.Permisos != null)
-                            if (user.Permisos.VerificarSiExistePermiso("15"))
-                            {
-                                this.Hide();
-                                Inicio ini = new Inicio();
-                                ini.Show();
-                                BackupRestore bk = new BackupRestore();
-                                bk.Show();
-                            }
+                        if (bllLog.ValidarAdmin(user))
+                        {
+                            this.Hide();
+                            Inicio ini = new Inicio();
+                            ini.Show();
+                            BackupRestore bk = new BackupRestore();
+                            bk.Show();
+                        }
                         else
-                                MessageBox.Show("Comunicarse con un usuario Admin");
+                            MessageBox.Show("Comunicarse con un usuario Admin");
                     }
                 }
                 else

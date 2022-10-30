@@ -24,9 +24,14 @@ namespace BLL
         public bool AgregarUsuario(BE_Usuario altaUser)
         {
             altaUser.Pass = Servicios.Encriptacion.Encriptador(altaUser.Pass);
-            altaUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(altaUser);
             altaUser.Idioma = idiomaDal.DameIdIdioma(altaUser.Idioma);
-            return abmUs.Alta(altaUser);
+            if (abmUs.Alta(altaUser))
+            {
+                BLL.DV.RecalcularDigitosVerificadores();
+                return true;
+            }
+            else
+                return false;
         }
         /// <summary>
         /// Eliminar Usuario
@@ -35,9 +40,7 @@ namespace BLL
         /// <returns></returns>
         public bool EliminarUsuario(BE_Usuario bajaUser)
         {
-            bool retornableComoCocaCola = false;
-            bajaUser.Pass = Servicios.Encriptacion.Encriptador(bajaUser.Pass);
-            retornableComoCocaCola = abmUs.Baja(bajaUser);
+            bool retornableComoCocaCola = abmUs.Baja(bajaUser);
             return retornableComoCocaCola;
         }
         /// <summary>
@@ -51,8 +54,13 @@ namespace BLL
                 modUser.Pass = Servicios.Encriptacion.Encriptador(modUser.Pass);
 
             modUser.Idioma = idiomaDal.DameIdIdioma(modUser.Idioma);
-            modUser._DVH = Servicios.DigitoVerificadorHV.CrearDVH(modUser);
-            return abmUs.Modificar(modUser);
+            if (abmUs.Modificar(modUser))
+            {
+                BLL.DV.RecalcularDigitosVerificadores();
+                return true;
+            }
+            else
+                return false;
         }
 
         //Traer listado de todos los Usuarios con sus IDs
@@ -83,7 +91,7 @@ namespace BLL
         /// <returns></returns>
         public bool ValidarUsuarioyPass(BE_Usuario buscarUser)
         {
-            //////buscarUser.Pass = Servicios.Encriptacion.Encriptador(buscarUser.Pass); POR AHORA HASTA MODIFICARLOS
+            buscarUser.Pass = Servicios.Encriptacion.Encriptador(buscarUser.Pass);
             return abmUs.ValidarExistenciaDeUsuario(buscarUser);
         }
 

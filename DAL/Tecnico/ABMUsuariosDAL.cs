@@ -17,50 +17,15 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.DVH, Usuario.Palabra_Secreta ) VALUES (@NombreUsuario, @Contraseña, @IdIdioma, @IdEstado, @dvh, @PSecreta)"; //INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Rol ) VALUES ('Pepe','123123','1','1', 'Prueba')
-
-                SqlParameter parameter1 = new SqlParameter();
-                parameter1.ParameterName = "@NombreUsuario";
-                parameter1.Value = valAlta.User;
-                parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter2 = new SqlParameter();
-                parameter2.ParameterName = "@Contraseña";
-                parameter2.Value = valAlta.Pass;
-                parameter2.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter3 = new SqlParameter();
-                parameter3.ParameterName = "@IdIdioma";
-                parameter3.Value = valAlta.Idioma.Id;
-                parameter3.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter4 = new SqlParameter();
-                parameter4.ParameterName = "@IdEstado";
-                parameter4.Value = valAlta.idEstado;
-                parameter4.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter5 = new SqlParameter();
-                parameter4.ParameterName = "@dvh";
-                parameter4.Value = valAlta._DVH;
-                parameter4.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter6 = new SqlParameter();
-                parameter4.ParameterName = "@PSecreta";
-                parameter4.Value = valAlta.PSecreta;
-                parameter4.SqlDbType = System.Data.SqlDbType.VarChar;
-
-
-                comm.Parameters.Add(parameter1);
-                comm.Parameters.Add(parameter2);
-                comm.Parameters.Add(parameter3);
-                comm.Parameters.Add(parameter4);
-                comm.Parameters.Add(parameter5);
-                comm.Parameters.Add(parameter6);
+                comm.CommandText = "INSERT INTO Usuario (Usuario.Usuario, Usuario.Password, Usuario.Id_Idioma, Usuario.Id_Estado, Usuario.Palabra_Secreta ) VALUES (@NombreUsuario, @Contraseña, @IdIdioma, @IdEstado, @PSecreta)";
+                comm.Parameters.AddWithValue("@NombreUsuario", valAlta.User);
+                comm.Parameters.AddWithValue("@Contraseña", valAlta.Pass);
+                comm.Parameters.AddWithValue("@IdIdioma", valAlta.Idioma.Id);
+                comm.Parameters.AddWithValue("@IdEstado", valAlta.idEstado);
+                comm.Parameters.AddWithValue("@PSecreta", valAlta.PSecreta);
 
                 Acceso.Instance.ExecuteNonQuery(comm);
-
-                string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
-                DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
+                
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Creacion de usuario: " + valAlta.User, "Ninguno"));
                 ret = true;
             }
@@ -76,18 +41,17 @@ namespace DAL
         /// <param name="user"></param>
         public static void RecuperoPass(BE_Usuario user)
         {
-            String query = "UPDATE Usuario SET Password = @pass AND DVH = @DVH WHERE Id_Usuario = @idUser";
+            String query = "UPDATE Usuario SET Password = @pass WHERE Id_Usuario = @idUser";
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@idUser", user.IdUsuario);
             command.Parameters.AddWithValue("@pass", user.Pass);
-            command.Parameters.AddWithValue("@DVH", user._DVH);
             Acceso.Instance.ExecuteNonQuery(command);
-
-            string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
-            DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
-
         }
-
+        /// <summary>
+        /// Busca Id de usuario por UserName y palabra secreta
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public static BE_Usuario DameId(BE_Usuario user)
         {
             String query = "SELECT id FROM Usuario WHERE usuario = @user AND Palabra_Secreta = @PSecret";
@@ -98,7 +62,6 @@ namespace DAL
 
             return user;
         }
-
         /// <summary>
         /// Eliminar el usuario
         /// </summary>
@@ -110,35 +73,18 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "UPDATE Usuario SET Usuario.Id_Estado = @IdEstado WHERE Usuario.Usuario = @NombreUsuario AND Usuario.Password = @Pass";
-
-                SqlParameter parameter1 = new SqlParameter();
-                parameter1.ParameterName = "@NombreUsuario";
-                parameter1.Value = valBaja.User;
-                parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
-                SqlParameter parameter2 = new SqlParameter();
-                parameter1.ParameterName = "@Pass";
-                parameter1.Value = valBaja.User;
-                parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
-                SqlParameter parameter4 = new SqlParameter();
-                parameter4.ParameterName = "@IdEstado";
-                parameter4.Value = "2";
-                parameter4.SqlDbType = System.Data.SqlDbType.Int;
-
-                comm.Parameters.Add(parameter1);
-                comm.Parameters.Add(parameter2);
-                comm.Parameters.Add(parameter4);
+                comm.CommandText = "UPDATE Usuario SET Id_Estado = @IdEstado WHERE Usuario = @NombreUsuario AND Password = @Pass";
+                comm.Parameters.AddWithValue("@NombreUsuario", valBaja.User);
+                comm.Parameters.AddWithValue("@Pass", valBaja.Pass);
+                comm.Parameters.AddWithValue("@IdEstado", 2);
 
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
                 ret = true;
-                string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
-                DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Baja de usuario: " + valBaja.User, "Ninguno"));
             }
             catch { DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Problema al tratar de dar de baja el Usuario " + valBaja.User, "Medio")); }
             return ret;
         }
-
         /// <summary>
         /// Traer usuario buscado por nombre
         /// </summary>
@@ -168,14 +114,16 @@ namespace DAL
 
             return UserRet;
         }
-
-
+        /// <summary>
+        /// Traer listado de usuarios por nombre
+        /// </summary>
+        /// <param name="valBuscar"></param>
+        /// <returns></returns>
         public List<BE_Usuario> Leer2(BE_Usuario valBuscar)
         {
             List<BE_Usuario> listUser = new List<BE_Usuario>();
             try
             {
-
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "SELECT Usuario, Id_Idioma, Id_Estado FROM Usuario WHERE Usuario.Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", valBuscar.User);
@@ -195,9 +143,8 @@ namespace DAL
 
             return listUser;
         }
-
         /// <summary>
-        /// Devuelve todos los IDs de Usuarios  ||||||||||||||||||||||||||||||||||||||||||||||||||||||| VER
+        /// Devuelve todos los IDs de Usuarios-
         /// </summary>
         /// <returns></returns>
         public List<BE_Usuario> TraerUsuarios()
@@ -226,9 +173,8 @@ namespace DAL
             }
             return users;
         }
-
         /// <summary>
-        /// Listado de usuarios | posible modificable incorporando datos
+        /// Listado de usuarios con pass encriptada
         /// </summary>
         /// <returns></returns>
         public static List<BE_Usuario> ListadoUsuarios()
@@ -254,7 +200,11 @@ namespace DAL
 
             return users;
         }
-
+        /// <summary>
+        /// Modificar usuario con o sin nueva pass
+        /// </summary>
+        /// <param name="valModificar"></param>
+        /// <returns></returns>
         public bool Modificar(BE_Usuario valModificar)
         {
             bool ret = false;
@@ -264,50 +214,17 @@ namespace DAL
 
                 if (!string.IsNullOrEmpty(valModificar.Pass))
                 {
-                    comm.CommandText = "UPDATE Usuario SET Usuario.Password = @Contraseña, Usuario.DVH = @DVH, Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado, Usuario.Palabra_Secreta = @Palabra_Secreta WHERE Usuario.Usuario = @NombreUsuario";
-
-                    SqlParameter parameter2 = new SqlParameter();
-                    parameter2.ParameterName = "@Contraseña";
-                    parameter2.Value = valModificar.Pass;
-                    parameter2.SqlDbType = System.Data.SqlDbType.VarChar;
-                    comm.Parameters.Add(parameter2);
+                    comm.CommandText = "UPDATE Usuario SET Usuario.Password = @Contraseña, Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado, Usuario.Palabra_Secreta = @Palabra_Secreta WHERE Usuario.Usuario = @NombreUsuario";
+                    comm.Parameters.AddWithValue("@Contraseña", valModificar.Pass);
                 }
                 else { comm.CommandText = "UPDATE Usuario SET Usuario.Id_Idioma = @IdIdioma, Usuario.Id_Estado = @IdEstado, Usuario.Palabra_Secreta = @Palabra_Secreta WHERE Usuario.Usuario = @NombreUsuario"; }
 
-                SqlParameter parameter1 = new SqlParameter();
-                parameter1.ParameterName = "@NombreUsuario";
-                parameter1.Value = valModificar.User;
-                parameter1.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter3 = new SqlParameter();
-                parameter3.ParameterName = "@IdIdioma";
-                parameter3.Value = valModificar.Idioma.Id;
-                parameter3.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter4 = new SqlParameter();
-                parameter4.ParameterName = "@IdEstado";
-                parameter4.Value = valModificar.idEstado;
-                parameter4.SqlDbType = System.Data.SqlDbType.Int;
-
-                SqlParameter parameter5 = new SqlParameter();
-                parameter5.ParameterName = "@DVH";
-                parameter5.Value = valModificar._DVH;
-                parameter5.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                SqlParameter parameter6 = new SqlParameter();
-                parameter5.ParameterName = "@Palabra_Secreta";
-                parameter5.Value = valModificar.PSecreta;
-                parameter5.SqlDbType = System.Data.SqlDbType.VarChar;
-
-                comm.Parameters.Add(parameter1);
-                comm.Parameters.Add(parameter3);
-                comm.Parameters.Add(parameter4);
-                comm.Parameters.Add(parameter5);
-                comm.Parameters.Add(parameter6);
+                comm.Parameters.AddWithValue("@NombreUsuario", valModificar.User);
+                comm.Parameters.AddWithValue("@IdIdioma", valModificar.Idioma.Id);
+                comm.Parameters.AddWithValue("@IdEstado", valModificar.idEstado);
+                comm.Parameters.AddWithValue("@Palabra_Secreta", valModificar.PSecreta);
 
                 Acceso.Instance.ExecuteNonQuery(comm);
-                string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
-                DAL.DigitoVerificadorDAL.InsertarDVV(DVV);
                 ret = true;
                 if (!string.IsNullOrEmpty(valModificar.Pass))
                     DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Exito al modificar la contraseña y el Usuario " + valModificar.User, "Ninguno"));
@@ -317,7 +234,11 @@ namespace DAL
             catch { DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Problema al tratar de modificar el Usuario " + valModificar.User, "Medio")); }
             return ret;
         }
-
+        /// <summary>
+        /// Validar que usuario y/o contraseña esten ok
+        /// </summary>
+        /// <param name="usuari"></param>
+        /// <returns></returns>
         public bool ValidarExistenciaDeUsuario(BE_Usuario usuari)
         {
             bool respuesta = false;
