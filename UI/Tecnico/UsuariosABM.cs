@@ -140,8 +140,7 @@ namespace UI
         private void UsuariosABM_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
-
-            //acá podes cargar la lista de empleados sin id de usuario en la tabla
+            //estado
         }
         public void Update()
         {
@@ -196,6 +195,11 @@ namespace UI
                     MessageBox.Show("El nombre de usuario a modificar NO existe");
                 }
             }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

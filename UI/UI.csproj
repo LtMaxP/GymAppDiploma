@@ -102,12 +102,6 @@
     <Compile Include="Negocio\Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Negocio\Empleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Negocio\Empleados.Designer.cs">
-      <DependentUpon>Empleados.cs</DependentUpon>
-    </Compile>
     <Compile Include="Negocio\Facturas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,9 +172,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Negocio\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Negocio\Empleados.resx">
-      <DependentUpon>Empleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Negocio\Facturas.resx">
       <DependentUpon>Facturas.cs</DependentUpon>

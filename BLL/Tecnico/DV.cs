@@ -9,79 +9,36 @@ namespace BLL
 {
     public class DV
     {
-        //DAL.ABMUsuariosDAL ABMUs = new DAL.ABMUsuariosDAL();
-
-        public static void RecalcularDigitosVerificadores()
+        /// <summary>
+        /// Recalculo total
+        /// </summary>
+        public static bool RecalcularDigitosVerificadores()
         {
-            foreach (BE.BE_Usuario usu in DAL.ABMUsuariosDAL.ListadoUsuarios())
+            foreach (BE.BE_Usuario user in DAL.ABMUsuariosDAL.ListadoUsuarios())
             {
-                RecalcularDVH(usu);
+                user._DVH = Servicios.DigitoVerificadorHV.CrearDVH(user);
+                DAL.DigitoVerificadorDAL.InsertarDVHEnUsuario(user);
             }
-            RecalcularDVV(DAL.ABMUsuariosDAL.ListadoUsuarios());
-        }
-
-        private static void RecalcularDVV(List<BE.BE_Usuario> listadoUsers)
-        {
-            string hash = string.Empty;
-            foreach (BE.BE_Usuario usu in listadoUsers)
-            {
-                hash += usu._DVH;
-            }
-
-            //hasheo
-            string hasheoDVV = Servicios.Encriptacion.Encriptador(hash);
-            //insertar
+            string hasheoDVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.ABMUsuariosDAL.ListadoUsuarios());
             DAL.DigitoVerificadorDAL.InsertarDVV(hasheoDVV);
-        }
-        public void CalcularDVV()
-        {
-            DataTable listaDVHUsuarios = DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios();
-
-            string hash = string.Empty;
-
-            foreach (string n in listaDVHUsuarios.Rows)
-            {
-                hash += n;
-            }
-
-            //hasheo
-            string hasheoDVV = Servicios.Encriptacion.Encriptador(hash);
-            //Insertar
-            DAL.DigitoVerificadorDAL.InsertarDVV(hasheoDVV);
+            return true;
         }
 
         /// <summary>
-        /// Recalcula el DVH del usuario pasado y se inserta en la DB
+        /// Verificador de integridad de la Base de datos
         /// </summary>
-        /// <param name="user"></param>
-        private static void RecalcularDVH(BE.BE_Usuario user)
-        {
-            string hash = string.Empty;
-
-            hash = user.IdUsuario.ToString() + user.User + user.Pass;
-
-            //hasheo
-            user._DVH = Servicios.Encriptacion.Encriptador(hash);
-            //Insertar
-            DAL.DigitoVerificadorDAL.InsertarDVHEnUsuario(user);
-        }
-
+        /// <returns></returns>
         public bool VerificarDB()
         {
-            string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(DAL.DigitoVerificadorDAL.ObtenerListaDeDVHUsuarios());
+            List<BE.BE_Usuario> listUsers = new List<BE.BE_Usuario>();
+            foreach (BE.BE_Usuario user in DAL.ABMUsuariosDAL.ListadoUsuarios())
+            {
+                user._DVH = Servicios.DigitoVerificadorHV.CrearDVH(user);
+                listUsers.Add(user);
+            }
+
+            string DVV = Servicios.DigitoVerificadorHV.CalcularDVV(listUsers);
             return DVV.Equals(DAL.DigitoVerificadorDAL.TraerDVV()) ? true : false;
-        }
-
-        public String TraerDVV()
-        {
-            return DAL.DigitoVerificadorDAL.TraerDVV();
-        }
-
-        public DataTable TraerDVH()
-        {
-            DataTable dt = new DataTable();
-            dt = DAL.DigitoVerificadorDAL.TraerDVH();
-            return dt;
         }
 
     }

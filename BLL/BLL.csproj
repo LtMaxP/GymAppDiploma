@@ -59,7 +59,6 @@
     <Compile Include="Tecnico\Backup.cs" />
     <Compile Include="Tecnico\BitacoraBLL.cs" />
     <Compile Include="Negocio\BLLClientes.cs" />
-    <Compile Include="Negocio\BLLEmpleados.cs" />
     <Compile Include="Negocio\BLLFacturas.cs" />
     <Compile Include="Tecnico\ControlCambiosBLL.cs" />
     <Compile Include="Tecnico\DV.cs" />

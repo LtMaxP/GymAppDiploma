@@ -174,11 +174,12 @@ namespace UI.Tecnico
         /// <param name="e"></param>
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
-            if(!comboBox1.Text.Equals("Español") && !comboBox1.Text.Equals("Ingles"))
+            if (!comboBox1.Text.Equals("Español") && !comboBox1.Text.Equals("Ingles"))
             {
                 BE_Idioma idioma = new BE_Idioma();
                 idioma.NombreIdioma = comboBox1.Text;
                 BLLIdioma.EliminarIdioma(idioma);
+                CargarComboIdiomas();
             }
             else
             {

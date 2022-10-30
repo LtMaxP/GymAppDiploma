@@ -36,8 +36,7 @@ namespace DAL
         {
             try
             {
-                Abrir();
-                _paramCommand.Connection = SQLC;
+                _paramCommand.Connection = Abrir();
                 var returnable = _paramCommand.ExecuteScalar();
                 Cerrar();
                 return Convert.ToInt32(returnable);
@@ -53,8 +52,7 @@ namespace DAL
         {
             try
             {
-                Abrir();
-                _paramCommand.Connection = SQLC;
+                _paramCommand.Connection = Abrir();
                 String returnable = _paramCommand.ExecuteScalar().ToString();
                 Cerrar();
                 return returnable;
@@ -70,8 +68,7 @@ namespace DAL
         {
             try
             {
-                Abrir();
-                _paramCommand.Connection = SQLC;
+                _paramCommand.Connection = Abrir();
                 Boolean returnable = Convert.ToBoolean(_paramCommand.ExecuteScalar());
                 Cerrar();
                 return returnable;
@@ -87,13 +84,30 @@ namespace DAL
         {
             try
             {
-                Abrir();
-                _paramCommand.Connection = SQLC;
+                _paramCommand.Connection = Abrir();
                 var returnable = _paramCommand.ExecuteNonQuery();
                 Cerrar();
                 return Convert.ToInt32(returnable);
             }
-            catch (Exception e) { throw e; }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public int Escribir(string nombre, List<SqlParameter> parametros)
+        {
+            try
+            {
+                SqlCommand cmd = CrearComando2(nombre, parametros);
+                var returnable = cmd.ExecuteNonQuery();
+                Cerrar();
+                return Convert.ToInt32(returnable);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
         /// <summary>
         /// Clase Acceso para Traer Data Tables
@@ -107,8 +121,7 @@ namespace DAL
             {
                 try
                 {
-                    Abrir();
-                    _paramCommand.Connection = SQLC;
+                    _paramCommand.Connection = Abrir();
                     da.SelectCommand = _paramCommand;
                     da.Fill(_dt);
                     Cerrar();
@@ -124,7 +137,7 @@ namespace DAL
         /// <param name="nombre"></param>
         /// <param name="pars"></param>
         /// <returns></returns>
-        private SqlCommand CrearComando2(string nombre, List<SqlParameter> pars)
+        public SqlCommand CrearComando2(string nombre, List<SqlParameter> pars)
         {
             SqlCommand cmd = new SqlCommand(nombre, SQLC);
             if (tx != null)
@@ -139,9 +152,9 @@ namespace DAL
             return cmd;
         }
 
-        private SqlCommand CrearComando(string nombre, SqlParameter pars)
+        public SqlCommand CrearComando(string nombre, SqlParameter pars)
         {
-            SqlCommand cmd = new SqlCommand(nombre, SQLC);
+            SqlCommand cmd = new SqlCommand(nombre, Abrir());
             if (tx != null)
             {
                 cmd.Transaction = tx;
@@ -159,15 +172,22 @@ namespace DAL
         /// <returns></returns>
         public DataTable ExecuteDataTable2(SqlCommand _paramCommand, List<IDbDataParameter> parametros = null)
         {
-            DataTable _dt = new DataTable();
-            _paramCommand.Connection = SQLC;
-            if (parametros != null && parametros.Count > 0)
+            try
             {
-                _paramCommand.Parameters.AddRange(parametros.ToArray());
+                DataTable _dt = new DataTable();
+                _paramCommand.Connection = Abrir();
+                if (parametros != null && parametros.Count > 0)
+                {
+                    _paramCommand.Parameters.AddRange(parametros.ToArray());
+                }
+                SqlDataAdapter _dataAdapter = new SqlDataAdapter(_paramCommand);
+                _dataAdapter.Fill(_dt);
+                return _dt;
             }
-            SqlDataAdapter _dataAdapter = new SqlDataAdapter(_paramCommand);
-            _dataAdapter.Fill(_dt);
-            return _dt;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -180,8 +200,7 @@ namespace DAL
             int retval = 0;
             try
             {
-                Abrir();
-                sqlCmd.Connection = SQLC;
+                sqlCmd.Connection = Abrir();
                 sqlCmd.ExecuteNonQuery();
                 retval = (int)sqlCmd.Parameters["@retValue"].Value;
             }
@@ -218,7 +237,7 @@ namespace DAL
         /// <summary>
         /// Abrir conexión
         /// </summary>
-        private void Abrir()
+        private SqlConnection Abrir()
         {
             try
             {
@@ -237,6 +256,7 @@ namespace DAL
             {
                 throw (ex);
             }
+            return SQLC;
         }
         /// <summary>
         /// Ruta al app.config
@@ -257,15 +277,25 @@ namespace DAL
             SQLC = null;
             GC.Collect();
         }
-
+        /// <summary>
+        /// Begin tran
+        /// </summary>
         public void ComenzarTransaccion()
         {
             if (tx == null)
             {
-                tx = SQLC.BeginTransaction();
+                if (SQLC == null)
+                {
+                    Abrir();
+                    tx = SQLC.BeginTransaction();
+                }
+                else
+                    tx = SQLC.BeginTransaction();
             }
         }
-
+        /// <summary>
+        /// Rollback ran
+        /// </summary>
         public void CancelarTransaccion()
         {
             if (tx != null)
@@ -273,7 +303,9 @@ namespace DAL
                 tx.Rollback();
             }
         }
-
+        /// <summary>
+        /// Commit tran
+        /// </summary>
         public void ConfirmarTransaccion()
         {
             if (tx != null)
@@ -282,9 +314,9 @@ namespace DAL
             }
         }
 
-        private SqlCommand CrearComando(string nombre, List<SqlParameter> pars)
+        public SqlCommand CrearComando(string nombre, List<SqlParameter> pars)
         {
-            SqlCommand cmd = new SqlCommand(nombre, SQLC);
+            SqlCommand cmd = new SqlCommand(nombre, Abrir());
             if (tx != null)
             {
                 cmd.Transaction = tx;

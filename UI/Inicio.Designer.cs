@@ -37,7 +37,6 @@ namespace UI
             this.labelClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
             this.labelFacturas = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelEmpleados = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSistema = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,7 +86,6 @@ namespace UI
             this.labelAcciones.BackColor = System.Drawing.SystemColors.Highlight;
             this.labelAcciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelClientes,
-            this.labelEmpleados,
             this.productosToolStripMenuItem,
             this.gestionDeStockToolStripMenuItem});
             resources.ApplyResources(this.labelAcciones, "labelAcciones");
@@ -118,13 +116,6 @@ namespace UI
             resources.ApplyResources(this.labelFacturas, "labelFacturas");
             this.labelFacturas.Tag = "28";
             this.labelFacturas.Click += new System.EventHandler(this.labelFacturas_Click_1);
-            // 
-            // labelEmpleados
-            // 
-            this.labelEmpleados.Name = "labelEmpleados";
-            resources.ApplyResources(this.labelEmpleados, "labelEmpleados");
-            this.labelEmpleados.Tag = "22";
-            this.labelEmpleados.Click += new System.EventHandler(this.labelEmpleados_Click);
             // 
             // productosToolStripMenuItem
             // 
@@ -290,7 +281,6 @@ namespace UI
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem labelAcciones;
         private System.Windows.Forms.ToolStripMenuItem labelClientes;
-        private System.Windows.Forms.ToolStripMenuItem labelEmpleados;
         private System.Windows.Forms.ToolStripMenuItem labelSistema;
         private System.Windows.Forms.ToolStripMenuItem labelFamiliaPatentes;
         private System.Windows.Forms.ToolStripMenuItem labelBitacoraDV;

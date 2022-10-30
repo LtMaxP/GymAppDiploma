@@ -38,6 +38,14 @@ namespace Servicios
             string hasheoDVH = Servicios.Encriptacion.Encriptador(hash);
             return hasheoDVH;
         }
-
+        public static string CalcularDVV(List<BE.BE_Usuario> users)
+        {
+            string hash = null;
+            foreach (BE.BE_Usuario us in users)
+            {
+                hash += us._DVH;
+            }
+            return Servicios.Encriptacion.Encriptador(hash);
+        }
     }
 }

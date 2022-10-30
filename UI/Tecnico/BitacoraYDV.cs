@@ -36,7 +36,6 @@ namespace UI
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            //List<BE.Bitacora> tableBit = bit.CargarBitacora();
             var dt1 = dateTimePicker1.Value;
             var dt2 = dateTimePicker2.Value;
             List<BE.Bitacora> tableBit = bit.CargarBitacoraFechas(dt1, dt2);

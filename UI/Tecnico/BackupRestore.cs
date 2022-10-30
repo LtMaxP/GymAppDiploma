@@ -104,7 +104,8 @@ namespace UI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            BLL.DV.RecalcularDigitosVerificadores();
+            if(BLL.DV.RecalcularDigitosVerificadores())
+                MessageBox.Show("Digitos Verificadores Recalculados con exito");
         }
     }
 }

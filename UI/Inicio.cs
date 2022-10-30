@@ -43,7 +43,7 @@ namespace UI
             foreach (ToolStripItem item in tsic)
             {
                 if (!string.IsNullOrEmpty(item.Tag.ToString()))
-                    #region a la bll
+                    #region adPantallas
                     foreach (BE.Composite.Component cmp in Servicios.Sesion.GetInstance.usuario.Permisos.List())
                     {
                         if (cmp is BE.Composite.Composite)
@@ -205,24 +205,24 @@ namespace UI
                 speIma = 0;
             }
         }
-        private void labelEmpleados_Click(object sender, EventArgs e)
-        {
-            if (Femp == null)
-            {
-                Femp = new Empleados();
-                Femp.MdiParent = this;
-                Femp.FormClosed += new FormClosedEventHandler(Femp_FormClosed);
-                Femp.Show();
-            }
-            else
-            {
-                Femp.Activate();
-            }
-        }
-        private void Femp_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Femp = null;
-        }
+        //private void labelEmpleados_Click(object sender, EventArgs e)
+        //{
+        //    if (Femp == null)
+        //    {
+        //        Femp = new Empleados();
+        //        Femp.MdiParent = this;
+        //        Femp.FormClosed += new FormClosedEventHandler(Femp_FormClosed);
+        //        Femp.Show();
+        //    }
+        //    else
+        //    {
+        //        Femp.Activate();
+        //    }
+        //}
+        //private void Femp_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    Femp = null;
+        //}
         private void labelBackupRestore_Click(object sender, EventArgs e)
         {
             //if (Perm.ValidarPermiso("BackupRestore"))
@@ -406,7 +406,7 @@ namespace UI
         Clientes Fclient;
         BitacoraYDV FbitDV;
         UsuariosABM FuserABM;
-        Empleados Femp;
+        //Empleados Femp;
         BackupRestore Fbackrest;
         Facturas Factu;
         PagosCobros PyG;

@@ -79,6 +79,8 @@ namespace UI
                                 BackupRestore bk = new BackupRestore();
                                 bk.Show();
                             }
+                        else
+                                MessageBox.Show("Comunicarse con un usuario Admin");
                     }
                 }
                 else
@@ -89,6 +91,11 @@ namespace UI
 
         }
 
+        /// <summary>
+        /// Accion para recupero de contraseña
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Recuperacion_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(textBox1.Text) && !String.IsNullOrEmpty(textBox2.Text))

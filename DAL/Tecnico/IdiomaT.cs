@@ -50,11 +50,11 @@ namespace DAL
             try
             {
                 var sqlCmd = Acceso.Instance.CrearCommandStoredProcedure("EliminarIdioma");
-                sqlCmd.Parameters.Add("@IdEntidad", SqlDbType.Int).Value = idioma.NombreIdioma;
+                sqlCmd.Parameters.Add("@NombreIdioma", SqlDbType.VarChar).Value = idioma.NombreIdioma;
                 Acceso.Instance.ExecuteNonQuery(sqlCmd);
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Fue eliminado el idioma " + idioma.NombreIdioma + " por el usuario" + Servicios.Sesion.GetInstance.usuario.IdUsuario, "Alto"));
             }
-            catch
+            catch(Exception ex)
             { }
             
         }

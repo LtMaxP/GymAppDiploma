@@ -20,7 +20,6 @@ namespace DAL.Negocio
             {
                 System.Windows.Forms.MessageBox.Show("Error al tratar de conseguir el Estado");
             }
-
             return idEstado;
         }
     }

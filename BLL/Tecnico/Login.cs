@@ -26,8 +26,6 @@ namespace BLL
             user.Pass = Servicios.Encriptacion.Encriptador(user.Pass);
             if (DALUserLogin.DetectarUsuario(user))
             {
-                //if (DALUserLogin.ValidarBloqueo())
-                //{
                 if (DALUserLogin.LoginUser(user))
                 {
                     Servicios.Sesion.Login(user);
@@ -36,7 +34,6 @@ namespace BLL
                     retornableComoCocaCola = true;
                     DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario", "Ninguno"));
                 }
-                //}
             }
             return retornableComoCocaCola;
         }

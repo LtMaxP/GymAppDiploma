@@ -52,7 +52,6 @@
     <Compile Include="Composite\Component.cs" />
     <Compile Include="Composite\Composite.cs" />
     <Compile Include="Composite\Hoja.cs" />
-    <Compile Include="Negocio\BE_Gerente.cs" />
     <Compile Include="Negocio\BE_Membresia.cs" />
     <Compile Include="Negocio\Item.cs" />
     <Compile Include="Negocio\Persona.cs" />
@@ -62,7 +61,6 @@
     <Compile Include="ObserverIdioma\SubjectIdioma.cs" />
     <Compile Include="Tecnico\BE_BackUp.cs" />
     <Compile Include="Tecnico\BE_Usuario.cs" />
-    <Compile Include="Negocio\BE_Empleado.cs" />
     <Compile Include="Negocio\BE_Factura.cs" />
     <Compile Include="Negocio\BE_Cuenta.cs" />
     <Compile Include="Tecnico\Bitacora.cs" />

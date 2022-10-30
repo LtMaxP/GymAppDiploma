@@ -157,7 +157,7 @@
     <value>Javanese Text, 9.75pt</value>
   </data>
   <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>133, 34</value>
   </data>
   <data name="labelPagosYCobros.Text" xml:space="preserve">
     <value>Pagos</value>
@@ -166,7 +166,7 @@
     <value>False</value>
   </data>
   <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>133, 34</value>
   </data>
   <data name="labelFacturas.Text" xml:space="preserve">
     <value>Facturas</value>
@@ -175,7 +175,7 @@
     <value>False</value>
   </data>
   <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 34</value>
+    <value>192, 34</value>
   </data>
   <data name="labelClientes.Text" xml:space="preserve">
     <value>Gestion de clientes</value>
@@ -183,17 +183,8 @@
   <data name="labelClientes.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="labelEmpleados.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 34</value>
-  </data>
-  <data name="labelEmpleados.Text" xml:space="preserve">
-    <value>Gestion de empleados</value>
-  </data>
-  <data name="labelEmpleados.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="productosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 34</value>
+    <value>192, 34</value>
   </data>
   <data name="productosToolStripMenuItem.Text" xml:space="preserve">
     <value>Gestion de ventas</value>
@@ -202,7 +193,7 @@
     <value>False</value>
   </data>
   <data name="gestionDeStockToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 34</value>
+    <value>192, 34</value>
   </data>
   <data name="gestionDeStockToolStripMenuItem.Text" xml:space="preserve">
     <value>Gestion de stock</value>
@@ -403,12 +394,6 @@
     <value>labelFacturas</value>
   </data>
   <data name="&gt;&gt;labelFacturas.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelEmpleados.Name" xml:space="preserve">
-    <value>labelEmpleados</value>
-  </data>
-  <data name="&gt;&gt;labelEmpleados.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;productosToolStripMenuItem.Name" xml:space="preserve">

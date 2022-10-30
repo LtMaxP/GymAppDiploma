@@ -37,19 +37,6 @@ namespace DAL
             return returnable;
         }
 
-        public static DataTable TraerDVH()
-        {
-            DataTable returnable = new DataTable();
-            String query = "SELECT [Id_Usuario], [DVH] FROM [Usuario]";
-            SqlCommand command = new SqlCommand(query);
-            try
-            {
-                returnable = Acceso.Instance.ExecuteDataTable(command);
-            }
-            catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVH :("); }
-            return returnable;
-        }
-
         public static void InsertarDVHEnUsuario(BE.BE_Usuario usuario)
         {
             String query = "UPDATE Usuario SET [DVH] = @hashDVH WHERE Id_Usuario = @IdUsuario";

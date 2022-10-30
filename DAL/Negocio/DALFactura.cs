@@ -19,6 +19,8 @@ namespace DAL
         {
             try
             {
+                //Begin transaction
+                Acceso.Instance.ComenzarTransaccion();
                 //Crea factura
                 string query = @"INSERT INTO Factura VALUES(@monto, @fecha, @idCliente)";
                 SqlCommand command = new SqlCommand(query);
@@ -47,10 +49,12 @@ namespace DAL
                     //Grabar historico CC
                     DAL.Tecnico.ControlCambiosDAL.GrabarHistoricoCC(new BE.Tecnico.ControlCambio(itm.Id_Item, itm.Valor, itm.Cantidad, itm.Descripcion, "Compra Factura " + factura.Id_Factura, 99));
                 }
+                Acceso.Instance.ConfirmarTransaccion();
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Factura " + factura.Id_Factura + " creada al cliente: " + factura.Id_Cliente, "Ninguno"));
             }
             catch
             {
+                Acceso.Instance.CancelarTransaccion();
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Error al crear factura", "Medio"));
             }
         }
