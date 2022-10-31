@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="20.0" version="20.0" Modules="enterprise" RootPath="." Language="en" Id="{DF312BDE-33DC-408C-A2C3-04BEB6E96371}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="20.0" version="20.0" Modules="simple" RootPath="." Language="en" Id="{DF312BDE-33DC-408C-A2C3-04BEB6E96371}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
-    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;FixupComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
@@ -196,17 +196,8 @@
     <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
     <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
   </COMPONENT>
-  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
-    <ROW Action="AI_SqlConfig" Description="Executing install SQL scripts" DescriptionLocId="ActionText.Description.AI_SqlConfig" Template="Connection: [1]  Script: [2]" TemplateLocId="ActionText.Template.AI_SqlConfig"/>
-    <ROW Action="AI_SqlInstall" Description="Generating actions to configure databases for install SQL script execution" DescriptionLocId="ActionText.Description.AI_SqlInstall"/>
-    <ROW Action="AI_SqlMaint" Description="Executing maintenance SQL scripts" DescriptionLocId="ActionText.Description.AI_SqlMaint" Template="Connection: [1]  Script: [2]" TemplateLocId="ActionText.Template.AI_SqlMaint"/>
-    <ROW Action="AI_SqlRemove" Description="Executing uninstall SQL scripts" DescriptionLocId="ActionText.Description.AI_SqlRemove" Template="Connection: [1]  Script: [2]" TemplateLocId="ActionText.Template.AI_SqlRemove"/>
-    <ROW Action="AI_SqlRollback" Description="Executing rollback SQL scripts" DescriptionLocId="ActionText.Description.AI_SqlRollback" Template="Connection: [1]  Script: [2]" TemplateLocId="ActionText.Template.AI_SqlRollback"/>
-    <ROW Action="AI_SqlUninstall" Description="Generating actions to configure databases for uninstall SQL script execution" DescriptionLocId="ActionText.Description.AI_SqlUninstall"/>
-  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
-    <ROW Name="sql.dll" SourcePath="&lt;AI_CUSTACTS&gt;sql.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
     <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
@@ -236,8 +227,6 @@
     <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
-    <ROW Action="AI_DATA_SETTER" Type="51" Source="CustomActionData" Target="[~]"/>
-    <ROW Action="AI_DATA_SETTER_1" Type="51" Source="CustomActionData" Target="[~]"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
     <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
@@ -247,12 +236,6 @@
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
-    <ROW Action="AI_SqlConfig" Type="9217" Source="sql.dll" Target="OnSqlConfig" WithoutSeq="true"/>
-    <ROW Action="AI_SqlInstall" Type="1" Source="sql.dll" Target="OnSqlInstall" AdditionalSeq="AI_DATA_SETTER"/>
-    <ROW Action="AI_SqlMaint" Type="9217" Source="sql.dll" Target="OnSqlMaint" WithoutSeq="true"/>
-    <ROW Action="AI_SqlRemove" Type="9217" Source="sql.dll" Target="OnSqlRemove" WithoutSeq="true"/>
-    <ROW Action="AI_SqlRollback" Type="9473" Source="sql.dll" Target="OnSqlRollback" WithoutSeq="true"/>
-    <ROW Action="AI_SqlUninstall" Type="1" Source="sql.dll" Target="OnSqlUninstall" AdditionalSeq="AI_DATA_SETTER_1"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
@@ -286,10 +269,6 @@
     <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
-    <ROW Action="AI_SqlInstall" Condition="(VersionNT &gt;= 500) AND (REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5502"/>
-    <ROW Action="AI_DATA_SETTER" Condition="(VersionNT &gt;= 500) AND (REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5501"/>
-    <ROW Action="AI_SqlUninstall" Condition="(VersionNT &gt;= 500) AND (REMOVE=&quot;ALL&quot;)" Sequence="1702"/>
-    <ROW Action="AI_DATA_SETTER_1" Condition="(VersionNT &gt;= 500) AND (REMOVE=&quot;ALL&quot;)" Sequence="1701"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
@@ -316,13 +295,6 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
-  </COMPONENT>
-  <COMPONENT cid="caphyon.advinst.msicomp.SqlConnectionComponent">
-    <ROW ConnectionName="Predef" Condition="1" Dbms="0" OdbcResource="SQL Server" Server="(local)" Port="1433" Database="Database" Username="[LogonUser]" Flags="14" Order="0" LoginTimeout="60"/>
-  </COMPONENT>
-  <COMPONENT cid="caphyon.advinst.msicomp.SqlScriptComponent">
-    <ROW ScriptName="DB Script" ConnectionName="Predef" Condition="1" Separator="GO" ScriptText="C:\Users\Portadag\Desktop\3era entrega Diploma\DB Script.sql" Flags="18" Order="0"/>
-    <ATTRIBUTE name="ImpersonateUser" value="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.VsProjectComponent">
     <ROW ProjectId="{bf5bb399-0bd2-4294-b13a-8a455b9199f0}" ProjectName="BE" OutputGroup="PrimaryOutput" OutputFile="BE.dll"/>
