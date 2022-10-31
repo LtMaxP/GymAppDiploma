@@ -11,6 +11,10 @@ namespace DAL.Negocio
 {
     public class DALProducto
     {
+        /// <summary>
+        /// Traer listado de productos
+        /// </summary>
+        /// <returns></returns>
         public List<Item> DALTraerProductos()
         {
             List<Item> ret = new List<Item>();
@@ -28,7 +32,11 @@ namespace DAL.Negocio
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Leer la tabla."); }
             return ret;
         }
-
+        /// <summary>
+        /// Cargar productos 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         public bool DALCargarProducto(Item item)
         {
             bool ret = false;

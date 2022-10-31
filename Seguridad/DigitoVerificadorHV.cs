@@ -22,7 +22,6 @@ namespace Servicios
             string hasheoDVH = Servicios.Encriptacion.Encriptador(hash);
             return hasheoDVH;
         }
-
         /// <summary>
         /// Calcular DVV por listado de DVH
         /// </summary>

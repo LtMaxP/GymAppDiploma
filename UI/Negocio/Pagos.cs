@@ -112,7 +112,7 @@ namespace UI
                 cliente.Dni = int.Parse(textBoxCliente.Text);
                 if (bllClientes.ValidarSiExiste(cliente))
                 {
-                    if (BLL.Negocio.BLLMembresia.ValidarFaltaPago())////
+                    if (BLL.Negocio.BLLMembresia.ValidarFaltaPago(cliente))////
                     {
                         if (BLL.Negocio.BLLMembresia.EjecutarPago(cliente))////
                         {

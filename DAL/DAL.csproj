@@ -68,7 +68,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Negocio\DALCalculos.cs" />
     <Compile Include="Negocio\DALMembresia.cs" />
     <Compile Include="Negocio\DALProducto.cs" />
     <Compile Include="Tecnico\ABMUsuariosDAL.cs" />
@@ -81,7 +80,6 @@
     <Compile Include="Negocio\DALSucursal.cs" />
     <Compile Include="Tecnico\ControlCambiosDAL.cs" />
     <Compile Include="Tecnico\DigitoVerificadorDAL.cs" />
-    <Compile Include="Tecnico\BusquedaDAL.cs" />
     <Compile Include="ICRUD.cs" />
     <Compile Include="Negocio\DALEstado.cs" />
     <Compile Include="Tecnico\IdiomaT.cs" />

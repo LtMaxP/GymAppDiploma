@@ -19,13 +19,17 @@ namespace BLL
             Baja = 2,
             Pendiente = 3,
         }
+        /// <summary>
+        /// Dame estados enum
+        /// </summary>
+        /// <returns></returns>
         public string[] dameEstados()
         {
             String[] ret = { Estado.Alta.ToString(), Estado.Baja.ToString(), Estado.Pendiente.ToString() };
             return ret;
         }
 
-        #region no va
+        #region no va es un recuerdo <3
         //public List<BE_Provincia> dameTodasProvincias()
         //{
         //    List<BE_Provincia> prov = new List<BE_Provincia>();

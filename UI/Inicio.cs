@@ -31,9 +31,7 @@ namespace UI
         {
             SubjectIdioma.AddObserverIdioma(this);
             PermisosRecurseToolStripItems(this.menuStrip1.Items);
-            //CheckVisible(this.menuStrip1.Items);
         }
-
         /// <summary>
         /// Recursividad para habilitar permisos
         /// </summary>
@@ -55,7 +53,7 @@ namespace UI
                             }
                         }
                     }
-                    #endregion
+                #endregion
                 if (item is ToolStripMenuItem)
                 {
                     //ToolStripMenuItem item2 = (ToolStripMenuItem)item;
@@ -63,7 +61,6 @@ namespace UI
                 }
             }
         }
-
         /// <summary>
         /// Boton Logout
         /// </summary>
@@ -205,39 +202,21 @@ namespace UI
                 speIma = 0;
             }
         }
-        //private void labelEmpleados_Click(object sender, EventArgs e)
-        //{
-        //    if (Femp == null)
-        //    {
-        //        Femp = new Empleados();
-        //        Femp.MdiParent = this;
-        //        Femp.FormClosed += new FormClosedEventHandler(Femp_FormClosed);
-        //        Femp.Show();
-        //    }
-        //    else
-        //    {
-        //        Femp.Activate();
-        //    }
-        //}
-        //private void Femp_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    Femp = null;
-        //}
         private void labelBackupRestore_Click(object sender, EventArgs e)
         {
             //if (Perm.ValidarPermiso("BackupRestore"))
             //{
-                if (Fbackrest == null)
-                {
-                    Fbackrest = new BackupRestore();
-                    Fbackrest.MdiParent = this;
-                    Fbackrest.FormClosed += new FormClosedEventHandler(Fbackrest_FormClosed);
-                    Fbackrest.Show();
-                }
-                else
-                {
-                    Fbackrest.Activate();
-                }
+            if (Fbackrest == null)
+            {
+                Fbackrest = new BackupRestore();
+                Fbackrest.MdiParent = this;
+                Fbackrest.FormClosed += new FormClosedEventHandler(Fbackrest_FormClosed);
+                Fbackrest.Show();
+            }
+            else
+            {
+                Fbackrest.Activate();
+            }
             //}
         }
         private void Fbackrest_FormClosed(object sender, FormClosedEventArgs e)
@@ -326,10 +305,9 @@ namespace UI
         }
         private void gestionDeStockToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-                            if (Stock == null)
+            if (Stock == null)
             {
-                Stock= new UI.Negocio.Stock();
+                Stock = new UI.Negocio.Stock();
                 Stock.MdiParent = this;
                 Stock.FormClosed += new FormClosedEventHandler(Stock_FormClosed);
                 Stock.Show();

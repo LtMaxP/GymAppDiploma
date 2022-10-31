@@ -11,28 +11,22 @@ namespace DAL
 {
     public class BitacoraDAL
     {
-        public void RegistrarBitacora(string movimiento, string nivelDeProblema, DateTime fecha)
-        {
-            String query = "INSERT INTO Bitacora (FechaDelMov, Movimiento, NivelDelProblema) VALUES (@FechaMov, @Mov, @NivelDelP)";
-            SqlCommand command = new SqlCommand(query);
-            command.Parameters.AddWithValue("@FechaMov", fecha);
-            command.Parameters.AddWithValue("@Mov", movimiento);
-            command.Parameters.AddWithValue("@NivelDelP", nivelDeProblema);
-            Acceso.Instance.ExecuteNonQuery(command);
-
-        }
-
+        /// <summary>
+        /// Traer dt bitacora total
+        /// </summary>
+        /// <returns></returns>
         public DataTable TraerBitacora()
         {
             DataTable bitacoraTable;
             String query = "SELECT FechaDelMov, Movimiento, NivelDelProblema FROM Bitacora";
             SqlCommand command = new SqlCommand(query);
-
             bitacoraTable = Acceso.Instance.ExecuteDataTable(command);
-
             return bitacoraTable;
         }
-
+        /// <summary>
+        /// Insertar registro en Bitacora DB
+        /// </summary>
+        /// <param name="bitacora"></param>
         public static void NewRegistrarBitacora(BE.Bitacora bitacora)
         {
             bitacora = Servicios.BitacoraServicio.CrearMovimiento(bitacora);
@@ -44,7 +38,12 @@ namespace DAL
             command.Parameters.AddWithValue("@Usuario", bitacora.Usuario);
             Acceso.Instance.ExecuteNonQuery(command);
         }
-
+        /// <summary>
+        /// Traer bitacora por fechas
+        /// </summary>
+        /// <param name="dt1"></param>
+        /// <param name="dt2"></param>
+        /// <returns></returns>
         public static List<Bitacora> TraerBitacoraPorFecha(DateTime dt1, DateTime dt2)
         {
             List<Bitacora> btlist = new List<Bitacora>();

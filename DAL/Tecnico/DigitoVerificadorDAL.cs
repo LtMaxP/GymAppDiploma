@@ -10,20 +10,10 @@ namespace DAL
 {
     public class DigitoVerificadorDAL
     {
-
-        public static DataTable ObtenerListaDeDVHUsuarios()
-        {
-            DataTable dt = new DataTable();
-            String query = "SELECT [DVH] FROM [Usuario]";
-            SqlCommand command = new SqlCommand(query);
-            try
-            {
-                dt = Acceso.Instance.ExecuteDataTable(command);
-            }
-            catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVH :("); }
-            return dt;
-        }
-
+        /// <summary>
+        /// Traer dvv
+        /// </summary>
+        /// <returns></returns>
         public static String TraerDVV()
         {
             string returnable = string.Empty;
@@ -36,7 +26,10 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Error al encontrar DVV :("); }
             return returnable;
         }
-
+        /// <summary>
+        /// Inserta DVH calculado en Usuario por id
+        /// </summary>
+        /// <param name="usuario"></param>
         public static void InsertarDVHEnUsuario(BE.BE_Usuario usuario)
         {
             String query = "UPDATE Usuario SET [DVH] = @hashDVH WHERE Id_Usuario = @IdUsuario";
@@ -50,7 +43,10 @@ namespace DAL
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar insertar DVH :("); }
         }
-
+        /// <summary>
+        /// Insertar DVV
+        /// </summary>
+        /// <param name="codigoHash"></param>
         public static void InsertarDVV(string codigoHash)
         {
             String query = "UPDATE [DVV] set [CodigoHash] = @hash";

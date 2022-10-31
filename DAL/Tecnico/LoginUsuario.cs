@@ -11,6 +11,10 @@ namespace DAL
 {
     public class LoginUsuario
     {
+        /// <summary>
+        /// Traer id_Usuario 
+        /// </summary>
+        /// <returns></returns>
         public bool BuscarUsuarioBD()
         {
             SqlCommand sqlcomm = new SqlCommand();
@@ -31,7 +35,7 @@ namespace DAL
 
             try
             {
-                Servicios.Sesion.GetInstance.usuario.IdUsuario = Acceso.Instance.ExecuteScalar(sqlcomm);///aca metes id nuevo en sesion.usuario.getinstance()
+                Servicios.Sesion.GetInstance.usuario.IdUsuario = Acceso.Instance.ExecuteScalar(sqlcomm);
             }
             catch (Exception e)
             {
@@ -89,20 +93,21 @@ namespace DAL
             catch { }
             return respuesta;
         }
-
+        /// <summary>
+        /// Si se logeo, volver a 0 intentos fallidos
+        /// </summary>
+        /// <param name="usuario"></param>
         private void GoodUser(BE_Usuario usuario)
         {
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "Update Usuario set IntentosFallidos = 0, Id_Estado = 1 where Usuario = @nombre AND Password = @pass ";
+                comm.CommandText = "Update Usuario set IntentosFallidos = 0, Id_Estado = 1 where Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", usuario.User);
-                comm.Parameters.AddWithValue("@pass", usuario.Pass);
                 Acceso.Instance.ExecuteNonQuery(comm);
             }
             catch { };
         }
-
         /// <summary>
         /// Validar por pregunta si el usuario se desbloquea
         /// </summary>
@@ -126,9 +131,10 @@ namespace DAL
             catch { };
             return validacion;
         }
-
-
-
+        /// <summary>
+        /// Bloquear si supera 3 intentos fallidos
+        /// </summary>
+        /// <param name="usuario"></param>
         private void BadPass(BE.BE_Usuario usuario)
         {
             if (GetIntentosFallidos(usuario) > 3)
@@ -136,9 +142,8 @@ namespace DAL
                 try
                 {
                     SqlCommand comm = new SqlCommand();
-                    comm.CommandText = "Update Usuario set Id_Estado = 2 where Usuario = @nombre AND Password = @pass  ";
+                    comm.CommandText = "Update Usuario set Id_Estado = 2 where Usuario = @nombre";
                     comm.Parameters.AddWithValue("@nombre", usuario.User);
-                    comm.Parameters.AddWithValue("@pass", usuario.Pass);
                     Acceso.Instance.ExecuteNonQuery(comm);
                     DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Bloqueo por intentos fallidos del usuario " + Servicios.Sesion.GetInstance.usuario.User, "Alto"));
                 }
@@ -157,7 +162,6 @@ namespace DAL
                 catch { };
             }
         }
-
         /// <summary>
         /// Devuelve la cantidad de intentos fallidos del usuario
         /// </summary>
@@ -172,25 +176,6 @@ namespace DAL
                 comm.Parameters.AddWithValue("@nombre", usuario.User);
                 comm.Parameters.AddWithValue("@pass", usuario.Pass);
                 result = Acceso.Instance.ExecuteScalar(comm);
-            }
-            catch { };
-
-            return result;
-        }
-        /// <summary>
-        /// Validar si esta bloqueado
-        /// </summary>
-        /// <returns></returns>
-        public bool ValidarBloqueo()
-        {
-            bool result = false;
-            try
-            {
-                SqlCommand comm = new SqlCommand();
-                comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre and Id_Estado = 1 and IntentosFallidos <= 3";
-                comm.Parameters.AddWithValue("@nombre", Servicios.Sesion.GetInstance.usuario.User);
-
-                result = Acceso.Instance.ExecuteScalarBool(comm);
             }
             catch { };
 

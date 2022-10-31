@@ -12,8 +12,6 @@ namespace DAL
 {
     public class CompositeyPermisosDAL
     {
-
-
         /// <summary>
         /// Inicio de la obtencion de permisos al usuario logeado
         /// </summary>
@@ -53,7 +51,10 @@ namespace DAL
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Obtener PermisosUsuario."); }
         }
-
+        /// <summary>
+        /// Borrar permisos por id de usuario
+        /// </summary>
+        /// <param name="user"></param>
         public void QuitarPermisosUsuario(BE_Usuario user)
         {
             SqlCommand sqlcomm = new SqlCommand();
@@ -66,7 +67,12 @@ namespace DAL
             }
             catch { }
         }
-
+        /// <summary>
+        /// Guardar permisos al usuario asignado
+        /// </summary>
+        /// <param name="permisos"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public bool GuardarPermisosAsignados(Component permisos, BE_Usuario user)
         {
             bool returnable = false;
@@ -90,7 +96,11 @@ namespace DAL
             DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se modificaron los permisos en usuario " + user.User, "Ninguno"));
             return returnable;
         }
-
+        /// <summary>
+        /// Eliminar familia y relaciones
+        /// </summary>
+        /// <param name="idFam"></param>
+        /// <returns></returns>
         public bool EliminarFamilia(int idFam)
         {
             bool rpta = false;
@@ -108,7 +118,6 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("No se pudo eliminar la familia"); }
             return rpta;
         }
-
         /// <summary>
         /// Devolveme el id del Perfil por su nombre
         /// </summary>
@@ -129,11 +138,10 @@ namespace DAL
 
             return returnable;
         }
-
         /// <summary>
         /// Obtener los permisos del usuario enviado
         /// </summary>
-        public BE.BE_Usuario PermisosPorUsuario(BE.BE_Usuario user)
+        public BE_Usuario PermisosPorUsuario(BE_Usuario user)
         {
             try
             {
@@ -170,8 +178,12 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Obtener PermisosUsuario."); }
             return user;
         }
-
-        public BE.Composite.Component ArmarArbolConIdPadre(BE.Composite.Component cmp)
+        /// <summary>
+        /// Armar component arbol con IdPadre
+        /// </summary>
+        /// <param name="cmp"></param>
+        /// <returns></returns>
+        private Component ArmarArbolConIdPadre(Component cmp)
         {
             try
             {
@@ -212,7 +224,6 @@ namespace DAL
 
             return cmp;
         }
-
         /// <summary>
         /// Trae todos los componentes de la lista para mostrar SUELTO
         /// </summary>
@@ -249,7 +260,11 @@ namespace DAL
             { }
             return compoList;
         }
-
+        /// <summary>
+        /// Busca repeticion dentro y elimina
+        /// </summary>
+        /// <param name="compoList"></param>
+        /// <param name="newcompo"></param>
         private void ReiteracionCompo(Component compoList, Component newcompo)
         {
             foreach (var node in compoList.List())
@@ -260,7 +275,6 @@ namespace DAL
                 }
             }
         }
-
         /// <summary>
         /// Trae todos los componentes de la lista para mostrar AGRUPADO
         /// </summary>
@@ -285,7 +299,7 @@ namespace DAL
                             newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[0].ToString(), element[1].ToString()));
                             if (!compoList.VerificarSiExiste(newcompo))
                             {
-                                ReiteracionCompo(compoList, newcompo); //fijate si aca o en ArmarArbol, si se repite algo eliminalo
+                                ReiteracionCompo(compoList, newcompo);
                                 compoList.Agregar(newcompo);
                             }
                         }
@@ -304,7 +318,6 @@ namespace DAL
             { }
             return compoList;
         }
-
         /// <summary>
         /// Funcionalidades para crear la familia
         /// </summary>
@@ -325,7 +338,6 @@ namespace DAL
             }
             return returnable;
         }
-
         /// <summary>
         /// Valida si ya existe la familia
         /// </summary>
@@ -346,7 +358,6 @@ namespace DAL
 
             return returnable;
         }
-
         /// <summary>
         /// Crea nueva familia y devuelve el ID de la creación bajo un SP
         /// </summary>
@@ -364,7 +375,6 @@ namespace DAL
             catch { System.Windows.Forms.MessageBox.Show("No se pudo generar la familia SP"); }
             return returnable;
         }
-
         /// <summary>
         /// Crea las relaciones pertinentes a la nueva familia previamente creada
         /// </summary>

@@ -160,7 +160,11 @@ namespace DAL
 
             return formaCliente;
         }
-
+        /// <summary>
+        /// Dame Id por DNI
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
         public int DameIdCliente(BE.Cliente cliente)
         {
             String query = "SELECT Id_Cliente FROM ClienteGYM WHERE Dni = @dni";
@@ -168,6 +172,7 @@ namespace DAL
             command.Parameters.AddWithValue("@dni", cliente.Dni);
             return Acceso.Instance.ExecuteScalar(command);
         }
+        #region NSU
         public Cliente Leer(Cliente valBuscar)
         {
             return valBuscar;
@@ -176,6 +181,7 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }
 

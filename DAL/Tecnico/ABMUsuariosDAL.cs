@@ -11,6 +11,11 @@ namespace DAL
 {
     public class ABMUsuariosDAL : ICRUD<BE_Usuario>
     {
+        /// <summary>
+        /// Alta usuario nuevo
+        /// </summary>
+        /// <param name="valAlta"></param>
+        /// <returns></returns>
         public bool Alta(BE_Usuario valAlta)
         {
             bool ret = false;

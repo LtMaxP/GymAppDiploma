@@ -12,7 +12,6 @@ namespace DAL.Tecnico
 {
     public class ControlCambiosDAL
     {
-
         /// <summary>
         /// Ejecuta el SP para grabar el recupero del Control de Cambios
         /// </summary>
@@ -34,7 +33,6 @@ namespace DAL.Tecnico
             catch
             { }
         }
-
         /// <summary>
         /// Trae todo CC
         /// </summary>

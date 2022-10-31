@@ -11,7 +11,6 @@ namespace DAL
 {
     public class Acceso
     {
-
         private SqlConnection SQLC = null;
         private SqlTransaction tx;
 
@@ -94,7 +93,7 @@ namespace DAL
                 throw e;
             }
         }
-
+        //-
         public int Escribir(string nombre, List<SqlParameter> parametros)
         {
             try
@@ -151,7 +150,6 @@ namespace DAL
             cmd.CommandType = CommandType.StoredProcedure;
             return cmd;
         }
-
         public SqlCommand CrearComando(string nombre, SqlParameter pars)
         {
             SqlCommand cmd = new SqlCommand(nombre, Abrir());
@@ -189,7 +187,6 @@ namespace DAL
                 throw ex;
             }
         }
-
         /// <summary>
         /// int returnable
         /// </summary>
@@ -208,6 +205,11 @@ namespace DAL
             finally { Cerrar(); }
             return retval;
         }
+        /// <summary>
+        /// Crear comando SP por nombre
+        /// </summary>
+        /// <param name="SP"></param>
+        /// <returns></returns>
         public SqlCommand CrearCommandStoredProcedure(string SP)
         {
             SqlCommand sqlCmd = new SqlCommand(SP);
@@ -313,7 +315,12 @@ namespace DAL
                 tx.Commit();
             }
         }
-
+        /// <summary>
+        /// Crear comando SP por nombre y con listado de parametros
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="pars"></param>
+        /// <returns></returns>
         public SqlCommand CrearComando(string nombre, List<SqlParameter> pars)
         {
             SqlCommand cmd = new SqlCommand(nombre, Abrir());

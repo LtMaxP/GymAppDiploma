@@ -58,7 +58,11 @@ namespace DAL
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Error al crear factura", "Medio"));
             }
         }
-
+        /// <summary>
+        /// Traer lista de facturas por DNI
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns></returns>
         public static List<BE_Factura> TraerFacturas(string dni)
         {
             List<BE_Factura> facturaList = new List<BE_Factura>();

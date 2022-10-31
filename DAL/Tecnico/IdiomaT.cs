@@ -12,39 +12,9 @@ namespace DAL
     public class IdiomaT
     {
         /// <summary>
-        /// Devuelve una lista de objetos que contiene el Idioma correspondiente, El texto en su correspondeinte idioma y el nombre de etiqueta perteneciente
+        /// Eliminar idioma
         /// </summary>
-        /// <returns></returns>
-        public BE.ObserverIdioma.BE_Idioma TraerListaDeIdioma(BE.ObserverIdioma.BE_Idioma ListadoIdioma)
-        {
-            #region bloque de cod
-            String qry = @"SELECT c.Id_Idioma, I.Idioma, c.Texto_Lbl, LblI.NombreEtiqueta 
-                            FROM CampoIdioma as C
-                            INNER JOIN Label_Etiqueta as LblI
-                            ON C.Id_label = LblI.Id_label
-                            INNER JOIN Idioma as I
-                            ON I.Id_Idioma = C.Id_Idioma
-                            where I.Idioma = " + ListadoIdioma.NombreIdioma;
-            SqlCommand command = new SqlCommand(qry);
-            try
-            {
-                DataTable dt = Acceso.Instance.ExecuteDataTable(command);
-                ListadoIdioma.Id = int.Parse(dt.Rows[0]["Id_Idioma"].ToString());
-                foreach (DataRow fila in dt.Rows)
-                {
-                    BE.ObserverIdioma.Leyenda transitorio = new BE.ObserverIdioma.Leyenda();
-                    transitorio._textoLabel = fila[2].ToString();
-                    transitorio._nombreEtiqueta = fila[3].ToString();
-
-                    ListadoIdioma.Leyendas.Add(transitorio);
-                }
-
-            }
-            catch { System.Windows.Forms.MessageBox.Show("Error al intentar traer idioma"); }
-            return ListadoIdioma;
-            #endregion
-        }
-
+        /// <param name="idioma"></param>
         public void EliminarIdioma(BE_Idioma idioma)
         {
             try
@@ -58,7 +28,6 @@ namespace DAL
             { }
             
         }
-
         /// <summary>
         /// Buscar si existe el nombre de un idioma
         /// </summary>

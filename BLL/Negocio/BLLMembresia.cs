@@ -42,9 +42,9 @@ namespace BLL.Negocio
         /// se valida si pasaron mas de 30 días del último pago
         /// </summary>
         /// <returns></returns>
-        public static bool ValidarFaltaPago()
+        public static bool ValidarFaltaPago(BE.Cliente cliente)
         {
-            return DAL.Negocio.DALMembresia.ValidarFaltaPago();
+            return DAL.Negocio.DALMembresia.ValidarFaltaPago(cliente);
         }
         /// <summary>
         /// Pagar

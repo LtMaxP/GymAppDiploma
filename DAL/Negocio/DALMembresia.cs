@@ -12,6 +12,10 @@ namespace DAL.Negocio
 {
     public class DALMembresia
     {
+        /// <summary>
+        /// Devuelve todas las membresias
+        /// </summary>
+        /// <returns></returns>
         public static List<BE_Membresia> DameMembresias()
         {
             List<BE.Negocio.BE_Membresia> membresias = new List<BE_Membresia>();
@@ -28,7 +32,11 @@ namespace DAL.Negocio
             }
             return membresias;
         }
-
+        /// <summary>
+        /// Devuelve detalle de membresia por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static BE_Membresia DameMembresiaPorId(int id)
         {
             BE_Membresia memb = new BE_Membresia();
@@ -44,17 +52,29 @@ namespace DAL.Negocio
             }
             return memb;
         }
-
-        public static bool ValidarFaltaPago()
+        /// <summary>
+        /// Validacion si ya esta pago
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
+        public static bool ValidarFaltaPago(BE.Cliente cliente)
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Efectuar Pago
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
         public static bool EjecutarPago(Cliente cliente)
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Devolver pagos realizados por dni de cliente
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns></returns>
         public static List<BE_Cuenta> DamePagosCliente(Cliente client)
         {
             List<BE_Cuenta> pagos = new List<BE_Cuenta>();

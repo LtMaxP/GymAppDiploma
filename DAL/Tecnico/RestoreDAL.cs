@@ -9,6 +9,11 @@ namespace DAL.Tecnico
 {
     public class RestoreDAL
     {
+        /// <summary>
+        /// Generar Restore DB
+        /// </summary>
+        /// <param name="ruta"></param>
+        /// <returns></returns>
         public bool GenerarRestore(string ruta)
         {
             try

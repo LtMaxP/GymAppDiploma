@@ -10,15 +10,15 @@ namespace BLL.Negocio
 {
     public class BLLProducto
     {
-        DAL.Negocio.DALProducto Prod = new DAL.Negocio.DALProducto();
+        DAL.Negocio.DALProducto prod = new DAL.Negocio.DALProducto();
         public List<BE.Item> TraerProductos()
         {
-            return Prod.DALTraerProductos();
+            return prod.DALTraerProductos();
         }
 
         public bool CargarProducto(Item item)
         {
-            return Prod.DALCargarProducto(item);
+            return prod.DALCargarProducto(item);
         }
     }
 }
