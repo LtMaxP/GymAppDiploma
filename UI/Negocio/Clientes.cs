@@ -147,9 +147,9 @@ namespace UI
                     client.Certificado = checkBoxCertif.Checked;
                     if (checkBoxCertif.Checked)
                     {
-                        client.Id_Estado = (int)comboBox_estado.SelectedItem;// BLLClientes.Estado;// comboBox_estado.SelectedItem["ID"];
+                        client.Id_Estado = BLL.Negocio.BLLEstado.DameIdEst(comboBox_estado.SelectedItem.ToString());// BLLClientes.Estado;// comboBox_estado.SelectedItem["ID"];
                         client.Membresia = (BE.Negocio.BE_Membresia)comboMem.SelectedItem;
-                        client.Descuento = int.Parse(comboDesc.SelectedItem.ToString().Replace("%",""));
+                        client.Descuento = int.Parse(comboDesc.SelectedItem.ToString().Replace("%", ""));
                     }
                     else
                     {
@@ -158,6 +158,7 @@ namespace UI
                     if (bllClientes.Alta(client))
                     {
                         MessageBox.Show("El cliente fue dado de Alta con éxito.");
+                        resetAll();
                     }
                     else
                     {
@@ -307,7 +308,7 @@ namespace UI
                     client.Certificado = checkBoxCertif.Checked;
                     if (checkBoxCertif.Checked)
                     {
-                        client.Id_Estado = (int)comboBox_estado.SelectedItem;// BLLClientes.Estado;// comboBox_estado.SelectedItem["ID"];
+                        client.Id_Estado = BLL.Negocio.BLLEstado.DameIdEst(comboBox_estado.SelectedItem.ToString());
                         client.Membresia = (BE.Negocio.BE_Membresia)comboMem.SelectedItem;
                         client.Descuento = int.Parse(comboDesc.SelectedItem.ToString().Replace("%", ""));
                     }
@@ -318,6 +319,7 @@ namespace UI
                     if (bllClientes.Modificar(client))
                     {
                         MessageBox.Show("El cliente fue Modificado con éxito.");
+                        resetAll();
                     }
                     else
                     {
@@ -328,6 +330,82 @@ namespace UI
                 {
                     MessageBox.Show("El usuario no ya existe");
                 }
+            }
+        }
+
+        private void labelBaja_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBox_Nombre.Text) || String.IsNullOrEmpty(textBox_Apellido.Text) || String.IsNullOrEmpty(textBox_Dni.Text) || String.IsNullOrEmpty(textBox_Calle.Text) || String.IsNullOrEmpty(textBox_Numero.Text) || String.IsNullOrEmpty(textBox_CodPost.Text) || String.IsNullOrEmpty(textBox_Telefono.Text) || String.IsNullOrEmpty(textBox_Peso.Text) || String.IsNullOrEmpty(comboBox_estado.Text))
+            {
+                MessageBox.Show("Debe completar todos los campos.");
+            }
+            else
+            {
+                BE.Cliente client = new BE.Cliente();
+                client.Dni = int.Parse(textBox_Dni.Text);
+                if (bllClientes.ValidarSiExiste(client))
+                {
+
+                    if (BLL.Negocio.BLLEstado.DameIdEst(comboBox_estado.SelectedItem.ToString()) != 2)
+                    {
+                        bllClientes.Baja(client);
+                        MessageBox.Show("Cliente dado de baja");
+                        resetAll();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El cliente ya esta dado de baja");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El usuario no existe");
+                }
+            }
+        }
+
+        private void textBox_Dni_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox_Dni.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Ingrese solamente numeros");
+                textBox_Dni.Text = textBox_Dni.Text.Remove(textBox_Dni.Text.Length - 1);
+            }
+        }
+
+        private void textBox_Numero_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox_Numero.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Ingrese solamente numeros");
+                textBox_Numero.Text = textBox_Numero.Text.Remove(textBox_Numero.Text.Length - 1);
+            }
+        }
+
+        private void textBox_Telefono_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox_Telefono.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Ingrese solamente numeros");
+                textBox_Telefono.Text = textBox_Telefono.Text.Remove(textBox_Telefono.Text.Length - 1);
+            }
+        }
+
+        private void textBox_Peso_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox_Peso.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Ingrese solamente numeros");
+                textBox_Peso.Text = textBox_Peso.Text.Remove(textBox_Peso.Text.Length - 1);
+            }
+        }
+
+        private void textBoxAltura_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBoxAltura.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Ingrese solamente numeros");
+                textBoxAltura.Text = textBoxAltura.Text.Remove(textBoxAltura.Text.Length - 1);
             }
         }
     }

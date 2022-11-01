@@ -264,6 +264,7 @@
             this.labelBaja.TabIndex = 7;
             this.labelBaja.Text = "Baja";
             this.labelBaja.UseVisualStyleBackColor = true;
+            this.labelBaja.Click += new System.EventHandler(this.labelBaja_Click);
             // 
             // labelModificar
             // 
@@ -293,9 +294,11 @@
             // textBox_Dni
             // 
             this.textBox_Dni.Location = new System.Drawing.Point(393, 130);
+            this.textBox_Dni.MaxLength = 8;
             this.textBox_Dni.Name = "textBox_Dni";
             this.textBox_Dni.Size = new System.Drawing.Size(100, 20);
             this.textBox_Dni.TabIndex = 9;
+            this.textBox_Dni.TextChanged += new System.EventHandler(this.textBox_Dni_TextChanged);
             // 
             // textBox_Calle
             // 
@@ -307,20 +310,25 @@
             // textBox_Numero
             // 
             this.textBox_Numero.Location = new System.Drawing.Point(393, 186);
+            this.textBox_Numero.MaxLength = 5;
             this.textBox_Numero.Name = "textBox_Numero";
             this.textBox_Numero.Size = new System.Drawing.Size(100, 20);
             this.textBox_Numero.TabIndex = 9;
+            this.textBox_Numero.TextChanged += new System.EventHandler(this.textBox_Numero_TextChanged);
             // 
             // textBox_Telefono
             // 
             this.textBox_Telefono.Location = new System.Drawing.Point(393, 238);
+            this.textBox_Telefono.MaxLength = 12;
             this.textBox_Telefono.Name = "textBox_Telefono";
             this.textBox_Telefono.Size = new System.Drawing.Size(100, 20);
             this.textBox_Telefono.TabIndex = 9;
+            this.textBox_Telefono.TextChanged += new System.EventHandler(this.textBox_Telefono_TextChanged);
             // 
             // textBox_CodPost
             // 
             this.textBox_CodPost.Location = new System.Drawing.Point(393, 212);
+            this.textBox_CodPost.MaxLength = 5;
             this.textBox_CodPost.Name = "textBox_CodPost";
             this.textBox_CodPost.Size = new System.Drawing.Size(100, 20);
             this.textBox_CodPost.TabIndex = 9;
@@ -351,6 +359,7 @@
             this.textBox_Peso.Name = "textBox_Peso";
             this.textBox_Peso.Size = new System.Drawing.Size(134, 20);
             this.textBox_Peso.TabIndex = 9;
+            this.textBox_Peso.TextChanged += new System.EventHandler(this.textBox_Peso_TextChanged);
             // 
             // fechaNacimiento
             // 
@@ -461,6 +470,7 @@
             this.textBoxAltura.Name = "textBoxAltura";
             this.textBoxAltura.Size = new System.Drawing.Size(134, 20);
             this.textBoxAltura.TabIndex = 9;
+            this.textBoxAltura.TextChanged += new System.EventHandler(this.textBoxAltura_TextChanged);
             // 
             // labelIMC
             // 
