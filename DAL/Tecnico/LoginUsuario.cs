@@ -12,7 +12,7 @@ namespace DAL
     public class LoginUsuario
     {
         /// <summary>
-        /// Traer id_Usuario 
+        /// Cargar id_Usuario 
         /// </summary>
         /// <returns></returns>
         public bool BuscarUsuarioBD()
@@ -52,9 +52,8 @@ namespace DAL
         {
             Boolean returnable = false;
             SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = "SELECT CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario WHERE Usuario = @user AND Password = @pass AND Id_Estado = 1 AND IntentosFallidos <= 3";
+            sqlcomm.CommandText = "SELECT CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario WHERE Usuario = @user";
             sqlcomm.Parameters.AddWithValue("@user", usuario.User);
-            sqlcomm.Parameters.AddWithValue("@pass", usuario.Pass);
             try
             {
                 returnable = Acceso.Instance.ExecuteScalarBool(sqlcomm);
@@ -73,8 +72,8 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "select CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario where Usuario = @nombre and Password = @pass";
-                comm.Parameters.AddWithValue("@nombre", usuario.User);
+                comm.CommandText = "SELECT CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario WHERE Usuario = @user AND Password = @pass AND Id_Estado = 1 AND IntentosFallidos <= 3";
+                comm.Parameters.AddWithValue("@user", usuario.User);
                 comm.Parameters.AddWithValue("@pass", usuario.Pass);
 
                 respuesta = Acceso.Instance.ExecuteScalarBool(comm);

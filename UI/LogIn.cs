@@ -72,9 +72,9 @@ namespace UI
                         MessageBox.Show("BASE DE DATOS CORRUPTA !!! ");
                         if (bllLog.ValidarAdmin(user))
                         {
-                            this.Hide();
-                            Inicio ini = new Inicio();
-                            ini.Show();
+                            ////////////this.Hide();
+                            ////////////Inicio ini = new Inicio();
+                            ////////////ini.Show();
                             BackupRestore bk = new BackupRestore();
                             bk.Show();
                         }

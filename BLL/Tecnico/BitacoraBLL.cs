@@ -10,10 +10,6 @@ namespace BLL
 {
     public class BitacoraBLL
     {
-        private DAL.BitacoraDAL bitDal = new DAL.BitacoraDAL();
-        private Servicios.BitacoraServicio bit = new Servicios.BitacoraServicio();
-
-
         public void RegistrarMovimiento(string movimiento, string nivelDelProblema)
         {
             DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento(movimiento, nivelDelProblema));

@@ -64,9 +64,11 @@ namespace UI
             // textBox
             // 
             this.textBox.Location = new System.Drawing.Point(41, 66);
+            this.textBox.MaxLength = 8;
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(214, 20);
             this.textBox.TabIndex = 3;
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // labelBuscar
             // 
@@ -100,15 +102,15 @@ namespace UI
             // 
             this.btn_Exportar.Location = new System.Drawing.Point(41, 336);
             this.btn_Exportar.Name = "btn_Exportar";
-            this.btn_Exportar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Exportar.Size = new System.Drawing.Size(106, 23);
             this.btn_Exportar.TabIndex = 8;
-            this.btn_Exportar.Text = "Exportar";
+            this.btn_Exportar.Text = "Exportar/Serializar";
             this.btn_Exportar.UseVisualStyleBackColor = true;
             this.btn_Exportar.Click += new System.EventHandler(this.btn_Exportar_Click);
             // 
             // btn_PDF
             // 
-            this.btn_PDF.Location = new System.Drawing.Point(136, 336);
+            this.btn_PDF.Location = new System.Drawing.Point(153, 336);
             this.btn_PDF.Name = "btn_PDF";
             this.btn_PDF.Size = new System.Drawing.Size(75, 23);
             this.btn_PDF.TabIndex = 9;

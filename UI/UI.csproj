@@ -90,11 +90,11 @@
     <Compile Include="Tecnico\BackupRestore.Designer.cs">
       <DependentUpon>BackupRestore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tecnico\BitacoraYDV.cs">
+    <Compile Include="Tecnico\Bitacora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tecnico\BitacoraYDV.Designer.cs">
-      <DependentUpon>BitacoraYDV.cs</DependentUpon>
+    <Compile Include="Tecnico\Bitacora.Designer.cs">
+      <DependentUpon>Bitacora.cs</DependentUpon>
     </Compile>
     <Compile Include="Negocio\Clientes.cs">
       <SubType>Form</SubType>
@@ -167,8 +167,8 @@
     <EmbeddedResource Include="Tecnico\BackupRestore.resx">
       <DependentUpon>BackupRestore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tecnico\BitacoraYDV.resx">
-      <DependentUpon>BitacoraYDV.cs</DependentUpon>
+    <EmbeddedResource Include="Tecnico\Bitacora.resx">
+      <DependentUpon>Bitacora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Negocio\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>

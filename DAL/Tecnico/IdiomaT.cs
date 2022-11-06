@@ -24,9 +24,9 @@ namespace DAL
                 Acceso.Instance.ExecuteNonQuery(sqlCmd);
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Fue eliminado el idioma " + idioma.NombreIdioma + " por el usuario" + Servicios.Sesion.GetInstance.usuario.IdUsuario, "Alto"));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             { }
-            
+
         }
         /// <summary>
         /// Buscar si existe el nombre de un idioma
@@ -57,16 +57,12 @@ namespace DAL
                 String query = "UPDATE CampoIdioma SET Texto_Lbl = @label WHERE Id_Idioma = @idioma AND Texto_Lbl = @Texto";
                 SqlCommand command = new SqlCommand(query);
                 command.Parameters.AddWithValue("@idioma", idioma.Id);
-                //string txt = (from L in idioma.Leyendas where L._textoLabel == "ElLabelBabe" select L._textoLabel).FirstOrDefault();
+                //string txt = (from L in idioma.Leyendas where L._textoLabel == "ElLabel" select L._textoLabel).FirstOrDefault();
                 command.Parameters.AddWithValue("@Texto", leye._nombreEtiqueta);
                 command.Parameters.AddWithValue("@label", leye._textoLabel);
-                try
-                {
-                    Acceso.Instance.ExecuteNonQuery(command);
-                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se modifico el idioma " + idioma.Id, "Ninguno"));
-                }
-                catch { System.Windows.Forms.MessageBox.Show("Error al intentar Modificar idioma"); }
+                Acceso.Instance.ExecuteNonQuery(command);
             }
+            DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se modifico el idioma " + idioma.Id, "Ninguno"));
         }
         /// <summary>
         /// Crear NUEVO idioma 
@@ -181,7 +177,7 @@ namespace DAL
 
                 int idIdioma = int.Parse(dt.Rows[0]["Id_Idioma"].ToString());
                 idiom.Id = idIdioma;
-
+                //Carga Paquete Idioma
                 foreach (DataRow fila in dt.Rows)
                 {
                     Leyenda transitorio = new Leyenda();
@@ -191,6 +187,7 @@ namespace DAL
                     ley.Add(transitorio);
                 }
                 idiom.Leyendas = ley;
+                //Inserta en cliente
                 Servicios.Sesion.GetInstance.usuario.Idioma = idiom;
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Cambio de idioma a " + idIdioma, "Ninguno"));
             }

@@ -18,12 +18,10 @@ namespace UI
         Bitmap secSemi45 = new Bitmap(Properties.Resources.focmili);//@"C:\Users\Portadag\source\repos\GymDiploma\UI\SecSemiR-45\focmili.jpg", true);
         Bitmap wallpaper = new Bitmap(Properties.Resources.gymwallpaper);// @"C:\Users\Portadag\source\repos\GymDiploma\UI\Resources\gymwallpaper.jpg", true);
         int speIma = 0;
-        IdiomaBLL BLLIdioma;
         BLL.BitacoraBLL bit;
         public Inicio()
         {
             InitializeComponent();
-            BLLIdioma = new IdiomaBLL();
             bit = new BLL.BitacoraBLL();
         }
 
@@ -117,7 +115,7 @@ namespace UI
         {
             if (FbitDV == null)
             {
-                FbitDV = new BitacoraYDV();
+                FbitDV = new Bitacora();
                 FbitDV.MdiParent = this;
                 FbitDV.FormClosed += FbitDV_FormClosed;
                 FbitDV.Show();
@@ -382,7 +380,7 @@ namespace UI
         #endregion
         #region formularios
         Clientes Fclient;
-        BitacoraYDV FbitDV;
+        Bitacora FbitDV;
         UsuariosABM FuserABM;
         //Empleados Femp;
         BackupRestore Fbackrest;

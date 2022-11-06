@@ -11,8 +11,6 @@ namespace BLL
     {
         private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
         DAL.CompositeyPermisosDAL comp = new DAL.CompositeyPermisosDAL();
-        DAL.BitacoraDAL bitacora = new DAL.BitacoraDAL();
-        BLL.Usuario usuarioABM = new BLL.Usuario();
 
         /// <summary>
         /// Login con validación de usuario

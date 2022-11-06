@@ -51,7 +51,7 @@ namespace UI
             // 
             // labelSalir
             // 
-            this.labelSalir.Location = new System.Drawing.Point(608, 415);
+            this.labelSalir.Location = new System.Drawing.Point(618, 399);
             this.labelSalir.Name = "labelSalir";
             this.labelSalir.Size = new System.Drawing.Size(75, 23);
             this.labelSalir.TabIndex = 0;
@@ -152,6 +152,7 @@ namespace UI
             // textBox_Buscar
             // 
             this.textBox_Buscar.Location = new System.Drawing.Point(119, 71);
+            this.textBox_Buscar.MaxLength = 20;
             this.textBox_Buscar.Name = "textBox_Buscar";
             this.textBox_Buscar.Size = new System.Drawing.Size(117, 20);
             this.textBox_Buscar.TabIndex = 8;
@@ -204,7 +205,7 @@ namespace UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 450);
+            this.ClientSize = new System.Drawing.Size(705, 436);
             this.ControlBox = false;
             this.Controls.Add(this.textBoxCliente);
             this.Controls.Add(this.labelCliente);

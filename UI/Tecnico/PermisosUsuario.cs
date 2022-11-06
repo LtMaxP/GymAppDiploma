@@ -80,7 +80,6 @@ namespace UI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            _pAsig = new BE.Composite.Composite();
             arbolAsignados.Nodes.Clear();
             arbolDisponibles.Nodes.Clear();
             user = (BE.BE_Usuario)comboBox1.SelectedItem;

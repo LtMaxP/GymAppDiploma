@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class BitacoraYDV : Form, BE.ObserverIdioma.IObserverIdioma
+    public partial class Bitacora : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
         BLL.DV dv = new BLL.DV();
 
-        public BitacoraYDV()
+        public Bitacora()
         {
             InitializeComponent();
         }

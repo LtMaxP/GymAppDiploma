@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class BitacoraYDV
+    partial class Bitacora
     {
         /// <summary>
         /// Required designer variable.
@@ -101,7 +101,7 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Fecha hasta";
             // 
-            // BitacoraYDV
+            // Bitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,8 +114,8 @@
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.Name = "BitacoraYDV";
-            this.Text = "BitacoraYDV";
+            this.Name = "Bitacora";
+            this.Text = "Bitacora";
             this.Load += new System.EventHandler(this.BitacoraYDV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
