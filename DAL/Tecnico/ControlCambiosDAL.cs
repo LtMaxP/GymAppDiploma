@@ -34,6 +34,45 @@ namespace DAL.Tecnico
             { }
         }
         /// <summary>
+        /// Traer CC filtrado
+        /// </summary>
+        /// <param name="cc"></param>
+        /// <param name="dt1"></param>
+        /// <param name="dt2"></param>
+        /// <returns></returns>
+        public static List<ControlCambio> TTCC(ControlCambio contcamb, DateTime dt1, DateTime dt2)
+        {
+            List<BE.Tecnico.ControlCambio> controldeCambios = new List<BE.Tecnico.ControlCambio>();
+
+            try
+            {
+                string query = "select * from [GymApp].[dbo].[ItemHistoricoCC] WHERE [UsuarioID] = @Id AND [FechaCC] > @Fdesde AND FechaCC < @Fhasta";// AS itemH left join [GymApp].[dbo].[Item] AS itemO on itemO.Id_Item = itemH.Id_Item";
+                SqlCommand comm = new SqlCommand(query);
+                comm.Parameters.AddWithValue("@Id", contcamb.usuarioID);
+                comm.Parameters.AddWithValue("@Fdesde", dt1);
+                comm.Parameters.AddWithValue("@Fhasta", dt2);
+
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+                foreach (DataRow row in dt.Rows)
+                {
+                    BE.Tecnico.ControlCambio cc = new BE.Tecnico.ControlCambio();
+                    cc.idEntidad = (int)row[0];
+                    cc.descripcion = row[1].ToString();
+                    cc.valor = (decimal)row[2];
+                    cc.cantidad = (int)row[3];
+                    cc.fechaModificacion = DateTime.Parse(row[4].ToString());
+                    cc.usuarioID = (int)row[5];
+                    cc.operacion = row[6].ToString();
+                    cc.secuencia = (int)row[7];
+
+                    controldeCambios.Add(cc);
+                }
+            }
+            catch { }
+            return controldeCambios;
+        }
+
+        /// <summary>
         /// Trae todo CC
         /// </summary>
         /// <param name="rCC"></param>

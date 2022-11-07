@@ -37,13 +37,21 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Refresh();
-            BE.Bitacora bitacor = new BE.Bitacora();
-            bitacor.NivelDeProblema = comboBoxProblema.Text;
-            var user = (BE.BE_Usuario)comboBoxUsuario.SelectedItem;
-            bitacor.Usuario = user.User;
             var dt1 = dateTimePicker1.Value;
             var dt2 = dateTimePicker2.Value;
-            List<BE.Bitacora> tableBit = bit.CargarBitacoraConFiltrado(bitacor, dt1, dt2);
+            List<BE.Bitacora> tableBit = new List<BE.Bitacora>();
+            if (comboBoxProblema.Text != null && comboBoxUsuario.SelectedItem != null)
+            {
+                BE.Bitacora bitacor = new BE.Bitacora();
+                bitacor.NivelDeProblema = comboBoxProblema.Text;
+                var user = (BE.BE_Usuario)comboBoxUsuario.SelectedItem;
+                bitacor.Usuario = user.User;
+                tableBit = bit.CargarBitacoraConFiltrado(bitacor, dt1, dt2);
+            }
+            else
+            {
+                tableBit = bit.CargarBitacoraFechas(dt1, dt2);
+            }
             dataGridView1.DataSource = tableBit;
         }
         private void CargaInicialBit()

@@ -59,7 +59,9 @@ namespace DAL.Negocio
         /// <returns></returns>
         public static bool ValidarFaltaPago(BE.Cliente cliente)
         {
-            throw new NotImplementedException();
+            SqlCommand command = Acceso.Instance.CrearCommandStoredProcedure("ValidarUltimoPago");
+            command.Parameters.AddWithValue("@Dni", cliente.Dni);
+            return Acceso.Instance.ExecuteSPWithReturnableBool(command);
         }
         /// <summary>
         /// Efectuar Pago
@@ -68,7 +70,18 @@ namespace DAL.Negocio
         /// <returns></returns>
         public static bool EjecutarPago(Cliente cliente)
         {
-            throw new NotImplementedException();
+            bool returnable = false;
+            try
+            {
+                SqlCommand command = Acceso.Instance.CrearCommandStoredProcedure("EjecutarPago");
+                command.Parameters.AddWithValue("@Dni", cliente.Dni);
+                command.Parameters.AddWithValue("@Monto", cliente.Cuenta.Monto);
+                Acceso.Instance.ExecuteNonQuery(command);
+                returnable = true;
+            }
+            catch
+            { }
+            return returnable;
         }
         /// <summary>
         /// Devolver pagos realizados por dni de cliente
@@ -78,7 +91,7 @@ namespace DAL.Negocio
         public static List<BE_Cuenta> DamePagosCliente(Cliente client)
         {
             List<BE_Cuenta> pagos = new List<BE_Cuenta>();
-            String query = "  SELECT [PagoFecha], [monto] FROM [dbo].[Cuenta_Pago] CP INNER JOIN [ClienteGYM] CG on CP.Id_Cuenta = CG.Id_Cuenta WHERE CG.Dni = @dni";
+            String query = "SELECT [PagoFecha], [monto] FROM [dbo].[Cuenta_Pago] CP INNER JOIN [ClienteGYM] CG on CP.Id_Cuenta = CG.Id_Cuenta WHERE CG.Dni = @dni";
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@dni", client.Dni);
             DataTable dt = Acceso.Instance.ExecuteDataTable(command);

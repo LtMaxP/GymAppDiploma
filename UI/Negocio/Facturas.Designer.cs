@@ -33,10 +33,11 @@ namespace UI
             this.labelSalir = new System.Windows.Forms.Button();
             this.textBox = new System.Windows.Forms.TextBox();
             this.labelBuscar = new System.Windows.Forms.Button();
-            this.listBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Exportar = new System.Windows.Forms.Button();
             this.btn_PDF = new System.Windows.Forms.Button();
+            this.dataGridViewFactura = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactura)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -80,15 +81,6 @@ namespace UI
             this.labelBuscar.UseVisualStyleBackColor = true;
             this.labelBuscar.Click += new System.EventHandler(this.labelBuscar_Click);
             // 
-            // listBox
-            // 
-            this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(41, 92);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(431, 225);
-            this.listBox.TabIndex = 5;
-            this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -118,16 +110,24 @@ namespace UI
             this.btn_PDF.UseVisualStyleBackColor = true;
             this.btn_PDF.Click += new System.EventHandler(this.btn_PDF_Click);
             // 
+            // dataGridViewFactura
+            // 
+            this.dataGridViewFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFactura.Location = new System.Drawing.Point(41, 103);
+            this.dataGridViewFactura.Name = "dataGridViewFactura";
+            this.dataGridViewFactura.Size = new System.Drawing.Size(364, 227);
+            this.dataGridViewFactura.TabIndex = 10;
+            // 
             // Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.dataGridViewFactura);
             this.Controls.Add(this.btn_PDF);
             this.Controls.Add(this.btn_Exportar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listBox);
             this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.labelSalir);
@@ -135,6 +135,7 @@ namespace UI
             this.Name = "Facturas";
             this.Text = "Facturas";
             this.Load += new System.EventHandler(this.Facturas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,9 +147,9 @@ namespace UI
         private System.Windows.Forms.Button labelSalir;
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Button labelBuscar;
-        private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_Exportar;
         private System.Windows.Forms.Button btn_PDF;
+        private System.Windows.Forms.DataGridView dataGridViewFactura;
     }
 }

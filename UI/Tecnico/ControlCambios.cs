@@ -13,6 +13,7 @@ namespace UI.Tecnico
 {
     public partial class ControlCambios : Form, BE.ObserverIdioma.IObserverIdioma
     {
+        private BLL.Usuario bLLUsuario = new BLL.Usuario();
         public ControlCambios()
         {
             InitializeComponent();
@@ -25,8 +26,18 @@ namespace UI.Tecnico
         private void ControlCambios_Load(object sender, EventArgs e)
         {
             SubjectIdioma.AddObserverIdioma(this);
-            CargarGrilla();
+            //CargarGrilla();
+            cargarComboUser();
         }
+        private void cargarComboUser()
+        {
+            foreach (var id in bLLUsuario.TraerUsuarios())
+            {
+                comboBoxUsuario.Items.Add(id);
+            }
+            comboBoxUsuario.ValueMember = "User";
+        }
+
         /// <summary>
         /// Salir
         /// </summary>
@@ -71,6 +82,26 @@ namespace UI.Tecnico
         public void Update()
         {
 
+        }
+
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+            if(comboBoxUsuario.SelectedItem != null)
+            {
+                dataGridView1.DataSource = null;
+                BE.Tecnico.ControlCambio cc = new BE.Tecnico.ControlCambio();
+                var user = (BE.BE_Usuario)comboBoxUsuario.SelectedItem;
+                cc.usuarioID = user.IdUsuario;
+                var dt1 = dateTimePicker1.Value;
+                var dt2 = dateTimePicker2.Value;
+                dataGridView1.DataSource = BLL.Tecnico.ControlCambiosBLL.TraerCC(cc,dt1,dt2);
+                dataGridView1.Update();
+                dataGridView1.ReadOnly = true;
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un usuario");
+            }
         }
     }
 }

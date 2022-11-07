@@ -47,12 +47,13 @@ namespace UI
         /// <param name="e"></param>
         private void btn_Exportar_Click(object sender, EventArgs e)
         {
-            if (listBox.Items.Count != 0)
+            if (dataGridViewFactura.RowCount != 0)
             {
                 List<BE.BE_Factura> listadoFacturas = new List<BE.BE_Factura>();
-                foreach (BE.BE_Factura it in listBox.Items)
+                foreach (DataGridViewRow it in dataGridViewFactura.Rows)
                 {
-                    listadoFacturas.Add(it);
+                    var asd = (BE.BE_Factura)it.DataBoundItem;
+                    listadoFacturas.Add(asd);
                 }
 
                 //Ruta a llevar
@@ -75,14 +76,9 @@ namespace UI
             string dni = textBox.Text;
             if (bllFacturas.DetectarCliente(dni))
             {
-                listBox.DataSource = null;
-                listBox.Items.Clear();
+                dataGridViewFactura.DataSource = null;
                 List<BE.BE_Factura> facturas = bllFacturas.TraerFacturas(dni);
-                listBox.DataSource = facturas;
-
-                //listBox.Items.Add("Monto");
-                //listBox.Items.Add("Fecha");
-
+                dataGridViewFactura.DataSource = facturas ;
                 //foreach (BE.BE_Factura factu in facturas)
                 //{
                 //    ListViewItem elementos = new ListViewItem(listBox.Items["Monto"]);
@@ -90,12 +86,10 @@ namespace UI
                 //    ListViewItem elementos2 = new ListViewItem(listBox.Items["Fecha"]);
                 //    elementos2.SubItems.Add(factu.Fecha.ToString());
                 //}
-
-
-
-                listBox.DisplayMember = "Fecha";
-                listBox.DisplayMember = "Monto";
-                //Fecha Monto
+                //foreach (var dr in facturas)
+                //{
+                //    listBoxFactura.Items.Add(dr.Monto.ToString() + "|" + dr.Fecha.ToString());
+                //}
             }
         }
 

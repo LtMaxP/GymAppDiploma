@@ -206,6 +206,24 @@ namespace DAL
             return retval;
         }
         /// <summary>
+        /// bool returnable
+        /// </summary>
+        /// <param name="familiaNombre"></param>
+        /// <returns></returns>
+        public bool ExecuteSPWithReturnableBool(SqlCommand sqlCmd)
+        {
+            bool retval = false;
+            try
+            {
+                sqlCmd.Connection = Abrir();
+                sqlCmd.ExecuteNonQuery();
+                retval = (bool)sqlCmd.Parameters["@retValue"].Value;
+            }
+            catch { }
+            finally { Cerrar(); }
+            return retval;
+        }
+        /// <summary>
         /// Crear comando SP por nombre
         /// </summary>
         /// <param name="SP"></param>

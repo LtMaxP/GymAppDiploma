@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE.Tecnico;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,11 @@ namespace BLL.Tecnico
         {
             rCC.usuarioID = Servicios.Sesion.GetInstance.usuario.IdUsuario;
             DAL.Tecnico.ControlCambiosDAL.GrabarCC(rCC);
+        }
+
+        public static List<BE.Tecnico.ControlCambio> TraerCC(ControlCambio cc, DateTime dt1, DateTime dt2)
+        {
+            return DAL.Tecnico.ControlCambiosDAL.TTCC(cc, dt1, dt2);
         }
     }
 }
