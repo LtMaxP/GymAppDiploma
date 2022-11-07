@@ -56,7 +56,7 @@ namespace DAL
             bitacora = Servicios.BitacoraServicio.CrearMovimiento(bitacora);
             String query = "INSERT INTO Bitacora (FechaDelMov, Movimiento, NivelDelProblema, Usuario) VALUES (@FechaMov, @Mov, @NivelDelP, @Usuario)";
             SqlCommand command = new SqlCommand(query);
-            command.Parameters.AddWithValue("@FechaMov", bitacora.Fecha);
+            command.Parameters.AddWithValue("@FechaMov", DateTime.Now);
             command.Parameters.AddWithValue("@Mov", bitacora.Movimiento);
             command.Parameters.AddWithValue("@NivelDelP", bitacora.NivelDeProblema);
             command.Parameters.AddWithValue("@Usuario", bitacora.Usuario);
