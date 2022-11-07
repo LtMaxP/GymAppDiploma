@@ -51,6 +51,7 @@ namespace BLL
         public void CambiarPass(BE_Usuario user)
         {
             user = DAL.ABMUsuariosDAL.DameId(user);
+            user.Pass = Servicios.Encriptacion.Encriptador(user.Pass);
             DAL.ABMUsuariosDAL.RecuperoPass(user);
             BLL.DV.RecalcularDigitosVerificadores();
             DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se reestableció la contraseña " + user.User, "Ninguno"));

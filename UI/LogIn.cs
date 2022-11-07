@@ -109,6 +109,8 @@ namespace UI
                     bllLog.CambiarPass(user);
                     MessageBox.Show("Cambio de contraseña exitoso");
                 }
+                else
+                    MessageBox.Show("Palabra secreta erronea");
             }
             else
             {
@@ -116,6 +118,7 @@ namespace UI
             }
         }
 
+        //-
         private void btn_usa_Click(object sender, EventArgs e)
         {
             //UI.Inicio.

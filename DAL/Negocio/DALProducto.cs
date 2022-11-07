@@ -46,9 +46,11 @@ namespace DAL.Negocio
                 sqlCmd.Parameters.Add("@Descripcion", SqlDbType.VarChar).Value = item.Descripcion;
                 sqlCmd.Parameters.Add("@Valor", SqlDbType.Decimal).Value = item.Valor;
                 sqlCmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = item.Cantidad;
+                sqlCmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = Servicios.Sesion.GetInstance.usuario.IdUsuario;
                 Acceso.Instance.ExecuteNonQuery(sqlCmd);
                 //cargar cc
-                //DAL.Tecnico.ControlCambiosDAL.GrabarHistoricoCC(/*new BE.Tecnico.ControlCambio(item.Id_Item,item.Valor,item*/);
+                //DAL.Tecnico.ControlCambiosDAL.GrabarHistoricoCC(new BE.Tecnico.ControlCambio(item.Id_Item, item.Valor, item.Cantidad, item.Descripcion, "Carga stock ", 99));
+                //DAL.Tecnico.ControlCambiosDAL.GrabarHistoricoCC(new BE.Tecnico.ControlCambio(item.Id_Item,item.Valor,item);
                 ret = true;
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de ejecutar SP."); }

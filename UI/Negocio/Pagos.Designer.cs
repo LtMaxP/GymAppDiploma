@@ -116,7 +116,7 @@ namespace UI
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(20, 103);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(227, 97);
+            this.listView.Size = new System.Drawing.Size(228, 97);
             this.listView.TabIndex = 10;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;

@@ -23,6 +23,30 @@ namespace DAL
             bitacoraTable = Acceso.Instance.ExecuteDataTable(command);
             return bitacoraTable;
         }
+
+        public static List<Bitacora> CargarBitacoraConFiltrado(Bitacora bitacor, DateTime dt1, DateTime dt2)
+        {
+            List<Bitacora> btlist = new List<Bitacora>();
+            String query = "SELECT * FROM Bitacora WHERE [Usuario] = @user AND [NivelDelProblema] = @problema AND FechaDelMov > @FechaMovD AND FechaDelMov < @FechaMovU";
+            SqlCommand command = new SqlCommand(query);
+            command.Parameters.AddWithValue("@user", bitacor.Usuario);
+            command.Parameters.AddWithValue("@problema", bitacor.NivelDeProblema);
+            command.Parameters.AddWithValue("@FechaMovD", dt1);
+            command.Parameters.AddWithValue("@FechaMovU", dt2);
+            DataTable dt = Acceso.Instance.ExecuteDataTable(command);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Bitacora bt = new Bitacora();
+                bt.IdBitacora = int.Parse(dr["Id_Bitacora"].ToString());
+                bt.Fecha = DateTime.Parse(dr["FechaDelMov"].ToString());
+                bt.Movimiento = dr["Movimiento"].ToString();
+                bt.NivelDeProblema = dr["NivelDelProblema"].ToString();
+                bt.Usuario = dr["Usuario"].ToString();
+                btlist.Add(bt);
+            }
+            return btlist;
+        }
+
         /// <summary>
         /// Insertar registro en Bitacora DB
         /// </summary>

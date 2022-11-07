@@ -58,7 +58,7 @@ namespace DAL
         public void QuitarPermisosUsuario(BE_Usuario user)
         {
             SqlCommand sqlcomm = new SqlCommand();
-            sqlcomm.CommandText = @"DELETE FROM [GymApp].[dbo].[PermisosRelacion] WHERE [Id_Usuario] = @idUser";
+            sqlcomm.CommandText = @"DELETE FROM [GymApp].[dbo].[PermisosUsuarios] WHERE [Id_Usuario] = @idUser";
             sqlcomm.Parameters.AddWithValue("@idUser", user.IdUsuario);
 
             try

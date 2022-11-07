@@ -19,5 +19,10 @@ namespace BLL
         {
             return DAL.BitacoraDAL.TraerBitacoraPorFecha(dt1, dt2);
         }
+
+        public List<Bitacora> CargarBitacoraConFiltrado(Bitacora bitacor, DateTime dt1, DateTime dt2)
+        {
+            return DAL.BitacoraDAL.CargarBitacoraConFiltrado(bitacor, dt1, dt2);
+        }
     }
 }

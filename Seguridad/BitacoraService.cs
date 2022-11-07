@@ -22,19 +22,27 @@ namespace Servicios
         public static BE.Bitacora RegistrarMovimiento(string movimiento, string nivelDelProblema)
         {
             BE.Bitacora bit = new BE.Bitacora();
+            bit.Fecha = DateTime.Now;
             bit.Movimiento = movimiento;
             bit.NivelDeProblema = nivelDelProblema;
             return bit;
         }
         /// <summary>
-        /// devuelve la bitacora con el usuario logeado y la fecha con hora actual 
+        /// devuelve la bitacora con el usuario logeado 
         /// </summary>
         /// <param name="bitacora"></param>
         /// <returns></returns>
         public static BE.Bitacora CrearMovimiento(BE.Bitacora bitacora)
         {
-            bitacora.Fecha = DateTime.Now;
-            bitacora.Usuario = Sesion.GetInstance.usuario.User;
+            try
+            {
+                bitacora.Usuario = Sesion.GetInstance.usuario.User;
+            }
+            catch
+            {
+                bitacora.Usuario = "No log";
+            }
+
             return bitacora;
         }
     }

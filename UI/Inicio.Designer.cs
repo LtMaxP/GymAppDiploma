@@ -96,8 +96,8 @@ namespace UI
             // labelClientes
             // 
             this.labelClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelPagosYCobros,
-            this.labelFacturas});
+            this.labelFacturas,
+            this.labelPagosYCobros});
             this.labelClientes.Name = "labelClientes";
             resources.ApplyResources(this.labelClientes, "labelClientes");
             this.labelClientes.Tag = "4";
@@ -107,7 +107,7 @@ namespace UI
             // 
             this.labelPagosYCobros.Name = "labelPagosYCobros";
             resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
-            this.labelPagosYCobros.Tag = "24";
+            this.labelPagosYCobros.Tag = "28";
             this.labelPagosYCobros.Click += new System.EventHandler(this.labelPagosYCobros_Click_1);
             // 
             // labelFacturas
@@ -121,14 +121,14 @@ namespace UI
             // 
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
-            this.productosToolStripMenuItem.Tag = "18";
+            this.productosToolStripMenuItem.Tag = "19";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // gestionDeStockToolStripMenuItem
             // 
             this.gestionDeStockToolStripMenuItem.Name = "gestionDeStockToolStripMenuItem";
             resources.ApplyResources(this.gestionDeStockToolStripMenuItem, "gestionDeStockToolStripMenuItem");
-            this.gestionDeStockToolStripMenuItem.Tag = "19";
+            this.gestionDeStockToolStripMenuItem.Tag = "20";
             this.gestionDeStockToolStripMenuItem.Click += new System.EventHandler(this.gestionDeStockToolStripMenuItem_Click);
             // 
             // labelSistema
@@ -185,7 +185,7 @@ namespace UI
             // 
             this.labelBackupRestore.Name = "labelBackupRestore";
             resources.ApplyResources(this.labelBackupRestore, "labelBackupRestore");
-            this.labelBackupRestore.Tag = "12";
+            this.labelBackupRestore.Tag = "18";
             this.labelBackupRestore.Click += new System.EventHandler(this.labelBackupRestore_Click);
             // 
             // controlDeCambiosToolStripMenuItem

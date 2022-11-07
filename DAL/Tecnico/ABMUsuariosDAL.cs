@@ -46,7 +46,7 @@ namespace DAL
         /// <param name="user"></param>
         public static void RecuperoPass(BE_Usuario user)
         {
-            String query = "UPDATE Usuario SET Password = @pass WHERE Id_Usuario = @idUser";
+            String query = "UPDATE Usuario SET Password = @pass, Id_Estado = 1, IntentosFallidos = 0 WHERE Id_Usuario = @idUser";
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@idUser", user.IdUsuario);
             command.Parameters.AddWithValue("@pass", user.Pass);
@@ -59,7 +59,7 @@ namespace DAL
         /// <returns></returns>
         public static BE_Usuario DameId(BE_Usuario user)
         {
-            String query = "SELECT id FROM Usuario WHERE usuario = @user AND Palabra_Secreta = @PSecret";
+            String query = "SELECT Id_Usuario FROM Usuario WHERE usuario = @user AND Palabra_Secreta = @PSecret";
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@user", user.User);
             command.Parameters.AddWithValue("@PSecret", user.PSecreta);

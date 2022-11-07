@@ -80,13 +80,20 @@ namespace UI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            arbolAsignados.Nodes.Clear();
-            arbolDisponibles.Nodes.Clear();
-            user = (BE.BE_Usuario)comboBox1.SelectedItem;
-            user = _perm.TraerUsuarioConPermisos(user);
-            _pAsig = user.Permisos;
-            CargarAsignados(_pAsig, arbolAsignados);
-            CargarAsignados(_permisosTotal, arbolDisponibles);
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione un usuario a mostrar");
+            }
+            else
+            {
+                arbolAsignados.Nodes.Clear();
+                arbolDisponibles.Nodes.Clear();
+                user = (BE.BE_Usuario)comboBox1.SelectedItem;
+                user = _perm.TraerUsuarioConPermisos(user);
+                _pAsig = user.Permisos;
+                CargarAsignados(_pAsig, arbolAsignados);
+                CargarAsignados(_permisosTotal, arbolDisponibles);
+            }
         }
         /// <summary>
         /// Cargar arbol con datos deseados
@@ -178,10 +185,10 @@ namespace UI
                 {
                     foreach (var permT in _permisosTotal.List())
                     {
-                        if (permT.iDPatente.Equals(permiso[0]) || permT.VerificarSiExistePermiso(permiso[0])) 
+                        if (permT.iDPatente.Equals(permiso[0]) || permT.VerificarSiExistePermiso(permiso[0]))
                         {
                             if (permT.iDPatente.Equals(permiso[0]))
-                                CheckPerm(permT); 
+                                CheckPerm(permT);
                             else
                                 CheckPerm(permT.TraetePermiso(permiso[0]));
 
@@ -218,9 +225,9 @@ namespace UI
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
-            if (arbolAsignados.Nodes.Count == 0 && arbolDisponibles.Nodes.Count == 0)
+            if (arbolAsignados.Nodes.Count == 0)// && arbolDisponibles.Nodes.Count == 0)
                 MessageBox.Show("Debe cargar los permisos");
-            else if (arbolAsignados.Nodes.Count != 0 && (arbolDisponibles.SelectedNode == null || arbolDisponibles.SelectedNode == null))
+            else if (arbolAsignados.Nodes.Count != 0 && arbolAsignados.SelectedNode == null)//&& (arbolDisponibles.SelectedNode == null || arbolDisponibles.SelectedNode == null))
                 MessageBox.Show("Debe seleccionar un permiso");
             else
             {
@@ -244,7 +251,7 @@ namespace UI
         /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
-            if(_perm.GuardarP(_pAsig, user))
+            if (_perm.GuardarP(_pAsig, user))
             {
                 MessageBox.Show("Permisos guardados con exito");
             }
