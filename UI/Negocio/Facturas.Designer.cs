@@ -35,8 +35,9 @@ namespace UI
             this.labelBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Exportar = new System.Windows.Forms.Button();
-            this.btn_PDF = new System.Windows.Forms.Button();
             this.dataGridViewFactura = new System.Windows.Forms.DataGridView();
+            this.btn_PDF = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,23 +93,13 @@ namespace UI
             // 
             // btn_Exportar
             // 
-            this.btn_Exportar.Location = new System.Drawing.Point(41, 336);
+            this.btn_Exportar.Location = new System.Drawing.Point(90, 354);
             this.btn_Exportar.Name = "btn_Exportar";
-            this.btn_Exportar.Size = new System.Drawing.Size(106, 23);
+            this.btn_Exportar.Size = new System.Drawing.Size(59, 23);
             this.btn_Exportar.TabIndex = 8;
-            this.btn_Exportar.Text = "Exportar/Serializar";
+            this.btn_Exportar.Text = "Serializar";
             this.btn_Exportar.UseVisualStyleBackColor = true;
             this.btn_Exportar.Click += new System.EventHandler(this.btn_Exportar_Click);
-            // 
-            // btn_PDF
-            // 
-            this.btn_PDF.Location = new System.Drawing.Point(153, 336);
-            this.btn_PDF.Name = "btn_PDF";
-            this.btn_PDF.Size = new System.Drawing.Size(75, 23);
-            this.btn_PDF.TabIndex = 9;
-            this.btn_PDF.Text = "PDF";
-            this.btn_PDF.UseVisualStyleBackColor = true;
-            this.btn_PDF.Click += new System.EventHandler(this.btn_PDF_Click);
             // 
             // dataGridViewFactura
             // 
@@ -118,12 +109,32 @@ namespace UI
             this.dataGridViewFactura.Size = new System.Drawing.Size(364, 227);
             this.dataGridViewFactura.TabIndex = 10;
             // 
+            // btn_PDF
+            // 
+            this.btn_PDF.Location = new System.Drawing.Point(155, 354);
+            this.btn_PDF.Name = "btn_PDF";
+            this.btn_PDF.Size = new System.Drawing.Size(58, 23);
+            this.btn_PDF.TabIndex = 9;
+            this.btn_PDF.Text = "PDF";
+            this.btn_PDF.UseVisualStyleBackColor = true;
+            this.btn_PDF.Click += new System.EventHandler(this.btn_PDF_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 359);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Exportar";
+            // 
             // Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridViewFactura);
             this.Controls.Add(this.btn_PDF);
             this.Controls.Add(this.btn_Exportar);
@@ -149,7 +160,8 @@ namespace UI
         private System.Windows.Forms.Button labelBuscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_Exportar;
-        private System.Windows.Forms.Button btn_PDF;
         private System.Windows.Forms.DataGridView dataGridViewFactura;
+        private System.Windows.Forms.Button btn_PDF;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -217,7 +217,9 @@ namespace DAL
             {
                 sqlCmd.Connection = Abrir();
                 sqlCmd.ExecuteNonQuery();
-                retval = (bool)sqlCmd.Parameters["@retValue"].Value;
+                var ret = sqlCmd.Parameters["@retValue"].Value.ToString();
+                if (ret == "1")
+                    retval = true;
             }
             catch { }
             finally { Cerrar(); }
@@ -233,6 +235,13 @@ namespace DAL
             SqlCommand sqlCmd = new SqlCommand(SP);
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.Parameters.Add("@retValue", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.ReturnValue;
+            return sqlCmd;
+        }
+        public SqlCommand CrearCommandStoredProcedureReturnBool(string SP)
+        {
+            SqlCommand sqlCmd = new SqlCommand(SP);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.Parameters.Add("@retValue", System.Data.SqlDbType.Bit).Direction = System.Data.ParameterDirection.ReturnValue;
             return sqlCmd;
         }
         /// <summary>

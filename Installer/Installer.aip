@@ -16,6 +16,7 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_BLL.dll" Value="..\BLL\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_BLL.dll_1" Value="..\BLL\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_BLL.pdb" Value="..\BLL\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll" Value="..\packages\BouncyCastle.1.8.9\lib"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_DAL.dll" Value="..\DAL\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_DAL.dll_1" Value="..\DAL\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_DAL.dll_2" Value="..\BLL\bin\Debug"/>
@@ -34,6 +35,7 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_UI.pdb" Value="..\UI\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_UI.resources.dll" Value="..\UI\bin\Debug\agq"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_ValueTupleBridge.dll" Value="..\packages\ValueTupleBridge.0.1.5\lib\net45"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itextsharp.dll" Value="..\packages\iTextSharp.5.5.13.3\lib"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BE.dll" Value="BE.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BE.dll_1" Value="BE.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BE.dll_2" Value="BE.dll"/>
@@ -43,6 +45,7 @@
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BLL.dll" Value="BLL.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BLL.dll_1" Value="BLL.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BLL.pdb" Value="BLL.pdb"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll" Value="BouncyCastle.Crypto.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DAL.dll" Value="DAL.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DAL.dll_1" Value="DAL.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DAL.dll_2" Value="DAL.dll"/>
@@ -61,6 +64,7 @@
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_UI.pdb" Value="UI.pdb"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_UI.resources.dll" Value="UI.resources.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_ValueTupleBridge.dll" Value="ValueTupleBridge.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll" Value="itextsharp.dll"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPPRODUCTICON" Value="icoGym.exe" Type="8"/>
@@ -106,7 +110,7 @@
     <ROW Component="Servicios_SymbolsOutput" ComponentId="{EFD6D01C-2B4B-4F8C-98CD-3866A938FA6C}" Directory_="Servicios_Dir" Attributes="0" KeyPath="Servicios.pdb"/>
     <ROW Component="UI_LocalizedResourcesOutput_agq" ComponentId="{5409C59D-5179-4671-9D6E-11C22D0A140E}" Directory_="agq_Dir" Attributes="0" KeyPath="UI.resources.dll"/>
     <ROW Component="UI_PrimaryOutput" ComponentId="{26028D18-D9FB-41E0-84D5-785EDDCAB295}" Directory_="UI_Dir" Attributes="0" KeyPath="UI.exe"/>
-    <ROW Component="UI_References" ComponentId="{1C48C0D4-F3F2-464B-AF27-84B08F6C0E9E}" Directory_="UI_Dir" Attributes="0" KeyPath="DAL.dll_2"/>
+    <ROW Component="UI_References" ComponentId="{1C48C0D4-F3F2-464B-AF27-84B08F6C0E9E}" Directory_="UI_Dir" Attributes="0" KeyPath="itextsharp.dll"/>
     <ROW Component="UI_SymbolsOutput" ComponentId="{4A8EF69C-C1F1-4CCB-A99F-FA6723BBD3C1}" Directory_="UI_Dir" Attributes="0" KeyPath="UI.pdb"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
@@ -141,6 +145,8 @@
     <ROW File="DAL.dll_2" Component_="UI_References" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_DAL.dll_2]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DAL.dll_2&gt;" SelfReg="false"/>
     <ROW File="UI.resources.dll" Component_="UI_LocalizedResourcesOutput_agq" FileName="UIRESO~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_UI.resources.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_UI.resources.dll&gt;" SelfReg="false"/>
     <ROW File="UI.pdb" Component_="UI_SymbolsOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_UI.pdb]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_UI.pdb&gt;" SelfReg="false"/>
+    <ROW File="BouncyCastle.Crypto.dll" Component_="UI_References" FileName="BOUNCY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll&gt;" SelfReg="false"/>
+    <ROW File="itextsharp.dll" Component_="UI_References" FileName="ITEXTS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itextsharp.dll&gt;" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
     <ROW Name="AI_APPPATH_PERBUILD_BE.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_BE.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_BE.dll]" Type="2" Content="0"/>
@@ -152,6 +158,7 @@
     <ROW Name="AI_APPPATH_PERBUILD_BLL.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_BLL.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_BLL.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_BLL.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_BLL.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_BLL.dll_1]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_BLL.pdb" Path="[|AI_PROPPATH_DIR_PERBUILD_BLL.pdb]\[|AI_PROPPATH_FILENAME_PERBUILD_BLL.pdb]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DAL.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DAL.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DAL.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DAL.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_DAL.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_DAL.dll_1]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DAL.dll_2" Path="[|AI_PROPPATH_DIR_PERBUILD_DAL.dll_2]\[|AI_PROPPATH_FILENAME_PERBUILD_DAL.dll_2]" Type="2" Content="0"/>
@@ -170,6 +177,7 @@
     <ROW Name="AI_APPPATH_PERBUILD_UI.pdb" Path="[|AI_PROPPATH_DIR_PERBUILD_UI.pdb]\[|AI_PROPPATH_FILENAME_PERBUILD_UI.pdb]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_UI.resources.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_UI.resources.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_UI.resources.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_ValueTupleBridge.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_ValueTupleBridge.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_ValueTupleBridge.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itextsharp.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itextsharp.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll]" Type="2" Content="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -353,5 +361,7 @@
     <ROW ProjectId="{4e1520e7-1125-4448-96ff-bb3e0db6306e}" ProjectName="UI" OutputGroup="References" OutputFile="DAL.dll_2"/>
     <ROW ProjectId="{4e1520e7-1125-4448-96ff-bb3e0db6306e}" ProjectName="UI" OutputGroup="LocalizedResourcesOutput" OutputFile="UI.resources.dll"/>
     <ROW ProjectId="{4e1520e7-1125-4448-96ff-bb3e0db6306e}" ProjectName="UI" OutputGroup="SymbolsOutput" OutputFile="UI.pdb"/>
+    <ROW ProjectId="{4e1520e7-1125-4448-96ff-bb3e0db6306e}" ProjectName="UI" OutputGroup="References" OutputFile="BouncyCastle.Crypto.dll"/>
+    <ROW ProjectId="{4e1520e7-1125-4448-96ff-bb3e0db6306e}" ProjectName="UI" OutputGroup="References" OutputFile="itextsharp.dll"/>
   </COMPONENT>
 </DOCUMENT>

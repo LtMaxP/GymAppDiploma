@@ -48,5 +48,10 @@ namespace BLL
         {
             return bllClientes.ValidarSiExiste(new Cliente() { Dni = int.Parse(dni) });
         }
+
+        public BE_Factura TraerFacturaConItems(BE_Factura factura)
+        {
+            return DAL.DALFactura.TraerFacturaConItems(factura);
+        }
     }
 }
