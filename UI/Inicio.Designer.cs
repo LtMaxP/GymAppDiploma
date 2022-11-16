@@ -35,8 +35,8 @@ namespace UI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.labelAcciones = new System.Windows.Forms.ToolStripMenuItem();
             this.labelClientes = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
             this.labelFacturas = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSistema = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,7 +90,7 @@ namespace UI
             this.gestionDeStockToolStripMenuItem});
             resources.ApplyResources(this.labelAcciones, "labelAcciones");
             this.labelAcciones.Name = "labelAcciones";
-            this.labelAcciones.Tag = "30";
+            this.labelAcciones.Tag = "";
             this.labelAcciones.Click += new System.EventHandler(this.labelAcciones_Click);
             // 
             // labelClientes
@@ -103,19 +103,19 @@ namespace UI
             this.labelClientes.Tag = "4";
             this.labelClientes.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
-            // labelPagosYCobros
-            // 
-            this.labelPagosYCobros.Name = "labelPagosYCobros";
-            resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
-            this.labelPagosYCobros.Tag = "28";
-            this.labelPagosYCobros.Click += new System.EventHandler(this.labelPagosYCobros_Click_1);
-            // 
             // labelFacturas
             // 
             this.labelFacturas.Name = "labelFacturas";
             resources.ApplyResources(this.labelFacturas, "labelFacturas");
             this.labelFacturas.Tag = "28";
             this.labelFacturas.Click += new System.EventHandler(this.labelFacturas_Click_1);
+            // 
+            // labelPagosYCobros
+            // 
+            this.labelPagosYCobros.Name = "labelPagosYCobros";
+            resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
+            this.labelPagosYCobros.Tag = "28";
+            this.labelPagosYCobros.Click += new System.EventHandler(this.labelPagosYCobros_Click_1);
             // 
             // productosToolStripMenuItem
             // 
@@ -141,7 +141,7 @@ namespace UI
             this.controlDeCambiosToolStripMenuItem});
             resources.ApplyResources(this.labelSistema, "labelSistema");
             this.labelSistema.Name = "labelSistema";
-            this.labelSistema.Tag = "31";
+            this.labelSistema.Tag = "";
             // 
             // labelABMUsuarios
             // 

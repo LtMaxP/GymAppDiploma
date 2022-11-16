@@ -59,7 +59,7 @@ namespace DAL.Negocio
         /// <returns></returns>
         public static bool ValidarFaltaPago(BE.Cliente cliente)
         {
-            SqlCommand command = Acceso.Instance.CrearCommandStoredProcedure("ValidarUltimoPago");
+            SqlCommand command = Acceso.Instance.CrearCommandStoredProcedureReturnBool("ValidarUltimoPago");
             command.Parameters.AddWithValue("@Dni", cliente.Dni);
             return Acceso.Instance.ExecuteSPWithReturnableBool(command);
         }
@@ -73,9 +73,8 @@ namespace DAL.Negocio
             bool returnable = false;
             try
             {
-                SqlCommand command = Acceso.Instance.CrearCommandStoredProcedure("EjecutarPago");
+                SqlCommand command = Acceso.Instance.CrearCommandStoredProcedure("EjecutarPago");//ver el descuento
                 command.Parameters.AddWithValue("@Dni", cliente.Dni);
-                command.Parameters.AddWithValue("@Monto", cliente.Cuenta.Monto);
                 Acceso.Instance.ExecuteNonQuery(command);
                 returnable = true;
             }

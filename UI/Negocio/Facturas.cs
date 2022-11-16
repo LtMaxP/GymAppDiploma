@@ -116,6 +116,7 @@ namespace UI
                 if (result == DialogResult.OK)
                 {
                     string rooTFoolder = folderDlg.SelectedPath;
+                    //aca a la clase Servicios?
                     FileStream pdfroot = new FileStream(rooTFoolder, FileMode.Create);
                     Document doc = new Document(PageSize.LETTER, 5, 5, 7, 7);
                     PdfWriter pw = PdfWriter.GetInstance(doc, pdfroot);
@@ -162,7 +163,6 @@ namespace UI
                     pw.Close();
                     MessageBox.Show("Exportación realizada con exito");
                 }
-
             }
         }
 

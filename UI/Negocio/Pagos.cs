@@ -87,8 +87,8 @@ namespace UI
                 client.Dni = int.Parse(listView.SelectedItems[0].SubItems[1].Text.ToString());
                 client = bllClientes.MostrarCliente(client);
                 dataGridView1.DataSource = BLL.Negocio.BLLMembresia.DamePagosCliente(client);
-                dataGridView1.DataMember = "[PagoFecha]";
-                dataGridView1.DataMember = "[monto]";
+                //dataGridView1.DataMember = "[PagoFecha]";
+                //dataGridView1.DataMember = "[monto]";
             }
         }
 
