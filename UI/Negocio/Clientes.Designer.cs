@@ -149,6 +149,7 @@
             this.labelMostrar.Name = "labelMostrar";
             this.labelMostrar.Size = new System.Drawing.Size(75, 23);
             this.labelMostrar.TabIndex = 4;
+            this.labelMostrar.Tag = "4";
             this.labelMostrar.Text = "Mostrar";
             this.labelMostrar.UseVisualStyleBackColor = true;
             this.labelMostrar.Click += new System.EventHandler(this.labelMostrar_Click);
@@ -252,6 +253,7 @@
             this.labelAlta.Name = "labelAlta";
             this.labelAlta.Size = new System.Drawing.Size(64, 25);
             this.labelAlta.TabIndex = 6;
+            this.labelAlta.Tag = "1";
             this.labelAlta.Text = "Alta";
             this.labelAlta.UseVisualStyleBackColor = true;
             this.labelAlta.Click += new System.EventHandler(this.labelAlta_Click);
@@ -262,6 +264,7 @@
             this.labelBaja.Name = "labelBaja";
             this.labelBaja.Size = new System.Drawing.Size(64, 25);
             this.labelBaja.TabIndex = 7;
+            this.labelBaja.Tag = "2";
             this.labelBaja.Text = "Baja";
             this.labelBaja.UseVisualStyleBackColor = true;
             this.labelBaja.Click += new System.EventHandler(this.labelBaja_Click);
@@ -272,6 +275,7 @@
             this.labelModificar.Name = "labelModificar";
             this.labelModificar.Size = new System.Drawing.Size(71, 25);
             this.labelModificar.TabIndex = 8;
+            this.labelModificar.Tag = "3";
             this.labelModificar.Text = "Modificar";
             this.labelModificar.UseVisualStyleBackColor = true;
             this.labelModificar.Click += new System.EventHandler(this.labelModificar_Click);
@@ -279,6 +283,7 @@
             // textBox_Nombre
             // 
             this.textBox_Nombre.Location = new System.Drawing.Point(393, 74);
+            this.textBox_Nombre.MaxLength = 60;
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.Size = new System.Drawing.Size(100, 20);
             this.textBox_Nombre.TabIndex = 9;
@@ -287,6 +292,7 @@
             // textBox_Apellido
             // 
             this.textBox_Apellido.Location = new System.Drawing.Point(393, 101);
+            this.textBox_Apellido.MaxLength = 60;
             this.textBox_Apellido.Name = "textBox_Apellido";
             this.textBox_Apellido.Size = new System.Drawing.Size(100, 20);
             this.textBox_Apellido.TabIndex = 9;
@@ -303,6 +309,7 @@
             // textBox_Calle
             // 
             this.textBox_Calle.Location = new System.Drawing.Point(393, 159);
+            this.textBox_Calle.MaxLength = 30;
             this.textBox_Calle.Name = "textBox_Calle";
             this.textBox_Calle.Size = new System.Drawing.Size(100, 20);
             this.textBox_Calle.TabIndex = 9;
@@ -332,6 +339,7 @@
             this.textBox_CodPost.Name = "textBox_CodPost";
             this.textBox_CodPost.Size = new System.Drawing.Size(100, 20);
             this.textBox_CodPost.TabIndex = 9;
+            this.textBox_CodPost.TextChanged += new System.EventHandler(this.textBox_CodPost_TextChanged);
             // 
             // labelSalir
             // 
@@ -356,6 +364,7 @@
             // textBox_Peso
             // 
             this.textBox_Peso.Location = new System.Drawing.Point(626, 106);
+            this.textBox_Peso.MaxLength = 3;
             this.textBox_Peso.Name = "textBox_Peso";
             this.textBox_Peso.Size = new System.Drawing.Size(134, 20);
             this.textBox_Peso.TabIndex = 9;
@@ -367,7 +376,7 @@
             this.fechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fechaNacimiento.ImeMode = System.Windows.Forms.ImeMode.On;
             this.fechaNacimiento.Location = new System.Drawing.Point(393, 273);
-            this.fechaNacimiento.MinDate = new System.DateTime(1889, 1, 1, 0, 0, 0, 0);
+            this.fechaNacimiento.MinDate = new System.DateTime(1945, 9, 2, 0, 0, 0, 0);
             this.fechaNacimiento.Name = "fechaNacimiento";
             this.fechaNacimiento.Size = new System.Drawing.Size(100, 20);
             this.fechaNacimiento.TabIndex = 11;
@@ -467,6 +476,7 @@
             // textBoxAltura
             // 
             this.textBoxAltura.Location = new System.Drawing.Point(626, 133);
+            this.textBoxAltura.MaxLength = 3;
             this.textBoxAltura.Name = "textBoxAltura";
             this.textBoxAltura.Size = new System.Drawing.Size(134, 20);
             this.textBoxAltura.TabIndex = 9;

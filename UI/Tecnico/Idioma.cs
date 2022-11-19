@@ -63,10 +63,17 @@ namespace UI.Tecnico
         /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
-            BE_Idioma selection = new BE_Idioma();
-            selection.NombreIdioma = comboBox1.Text.ToString();
-            BLLIdioma.CambiarIdiomaDeUsuario(selection);
-            SubjectIdioma.Notify();
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(button5.Tag.ToString()))
+            {
+                MessageBox.Show("No tiene el permiso");
+            }
+            else
+            {
+                BE_Idioma selection = new BE_Idioma();
+                selection.NombreIdioma = comboBox1.Text.ToString();
+                BLLIdioma.CambiarIdiomaDeUsuario(selection);
+                SubjectIdioma.Notify();
+            }
         }
         /// <summary>
         /// Mostrar idioma seleccionado en tabla
@@ -99,45 +106,15 @@ namespace UI.Tecnico
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            BE_Idioma idioma = new BE_Idioma();
-            idioma.NombreIdioma = LabelIdi.Text;
-            if (BLLIdioma.ValidarExistencia(idioma))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(button3.Tag.ToString()))
             {
-                List<Leyenda> ley = new List<Leyenda>();
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    string txt = row.Cells[1].FormattedValue.ToString();
-                    if (!string.IsNullOrWhiteSpace(txt))
-                    {
-                        Leyenda leyenda = new Leyenda();
-                        leyenda._nombreEtiqueta = row.Cells[0].Value.ToString();
-                        leyenda._textoLabel = row.Cells[1].Value.ToString();
-                        ley.Add(leyenda);
-                    }
-                }
-                idioma.Leyendas = ley;
-                BLLIdioma.ModificarIdioma(idioma);
-                MessageBox.Show("Idioma modificado ! ヾ(•ω•`)o");
-                MostrarSeleccion(idioma);
+                MessageBox.Show("No tiene el permiso");
             }
             else
             {
-                MessageBox.Show("Seleccione un idioma existente a modificar ヾ(•ω•`)o");
-            }
-
-        }
-        /// <summary>
-        /// Crear nuevo idioma
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(textBox1.Text))
-            {
                 BE_Idioma idioma = new BE_Idioma();
-                idioma.NombreIdioma = textBox1.Text;
-                if (!BLLIdioma.ValidarExistencia(idioma))
+                idioma.NombreIdioma = LabelIdi.Text;
+                if (BLLIdioma.ValidarExistencia(idioma))
                 {
                     List<Leyenda> ley = new List<Leyenda>();
                     foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -152,19 +129,62 @@ namespace UI.Tecnico
                         }
                     }
                     idioma.Leyendas = ley;
-                    BLLIdioma.CrearIdioma(idioma);
-
-                    MessageBox.Show("Idioma creado ! ヾ(•ω•`)o");
+                    BLLIdioma.ModificarIdioma(idioma);
+                    MessageBox.Show("Idioma modificado ! ヾ(•ω•`)o");
                     MostrarSeleccion(idioma);
                 }
                 else
                 {
-                    MessageBox.Show("Nombre de idioma ya existente ヾ(•ω•`)o");
+                    MessageBox.Show("Seleccione un idioma existente a modificar ヾ(•ω•`)o");
                 }
+            }
+        }
+        /// <summary>
+        /// Crear nuevo idioma
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(button3.Tag.ToString()))
+            {
+                MessageBox.Show("No tiene el permiso");
             }
             else
             {
-                MessageBox.Show("Debe nombrar el nuevo idioma ヾ(•ω•`)o");
+                if (!String.IsNullOrEmpty(textBox1.Text))
+                {
+                    BE_Idioma idioma = new BE_Idioma();
+                    idioma.NombreIdioma = textBox1.Text;
+                    if (!BLLIdioma.ValidarExistencia(idioma))
+                    {
+                        List<Leyenda> ley = new List<Leyenda>();
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            string txt = row.Cells[1].FormattedValue.ToString();
+                            if (!string.IsNullOrWhiteSpace(txt))
+                            {
+                                Leyenda leyenda = new Leyenda();
+                                leyenda._nombreEtiqueta = row.Cells[0].Value.ToString();
+                                leyenda._textoLabel = row.Cells[1].Value.ToString();
+                                ley.Add(leyenda);
+                            }
+                        }
+                        idioma.Leyendas = ley;
+                        BLLIdioma.CrearIdioma(idioma);
+
+                        MessageBox.Show("Idioma creado ! ヾ(•ω•`)o");
+                        MostrarSeleccion(idioma);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nombre de idioma ya existente ヾ(•ω•`)o");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe nombrar el nuevo idioma ヾ(•ω•`)o");
+                }
             }
         }
         /// <summary>
@@ -174,16 +194,23 @@ namespace UI.Tecnico
         /// <param name="e"></param>
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
-            if (!comboBox1.Text.Equals("Español") && !comboBox1.Text.Equals("Ingles"))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(btn_Eliminar.Tag.ToString()))
             {
-                BE_Idioma idioma = new BE_Idioma();
-                idioma.NombreIdioma = comboBox1.Text;
-                BLLIdioma.EliminarIdioma(idioma);
-                CargarComboIdiomas();
+                MessageBox.Show("No tiene el permiso");
             }
             else
             {
-                MessageBox.Show("No es posible eliminar idiomas principales Español/Ingles");
+                if (!comboBox1.Text.Equals("Español") && !comboBox1.Text.Equals("Ingles"))
+                {
+                    BE_Idioma idioma = new BE_Idioma();
+                    idioma.NombreIdioma = comboBox1.Text;
+                    BLLIdioma.EliminarIdioma(idioma);
+                    CargarComboIdiomas();
+                }
+                else
+                {
+                    MessageBox.Show("No es posible eliminar idiomas principales Español/Ingles");
+                }
             }
         }
     }

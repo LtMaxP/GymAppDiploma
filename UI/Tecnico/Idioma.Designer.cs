@@ -48,7 +48,7 @@ namespace UI.Tecnico
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 151);
+            this.label1.Location = new System.Drawing.Point(28, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
@@ -56,7 +56,7 @@ namespace UI.Tecnico
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(31, 352);
+            this.textBox1.Location = new System.Drawing.Point(31, 317);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(96, 20);
             this.textBox1.TabIndex = 1;
@@ -71,10 +71,11 @@ namespace UI.Tecnico
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(133, 351);
+            this.button1.Location = new System.Drawing.Point(133, 316);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(57, 21);
             this.button1.TabIndex = 3;
+            this.button1.Tag = "1045";
             this.button1.Text = "Crear";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -82,16 +83,16 @@ namespace UI.Tecnico
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(31, 167);
+            this.comboBox1.Location = new System.Drawing.Point(31, 160);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 21);
+            this.comboBox1.Size = new System.Drawing.Size(142, 21);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 336);
+            this.label2.Location = new System.Drawing.Point(28, 301);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 5;
@@ -99,20 +100,22 @@ namespace UI.Tecnico
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(121, 194);
+            this.button2.Location = new System.Drawing.Point(179, 160);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 22);
+            this.button2.Size = new System.Drawing.Size(24, 22);
             this.button2.TabIndex = 6;
-            this.button2.Text = "Mostrar";
+            this.button2.Tag = "1048";
+            this.button2.Text = "->";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(31, 222);
+            this.button3.Location = new System.Drawing.Point(136, 253);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(159, 30);
+            this.button3.Size = new System.Drawing.Size(67, 22);
             this.button3.TabIndex = 7;
+            this.button3.Tag = "1047";
             this.button3.Text = "Modificar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -129,10 +132,11 @@ namespace UI.Tecnico
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(44, 194);
+            this.button5.Location = new System.Drawing.Point(31, 197);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(53, 22);
+            this.button5.Size = new System.Drawing.Size(62, 22);
             this.button5.TabIndex = 9;
+            this.button5.Tag = "1048";
             this.button5.Text = "Elegir";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -157,10 +161,11 @@ namespace UI.Tecnico
             // 
             // btn_Eliminar
             // 
-            this.btn_Eliminar.Location = new System.Drawing.Point(75, 258);
+            this.btn_Eliminar.Location = new System.Drawing.Point(84, 225);
             this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Eliminar.Size = new System.Drawing.Size(61, 22);
             this.btn_Eliminar.TabIndex = 12;
+            this.btn_Eliminar.Tag = "1046";
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.UseVisualStyleBackColor = true;
             this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);

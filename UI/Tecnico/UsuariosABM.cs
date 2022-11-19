@@ -36,28 +36,35 @@ namespace UI
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text) || String.IsNullOrEmpty(textBoxPalabraS.Text))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(labelAlta.Tag.ToString()))
             {
-                MessageBox.Show("Debe completar todos los campos.");
+                MessageBox.Show("No tiene el permiso");
             }
             else
             {
-                BE.BE_Usuario newUsuario = new BE.BE_Usuario();
-                newUsuario.User = textBox3.Text;
-                if (!usuarioABM.ValidarSiElUsuarioYaExiste(newUsuario))
+                if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrEmpty(comboBox1.Text) || String.IsNullOrEmpty(comboBox2.Text) || String.IsNullOrEmpty(textBoxPalabraS.Text))
                 {
-                    newUsuario.Pass = textBox4.Text;
-                    newUsuario.Idioma = new BE.ObserverIdioma.BE_Idioma(comboBox1.Text);
-                    newUsuario.idEstado = 1;
-                    newUsuario.PSecreta = textBoxPalabraS.Text;
-                    if (usuarioABM.AgregarUsuario(newUsuario))
-                        MessageBox.Show("El usuario fue dado de Alta con éxito.");
-                    else
-                        MessageBox.Show("El usuario no pudo ser dado de Alta.");
+                    MessageBox.Show("Debe completar todos los campos.");
                 }
                 else
                 {
-                    MessageBox.Show("El nombre de usuario ya existe");
+                    BE.BE_Usuario newUsuario = new BE.BE_Usuario();
+                    newUsuario.User = textBox3.Text;
+                    if (!usuarioABM.ValidarSiElUsuarioYaExiste(newUsuario))
+                    {
+                        newUsuario.Pass = textBox4.Text;
+                        newUsuario.Idioma = new BE.ObserverIdioma.BE_Idioma(comboBox1.Text);
+                        newUsuario.idEstado = 1;
+                        newUsuario.PSecreta = textBoxPalabraS.Text;
+                        if (usuarioABM.AgregarUsuario(newUsuario))
+                            MessageBox.Show("El usuario fue dado de Alta con éxito.");
+                        else
+                            MessageBox.Show("El usuario no pudo ser dado de Alta.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El nombre de usuario ya existe");
+                    }
                 }
             }
         }
@@ -68,24 +75,31 @@ namespace UI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            BE.BE_Usuario usuarioDelete = new BE.BE_Usuario();
-            usuarioDelete.User = textBox3.Text;
-            usuarioDelete.Pass = textBox4.Text;
-            if (String.IsNullOrEmpty(usuarioDelete.User) || String.IsNullOrEmpty(usuarioDelete.Pass))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(labelBaja.Tag.ToString()))
             {
-                MessageBox.Show("Debe Ingresar un usuario y contraseña para eliminar");
+                MessageBox.Show("No tiene el permiso");
             }
             else
             {
-                if (usuarioABM.ValidarUsuarioyPass(usuarioDelete))
+                BE.BE_Usuario usuarioDelete = new BE.BE_Usuario();
+                usuarioDelete.User = textBox3.Text;
+                usuarioDelete.Pass = textBox4.Text;
+                if (String.IsNullOrEmpty(usuarioDelete.User) || String.IsNullOrEmpty(usuarioDelete.Pass))
                 {
-                    if (usuarioABM.EliminarUsuario(usuarioDelete))
-                        MessageBox.Show("El usuario fue neutralizado con éxito.");
-                    else
-                        MessageBox.Show("El usuario no fue dado de baja.");
+                    MessageBox.Show("Debe Ingresar un usuario y contraseña para eliminar");
                 }
                 else
-                    MessageBox.Show("Usuario o contraseña erroneos.");
+                {
+                    if (usuarioABM.ValidarUsuarioyPass(usuarioDelete))
+                    {
+                        if (usuarioABM.EliminarUsuario(usuarioDelete))
+                            MessageBox.Show("El usuario fue neutralizado con éxito.");
+                        else
+                            MessageBox.Show("El usuario no fue dado de baja.");
+                    }
+                    else
+                        MessageBox.Show("Usuario o contraseña erroneos.");
+                }
             }
         }
         /// <summary>
@@ -166,41 +180,48 @@ namespace UI
         /// <param name="e"></param>
         private void labelModificar_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox3.Text))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(labelModificar.Tag.ToString()))
             {
-                MessageBox.Show("Debe tener un usuario a modificar.");
+                MessageBox.Show("No tiene el permiso");
             }
             else
             {
-                BE.BE_Usuario modUsuario = new BE.BE_Usuario();
-                modUsuario.User = textBox3.Text;
-                if (usuarioABM.ValidarSiElUsuarioYaExiste(modUsuario))
+                if (String.IsNullOrEmpty(textBox3.Text))
                 {
-                    if (!String.IsNullOrEmpty(textBox4.Text))
-                    {
-                        BE.BE_Usuario validacionUserPass = new BE.BE_Usuario();
-                        validacionUserPass.User = textBox3.Text;
-                        string respuesta = Microsoft.VisualBasic.Interaction.InputBox("Ingrese contraseña del usuario", "Validacion contraseña", "Contraseña vieja");
-                        validacionUserPass.Pass = respuesta;
-                        if (usuarioABM.ValidarUsuarioyPass(validacionUserPass))
-                        {
-                            modUsuario.Pass = textBox4.Text;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Contraseña incorrecta");
-                            return;
-                        }
-                    }
-                    modUsuario.Idioma = new BE.ObserverIdioma.BE_Idioma(comboBox1.Text);
-                    modUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
-                    modUsuario.PSecreta = textBoxPalabraS.Text;
-                    usuarioABM.ModificarUsuario(modUsuario);
-                    MessageBox.Show("El usuario fue Modificado con éxito.");
+                    MessageBox.Show("Debe tener un usuario a modificar.");
                 }
                 else
                 {
-                    MessageBox.Show("El nombre de usuario a modificar NO existe");
+                    BE.BE_Usuario modUsuario = new BE.BE_Usuario();
+                    modUsuario.User = textBox3.Text;
+                    if (usuarioABM.ValidarSiElUsuarioYaExiste(modUsuario))
+                    {
+                        if (!String.IsNullOrEmpty(textBox4.Text))
+                        {
+                            BE.BE_Usuario validacionUserPass = new BE.BE_Usuario();
+                            validacionUserPass.User = textBox3.Text;
+                            string respuesta = Microsoft.VisualBasic.Interaction.InputBox("Ingrese contraseña del usuario", "Validacion contraseña", "Contraseña vieja");
+                            validacionUserPass.Pass = respuesta;
+                            if (usuarioABM.ValidarUsuarioyPass(validacionUserPass))
+                            {
+                                modUsuario.Pass = textBox4.Text;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Contraseña incorrecta");
+                                return;
+                            }
+                        }
+                        modUsuario.Idioma = new BE.ObserverIdioma.BE_Idioma(comboBox1.Text);
+                        modUsuario.idEstado = BLL.Negocio.BLLEstado.DameIdEst(comboBox2.Text);
+                        modUsuario.PSecreta = textBoxPalabraS.Text;
+                        usuarioABM.ModificarUsuario(modUsuario);
+                        MessageBox.Show("El usuario fue Modificado con éxito.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El nombre de usuario a modificar NO existe");
+                    }
                 }
             }
         }

@@ -50,8 +50,6 @@ namespace UI
             this.labelIdioma = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
-            this.easterEggToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verSecretoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contactoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -147,7 +145,7 @@ namespace UI
             // 
             this.labelABMUsuarios.Name = "labelABMUsuarios";
             resources.ApplyResources(this.labelABMUsuarios, "labelABMUsuarios");
-            this.labelABMUsuarios.Tag = "10";
+            this.labelABMUsuarios.Tag = "9";
             this.labelABMUsuarios.Click += new System.EventHandler(this.aBMUsuariosToolStripMenuItem_Click);
             // 
             // labelFamiliaPatentes
@@ -214,28 +212,11 @@ namespace UI
             // labelAyuda
             // 
             this.labelAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.easterEggToolStripMenuItem,
             this.infoToolStripMenuItem,
             this.contactoToolStripMenuItem});
             resources.ApplyResources(this.labelAyuda, "labelAyuda");
             this.labelAyuda.Name = "labelAyuda";
             this.labelAyuda.Tag = "99";
-            // 
-            // easterEggToolStripMenuItem
-            // 
-            this.easterEggToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verSecretoToolStripMenuItem});
-            this.easterEggToolStripMenuItem.Name = "easterEggToolStripMenuItem";
-            resources.ApplyResources(this.easterEggToolStripMenuItem, "easterEggToolStripMenuItem");
-            this.easterEggToolStripMenuItem.Tag = "99";
-            this.easterEggToolStripMenuItem.Click += new System.EventHandler(this.easterEggToolStripMenuItem_Click);
-            // 
-            // verSecretoToolStripMenuItem
-            // 
-            this.verSecretoToolStripMenuItem.Name = "verSecretoToolStripMenuItem";
-            resources.ApplyResources(this.verSecretoToolStripMenuItem, "verSecretoToolStripMenuItem");
-            this.verSecretoToolStripMenuItem.Tag = "99";
-            this.verSecretoToolStripMenuItem.Click += new System.EventHandler(this.verSecretoToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
@@ -288,8 +269,6 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem labelABMUsuarios;
         private System.Windows.Forms.ToolStripMenuItem labelIdioma;
         private System.Windows.Forms.ToolStripMenuItem labelAyuda;
-        private System.Windows.Forms.ToolStripMenuItem easterEggToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verSecretoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contactoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarIdiomaToolStripMenuItem;

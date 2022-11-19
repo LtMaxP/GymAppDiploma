@@ -265,15 +265,17 @@ namespace UI
         /// <param name="e"></param>
         private void checkBoxCertif_CheckedChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(textBox_Dni.Text))
+            if (!String.IsNullOrEmpty(textBox_Dni.Text) && !comboMem.Enabled)
             {
                 comboMem.Enabled = true;
-                //if(string.IsNullOrEmpty(comboMem.Text)) 
-                //    comboMem.SelectedIndex = 0;
                 comboDesc.Enabled = true;
-                //comboDesc.SelectedIndex = 0;
             }
-            else
+            else if(comboMem.Enabled)
+            {
+                comboMem.Enabled = false;
+                comboDesc.Enabled = false;
+            }
+            else if(String.IsNullOrEmpty(textBox_Dni.Text))
             {
                 checkBoxCertif.CheckState = CheckState.Unchecked;
                 MessageBox.Show("Debe completar los datos del cliente para esta validación");
@@ -406,6 +408,15 @@ namespace UI
             {
                 MessageBox.Show("Ingrese solamente numeros");
                 textBoxAltura.Text = textBoxAltura.Text.Remove(textBoxAltura.Text.Length - 1);
+            }
+        }
+
+        private void textBox_CodPost_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox_Dni.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Ingrese solamente numeros");
+                textBox_CodPost.Text = textBox_CodPost.Text.Remove(textBox_CodPost.Text.Length - 1);
             }
         }
     }

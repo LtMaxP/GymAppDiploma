@@ -16,8 +16,7 @@ namespace Servicios
             bool returnable = false;
             try
             {
-
-                FileStream pdfroot = new FileStream(rooTFoolder, FileMode.Create);
+                FileStream pdfroot = new FileStream(rooTFoolder + "//Factura" + factura.Id_Factura + ".pdf", FileMode.Create, FileAccess.Write, FileShare.None);
                 Document doc = new Document(PageSize.LETTER, 5, 5, 7, 7);
                 PdfWriter pw = PdfWriter.GetInstance(doc, pdfroot);
 
@@ -25,7 +24,7 @@ namespace Servicios
                 doc.AddAuthor("TechExtreme");
                 doc.AddTitle("PDF Generado");
                 iTextSharp.text.Font standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
-                doc.Add(new Paragraph("Factura del documento"));
+                doc.Add(new Paragraph("Factura del documento TechExtreme - GymApp"));
                 doc.Add(Chunk.NEWLINE);
 
                 PdfPTable tblPdf = new PdfPTable(3);
@@ -40,6 +39,10 @@ namespace Servicios
                 PdfPCell clCantidad = new PdfPCell(new Phrase("Cantidad", standardFont));
                 clCantidad.BorderWidth = 0;
                 clCantidad.BorderWidthBottom = 0.75f;
+
+                tblPdf.AddCell(clProducto);
+                tblPdf.AddCell(clPrecio);
+                tblPdf.AddCell(clCantidad);
 
                 foreach (BE.Item Item in factura.Items)
                 {
@@ -56,8 +59,21 @@ namespace Servicios
                     tblPdf.AddCell(clPrecio);
                     tblPdf.AddCell(clCantidad);
                 }
+                //Crear total
+                PdfPTable tblPdffoot = new PdfPTable(2);
+                tblPdf.WidthPercentage = 100;
+
+                PdfPCell cltotal = new PdfPCell(new Phrase("Total", standardFont));
+                clCantidad.BorderWidth = 0;
+                clCantidad.BorderWidthBottom = 0.75f;
+                tblPdffoot.AddCell(cltotal);
+
+                cltotal = new PdfPCell(new Phrase(factura.Monto.ToString(), standardFont));
+                clProducto.Border = 0;
+                tblPdffoot.AddCell(cltotal);
 
                 doc.Add(tblPdf);
+                doc.Add(tblPdffoot);
                 returnable = true;
                 doc.Close();
                 pw.Close();

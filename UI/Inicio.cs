@@ -39,22 +39,12 @@ namespace UI
             foreach (ToolStripItem item in tsic)
             {
                 if (!string.IsNullOrEmpty(item.Tag.ToString()))
-                    #region adPantallas
-                    foreach (BE.Composite.Component cmp in Servicios.Sesion.GetInstance.usuario.Permisos.List())
-                    {
-                        if (cmp is BE.Composite.Composite)
-                        {
-                            if (!String.IsNullOrEmpty(cmp.iDPatente) && !cmp.descripcion.Equals("Arbol"))
-                            {
-                                if (cmp.VerificarSiExiste(new BE.Composite.Composite(item.Tag.ToString(), "T")))
-                                    item.Visible = true;
-                            }
-                        }
-                    }
-                #endregion
+                {
+                    if (Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(item.Tag.ToString()))
+                        item.Visible = true;
+                }
                 if (item is ToolStripMenuItem)
                 {
-                    //ToolStripMenuItem item2 = (ToolStripMenuItem)item;
                     PermisosRecurseToolStripItems(((ToolStripMenuItem)item).DropDown.Items);
                 }
             }

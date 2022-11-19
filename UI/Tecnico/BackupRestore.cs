@@ -31,6 +31,8 @@ namespace UI
         private void BackupRestore_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
+            DgBackup.DataSource = bkpBLL.TraerBackupsBD();
+            DgBackup.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         public void Update()
         {
@@ -53,15 +55,22 @@ namespace UI
         /// <param name="e"></param>
         private void btnEjecutarBackUp_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-            folderDlg.ShowNewFolderButton = true;
-            // Show the FolderBrowserDialog.  
-            DialogResult result = folderDlg.ShowDialog();
-            if (result == DialogResult.OK)
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(btnEjecutarBackUp.Tag.ToString()))
             {
-                string rooTFoolder = folderDlg.SelectedPath;
-                string msg = bkpBLL.BackupBD(rooTFoolder) ? "Backup Ok" : "Backup Fallo";
-                MessageBox.Show(msg);
+                MessageBox.Show("No tiene el permiso");
+            }
+            else
+            {
+                FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+                folderDlg.ShowNewFolderButton = true;
+                // Show the FolderBrowserDialog.  
+                DialogResult result = folderDlg.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    string rooTFoolder = folderDlg.SelectedPath;
+                    string msg = bkpBLL.BackupBD(rooTFoolder) ? "Backup Ok" : "Backup Fallo";
+                    MessageBox.Show(msg);
+                }
             }
         }
         /// <summary>
@@ -81,15 +90,22 @@ namespace UI
         /// <param name="e"></param>
         private void btnEjecutarRestore_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.ShowDialog().Equals(true);
-            string ruta = openFileDialog.FileName;
-            if (!String.IsNullOrEmpty(ruta))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(btnEjecutarRestore.Tag.ToString()))
             {
-                if(rstBLL.RestoreBD(ruta))
-                    MessageBox.Show("Restore Realizado");
-                else
-                    MessageBox.Show("No se pudo realizar el Restore");
+                MessageBox.Show("No tiene el permiso");
+            }
+            else
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.ShowDialog().Equals(true);
+                string ruta = openFileDialog.FileName;
+                if (!String.IsNullOrEmpty(ruta))
+                {
+                    if (rstBLL.RestoreBD(ruta))
+                        MessageBox.Show("Restore Realizado");
+                    else
+                        MessageBox.Show("No se pudo realizar el Restore");
+                }
             }
         }
         //-
@@ -104,8 +120,15 @@ namespace UI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            if(BLL.DV.RecalcularDigitosVerificadores())
-                MessageBox.Show("Digitos Verificadores Recalculados con exito");
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(button2.Tag.ToString()))
+            {
+                MessageBox.Show("No tiene el permiso");
+            }
+            else
+            {
+                if (BLL.DV.RecalcularDigitosVerificadores())
+                    MessageBox.Show("Digitos Verificadores Recalculados con exito");
+            }
         }
     }
 }

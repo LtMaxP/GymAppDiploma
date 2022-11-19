@@ -22,6 +22,7 @@ namespace Servicios
         public static BE.Bitacora RegistrarMovimiento(string movimiento, string nivelDelProblema)
         {
             BE.Bitacora bit = new BE.Bitacora();
+            bit = Servicios.BitacoraServicio.CrearMovimiento(bit);
             bit.Fecha = DateTime.Now;
             bit.Movimiento = movimiento;
             bit.NivelDeProblema = nivelDelProblema;

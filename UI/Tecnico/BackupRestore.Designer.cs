@@ -43,6 +43,7 @@
             this.btnEjecutarRestore.Name = "btnEjecutarRestore";
             this.btnEjecutarRestore.Size = new System.Drawing.Size(177, 31);
             this.btnEjecutarRestore.TabIndex = 44;
+            this.btnEjecutarRestore.Tag = "11";
             this.btnEjecutarRestore.Text = "Realizar Restore";
             this.btnEjecutarRestore.UseVisualStyleBackColor = true;
             this.btnEjecutarRestore.Click += new System.EventHandler(this.btnEjecutarRestore_Click);
@@ -84,6 +85,7 @@
             this.btnEjecutarBackUp.Name = "btnEjecutarBackUp";
             this.btnEjecutarBackUp.Size = new System.Drawing.Size(177, 31);
             this.btnEjecutarBackUp.TabIndex = 36;
+            this.btnEjecutarBackUp.Tag = "12";
             this.btnEjecutarBackUp.Text = "Realizar Backup";
             this.btnEjecutarBackUp.UseVisualStyleBackColor = true;
             this.btnEjecutarBackUp.Click += new System.EventHandler(this.btnEjecutarBackUp_Click);
@@ -94,6 +96,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(102, 23);
             this.button2.TabIndex = 46;
+            this.button2.Tag = "13";
             this.button2.Text = "Recalcular DV";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);

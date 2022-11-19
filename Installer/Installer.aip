@@ -17,6 +17,9 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_BLL.dll_1" Value="..\BLL\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_BLL.pdb" Value="..\BLL\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll" Value="..\packages\BouncyCastle.1.8.9\lib"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll_1" Value="..\Seguridad\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll_2" Value="..\Seguridad\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll_3" Value="..\packages\BouncyCastle.1.8.9\lib"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_DAL.dll" Value="..\DAL\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_DAL.dll_1" Value="..\DAL\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_DAL.dll_2" Value="..\BLL\bin\Debug"/>
@@ -36,6 +39,9 @@
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_UI.resources.dll" Value="..\UI\bin\Debug\agq"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_ValueTupleBridge.dll" Value="..\packages\ValueTupleBridge.0.1.5\lib\net45"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_itextsharp.dll" Value="..\packages\iTextSharp.5.5.13.3\lib"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itextsharp.dll_1" Value="..\Seguridad\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itextsharp.dll_2" Value="..\Seguridad\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itextsharp.dll_3" Value="..\packages\iTextSharp.5.5.13.3\lib"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BE.dll" Value="BE.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BE.dll_1" Value="BE.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BE.dll_2" Value="BE.dll"/>
@@ -46,6 +52,9 @@
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BLL.dll_1" Value="BLL.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BLL.pdb" Value="BLL.pdb"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll" Value="BouncyCastle.Crypto.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll_1" Value="BouncyCastle.Crypto.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll_2" Value="BouncyCastle.Crypto.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll_3" Value="BouncyCastle.Crypto.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DAL.dll" Value="DAL.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DAL.dll_1" Value="DAL.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DAL.dll_2" Value="DAL.dll"/>
@@ -65,6 +74,9 @@
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_UI.resources.dll" Value="UI.resources.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_ValueTupleBridge.dll" Value="ValueTupleBridge.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll" Value="itextsharp.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll_1" Value="itextsharp.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll_2" Value="itextsharp.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll_3" Value="itextsharp.dll"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPPRODUCTICON" Value="icoGym.exe" Type="8"/>
@@ -99,14 +111,14 @@
     <ROW Component="BE_PrimaryOutput" ComponentId="{DB2D3280-EF02-4BAE-A04A-4588D522E7D1}" Directory_="BE_Dir" Attributes="0" KeyPath="BE.dll"/>
     <ROW Component="BE_SymbolsOutput" ComponentId="{D4B40799-CA05-4DCF-989C-442751601808}" Directory_="BE_Dir" Attributes="0" KeyPath="BE.pdb"/>
     <ROW Component="BLL_PrimaryOutput" ComponentId="{F3DDC0D4-A976-4D16-9893-28CECE968E99}" Directory_="BLL_Dir" Attributes="0" KeyPath="BLL.dll"/>
-    <ROW Component="BLL_References" ComponentId="{962C7B52-1337-422C-99AB-9C67AEE02C80}" Directory_="BLL_Dir" Attributes="0" KeyPath="Servicios.dll"/>
+    <ROW Component="BLL_References" ComponentId="{962C7B52-1337-422C-99AB-9C67AEE02C80}" Directory_="BLL_Dir" Attributes="0" KeyPath="BouncyCastle.Crypto.dll_1"/>
     <ROW Component="BLL_SymbolsOutput" ComponentId="{E6ECA477-31BF-4443-BAF6-3A0248B5A98B}" Directory_="BLL_Dir" Attributes="0" KeyPath="BLL.pdb"/>
     <ROW Component="DAL_PrimaryOutput" ComponentId="{48D5BAAD-C614-495E-9D38-F3A6293A312F}" Directory_="DAL_Dir" Attributes="0" KeyPath="DAL.dll_1"/>
-    <ROW Component="DAL_References" ComponentId="{5F7A1216-8A88-49C4-9635-575478DC9F87}" Directory_="DAL_Dir" Attributes="0" KeyPath="ValueTupleBridge.dll"/>
+    <ROW Component="DAL_References" ComponentId="{5F7A1216-8A88-49C4-9635-575478DC9F87}" Directory_="DAL_Dir" Attributes="0" KeyPath="BouncyCastle.Crypto.dll_2"/>
     <ROW Component="DAL_SymbolsOutput" ComponentId="{622688C7-2B67-421A-A331-3DBA47B4A788}" Directory_="DAL_Dir" Attributes="0" KeyPath="DAL.pdb"/>
     <ROW Component="ProductInformation" ComponentId="{D19EB953-BD73-4E99-8A0A-C87ABB633F48}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
     <ROW Component="Servicios_PrimaryOutput" ComponentId="{6B6687AD-6168-4F9D-B657-908A8ED06B08}" Directory_="Servicios_Dir" Attributes="0" KeyPath="Servicios.dll_2"/>
-    <ROW Component="Servicios_References" ComponentId="{E5086CE0-A66C-41BD-9C2B-02F6AC66F2A1}" Directory_="Servicios_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="Servicios_References" ComponentId="{E5086CE0-A66C-41BD-9C2B-02F6AC66F2A1}" Directory_="Servicios_Dir" Attributes="0" KeyPath="itextsharp.dll_3"/>
     <ROW Component="Servicios_SymbolsOutput" ComponentId="{EFD6D01C-2B4B-4F8C-98CD-3866A938FA6C}" Directory_="Servicios_Dir" Attributes="0" KeyPath="Servicios.pdb"/>
     <ROW Component="UI_LocalizedResourcesOutput_agq" ComponentId="{5409C59D-5179-4671-9D6E-11C22D0A140E}" Directory_="agq_Dir" Attributes="0" KeyPath="UI.resources.dll"/>
     <ROW Component="UI_PrimaryOutput" ComponentId="{26028D18-D9FB-41E0-84D5-785EDDCAB295}" Directory_="UI_Dir" Attributes="0" KeyPath="UI.exe"/>
@@ -147,6 +159,12 @@
     <ROW File="UI.pdb" Component_="UI_SymbolsOutput" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_UI.pdb]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_UI.pdb&gt;" SelfReg="false"/>
     <ROW File="BouncyCastle.Crypto.dll" Component_="UI_References" FileName="BOUNCY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll&gt;" SelfReg="false"/>
     <ROW File="itextsharp.dll" Component_="UI_References" FileName="ITEXTS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itextsharp.dll&gt;" SelfReg="false"/>
+    <ROW File="itextsharp.dll_1" Component_="BLL_References" FileName="ITEXTS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itextsharp.dll_1&gt;" SelfReg="false"/>
+    <ROW File="BouncyCastle.Crypto.dll_1" Component_="BLL_References" FileName="BOUNCY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll_1&gt;" SelfReg="false"/>
+    <ROW File="itextsharp.dll_2" Component_="DAL_References" FileName="ITEXTS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll_2]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itextsharp.dll_2&gt;" SelfReg="false"/>
+    <ROW File="BouncyCastle.Crypto.dll_2" Component_="DAL_References" FileName="BOUNCY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll_2]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll_2&gt;" SelfReg="false"/>
+    <ROW File="BouncyCastle.Crypto.dll_3" Component_="Servicios_References" FileName="BOUNCY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll_3]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll_3&gt;" SelfReg="false"/>
+    <ROW File="itextsharp.dll_3" Component_="Servicios_References" FileName="ITEXTS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll_3]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itextsharp.dll_3&gt;" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
     <ROW Name="AI_APPPATH_PERBUILD_BE.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_BE.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_BE.dll]" Type="2" Content="0"/>
@@ -159,6 +177,9 @@
     <ROW Name="AI_APPPATH_PERBUILD_BLL.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_BLL.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_BLL.dll_1]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_BLL.pdb" Path="[|AI_PROPPATH_DIR_PERBUILD_BLL.pdb]\[|AI_PROPPATH_FILENAME_PERBUILD_BLL.pdb]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll_1]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll_2" Path="[|AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll_2]\[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll_2]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_BouncyCastle.Crypto.dll_3" Path="[|AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Crypto.dll_3]\[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Crypto.dll_3]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DAL.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DAL.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DAL.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DAL.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_DAL.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_DAL.dll_1]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_DAL.dll_2" Path="[|AI_PROPPATH_DIR_PERBUILD_DAL.dll_2]\[|AI_PROPPATH_FILENAME_PERBUILD_DAL.dll_2]" Type="2" Content="0"/>
@@ -178,6 +199,9 @@
     <ROW Name="AI_APPPATH_PERBUILD_UI.resources.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_UI.resources.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_UI.resources.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_ValueTupleBridge.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_ValueTupleBridge.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_ValueTupleBridge.dll]" Type="2" Content="0"/>
     <ROW Name="AI_APPPATH_PERBUILD_itextsharp.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itextsharp.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itextsharp.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_itextsharp.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll_1]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itextsharp.dll_2" Path="[|AI_PROPPATH_DIR_PERBUILD_itextsharp.dll_2]\[|AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll_2]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itextsharp.dll_3" Path="[|AI_PROPPATH_DIR_PERBUILD_itextsharp.dll_3]\[|AI_PROPPATH_FILENAME_PERBUILD_itextsharp.dll_3]" Type="2" Content="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -363,5 +387,11 @@
     <ROW ProjectId="{4e1520e7-1125-4448-96ff-bb3e0db6306e}" ProjectName="UI" OutputGroup="SymbolsOutput" OutputFile="UI.pdb"/>
     <ROW ProjectId="{4e1520e7-1125-4448-96ff-bb3e0db6306e}" ProjectName="UI" OutputGroup="References" OutputFile="BouncyCastle.Crypto.dll"/>
     <ROW ProjectId="{4e1520e7-1125-4448-96ff-bb3e0db6306e}" ProjectName="UI" OutputGroup="References" OutputFile="itextsharp.dll"/>
+    <ROW ProjectId="{84200b22-0835-4b14-8aa8-07267fa732b8}" ProjectName="BLL" OutputGroup="References" OutputFile="itextsharp.dll_1"/>
+    <ROW ProjectId="{84200b22-0835-4b14-8aa8-07267fa732b8}" ProjectName="BLL" OutputGroup="References" OutputFile="BouncyCastle.Crypto.dll_1"/>
+    <ROW ProjectId="{e43f52a9-a2d0-4d1f-8f7a-e859e0f99c08}" ProjectName="DAL" OutputGroup="References" OutputFile="itextsharp.dll_2"/>
+    <ROW ProjectId="{e43f52a9-a2d0-4d1f-8f7a-e859e0f99c08}" ProjectName="DAL" OutputGroup="References" OutputFile="BouncyCastle.Crypto.dll_2"/>
+    <ROW ProjectId="{73166d6c-5de2-4e20-a7bb-a5167ed62571}" ProjectName="Servicios" OutputGroup="References" OutputFile="BouncyCastle.Crypto.dll_3"/>
+    <ROW ProjectId="{73166d6c-5de2-4e20-a7bb-a5167ed62571}" ProjectName="Servicios" OutputGroup="References" OutputFile="itextsharp.dll_3"/>
   </COMPONENT>
 </DOCUMENT>
