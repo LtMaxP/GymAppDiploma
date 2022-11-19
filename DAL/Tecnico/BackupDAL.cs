@@ -53,11 +53,11 @@ namespace DAL.Tecnico
                         listBkp.Add(new BE_BackUp(dr["path"].ToString(), (DateTime)dr["fecha"]));
                     }
                 }
-                DAL.BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Trae listado de backups", "Ninguno"));
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Trae listado de backups", "Ninguno"));
             }
             catch 
             {
-                DAL.BitacoraDAL.NewRegistrarBitacora(new BE.Bitacora("Problema al traer Backups", "Medio"));
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Problema al traer Backups", "Medio"));
                 System.Windows.Forms.MessageBox.Show("Problema al traer Backups");
             }
             return listBkp;
