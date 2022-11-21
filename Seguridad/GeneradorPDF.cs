@@ -59,20 +59,22 @@ namespace Servicios
                     tblPdf.AddCell(clPrecio);
                     tblPdf.AddCell(clCantidad);
                 }
+                doc.Add(tblPdf);
+
                 //Crear total
                 PdfPTable tblPdffoot = new PdfPTable(2);
-                tblPdf.WidthPercentage = 100;
+                tblPdffoot.WidthPercentage = 100;
 
+                doc.Add(new Paragraph("Total de factura: "));
                 PdfPCell cltotal = new PdfPCell(new Phrase("Total", standardFont));
-                clCantidad.BorderWidth = 0;
-                clCantidad.BorderWidthBottom = 0.75f;
+                cltotal.BorderWidth = 0;
+                cltotal.BorderWidthBottom = 0;
                 tblPdffoot.AddCell(cltotal);
 
                 cltotal = new PdfPCell(new Phrase(factura.Monto.ToString(), standardFont));
-                clProducto.Border = 0;
+                cltotal.Border = 0;
                 tblPdffoot.AddCell(cltotal);
 
-                doc.Add(tblPdf);
                 doc.Add(tblPdffoot);
                 returnable = true;
                 doc.Close();

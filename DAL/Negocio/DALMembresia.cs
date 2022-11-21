@@ -90,15 +90,18 @@ namespace DAL.Negocio
         public static List<BE_Cuenta> DamePagosCliente(Cliente client)
         {
             List<BE_Cuenta> pagos = new List<BE_Cuenta>();
-            String query = "SELECT [PagoFecha], [monto] FROM [dbo].[Cuenta_Pago] CP INNER JOIN [ClienteGYM] CG on CP.Id_Cuenta = CG.Id_Cuenta WHERE CG.Dni = @dni";
+            String query = "SELECT F.fecha,F.monto,C.Id_Cuenta,C.Id_Estado,C.FechaInicio  FROM [dbo].[Cuenta_Factura] CF INNER JOIN [Cuenta] C ON C.[Id_Cuenta] = CF.[Id_Cuenta] INNER JOIN Factura F ON CF.Id_Factura = F.Id_Factura INNER JOIN [ClienteGYM] CG on C.Id_Cuenta = CG.Id_Cuenta WHERE CG.Dni = @dni";
             SqlCommand command = new SqlCommand(query);
             command.Parameters.AddWithValue("@dni", client.Dni);
             DataTable dt = Acceso.Instance.ExecuteDataTable(command);
             foreach (DataRow row in dt.Rows)
             {
                 BE_Cuenta pago = new BE_Cuenta();
-                pago.FechaPago = DateTime.Parse(row["PagoFecha"].ToString());
+                pago.FechaPago = DateTime.Parse(row["fecha"].ToString());
                 pago.Monto = double.Parse(row["monto"].ToString());
+                pago.Id_Cuenta = int.Parse(row["Id_Cuenta"].ToString());
+                pago.Id_Estado = int.Parse(row["Id_Estado"].ToString());
+                pago.FechaInicio = DateTime.Parse(row["FechaInicio"].ToString());
                 pagos.Add(pago);
             }
             return pagos;

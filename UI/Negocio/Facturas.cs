@@ -55,8 +55,8 @@ namespace UI
                 List<BE.BE_Factura> listadoFacturas = new List<BE.BE_Factura>();
                 foreach (DataGridViewRow it in dataGridViewFactura.Rows)
                 {
-                    var asd = (BE.BE_Factura)it.DataBoundItem;
-                    listadoFacturas.Add(asd);
+                    var fact = (BE.BE_Factura)it.DataBoundItem;
+                    listadoFacturas.Add(fact);
                 }
 
                 //Ruta a llevar
@@ -76,26 +76,33 @@ namespace UI
 
         private void labelBuscar_Click(object sender, EventArgs e)
         {
-            string dni = textBox.Text;
-            if (bllFacturas.DetectarCliente(dni))
+            if (!string.IsNullOrEmpty(textBox.Text))
             {
-                dataGridViewFactura.DataSource = null;
-                List<BE.BE_Factura> facturas = bllFacturas.TraerFacturas(dni);
-                dataGridViewFactura.DataSource = facturas;
-                //dataGridViewFactura.DataMember = "[fecha]";
-                //dataGridViewFactura.DataMember = "[monto]";
+                string dni = textBox.Text;
+                if (bllFacturas.DetectarCliente(dni))
+                {
+                    dataGridViewFactura.DataSource = null;
+                    List<BE.BE_Factura> facturas = bllFacturas.TraerFacturas(dni);
+                    dataGridViewFactura.DataSource = facturas;
+                    //dataGridViewFactura.DataMember = "[fecha]";
+                    //dataGridViewFactura.DataMember = "[monto]";
 
-                //foreach (BE.BE_Factura factu in facturas)
-                //{
-                //    ListViewItem elementos = new ListViewItem(listBox.Items["Monto"]);
-                //    elementos.SubItems.Add(factu.Monto.ToString());
-                //    ListViewItem elementos2 = new ListViewItem(listBox.Items["Fecha"]);
-                //    elementos2.SubItems.Add(factu.Fecha.ToString());
-                //}
-                //foreach (var dr in facturas)
-                //{
-                //    listBoxFactura.Items.Add(dr.Monto.ToString() + "|" + dr.Fecha.ToString());
-                //}
+                    //foreach (BE.BE_Factura factu in facturas)
+                    //{
+                    //    ListViewItem elementos = new ListViewItem(listBox.Items["Monto"]);
+                    //    elementos.SubItems.Add(factu.Monto.ToString());
+                    //    ListViewItem elementos2 = new ListViewItem(listBox.Items["Fecha"]);
+                    //    elementos2.SubItems.Add(factu.Fecha.ToString());
+                    //}
+                    //foreach (var dr in facturas)
+                    //{
+                    //    listBoxFactura.Items.Add(dr.Monto.ToString() + "|" + dr.Fecha.ToString());
+                    //}
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un DNI a buscar");
             }
         }
 

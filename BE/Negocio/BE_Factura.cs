@@ -46,6 +46,13 @@ namespace BE
             get { return _id_Cliente; }
             set { _id_Cliente = value; }
         }
+        private string _tipo;
+
+        public string Tipo
+        {
+            get { return _tipo; }
+            set { _tipo = value; }
+        }
 
     }
 }

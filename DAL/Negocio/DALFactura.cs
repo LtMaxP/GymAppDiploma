@@ -117,6 +117,8 @@ namespace DAL
                     factura.Fecha = DateTime.Parse(fact["fecha"].ToString());
                     factura.Monto = decimal.Parse(fact["monto"].ToString());
                     factura.Id_Factura = int.Parse(fact["Id_Factura"].ToString());
+                    factura.Id_Cliente = int.Parse(fact["Id_Cliente"].ToString());
+                    factura.Tipo = fact["Tipo"].ToString();
                     facturaList.Add(factura);
                 }
             }

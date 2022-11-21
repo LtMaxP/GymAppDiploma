@@ -87,9 +87,21 @@ namespace UI
                 client.Dni = int.Parse(listView.SelectedItems[0].SubItems[1].Text.ToString());
                 client = bllClientes.MostrarCliente(client);
                 dataGridView1.DataSource = BLL.Negocio.BLLMembresia.DamePagosCliente(client);
-                //dataGridView1.DataMember = "[PagoFecha]";
-                //dataGridView1.DataMember = "[monto]";
+                if(dataGridView1.DataSource != null)
+                {
+                    label2.Text = "$ " + sumarFacturasCliente((List<BE.BE_Cuenta>)dataGridView1.DataSource);
+                }
             }
+        }
+
+        private string sumarFacturasCliente(List<BE.BE_Cuenta> cuentaPagos)
+        {
+            double sumatoria = 0;
+            foreach(var cuenta in cuentaPagos)
+            {
+                sumatoria = sumatoria + cuenta.Monto;
+            }
+            return sumatoria.ToString();
         }
 
         private void textBox_Buscar_TextChanged(object sender, EventArgs e)
