@@ -354,7 +354,7 @@
     <ROW ConnectionName="Predef" Condition="1" Dbms="0" OdbcResource="SQL Server" Server="(local)" Port="1433" Database="GymApp" Username="[LogonUser]" Flags="14" Order="0" LoginTimeout="60"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.SqlScriptComponent">
-    <ROW ScriptName="DB Script" ConnectionName="Predef" Condition="1" Separator="GO" ScriptText="..\..\..\..\..\Desktop\3era entrega Diploma\DB Script.sql" Flags="18" Order="0"/>
+    <ROW ScriptName="DB Script" ConnectionName="Predef" Condition="1" Separator="GO" ScriptText="..\..\..\..\..\Desktop\3era entrega Diploma\GymAppScript.sql" Flags="18" Order="0"/>
     <ATTRIBUTE name="ImpersonateUser" value="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.VsProjectComponent">
