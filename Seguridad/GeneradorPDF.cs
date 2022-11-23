@@ -27,39 +27,67 @@ namespace Servicios
                 doc.Add(new Paragraph("Factura del documento TechExtreme - GymApp"));
                 doc.Add(Chunk.NEWLINE);
 
-                PdfPTable tblPdf = new PdfPTable(3);
-                tblPdf.WidthPercentage = 100;
-
-                PdfPCell clProducto = new PdfPCell(new Phrase("Producto", standardFont));
-                clProducto.BorderWidth = 0;
-                clProducto.BorderWidthBottom = 0.75f;
-                PdfPCell clPrecio = new PdfPCell(new Phrase("Precio", standardFont));
-                clPrecio.BorderWidth = 0;
-                clPrecio.BorderWidthBottom = 0.75f;
-                PdfPCell clCantidad = new PdfPCell(new Phrase("Cantidad", standardFont));
-                clCantidad.BorderWidth = 0;
-                clCantidad.BorderWidthBottom = 0.75f;
-
-                tblPdf.AddCell(clProducto);
-                tblPdf.AddCell(clPrecio);
-                tblPdf.AddCell(clCantidad);
-
-                foreach (BE.Item Item in factura.Items)
+                if (factura.Tipo == "Producto")
                 {
-                    clProducto = new PdfPCell(new Phrase(Item.Descripcion, standardFont));
+                    PdfPTable tblPdf = new PdfPTable(3);
+                    tblPdf.WidthPercentage = 100;
+                    PdfPCell clProducto = new PdfPCell(new Phrase("Producto", standardFont));
                     clProducto.BorderWidth = 0;
-
-                    clPrecio = new PdfPCell(new Phrase(Item.Valor.ToString(), standardFont));
+                    clProducto.BorderWidthBottom = 0.75f;
+                    PdfPCell clPrecio = new PdfPCell(new Phrase("Precio", standardFont));
                     clPrecio.BorderWidth = 0;
-
-                    clCantidad = new PdfPCell(new Phrase(Item.Cantidad.ToString(), standardFont));
+                    clPrecio.BorderWidthBottom = 0.75f;
+                    PdfPCell clCantidad = new PdfPCell(new Phrase("Cantidad", standardFont));
                     clCantidad.BorderWidth = 0;
+                    clCantidad.BorderWidthBottom = 0.75f;
 
                     tblPdf.AddCell(clProducto);
                     tblPdf.AddCell(clPrecio);
                     tblPdf.AddCell(clCantidad);
+
+                    foreach (BE.Item Item in factura.Items)
+                    {
+                        clProducto = new PdfPCell(new Phrase(Item.Descripcion, standardFont));
+                        clProducto.BorderWidth = 0;
+
+                        clPrecio = new PdfPCell(new Phrase(Item.Valor.ToString(), standardFont));
+                        clPrecio.BorderWidth = 0;
+
+                        clCantidad = new PdfPCell(new Phrase(Item.Cantidad.ToString(), standardFont));
+                        clCantidad.BorderWidth = 0;
+
+                        tblPdf.AddCell(clProducto);
+                        tblPdf.AddCell(clPrecio);
+                        tblPdf.AddCell(clCantidad);
+                    }
+                    doc.Add(tblPdf);
                 }
-                doc.Add(tblPdf);
+                else
+                {
+                    PdfPTable tblPdf = new PdfPTable(2);
+                    tblPdf.WidthPercentage = 100;
+
+                    PdfPCell clFecha = new PdfPCell(new Phrase("Fecha de Pago", standardFont));
+                    clFecha.BorderWidth = 0;
+                    clFecha.BorderWidthBottom = 0.75f;
+                    PdfPCell clCliente = new PdfPCell(new Phrase("Numero de Cliente", standardFont));
+                    clCliente.BorderWidth = 0;
+                    clCliente.BorderWidthBottom = 0.75f;
+
+                    tblPdf.AddCell(clFecha);
+                    tblPdf.AddCell(clCliente);
+
+                    clFecha = new PdfPCell(new Phrase(factura.Fecha.ToString(), standardFont));
+                    clFecha.BorderWidth = 0;
+
+                    clCliente = new PdfPCell(new Phrase(factura.Id_Cliente.ToString(), standardFont));
+                    clCliente.BorderWidth = 0;
+
+                    tblPdf.AddCell(clFecha);
+                    tblPdf.AddCell(clCliente);
+
+                    doc.Add(tblPdf);
+                }
 
                 //Crear total
                 PdfPTable tblPdffoot = new PdfPTable(2);
