@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -389,6 +392,18 @@ namespace UI
             TraducirTodo();
         }
 
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var path = new FileInfo("ayu.chm").Directory.FullName;
+            path = path.Replace("UI", "UI\\ayu.chm");
+            Help.ShowHelp(this, "file://" + path);
+        }
 
+        private void contactoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(@"      Telefono de contacto: 159483087
+            Email: portadag@gmail.com
+            País: Argentina");
+        }
     }
 }

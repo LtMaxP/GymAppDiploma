@@ -131,43 +131,50 @@ namespace UI
             }
             else
             {
-                BE.Cliente client = new BE.Cliente();
-                client.Dni = int.Parse(textBox_Dni.Text);
-                if (!bllClientes.ValidarSiExiste(client))
+                if (int.Parse(labelValorEdad.Text) > 18)
                 {
-                    client.Nombre = textBox_Nombre.Text;
-                    client.Apellido = textBox_Apellido.Text;
-                    client._calle = textBox_Calle.Text;
-                    client._numero = int.Parse(textBox_Numero.Text);
-                    client._codPostal = int.Parse(textBox_CodPost.Text);
-                    client._telefono = int.Parse(textBox_Telefono.Text);
-                    client._fechaNacimiento = fechaNacimiento.Value;
-                    client._pesokg = float.Parse(textBox_Peso.Text);
-                    client.Altura = float.Parse(textBoxAltura.Text);
-                    client.Certificado = checkBoxCertif.Checked;
-                    if (checkBoxCertif.Checked)
+                    BE.Cliente client = new BE.Cliente();
+                    client.Dni = int.Parse(textBox_Dni.Text);
+                    if (!bllClientes.ValidarSiExiste(client))
                     {
-                        client.Id_Estado = BLL.Negocio.BLLEstado.DameIdEst(comboBox_estado.SelectedItem.ToString());// BLLClientes.Estado;// comboBox_estado.SelectedItem["ID"];
-                        client.Membresia = (BE.Negocio.BE_Membresia)comboMem.SelectedItem;
-                        client.Descuento = int.Parse(comboDesc.SelectedItem.ToString().Replace("%", ""));
+                        client.Nombre = textBox_Nombre.Text;
+                        client.Apellido = textBox_Apellido.Text;
+                        client._calle = textBox_Calle.Text;
+                        client._numero = int.Parse(textBox_Numero.Text);
+                        client._codPostal = int.Parse(textBox_CodPost.Text);
+                        client._telefono = int.Parse(textBox_Telefono.Text);
+                        client._fechaNacimiento = fechaNacimiento.Value;
+                        client._pesokg = float.Parse(textBox_Peso.Text);
+                        client.Altura = float.Parse(textBoxAltura.Text);
+                        client.Certificado = checkBoxCertif.Checked;
+                        if (checkBoxCertif.Checked)
+                        {
+                            client.Id_Estado = BLL.Negocio.BLLEstado.DameIdEst(comboBox_estado.SelectedItem.ToString());// BLLClientes.Estado;// comboBox_estado.SelectedItem["ID"];
+                            client.Membresia = (BE.Negocio.BE_Membresia)comboMem.SelectedItem;
+                            client.Descuento = int.Parse(comboDesc.SelectedItem.ToString().Replace("%", ""));
+                        }
+                        else
+                        {
+                            client.Id_Estado = (int)BLL.BLLClientes.Estado.Pendiente;
+                        }
+                        if (bllClientes.Alta(client))
+                        {
+                            MessageBox.Show("El cliente fue dado de Alta con éxito.");
+                            resetAll();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo dar de alta el cliente");
+                        }
                     }
                     else
                     {
-                        client.Id_Estado = (int)BLL.BLLClientes.Estado.Pendiente;
-                    }
-                    if (bllClientes.Alta(client))
-                    {
-                        MessageBox.Show("El cliente fue dado de Alta con éxito.");
-                        resetAll();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo dar de alta el cliente");
+                        MessageBox.Show("El nombre de usuario ya existe");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El nombre de usuario ya existe");
+                    MessageBox.Show("Solo se aceptan mayores de 18 años");
                 }
             }
 
@@ -270,12 +277,12 @@ namespace UI
                 comboMem.Enabled = true;
                 comboDesc.Enabled = true;
             }
-            else if(comboMem.Enabled)
+            else if (comboMem.Enabled)
             {
                 comboMem.Enabled = false;
                 comboDesc.Enabled = false;
             }
-            else if(String.IsNullOrEmpty(textBox_Dni.Text))
+            else if (String.IsNullOrEmpty(textBox_Dni.Text))
             {
                 checkBoxCertif.CheckState = CheckState.Unchecked;
                 MessageBox.Show("Debe completar los datos del cliente para esta validación");

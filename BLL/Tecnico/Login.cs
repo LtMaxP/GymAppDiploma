@@ -26,6 +26,13 @@ namespace BLL
             {
                 if (DALUserLogin.LoginUser(user))
                 {
+                    //Por si se corrompe la db y se desloguea
+                    try
+                    {
+                        Servicios.Sesion.Logout();
+                    }
+                    catch { }
+
                     Servicios.Sesion.Login(user);
                     DALUserLogin.BuscarUsuarioBD();
                     comp.NewObtenerPermisoUsuario();
