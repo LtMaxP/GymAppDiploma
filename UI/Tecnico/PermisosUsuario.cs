@@ -229,8 +229,8 @@ namespace UI
                 MessageBox.Show("Debe cargar los permisos");
             else if (arbolAsignados.Nodes.Count != 0 && arbolAsignados.SelectedNode == null)
                 MessageBox.Show("Debe seleccionar un permiso");
-            else if (arbolAsignados.Nodes.Count != 0 && arbolAsignados.SelectedNode.Level >0)//&& (arbolDisponibles.SelectedNode == null || arbolDisponibles.SelectedNode == null))
-                MessageBox.Show("No se permite eliminar Permisos dentro de familias, borrar familia");
+            //else if (arbolAsignados.Nodes.Count != 0 && arbolAsignados.SelectedNode.Level >0)
+            //    MessageBox.Show("No se permite eliminar Permisos dentro de familias, borrar familia");
             else
             {
                 string[] permiso = arbolAsignados.SelectedNode.Text.Split('-');

@@ -228,16 +228,16 @@ namespace UI
                 MessageBox.Show("Debe seleccionar una patente");
             else
             {
-                if (ListaPerm.SelectedNode.Level > 0)
-                {
-                    MessageBox.Show("No puede quitar un permiso de una familia ya creada");
-                }
-                else
-                {
+                //if (ListaPerm.SelectedNode.Level > 0)
+                //{
+                //    MessageBox.Show("No puede quitar un permiso de una familia ya creada");
+                //}
+                //else
+                //{
                     string[] permiso = ListaPerm.SelectedNode.Text.Split('-');
                     family.Eliminar(family.TraetePermiso(permiso[0]));
                     ListaPerm.SelectedNode.Remove();
-                }
+                //}
             }
         }
         /// <summary>

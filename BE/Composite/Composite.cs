@@ -27,10 +27,23 @@ namespace BE.Composite
         {
             if (componente != null)
             {
-                listadoComponent.Remove(componente);
+                foreach (var it in listadoComponent)
+                {
+                    if (componente == it)
+                    {
+                        listadoComponent.Remove(it);
+                        break;
+                    }
+                    else if (it is Composite)
+                        BusquedaDelete(componente, it);
+                    else if (it is Hoja)
+                    {
+                        if (it == componente)
+                            listadoComponent.Remove(it);
+                    }
+                }
             }
         }
-
 
         public override IList<Component> List()
         {
@@ -51,6 +64,7 @@ namespace BE.Composite
         {
             return this.iDPatente == id || listadoComponent.Any(p => p.VerificarSiExistePermiso(id));
         }
+
         public override Component TraetePermiso(string id)
         {
             Component perm = null;
@@ -59,7 +73,7 @@ namespace BE.Composite
                 if (a.iDPatente == id)
                 {
                     perm = a;
-                    return perm; 
+                    return perm;
                 }
                 if (a is Composite)
                 {
@@ -69,6 +83,23 @@ namespace BE.Composite
                 }
             }
             return perm;// listadoComponent.Find(p => p.iDPatente.Equals(id));
+        }
+
+        private Component BusquedaDelete(Component componenteBusqueda, Component componenteListado)
+        {
+            foreach (var cmp in componenteListado.List())
+            {
+                if (cmp == componenteBusqueda)
+                {
+                    componenteListado.Eliminar(cmp);
+                    return componenteListado;
+                }
+                if (cmp is Composite)
+                {
+                    BusquedaDelete(componenteBusqueda, cmp);
+                }
+            }
+            return componenteListado;
         }
     }
 
