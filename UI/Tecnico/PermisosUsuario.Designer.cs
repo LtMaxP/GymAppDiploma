@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.buttonSalir = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelPermisosUsuario = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelNombreUsuario = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelDisponible = new System.Windows.Forms.Label();
+            this.labelAsignado = new System.Windows.Forms.Label();
             this.arbolDisponibles = new System.Windows.Forms.TreeView();
             this.arbolAsignados = new System.Windows.Forms.TreeView();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.buttonGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSalir
@@ -55,15 +55,15 @@
             this.buttonSalir.UseVisualStyleBackColor = true;
             this.buttonSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // label1
+            // labelPermisosUsuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(269, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Administracion Permisos Usuarios";
+            this.labelPermisosUsuario.AutoSize = true;
+            this.labelPermisosUsuario.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPermisosUsuario.Location = new System.Drawing.Point(289, 9);
+            this.labelPermisosUsuario.Name = "labelPermisosUsuario";
+            this.labelPermisosUsuario.Size = new System.Drawing.Size(191, 29);
+            this.labelPermisosUsuario.TabIndex = 1;
+            this.labelPermisosUsuario.Text = "Permisos Usuarios";
             // 
             // label2
             // 
@@ -83,14 +83,14 @@
             this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label3
+            // labelNombreUsuario
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(335, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Nombre Usuario";
+            this.labelNombreUsuario.AutoSize = true;
+            this.labelNombreUsuario.Location = new System.Drawing.Point(335, 70);
+            this.labelNombreUsuario.Name = "labelNombreUsuario";
+            this.labelNombreUsuario.Size = new System.Drawing.Size(83, 13);
+            this.labelNombreUsuario.TabIndex = 4;
+            this.labelNombreUsuario.Text = "Nombre Usuario";
             // 
             // lblUserName
             // 
@@ -115,25 +115,25 @@
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label5
+            // labelDisponible
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(102, 163);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(211, 24);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Permisos Disponibles";
+            this.labelDisponible.AutoSize = true;
+            this.labelDisponible.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDisponible.Location = new System.Drawing.Point(131, 163);
+            this.labelDisponible.Name = "labelDisponible";
+            this.labelDisponible.Size = new System.Drawing.Size(119, 24);
+            this.labelDisponible.TabIndex = 7;
+            this.labelDisponible.Text = "Disponibles";
             // 
-            // label6
+            // labelAsignado
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(560, 163);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(200, 24);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Permisos Asignados";
+            this.labelAsignado.AutoSize = true;
+            this.labelAsignado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAsignado.Location = new System.Drawing.Point(594, 163);
+            this.labelAsignado.Name = "labelAsignado";
+            this.labelAsignado.Size = new System.Drawing.Size(108, 24);
+            this.labelAsignado.TabIndex = 8;
+            this.labelAsignado.Text = "Asignados";
             // 
             // arbolDisponibles
             // 
@@ -169,36 +169,36 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // buttonGuardar
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(367, 398);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(151, 40);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Guardar";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.buttonGuardar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonGuardar.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonGuardar.Location = new System.Drawing.Point(367, 398);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(151, 40);
+            this.buttonGuardar.TabIndex = 13;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.UseVisualStyleBackColor = false;
+            this.buttonGuardar.Click += new System.EventHandler(this.button5_Click);
             // 
             // PermisosUsuario
             // 
             this.ClientSize = new System.Drawing.Size(923, 476);
             this.ControlBox = false;
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.arbolAsignados);
             this.Controls.Add(this.arbolDisponibles);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelAsignado);
+            this.Controls.Add(this.labelDisponible);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelNombreUsuario);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPermisosUsuario);
             this.Controls.Add(this.buttonSalir);
             this.Name = "PermisosUsuario";
             this.Load += new System.EventHandler(this.PermisosUsuario_Load_1);
@@ -211,18 +211,18 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonSalir;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPermisosUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelNombreUsuario;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelDisponible;
+        private System.Windows.Forms.Label labelAsignado;
         private System.Windows.Forms.TreeView arbolDisponibles;
         private System.Windows.Forms.TreeView arbolAsignados;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button buttonGuardar;
     }
 }

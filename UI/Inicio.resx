@@ -165,51 +165,6 @@
   <data name="labelAcciones.Text" xml:space="preserve">
     <value>Inicio</value>
   </data>
-  <data name="labelABMUsuarios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelABMUsuarios.Text" xml:space="preserve">
-    <value>Gestion Usuarios</value>
-  </data>
-  <data name="labelABMUsuarios.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelFamiliaPatentes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelFamiliaPatentes.Text" xml:space="preserve">
-    <value>Permisos</value>
-  </data>
-  <data name="labelFamiliaPatentes.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelBitacoraDV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelBitacoraDV.Text" xml:space="preserve">
-    <value>Bitacora</value>
-  </data>
-  <data name="labelBitacoraDV.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelBackupRestore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelBackupRestore.Text" xml:space="preserve">
-    <value>Backup y Restore</value>
-  </data>
-  <data name="labelBackupRestore.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelControlCambios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelControlCambios.Text" xml:space="preserve">
-    <value>Control de Cambios</value>
-  </data>
-  <data name="labelControlCambios.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="labelSistema.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
@@ -218,6 +173,12 @@
   </data>
   <data name="labelSistema.Text" xml:space="preserve">
     <value>Sistema</value>
+  </data>
+  <data name="ToolIdioma.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="ToolIdioma.Text" xml:space="preserve">
+    <value>Seccion Idioma</value>
   </data>
   <data name="labelIdioma.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
@@ -271,7 +232,7 @@
     <value>False</value>
   </data>
   <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>133, 34</value>
   </data>
   <data name="labelFacturas.Text" xml:space="preserve">
     <value>Facturas</value>
@@ -280,7 +241,7 @@
     <value>False</value>
   </data>
   <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>133, 34</value>
   </data>
   <data name="labelPagosYCobros.Text" xml:space="preserve">
     <value>Pagos</value>
@@ -306,38 +267,77 @@
   <data name="labelStock.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="permisosGestionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelABMUsuario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="labelABMUsuario.Text" xml:space="preserve">
+    <value>Gestion Usuarios</value>
+  </data>
+  <data name="labelABMUsuario.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelFamiliaPatentes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="labelFamiliaPatentes.Text" xml:space="preserve">
+    <value>Permisos</value>
+  </data>
+  <data name="labelFamiliaPatentes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelPermisosGestion.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 34</value>
   </data>
-  <data name="permisosGestionToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelPermisosGestion.Text" xml:space="preserve">
     <value>Permisos Gestion</value>
   </data>
-  <data name="permisosGestionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelPermisosGestion.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="permisosUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelPermisosUsuario.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 34</value>
   </data>
-  <data name="permisosUsuarioToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelPermisosUsuario.Text" xml:space="preserve">
     <value>Permisos Usuario</value>
   </data>
-  <data name="permisosUsuarioToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelPermisosUsuario.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="agregarIdiomaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+  <data name="labelBitacoraDV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
   </data>
-  <data name="agregarIdiomaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Seccion Idioma</value>
+  <data name="labelBitacoraDV.Text" xml:space="preserve">
+    <value>Bitacora</value>
+  </data>
+  <data name="labelBitacoraDV.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelBackupRestore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="labelBackupRestore.Text" xml:space="preserve">
+    <value>Backup y Restore</value>
+  </data>
+  <data name="labelBackupRestore.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelControlCambios.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="labelControlCambios.Text" xml:space="preserve">
+    <value>Control de Cambios</value>
+  </data>
+  <data name="labelControlCambios.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="ToolAyuda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>138, 34</value>
   </data>
   <data name="ToolAyuda.Text" xml:space="preserve">
     <value>Ayuda</value>
   </data>
   <data name="ToolContacto.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>138, 34</value>
   </data>
   <data name="ToolContacto.Text" xml:space="preserve">
     <value>Contacto</value>
@@ -399,10 +399,10 @@
   <data name="&gt;&gt;labelSistema.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelABMUsuarios.Name" xml:space="preserve">
-    <value>labelABMUsuarios</value>
+  <data name="&gt;&gt;labelABMUsuario.Name" xml:space="preserve">
+    <value>labelABMUsuario</value>
   </data>
-  <data name="&gt;&gt;labelABMUsuarios.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelABMUsuario.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelFamiliaPatentes.Name" xml:space="preserve">
@@ -411,16 +411,16 @@
   <data name="&gt;&gt;labelFamiliaPatentes.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;permisosGestionToolStripMenuItem.Name" xml:space="preserve">
-    <value>permisosGestionToolStripMenuItem</value>
+  <data name="&gt;&gt;labelPermisosGestion.Name" xml:space="preserve">
+    <value>labelPermisosGestion</value>
   </data>
-  <data name="&gt;&gt;permisosGestionToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelPermisosGestion.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;permisosUsuarioToolStripMenuItem.Name" xml:space="preserve">
-    <value>permisosUsuarioToolStripMenuItem</value>
+  <data name="&gt;&gt;labelPermisosUsuario.Name" xml:space="preserve">
+    <value>labelPermisosUsuario</value>
   </data>
-  <data name="&gt;&gt;permisosUsuarioToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelPermisosUsuario.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelBitacoraDV.Name" xml:space="preserve">
@@ -447,10 +447,10 @@
   <data name="&gt;&gt;labelIdioma.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;agregarIdiomaToolStripMenuItem.Name" xml:space="preserve">
-    <value>agregarIdiomaToolStripMenuItem</value>
+  <data name="&gt;&gt;ToolIdioma.Name" xml:space="preserve">
+    <value>ToolIdioma</value>
   </data>
-  <data name="&gt;&gt;agregarIdiomaToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;ToolIdioma.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelAyuda.Name" xml:space="preserve">

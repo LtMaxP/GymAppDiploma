@@ -40,15 +40,15 @@ namespace UI
             this.labelVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.labelStock = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSistema = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelABMUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelABMUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.labelFamiliaPatentes = new System.Windows.Forms.ToolStripMenuItem();
-            this.permisosGestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.permisosUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelPermisosGestion = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelPermisosUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.labelBitacoraDV = new System.Windows.Forms.ToolStripMenuItem();
             this.labelBackupRestore = new System.Windows.Forms.ToolStripMenuItem();
             this.labelControlCambios = new System.Windows.Forms.ToolStripMenuItem();
             this.labelIdioma = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolIdioma = new System.Windows.Forms.ToolStripMenuItem();
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolContacto = new System.Windows.Forms.ToolStripMenuItem();
@@ -132,7 +132,7 @@ namespace UI
             // labelSistema
             // 
             this.labelSistema.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelABMUsuarios,
+            this.labelABMUsuario,
             this.labelFamiliaPatentes,
             this.labelBitacoraDV,
             this.labelBackupRestore,
@@ -141,36 +141,36 @@ namespace UI
             this.labelSistema.Name = "labelSistema";
             this.labelSistema.Tag = "";
             // 
-            // labelABMUsuarios
+            // labelABMUsuario
             // 
-            this.labelABMUsuarios.Name = "labelABMUsuarios";
-            resources.ApplyResources(this.labelABMUsuarios, "labelABMUsuarios");
-            this.labelABMUsuarios.Tag = "9";
-            this.labelABMUsuarios.Click += new System.EventHandler(this.aBMUsuariosToolStripMenuItem_Click);
+            this.labelABMUsuario.Name = "labelABMUsuario";
+            resources.ApplyResources(this.labelABMUsuario, "labelABMUsuario");
+            this.labelABMUsuario.Tag = "9";
+            this.labelABMUsuario.Click += new System.EventHandler(this.aBMUsuariosToolStripMenuItem_Click);
             // 
             // labelFamiliaPatentes
             // 
             this.labelFamiliaPatentes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.permisosGestionToolStripMenuItem,
-            this.permisosUsuarioToolStripMenuItem});
+            this.labelPermisosGestion,
+            this.labelPermisosUsuario});
             this.labelFamiliaPatentes.Name = "labelFamiliaPatentes";
             resources.ApplyResources(this.labelFamiliaPatentes, "labelFamiliaPatentes");
             this.labelFamiliaPatentes.Tag = "15";
             this.labelFamiliaPatentes.Click += new System.EventHandler(this.labelFamiliaPatentes_Click);
             // 
-            // permisosGestionToolStripMenuItem
+            // labelPermisosGestion
             // 
-            this.permisosGestionToolStripMenuItem.Name = "permisosGestionToolStripMenuItem";
-            resources.ApplyResources(this.permisosGestionToolStripMenuItem, "permisosGestionToolStripMenuItem");
-            this.permisosGestionToolStripMenuItem.Tag = "16";
-            this.permisosGestionToolStripMenuItem.Click += new System.EventHandler(this.permisosGestionToolStripMenuItem_Click);
+            this.labelPermisosGestion.Name = "labelPermisosGestion";
+            resources.ApplyResources(this.labelPermisosGestion, "labelPermisosGestion");
+            this.labelPermisosGestion.Tag = "16";
+            this.labelPermisosGestion.Click += new System.EventHandler(this.permisosGestionToolStripMenuItem_Click);
             // 
-            // permisosUsuarioToolStripMenuItem
+            // labelPermisosUsuario
             // 
-            this.permisosUsuarioToolStripMenuItem.Name = "permisosUsuarioToolStripMenuItem";
-            resources.ApplyResources(this.permisosUsuarioToolStripMenuItem, "permisosUsuarioToolStripMenuItem");
-            this.permisosUsuarioToolStripMenuItem.Tag = "16";
-            this.permisosUsuarioToolStripMenuItem.Click += new System.EventHandler(this.permisosUsuarioToolStripMenuItem_Click);
+            this.labelPermisosUsuario.Name = "labelPermisosUsuario";
+            resources.ApplyResources(this.labelPermisosUsuario, "labelPermisosUsuario");
+            this.labelPermisosUsuario.Tag = "16";
+            this.labelPermisosUsuario.Click += new System.EventHandler(this.permisosUsuarioToolStripMenuItem_Click);
             // 
             // labelBitacoraDV
             // 
@@ -196,18 +196,18 @@ namespace UI
             // labelIdioma
             // 
             this.labelIdioma.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarIdiomaToolStripMenuItem});
+            this.ToolIdioma});
             resources.ApplyResources(this.labelIdioma, "labelIdioma");
             this.labelIdioma.Name = "labelIdioma";
             this.labelIdioma.Tag = "99";
             this.labelIdioma.Click += new System.EventHandler(this.labelIdioma_Click);
             // 
-            // agregarIdiomaToolStripMenuItem
+            // ToolIdioma
             // 
-            this.agregarIdiomaToolStripMenuItem.Name = "agregarIdiomaToolStripMenuItem";
-            resources.ApplyResources(this.agregarIdiomaToolStripMenuItem, "agregarIdiomaToolStripMenuItem");
-            this.agregarIdiomaToolStripMenuItem.Tag = "99";
-            this.agregarIdiomaToolStripMenuItem.Click += new System.EventHandler(this.agregarIdiomaToolStripMenuItem_Click);
+            this.ToolIdioma.Name = "ToolIdioma";
+            resources.ApplyResources(this.ToolIdioma, "ToolIdioma");
+            this.ToolIdioma.Tag = "99";
+            this.ToolIdioma.Click += new System.EventHandler(this.agregarIdiomaToolStripMenuItem_Click);
             // 
             // labelAyuda
             // 
@@ -268,16 +268,16 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem labelFamiliaPatentes;
         private System.Windows.Forms.ToolStripMenuItem labelBitacoraDV;
         private System.Windows.Forms.ToolStripMenuItem labelBackupRestore;
-        private System.Windows.Forms.ToolStripMenuItem labelABMUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem labelABMUsuario;
         private System.Windows.Forms.ToolStripMenuItem labelIdioma;
         private System.Windows.Forms.ToolStripMenuItem labelAyuda;
         private System.Windows.Forms.ToolStripMenuItem ToolAyuda;
         private System.Windows.Forms.ToolStripMenuItem ToolContacto;
-        private System.Windows.Forms.ToolStripMenuItem agregarIdiomaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolIdioma;
         private System.Windows.Forms.ToolStripMenuItem labelVentas;
         private System.Windows.Forms.ToolStripMenuItem labelControlCambios;
-        private System.Windows.Forms.ToolStripMenuItem permisosGestionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem permisosUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem labelPermisosGestion;
+        private System.Windows.Forms.ToolStripMenuItem labelPermisosUsuario;
         private System.Windows.Forms.ToolStripMenuItem labelPagosYCobros;
         private System.Windows.Forms.ToolStripMenuItem labelFacturas;
         private System.Windows.Forms.ToolStripMenuItem labelStock;

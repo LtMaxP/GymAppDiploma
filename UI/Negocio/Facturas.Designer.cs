@@ -29,29 +29,29 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelFacturas = new System.Windows.Forms.Label();
             this.labelSalir = new System.Windows.Forms.Button();
             this.textBox = new System.Windows.Forms.TextBox();
             this.labelBuscar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblIntroduzcaDNI = new System.Windows.Forms.Label();
             this.btn_Exportar = new System.Windows.Forms.Button();
             this.dataGridViewFactura = new System.Windows.Forms.DataGridView();
             this.btn_PDF = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LabelExportar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactura)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelFacturas
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Font = new System.Drawing.Font("Poor Richard", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Facturas";
+            this.labelFacturas.AutoSize = true;
+            this.labelFacturas.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelFacturas.Font = new System.Drawing.Font("Poor Richard", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFacturas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelFacturas.Location = new System.Drawing.Point(2, 0);
+            this.labelFacturas.Name = "labelFacturas";
+            this.labelFacturas.Size = new System.Drawing.Size(98, 31);
+            this.labelFacturas.TabIndex = 0;
+            this.labelFacturas.Text = "Facturas";
             // 
             // labelSalir
             // 
@@ -82,14 +82,14 @@ namespace UI
             this.labelBuscar.UseVisualStyleBackColor = true;
             this.labelBuscar.Click += new System.EventHandler(this.labelBuscar_Click);
             // 
-            // label2
+            // lblIntroduzcaDNI
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Introduzca DNI";
+            this.lblIntroduzcaDNI.AutoSize = true;
+            this.lblIntroduzcaDNI.Location = new System.Drawing.Point(38, 50);
+            this.lblIntroduzcaDNI.Name = "lblIntroduzcaDNI";
+            this.lblIntroduzcaDNI.Size = new System.Drawing.Size(79, 13);
+            this.lblIntroduzcaDNI.TabIndex = 7;
+            this.lblIntroduzcaDNI.Text = "Introduzca DNI";
             // 
             // btn_Exportar
             // 
@@ -119,14 +119,14 @@ namespace UI
             this.btn_PDF.UseVisualStyleBackColor = true;
             this.btn_PDF.Click += new System.EventHandler(this.btn_PDF_Click);
             // 
-            // label3
+            // LabelExportar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 359);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Exportar";
+            this.LabelExportar.AutoSize = true;
+            this.LabelExportar.Location = new System.Drawing.Point(38, 359);
+            this.LabelExportar.Name = "LabelExportar";
+            this.LabelExportar.Size = new System.Drawing.Size(46, 13);
+            this.LabelExportar.TabIndex = 11;
+            this.LabelExportar.Text = "Exportar";
             // 
             // Facturas
             // 
@@ -134,15 +134,15 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LabelExportar);
             this.Controls.Add(this.dataGridViewFactura);
             this.Controls.Add(this.btn_PDF);
             this.Controls.Add(this.btn_Exportar);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblIntroduzcaDNI);
             this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.labelSalir);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelFacturas);
             this.Name = "Facturas";
             this.Text = "Facturas";
             this.Load += new System.EventHandler(this.Facturas_Load);
@@ -154,14 +154,14 @@ namespace UI
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelFacturas;
         private System.Windows.Forms.Button labelSalir;
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Button labelBuscar;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblIntroduzcaDNI;
         private System.Windows.Forms.Button btn_Exportar;
         private System.Windows.Forms.DataGridView dataGridViewFactura;
         private System.Windows.Forms.Button btn_PDF;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LabelExportar;
     }
 }

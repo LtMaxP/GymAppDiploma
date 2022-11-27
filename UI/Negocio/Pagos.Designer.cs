@@ -31,8 +31,7 @@ namespace UI
         {
             this.labelSalir = new System.Windows.Forms.Button();
             this.labelPagosYCobros = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelTotalRecaudado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelMostrar = new System.Windows.Forms.Button();
             this.listView = new System.Windows.Forms.ListView();
@@ -45,8 +44,9 @@ namespace UI
             this.labelBuscar = new System.Windows.Forms.Button();
             this.textBoxCliente = new System.Windows.Forms.TextBox();
             this.labelCliente = new System.Windows.Forms.Label();
-            this.buttonComprar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.buttonPago = new System.Windows.Forms.Button();
+            this.PagosGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.PagosGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // labelSalir
@@ -69,22 +69,14 @@ namespace UI
             this.labelPagosYCobros.TabIndex = 2;
             this.labelPagosYCobros.Text = "Pagos";
             // 
-            // dataGridView1
+            // labelTotalRecaudado
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(323, 74);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(316, 266);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(418, 367);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Total recaudado:";
+            this.labelTotalRecaudado.AutoSize = true;
+            this.labelTotalRecaudado.Location = new System.Drawing.Point(418, 367);
+            this.labelTotalRecaudado.Name = "labelTotalRecaudado";
+            this.labelTotalRecaudado.Size = new System.Drawing.Size(88, 13);
+            this.labelTotalRecaudado.TabIndex = 5;
+            this.labelTotalRecaudado.Text = "Total recaudado:";
             // 
             // label2
             // 
@@ -187,19 +179,27 @@ namespace UI
             this.labelCliente.TabIndex = 13;
             this.labelCliente.Text = "Cliente";
             // 
-            // buttonComprar
+            // buttonPago
             // 
-            this.buttonComprar.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.buttonComprar.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.buttonComprar.FlatAppearance.BorderSize = 10;
-            this.buttonComprar.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.buttonComprar.Location = new System.Drawing.Point(90, 310);
-            this.buttonComprar.Name = "buttonComprar";
-            this.buttonComprar.Size = new System.Drawing.Size(75, 23);
-            this.buttonComprar.TabIndex = 12;
-            this.buttonComprar.Text = "Pagar";
-            this.buttonComprar.UseVisualStyleBackColor = false;
-            this.buttonComprar.Click += new System.EventHandler(this.buttonComprar_Click);
+            this.buttonPago.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.buttonPago.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.buttonPago.FlatAppearance.BorderSize = 10;
+            this.buttonPago.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.buttonPago.Location = new System.Drawing.Point(90, 310);
+            this.buttonPago.Name = "buttonPago";
+            this.buttonPago.Size = new System.Drawing.Size(75, 23);
+            this.buttonPago.TabIndex = 12;
+            this.buttonPago.Text = "Pagar";
+            this.buttonPago.UseVisualStyleBackColor = false;
+            this.buttonPago.Click += new System.EventHandler(this.buttonComprar_Click);
+            // 
+            // PagosGridView
+            // 
+            this.PagosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PagosGridView.Location = new System.Drawing.Point(329, 103);
+            this.PagosGridView.Name = "PagosGridView";
+            this.PagosGridView.Size = new System.Drawing.Size(343, 244);
+            this.PagosGridView.TabIndex = 15;
             // 
             // PagosCobros
             // 
@@ -207,23 +207,23 @@ namespace UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 436);
             this.ControlBox = false;
+            this.Controls.Add(this.PagosGridView);
             this.Controls.Add(this.textBoxCliente);
             this.Controls.Add(this.labelCliente);
-            this.Controls.Add(this.buttonComprar);
+            this.Controls.Add(this.buttonPago);
             this.Controls.Add(this.labelMostrar);
             this.Controls.Add(this.listView);
             this.Controls.Add(this.labelBuscarUnUsuario);
             this.Controls.Add(this.textBox_Buscar);
             this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.labelTotalRecaudado);
             this.Controls.Add(this.labelPagosYCobros);
             this.Controls.Add(this.labelSalir);
             this.Name = "PagosCobros";
             this.Text = "PagosCobros";
             this.Load += new System.EventHandler(this.PagosCobros_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PagosGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,8 +233,7 @@ namespace UI
 
         private System.Windows.Forms.Button labelSalir;
         private System.Windows.Forms.Label labelPagosYCobros;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelTotalRecaudado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button labelMostrar;
         private System.Windows.Forms.ListView listView;
@@ -247,6 +246,7 @@ namespace UI
         private System.Windows.Forms.Button labelBuscar;
         private System.Windows.Forms.TextBox textBoxCliente;
         private System.Windows.Forms.Label labelCliente;
-        private System.Windows.Forms.Button buttonComprar;
+        private System.Windows.Forms.Button buttonPago;
+        private System.Windows.Forms.DataGridView PagosGridView;
     }
 }

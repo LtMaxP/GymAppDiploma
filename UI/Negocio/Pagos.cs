@@ -83,14 +83,14 @@ namespace UI
             }
             else
             {
-                dataGridView1.DataSource = null;
+                PagosGridView.DataSource = null;
                 BE.Cliente client = new BE.Cliente();
                 client.Dni = int.Parse(listView.SelectedItems[0].SubItems[1].Text.ToString());
                 client = bllClientes.MostrarCliente(client);
-                dataGridView1.DataSource = BLL.Negocio.BLLMembresia.DamePagosCliente(client);
-                if(dataGridView1.DataSource != null)
+                PagosGridView.DataSource = BLL.Negocio.BLLMembresia.DamePagosCliente(client);
+                if(PagosGridView.DataSource != null)
                 {
-                    label2.Text = "$ " + sumarFacturasCliente((List<BE.BE_Cuenta>)dataGridView1.DataSource);
+                    label2.Text = "$ " + sumarFacturasCliente((List<BE.BE_Cuenta>)PagosGridView.DataSource);
                 }
             }
         }
@@ -132,8 +132,8 @@ namespace UI
                         if (BLL.Negocio.BLLMembresia.EjecutarPago(cliente))////
                         {
                             //refresh part
-                            dataGridView1.Rows.Clear();
-                            dataGridView1.Refresh();
+                            PagosGridView.Rows.Clear();
+                            PagosGridView.Refresh();
                             MessageBox.Show("Pago exitos ^_^");
                         }
                         else
@@ -149,6 +149,11 @@ namespace UI
                     MessageBox.Show("Cliente no existe");
                 }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

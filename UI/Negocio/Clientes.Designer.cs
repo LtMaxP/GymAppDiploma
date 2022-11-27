@@ -63,7 +63,7 @@
             this.textBox_Peso = new System.Windows.Forms.TextBox();
             this.fechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.comboBox_estado = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelEdad = new System.Windows.Forms.Label();
             this.buttonCalc = new System.Windows.Forms.Button();
             this.labelValorEdad = new System.Windows.Forms.Label();
             this.comboMem = new System.Windows.Forms.ComboBox();
@@ -392,15 +392,15 @@
             this.comboBox_estado.TabIndex = 12;
             this.comboBox_estado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label1
+            // labelEdad
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(262, 307);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Edad";
-            this.label1.Click += new System.EventHandler(this.label9_Click);
+            this.labelEdad.AutoSize = true;
+            this.labelEdad.Location = new System.Drawing.Point(262, 307);
+            this.labelEdad.Name = "labelEdad";
+            this.labelEdad.Size = new System.Drawing.Size(32, 13);
+            this.labelEdad.TabIndex = 5;
+            this.labelEdad.Text = "Edad";
+            this.labelEdad.Click += new System.EventHandler(this.label9_Click);
             // 
             // buttonCalc
             // 
@@ -558,7 +558,7 @@
             this.Controls.Add(this.labelIMC);
             this.Controls.Add(this.labelValorEdad);
             this.Controls.Add(this.labelDescuento);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelEdad);
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.labelTelefono);
             this.Controls.Add(this.labelCodPostal);
@@ -621,7 +621,7 @@
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private System.Windows.Forms.BindingSource clientesBindingSource1;
         private System.Windows.Forms.BindingSource clientesBindingSource2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelEdad;
         private System.Windows.Forms.Button buttonCalc;
         private System.Windows.Forms.Label labelValorEdad;
         private System.Windows.Forms.ComboBox comboMem;
