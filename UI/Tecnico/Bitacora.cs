@@ -13,7 +13,6 @@ namespace UI
     public partial class Bitacora : Form, BE.ObserverIdioma.IObserverIdioma
     {
         BLL.BitacoraBLL bit = new BLL.BitacoraBLL();
-        BLL.DV dv = new BLL.DV();
         private BLL.Usuario bLLUsuario = new BLL.Usuario();
         public Bitacora()
         {
@@ -77,6 +76,7 @@ namespace UI
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
             cargarComboUser();
             CargaInicialBit();
+            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
         private void cargarComboUser()
         {

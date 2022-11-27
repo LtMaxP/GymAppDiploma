@@ -11,7 +11,7 @@ namespace BLL
     {
         private DAL.LoginUsuario DALUserLogin = new DAL.LoginUsuario();
         DAL.CompositeyPermisosDAL comp = new DAL.CompositeyPermisosDAL();
-
+        private DAL.IdiomaT idiomaT = new DAL.IdiomaT();
         /// <summary>
         /// Login con validación de usuario
         /// </summary>
@@ -35,6 +35,7 @@ namespace BLL
 
                     Servicios.Sesion.Login(user);
                     DALUserLogin.BuscarUsuarioBD();
+                    idiomaT.CargarIdiomaAUsuarioPorId();
                     comp.NewObtenerPermisoUsuario();
                     retornableComoCocaCola = true;
                     DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario", "Ninguno"));

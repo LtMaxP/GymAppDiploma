@@ -43,11 +43,11 @@ namespace BE
             set { _id_estado = value; }
         }
 
-        private BE.BE_Cuenta _cuenta;
-        public BE.BE_Cuenta Cuenta
-        {
-            get { return _cuenta; }
-            set { _cuenta = value; }
-        }
+        //private BE.BE_Cuenta _cuenta;
+        //public BE.BE_Cuenta Cuenta
+        //{
+        //    get { return _cuenta; }
+        //    set { _cuenta = value; }
+        //}
     }
 }

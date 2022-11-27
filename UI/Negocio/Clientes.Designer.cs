@@ -409,7 +409,7 @@
             this.buttonCalc.Name = "buttonCalc";
             this.buttonCalc.Size = new System.Drawing.Size(57, 34);
             this.buttonCalc.TabIndex = 14;
-            this.buttonCalc.Text = "Calcular IMC";
+            this.buttonCalc.Text = "IMC";
             this.buttonCalc.UseVisualStyleBackColor = true;
             this.buttonCalc.Click += new System.EventHandler(this.buttonCalc_Click);
             // 

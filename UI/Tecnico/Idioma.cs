@@ -63,7 +63,7 @@ namespace UI.Tecnico
         /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
-            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(button5.Tag.ToString()))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(labelElegir.Tag.ToString()))
             {
                 MessageBox.Show("No tiene el permiso");
             }
@@ -106,7 +106,7 @@ namespace UI.Tecnico
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(button3.Tag.ToString()))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(labelModificar.Tag.ToString()))
             {
                 MessageBox.Show("No tiene el permiso");
             }
@@ -146,7 +146,7 @@ namespace UI.Tecnico
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(button3.Tag.ToString()))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(labelModificar.Tag.ToString()))
             {
                 MessageBox.Show("No tiene el permiso");
             }
@@ -194,7 +194,7 @@ namespace UI.Tecnico
         /// <param name="e"></param>
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
-            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(btn_Eliminar.Tag.ToString()))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(labelBaja.Tag.ToString()))
             {
                 MessageBox.Show("No tiene el permiso");
             }

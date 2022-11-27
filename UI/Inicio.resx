@@ -156,51 +156,6 @@
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
-  <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 34</value>
-  </data>
-  <data name="labelFacturas.Text" xml:space="preserve">
-    <value>Facturas</value>
-  </data>
-  <data name="labelFacturas.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 34</value>
-  </data>
-  <data name="labelPagosYCobros.Text" xml:space="preserve">
-    <value>Pagos</value>
-  </data>
-  <data name="labelPagosYCobros.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
-  </data>
-  <data name="labelClientes.Text" xml:space="preserve">
-    <value>Gestion de clientes</value>
-  </data>
-  <data name="labelClientes.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="productosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
-  </data>
-  <data name="productosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Gestion de ventas</value>
-  </data>
-  <data name="productosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="gestionDeStockToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
-  </data>
-  <data name="gestionDeStockToolStripMenuItem.Text" xml:space="preserve">
-    <value>Gestion de stock</value>
-  </data>
-  <data name="gestionDeStockToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="labelAcciones.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
@@ -217,24 +172,6 @@
     <value>Gestion Usuarios</value>
   </data>
   <data name="labelABMUsuarios.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="permisosGestionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 34</value>
-  </data>
-  <data name="permisosGestionToolStripMenuItem.Text" xml:space="preserve">
-    <value>Permisos Gestion</value>
-  </data>
-  <data name="permisosGestionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="permisosUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 34</value>
-  </data>
-  <data name="permisosUsuarioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Permisos Usuario</value>
-  </data>
-  <data name="permisosUsuarioToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="labelFamiliaPatentes.Size" type="System.Drawing.Size, System.Drawing">
@@ -264,13 +201,13 @@
   <data name="labelBackupRestore.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="controlDeCambiosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelControlCambios.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 34</value>
   </data>
-  <data name="controlDeCambiosToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelControlCambios.Text" xml:space="preserve">
     <value>Control de Cambios</value>
   </data>
-  <data name="controlDeCambiosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelControlCambios.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="labelSistema.Font" type="System.Drawing.Font, System.Drawing">
@@ -282,12 +219,6 @@
   <data name="labelSistema.Text" xml:space="preserve">
     <value>Sistema</value>
   </data>
-  <data name="agregarIdiomaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 34</value>
-  </data>
-  <data name="agregarIdiomaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Seccion Idioma</value>
-  </data>
   <data name="labelIdioma.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
@@ -296,18 +227,6 @@
   </data>
   <data name="labelIdioma.Text" xml:space="preserve">
     <value>Idioma</value>
-  </data>
-  <data name="infoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="infoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ayuda</value>
-  </data>
-  <data name="contactoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="contactoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Contacto</value>
   </data>
   <data name="labelAyuda.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
@@ -341,6 +260,87 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelClientes.Text" xml:space="preserve">
+    <value>Gestion de clientes</value>
+  </data>
+  <data name="labelClientes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="labelFacturas.Text" xml:space="preserve">
+    <value>Facturas</value>
+  </data>
+  <data name="labelFacturas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="labelPagosYCobros.Text" xml:space="preserve">
+    <value>Pagos</value>
+  </data>
+  <data name="labelPagosYCobros.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelVentas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelVentas.Text" xml:space="preserve">
+    <value>Gestion de ventas</value>
+  </data>
+  <data name="labelVentas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelStock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelStock.Text" xml:space="preserve">
+    <value>Gestion de stock</value>
+  </data>
+  <data name="labelStock.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="permisosGestionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 34</value>
+  </data>
+  <data name="permisosGestionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Permisos Gestion</value>
+  </data>
+  <data name="permisosGestionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="permisosUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 34</value>
+  </data>
+  <data name="permisosUsuarioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Permisos Usuario</value>
+  </data>
+  <data name="permisosUsuarioToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="agregarIdiomaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="agregarIdiomaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Seccion Idioma</value>
+  </data>
+  <data name="ToolAyuda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="ToolAyuda.Text" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="ToolContacto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="ToolContacto.Text" xml:space="preserve">
+    <value>Contacto</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -381,16 +381,16 @@
   <data name="&gt;&gt;labelPagosYCobros.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;productosToolStripMenuItem.Name" xml:space="preserve">
-    <value>productosToolStripMenuItem</value>
+  <data name="&gt;&gt;labelVentas.Name" xml:space="preserve">
+    <value>labelVentas</value>
   </data>
-  <data name="&gt;&gt;productosToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelVentas.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;gestionDeStockToolStripMenuItem.Name" xml:space="preserve">
-    <value>gestionDeStockToolStripMenuItem</value>
+  <data name="&gt;&gt;labelStock.Name" xml:space="preserve">
+    <value>labelStock</value>
   </data>
-  <data name="&gt;&gt;gestionDeStockToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelStock.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelSistema.Name" xml:space="preserve">
@@ -435,10 +435,10 @@
   <data name="&gt;&gt;labelBackupRestore.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;controlDeCambiosToolStripMenuItem.Name" xml:space="preserve">
-    <value>controlDeCambiosToolStripMenuItem</value>
+  <data name="&gt;&gt;labelControlCambios.Name" xml:space="preserve">
+    <value>labelControlCambios</value>
   </data>
-  <data name="&gt;&gt;controlDeCambiosToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelControlCambios.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelIdioma.Name" xml:space="preserve">
@@ -459,16 +459,16 @@
   <data name="&gt;&gt;labelAyuda.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;infoToolStripMenuItem.Name" xml:space="preserve">
-    <value>infoToolStripMenuItem</value>
+  <data name="&gt;&gt;ToolAyuda.Name" xml:space="preserve">
+    <value>ToolAyuda</value>
   </data>
-  <data name="&gt;&gt;infoToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;ToolAyuda.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;contactoToolStripMenuItem.Name" xml:space="preserve">
-    <value>contactoToolStripMenuItem</value>
+  <data name="&gt;&gt;ToolContacto.Name" xml:space="preserve">
+    <value>ToolContacto</value>
   </data>
-  <data name="&gt;&gt;contactoToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;ToolContacto.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

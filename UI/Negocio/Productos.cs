@@ -43,6 +43,7 @@ namespace UI.Negocio
             comboBox1.DataSource = items;
             comboBox1.DisplayMember = "Descripcion";
             GenerarGrilla();
+            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
         /// <summary>
         /// Formar grilla

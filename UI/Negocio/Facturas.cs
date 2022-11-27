@@ -26,6 +26,7 @@ namespace UI
         private void Facturas_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
+            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
 
         private void button2_Click(object sender, EventArgs e)

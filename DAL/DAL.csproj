@@ -77,7 +77,6 @@
     <Compile Include="Acceso.cs" />
     <Compile Include="Negocio\DALClientes.cs" />
     <Compile Include="Negocio\DALFactura.cs" />
-    <Compile Include="Negocio\DALSucursal.cs" />
     <Compile Include="Tecnico\ControlCambiosDAL.cs" />
     <Compile Include="Tecnico\DigitoVerificadorDAL.cs" />
     <Compile Include="ICRUD.cs" />

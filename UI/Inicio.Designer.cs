@@ -37,8 +37,8 @@ namespace UI
             this.labelClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.labelFacturas = new System.Windows.Forms.ToolStripMenuItem();
             this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionDeStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelVentas = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelStock = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.labelABMUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.labelFamiliaPatentes = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,12 +46,12 @@ namespace UI
             this.permisosUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelBitacoraDV = new System.Windows.Forms.ToolStripMenuItem();
             this.labelBackupRestore = new System.Windows.Forms.ToolStripMenuItem();
-            this.controlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelControlCambios = new System.Windows.Forms.ToolStripMenuItem();
             this.labelIdioma = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
-            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contactoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolAyuda = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolContacto = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,8 +84,8 @@ namespace UI
             this.labelAcciones.BackColor = System.Drawing.SystemColors.Highlight;
             this.labelAcciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelClientes,
-            this.productosToolStripMenuItem,
-            this.gestionDeStockToolStripMenuItem});
+            this.labelVentas,
+            this.labelStock});
             resources.ApplyResources(this.labelAcciones, "labelAcciones");
             this.labelAcciones.Name = "labelAcciones";
             this.labelAcciones.Tag = "";
@@ -115,19 +115,19 @@ namespace UI
             this.labelPagosYCobros.Tag = "28";
             this.labelPagosYCobros.Click += new System.EventHandler(this.labelPagosYCobros_Click_1);
             // 
-            // productosToolStripMenuItem
+            // labelVentas
             // 
-            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
-            this.productosToolStripMenuItem.Tag = "19";
-            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
+            this.labelVentas.Name = "labelVentas";
+            resources.ApplyResources(this.labelVentas, "labelVentas");
+            this.labelVentas.Tag = "19";
+            this.labelVentas.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
-            // gestionDeStockToolStripMenuItem
+            // labelStock
             // 
-            this.gestionDeStockToolStripMenuItem.Name = "gestionDeStockToolStripMenuItem";
-            resources.ApplyResources(this.gestionDeStockToolStripMenuItem, "gestionDeStockToolStripMenuItem");
-            this.gestionDeStockToolStripMenuItem.Tag = "20";
-            this.gestionDeStockToolStripMenuItem.Click += new System.EventHandler(this.gestionDeStockToolStripMenuItem_Click);
+            this.labelStock.Name = "labelStock";
+            resources.ApplyResources(this.labelStock, "labelStock");
+            this.labelStock.Tag = "20";
+            this.labelStock.Click += new System.EventHandler(this.gestionDeStockToolStripMenuItem_Click);
             // 
             // labelSistema
             // 
@@ -136,7 +136,7 @@ namespace UI
             this.labelFamiliaPatentes,
             this.labelBitacoraDV,
             this.labelBackupRestore,
-            this.controlDeCambiosToolStripMenuItem});
+            this.labelControlCambios});
             resources.ApplyResources(this.labelSistema, "labelSistema");
             this.labelSistema.Name = "labelSistema";
             this.labelSistema.Tag = "";
@@ -186,12 +186,12 @@ namespace UI
             this.labelBackupRestore.Tag = "18";
             this.labelBackupRestore.Click += new System.EventHandler(this.labelBackupRestore_Click);
             // 
-            // controlDeCambiosToolStripMenuItem
+            // labelControlCambios
             // 
-            this.controlDeCambiosToolStripMenuItem.Name = "controlDeCambiosToolStripMenuItem";
-            resources.ApplyResources(this.controlDeCambiosToolStripMenuItem, "controlDeCambiosToolStripMenuItem");
-            this.controlDeCambiosToolStripMenuItem.Tag = "17";
-            this.controlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.controlDeCambiosToolStripMenuItem_Click);
+            this.labelControlCambios.Name = "labelControlCambios";
+            resources.ApplyResources(this.labelControlCambios, "labelControlCambios");
+            this.labelControlCambios.Tag = "17";
+            this.labelControlCambios.Click += new System.EventHandler(this.controlDeCambiosToolStripMenuItem_Click);
             // 
             // labelIdioma
             // 
@@ -212,25 +212,25 @@ namespace UI
             // labelAyuda
             // 
             this.labelAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.infoToolStripMenuItem,
-            this.contactoToolStripMenuItem});
+            this.ToolAyuda,
+            this.ToolContacto});
             resources.ApplyResources(this.labelAyuda, "labelAyuda");
             this.labelAyuda.Name = "labelAyuda";
             this.labelAyuda.Tag = "99";
             // 
-            // infoToolStripMenuItem
+            // ToolAyuda
             // 
-            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            resources.ApplyResources(this.infoToolStripMenuItem, "infoToolStripMenuItem");
-            this.infoToolStripMenuItem.Tag = "99";
-            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
+            this.ToolAyuda.Name = "ToolAyuda";
+            resources.ApplyResources(this.ToolAyuda, "ToolAyuda");
+            this.ToolAyuda.Tag = "99";
+            this.ToolAyuda.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
-            // contactoToolStripMenuItem
+            // ToolContacto
             // 
-            this.contactoToolStripMenuItem.Name = "contactoToolStripMenuItem";
-            resources.ApplyResources(this.contactoToolStripMenuItem, "contactoToolStripMenuItem");
-            this.contactoToolStripMenuItem.Tag = "99";
-            this.contactoToolStripMenuItem.Click += new System.EventHandler(this.contactoToolStripMenuItem_Click);
+            this.ToolContacto.Name = "ToolContacto";
+            resources.ApplyResources(this.ToolContacto, "ToolContacto");
+            this.ToolContacto.Tag = "99";
+            this.ToolContacto.Click += new System.EventHandler(this.contactoToolStripMenuItem_Click);
             // 
             // Inicio
             // 
@@ -271,15 +271,15 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem labelABMUsuarios;
         private System.Windows.Forms.ToolStripMenuItem labelIdioma;
         private System.Windows.Forms.ToolStripMenuItem labelAyuda;
-        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contactoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolAyuda;
+        private System.Windows.Forms.ToolStripMenuItem ToolContacto;
         private System.Windows.Forms.ToolStripMenuItem agregarIdiomaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem controlDeCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem labelVentas;
+        private System.Windows.Forms.ToolStripMenuItem labelControlCambios;
         private System.Windows.Forms.ToolStripMenuItem permisosGestionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem permisosUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem labelPagosYCobros;
         private System.Windows.Forms.ToolStripMenuItem labelFacturas;
-        private System.Windows.Forms.ToolStripMenuItem gestionDeStockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem labelStock;
     }
 }

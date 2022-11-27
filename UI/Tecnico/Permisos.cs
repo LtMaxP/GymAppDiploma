@@ -28,6 +28,7 @@ namespace UI
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
             this.LoadForm();
+            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
         /// <summary>
         /// Limpiar y cargar form

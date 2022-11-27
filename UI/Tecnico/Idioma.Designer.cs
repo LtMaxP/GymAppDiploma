@@ -29,30 +29,20 @@ namespace UI.Tecnico
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelAlta = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelNombre = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelModificar = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
+            this.labelElegir = new System.Windows.Forms.Button();
+            this.labelIdioma = new System.Windows.Forms.Label();
             this.LabelIdi = new System.Windows.Forms.Label();
-            this.btn_Eliminar = new System.Windows.Forms.Button();
+            this.labelBaja = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 144);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Idioma";
             // 
             // textBox1
             // 
@@ -69,38 +59,38 @@ namespace UI.Tecnico
             this.dataGridView1.Size = new System.Drawing.Size(315, 464);
             this.dataGridView1.TabIndex = 2;
             // 
-            // button1
+            // labelAlta
             // 
-            this.button1.Location = new System.Drawing.Point(133, 316);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 21);
-            this.button1.TabIndex = 3;
-            this.button1.Tag = "1045";
-            this.button1.Text = "Crear";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.labelAlta.Location = new System.Drawing.Point(133, 316);
+            this.labelAlta.Name = "labelAlta";
+            this.labelAlta.Size = new System.Drawing.Size(57, 21);
+            this.labelAlta.TabIndex = 3;
+            this.labelAlta.Tag = "1045";
+            this.labelAlta.Text = "Alta";
+            this.labelAlta.UseVisualStyleBackColor = true;
+            this.labelAlta.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(31, 160);
+            this.comboBox1.Location = new System.Drawing.Point(28, 111);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(142, 21);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label2
+            // labelNombre
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 301);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Nombre";
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Location = new System.Drawing.Point(28, 301);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(44, 13);
+            this.labelNombre.TabIndex = 5;
+            this.labelNombre.Text = "Nombre";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(179, 160);
+            this.button2.Location = new System.Drawing.Point(176, 111);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(24, 22);
             this.button2.TabIndex = 6;
@@ -109,47 +99,47 @@ namespace UI.Tecnico
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // labelModificar
             // 
-            this.button3.Location = new System.Drawing.Point(136, 253);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(67, 22);
-            this.button3.TabIndex = 7;
-            this.button3.Tag = "1047";
-            this.button3.Text = "Modificar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.labelModificar.Location = new System.Drawing.Point(133, 204);
+            this.labelModificar.Name = "labelModificar";
+            this.labelModificar.Size = new System.Drawing.Size(67, 22);
+            this.labelModificar.TabIndex = 7;
+            this.labelModificar.Tag = "1047";
+            this.labelModificar.Text = "Modificar";
+            this.labelModificar.UseVisualStyleBackColor = true;
+            this.labelModificar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // buttonSalir
             // 
-            this.button4.Location = new System.Drawing.Point(466, 534);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 34);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Salir";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonSalir.Location = new System.Drawing.Point(466, 534);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(75, 34);
+            this.buttonSalir.TabIndex = 8;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // labelElegir
             // 
-            this.button5.Location = new System.Drawing.Point(31, 197);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(62, 22);
-            this.button5.TabIndex = 9;
-            this.button5.Tag = "1048";
-            this.button5.Text = "Elegir";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.labelElegir.Location = new System.Drawing.Point(28, 148);
+            this.labelElegir.Name = "labelElegir";
+            this.labelElegir.Size = new System.Drawing.Size(62, 22);
+            this.labelElegir.TabIndex = 9;
+            this.labelElegir.Tag = "1048";
+            this.labelElegir.Text = "Elegir";
+            this.labelElegir.UseVisualStyleBackColor = true;
+            this.labelElegir.Click += new System.EventHandler(this.button5_Click);
             // 
-            // label3
+            // labelIdioma
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Niagara Solid", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 51);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Idioma";
+            this.labelIdioma.AutoSize = true;
+            this.labelIdioma.Font = new System.Drawing.Font("Niagara Solid", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIdioma.Location = new System.Drawing.Point(19, 45);
+            this.labelIdioma.Name = "labelIdioma";
+            this.labelIdioma.Size = new System.Drawing.Size(100, 51);
+            this.labelIdioma.TabIndex = 10;
+            this.labelIdioma.Text = "Idioma";
             // 
             // LabelIdi
             // 
@@ -159,16 +149,16 @@ namespace UI.Tecnico
             this.LabelIdi.Size = new System.Drawing.Size(0, 13);
             this.LabelIdi.TabIndex = 11;
             // 
-            // btn_Eliminar
+            // labelBaja
             // 
-            this.btn_Eliminar.Location = new System.Drawing.Point(84, 225);
-            this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Size = new System.Drawing.Size(61, 22);
-            this.btn_Eliminar.TabIndex = 12;
-            this.btn_Eliminar.Tag = "1046";
-            this.btn_Eliminar.Text = "Eliminar";
-            this.btn_Eliminar.UseVisualStyleBackColor = true;
-            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
+            this.labelBaja.Location = new System.Drawing.Point(81, 176);
+            this.labelBaja.Name = "labelBaja";
+            this.labelBaja.Size = new System.Drawing.Size(61, 22);
+            this.labelBaja.TabIndex = 12;
+            this.labelBaja.Tag = "1046";
+            this.labelBaja.Text = "Baja";
+            this.labelBaja.UseVisualStyleBackColor = true;
+            this.labelBaja.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // Idioma
             // 
@@ -178,19 +168,18 @@ namespace UI.Tecnico
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(581, 591);
             this.ControlBox = false;
-            this.Controls.Add(this.btn_Eliminar);
+            this.Controls.Add(this.labelBaja);
             this.Controls.Add(this.LabelIdi);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.labelIdioma);
+            this.Controls.Add(this.labelElegir);
+            this.Controls.Add(this.buttonSalir);
+            this.Controls.Add(this.labelModificar);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelAlta);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
             this.Name = "Idioma";
             this.Text = "Idioma";
             this.Load += new System.EventHandler(this.Idioma_Load);
@@ -201,19 +190,17 @@ namespace UI.Tecnico
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button labelAlta;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button labelModificar;
+        private System.Windows.Forms.Button buttonSalir;
+        private System.Windows.Forms.Button labelElegir;
+        private System.Windows.Forms.Label labelIdioma;
         private System.Windows.Forms.Label LabelIdi;
-        private System.Windows.Forms.Button btn_Eliminar;
+        private System.Windows.Forms.Button labelBaja;
     }
 }

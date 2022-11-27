@@ -45,6 +45,7 @@ namespace UI
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
             DameEstados();
             SetDataInicial();
+            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
         /// <summary>
         /// Cargar data inicial

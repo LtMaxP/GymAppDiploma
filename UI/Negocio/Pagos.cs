@@ -28,6 +28,7 @@ namespace UI
         {
             bllClientes = new BLL.BLLClientes();
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
+            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
 
         private void button1_Click(object sender, EventArgs e)

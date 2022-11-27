@@ -40,6 +40,7 @@ namespace UI
                 comboBox1.Items.Add(id);
             }
             comboBox1.ValueMember = "User";
+            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
         /// <summary>
         /// Salir

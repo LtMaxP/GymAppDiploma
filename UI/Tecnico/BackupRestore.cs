@@ -33,6 +33,7 @@ namespace UI
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
             DgBackup.DataSource = bkpBLL.TraerBackupsBD();
             DgBackup.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
         public void Update()
         {

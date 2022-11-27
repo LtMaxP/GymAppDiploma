@@ -32,6 +32,7 @@ namespace UI
         {
             SubjectIdioma.AddObserverIdioma(this);
             PermisosRecurseToolStripItems(this.menuStrip1.Items);
+            SubjectIdioma.Notify();
         }
         /// <summary>
         /// Recursividad para habilitar permisos

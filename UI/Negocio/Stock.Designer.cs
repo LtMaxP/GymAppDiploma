@@ -29,7 +29,7 @@ namespace UI.Negocio
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
             this.labelNroDisponible = new System.Windows.Forms.Label();
             this.labelPrecio = new System.Windows.Forms.Label();
             this.labelDisponible = new System.Windows.Forms.Label();
@@ -38,19 +38,19 @@ namespace UI.Negocio
             this.labelProducto = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.txtBoxPrecio = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.buttonCargar = new System.Windows.Forms.Button();
+            this.lblStock = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonSalir
             // 
-            this.button1.Location = new System.Drawing.Point(418, 291);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSalir.Location = new System.Drawing.Point(418, 291);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalir.TabIndex = 0;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelNroDisponible
             // 
@@ -129,29 +129,29 @@ namespace UI.Negocio
             this.txtBoxPrecio.Size = new System.Drawing.Size(43, 22);
             this.txtBoxPrecio.TabIndex = 22;
             // 
-            // button2
+            // buttonCargar
             // 
-            this.button2.BackColor = System.Drawing.Color.ForestGreen;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(188, 213);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 31);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Cargar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonCargar.BackColor = System.Drawing.Color.ForestGreen;
+            this.buttonCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCargar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonCargar.Location = new System.Drawing.Point(188, 213);
+            this.buttonCargar.Name = "buttonCargar";
+            this.buttonCargar.Size = new System.Drawing.Size(75, 31);
+            this.buttonCargar.TabIndex = 26;
+            this.buttonCargar.Text = "Cargar";
+            this.buttonCargar.UseVisualStyleBackColor = false;
+            this.buttonCargar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label1
+            // lblStock
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft PhagsPa", 25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 44);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Stock";
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Microsoft PhagsPa", 25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.ForeColor = System.Drawing.Color.Maroon;
+            this.lblStock.Location = new System.Drawing.Point(12, 9);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(108, 44);
+            this.lblStock.TabIndex = 27;
+            this.lblStock.Text = "Stock";
             // 
             // Stock
             // 
@@ -159,8 +159,8 @@ namespace UI.Negocio
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
             this.ClientSize = new System.Drawing.Size(509, 325);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.lblStock);
+            this.Controls.Add(this.buttonCargar);
             this.Controls.Add(this.labelNroDisponible);
             this.Controls.Add(this.labelPrecio);
             this.Controls.Add(this.labelDisponible);
@@ -169,7 +169,7 @@ namespace UI.Negocio
             this.Controls.Add(this.labelCantidad);
             this.Controls.Add(this.labelProducto);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonSalir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Stock";
             this.Text = "Gestion de Stock";
@@ -181,7 +181,7 @@ namespace UI.Negocio
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Label labelNroDisponible;
         private System.Windows.Forms.Label labelPrecio;
         private System.Windows.Forms.Label labelDisponible;
@@ -190,7 +190,7 @@ namespace UI.Negocio
         private System.Windows.Forms.Label labelProducto;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox txtBoxPrecio;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonCargar;
+        private System.Windows.Forms.Label lblStock;
     }
 }

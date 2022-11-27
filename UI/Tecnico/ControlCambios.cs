@@ -28,6 +28,7 @@ namespace UI.Tecnico
             SubjectIdioma.AddObserverIdioma(this);
             //CargarGrilla();
             cargarComboUser();
+            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
         private void cargarComboUser()
         {

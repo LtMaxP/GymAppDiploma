@@ -23,6 +23,7 @@ namespace UI.Negocio
         private void Stock_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
+            BE.ObserverIdioma.SubjectIdioma.Notify();
             LoadItems();
         }
         private void LoadItems()

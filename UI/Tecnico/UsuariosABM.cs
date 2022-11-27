@@ -163,7 +163,7 @@ namespace UI
         private void UsuariosABM_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
-            //estado
+            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
         public void Update()
         {
