@@ -16,7 +16,10 @@ namespace Servicios
             bool returnable = false;
             try
             {
-                FileStream pdfroot = new FileStream(rooTFoolder + "//Factura" + factura.Id_Factura + ".pdf", FileMode.Create, FileAccess.Write, FileShare.None);
+                Random random = new Random();
+                int numero = random.Next(10000, 99999);
+
+                FileStream pdfroot = new FileStream(rooTFoolder + "//Factura" + "_" + factura.Id_Factura + "_" + numero.ToString() + ".pdf", FileMode.Create, FileAccess.Write, FileShare.None);
                 Document doc = new Document(PageSize.LETTER, 5, 5, 7, 7);
                 PdfWriter pw = PdfWriter.GetInstance(doc, pdfroot);
 
