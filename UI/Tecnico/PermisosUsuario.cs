@@ -225,10 +225,12 @@ namespace UI
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
-            if (arbolAsignados.Nodes.Count == 0)// && arbolDisponibles.Nodes.Count == 0)
+            if (arbolAsignados.Nodes.Count == 0)
                 MessageBox.Show("Debe cargar los permisos");
-            else if (arbolAsignados.Nodes.Count != 0 && arbolAsignados.SelectedNode == null)//&& (arbolDisponibles.SelectedNode == null || arbolDisponibles.SelectedNode == null))
+            else if (arbolAsignados.Nodes.Count != 0 && arbolAsignados.SelectedNode == null)
                 MessageBox.Show("Debe seleccionar un permiso");
+            else if (arbolAsignados.Nodes.Count != 0 && arbolAsignados.SelectedNode.Level >0)//&& (arbolDisponibles.SelectedNode == null || arbolDisponibles.SelectedNode == null))
+                MessageBox.Show("No se permite eliminar Permisos dentro de familias, borrar familia");
             else
             {
                 string[] permiso = arbolAsignados.SelectedNode.Text.Split('-');
