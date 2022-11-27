@@ -172,7 +172,7 @@ namespace UI.Negocio
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Stock";
-            this.Text = "Stock";
+            this.Text = "Gestion de Stock";
             this.Load += new System.EventHandler(this.Stock_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

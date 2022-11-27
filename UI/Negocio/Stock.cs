@@ -23,6 +23,10 @@ namespace UI.Negocio
         private void Stock_Load(object sender, EventArgs e)
         {
             BE.ObserverIdioma.SubjectIdioma.AddObserverIdioma(this);
+            LoadItems();
+        }
+        private void LoadItems()
+        {
             items = BLLProd.TraerProductos();
             comboBox1.DataSource = items;
             comboBox1.DisplayMember = "Descripcion";
@@ -42,25 +46,29 @@ namespace UI.Negocio
                 var item = items.First(x => x.Descripcion == selectioncmb);
                 labelNroDisponible.Text = item.Cantidad.ToString();
                 txtBoxPrecio.Text = item.Valor.ToString();
+                txtBoxCantidad.Text = "0";
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (int.Parse(txtBoxCantidad.Text) > 0)
+            if (int.Parse(txtBoxCantidad.Text) > 0 || Decimal.Parse(txtBoxPrecio.Text) != ((Item)comboBox1.SelectedItem).Valor)
             {
                 Item it = new Item();
                 it.Descripcion = comboBox1.Text;
                 it.Cantidad = int.Parse(txtBoxCantidad.Text);
                 it.Valor = Decimal.Parse(txtBoxPrecio.Text);
-                if(BLLProd.CargarProducto(it))
+                if (BLLProd.CargarProducto(it))
+                {
                     MessageBox.Show("Se cargo stock con exito");
+                    LoadItems();
+                }
                 else
                     MessageBox.Show("No se pudo cargar stock");
             }
             else
             {
-                MessageBox.Show("Debe ingresar al menos 1 producto");
+                MessageBox.Show("Debe modificar al menos 1 producto");
             }
         }
     }

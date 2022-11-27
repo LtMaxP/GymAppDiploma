@@ -576,7 +576,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Clientes";
-            this.Text = "Clientes";
+            this.Text = "Gestion de Clientes";
             this.Load += new System.EventHandler(this.Clientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource1)).EndInit();

@@ -256,7 +256,7 @@ namespace UI.Negocio
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Name = "Productos";
-            this.Text = "Productos";
+            this.Text = "Gestion de Ventas";
             this.Load += new System.EventHandler(this.Productos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
