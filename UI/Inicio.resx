@@ -156,6 +156,51 @@
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
+  <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 34</value>
+  </data>
+  <data name="labelFacturas.Text" xml:space="preserve">
+    <value>Facturas</value>
+  </data>
+  <data name="labelFacturas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 34</value>
+  </data>
+  <data name="labelPagosYCobros.Text" xml:space="preserve">
+    <value>Pagos</value>
+  </data>
+  <data name="labelPagosYCobros.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelClientes.Text" xml:space="preserve">
+    <value>Gestion de clientes</value>
+  </data>
+  <data name="labelClientes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelVentas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelVentas.Text" xml:space="preserve">
+    <value>Gestion de ventas</value>
+  </data>
+  <data name="labelVentas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelStock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelStock.Text" xml:space="preserve">
+    <value>Gestion de stock</value>
+  </data>
+  <data name="labelStock.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="labelAcciones.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
@@ -164,6 +209,69 @@
   </data>
   <data name="labelAcciones.Text" xml:space="preserve">
     <value>Inicio</value>
+  </data>
+  <data name="labelABMUsuario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="labelABMUsuario.Text" xml:space="preserve">
+    <value>Gestion Usuarios</value>
+  </data>
+  <data name="labelABMUsuario.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelPermisosGestion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 34</value>
+  </data>
+  <data name="labelPermisosGestion.Text" xml:space="preserve">
+    <value>Permisos Gestion</value>
+  </data>
+  <data name="labelPermisosGestion.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelPermisosUsuario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 34</value>
+  </data>
+  <data name="labelPermisosUsuario.Text" xml:space="preserve">
+    <value>Permisos Usuario</value>
+  </data>
+  <data name="labelPermisosUsuario.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelFamiliaPatentes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="labelFamiliaPatentes.Text" xml:space="preserve">
+    <value>Permisos</value>
+  </data>
+  <data name="labelFamiliaPatentes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelBitacoraDV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="labelBitacoraDV.Text" xml:space="preserve">
+    <value>Bitacora</value>
+  </data>
+  <data name="labelBitacoraDV.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelBackupRestore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="labelBackupRestore.Text" xml:space="preserve">
+    <value>Backup y Restore</value>
+  </data>
+  <data name="labelBackupRestore.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelControlCambios.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="labelControlCambios.Text" xml:space="preserve">
+    <value>Control de Cambios</value>
+  </data>
+  <data name="labelControlCambios.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="labelSistema.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
@@ -175,7 +283,7 @@
     <value>Sistema</value>
   </data>
   <data name="ToolIdioma.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
+    <value>126, 34</value>
   </data>
   <data name="ToolIdioma.Text" xml:space="preserve">
     <value>Idioma</value>
@@ -188,6 +296,18 @@
   </data>
   <data name="labelIdioma.Text" xml:space="preserve">
     <value>Idioma</value>
+  </data>
+  <data name="ToolAyuda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 34</value>
+  </data>
+  <data name="ToolAyuda.Text" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="ToolContacto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 34</value>
+  </data>
+  <data name="ToolContacto.Text" xml:space="preserve">
+    <value>Contacto</value>
   </data>
   <data name="labelAyuda.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
@@ -221,126 +341,6 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
-  </data>
-  <data name="labelClientes.Text" xml:space="preserve">
-    <value>Gestion de clientes</value>
-  </data>
-  <data name="labelClientes.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 34</value>
-  </data>
-  <data name="labelFacturas.Text" xml:space="preserve">
-    <value>Facturas</value>
-  </data>
-  <data name="labelFacturas.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 34</value>
-  </data>
-  <data name="labelPagosYCobros.Text" xml:space="preserve">
-    <value>Pagos</value>
-  </data>
-  <data name="labelPagosYCobros.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelVentas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
-  </data>
-  <data name="labelVentas.Text" xml:space="preserve">
-    <value>Gestion de ventas</value>
-  </data>
-  <data name="labelVentas.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelStock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
-  </data>
-  <data name="labelStock.Text" xml:space="preserve">
-    <value>Gestion de stock</value>
-  </data>
-  <data name="labelStock.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelABMUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelABMUsuario.Text" xml:space="preserve">
-    <value>Gestion Usuarios</value>
-  </data>
-  <data name="labelABMUsuario.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelFamiliaPatentes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelFamiliaPatentes.Text" xml:space="preserve">
-    <value>Permisos</value>
-  </data>
-  <data name="labelFamiliaPatentes.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelPermisosGestion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 34</value>
-  </data>
-  <data name="labelPermisosGestion.Text" xml:space="preserve">
-    <value>Permisos Gestion</value>
-  </data>
-  <data name="labelPermisosGestion.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelPermisosUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 34</value>
-  </data>
-  <data name="labelPermisosUsuario.Text" xml:space="preserve">
-    <value>Permisos Usuario</value>
-  </data>
-  <data name="labelPermisosUsuario.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelBitacoraDV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelBitacoraDV.Text" xml:space="preserve">
-    <value>Bitacora</value>
-  </data>
-  <data name="labelBitacoraDV.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelBackupRestore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelBackupRestore.Text" xml:space="preserve">
-    <value>Backup y Restore</value>
-  </data>
-  <data name="labelBackupRestore.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelControlCambios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelControlCambios.Text" xml:space="preserve">
-    <value>Control de Cambios</value>
-  </data>
-  <data name="labelControlCambios.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolAyuda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 34</value>
-  </data>
-  <data name="ToolAyuda.Text" xml:space="preserve">
-    <value>Ayuda</value>
-  </data>
-  <data name="ToolContacto.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 34</value>
-  </data>
-  <data name="ToolContacto.Text" xml:space="preserve">
-    <value>Contacto</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -33,6 +33,12 @@ namespace UI
         private void PermisosUsuario_Load_1(object sender, EventArgs e)
         {
             SubjectIdioma.AddObserverIdioma(this);
+            CargaUsuariosInicio();
+            BE.ObserverIdioma.SubjectIdioma.Notify();
+        }
+
+        private void CargaUsuariosInicio()
+        {
             _permisosTotal = _perm.TraerAgrupadosDAL();
             _users = bLLUsuario.TraerUsuarios();
             foreach (var id in _users)
@@ -40,7 +46,6 @@ namespace UI
                 comboBox1.Items.Add(id);
             }
             comboBox1.ValueMember = "User";
-            BE.ObserverIdioma.SubjectIdioma.Notify();
         }
         /// <summary>
         /// Salir
@@ -257,9 +262,12 @@ namespace UI
             if (_perm.GuardarP(_pAsig, user))
             {
                 MessageBox.Show("Permisos guardados con exito");
+                comboBox1.Items.Clear();
+                CargaUsuariosInicio();
             }
             else
                 MessageBox.Show("Error al asignar ");
         }
+
     }
 }

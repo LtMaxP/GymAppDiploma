@@ -84,9 +84,19 @@ namespace DAL
             {
                 foreach (var perfil in permisos.List())
                 {
-                    sqlcomm.Parameters["@Id_Permiso"].Value = perfil.iDPatente;
-                    sqlcomm.Parameters["@Id_Usuario"].Value = user.IdUsuario;
-                    Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                    if (perfil is Hoja)
+                    {
+                        sqlcomm.Parameters["@Id_Permiso"].Value = perfil.iDPatente;
+                        sqlcomm.Parameters["@Id_Usuario"].Value = user.IdUsuario;
+                        Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                    }
+                    if (perfil is Composite)
+                    {
+                        sqlcomm.Parameters["@Id_Permiso"].Value = perfil.iDPatente;
+                        sqlcomm.Parameters["@Id_Usuario"].Value = user.IdUsuario;
+                        Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                        GuardarPermisosAsignados(perfil, user);
+                    }
                 }
                 returnable = true;
             }
@@ -96,6 +106,8 @@ namespace DAL
             DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se modificaron los permisos en usuario " + user.User, "Ninguno"));
             return returnable;
         }
+
+
         /// <summary>
         /// Eliminar familia y relaciones
         /// </summary>
@@ -164,15 +176,25 @@ namespace DAL
                         BE.Composite.Component newcompo = null;
                         if (element[3].ToString().Contains("F"))
                         {
-                            newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[1].ToString(), element[2].ToString()));
-                            Permisos.Agregar(newcompo);
+                            newcompo = ArmarArbolIdUsuarioConsulta(new BE.Composite.Composite(element[1].ToString(), element[2].ToString()), user);
+                            //newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[1].ToString(), element[2].ToString()));
+                            if (!Permisos.VerificarSiExiste(newcompo))
+                            {
+                                ReiteracionCompo(Permisos, newcompo);
+                                Permisos.Agregar(newcompo);
+                            }
                         }
                         else if (element[3].ToString().Contains("P"))
                         {
-                            Permisos.Agregar(new BE.Composite.Hoja(element[1].ToString(), element[2].ToString()));
+                            var prm = new BE.Composite.Hoja(element[1].ToString(), element[2].ToString());
+                            if (!Permisos.VerificarSiExiste(prm))
+                            {
+                                Permisos.Agregar(prm);
+                            }
                         }
                     }
                 }
+                //Permisos = ArmarArbolIdUsuarioConsulta(Permisos, user);
                 user.Permisos = Permisos;
             }
             catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Obtener PermisosUsuario."); }
@@ -204,7 +226,52 @@ namespace DAL
                         if (element[2].ToString().Contains("F"))
                         {
                             newcompo = ArmarArbolConIdPadre(new BE.Composite.Composite(element[0].ToString(), element[1].ToString()));
-                            if (!cmp.VerificarSiExiste(newcompo)) //easdasfasdas
+                            if (!cmp.VerificarSiExiste(newcompo))
+                            {
+                                cmp.Agregar(newcompo);
+                            }
+                        }
+                        else if (element[2].ToString().Contains("P"))
+                        {
+                            newcompo = new BE.Composite.Hoja(element[0].ToString(), element[1].ToString());
+                            if (!cmp.VerificarSiExiste(newcompo))
+                            {
+                                cmp.Agregar(newcompo);
+                            }
+                        }
+                    }
+                }
+            }
+            catch { System.Windows.Forms.MessageBox.Show("Problema al tratar de Obtener PermisosUsuario."); }
+
+            return cmp;
+        }
+
+        private Component ArmarArbolIdUsuarioConsulta(Component cmp, BE_Usuario user)
+        {
+            try
+            {
+                SqlCommand comm = new SqlCommand();
+                comm.CommandText = @"SELECT PR.Id_Perfil, PPF.Nombre, PPF.Tipo, PR.Id_Padre
+                                        FROM PermisosRelacion AS PR
+                                        inner join PerfilPyF PPF on PPF.Id_Perfil = PR.Id_Perfil 
+										INNER JOIN [dbo].[PermisosUsuarios] PU ON PU.Id_Permiso = PR.Id_Perfil
+										INNER JOIN [dbo].[Usuario] U ON U.Id_Usuario = PU.Id_Usuario
+										WHERE PU.Id_Usuario = @id AND PR.Id_Padre = @id_P";
+                comm.Parameters.AddWithValue("@id", user.IdUsuario);
+                comm.Parameters.AddWithValue("@id_P", cmp.iDPatente);
+
+                DataTable dt = Acceso.Instance.ExecuteDataTable(comm);
+                foreach (DataRow element in dt.Rows)
+                {
+                    BE.Composite.Component newcompo = null;
+
+                    if (!String.IsNullOrEmpty(element[0].ToString()))
+                    {
+                        if (element[2].ToString().Contains("F"))
+                        {
+                            newcompo = ArmarArbolIdUsuarioConsulta(new BE.Composite.Composite(element[0].ToString(), element[1].ToString()), user);
+                            if (!cmp.VerificarSiExiste(newcompo))
                             {
                                 cmp.Agregar(newcompo);
                             }

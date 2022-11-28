@@ -155,7 +155,7 @@ namespace UI
             this.labelPermisosUsuario});
             this.labelFamiliaPatentes.Name = "labelFamiliaPatentes";
             resources.ApplyResources(this.labelFamiliaPatentes, "labelFamiliaPatentes");
-            this.labelFamiliaPatentes.Tag = "15";
+            this.labelFamiliaPatentes.Tag = "16";
             this.labelFamiliaPatentes.Click += new System.EventHandler(this.labelFamiliaPatentes_Click);
             // 
             // labelPermisosGestion
