@@ -44,11 +44,11 @@
             this.labelUser.BackColor = System.Drawing.SystemColors.WindowText;
             this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.labelUser.Location = new System.Drawing.Point(92, 101);
+            this.labelUser.Location = new System.Drawing.Point(114, 81);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(71, 20);
+            this.labelUser.Size = new System.Drawing.Size(47, 20);
             this.labelUser.TabIndex = 0;
-            this.labelUser.Text = "Usuario";
+            this.labelUser.Text = "User";
             // 
             // buttonIngresar
             // 
@@ -56,11 +56,11 @@
             this.buttonIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonIngresar.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonIngresar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonIngresar.Location = new System.Drawing.Point(326, 197);
+            this.buttonIngresar.Location = new System.Drawing.Point(326, 184);
             this.buttonIngresar.Name = "buttonIngresar";
-            this.buttonIngresar.Size = new System.Drawing.Size(151, 49);
+            this.buttonIngresar.Size = new System.Drawing.Size(151, 62);
             this.buttonIngresar.TabIndex = 1;
-            this.buttonIngresar.Text = "Ingresar";
+            this.buttonIngresar.Text = "Ingresar\r\nSign In";
             this.buttonIngresar.UseVisualStyleBackColor = false;
             this.buttonIngresar.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -70,11 +70,11 @@
             this.buttonSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSalir.Font = new System.Drawing.Font("Courier New", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalir.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSalir.Location = new System.Drawing.Point(541, 373);
+            this.buttonSalir.Location = new System.Drawing.Point(541, 365);
             this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(64, 34);
+            this.buttonSalir.Size = new System.Drawing.Size(64, 42);
             this.buttonSalir.TabIndex = 2;
-            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.Text = "Salir\r";
             this.buttonSalir.UseVisualStyleBackColor = false;
             this.buttonSalir.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -84,16 +84,16 @@
             this.labelPass.BackColor = System.Drawing.SystemColors.WindowText;
             this.labelPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.labelPass.ForeColor = System.Drawing.SystemColors.Window;
-            this.labelPass.Location = new System.Drawing.Point(92, 145);
+            this.labelPass.Location = new System.Drawing.Point(101, 143);
             this.labelPass.Name = "labelPass";
-            this.labelPass.Size = new System.Drawing.Size(102, 20);
+            this.labelPass.Size = new System.Drawing.Size(86, 20);
             this.labelPass.TabIndex = 3;
-            this.labelPass.Text = "Contraseña";
+            this.labelPass.Text = "Password";
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox1.Location = new System.Drawing.Point(230, 101);
+            this.textBox1.Location = new System.Drawing.Point(230, 83);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(281, 20);
             this.textBox1.TabIndex = 4;
@@ -112,11 +112,11 @@
             this.Recuperacion.BackColor = System.Drawing.Color.DarkSlateGray;
             this.Recuperacion.Font = new System.Drawing.Font("Baskerville Old Face", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Recuperacion.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Recuperacion.Location = new System.Drawing.Point(219, 208);
+            this.Recuperacion.Location = new System.Drawing.Point(219, 197);
             this.Recuperacion.Name = "Recuperacion";
-            this.Recuperacion.Size = new System.Drawing.Size(84, 28);
+            this.Recuperacion.Size = new System.Drawing.Size(84, 38);
             this.Recuperacion.TabIndex = 6;
-            this.Recuperacion.Text = "Recuperar";
+            this.Recuperacion.Text = "Recuperar\r\nRecover";
             this.Recuperacion.UseVisualStyleBackColor = false;
             this.Recuperacion.Click += new System.EventHandler(this.Recuperacion_Click);
             // 

@@ -178,7 +178,7 @@
     <value>180, 34</value>
   </data>
   <data name="ToolIdioma.Text" xml:space="preserve">
-    <value>Seccion Idioma</value>
+    <value>Idioma</value>
   </data>
   <data name="labelIdioma.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>

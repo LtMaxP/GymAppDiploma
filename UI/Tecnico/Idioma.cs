@@ -42,6 +42,7 @@ namespace UI.Tecnico
             SubjectIdioma.AddObserverIdioma(this);
             //Subject.Notify(SingletonIdioma.GetInstance().Idioma);  usar el notify cuando se hace click en un idioma arriba
             CargarComboIdiomas();
+            SubjectIdioma.Notify();
         }
         /// <summary>
         /// Cargar combobox con Idiomas existentes
