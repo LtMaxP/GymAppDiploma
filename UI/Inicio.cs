@@ -217,17 +217,7 @@ namespace UI
         }
         private void labelFacturas_Click_1(object sender, EventArgs e)
         {
-            if (Factu == null)
-            {
-                Factu = new Facturas();
-                Factu.MdiParent = this;
-                Factu.FormClosed += new FormClosedEventHandler(Factu_FormClosed);
-                Factu.Show();
-            }
-            else
-            {
-                Factu.Activate();
-            }
+
         }
         private void Factu_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -235,17 +225,7 @@ namespace UI
         }
         private void labelPagosYCobros_Click_1(object sender, EventArgs e)
         {
-            if (PyG == null)
-            {
-                PyG = new PagosCobros();
-                PyG.MdiParent = this;
-                PyG.FormClosed += new FormClosedEventHandler(PyG_FormClosed);
-                PyG.Show();
-            }
-            else
-            {
-                PyG.Activate();
-            }
+
         }
         private void PyG_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -405,6 +385,36 @@ namespace UI
             MessageBox.Show(@"      Telefono de contacto: 159483087
             Email: portadag@gmail.com
             País: Argentina");
+        }
+
+        private void labelPagosYCobros_Click(object sender, EventArgs e)
+        {
+            if (PyG == null)
+            {
+                PyG = new PagosCobros();
+                PyG.MdiParent = this;
+                PyG.FormClosed += new FormClosedEventHandler(PyG_FormClosed);
+                PyG.Show();
+            }
+            else
+            {
+                PyG.Activate();
+            }
+        }
+
+        private void labelFacturas_Click(object sender, EventArgs e)
+        {
+            if (Factu == null)
+            {
+                Factu = new Facturas();
+                Factu.MdiParent = this;
+                Factu.FormClosed += new FormClosedEventHandler(Factu_FormClosed);
+                Factu.Show();
+            }
+            else
+            {
+                Factu.Activate();
+            }
         }
     }
 }

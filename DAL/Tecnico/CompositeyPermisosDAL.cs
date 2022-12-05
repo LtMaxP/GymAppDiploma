@@ -518,14 +518,13 @@ namespace DAL
                     {
                         sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;
                         sqlcomm.Parameters["@ID_PADRE"].Value = familia;
-                        Acceso.Instance.ExecuteNonQuery(sqlcomm);
                     }
                     else
                     {
                         sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;// esto si es compo o una hoja es por las dudas q se requiera
                         sqlcomm.Parameters["@ID_PADRE"].Value = familia;
-                        Acceso.Instance.ExecuteNonQuery(sqlcomm);
                     }
+                    Acceso.Instance.ExecuteNonQuery(sqlcomm);
                 }
                 //Esto es para mantener lo que tiene ya dentro del perfil
                 else

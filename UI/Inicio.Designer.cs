@@ -37,6 +37,8 @@ namespace UI
             this.labelClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.labelVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.labelStock = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelFacturas = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.labelABMUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.labelFamiliaPatentes = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,9 +51,6 @@ namespace UI
             this.ToolIdioma = new System.Windows.Forms.ToolStripMenuItem();
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolAyuda = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolContacto = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelFacturas = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaGestionDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaGestionDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaGestionDeStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,6 +61,7 @@ namespace UI
             this.ayudaBitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaBackupYRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaGestionDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolContacto = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaAlUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +124,20 @@ namespace UI
             resources.ApplyResources(this.labelStock, "labelStock");
             this.labelStock.Tag = "20";
             this.labelStock.Click += new System.EventHandler(this.gestionDeStockToolStripMenuItem_Click);
+            // 
+            // labelPagosYCobros
+            // 
+            this.labelPagosYCobros.Name = "labelPagosYCobros";
+            resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
+            this.labelPagosYCobros.Tag = "29";
+            this.labelPagosYCobros.Click += new System.EventHandler(this.labelPagosYCobros_Click);
+            // 
+            // labelFacturas
+            // 
+            this.labelFacturas.Name = "labelFacturas";
+            resources.ApplyResources(this.labelFacturas, "labelFacturas");
+            this.labelFacturas.Tag = "28";
+            this.labelFacturas.Click += new System.EventHandler(this.labelFacturas_Click);
             // 
             // labelSistema
             // 
@@ -233,25 +247,6 @@ namespace UI
             this.ToolAyuda.Tag = "99";
             this.ToolAyuda.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
-            // ToolContacto
-            // 
-            this.ToolContacto.Name = "ToolContacto";
-            resources.ApplyResources(this.ToolContacto, "ToolContacto");
-            this.ToolContacto.Tag = "99";
-            this.ToolContacto.Click += new System.EventHandler(this.contactoToolStripMenuItem_Click);
-            // 
-            // labelPagosYCobros
-            // 
-            this.labelPagosYCobros.Name = "labelPagosYCobros";
-            resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
-            this.labelPagosYCobros.Tag = "29";
-            // 
-            // labelFacturas
-            // 
-            this.labelFacturas.Name = "labelFacturas";
-            resources.ApplyResources(this.labelFacturas, "labelFacturas");
-            this.labelFacturas.Tag = "28";
-            // 
             // ayudaGestionDeClientesToolStripMenuItem
             // 
             this.ayudaGestionDeClientesToolStripMenuItem.Name = "ayudaGestionDeClientesToolStripMenuItem";
@@ -311,6 +306,13 @@ namespace UI
             this.ayudaGestionDeUsuarioToolStripMenuItem.Name = "ayudaGestionDeUsuarioToolStripMenuItem";
             resources.ApplyResources(this.ayudaGestionDeUsuarioToolStripMenuItem, "ayudaGestionDeUsuarioToolStripMenuItem");
             this.ayudaGestionDeUsuarioToolStripMenuItem.Tag = "9";
+            // 
+            // ToolContacto
+            // 
+            this.ToolContacto.Name = "ToolContacto";
+            resources.ApplyResources(this.ToolContacto, "ToolContacto");
+            this.ToolContacto.Tag = "99";
+            this.ToolContacto.Click += new System.EventHandler(this.contactoToolStripMenuItem_Click);
             // 
             // ayudaAlUsuarioToolStripMenuItem
             // 

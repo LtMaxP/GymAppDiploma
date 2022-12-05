@@ -156,6 +156,51 @@
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
+  <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelClientes.Text" xml:space="preserve">
+    <value>Gestion de clientes</value>
+  </data>
+  <data name="labelClientes.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelVentas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelVentas.Text" xml:space="preserve">
+    <value>Gestion de ventas</value>
+  </data>
+  <data name="labelVentas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelStock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelStock.Text" xml:space="preserve">
+    <value>Gestion de stock</value>
+  </data>
+  <data name="labelStock.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelPagosYCobros.Text" xml:space="preserve">
+    <value>Pagos</value>
+  </data>
+  <data name="labelPagosYCobros.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 34</value>
+  </data>
+  <data name="labelFacturas.Text" xml:space="preserve">
+    <value>Facturas</value>
+  </data>
+  <data name="labelFacturas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="labelAcciones.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
   </data>
@@ -182,24 +227,6 @@
   </data>
   <data name="labelIdioma.Text" xml:space="preserve">
     <value>Idioma</value>
-  </data>
-  <data name="ToolAyuda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="ToolAyuda.Text" xml:space="preserve">
-    <value>Ayuda</value>
-  </data>
-  <data name="ToolContacto.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 34</value>
-  </data>
-  <data name="ToolContacto.Text" xml:space="preserve">
-    <value>Contacto</value>
-  </data>
-  <data name="ayudaAlUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="ayudaAlUsuarioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ayuda al usuario</value>
   </data>
   <data name="labelAyuda.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
@@ -233,33 +260,6 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="labelClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
-  </data>
-  <data name="labelClientes.Text" xml:space="preserve">
-    <value>Gestion de clientes</value>
-  </data>
-  <data name="labelClientes.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelVentas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
-  </data>
-  <data name="labelVentas.Text" xml:space="preserve">
-    <value>Gestion de ventas</value>
-  </data>
-  <data name="labelVentas.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelStock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
-  </data>
-  <data name="labelStock.Text" xml:space="preserve">
-    <value>Gestion de stock</value>
-  </data>
-  <data name="labelStock.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="labelABMUsuario.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 34</value>
@@ -330,23 +330,11 @@
   <data name="ToolIdioma.Text" xml:space="preserve">
     <value>Idioma</value>
   </data>
-  <data name="labelPagosYCobros.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
+  <data name="ToolAyuda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 34</value>
   </data>
-  <data name="labelPagosYCobros.Text" xml:space="preserve">
-    <value>Pagos</value>
-  </data>
-  <data name="labelPagosYCobros.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelFacturas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 34</value>
-  </data>
-  <data name="labelFacturas.Text" xml:space="preserve">
-    <value>Facturas</value>
-  </data>
-  <data name="labelFacturas.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="ToolAyuda.Text" xml:space="preserve">
+    <value>Ayuda</value>
   </data>
   <data name="ayudaGestionDeClientesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
@@ -435,6 +423,18 @@
   <data name="ayudaGestionDeUsuarioToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="ToolContacto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 34</value>
+  </data>
+  <data name="ToolContacto.Text" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="ayudaAlUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 34</value>
+  </data>
+  <data name="ayudaAlUsuarioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ayuda al usuario</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -472,6 +472,18 @@
     <value>labelStock</value>
   </data>
   <data name="&gt;&gt;labelStock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelPagosYCobros.Name" xml:space="preserve">
+    <value>labelPagosYCobros</value>
+  </data>
+  <data name="&gt;&gt;labelPagosYCobros.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelFacturas.Name" xml:space="preserve">
+    <value>labelFacturas</value>
+  </data>
+  <data name="&gt;&gt;labelFacturas.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelSistema.Name" xml:space="preserve">
@@ -546,24 +558,6 @@
   <data name="&gt;&gt;ToolAyuda.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolContacto.Name" xml:space="preserve">
-    <value>ToolContacto</value>
-  </data>
-  <data name="&gt;&gt;ToolContacto.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelPagosYCobros.Name" xml:space="preserve">
-    <value>labelPagosYCobros</value>
-  </data>
-  <data name="&gt;&gt;labelPagosYCobros.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelFacturas.Name" xml:space="preserve">
-    <value>labelFacturas</value>
-  </data>
-  <data name="&gt;&gt;labelFacturas.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;ayudaGestionDeClientesToolStripMenuItem.Name" xml:space="preserve">
     <value>ayudaGestionDeClientesToolStripMenuItem</value>
   </data>
@@ -622,6 +616,12 @@
     <value>ayudaGestionDeUsuarioToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ayudaGestionDeUsuarioToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolContacto.Name" xml:space="preserve">
+    <value>ToolContacto</value>
+  </data>
+  <data name="&gt;&gt;ToolContacto.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ayudaAlUsuarioToolStripMenuItem.Name" xml:space="preserve">
