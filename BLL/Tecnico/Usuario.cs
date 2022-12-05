@@ -12,6 +12,7 @@ namespace BLL
     {
         DAL.ABMUsuariosDAL abmUs = new DAL.ABMUsuariosDAL();
         DAL.IdiomaT idiomaDal = new DAL.IdiomaT();
+        DAL.LoginUsuario LogUser = new DAL.LoginUsuario();
 
         /// <summary>
         /// Crea el objeto BE_Usuario
@@ -56,6 +57,10 @@ namespace BLL
             modUser.Idioma = idiomaDal.DameIdIdioma(modUser.Idioma);
             if (abmUs.Modificar(modUser))
             {
+                if(modUser.idEstado == 1)
+                {
+                    LogUser.GoodUser(modUser);
+                }
                 BLL.DV.RecalcularDigitosVerificadores();
                 return true;
             }

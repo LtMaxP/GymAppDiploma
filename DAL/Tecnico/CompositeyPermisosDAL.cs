@@ -118,7 +118,29 @@ namespace DAL
             bool rpta = false;
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = @"DELETE FROM [GymApp].[dbo].[PerfilPyF] WHERE [Id_Perfil] = @idFam
-                                    DELETE FROM [GymApp].[dbo].[PermisosRelacion] WHERE [Id_Padre] = @idFam";
+                                    DELETE FROM [GymApp].[dbo].[PermisosRelacion] WHERE [Id_Perfil] = @idFam OR [Id_Padre] = @idFam
+                                    DELETE FROM [GymApp].[dbo].[PermisosUsuarios] WHERE [Id_Permiso] = @idFam";
+            sqlcomm.Parameters.AddWithValue("@idFam", idFam);
+
+            try
+            {
+                int i = Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                if (i >= 1)
+                    rpta = true;
+            }
+            catch { System.Windows.Forms.MessageBox.Show("No se pudo eliminar la familia"); }
+            return rpta;
+        }
+        /// <summary>
+        /// Eliminar permisos y relaciones
+        /// </summary>
+        /// <param name="idFam"></param>
+        /// <returns></returns>
+        public bool EliminarPermisosFamilia(int idFam)
+        {
+            bool rpta = false;
+            SqlCommand sqlcomm = new SqlCommand();
+            sqlcomm.CommandText = @"DELETE FROM [GymApp].[dbo].[PermisosRelacion] WHERE [Id_Padre] = @idFam OR [Id_Perfil] = @idFam ";
             sqlcomm.Parameters.AddWithValue("@idFam", idFam);
 
             try
@@ -127,7 +149,7 @@ namespace DAL
                 if (i > 1)
                     rpta = true;
             }
-            catch { System.Windows.Forms.MessageBox.Show("No se pudo eliminar la familia"); }
+            catch { System.Windows.Forms.MessageBox.Show("No se pudo eliminar relaciones de la familia"); }
             return rpta;
         }
         /// <summary>
@@ -394,23 +416,36 @@ namespace DAL
         public bool CrearFamilia(Composite newFamilia, string familiaNombre)
         {
             bool returnable = false;
-            if (!ValidarSiYaExiste(familiaNombre))
+            int fam = GenerarFamilia(familiaNombre);
+            if (fam != 0)
             {
-                int fam = GenerarFamilia(familiaNombre);
-                if (fam != 0)
-                {
-                    returnable = GenerarRelacionesPatenteFamilia(newFamilia, fam);
-                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se creo una nueva Familia " + familiaNombre, "Ninguno"));
-                }
+                //RelacionarConPadreAdmin(fam);
+                returnable = GenerarRelacionesPatenteFamilia(newFamilia, fam);
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se creo una nueva Familia " + familiaNombre, "Ninguno"));
             }
+
             return returnable;
         }
+
+        private void RelacionarConPadreAdmin(int fam)
+        {
+            SqlCommand sqlcomm = new SqlCommand();
+            sqlcomm.CommandText = "INSERT INTO [PermisosRelacion] ([Id_Perfil], [Id_Padre]) VALUES (@ID_PERFIL, @ID_PADRE)";
+            sqlcomm.Parameters.AddWithValue("@ID_PERFIL", fam);
+            sqlcomm.Parameters.AddWithValue("@ID_PADRE", "15");
+            try
+            {
+                Acceso.Instance.ExecuteNonQuery(sqlcomm);
+            }
+            catch { }
+        }
+
         /// <summary>
         /// Valida si ya existe la familia
         /// </summary>
         /// <param name="newFamilia"></param>
         /// <returns></returns>
-        private bool ValidarSiYaExiste(string familiaNombre)
+        public bool ValidarSiYaExiste(string familiaNombre)
         {
             bool returnable = false;
             SqlCommand sqlcomm = new SqlCommand();
@@ -448,33 +483,65 @@ namespace DAL
         /// <param name="newFamilia"></param>
         /// <param name="familia"></param>
         /// <returns></returns>
-        private bool GenerarRelacionesPatenteFamilia(Composite newFamilia, int familia)
+        public bool GenerarRelacionesPatenteFamilia(Composite newFamilia, int familia)
         {
             bool ret = true;
             SqlCommand sqlcomm = new SqlCommand();
             sqlcomm.CommandText = "INSERT INTO [PermisosRelacion] ([Id_Perfil], [Id_Padre]) VALUES (@ID_PERFIL, @ID_PADRE)";
             sqlcomm.Parameters.Add("@ID_PERFIL", SqlDbType.Int);
             sqlcomm.Parameters.Add("@ID_PADRE", SqlDbType.Int);
+
+            sqlcomm.Parameters["@ID_PERFIL"].Value = familia;
+            sqlcomm.Parameters["@ID_PADRE"].Value = 15;
+            Acceso.Instance.ExecuteNonQuery(sqlcomm);
             try
             {
                 foreach (var perfil in newFamilia.List())
                 {
-                    if (perfil is Composite)
+                    if (perfil.iDPatente != familia.ToString())
                     {
-                        sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;
-                        sqlcomm.Parameters["@ID_PADRE"].Value = familia;
+                        if (perfil is Composite)
+                        {
+                            sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;
+                            sqlcomm.Parameters["@ID_PADRE"].Value = familia;
+                            Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                        }
+                        else
+                        {
+                            sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;// esto si es compo o una hoja es por las dudas q se requiera
+                            sqlcomm.Parameters["@ID_PADRE"].Value = familia;
+                            Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                        }
                     }
+                    //Esto es para mantener lo que tiene ya dentro del perfil
                     else
                     {
-                        sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;// esto si es compo o una hoja es por las dudas q se requiera
-                        sqlcomm.Parameters["@ID_PADRE"].Value = familia;
+                        foreach (var item in perfil.List())
+                        {
+                            if (item.iDPatente != familia.ToString())
+                            {
+                                if (item is Composite)
+                                {
+                                    sqlcomm.Parameters["@ID_PERFIL"].Value = item.iDPatente;
+                                    sqlcomm.Parameters["@ID_PADRE"].Value = familia;
+                                    Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                                }
+                                else
+                                {
+                                    sqlcomm.Parameters["@ID_PERFIL"].Value = item.iDPatente;
+                                    sqlcomm.Parameters["@ID_PADRE"].Value = familia;
+                                    Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                                }
+                            }
+                        }
                     }
-                    Acceso.Instance.ExecuteNonQuery(sqlcomm);
                 }
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se Modifico la Familia " + familia, "Ninguno"));
             }
             catch
             {
                 System.Windows.Forms.MessageBox.Show("No se pudo generar los permisos familia");
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("No se pudo Modificar la Familia " + familia, "Bajo"));
                 ret = false;
             }
             return ret;

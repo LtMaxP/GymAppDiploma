@@ -35,8 +35,6 @@ namespace UI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.labelAcciones = new System.Windows.Forms.ToolStripMenuItem();
             this.labelClientes = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelFacturas = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
             this.labelVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.labelStock = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSistema = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +50,19 @@ namespace UI
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolContacto = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelPagosYCobros = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelFacturas = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaGestionDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaGestionDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaGestionDeStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaFacturasYPagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaControlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaBitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaBackupYRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaGestionDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaAlUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +96,9 @@ namespace UI
             this.labelAcciones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelClientes,
             this.labelVentas,
-            this.labelStock});
+            this.labelStock,
+            this.labelPagosYCobros,
+            this.labelFacturas});
             resources.ApplyResources(this.labelAcciones, "labelAcciones");
             this.labelAcciones.Name = "labelAcciones";
             this.labelAcciones.Tag = "";
@@ -93,27 +106,10 @@ namespace UI
             // 
             // labelClientes
             // 
-            this.labelClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelFacturas,
-            this.labelPagosYCobros});
             this.labelClientes.Name = "labelClientes";
             resources.ApplyResources(this.labelClientes, "labelClientes");
             this.labelClientes.Tag = "4";
             this.labelClientes.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
-            // 
-            // labelFacturas
-            // 
-            this.labelFacturas.Name = "labelFacturas";
-            resources.ApplyResources(this.labelFacturas, "labelFacturas");
-            this.labelFacturas.Tag = "28";
-            this.labelFacturas.Click += new System.EventHandler(this.labelFacturas_Click_1);
-            // 
-            // labelPagosYCobros
-            // 
-            this.labelPagosYCobros.Name = "labelPagosYCobros";
-            resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
-            this.labelPagosYCobros.Tag = "28";
-            this.labelPagosYCobros.Click += new System.EventHandler(this.labelPagosYCobros_Click_1);
             // 
             // labelVentas
             // 
@@ -213,13 +209,25 @@ namespace UI
             // 
             this.labelAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolAyuda,
-            this.ToolContacto});
+            this.ToolContacto,
+            this.ayudaAlUsuarioToolStripMenuItem});
             resources.ApplyResources(this.labelAyuda, "labelAyuda");
             this.labelAyuda.Name = "labelAyuda";
             this.labelAyuda.Tag = "99";
             // 
             // ToolAyuda
             // 
+            this.ToolAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ayudaGestionDeClientesToolStripMenuItem,
+            this.ayudaGestionDeProductosToolStripMenuItem,
+            this.ayudaGestionDeStockToolStripMenuItem,
+            this.ayudaFacturasYPagosToolStripMenuItem,
+            this.ayudaIdiomaToolStripMenuItem,
+            this.ayudaPermisosToolStripMenuItem,
+            this.ayudaControlDeCambiosToolStripMenuItem,
+            this.ayudaBitacoraToolStripMenuItem,
+            this.ayudaBackupYRestoreToolStripMenuItem,
+            this.ayudaGestionDeUsuarioToolStripMenuItem});
             this.ToolAyuda.Name = "ToolAyuda";
             resources.ApplyResources(this.ToolAyuda, "ToolAyuda");
             this.ToolAyuda.Tag = "99";
@@ -231,6 +239,84 @@ namespace UI
             resources.ApplyResources(this.ToolContacto, "ToolContacto");
             this.ToolContacto.Tag = "99";
             this.ToolContacto.Click += new System.EventHandler(this.contactoToolStripMenuItem_Click);
+            // 
+            // labelPagosYCobros
+            // 
+            this.labelPagosYCobros.Name = "labelPagosYCobros";
+            resources.ApplyResources(this.labelPagosYCobros, "labelPagosYCobros");
+            this.labelPagosYCobros.Tag = "29";
+            // 
+            // labelFacturas
+            // 
+            this.labelFacturas.Name = "labelFacturas";
+            resources.ApplyResources(this.labelFacturas, "labelFacturas");
+            this.labelFacturas.Tag = "28";
+            // 
+            // ayudaGestionDeClientesToolStripMenuItem
+            // 
+            this.ayudaGestionDeClientesToolStripMenuItem.Name = "ayudaGestionDeClientesToolStripMenuItem";
+            resources.ApplyResources(this.ayudaGestionDeClientesToolStripMenuItem, "ayudaGestionDeClientesToolStripMenuItem");
+            this.ayudaGestionDeClientesToolStripMenuItem.Tag = "4";
+            // 
+            // ayudaGestionDeProductosToolStripMenuItem
+            // 
+            this.ayudaGestionDeProductosToolStripMenuItem.Name = "ayudaGestionDeProductosToolStripMenuItem";
+            resources.ApplyResources(this.ayudaGestionDeProductosToolStripMenuItem, "ayudaGestionDeProductosToolStripMenuItem");
+            this.ayudaGestionDeProductosToolStripMenuItem.Tag = "19";
+            // 
+            // ayudaGestionDeStockToolStripMenuItem
+            // 
+            this.ayudaGestionDeStockToolStripMenuItem.Name = "ayudaGestionDeStockToolStripMenuItem";
+            resources.ApplyResources(this.ayudaGestionDeStockToolStripMenuItem, "ayudaGestionDeStockToolStripMenuItem");
+            this.ayudaGestionDeStockToolStripMenuItem.Tag = "20";
+            // 
+            // ayudaFacturasYPagosToolStripMenuItem
+            // 
+            this.ayudaFacturasYPagosToolStripMenuItem.Name = "ayudaFacturasYPagosToolStripMenuItem";
+            resources.ApplyResources(this.ayudaFacturasYPagosToolStripMenuItem, "ayudaFacturasYPagosToolStripMenuItem");
+            this.ayudaFacturasYPagosToolStripMenuItem.Tag = "29";
+            // 
+            // ayudaIdiomaToolStripMenuItem
+            // 
+            this.ayudaIdiomaToolStripMenuItem.Name = "ayudaIdiomaToolStripMenuItem";
+            resources.ApplyResources(this.ayudaIdiomaToolStripMenuItem, "ayudaIdiomaToolStripMenuItem");
+            this.ayudaIdiomaToolStripMenuItem.Tag = "99";
+            // 
+            // ayudaPermisosToolStripMenuItem
+            // 
+            this.ayudaPermisosToolStripMenuItem.Name = "ayudaPermisosToolStripMenuItem";
+            resources.ApplyResources(this.ayudaPermisosToolStripMenuItem, "ayudaPermisosToolStripMenuItem");
+            this.ayudaPermisosToolStripMenuItem.Tag = "16";
+            // 
+            // ayudaControlDeCambiosToolStripMenuItem
+            // 
+            this.ayudaControlDeCambiosToolStripMenuItem.Name = "ayudaControlDeCambiosToolStripMenuItem";
+            resources.ApplyResources(this.ayudaControlDeCambiosToolStripMenuItem, "ayudaControlDeCambiosToolStripMenuItem");
+            this.ayudaControlDeCambiosToolStripMenuItem.Tag = "17";
+            // 
+            // ayudaBitacoraToolStripMenuItem
+            // 
+            this.ayudaBitacoraToolStripMenuItem.Name = "ayudaBitacoraToolStripMenuItem";
+            resources.ApplyResources(this.ayudaBitacoraToolStripMenuItem, "ayudaBitacoraToolStripMenuItem");
+            this.ayudaBitacoraToolStripMenuItem.Tag = "14";
+            // 
+            // ayudaBackupYRestoreToolStripMenuItem
+            // 
+            this.ayudaBackupYRestoreToolStripMenuItem.Name = "ayudaBackupYRestoreToolStripMenuItem";
+            resources.ApplyResources(this.ayudaBackupYRestoreToolStripMenuItem, "ayudaBackupYRestoreToolStripMenuItem");
+            this.ayudaBackupYRestoreToolStripMenuItem.Tag = "18";
+            // 
+            // ayudaGestionDeUsuarioToolStripMenuItem
+            // 
+            this.ayudaGestionDeUsuarioToolStripMenuItem.Name = "ayudaGestionDeUsuarioToolStripMenuItem";
+            resources.ApplyResources(this.ayudaGestionDeUsuarioToolStripMenuItem, "ayudaGestionDeUsuarioToolStripMenuItem");
+            this.ayudaGestionDeUsuarioToolStripMenuItem.Tag = "9";
+            // 
+            // ayudaAlUsuarioToolStripMenuItem
+            // 
+            this.ayudaAlUsuarioToolStripMenuItem.Name = "ayudaAlUsuarioToolStripMenuItem";
+            resources.ApplyResources(this.ayudaAlUsuarioToolStripMenuItem, "ayudaAlUsuarioToolStripMenuItem");
+            this.ayudaAlUsuarioToolStripMenuItem.Tag = "99";
             // 
             // Inicio
             // 
@@ -278,8 +364,19 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem labelControlCambios;
         private System.Windows.Forms.ToolStripMenuItem labelPermisosGestion;
         private System.Windows.Forms.ToolStripMenuItem labelPermisosUsuario;
+        private System.Windows.Forms.ToolStripMenuItem labelStock;
         private System.Windows.Forms.ToolStripMenuItem labelPagosYCobros;
         private System.Windows.Forms.ToolStripMenuItem labelFacturas;
-        private System.Windows.Forms.ToolStripMenuItem labelStock;
+        private System.Windows.Forms.ToolStripMenuItem ayudaGestionDeClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaGestionDeProductosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaGestionDeStockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaFacturasYPagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaIdiomaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaPermisosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaControlDeCambiosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaBitacoraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaBackupYRestoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaGestionDeUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaAlUsuarioToolStripMenuItem;
     }
 }

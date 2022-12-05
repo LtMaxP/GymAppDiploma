@@ -38,11 +38,11 @@ namespace BLL.Tecnico
         {
             bool ret = false;
             int idFam = CyPDAL.DameIdPorNombre(nombreFamilia);
-            if(idFam != 404 && idFam > 50)
+            if (idFam != 404 && idFam >= 1050)
             {
                 ret = CyPDAL.EliminarFamilia(idFam);
             }
-            else if (idFam < 50)
+            else
             {
                 System.Windows.Forms.MessageBox.Show("No se pueden eliminar las Familias del sistema");
             }
@@ -53,6 +53,18 @@ namespace BLL.Tecnico
         {
             CyPDAL.QuitarPermisosUsuario(user);
             return CyPDAL.GuardarPermisosAsignados(pAsig, user);
+        }
+
+        public bool ValidarNombreFamilia(string familiaNombre)
+        {
+            return CyPDAL.ValidarSiYaExiste(familiaNombre);
+        }
+
+        public void ModificarFamilia(Composite family, string familiaNombre)
+        {
+            int fam = CyPDAL.DameIdPorNombre(familiaNombre);
+            CyPDAL.EliminarPermisosFamilia(fam);
+            CyPDAL.GenerarRelacionesPatenteFamilia(family, fam);
         }
     }
 }

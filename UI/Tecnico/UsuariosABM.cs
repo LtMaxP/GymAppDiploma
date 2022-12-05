@@ -83,14 +83,13 @@ namespace UI
             {
                 BE.BE_Usuario usuarioDelete = new BE.BE_Usuario();
                 usuarioDelete.User = textBox3.Text;
-                usuarioDelete.Pass = textBox4.Text;
-                if (String.IsNullOrEmpty(usuarioDelete.User) || String.IsNullOrEmpty(usuarioDelete.Pass))
+                if (String.IsNullOrEmpty(usuarioDelete.User))
                 {
-                    MessageBox.Show("Debe Ingresar un usuario y contraseña para eliminar");
+                    MessageBox.Show("Debe Ingresar un usuario para eliminar");
                 }
                 else
                 {
-                    if (usuarioABM.ValidarUsuarioyPass(usuarioDelete))
+                    if (usuarioABM.ValidarUsuarioyPass(usuarioDelete))//valida el nombre nada mas
                     {
                         if (usuarioABM.EliminarUsuario(usuarioDelete))
                             MessageBox.Show("El usuario fue neutralizado con éxito.");

@@ -71,27 +71,27 @@ namespace DAL
             bool respuesta = false;
             try
             {
-                SqlCommand comm = new SqlCommand();
-                comm.CommandText = "SELECT CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario WHERE Usuario = @user AND Password = @pass"; // AND Id_Estado = 1 AND IntentosFallidos <= 3
-                comm.Parameters.AddWithValue("@user", usuario.User);
-                comm.Parameters.AddWithValue("@pass", usuario.Pass);
-
-                respuesta = Acceso.Instance.ExecuteScalarBool(comm);
-                if (respuesta)
+                if (PuedeAcceder(usuario))
                 {
-                    if (PuedeAcceder(usuario))
+                    SqlCommand comm = new SqlCommand();
+                    comm.CommandText = "SELECT CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario WHERE Usuario = @user AND Password = @pass"; // AND Id_Estado = 1 AND IntentosFallidos <= 3
+                    comm.Parameters.AddWithValue("@user", usuario.User);
+                    comm.Parameters.AddWithValue("@pass", usuario.Pass);
+
+                    respuesta = Acceso.Instance.ExecuteScalarBool(comm);
+                    if (respuesta)
                     {
                         GoodUser(usuario);
                         DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Inicio de sesión por el usuario " + usuario.User, "Ninguno"));
                     }
                     else
-                        System.Windows.Forms.MessageBox.Show("El Usuario ya se encuentra bloqueado");
+                    {
+                        DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Constraseña erronea usuario " + usuario.User, "Medio"));
+                        BadPass(usuario);
+                    }
                 }
                 else
-                {
-                    DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Constraseña erronea usuario " + usuario.User, "Medio"));
-                    BadPass(usuario);
-                }
+                    System.Windows.Forms.MessageBox.Show("El Usuario ya se encuentra bloqueado");
             }
             catch { }
             return respuesta;
@@ -114,7 +114,7 @@ namespace DAL
         /// Si se logeo, volver a 0 intentos fallidos
         /// </summary>
         /// <param name="usuario"></param>
-        private void GoodUser(BE_Usuario usuario)
+        public void GoodUser(BE_Usuario usuario)
         {
             try
             {
@@ -154,14 +154,14 @@ namespace DAL
         /// <param name="usuario"></param>
         private void BadPass(BE.BE_Usuario usuario)
         {
-            if (GetIntentosFallidos(usuario) > 3)
+            if (GetIntentosFallidos(usuario) >= 3)
             {
                 SqlCommand comm = new SqlCommand();
                 comm.CommandText = "Update Usuario set Id_Estado = 2 where Usuario = @nombre";
                 comm.Parameters.AddWithValue("@nombre", usuario.User);
                 Acceso.Instance.ExecuteNonQuery(comm);
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Bloqueo por intentos fallidos del usuario " + usuario.User, "Alto"));
-                System.Windows.Forms.MessageBox.Show("Bloqueo");
+                System.Windows.Forms.MessageBox.Show("Se bloqueo el usuario por varios intentos fallidos");
             }
             else
             {

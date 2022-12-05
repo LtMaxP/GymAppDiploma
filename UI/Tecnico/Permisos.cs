@@ -14,7 +14,7 @@ namespace UI
     public partial class Permisos : Form, BE.ObserverIdioma.IObserverIdioma
     {
         private BLL.Tecnico.PermisosBLL PermBLL = new BLL.Tecnico.PermisosBLL();
-        BE.Composite.Component family;
+        BE.Composite.Composite family;
         public Permisos()
         {
             InitializeComponent();
@@ -130,7 +130,9 @@ namespace UI
                     ListaPerm.Nodes.Add(ExtenderArbol(element, nodoHijo));
                 }
                 else
+                {
                     ListaPerm.Nodes.Add(nodoHijo);
+                }
             }
         }
         /// <summary>
@@ -188,26 +190,22 @@ namespace UI
             if (!String.IsNullOrEmpty(txtName.Text))
             {
                 string familiaNombre = txtName.Text;
-                BE.Composite.Composite newFamilia = new BE.Composite.Composite();
-                foreach (TreeNode element in ListaPerm.Nodes)
+                if (PermBLL.ValidarNombreFamilia(familiaNombre))
                 {
-                    string[] permiso = element.Text.Split('-');
-                    if (element.Nodes.Count > 1)
-                        newFamilia.Agregar(new BE.Composite.Composite(permiso[0], permiso[1]));
-                    else
-                        newFamilia.Agregar(new BE.Composite.Hoja(permiso[0], permiso[1]));
-                }
-
-                if (PermBLL.CrearFamilia(newFamilia, familiaNombre))
-                {
-                    txtName.Clear();
-                    this.LoadForm();
-                    MessageBox.Show("Familia creada");
+                    var result = MessageBox.Show("¿Familia ya creada, desea modificarla?", "Advertencia", MessageBoxButtons.YesNo);
+                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        PermBLL.ModificarFamilia(family, familiaNombre);
+                        MessageBox.Show("Familia Modificada");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Familia ya existente");
+                    PermBLL.CrearFamilia(family, familiaNombre);
+                    MessageBox.Show("Familia creada");
                 }
+                txtName.Clear();
+                this.LoadForm();
             }
             else if (ListaPerm.Nodes.Count == 0)
             {
@@ -225,20 +223,23 @@ namespace UI
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!ListaPerm.SelectedNode.IsSelected)
-                MessageBox.Show("Debe seleccionar una patente");
-            else
+            if (ListaPerm.SelectedNode != null)
             {
-                //if (ListaPerm.SelectedNode.Level > 0)
-                //{
-                //    MessageBox.Show("No puede quitar un permiso de una familia ya creada");
-                //}
-                //else
-                //{
-                    string[] permiso = ListaPerm.SelectedNode.Text.Split('-');
-                    family.Eliminar(family.TraetePermiso(permiso[0]));
-                    ListaPerm.SelectedNode.Remove();
-                //}
+                if (!ListaPerm.SelectedNode.IsSelected)
+                    MessageBox.Show("Debe seleccionar una patente");
+                else
+                {
+                    if (ListaPerm.SelectedNode.Level > 1)
+                    {
+                        MessageBox.Show("No puede quitar un permiso de una familia ya creada");
+                    }
+                    else
+                    {
+                        string[] permiso = ListaPerm.SelectedNode.Text.Split('-');
+                        family.Eliminar(family.TraetePermiso(permiso[0]));
+                        ListaPerm.SelectedNode.Remove();
+                    }
+                }
             }
         }
         /// <summary>

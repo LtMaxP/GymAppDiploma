@@ -78,9 +78,8 @@ namespace DAL
             try
             {
                 SqlCommand comm = new SqlCommand();
-                comm.CommandText = "UPDATE Usuario SET Id_Estado = @IdEstado WHERE Usuario = @NombreUsuario AND Password = @Pass";
+                comm.CommandText = "UPDATE Usuario SET Id_Estado = @IdEstado WHERE Usuario = @NombreUsuario";
                 comm.Parameters.AddWithValue("@NombreUsuario", valBaja.User);
-                comm.Parameters.AddWithValue("@Pass", valBaja.Pass);
                 comm.Parameters.AddWithValue("@IdEstado", 2);
 
                 int result = Acceso.Instance.ExecuteNonQuery(comm);
