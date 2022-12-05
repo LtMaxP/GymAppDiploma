@@ -496,46 +496,7 @@ namespace DAL
             Acceso.Instance.ExecuteNonQuery(sqlcomm);
             try
             {
-                foreach (var perfil in newFamilia.List())
-                {
-                    if (perfil.iDPatente != familia.ToString())
-                    {
-                        if (perfil is Composite)
-                        {
-                            sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;
-                            sqlcomm.Parameters["@ID_PADRE"].Value = familia;
-                            Acceso.Instance.ExecuteNonQuery(sqlcomm);
-                        }
-                        else
-                        {
-                            sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;// esto si es compo o una hoja es por las dudas q se requiera
-                            sqlcomm.Parameters["@ID_PADRE"].Value = familia;
-                            Acceso.Instance.ExecuteNonQuery(sqlcomm);
-                        }
-                    }
-                    //Esto es para mantener lo que tiene ya dentro del perfil
-                    else
-                    {
-                        foreach (var item in perfil.List())
-                        {
-                            if (item.iDPatente != familia.ToString())
-                            {
-                                if (item is Composite)
-                                {
-                                    sqlcomm.Parameters["@ID_PERFIL"].Value = item.iDPatente;
-                                    sqlcomm.Parameters["@ID_PADRE"].Value = familia;
-                                    Acceso.Instance.ExecuteNonQuery(sqlcomm);
-                                }
-                                else
-                                {
-                                    sqlcomm.Parameters["@ID_PERFIL"].Value = item.iDPatente;
-                                    sqlcomm.Parameters["@ID_PADRE"].Value = familia;
-                                    Acceso.Instance.ExecuteNonQuery(sqlcomm);
-                                }
-                            }
-                        }
-                    }
-                }
+                MetodoInsercionContinua(newFamilia, familia, sqlcomm);
                 DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se Modifico la Familia " + familia, "Ninguno"));
             }
             catch
@@ -545,6 +506,33 @@ namespace DAL
                 ret = false;
             }
             return ret;
+        }
+
+        private static void MetodoInsercionContinua(Composite newFamilia, int familia, SqlCommand sqlcomm)
+        {
+            foreach (var perfil in newFamilia.List())
+            {
+                if (perfil.iDPatente != familia.ToString())
+                {
+                    if (perfil is Composite)
+                    {
+                        sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;
+                        sqlcomm.Parameters["@ID_PADRE"].Value = familia;
+                        Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                    }
+                    else
+                    {
+                        sqlcomm.Parameters["@ID_PERFIL"].Value = perfil.iDPatente;// esto si es compo o una hoja es por las dudas q se requiera
+                        sqlcomm.Parameters["@ID_PADRE"].Value = familia;
+                        Acceso.Instance.ExecuteNonQuery(sqlcomm);
+                    }
+                }
+                //Esto es para mantener lo que tiene ya dentro del perfil
+                else
+                {
+                    MetodoInsercionContinua((Composite)perfil, familia, sqlcomm);
+                }
+            }
         }
     }
 }
