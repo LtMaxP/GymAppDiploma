@@ -79,6 +79,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AyudaGlobal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyudaGlobal.Designer.cs">
+      <DependentUpon>AyudaGlobal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Negocio\Productos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     <Compile Include="Tecnico\UsuariosABM.Designer.cs">
       <DependentUpon>UsuariosABM.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AyudaGlobal.resx">
+      <DependentUpon>AyudaGlobal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Negocio\Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>
     </EmbeddedResource>
@@ -274,6 +283,22 @@
     <None Include="Resources\logo_España.jpg" />
     <None Include="Resources\logo_España1.jpg" />
     <None Include="Resources\logo_USA.jpg" />
+    <None Include="Resources\AdmPermisos.jpg" />
+    <None Include="Resources\BackupRestore.jpg" />
+    <None Include="Resources\Bitacora.jpg" />
+    <None Include="Resources\ControlCambios.jpg" />
+    <None Include="Resources\Facturas.jpg" />
+    <None Include="Resources\GestionClientes.jpg" />
+    <None Include="Resources\GestionProductos.jpg" />
+    <None Include="Resources\GestionStock.jpg" />
+    <None Include="Resources\GestionUsuario.jpg" />
+    <None Include="Resources\Idioma.jpg" />
+    <None Include="Resources\Inicio.jpg" />
+    <None Include="Resources\Login.jpg" />
+    <None Include="Resources\Logout.jpg" />
+    <None Include="Resources\LogRecupero.jpg" />
+    <None Include="Resources\Pagos.jpg" />
+    <None Include="Resources\PermisosUsuarios.jpg" />
     <Content Include="SecSemiR-45\focmili.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

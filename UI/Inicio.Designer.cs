@@ -61,6 +61,7 @@ namespace UI
             this.ayudaBitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaBackupYRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaGestionDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolContacto = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaAlUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -241,7 +242,8 @@ namespace UI
             this.ayudaControlDeCambiosToolStripMenuItem,
             this.ayudaBitacoraToolStripMenuItem,
             this.ayudaBackupYRestoreToolStripMenuItem,
-            this.ayudaGestionDeUsuarioToolStripMenuItem});
+            this.ayudaGestionDeUsuarioToolStripMenuItem,
+            this.ayudaLoginToolStripMenuItem});
             this.ToolAyuda.Name = "ToolAyuda";
             resources.ApplyResources(this.ToolAyuda, "ToolAyuda");
             this.ToolAyuda.Tag = "99";
@@ -252,60 +254,77 @@ namespace UI
             this.ayudaGestionDeClientesToolStripMenuItem.Name = "ayudaGestionDeClientesToolStripMenuItem";
             resources.ApplyResources(this.ayudaGestionDeClientesToolStripMenuItem, "ayudaGestionDeClientesToolStripMenuItem");
             this.ayudaGestionDeClientesToolStripMenuItem.Tag = "4";
+            this.ayudaGestionDeClientesToolStripMenuItem.Click += new System.EventHandler(this.ayudaGestionDeClientesToolStripMenuItem_Click);
             // 
             // ayudaGestionDeProductosToolStripMenuItem
             // 
             this.ayudaGestionDeProductosToolStripMenuItem.Name = "ayudaGestionDeProductosToolStripMenuItem";
             resources.ApplyResources(this.ayudaGestionDeProductosToolStripMenuItem, "ayudaGestionDeProductosToolStripMenuItem");
             this.ayudaGestionDeProductosToolStripMenuItem.Tag = "19";
+            this.ayudaGestionDeProductosToolStripMenuItem.Click += new System.EventHandler(this.ayudaGestionDeProductosToolStripMenuItem_Click);
             // 
             // ayudaGestionDeStockToolStripMenuItem
             // 
             this.ayudaGestionDeStockToolStripMenuItem.Name = "ayudaGestionDeStockToolStripMenuItem";
             resources.ApplyResources(this.ayudaGestionDeStockToolStripMenuItem, "ayudaGestionDeStockToolStripMenuItem");
             this.ayudaGestionDeStockToolStripMenuItem.Tag = "20";
+            this.ayudaGestionDeStockToolStripMenuItem.Click += new System.EventHandler(this.ayudaGestionDeStockToolStripMenuItem_Click);
             // 
             // ayudaFacturasYPagosToolStripMenuItem
             // 
             this.ayudaFacturasYPagosToolStripMenuItem.Name = "ayudaFacturasYPagosToolStripMenuItem";
             resources.ApplyResources(this.ayudaFacturasYPagosToolStripMenuItem, "ayudaFacturasYPagosToolStripMenuItem");
             this.ayudaFacturasYPagosToolStripMenuItem.Tag = "29";
+            this.ayudaFacturasYPagosToolStripMenuItem.Click += new System.EventHandler(this.ayudaFacturasYPagosToolStripMenuItem_Click);
             // 
             // ayudaIdiomaToolStripMenuItem
             // 
             this.ayudaIdiomaToolStripMenuItem.Name = "ayudaIdiomaToolStripMenuItem";
             resources.ApplyResources(this.ayudaIdiomaToolStripMenuItem, "ayudaIdiomaToolStripMenuItem");
             this.ayudaIdiomaToolStripMenuItem.Tag = "99";
+            this.ayudaIdiomaToolStripMenuItem.Click += new System.EventHandler(this.ayudaIdiomaToolStripMenuItem_Click);
             // 
             // ayudaPermisosToolStripMenuItem
             // 
             this.ayudaPermisosToolStripMenuItem.Name = "ayudaPermisosToolStripMenuItem";
             resources.ApplyResources(this.ayudaPermisosToolStripMenuItem, "ayudaPermisosToolStripMenuItem");
             this.ayudaPermisosToolStripMenuItem.Tag = "16";
+            this.ayudaPermisosToolStripMenuItem.Click += new System.EventHandler(this.ayudaPermisosToolStripMenuItem_Click);
             // 
             // ayudaControlDeCambiosToolStripMenuItem
             // 
             this.ayudaControlDeCambiosToolStripMenuItem.Name = "ayudaControlDeCambiosToolStripMenuItem";
             resources.ApplyResources(this.ayudaControlDeCambiosToolStripMenuItem, "ayudaControlDeCambiosToolStripMenuItem");
             this.ayudaControlDeCambiosToolStripMenuItem.Tag = "17";
+            this.ayudaControlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.ayudaControlDeCambiosToolStripMenuItem_Click);
             // 
             // ayudaBitacoraToolStripMenuItem
             // 
             this.ayudaBitacoraToolStripMenuItem.Name = "ayudaBitacoraToolStripMenuItem";
             resources.ApplyResources(this.ayudaBitacoraToolStripMenuItem, "ayudaBitacoraToolStripMenuItem");
             this.ayudaBitacoraToolStripMenuItem.Tag = "14";
+            this.ayudaBitacoraToolStripMenuItem.Click += new System.EventHandler(this.ayudaBitacoraToolStripMenuItem_Click);
             // 
             // ayudaBackupYRestoreToolStripMenuItem
             // 
             this.ayudaBackupYRestoreToolStripMenuItem.Name = "ayudaBackupYRestoreToolStripMenuItem";
             resources.ApplyResources(this.ayudaBackupYRestoreToolStripMenuItem, "ayudaBackupYRestoreToolStripMenuItem");
             this.ayudaBackupYRestoreToolStripMenuItem.Tag = "18";
+            this.ayudaBackupYRestoreToolStripMenuItem.Click += new System.EventHandler(this.ayudaBackupYRestoreToolStripMenuItem_Click);
             // 
             // ayudaGestionDeUsuarioToolStripMenuItem
             // 
             this.ayudaGestionDeUsuarioToolStripMenuItem.Name = "ayudaGestionDeUsuarioToolStripMenuItem";
             resources.ApplyResources(this.ayudaGestionDeUsuarioToolStripMenuItem, "ayudaGestionDeUsuarioToolStripMenuItem");
             this.ayudaGestionDeUsuarioToolStripMenuItem.Tag = "9";
+            this.ayudaGestionDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.ayudaGestionDeUsuarioToolStripMenuItem_Click);
+            // 
+            // ayudaLoginToolStripMenuItem
+            // 
+            this.ayudaLoginToolStripMenuItem.Name = "ayudaLoginToolStripMenuItem";
+            resources.ApplyResources(this.ayudaLoginToolStripMenuItem, "ayudaLoginToolStripMenuItem");
+            this.ayudaLoginToolStripMenuItem.Tag = "99";
+            this.ayudaLoginToolStripMenuItem.Click += new System.EventHandler(this.ayudaLoginToolStripMenuItem_Click);
             // 
             // ToolContacto
             // 
@@ -380,5 +399,6 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem ayudaBackupYRestoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaGestionDeUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaAlUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaLoginToolStripMenuItem;
     }
 }

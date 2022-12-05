@@ -215,17 +215,9 @@ namespace UI
         {
             Fbackrest = null;
         }
-        private void labelFacturas_Click_1(object sender, EventArgs e)
-        {
-
-        }
         private void Factu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Factu = null;
-        }
-        private void labelPagosYCobros_Click_1(object sender, EventArgs e)
-        {
-
         }
         private void PyG_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -238,6 +230,10 @@ namespace UI
         private void Permi_FormClosed(object sender, FormClosedEventArgs e)
         {
             Permi = null;
+        }
+        private void Ayuda_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Ayuda = null;
         }
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -366,6 +362,7 @@ namespace UI
         UI.Tecnico.ControlCambios CC;
         PermisosUsuario PermUsu;
         UI.Negocio.Stock Stock;
+        AyudaGlobal Ayuda;
         #endregion
 
         public void Update()
@@ -375,9 +372,9 @@ namespace UI
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var path = new FileInfo("ayu.chm").Directory.FullName;
-            path = path.Replace("UI", "UI\\ayu.chm");
-            Help.ShowHelp(this, "file://" + path);
+            //var path = new FileInfo("ayu.chm").Directory.FullName;
+            //path = path.Replace("UI", "UI\\ayu.chm");
+            //Help.ShowHelp(this, "file://" + path);
         }
 
         private void contactoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -415,6 +412,76 @@ namespace UI
             {
                 Factu.Activate();
             }
+        }
+
+        private void ayudaGestionDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(1);
+        }
+
+        private void AbrirFormularioAyuda(int tag)
+        {
+            if (Ayuda == null)
+            {
+                Ayuda = new AyudaGlobal(tag);
+                Ayuda.MdiParent = this;
+                Ayuda.FormClosed += new FormClosedEventHandler(Ayuda_FormClosed);
+                Ayuda.Show();
+            }
+            else
+            {
+                Ayuda.Activate();
+            }
+        }
+
+        private void ayudaGestionDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(2);
+        }
+
+        private void ayudaGestionDeStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(3);
+        }
+
+        private void ayudaFacturasYPagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(4);
+        }
+
+        private void ayudaIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(5);
+        }
+
+        private void ayudaPermisosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(6);
+        }
+
+        private void ayudaControlDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(7);
+        }
+
+        private void ayudaBitacoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(8);
+        }
+
+        private void ayudaBackupYRestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(9);
+        }
+
+        private void ayudaGestionDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(10);
+        }
+
+        private void ayudaLoginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioAyuda(11);
         }
     }
 }

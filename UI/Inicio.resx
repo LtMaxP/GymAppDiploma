@@ -210,57 +210,6 @@
   <data name="labelAcciones.Text" xml:space="preserve">
     <value>Inicio</value>
   </data>
-  <data name="labelSistema.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Javanese Text, 9.75pt</value>
-  </data>
-  <data name="labelSistema.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 33</value>
-  </data>
-  <data name="labelSistema.Text" xml:space="preserve">
-    <value>Sistema</value>
-  </data>
-  <data name="labelIdioma.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Javanese Text, 9.75pt</value>
-  </data>
-  <data name="labelIdioma.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 33</value>
-  </data>
-  <data name="labelIdioma.Text" xml:space="preserve">
-    <value>Idioma</value>
-  </data>
-  <data name="labelAyuda.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Javanese Text, 9.75pt</value>
-  </data>
-  <data name="labelAyuda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 33</value>
-  </data>
-  <data name="labelAyuda.Text" xml:space="preserve">
-    <value>Ayuda</value>
-  </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1442, 37</value>
-  </data>
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="labelABMUsuario.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 34</value>
   </data>
@@ -268,15 +217,6 @@
     <value>Gestion Usuarios</value>
   </data>
   <data name="labelABMUsuario.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelFamiliaPatentes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 34</value>
-  </data>
-  <data name="labelFamiliaPatentes.Text" xml:space="preserve">
-    <value>Permisos</value>
-  </data>
-  <data name="labelFamiliaPatentes.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="labelPermisosGestion.Size" type="System.Drawing.Size, System.Drawing">
@@ -295,6 +235,15 @@
     <value>Permisos Usuario</value>
   </data>
   <data name="labelPermisosUsuario.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelFamiliaPatentes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 34</value>
+  </data>
+  <data name="labelFamiliaPatentes.Text" xml:space="preserve">
+    <value>Permisos</value>
+  </data>
+  <data name="labelFamiliaPatentes.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="labelBitacoraDV.Size" type="System.Drawing.Size, System.Drawing">
@@ -324,17 +273,29 @@
   <data name="labelControlCambios.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="labelSistema.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Javanese Text, 9.75pt</value>
+  </data>
+  <data name="labelSistema.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 33</value>
+  </data>
+  <data name="labelSistema.Text" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
   <data name="ToolIdioma.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 34</value>
   </data>
   <data name="ToolIdioma.Text" xml:space="preserve">
     <value>Idioma</value>
   </data>
-  <data name="ToolAyuda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 34</value>
+  <data name="labelIdioma.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Javanese Text, 9.75pt</value>
   </data>
-  <data name="ToolAyuda.Text" xml:space="preserve">
-    <value>Ayuda</value>
+  <data name="labelIdioma.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 33</value>
+  </data>
+  <data name="labelIdioma.Text" xml:space="preserve">
+    <value>Idioma</value>
   </data>
   <data name="ayudaGestionDeClientesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
@@ -423,17 +384,62 @@
   <data name="ayudaGestionDeUsuarioToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="ayudaLoginToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 34</value>
+  </data>
+  <data name="ayudaLoginToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ayuda Login</value>
+  </data>
+  <data name="ToolAyuda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 34</value>
+  </data>
+  <data name="ToolAyuda.Text" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
   <data name="ToolContacto.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 34</value>
+    <value>180, 34</value>
   </data>
   <data name="ToolContacto.Text" xml:space="preserve">
     <value>Contacto</value>
   </data>
   <data name="ayudaAlUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 34</value>
+    <value>180, 34</value>
   </data>
   <data name="ayudaAlUsuarioToolStripMenuItem.Text" xml:space="preserve">
     <value>Ayuda al usuario</value>
+  </data>
+  <data name="labelAyuda.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Javanese Text, 9.75pt</value>
+  </data>
+  <data name="labelAyuda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 33</value>
+  </data>
+  <data name="labelAyuda.Text" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1442, 37</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -616,6 +622,12 @@
     <value>ayudaGestionDeUsuarioToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ayudaGestionDeUsuarioToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ayudaLoginToolStripMenuItem.Name" xml:space="preserve">
+    <value>ayudaLoginToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ayudaLoginToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolContacto.Name" xml:space="preserve">
