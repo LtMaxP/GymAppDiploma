@@ -68,7 +68,49 @@ namespace UI
         }
 
         #region formularios carga
+        private void labelPagosYCobros_Click(object sender, EventArgs e)
+        {
+            if (PyG == null)
+            {
+                PyG = new PagosCobros();
+                PyG.MdiParent = this;
+                PyG.FormClosed += new FormClosedEventHandler(PyG_FormClosed);
+                PyG.Show();
+            }
+            else
+            {
+                PyG.Activate();
+            }
+        }
 
+        private void labelFacturas_Click(object sender, EventArgs e)
+        {
+            if (Factu == null)
+            {
+                Factu = new Facturas();
+                Factu.MdiParent = this;
+                Factu.FormClosed += new FormClosedEventHandler(Factu_FormClosed);
+                Factu.Show();
+            }
+            else
+            {
+                Factu.Activate();
+            }
+        }
+        private void AbrirFormularioAyuda(int tag)
+        {
+            if (Ayuda == null)
+            {
+                Ayuda = new AyudaGlobal(tag);
+                Ayuda.MdiParent = this;
+                Ayuda.FormClosed += new FormClosedEventHandler(Ayuda_FormClosed);
+                Ayuda.Show();
+            }
+            else
+            {
+                Ayuda.Activate();
+            }
+        }
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Fclient == null)
@@ -364,19 +406,7 @@ namespace UI
         UI.Negocio.Stock Stock;
         AyudaGlobal Ayuda;
         #endregion
-
-        public void Update()
-        {
-            TraducirTodo();
-        }
-
-        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //var path = new FileInfo("ayu.chm").Directory.FullName;
-            //path = path.Replace("UI", "UI\\ayu.chm");
-            //Help.ShowHelp(this, "file://" + path);
-        }
-
+        #region ayuda
         private void contactoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(@"      Telefono de contacto: 159483087
@@ -384,55 +414,12 @@ namespace UI
             País: Argentina");
         }
 
-        private void labelPagosYCobros_Click(object sender, EventArgs e)
-        {
-            if (PyG == null)
-            {
-                PyG = new PagosCobros();
-                PyG.MdiParent = this;
-                PyG.FormClosed += new FormClosedEventHandler(PyG_FormClosed);
-                PyG.Show();
-            }
-            else
-            {
-                PyG.Activate();
-            }
-        }
-
-        private void labelFacturas_Click(object sender, EventArgs e)
-        {
-            if (Factu == null)
-            {
-                Factu = new Facturas();
-                Factu.MdiParent = this;
-                Factu.FormClosed += new FormClosedEventHandler(Factu_FormClosed);
-                Factu.Show();
-            }
-            else
-            {
-                Factu.Activate();
-            }
-        }
 
         private void ayudaGestionDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormularioAyuda(1);
         }
 
-        private void AbrirFormularioAyuda(int tag)
-        {
-            if (Ayuda == null)
-            {
-                Ayuda = new AyudaGlobal(tag);
-                Ayuda.MdiParent = this;
-                Ayuda.FormClosed += new FormClosedEventHandler(Ayuda_FormClosed);
-                Ayuda.Show();
-            }
-            else
-            {
-                Ayuda.Activate();
-            }
-        }
 
         private void ayudaGestionDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -483,5 +470,20 @@ namespace UI
         {
             AbrirFormularioAyuda(11);
         }
+        #endregion
+ 
+
+        public void Update()
+        {
+            TraducirTodo();
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //var path = new FileInfo("ayu.chm").Directory.FullName;
+            //path = path.Replace("UI", "UI\\ayu.chm");
+            //Help.ShowHelp(this, "file://" + path);
+        }
+
     }
 }

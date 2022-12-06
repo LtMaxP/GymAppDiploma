@@ -113,6 +113,7 @@ namespace UI.Tecnico
             }
             else
             {
+                bool check = true;
                 BE_Idioma idioma = new BE_Idioma();
                 idioma.NombreIdioma = LabelIdi.Text;
                 if (BLLIdioma.ValidarExistencia(idioma))
@@ -128,11 +129,23 @@ namespace UI.Tecnico
                             leyenda._textoLabel = row.Cells[1].Value.ToString();
                             ley.Add(leyenda);
                         }
+                        else
+                        {
+                            MessageBox.Show("Debe completar todos los campos");
+                            check = false;
+                            break;
+                        }
                     }
-                    idioma.Leyendas = ley;
-                    BLLIdioma.ModificarIdioma(idioma);
-                    MessageBox.Show("Idioma modificado ! ヾ(•ω•`)o");
-                    MostrarSeleccion(idioma);
+                    if (check)
+                    {
+                        idioma.Leyendas = ley;
+                        BLLIdioma.ModificarIdioma(idioma);
+                        MessageBox.Show("Idioma modificado ! ヾ(•ω•`)o");
+                        MostrarSeleccion(idioma);
+                        comboBox1.DataSource = null;
+                        CargarComboIdiomas();
+
+                    }
                 }
                 else
                 {
@@ -155,6 +168,7 @@ namespace UI.Tecnico
             {
                 if (!String.IsNullOrEmpty(textBox1.Text))
                 {
+                    bool check = true;
                     BE_Idioma idioma = new BE_Idioma();
                     idioma.NombreIdioma = textBox1.Text;
                     if (!BLLIdioma.ValidarExistencia(idioma))
@@ -170,12 +184,23 @@ namespace UI.Tecnico
                                 leyenda._textoLabel = row.Cells[1].Value.ToString();
                                 ley.Add(leyenda);
                             }
+                            else
+                            {
+                                MessageBox.Show("Debe completar todos los campos");
+                                check = false;
+                                break;
+                            }
                         }
-                        idioma.Leyendas = ley;
-                        BLLIdioma.CrearIdioma(idioma);
+                        if (check)
+                        {
+                            idioma.Leyendas = ley;
+                            BLLIdioma.CrearIdioma(idioma);
 
-                        MessageBox.Show("Idioma creado ! ヾ(•ω•`)o");
-                        MostrarSeleccion(idioma);
+                            MessageBox.Show("Idioma creado ! ヾ(•ω•`)o");
+                            comboBox1.DataSource = null;
+                            CargarComboIdiomas();
+                            MostrarSeleccion(idioma);
+                        }
                     }
                     else
                     {

@@ -78,7 +78,7 @@ namespace DAL
                 Acceso.Instance.ExecuteNonQuery(command);
                 idioma = DameIdIdioma(idioma);
                 CrearLabelsIdiomaDAL(idioma);
-                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se creo el idioma " + idioma.Leyendas, "Ninguno"));
+                DAL.BitacoraDAL.NewRegistrarBitacora(Servicios.BitacoraServicio.RegistrarMovimiento("Se creo el idioma " + idioma.NombreIdioma, "Ninguno"));
             }
             catch { System.Windows.Forms.MessageBox.Show("Error al intentar crear idioma"); }
         }
@@ -90,7 +90,7 @@ namespace DAL
         {
             foreach (Leyenda leye in idioma.Leyendas)
             {
-                String query = "INSERT INTO [GymApp].[dbo].[CampoIdioma] VALUES(@idioma, @txtLbl, (select Id_label from [CampoIdioma] where Texto_Lbl = @Texto))";
+                String query = "INSERT INTO [GymApp].[dbo].[CampoIdioma] VALUES(@idioma, @txtLbl, (select top 1 Id_label from [CampoIdioma] where Texto_Lbl = @Texto))";
                 SqlCommand command = new SqlCommand(query);
                 command.Parameters.AddWithValue("@idioma", idioma.Id);
                 //string txt = (from L in idioma.Leyendas where L._textoLabel == "ElLabelBabe" select L._textoLabel).FirstOrDefault();
@@ -100,7 +100,7 @@ namespace DAL
                 {
                     Acceso.Instance.ExecuteNonQuery(command);
                 }
-                catch { System.Windows.Forms.MessageBox.Show("Error al intentar crear labels del idioma"); }
+                catch {  }
             }
         }
         /// <summary>
