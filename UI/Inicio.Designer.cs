@@ -338,6 +338,7 @@ namespace UI
             this.ayudaAlUsuarioToolStripMenuItem.Name = "ayudaAlUsuarioToolStripMenuItem";
             resources.ApplyResources(this.ayudaAlUsuarioToolStripMenuItem, "ayudaAlUsuarioToolStripMenuItem");
             this.ayudaAlUsuarioToolStripMenuItem.Tag = "99";
+            this.ayudaAlUsuarioToolStripMenuItem.Click += new System.EventHandler(this.ayudaAlUsuarioToolStripMenuItem_Click);
             // 
             // Inicio
             // 

@@ -480,10 +480,14 @@ namespace UI
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //var path = new FileInfo("ayu.chm").Directory.FullName;
-            //path = path.Replace("UI", "UI\\ayu.chm");
-            //Help.ShowHelp(this, "file://" + path);
+
         }
 
+        private void ayudaAlUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var path = new FileInfo("ayu.chm").Directory.FullName;//Cambiar por Documentation.chm
+            path = path.Replace("UI", "UI\\ayu.chm");
+            Help.ShowHelp(this, "file://" + path);
+        }
     }
 }
