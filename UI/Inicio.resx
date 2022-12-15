@@ -297,97 +297,97 @@
   <data name="labelIdioma.Text" xml:space="preserve">
     <value>Idioma</value>
   </data>
-  <data name="ayudaGestionDeClientesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaClientes.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaGestionDeClientesToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaClientes.Text" xml:space="preserve">
     <value>Ayuda Gestion de Clientes</value>
   </data>
-  <data name="ayudaGestionDeClientesToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelAyudaClientes.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ayudaGestionDeProductosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaGestionDeProductos.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaGestionDeProductosToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaGestionDeProductos.Text" xml:space="preserve">
     <value>Ayuda Gestion de Ventas</value>
   </data>
-  <data name="ayudaGestionDeProductosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelAyudaGestionDeProductos.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ayudaGestionDeStockToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaGestionDeStock.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaGestionDeStockToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaGestionDeStock.Text" xml:space="preserve">
     <value>Ayuda Gestion de Stock</value>
   </data>
-  <data name="ayudaGestionDeStockToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelAyudaGestionDeStock.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ayudaFacturasYPagosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaFacturasYPagos.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaFacturasYPagosToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaFacturasYPagos.Text" xml:space="preserve">
     <value>Ayuda Facturas y Pagos</value>
   </data>
-  <data name="ayudaFacturasYPagosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelAyudaFacturasYPagos.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ayudaIdiomaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaIdioma.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaIdiomaToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaIdioma.Text" xml:space="preserve">
     <value>Ayuda Idioma</value>
   </data>
-  <data name="ayudaPermisosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaPermisos.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaPermisosToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaPermisos.Text" xml:space="preserve">
     <value>Ayuda Permisos</value>
   </data>
-  <data name="ayudaPermisosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelAyudaPermisos.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ayudaControlDeCambiosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaControlDeCambios.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaControlDeCambiosToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaControlDeCambios.Text" xml:space="preserve">
     <value>Ayuda Control de Cambios</value>
   </data>
-  <data name="ayudaControlDeCambiosToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelAyudaControlDeCambios.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ayudaBitacoraToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaBitacora.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaBitacoraToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaBitacora.Text" xml:space="preserve">
     <value>Ayuda Bitacora</value>
   </data>
-  <data name="ayudaBitacoraToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelAyudaBitacora.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ayudaBackupYRestoreToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaBackupYRestore.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaBackupYRestoreToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaBackupYRestore.Text" xml:space="preserve">
     <value>Ayuda Backup y Restore</value>
   </data>
-  <data name="ayudaBackupYRestoreToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelAyudaBackupYRestore.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ayudaGestionDeUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaGestionDeUsuario.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaGestionDeUsuarioToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaGestionDeUsuario.Text" xml:space="preserve">
     <value>Ayuda Gestion de Usuario</value>
   </data>
-  <data name="ayudaGestionDeUsuarioToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+  <data name="labelAyudaGestionDeUsuario.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ayudaLoginToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelAyudaLogin.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 34</value>
   </data>
-  <data name="ayudaLoginToolStripMenuItem.Text" xml:space="preserve">
+  <data name="labelAyudaLogin.Text" xml:space="preserve">
     <value>Ayuda Login</value>
   </data>
   <data name="ToolAyuda.Size" type="System.Drawing.Size, System.Drawing">
@@ -401,12 +401,6 @@
   </data>
   <data name="ToolContacto.Text" xml:space="preserve">
     <value>Contacto</value>
-  </data>
-  <data name="ayudaAlUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 34</value>
-  </data>
-  <data name="ayudaAlUsuarioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ayuda al usuario</value>
   </data>
   <data name="labelAyuda.Font" type="System.Drawing.Font, System.Drawing">
     <value>Javanese Text, 9.75pt</value>
@@ -564,82 +558,76 @@
   <data name="&gt;&gt;ToolAyuda.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaGestionDeClientesToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaGestionDeClientesToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaClientes.Name" xml:space="preserve">
+    <value>labelAyudaClientes</value>
   </data>
-  <data name="&gt;&gt;ayudaGestionDeClientesToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaClientes.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaGestionDeProductosToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaGestionDeProductosToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaGestionDeProductos.Name" xml:space="preserve">
+    <value>labelAyudaGestionDeProductos</value>
   </data>
-  <data name="&gt;&gt;ayudaGestionDeProductosToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaGestionDeProductos.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaGestionDeStockToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaGestionDeStockToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaGestionDeStock.Name" xml:space="preserve">
+    <value>labelAyudaGestionDeStock</value>
   </data>
-  <data name="&gt;&gt;ayudaGestionDeStockToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaGestionDeStock.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaFacturasYPagosToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaFacturasYPagosToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaFacturasYPagos.Name" xml:space="preserve">
+    <value>labelAyudaFacturasYPagos</value>
   </data>
-  <data name="&gt;&gt;ayudaFacturasYPagosToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaFacturasYPagos.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaIdiomaToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaIdiomaToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaIdioma.Name" xml:space="preserve">
+    <value>labelAyudaIdioma</value>
   </data>
-  <data name="&gt;&gt;ayudaIdiomaToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaIdioma.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaPermisosToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaPermisosToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaPermisos.Name" xml:space="preserve">
+    <value>labelAyudaPermisos</value>
   </data>
-  <data name="&gt;&gt;ayudaPermisosToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaPermisos.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaControlDeCambiosToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaControlDeCambiosToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaControlDeCambios.Name" xml:space="preserve">
+    <value>labelAyudaControlDeCambios</value>
   </data>
-  <data name="&gt;&gt;ayudaControlDeCambiosToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaControlDeCambios.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaBitacoraToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaBitacoraToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaBitacora.Name" xml:space="preserve">
+    <value>labelAyudaBitacora</value>
   </data>
-  <data name="&gt;&gt;ayudaBitacoraToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaBitacora.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaBackupYRestoreToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaBackupYRestoreToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaBackupYRestore.Name" xml:space="preserve">
+    <value>labelAyudaBackupYRestore</value>
   </data>
-  <data name="&gt;&gt;ayudaBackupYRestoreToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaBackupYRestore.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaGestionDeUsuarioToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaGestionDeUsuarioToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaGestionDeUsuario.Name" xml:space="preserve">
+    <value>labelAyudaGestionDeUsuario</value>
   </data>
-  <data name="&gt;&gt;ayudaGestionDeUsuarioToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaGestionDeUsuario.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaLoginToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaLoginToolStripMenuItem</value>
+  <data name="&gt;&gt;labelAyudaLogin.Name" xml:space="preserve">
+    <value>labelAyudaLogin</value>
   </data>
-  <data name="&gt;&gt;ayudaLoginToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelAyudaLogin.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolContacto.Name" xml:space="preserve">
     <value>ToolContacto</value>
   </data>
   <data name="&gt;&gt;ToolContacto.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ayudaAlUsuarioToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaAlUsuarioToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ayudaAlUsuarioToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

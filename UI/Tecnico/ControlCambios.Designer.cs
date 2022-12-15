@@ -31,13 +31,13 @@ namespace UI.Tecnico
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.labelControlCambios = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
             this.comboBoxUsuario = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelUser = new System.Windows.Forms.Label();
             this.btnVer = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelFechaHasta = new System.Windows.Forms.Label();
+            this.labelFechaDesde = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -63,17 +63,17 @@ namespace UI.Tecnico
             this.labelControlCambios.TabIndex = 1;
             this.labelControlCambios.Text = "Control Cambios";
             // 
-            // button1
+            // buttonGuardar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(25, 330);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 42);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buttonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardar.Location = new System.Drawing.Point(25, 330);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(138, 42);
+            this.buttonGuardar.TabIndex = 2;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.UseVisualStyleBackColor = false;
+            this.buttonGuardar.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonSalir
             // 
@@ -95,14 +95,14 @@ namespace UI.Tecnico
             this.comboBoxUsuario.Size = new System.Drawing.Size(121, 21);
             this.comboBoxUsuario.TabIndex = 16;
             // 
-            // label4
+            // labelUser
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 69);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Usuario";
+            this.labelUser.AutoSize = true;
+            this.labelUser.Location = new System.Drawing.Point(22, 69);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(43, 13);
+            this.labelUser.TabIndex = 15;
+            this.labelUser.Text = "Usuario";
             // 
             // btnVer
             // 
@@ -114,23 +114,23 @@ namespace UI.Tecnico
             this.btnVer.UseVisualStyleBackColor = true;
             this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
-            // label2
+            // labelFechaHasta
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(399, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Fecha hasta";
+            this.labelFechaHasta.AutoSize = true;
+            this.labelFechaHasta.Location = new System.Drawing.Point(399, 69);
+            this.labelFechaHasta.Name = "labelFechaHasta";
+            this.labelFechaHasta.Size = new System.Drawing.Size(66, 13);
+            this.labelFechaHasta.TabIndex = 21;
+            this.labelFechaHasta.Text = "Fecha hasta";
             // 
-            // label1
+            // labelFechaDesde
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(161, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Fecha desde";
+            this.labelFechaDesde.AutoSize = true;
+            this.labelFechaDesde.Location = new System.Drawing.Point(161, 71);
+            this.labelFechaDesde.Name = "labelFechaDesde";
+            this.labelFechaDesde.Size = new System.Drawing.Size(69, 13);
+            this.labelFechaDesde.TabIndex = 20;
+            this.labelFechaDesde.Text = "Fecha desde";
             // 
             // dateTimePicker2
             // 
@@ -159,15 +159,15 @@ namespace UI.Tecnico
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelFechaHasta);
+            this.Controls.Add(this.labelFechaDesde);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.comboBoxUsuario);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelUser);
             this.Controls.Add(this.buttonSalir);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.labelControlCambios);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ControlCambios";
@@ -183,13 +183,13 @@ namespace UI.Tecnico
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label labelControlCambios;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.ComboBox comboBoxUsuario;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Button btnVer;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelFechaHasta;
+        private System.Windows.Forms.Label labelFechaDesde;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }

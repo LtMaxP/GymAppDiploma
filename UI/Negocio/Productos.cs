@@ -242,5 +242,10 @@ namespace UI.Negocio
         {
 
         }
+
+        private void labelProducto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

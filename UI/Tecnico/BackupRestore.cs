@@ -121,7 +121,7 @@ namespace UI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(button2.Tag.ToString()))
+            if (!Servicios.Sesion.GetInstance.usuario.Permisos.VerificarSiExistePermiso(RecalcularDV.Tag.ToString()))
             {
                 MessageBox.Show("No tiene el permiso");
             }

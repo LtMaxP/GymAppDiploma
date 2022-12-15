@@ -30,8 +30,8 @@ namespace UI
         private void InitializeComponent()
         {
             this.labelPatente = new System.Windows.Forms.Label();
-            this.AgregarBtn = new System.Windows.Forms.Button();
-            this.AgregarBtn2 = new System.Windows.Forms.Button();
+            this.buttonAgregar = new System.Windows.Forms.Button();
+            this.buttonAgregar2 = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -39,10 +39,10 @@ namespace UI
             this.labelNombre = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelPermisosGestion = new System.Windows.Forms.Label();
             this.ListaPerm = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Eliminarbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelPatente
@@ -55,29 +55,29 @@ namespace UI
             this.labelPatente.TabIndex = 0;
             this.labelPatente.Text = "Patente";
             // 
-            // AgregarBtn
+            // buttonAgregar
             // 
-            this.AgregarBtn.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgregarBtn.Location = new System.Drawing.Point(350, 157);
-            this.AgregarBtn.Name = "AgregarBtn";
-            this.AgregarBtn.Size = new System.Drawing.Size(75, 28);
-            this.AgregarBtn.TabIndex = 1;
-            this.AgregarBtn.Tag = "AgregarBtn";
-            this.AgregarBtn.Text = "Agregar";
-            this.AgregarBtn.UseVisualStyleBackColor = true;
-            this.AgregarBtn.Click += new System.EventHandler(this.AgregarBtn_Click);
+            this.buttonAgregar.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregar.Location = new System.Drawing.Point(350, 157);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(75, 28);
+            this.buttonAgregar.TabIndex = 1;
+            this.buttonAgregar.Tag = "AgregarBtn";
+            this.buttonAgregar.Text = "Agregar";
+            this.buttonAgregar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Click += new System.EventHandler(this.AgregarBtn_Click);
             // 
-            // AgregarBtn2
+            // buttonAgregar2
             // 
-            this.AgregarBtn2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgregarBtn2.Location = new System.Drawing.Point(392, 271);
-            this.AgregarBtn2.Name = "AgregarBtn2";
-            this.AgregarBtn2.Size = new System.Drawing.Size(75, 28);
-            this.AgregarBtn2.TabIndex = 2;
-            this.AgregarBtn2.Tag = "AgregarBtn";
-            this.AgregarBtn2.Text = "Agregar";
-            this.AgregarBtn2.UseVisualStyleBackColor = true;
-            this.AgregarBtn2.Click += new System.EventHandler(this.AgregarBtn2_Click);
+            this.buttonAgregar2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregar2.Location = new System.Drawing.Point(392, 271);
+            this.buttonAgregar2.Name = "buttonAgregar2";
+            this.buttonAgregar2.Size = new System.Drawing.Size(75, 28);
+            this.buttonAgregar2.TabIndex = 2;
+            this.buttonAgregar2.Tag = "AgregarBtn";
+            this.buttonAgregar2.Text = "Agregar";
+            this.buttonAgregar2.UseVisualStyleBackColor = true;
+            this.buttonAgregar2.Click += new System.EventHandler(this.AgregarBtn2_Click);
             // 
             // buttonSalir
             // 
@@ -150,15 +150,15 @@ namespace UI
             this.txtName.Size = new System.Drawing.Size(173, 20);
             this.txtName.TabIndex = 11;
             // 
-            // label1
+            // labelPermisosGestion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(152, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(298, 28);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Administracion Permisos";
+            this.labelPermisosGestion.AutoSize = true;
+            this.labelPermisosGestion.Font = new System.Drawing.Font("Arial", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPermisosGestion.Location = new System.Drawing.Point(152, 9);
+            this.labelPermisosGestion.Name = "labelPermisosGestion";
+            this.labelPermisosGestion.Size = new System.Drawing.Size(298, 28);
+            this.labelPermisosGestion.TabIndex = 12;
+            this.labelPermisosGestion.Text = "Administracion Permisos";
             // 
             // ListaPerm
             // 
@@ -177,15 +177,15 @@ namespace UI
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // Eliminarbtn
             // 
-            this.button2.Location = new System.Drawing.Point(451, 158);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 27);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Eliminarbtn.Location = new System.Drawing.Point(451, 158);
+            this.Eliminarbtn.Name = "Eliminarbtn";
+            this.Eliminarbtn.Size = new System.Drawing.Size(75, 27);
+            this.Eliminarbtn.TabIndex = 15;
+            this.Eliminarbtn.Text = "Eliminar";
+            this.Eliminarbtn.UseVisualStyleBackColor = true;
+            this.Eliminarbtn.Click += new System.EventHandler(this.button2_Click);
             // 
             // Permisos
             // 
@@ -195,10 +195,10 @@ namespace UI
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(609, 477);
             this.ControlBox = false;
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Eliminarbtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ListaPerm);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPermisosGestion);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.labelNombre);
@@ -206,8 +206,8 @@ namespace UI
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.buttonSalir);
-            this.Controls.Add(this.AgregarBtn2);
-            this.Controls.Add(this.AgregarBtn);
+            this.Controls.Add(this.buttonAgregar2);
+            this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.labelPatente);
             this.Name = "Permisos";
             this.Text = "Permisos";
@@ -220,8 +220,8 @@ namespace UI
         #endregion
 
         private System.Windows.Forms.Label labelPatente;
-        private System.Windows.Forms.Button AgregarBtn;
-        private System.Windows.Forms.Button AgregarBtn2;
+        private System.Windows.Forms.Button buttonAgregar;
+        private System.Windows.Forms.Button buttonAgregar2;
         private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -229,9 +229,9 @@ namespace UI
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPermisosGestion;
         private System.Windows.Forms.TreeView ListaPerm;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Eliminarbtn;
     }
 }

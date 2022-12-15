@@ -30,9 +30,9 @@
         {
             this.buttonSalir = new System.Windows.Forms.Button();
             this.labelPermisosUsuario = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelConsUser = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.labelNombreUsuario = new System.Windows.Forms.Label();
+            this.labelUser = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.labelDisponible = new System.Windows.Forms.Label();
@@ -65,14 +65,14 @@
             this.labelPermisosUsuario.TabIndex = 1;
             this.labelPermisosUsuario.Text = "Permisos Usuarios";
             // 
-            // label2
+            // labelConsUser
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Consultar Usuario";
+            this.labelConsUser.AutoSize = true;
+            this.labelConsUser.Location = new System.Drawing.Point(39, 70);
+            this.labelConsUser.Name = "labelConsUser";
+            this.labelConsUser.Size = new System.Drawing.Size(90, 13);
+            this.labelConsUser.TabIndex = 2;
+            this.labelConsUser.Text = "Consultar Usuario";
             // 
             // comboBox1
             // 
@@ -83,14 +83,14 @@
             this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // labelNombreUsuario
+            // labelUser
             // 
-            this.labelNombreUsuario.AutoSize = true;
-            this.labelNombreUsuario.Location = new System.Drawing.Point(335, 70);
-            this.labelNombreUsuario.Name = "labelNombreUsuario";
-            this.labelNombreUsuario.Size = new System.Drawing.Size(83, 13);
-            this.labelNombreUsuario.TabIndex = 4;
-            this.labelNombreUsuario.Text = "Nombre Usuario";
+            this.labelUser.AutoSize = true;
+            this.labelUser.Location = new System.Drawing.Point(335, 70);
+            this.labelUser.Name = "labelUser";
+            this.labelUser.Size = new System.Drawing.Size(83, 13);
+            this.labelUser.TabIndex = 4;
+            this.labelUser.Text = "Nombre Usuario";
             // 
             // lblUserName
             // 
@@ -195,9 +195,9 @@
             this.Controls.Add(this.labelDisponible);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.labelNombreUsuario);
+            this.Controls.Add(this.labelUser);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelConsUser);
             this.Controls.Add(this.labelPermisosUsuario);
             this.Controls.Add(this.buttonSalir);
             this.Name = "PermisosUsuario";
@@ -212,9 +212,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Label labelPermisosUsuario;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelConsUser;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label labelNombreUsuario;
+        private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Label labelDisponible;

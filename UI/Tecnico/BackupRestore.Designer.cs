@@ -33,7 +33,7 @@
             this.btnVerBackUp = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
             this.btnEjecutarBackUp = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.RecalcularDV = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgBackup)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,16 +90,16 @@
             this.btnEjecutarBackUp.UseVisualStyleBackColor = true;
             this.btnEjecutarBackUp.Click += new System.EventHandler(this.btnEjecutarBackUp_Click);
             // 
-            // button2
+            // RecalcularDV
             // 
-            this.button2.Location = new System.Drawing.Point(12, 412);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 23);
-            this.button2.TabIndex = 46;
-            this.button2.Tag = "13";
-            this.button2.Text = "Recalcular DV";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.RecalcularDV.Location = new System.Drawing.Point(12, 412);
+            this.RecalcularDV.Name = "RecalcularDV";
+            this.RecalcularDV.Size = new System.Drawing.Size(102, 23);
+            this.RecalcularDV.TabIndex = 46;
+            this.RecalcularDV.Tag = "13";
+            this.RecalcularDV.Text = "Recalcular DV";
+            this.RecalcularDV.UseVisualStyleBackColor = true;
+            this.RecalcularDV.Click += new System.EventHandler(this.button2_Click);
             // 
             // BackupRestore
             // 
@@ -108,7 +108,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1091, 492);
             this.ControlBox = false;
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.RecalcularDV);
             this.Controls.Add(this.btnEjecutarRestore);
             this.Controls.Add(this.DgBackup);
             this.Controls.Add(this.btnVerBackUp);
@@ -129,6 +129,6 @@
         internal System.Windows.Forms.Button btnVerBackUp;
         internal System.Windows.Forms.Button buttonSalir;
         internal System.Windows.Forms.Button btnEjecutarBackUp;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button RecalcularDV;
     }
 }

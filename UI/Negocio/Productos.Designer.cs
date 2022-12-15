@@ -29,7 +29,7 @@ namespace UI.Negocio
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelProducto = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.labelTotal = new System.Windows.Forms.Label();
@@ -40,7 +40,6 @@ namespace UI.Negocio
             this.labelCliente = new System.Windows.Forms.Label();
             this.textBoxCliente = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.labelProducto = new System.Windows.Forms.Label();
             this.labelCantidad = new System.Windows.Forms.Label();
             this.txtBoxCantidad = new System.Windows.Forms.TextBox();
             this.buttonSalir = new System.Windows.Forms.Button();
@@ -51,15 +50,15 @@ namespace UI.Negocio
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelProducto
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Mistral", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 57);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Producto";
+            this.labelProducto.AutoSize = true;
+            this.labelProducto.Font = new System.Drawing.Font("Mistral", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProducto.Location = new System.Drawing.Point(2, 9);
+            this.labelProducto.Name = "labelProducto";
+            this.labelProducto.Size = new System.Drawing.Size(173, 57);
+            this.labelProducto.TabIndex = 0;
+            this.labelProducto.Text = "Producto";
             // 
             // comboBox1
             // 
@@ -160,15 +159,6 @@ namespace UI.Negocio
             this.textBoxCliente.TabIndex = 10;
             this.textBoxCliente.TextChanged += new System.EventHandler(this.textBoxCliente_TextChanged);
             // 
-            // labelProducto
-            // 
-            this.labelProducto.AutoSize = true;
-            this.labelProducto.Location = new System.Drawing.Point(185, 101);
-            this.labelProducto.Name = "labelProducto";
-            this.labelProducto.Size = new System.Drawing.Size(50, 13);
-            this.labelProducto.TabIndex = 11;
-            this.labelProducto.Text = "Producto";
-            // 
             // labelCantidad
             // 
             this.labelCantidad.AutoSize = true;
@@ -244,7 +234,6 @@ namespace UI.Negocio
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.txtBoxCantidad);
             this.Controls.Add(this.labelCantidad);
-            this.Controls.Add(this.labelProducto);
             this.Controls.Add(this.textBoxCliente);
             this.Controls.Add(this.labelCliente);
             this.Controls.Add(this.buttonComprar);
@@ -254,7 +243,7 @@ namespace UI.Negocio
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelProducto);
             this.Name = "Productos";
             this.Text = "Gestion de Ventas";
             this.Load += new System.EventHandler(this.Productos_Load);
@@ -265,8 +254,6 @@ namespace UI.Negocio
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Label labelTotal;

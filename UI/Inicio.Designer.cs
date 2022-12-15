@@ -51,19 +51,18 @@ namespace UI
             this.ToolIdioma = new System.Windows.Forms.ToolStripMenuItem();
             this.labelAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolAyuda = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaGestionDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaGestionDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaGestionDeStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaFacturasYPagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaControlDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaBitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaBackupYRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaGestionDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaGestionDeProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaGestionDeStock = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaFacturasYPagos = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaIdioma = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaPermisos = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaControlDeCambios = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaBitacora = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaBackupYRestore = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaGestionDeUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelAyudaLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolContacto = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaAlUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -224,8 +223,7 @@ namespace UI
             // 
             this.labelAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolAyuda,
-            this.ToolContacto,
-            this.ayudaAlUsuarioToolStripMenuItem});
+            this.ToolContacto});
             resources.ApplyResources(this.labelAyuda, "labelAyuda");
             this.labelAyuda.Name = "labelAyuda";
             this.labelAyuda.Tag = "99";
@@ -233,98 +231,98 @@ namespace UI
             // ToolAyuda
             // 
             this.ToolAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ayudaGestionDeClientesToolStripMenuItem,
-            this.ayudaGestionDeProductosToolStripMenuItem,
-            this.ayudaGestionDeStockToolStripMenuItem,
-            this.ayudaFacturasYPagosToolStripMenuItem,
-            this.ayudaIdiomaToolStripMenuItem,
-            this.ayudaPermisosToolStripMenuItem,
-            this.ayudaControlDeCambiosToolStripMenuItem,
-            this.ayudaBitacoraToolStripMenuItem,
-            this.ayudaBackupYRestoreToolStripMenuItem,
-            this.ayudaGestionDeUsuarioToolStripMenuItem,
-            this.ayudaLoginToolStripMenuItem});
+            this.labelAyudaClientes,
+            this.labelAyudaGestionDeProductos,
+            this.labelAyudaGestionDeStock,
+            this.labelAyudaFacturasYPagos,
+            this.labelAyudaIdioma,
+            this.labelAyudaPermisos,
+            this.labelAyudaControlDeCambios,
+            this.labelAyudaBitacora,
+            this.labelAyudaBackupYRestore,
+            this.labelAyudaGestionDeUsuario,
+            this.labelAyudaLogin});
             this.ToolAyuda.Name = "ToolAyuda";
             resources.ApplyResources(this.ToolAyuda, "ToolAyuda");
             this.ToolAyuda.Tag = "99";
             this.ToolAyuda.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
-            // ayudaGestionDeClientesToolStripMenuItem
+            // labelAyudaClientes
             // 
-            this.ayudaGestionDeClientesToolStripMenuItem.Name = "ayudaGestionDeClientesToolStripMenuItem";
-            resources.ApplyResources(this.ayudaGestionDeClientesToolStripMenuItem, "ayudaGestionDeClientesToolStripMenuItem");
-            this.ayudaGestionDeClientesToolStripMenuItem.Tag = "4";
-            this.ayudaGestionDeClientesToolStripMenuItem.Click += new System.EventHandler(this.ayudaGestionDeClientesToolStripMenuItem_Click);
+            this.labelAyudaClientes.Name = "labelAyudaClientes";
+            resources.ApplyResources(this.labelAyudaClientes, "labelAyudaClientes");
+            this.labelAyudaClientes.Tag = "4";
+            this.labelAyudaClientes.Click += new System.EventHandler(this.ayudaGestionDeClientesToolStripMenuItem_Click);
             // 
-            // ayudaGestionDeProductosToolStripMenuItem
+            // labelAyudaGestionDeProductos
             // 
-            this.ayudaGestionDeProductosToolStripMenuItem.Name = "ayudaGestionDeProductosToolStripMenuItem";
-            resources.ApplyResources(this.ayudaGestionDeProductosToolStripMenuItem, "ayudaGestionDeProductosToolStripMenuItem");
-            this.ayudaGestionDeProductosToolStripMenuItem.Tag = "19";
-            this.ayudaGestionDeProductosToolStripMenuItem.Click += new System.EventHandler(this.ayudaGestionDeProductosToolStripMenuItem_Click);
+            this.labelAyudaGestionDeProductos.Name = "labelAyudaGestionDeProductos";
+            resources.ApplyResources(this.labelAyudaGestionDeProductos, "labelAyudaGestionDeProductos");
+            this.labelAyudaGestionDeProductos.Tag = "19";
+            this.labelAyudaGestionDeProductos.Click += new System.EventHandler(this.ayudaGestionDeProductosToolStripMenuItem_Click);
             // 
-            // ayudaGestionDeStockToolStripMenuItem
+            // labelAyudaGestionDeStock
             // 
-            this.ayudaGestionDeStockToolStripMenuItem.Name = "ayudaGestionDeStockToolStripMenuItem";
-            resources.ApplyResources(this.ayudaGestionDeStockToolStripMenuItem, "ayudaGestionDeStockToolStripMenuItem");
-            this.ayudaGestionDeStockToolStripMenuItem.Tag = "20";
-            this.ayudaGestionDeStockToolStripMenuItem.Click += new System.EventHandler(this.ayudaGestionDeStockToolStripMenuItem_Click);
+            this.labelAyudaGestionDeStock.Name = "labelAyudaGestionDeStock";
+            resources.ApplyResources(this.labelAyudaGestionDeStock, "labelAyudaGestionDeStock");
+            this.labelAyudaGestionDeStock.Tag = "20";
+            this.labelAyudaGestionDeStock.Click += new System.EventHandler(this.ayudaGestionDeStockToolStripMenuItem_Click);
             // 
-            // ayudaFacturasYPagosToolStripMenuItem
+            // labelAyudaFacturasYPagos
             // 
-            this.ayudaFacturasYPagosToolStripMenuItem.Name = "ayudaFacturasYPagosToolStripMenuItem";
-            resources.ApplyResources(this.ayudaFacturasYPagosToolStripMenuItem, "ayudaFacturasYPagosToolStripMenuItem");
-            this.ayudaFacturasYPagosToolStripMenuItem.Tag = "29";
-            this.ayudaFacturasYPagosToolStripMenuItem.Click += new System.EventHandler(this.ayudaFacturasYPagosToolStripMenuItem_Click);
+            this.labelAyudaFacturasYPagos.Name = "labelAyudaFacturasYPagos";
+            resources.ApplyResources(this.labelAyudaFacturasYPagos, "labelAyudaFacturasYPagos");
+            this.labelAyudaFacturasYPagos.Tag = "29";
+            this.labelAyudaFacturasYPagos.Click += new System.EventHandler(this.ayudaFacturasYPagosToolStripMenuItem_Click);
             // 
-            // ayudaIdiomaToolStripMenuItem
+            // labelAyudaIdioma
             // 
-            this.ayudaIdiomaToolStripMenuItem.Name = "ayudaIdiomaToolStripMenuItem";
-            resources.ApplyResources(this.ayudaIdiomaToolStripMenuItem, "ayudaIdiomaToolStripMenuItem");
-            this.ayudaIdiomaToolStripMenuItem.Tag = "99";
-            this.ayudaIdiomaToolStripMenuItem.Click += new System.EventHandler(this.ayudaIdiomaToolStripMenuItem_Click);
+            this.labelAyudaIdioma.Name = "labelAyudaIdioma";
+            resources.ApplyResources(this.labelAyudaIdioma, "labelAyudaIdioma");
+            this.labelAyudaIdioma.Tag = "99";
+            this.labelAyudaIdioma.Click += new System.EventHandler(this.ayudaIdiomaToolStripMenuItem_Click);
             // 
-            // ayudaPermisosToolStripMenuItem
+            // labelAyudaPermisos
             // 
-            this.ayudaPermisosToolStripMenuItem.Name = "ayudaPermisosToolStripMenuItem";
-            resources.ApplyResources(this.ayudaPermisosToolStripMenuItem, "ayudaPermisosToolStripMenuItem");
-            this.ayudaPermisosToolStripMenuItem.Tag = "16";
-            this.ayudaPermisosToolStripMenuItem.Click += new System.EventHandler(this.ayudaPermisosToolStripMenuItem_Click);
+            this.labelAyudaPermisos.Name = "labelAyudaPermisos";
+            resources.ApplyResources(this.labelAyudaPermisos, "labelAyudaPermisos");
+            this.labelAyudaPermisos.Tag = "16";
+            this.labelAyudaPermisos.Click += new System.EventHandler(this.ayudaPermisosToolStripMenuItem_Click);
             // 
-            // ayudaControlDeCambiosToolStripMenuItem
+            // labelAyudaControlDeCambios
             // 
-            this.ayudaControlDeCambiosToolStripMenuItem.Name = "ayudaControlDeCambiosToolStripMenuItem";
-            resources.ApplyResources(this.ayudaControlDeCambiosToolStripMenuItem, "ayudaControlDeCambiosToolStripMenuItem");
-            this.ayudaControlDeCambiosToolStripMenuItem.Tag = "17";
-            this.ayudaControlDeCambiosToolStripMenuItem.Click += new System.EventHandler(this.ayudaControlDeCambiosToolStripMenuItem_Click);
+            this.labelAyudaControlDeCambios.Name = "labelAyudaControlDeCambios";
+            resources.ApplyResources(this.labelAyudaControlDeCambios, "labelAyudaControlDeCambios");
+            this.labelAyudaControlDeCambios.Tag = "17";
+            this.labelAyudaControlDeCambios.Click += new System.EventHandler(this.ayudaControlDeCambiosToolStripMenuItem_Click);
             // 
-            // ayudaBitacoraToolStripMenuItem
+            // labelAyudaBitacora
             // 
-            this.ayudaBitacoraToolStripMenuItem.Name = "ayudaBitacoraToolStripMenuItem";
-            resources.ApplyResources(this.ayudaBitacoraToolStripMenuItem, "ayudaBitacoraToolStripMenuItem");
-            this.ayudaBitacoraToolStripMenuItem.Tag = "14";
-            this.ayudaBitacoraToolStripMenuItem.Click += new System.EventHandler(this.ayudaBitacoraToolStripMenuItem_Click);
+            this.labelAyudaBitacora.Name = "labelAyudaBitacora";
+            resources.ApplyResources(this.labelAyudaBitacora, "labelAyudaBitacora");
+            this.labelAyudaBitacora.Tag = "14";
+            this.labelAyudaBitacora.Click += new System.EventHandler(this.ayudaBitacoraToolStripMenuItem_Click);
             // 
-            // ayudaBackupYRestoreToolStripMenuItem
+            // labelAyudaBackupYRestore
             // 
-            this.ayudaBackupYRestoreToolStripMenuItem.Name = "ayudaBackupYRestoreToolStripMenuItem";
-            resources.ApplyResources(this.ayudaBackupYRestoreToolStripMenuItem, "ayudaBackupYRestoreToolStripMenuItem");
-            this.ayudaBackupYRestoreToolStripMenuItem.Tag = "18";
-            this.ayudaBackupYRestoreToolStripMenuItem.Click += new System.EventHandler(this.ayudaBackupYRestoreToolStripMenuItem_Click);
+            this.labelAyudaBackupYRestore.Name = "labelAyudaBackupYRestore";
+            resources.ApplyResources(this.labelAyudaBackupYRestore, "labelAyudaBackupYRestore");
+            this.labelAyudaBackupYRestore.Tag = "18";
+            this.labelAyudaBackupYRestore.Click += new System.EventHandler(this.ayudaBackupYRestoreToolStripMenuItem_Click);
             // 
-            // ayudaGestionDeUsuarioToolStripMenuItem
+            // labelAyudaGestionDeUsuario
             // 
-            this.ayudaGestionDeUsuarioToolStripMenuItem.Name = "ayudaGestionDeUsuarioToolStripMenuItem";
-            resources.ApplyResources(this.ayudaGestionDeUsuarioToolStripMenuItem, "ayudaGestionDeUsuarioToolStripMenuItem");
-            this.ayudaGestionDeUsuarioToolStripMenuItem.Tag = "9";
-            this.ayudaGestionDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.ayudaGestionDeUsuarioToolStripMenuItem_Click);
+            this.labelAyudaGestionDeUsuario.Name = "labelAyudaGestionDeUsuario";
+            resources.ApplyResources(this.labelAyudaGestionDeUsuario, "labelAyudaGestionDeUsuario");
+            this.labelAyudaGestionDeUsuario.Tag = "9";
+            this.labelAyudaGestionDeUsuario.Click += new System.EventHandler(this.ayudaGestionDeUsuarioToolStripMenuItem_Click);
             // 
-            // ayudaLoginToolStripMenuItem
+            // labelAyudaLogin
             // 
-            this.ayudaLoginToolStripMenuItem.Name = "ayudaLoginToolStripMenuItem";
-            resources.ApplyResources(this.ayudaLoginToolStripMenuItem, "ayudaLoginToolStripMenuItem");
-            this.ayudaLoginToolStripMenuItem.Tag = "99";
-            this.ayudaLoginToolStripMenuItem.Click += new System.EventHandler(this.ayudaLoginToolStripMenuItem_Click);
+            this.labelAyudaLogin.Name = "labelAyudaLogin";
+            resources.ApplyResources(this.labelAyudaLogin, "labelAyudaLogin");
+            this.labelAyudaLogin.Tag = "99";
+            this.labelAyudaLogin.Click += new System.EventHandler(this.ayudaLoginToolStripMenuItem_Click);
             // 
             // ToolContacto
             // 
@@ -332,13 +330,6 @@ namespace UI
             resources.ApplyResources(this.ToolContacto, "ToolContacto");
             this.ToolContacto.Tag = "99";
             this.ToolContacto.Click += new System.EventHandler(this.contactoToolStripMenuItem_Click);
-            // 
-            // ayudaAlUsuarioToolStripMenuItem
-            // 
-            this.ayudaAlUsuarioToolStripMenuItem.Name = "ayudaAlUsuarioToolStripMenuItem";
-            resources.ApplyResources(this.ayudaAlUsuarioToolStripMenuItem, "ayudaAlUsuarioToolStripMenuItem");
-            this.ayudaAlUsuarioToolStripMenuItem.Tag = "99";
-            this.ayudaAlUsuarioToolStripMenuItem.Click += new System.EventHandler(this.ayudaAlUsuarioToolStripMenuItem_Click);
             // 
             // Inicio
             // 
@@ -389,17 +380,16 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem labelStock;
         private System.Windows.Forms.ToolStripMenuItem labelPagosYCobros;
         private System.Windows.Forms.ToolStripMenuItem labelFacturas;
-        private System.Windows.Forms.ToolStripMenuItem ayudaGestionDeClientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaGestionDeProductosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaGestionDeStockToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaFacturasYPagosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaIdiomaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaPermisosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaControlDeCambiosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaBitacoraToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaBackupYRestoreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaGestionDeUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaAlUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaLoginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaClientes;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaGestionDeProductos;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaGestionDeStock;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaFacturasYPagos;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaIdioma;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaPermisos;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaControlDeCambios;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaBitacora;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaBackupYRestore;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaGestionDeUsuario;
+        private System.Windows.Forms.ToolStripMenuItem labelAyudaLogin;
     }
 }
