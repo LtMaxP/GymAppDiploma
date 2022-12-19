@@ -77,9 +77,9 @@ namespace UI
                 lblAyudaLogin.Visible = true;
                 imageBox.Image = Properties.Resources.Login;
                 lblAyudaLogOut.Visible = true;
-                ImageBox2.Image = Properties.Resources.Logout;
+                ImageBox3.Image = Properties.Resources.Logout;
                 lblAyudaLoginRecupero.Visible = true;
-                ImageBox3.Image = Properties.Resources.LogRecupero;
+                ImageBox2.Image = Properties.Resources.LogRecupero;
             }
         }
 

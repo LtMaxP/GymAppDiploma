@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="20.0" version="20.1.1" Modules="enterprise" RootPath="." Language="en" Id="{DF312BDE-33DC-408C-A2C3-04BEB6E96371}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="20.0" version="20.2" Modules="enterprise" RootPath="." Language="en" Id="{DF312BDE-33DC-408C-A2C3-04BEB6E96371}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
     <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;FixupComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_CURRENT_YEAR" Value="2022" ValueLocId="-"/>
-    <ROW Property="AI_PACKAGING_TOOL" Value="Advanced Installer 20.1.1 build 68535b5e" ValueLocId="-"/>
+    <ROW Property="AI_PACKAGING_TOOL" Value="Advanced Installer 20.2 build 2c3f1cf9" ValueLocId="-"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_BE.dll" Value="..\BE\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_BE.dll_1" Value="..\BE\bin\Debug"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_BE.dll_2" Value="..\BE\bin\Debug"/>

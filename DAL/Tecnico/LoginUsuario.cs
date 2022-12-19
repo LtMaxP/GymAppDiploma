@@ -44,7 +44,7 @@ namespace DAL
             return true;
         }
         /// <summary>
-        /// Valida si el usuario existe y especialmente sin bloqueo
+        /// Valida si el usuario existe
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
@@ -91,7 +91,7 @@ namespace DAL
                     }
                 }
                 else
-                    System.Windows.Forms.MessageBox.Show("El Usuario ya se encuentra bloqueado");
+                    System.Windows.Forms.MessageBox.Show("El Usuario se encuentra bloqueado");
             }
             catch { }
             return respuesta;
@@ -104,9 +104,8 @@ namespace DAL
         private bool PuedeAcceder(BE_Usuario usuario)
         {
             SqlCommand comm = new SqlCommand();
-            comm.CommandText = "SELECT CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario WHERE Usuario = @user AND Password = @pass AND Id_Estado = 1 AND IntentosFallidos <= 3";
+            comm.CommandText = "SELECT CASE WHEN count(1) > 0 THEN 'true' ELSE 'false' END from Usuario WHERE Usuario = @user AND Id_Estado = 1 AND IntentosFallidos <= 3";
             comm.Parameters.AddWithValue("@user", usuario.User);
-            comm.Parameters.AddWithValue("@pass", usuario.Pass);
             return Acceso.Instance.ExecuteScalarBool(comm);
         }
 
